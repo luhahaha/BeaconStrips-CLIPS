@@ -1,0 +1,98 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../template/}}
+\makeatother
+
+\usepackage[margin=3cm]{geometry}
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Titolo del Documento}
+\def\VERSIONE{0.1}
+\def\DATA{\today}
+\def\REDATTORE{Nome Cognome \\ & Tizio Rossi \\ & Caio Bianchi}
+\def\VERIFICATORE{Nome Cognome}
+\def\RESPONSABILE{Nome Cognome}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Breve descrizione del doc.}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{diario}
+  \modifica{Tommaso Panozzo}{\AM}{Stesura Preliminare}{2016-03-11}{0.1}
+  \modifica{Romina Power}{\PM}{riepilogo}{2016-03-12}{0.2}
+  \modifica{Loredana Lecciso}{\AN}{riepilogo}{2016-03-13}{1.0}
+\end{diario}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Perché usare il template}
+\label{sec:PercheTemplate}
+
+Per scrivere documenti in \LaTeX  è sufficiente basarsi su questo template e aggiungere il minor numero possibile di pacchetti/impostazioni personali o altro.
+
+Il vantaggio che si ha nell'usare questo \textit{template} sta nel poter modificarealcuni elementi comuni ai vari elementi in seguito in particolare.
+
+\section{Configurazioni necessarie}
+\label{sec:ConfigurazioniNecessarie}
+
+Per poter usare questo template è necessario compiere alcune piccole configurazioni:
+
+\subsection{\texttt{sty} files}
+\label{sub:styFiles}
+
+È necessario includere con \texttt{usepackage} i file \file{Comandi.sty}, \file{Stile.sty} e \file{Riferimenti.sty}.
+Per farlo la path alla cartella che li contiene dev'essere inserita all'inizio dei file \texttt{.tex} alle righe:
+
+\begin{lstlisting}
+  \makeatletter
+  \def\input@path{{../template/}}
+  \makeatother
+\end{lstlisting}
+
+\subsection{Definizioni}
+\label{sub:Definizioni}
+
+Inoltre è necessario definire alcune variabili prima dell'inizio del documento.\\
+Le variabili sono:
+\begin{itemize}
+  \item[\textbf{Nome}] Il titolo del documento \textit{senza versione}
+  \item[\textbf{Versione}] La versione attuale del documento
+  \item[\textbf{Data}] La data di creazione della versione attuale
+  \item[\textbf{Redattore}] Nome e Cognome del redattore, se i redattori sono più di uno vanno scritti separati da \texttt{\textbackslash \textbackslash \&}
+  \item[\textbf{Verificatore}] Nome e Cognome con le stesse regole di redattore
+  \item[\textbf{Responsabile}] Nome e Cognome del responsabile
+  \item[\textbf{Uso}] Per indicare se l'uso è interno o esterno
+  \item[\textbf{Destinatari}] La lista di distribuzione, le persone cui è destinato il documento, separati da \texttt{\textbackslash \textbackslash \&}
+  \item[\textbf{Sommario}] Un breve sommario del documento.
+\end{itemize}
+
+\section{Frontespizio}
+\label{sec:Frontespizio}
+
+La creazione della copertina si ottiene semplicemente con il comando \texttt{maketitle}.
+
+\section{Diario Modifiche}
+\label{sec:DiarioModifiche}
+
+Il \textbf{Diario delle Modifiche} si ottiene utilizzando l'environment \texttt{diario} e le entry si inseriscono con il comando \texttt{modifica\{Nome\}\{Ruolo\}\{Riepilogo\}\{Data\}\{Versione\}}.
+
+\section{Riferimenti}
+\label{sec:Riferimenti}
+
+È importante consultare il file \file{Riferimenti.sty} ed utilizzare le costanti ivi definite per permettere riferirsi a file/documenti/ruoli in maniera consistente tra i vari documenti.
+
+\section{Comandi}
+\label{sec:Comandi}
+
+Così come per i riferimenti, è importante anche utilizzare i comandi contenuti nel file \file{Comandi} così da uniformare la presentazione di concetti nei vari documenti. Ad esempio ogni parola che si troverà nel glossario va scritta con il comando \texttt{gl} che la farà apparire \gl{parola}.
+
+\end{document}

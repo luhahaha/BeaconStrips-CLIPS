@@ -1,0 +1,76 @@
+% Nome File: Comandi.sty
+% Creatore:  Tommaso Panozzo
+% Data: 2016-03-12
+
+%-------------------------
+%        PACCHETTI
+\usepackage[utf8x]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[hidelinks]{hyperref}
+\usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage[parfill]{parskip}
+\usepackage[yyyymmdd]{datetime}
+
+%-------------------------
+%      COMANDI UTILI
+% Evidenzia qualcosa scrivendolo centrato in una riga a capo
+\newcommand{\highlight}[1]{\vspace{1em}\\\hspace*{\fill}#1\hspace*{\fill}\vspace{1em}\\}
+% Voci presenti nel glossario
+\newcommand{\gl}[1]{\textit{#1}\ped{g}}
+% Standard ISO
+\newcommand{\iso}[1]{$[$#1$]$}
+% Nome di File
+\newcommand{\file}[1]{\texttt{#1}}
+% Nome di Documento
+\newcommand{\doc}[1]{``\textit{#1}''}
+% Nome di classi
+\newcommand{\cls}[1]{\textit{#1}}
+
+%-------------------------
+%        COLORI
+% Tabelle:
+%     - intestazione
+\definecolor{intestazione}{HTML}{36474F}
+%     - dispari
+\definecolor{dispari}{HTML}{218932}
+%     - pari
+\definecolor{pari}{HTML}{F3C312}
+
+
+%-------------------------
+%        TABELLE
+\newenvironment{tabella}[1]
+{
+	\def\arraystretch{1.5}
+	\rowcolors{2}{dispari}{pari}
+	\begin{longtable}{#1}
+	\rowcolor{intestazione}
+}{
+	\end{longtable}
+}
+
+
+%-------------------------
+%         DIARIO
+\newcommand\VRule[1][\arrayrulewidth]{\color{white} \vrule width 1pt}
+\newenvironment{diario}
+{
+	\setcounter{table}{-1}
+	\section*{Diario delle modifiche}
+	\def\arraystretch{1.5}
+	\rowcolors{2}{dispari}{pari}
+	\begin{longtable}{l!{\VRule}p{4.5cm}!{\VRule}l!{\VRule}l!{\VRule}l}
+	\rowcolor{intestazione}
+	\color{white} \textbf{Versione} & \color{white} \textbf{Riepilogo} & \color{white} \textbf{Autore} & \color{white} \textbf{Ruolo} & \color{white} \textbf{Data} \\
+	\endfirsthead
+	\rowcolor{intestazione}
+	\color{white} \textbf{Versione} & \color{white} \textbf{Riepilogo} & \color{white} \textbf{Autore} & \color{white} \textbf{Ruolo} & \color{white} \textbf{Data} \\
+	\endhead
+}{
+	\end{longtable}
+}
+
+% Entry modifiche
+% sintassi: \modifica{Autore}{Ruolo}{Riepilogo}{Data}{Versione}
+\newcommand{\modifica}[5]{#5 & #3 & #1 & #2 & #4\\}
