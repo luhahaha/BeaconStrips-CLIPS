@@ -1,0 +1,46 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../template/}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Piano di Progetto}
+\def\VERSIONE{0.1}
+\def\DATA{\today}
+\def\REDATTORE{Viviana Alessio}
+\def\VERIFICATORE{Andrea Grendene}
+\def\RESPONSABILE{Viviana Alessio}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Piano per la per la gestione dei rischi, dei costi e dei tempi nella realizzazione del progetto.}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{diario}
+  \modifica{Viviana Alessio}{\RES}{Stesura intestazione e indice documento}{2016-03-16}{0.1}
+\end{diario}
+
+\newpage
+\tableofcontents
+
+\newpage
+\include{introduzione}
+
+\include{analisiRischi}
+
+\include{pianificazione}
+
+\include{preventivo}
+
+\appendix
+\section{Organigramma}
+
+
+\end{document}
