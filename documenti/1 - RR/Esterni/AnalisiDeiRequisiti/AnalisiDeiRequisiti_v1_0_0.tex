@@ -1,0 +1,44 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Analisi dei Requisiti}
+\def\VERSIONE{0.1}
+\def\DATA{\today}
+\def\REDATTORE{Enrico Bellio \\ & Andrea Grendene \\ & Tommaso Panozzo}
+\def\VERIFICATORE{Viviana Alessio \\ & Matteo Franco}
+\def\RESPONSABILE{Viviana Alessio}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Descrizione dei Casi d'Uso e l'Analisi dei Requisiti del progetto.}
+
+\begin{document}
+
+\maketitle
+
+\begin{diario}
+  \modifica{Tommaso Panozzo}{\AN}{Stesura struttura documento}{2016-03-18}{0.1}
+\end{diario}
+
+\newpage
+\tableofcontents
+
+\newpage
+\include{introduzione}
+
+\newpage
+\include{descrizioneGenerale}
+
+\newpage
+\include{casiUso}
+
+\newpage
+\include{requisiti}
+
+\end{document}
