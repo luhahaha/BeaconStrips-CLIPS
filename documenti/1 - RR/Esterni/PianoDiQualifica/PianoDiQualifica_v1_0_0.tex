@@ -1,0 +1,81 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+% !TEX spellcheck = it-IT
+
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[italian]{babel}
+
+%Nome del documento
+\def\NOME{Piano di Qualifica}
+%Versione del documento
+\def\VERSIONE{1.00}
+%Data del documento
+\def\DATA{15/03/2016}
+%Redattore/i del documento
+\def\REDATTORE{Grendene Andrea}
+%Verificatore del documento
+\def\VERIFICATORE{Unknown}
+%Responsabile del progetto
+\def\RESPONSABILE{Alessi Viviana (credo)}
+%Uso del documento
+\def\USO{Esterno}
+%Destinatari del documento
+\def\DESTINATARI{\COMMITTENTE\
+				 \CARDIN\
+				 \PROPONENTE}
+%Sommario del documento
+\def\SOMMARIO{Questo documento ha lo scopo di fissare le norme necessarie ad assicurare i requisiti qualitativi del progetto \PROGETTO, regolamentando le operazioni di pianificazione e di verifica attuate per rispettare tali norme.}
+
+\makeatletter
+\def\input@path{{../../../template/}}
+\makeatother
+\usepackage{Riferimenti,Comandi,Stile} %Carico il template
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue} %Modifico il colore degli url rispetto a quello standard, imposto a nero quello dei link interni (in pratica l'indice)
+
+\newcommand{\evidenzia}[1]{\emph{‘‘#1’’}} %Evidenzia i riferimenti importanti (per ora sono riuscito ad usare altro quando serviva)
+\newcommand{\importante}[1]{\textbf{#1}} %Evidenzia i titoletti per i Riferimenti
+
+\includeonly{Parte_2}
+
+\begin{document}
+
+\maketitle
+
+\begin{diario}
+\modifica{Grendene Andrea}{\AN}{Impostazione della struttura e dei dettagli del documento}{15/03/2016}{0.01}
+\modifica{Grendene Andrea}{\AN}{Stesura dell'Introduzione}{16/03/2016}{0.02}
+\end{diario}
+\tableofcontents
+
+\section{Introduzione}
+\subsection{Scopo del documento}
+
+Questo documento fissa le regole decise dal \gl{team} per garantire una buona qualità del \gl{prodotto} e dei processi attuati durante l'intera durata del progetto. Per assicurarne il rispetto verranno svolte costantemente delle attività di verifica dei processi. In questo modo verrà garantita la qualità del prodotto e si minimizzano le risorse impiegate.
+
+\subsection{Scopo del prodotto}
+
+Lo scopo del prodotto è di sfruttare la tecnologia dei \gl{beacon} per (informazione mancante).
+
+\subsection{Glossario}
+
+Per facilitare la lettura ed evitare ogni tipo di ambiguità relativa ai termini e al linguaggio usato si farà riferimento al \Gldoc. In questo documento verrà descritto ogni termine con un significato particolare. Ognuno di questi termini verrà segnalato alla fine della parola con una g a pedice (ad esempio: \gl{Glossario}).
+
+\subsection{Riferimenti} 
+\subsubsection{Normativi}
+\begin{itemize}
+\item \importante{Norme di Progetto:}\ \NPdoc;
+\item \importante{Capitolato d'appalto C2:}\ CLIPS: Communication \& Localisation with Indoor Positioning Systems, reperibile all'indirizzo \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C2.pdf}.
+\end{itemize}
+
+\subsubsection{Informativi}
+\begin{itemize}
+\item \importante{Analisi dei Requisiti:}\ \ARdoc;
+\item \importante{Piano di progetto:}\ \PPdoc;
+\item \importante{Indice Gulpease:}\ \url{http://it.wikipedia.org/wiki/Indice_Gulpease}.
+\end{itemize}
+
+\include{Parte_2}
+
+\end{document}
