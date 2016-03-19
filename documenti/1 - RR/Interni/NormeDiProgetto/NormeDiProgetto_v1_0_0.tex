@@ -1,0 +1,57 @@
+\documentclass[a4paper,titlepage]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+
+\makeatletter
+\def\input@path{{../../../template/}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Stile}
+\usepackage{Riferimenti}
+
+
+
+\date{ }
+ 
+ \def\NOME{Norme di Progetto}
+ \def\VERSIONE{0.1}
+ \def\DATA{\today}
+ \def\REDATTORE{Matteo Franco\\ & Luca Soldera}
+ \def\VERIFICATORE{Nome Cognome}
+ \def\RESPONSABILE{Viviana Alessio}
+ \def\USO{Interno}
+ \def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+ \def\SOMMARIO{Questo documento definisce le norme stabilite dal gruppo Beacon Strips per la realizzazione del progetto CLIPS}
+ 
+\begin{document}
+\maketitle
+ 
+\tableofcontents
+ 
+\newpage
+\include{introduzione}
+
+\newpage
+\include{comunicazioni}
+
+\newpage
+\include{repository}
+
+%\include{codice}
+
+\newpage
+\include{documenti}
+
+\newpage
+\include{analisiDeiRequisiti}
+
+\newpage
+\include{sviluppo}
+
+\newpage
+\include{ambienteDiLavoro}
+
+
+\end{document}
