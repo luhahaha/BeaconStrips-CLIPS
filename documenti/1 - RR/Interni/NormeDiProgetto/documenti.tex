@@ -1,11 +1,11 @@
 \section{Documenti}
 	\subsection{Template}
-		È presente una cartella nel \gl{repository} in \textit{documenti/template}. \\
+		È presente una cartella nel \gl{repository} in \file{documenti/template}. \\
 		La cartella contiene i seguenti files:
 		\begin{itemize}
-			\item \textit{Comandi.sty}: contiene i comandi personalizzati 
-			\item \textit{Riferimenti.sty}: %aggiungere descrizione
-			\item \textit{Stile.sty}: %aggiungere descrizione
+			\item \textit{Comandi.sty}: contiene i comandi personalizzati (\gl);
+			\item \textit{Riferimenti.sty}: %contiene i riferimenti, tipo "Variabile globale"
+			\item \textit{Stile.sty}: contiene gli stili grafici da applicare al template;
 			\item \textit{TemplateDoc.tex}: è il template da utilizzare per realizzare i documenti.
 			\item \textit{Glossario.sty}: %aggiungere descrizione
 		\end{itemize}
@@ -72,9 +72,35 @@
 			\end{itemize}
 			\item \LaTeX: ogni occorrenza di \LaTeX{} va scritta con il comando \textbackslash LaTeX
 			\item Maiuscolo: è possibile utilizzare lo stile maiuscolo solo per gli acronimi;
-			\item \gl{Monospace}: le porzioni di testo scritte in monospace possono indicare frammenti di codice o comandi.
+			\item \gl{Monospace}: le porzioni di testo scritte in monospace definiscono:
+			\begin{itemize}
+				\item frammenti di codice;
+				\item comandi;
+				\item URL;
+			\end{itemize} 
 			%\item Glossario: le parole che hanno un riferimento nel glossario sono in corsivo e hanno una 'g' a pedice
 		\end{itemize}
 		\subsubsection{Composizione del testo}
+		\subsubsection{Formati}
+		\begin{itemize}
+			\item \textbf{Date}: per le date va utilizzata la notazione definita dallo standard \gl{ISO} 8601:2004:
+			\highlight{\textit{AAAA -- MM -- GG}}
+			dove:
+			\begin{itemize}
+				\item AAAA: rappresenta l'anno utilizzando quattro cifre;
+				\item MM: rappresenta il mese utilizzando due cifre;
+				\item GG: rappresenta il giorno utilizzando quattro cifre;
+			\end{itemize}
+			\item \textbf{Sigle}: le sigle dei documenti vanno utilizzate solo nei diagrammi o nelle tabelle, con lo scopo di risparmiare spazio. Tali sigle sono:
+			\begin{itemize}
+				\item \textbf{AdR} per \textit{Analisi dei Requisiti}
+				\item \textbf{Gl} per \textit{Glossario}
+				\item \textbf{NdP} per \textit{Norme di Progetto}
+				\item \textbf{PdP} per \textit{Piano di Progetto}
+				\item \textbf{PdQ} per \textit{Piano di Qualifica}
+				\item \textbf{SdF} per \textit{Studio di Fattibilità}
+				\item \textbf{ST} per \textit{Specifica Tecnica}
+			\end{itemize}	
+		\end{itemize}
 	\subsection{Versionamento}
 	\subsection{Ciclo di vita}

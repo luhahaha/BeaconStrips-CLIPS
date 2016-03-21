@@ -1,8 +1,5 @@
 \documentclass[a4paper,titlepage]{article}
 
-\usepackage[T1]{fontenc}
-\usepackage[italian]{babel}
-
 \makeatletter
 \def\input@path{{../../../template/}}
 \makeatother
@@ -11,9 +8,6 @@
 \usepackage{Stile}
 \usepackage{Riferimenti}
 
-
-
-\date{ }
  
  \def\NOME{Norme di Progetto}
  \def\VERSIONE{0.1}
@@ -29,29 +23,22 @@
 \maketitle
  
 \tableofcontents
- 
-\newpage
+
 \include{introduzione}
 
-\newpage
-\include{comunicazioni}
+\section{Processi primari} 
+\input{comunicazioni}
 
-\newpage
 \include{repository}
 
 %\include{codice}
 
-\newpage
 \include{documenti}
 
-\newpage
 \include{analisiDeiRequisiti}
 
-\newpage
 \include{sviluppo}
 
-\newpage
 \include{ambienteDiLavoro}
-
 
 \end{document}
