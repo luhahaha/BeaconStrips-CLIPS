@@ -9,7 +9,7 @@
 \usepackage{Stile}
 
 \def\NOME{Titolo del Documento}
-\def\VERSIONE{0.1}
+\def\VERSIONE{0.2}
 \def\DATA{\today}
 \def\REDATTORE{Nome Cognome \\ & Tizio Rossi \\ & Caio Bianchi}
 \def\VERIFICATORE{Nome Cognome}
@@ -25,8 +25,7 @@
 
 \begin{diario}
   \modifica{Tommaso Panozzo}{\AM}{Stesura Preliminare}{2016-03-11}{0.1}
-  \modifica{Romina Power}{\PM}{riepilogo}{2016-03-12}{0.2}
-  \modifica{Loredana Lecciso}{\AN}{riepilogo}{2016-03-13}{1.0}
+  \modifica{Tommaso Panozzo}{\AM}{Aggiunta sezione tabelle}{2016-03-20}{0.2}
 \end{diario}
 
 \newpage
@@ -99,10 +98,30 @@ Così come per i riferimenti, è importante anche utilizzare i comandi contenuti
 \label{sec:Tabelle}
 
 Questa sezione serve a dimostrare come creare una tabella.
+Innanzitutto è necessario iniziare l'environment \texttt{tabella} con i comandi
+\begin{lstlisting}
+  \begin{tabella}
+    ...
+  \end{tabella}
+\end{lstlisting}
+L'inizio dell'environment deve essere seguito dalla definizione delle colonne della tabella. Solitamente \texttt{l}, \texttt{c} o \texttt{r} (per l'allineamento del testo a sinistra, centrato o destra) separati dal comando
+\begin{lstlisting}
+  !{\VRule}
+\end{lstlisting}
+per definire una colonna verticale. \\
+Per definire l'intestazione si usa uno dei comandi
+\begin{lstlisting}
+  \intestazionetwocol{}{}
+  \intestazionethreecol{}{}{}
+  \intestazionefourcol{}{}{}{}
+  \intestazionefivecol{}{}{}{}{}
+\end{lstlisting}
+mettendo nelle parentesi graffe il testo delle varie intestazioni\footnote{Si consiglia di guardare il codice della tabella qui sotto per un esempio.}.
 
 \begin{tabella}{l!{\VRule}c!{\VRule}r!{\VRule}l!{\VRule}l}
-  \color{intestazione_txt} \textbf{Colonna 1} & \color{intestazione_txt} \textbf{Colonna 2} & \color{intestazione_txt} \textbf{Colonna 3} & \color{intestazione_txt} \textbf{Colonna 4} & \color{intestazione_txt} \textbf{Colonna 5} \\
-  \endhead
+
+  \intestazionefivecol{Prima}{Seconda}{Terza}{Quarta}{Quinta}
+
   Riga 1 & Riga 1 & Riga 1 & Riga 1 & Riga 1 \\
   Riga 2 & Riga 2 & Riga 2 & Riga 2 & Riga 2 \\
   Riga 3 & Riga 3 & Riga 3 & Riga 3 & Riga 3 \\
