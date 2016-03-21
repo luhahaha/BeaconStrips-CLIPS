@@ -32,6 +32,9 @@
 \tableofcontents
 
 \newpage
+\listoftables
+
+\newpage
 \section{Perché usare il template}
 \label{sec:PercheTemplate}
 
@@ -118,7 +121,8 @@ Per definire l'intestazione si usa uno dei comandi
 \end{lstlisting}
 mettendo nelle parentesi graffe il testo delle varie intestazioni\footnote{Si consiglia di guardare il codice della tabella qui sotto per un esempio.}.
 
-\begin{tabella}{l!{\VRule}c!{\VRule}r!{\VRule}l!{\VRule}l}
+\begin{tabella}{!{\VRule}l!{\VRule}c!{\VRule}r!{\VRule}l!{\VRule}l!{\VRule}}
+
 
   \intestazionefivecol{Prima}{Seconda}{Terza}{Quarta}{Quinta}
 
@@ -130,6 +134,9 @@ mettendo nelle parentesi graffe il testo delle varie intestazioni\footnote{Si co
   Riga 6 & Riga 6 & Riga 6 & Riga 6 & Riga 6 \\
   Riga 7 & Riga 7 & Riga 7 & Riga 7 & Riga 7 \\
   Riga 8 & Riga 8 & Riga 8 & Riga 8 & Riga 8 \\
+
+  \hiderowcolors
+  \caption{Tabella di esempio. Il testo mostrato qui è quello incluso nel comando caption all'interno dell'environment tabella.}
 
 \end{tabella}
 
