@@ -133,5 +133,30 @@ mettendo nelle parentesi graffe il testo delle varie intestazioni\footnote{Si co
 
 \end{tabella}
 
+\section{Label e Hyperref}
+\label{sec:LabelHyperref}
+
+Per permettere di riferirsi ad altre parti interne al documento è incoraggiato l'uso del comando \texttt{label} seguito da un label di descrizione.
+Il label di descrizione deve iniziare con un codice identificativo a seconda dell'elemento cui si riferisce, seguito dal titolo in \textit{CamelCase}. In particolare:
+
+\begin{itemize}
+  \item \textbf{sec} le sezioni
+  \item \textbf{sub} le sotto-sezioni
+  \item \textbf{subs} le sotto-sotto-sezioni
+  \item \textbf{par} i paragrafi
+  \item \textbf{subp} i sotto-paragrafi
+  \item \textbf{fig} le figure
+  \item \textbf{tab} le tabelle
+\end{itemize}
+
+Ad esempio la \hyperref[sec:Comandi]{sezione Comandi \ref*{sec:Comandi}} ha label \texttt{sec:Comandi}. \\
+Invece per rimandare ad una sezione/figura/… si usa il comando:
+\begin{lstlisting}
+  \hyperref[sec:Comandi]{sezione Comandi \ref*{sec:Comandi}}
+\end{lstlisting}
+Mentre la sotto-sezione \hyperref[sub:styFiles]{sty-Files \ref*{sub:styFiles}} si linka così:
+\begin{lstlisting}
+  \hyperref[sub:styFiles]{sty-Files \ref*{sub:styFiles}}
+\end{lstlisting}
 
 \end{document}
