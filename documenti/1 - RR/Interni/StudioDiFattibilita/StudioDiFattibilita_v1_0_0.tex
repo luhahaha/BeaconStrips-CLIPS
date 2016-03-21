@@ -1,0 +1,44 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Studio di Fattibilità}
+\def\VERSIONE{0.1}
+\def\DATA{\today}
+\def\REDATTORE{Viviana Alessio}
+\def\VERIFICATORE{Luca Soldera}
+\def\RESPONSABILE{Viviana Alessio}
+\def\USO{Interno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Analisi dei capitolati proposti e motivazioni per la scelta del progetto CLIPS}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{diario}
+	\modifica{Enrico Bellio}{\RES}{Prima stesura}{2016-03-17}{0.1}
+\end{diario}
+
+\newpage
+\tableofcontents
+
+\newpage
+\include{introduzione}
+
+\include{capitolatoScelto}
+
+\include{altriCapitolati}
+
+\appendix
+
+
+
+\end{document}
