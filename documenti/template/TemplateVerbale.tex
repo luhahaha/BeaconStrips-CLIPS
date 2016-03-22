@@ -1,0 +1,78 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../template/}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Verbale del Giorno 2016-03-21}
+\def\VERSIONE{1}
+\def\DATA{\today}
+\def\REDATTORE{Nome Cognome}
+\def\VERIFICATORE{Nome Cognome}
+\def\RESPONSABILE{Nome Cognome}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Breve descrizione della riunione.}
+
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Informazioni}
+\label{sec:Informazioni}
+
+\begin{itemize}
+  \item \textbf{Luogo: }
+  \item \textbf{Data: }
+  \item \textbf{Ora: }
+  \item \textbf{Durata: }
+  \item \textbf{Partecipanti: }
+\end{itemize}
+
+\newpage
+\section{Ordine Del Giorno}
+\label{sec:OrdineDelGiorno}
+
+Qualche premessa alla riunione, del tipo "La riunione è stata indetta con lo scopo di presentare alcune proposte di progetto ai proponenti".
+
+\begin{enumerate}
+  \item Primo punto all'ordine del giorno
+  \item Secondo punto all'ordine del giorno
+  \item Terzo punto all'ordine del giorno
+  \item Quarto punto all'ordine del giorno
+  \item Quinto punto all'ordine del giorno
+  \item Sesto punto all'ordine del giorno
+  \item Sette punto all'ordine del giorno
+\end{enumerate}
+
+\newpage
+\section{Verbale}
+\label{sec:Verbale}
+
+\begin{enumerate}
+  \item Risposte a come è stato sviluppato il primo punto
+  \item Risposte al secondo punto
+  \item Risposte al terzo
+  \item etc
+\end{enumerate}
+
+\subsection{Altri Argomenti}
+\label{sub:AltriArgomenti}
+
+Sono state inoltre toccati i seguenti punti
+
+\begin{itemize}
+  \item Primo punto fuori dall'OdG
+  \item Altri punti al di fuori dell'OdG
+\end{itemize}
+
+\end{document}

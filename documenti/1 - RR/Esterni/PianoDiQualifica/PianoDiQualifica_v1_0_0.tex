@@ -3,6 +3,8 @@
 % !TEX spellcheck = it-IT
 \documentclass[a4paper,titlepage]{article}
 
+\usepackage[utf8x]{inputenc}
+
 \makeatletter
 \def\input@path{{../../../template/}}
 \makeatother
@@ -29,16 +31,13 @@
 %Sommario del documento
 \def\SOMMARIO{Questo documento ha lo scopo di fissare le norme necessarie ad assicurare i requisiti qualitativi del progetto \PROGETTO, regolamentando le operazioni di pianificazione e di verifica attuate per rispettare tali norme.}
 
-% se proprio ti seervono ok. Ma andrebbero messi nel file comandi.sty
-\newcommand{\evidenzia}[1]{\emph{‘‘#1’’}} %Evidenzia i riferimenti importanti (per ora sono riuscito ad usare altro quando serviva)
-\newcommand{\importante}[1]{\textbf{#1}} %Evidenzia i titoletti per i Riferimenti
-
 \begin{document}
 
 \maketitle
 
 	% le ultime modifiche vanno messe in testa alla tabella
 \begin{diario}
+	\modifica{Andrea Grendene}{\AN}{Stesura della Definizione degli obiettivi di qualità}{2016/03/21}{0.03}
 	\modifica{Andrea Grendene}{\AN}{Stesura dell'Introduzione}{2016/03/16}{0.02}
 	\modifica{Andrea Grendene}{\AN}{Impostazione della struttura e dei dettagli del documento}{2016/03/15}{0.01}
 \end{diario}
@@ -50,6 +49,10 @@
 \include{introduzione}
 % fa già \newpage in automatico
 
-\include{Parte_2}
+\include{Definizione_obiettivi_di_qualita}
+
+\include{Visione_generale_della_strategia}
+
+\include{Gestione_amministrativa_della_revisione}
 
 \end{document}

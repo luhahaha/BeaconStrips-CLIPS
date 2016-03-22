@@ -10,13 +10,17 @@
 \usepackage{listings}
 \usepackage[margin=3cm]{geometry}
 \usepackage[hidelinks]{hyperref}
+\usepackage[bf]{caption}
 
 
 %-------------------------
 %   IMPOSTAZIONI LINK
+\definecolor{link}{HTML}{62588A}
+\definecolor{url}{HTML}{3BB8DD}
 \hypersetup{%
 	colorlinks=true,%
-	linkcolor=blue,%
+	linkcolor=link,%
+	urlcolor=url
 }
 
 %-------------------------
@@ -83,5 +87,5 @@
 %\lhead{\includegraphics[scale=0.3]{img/logo_full.png}}
 \lfoot{\TITOLO}
 \cfoot{\AUTORE}
-\rfoot{Pagina \thepage{} di \pageref{LastPage}}
+\rfoot{Pagina \thepage{} di \pageref*{LastPage}}
 \renewcommand{\footrulewidth}{0.4pt}
