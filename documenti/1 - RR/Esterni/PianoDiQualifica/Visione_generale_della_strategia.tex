@@ -3,18 +3,43 @@
 % !TEX spellcheck = it-IT
 
 \section{Visione generale della strategia}
+	\subsection{Procedure di controllo di qualità di processo}
+		Per garantire la qualità dei processi e quindi un loro miglioramento continuo verrà usato il principio \gl{PDCA}. Di conseguenza migliorerà la qualità del \gl{prodotto}. \\
+		Per avere il controllo dei processi, e di conseguenza qualità, è necessario che:
+		\begin{itemize}
+			\item\ i processi siano pianificati dettagliatamente;
+			\item\ vi sia un controllo sul lavoro di ogni membro del \gl{team};
+			\item\ nella pianificazione siano ripartite chiaramente le risorse.
+		\end{itemize}
+		L'attuazione di questi punto è approfondita nel \PPdoc. \\
+		Analizzando la qualità del prodotto si controlla anche la qualità dei processi. Un prodotto scadente indica che i processi sono migliorabili. \\
+		Inoltre si possono usare delle metriche per quantificare la qualità dei processi, tali metriche sono descritte nella sezione \hyperref[sec:MisureGenerale]{3.9 Misure e metriche}.
+	\subsection{Procedure di controllo di qualità di prodotto}
+		Il controllo di qualità del prodotto verrà garantito da:
+		\begin{itemize}
+			\item \textbf{quality assurance:} è l'insieme di attività realizzate per raggiungere gli obiettivi di qualità. Queste attività prevedono l'attuazione di tecniche di analisi statica e dinamica, descritte nella sezione \hyperref[sec:TecnicheAnalisi]{3.8 Tecniche di analisi}.
+			\item \textbf{verifica:} è un processo che determina se l'output di una fase è consistente, corretto e completo. Per tutta la durata del progetto verranno svolte attività di verifica, i cui risultati sono e saranno riportati nell'Appendice \hyperref[sec:A]{A}.
+			\item \textbf{validazione:} è il processo di conferma oggettiva del soddisfacimento dei requisiti, attuato per ogni fase del gl{progetto}.
+		\end{itemize}
+	\subsection{Organizzazione}
+		L'organizzazione della strategia di verifica si basa sull'attuazione di verifiche per ogni processo attuato. Queste verifiche controllano sia la qualità del processo stesso sia la qualità del prodotto ottenuto. Grazie al diario delle modifiche sarà possibile eseguire una verifica solo sui cambiamenti effettuati. \\
+		A causa della diversa natura dei risultati ottenuti da ogni fase del processo ognuno di essi richiederà l'attuazione di specifiche procedure di verifica. Il \gl{team} ha deciso di adottare un ciclo di vita incrementale per lo sviluppo del progetto. Di conseguenza il processo di verifica adottato per ogni fase del progetto opererà nel modo seguente:
+		\begin{itemize}
+			\item \textbf{individuazione degli strumenti, analisi dei requisiti e di dettaglio:} in questa fase verranno redatti i documenti che riporteranno i requisiti individuati, le strategie e le norme adottate.
+			\begin{itemize}
+				\item Verrà controllata la correttezza ortografica con \gl{Hunspell}.
+				\item Verrà controllata la correttezza lessicale con un'attenta ed accurata rilettura.
+				\item Verrà controllata la correttezza dei contenuti rispetto alle aspettative del documento attraverso una rilettura accurata.
+				\item Verrà verificato che ogni requisito abbia una corrispondenza in un caso d'uso; per farlo si controlleranno le apposite tabelle di tracciamento, con l'ausilio di \gl{Trender}.
+				\item Ogni documento dovrà rispettare le \NPdoc; per verificarlo verranno adoperati gli strumenti più appropriati.
+				\item Verrà verificato che sia presente una didascalia per ogni rappresentazione grafica e il contenuto di ogni figura e tabella.
+			\end{itemize}
+			\item \textbf{progettazione architetturale:} verrà garantito che ogni requisito sarà rintracciabile, attraverso il processo di verifica. Ogni requisito sarà rintracciabile nei componenti individuati in questa fase, si veda la \hyperref[sec:Definizione]{Sezione 2}\ per ulteriori approfondimenti.
+			\item \textbf{progettazione di dettaglio dei requisiti obbligatori, desiderabili, opzionali e della codifica:} i Programmatori svolgeranno le attività di codifica e di esecuzione dei test di unità per la verifica del codice. Queste attività avverranno nel modo più automatizzato possibile, rispettando anche i vincoli statici. I Verificatori controlleranno parallelamente la presenza di eventuali anomalie, definite nella \hyperref[sec:Gestione]{Sezione 4}.
+			\item \textbf{validazione:} alla Revisione di Accettazione (RA) il gruppo \AUTORE\ garantisce il funzionamento corretto del prodotto realizzato. Le eventuali modifiche per eliminare le possibili diversità rispetto al prodotto atteso saranno a carico del \gl{fornitore}.
+		\end{itemize}
+		In ogni documento viene inoltre incluso il diario delle modifiche, in modo da mantenere uno storico delle attività svolte e delle relative responsabilità.
 
-\subsection{Procedure di controllo di qualità di processo}
-Per garantire la qualità dei processi e quindi un loro miglioramento continuo verrà usato il principio \gl{PDCA}. Di conseguenza migliorerà la qualità del \gl{prodotto}. \\
-Per avere il controllo dei processi, e di conseguenza qualità, è necessario che:
-\begin{itemize}
-\item\ i processi siano pianificati dettagliatamente;
-\item\ vi sia un controllo sul lavoro di ogni membro del \gl{team};
-\item\ nella pianificazione siano ripartite chiaramente le risorse.
-\end{itemize}
-L'attuazione di questi punto è approfondita nel \PPdoc. \\
-Analizzando la qualità del prodotto si controlla anche la qualità dei processi. Un prodotto scadente indica che i processi sono migliorabili. \\
-Inoltre si possono usare delle metriche per quantificare la qualità dei processi, tali metriche sono descritte nella sezione \hyperref[sec:MisureGenerale]{3.9}.
-
-\label{sec:MisureGenerale}
-\label{sec:Misure}
+		\label{sec:TecnicheAnalisi} %3.8
+		\label{sec:MisureGenerale} %3.9
+		\label{sec:Misure} %3.9.3
