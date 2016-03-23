@@ -67,7 +67,6 @@
 			\item Corsivo: il corsivo va utilizzato:
 			\begin{itemize}
 				\item quando si parla di documenti;
-				\item per indicare il percorso di un file o una cartella;
 				\item 
 			\end{itemize}
 			\item \LaTeX: ogni occorrenza di \LaTeX{} va scritta con il comando \textbackslash LaTeX
@@ -82,10 +81,10 @@
 		\end{itemize}
 		\subsubsection{Punteggiatura}
 		\begin{itemize}
-			\item \textbf{Spaziature}: ogni simbolo di punteggiatura deve essere seguito da uno spazio, e mai preceduto. 
+			\item \textbf{Spaziature}: ogni simbolo di punteggiatura deve essere seguito da uno spazio, e mai preceduto;
 			\item \textbf{Parentesi}: le parentesi costituiscono un'eccezione riguardo le spaziature, in quanto devono essere precedute da uno spazio, ma non seguite;
-			\item \textbf{Virgolette singole}: le virgolette singole
-			\item \textbf{Virgolette doppie}: le virgolette doppie vanno utilizzate per indicare citazioni.
+			\item \textbf{Virgolette singole}: le virgolette singole indicano un singolo carattere;
+			\item \textbf{Virgolette doppie}: le virgolette doppie vanno utilizzate per indicare citazioni e documenti.
 		\end{itemize}
 		\subsubsection{Composizione del testo}
 		\subsubsection{Formati}
@@ -100,14 +99,41 @@
 			\end{itemize}
 			\item \textbf{Sigle}: le sigle dei documenti vanno utilizzate solo nei diagrammi o nelle tabelle, con lo scopo di risparmiare spazio. Tali sigle sono:
 			\begin{itemize}
-				\item \textbf{AdR} per \textit{Analisi dei Requisiti}
-				\item \textbf{Gl} per \textit{Glossario}
-				\item \textbf{NdP} per \textit{Norme di Progetto}
-				\item \textbf{PdP} per \textit{Piano di Progetto}
-				\item \textbf{PdQ} per \textit{Piano di Qualifica}
-				\item \textbf{SdF} per \textit{Studio di Fattibilità}
-				\item \textbf{ST} per \textit{Specifica Tecnica}
+				\item \textbf{AdR} per \ARdoc
+				\item \textbf{Gl} per \Gldoc
+				\item \textbf{NdP} per \NPdoc
+				\item \textbf{PdP} per \PPdoc
+				\item \textbf{PdQ} per \PQdoc
+				\item \textbf{SdF} per \SFdoc
+				\item \textbf{ST} per \STdoc
 			\end{itemize}	
 		\end{itemize}
 	\subsection{Versionamento}
+	I documenti prodotti sono soggetti al seguente versionamento attraverso la seguente codifica:
+	\highlight{vX.Y.Z}
+	dove:
+	\begin{itemize}
+		\item \textbf{X}: indica il numero crescente di uscite formali del documento;
+		\item \textbf{Y}: indica il numero crescente di modifiche sostanziali al documento quali stesura, verifica, approvazione;
+		\item \textbf{Z}: indica il numero crescente di modifiche minori effettuate sul documento.
+	\end{itemize}
+	I documenti vanno citati sempre con una versione specifica del documento, utilizzando i comandi:
+	\begin{itemize}
+	\item \texttt{\textbackslash ARdoc} per il documento \ARdoc
+	\item \texttt{\textbackslash Gldoc} per il documento \Gldoc
+	\item \texttt{\textbackslash NPdoc} per il documento \NPdoc
+	\item \texttt{\textbackslash PPdoc} per il documento \PPdoc
+	\item \texttt{\textbackslash PQdoc} per il documento \PQdoc
+	\item \texttt{\textbackslash SFdoc} per il documento \SFdoc
+	\item \texttt{\textbackslash STdoc} per il documento \STdoc
+	\end{itemize}
+	Il formato da utilizzare per la creazione di file è:
+	\highlight{\file{NomeDocumento\_vX.Y.Z.pdf}}
 	\subsection{Ciclo di vita}
+	%Un documento segue una serie di fasi prima di arrivare alla sua pubblicazione
+	Ogni documento può trovarsi in tre fasi differenti:
+	\begin{itemize}
+		\item \textbf{In lavorazione}: un documento è in lavorazione quando vengono aggiunti, modificati o rimossi dei contenuti;
+		\item \textbf{Da verificare}: quando un documento è completo, esso dovrà essere preso in consegna dai verificatori, che si occuperanno di rilevare e/o correggere errori sintattici e semantici;
+		\item textbf{Approvato}: un documento, utlimata la verifica, deve essere approvato dal \RES. L'approvazione quindi determina lo stato finale della versione del documento.
+		\end{itemize}
