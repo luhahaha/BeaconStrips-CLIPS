@@ -1,5 +1,59 @@
 \section{Analisi dei requisiti}
+Sarà compito degli analisti redigere l'analisi dei requisiti in seguito a riunioni interne col team e allo studio dei capitolati d'appalto.
 	\subsection{Studio di Fattibilità e Analisi dei Rischi}
+	Lo studio di fattibilità sarà il primo documento dell'analisi dei requisiti che analizzerà i seguenti punti per ogni capitolato, con maggior interesse per quello scelto dal team:
+	\begin{itemize}
+		\item \textbf{scopo del progetto}: analisi delle richieste del capitolato;
+		\item \textbf{studio del dominio}: valutazione delle tecnologie e conoscenze richieste rispetto l'attuale livello del team;
+		\item \textbf{analisi dei rischi}: ricerca dei rischi e delle criticità per ciascun capitolato;
+	\end{itemize}
 	\subsection{Analisi dei requisiti}
-		\subsubsection{Classificazione dei requisiti}
-		\subsubsection{Tracciamento}
+	Il secondo documento che gli analisti andranno a redigere sarà l'analisi dei requisiti che produrrà dei requisiti semplici a partire dalle informazioni raccolte tramite lo studio del capitolato e riunioni esterne con il proponente.
+	Per rendere più precisa e veloce la stesura dei requisiti è stato utilizzato il software \gl{Trender}
+		\subsubsection{Classificazione  re requisiti}
+		I requisiti saranno rappresentati secondo la seguente codifica:
+		\begin{center}
+			R[importanza][tipo][identificativo]
+		\end{center}
+		\begin{itemize}
+			\item \textbf{importanza}:indica se il requisito è:
+			\begin{enumerate}
+				\item \textbf{0}: obbligatorio;
+				\item \textbf{1}: desiderabile;
+				\item \textbf{2}: opzionale;
+			\end{enumerate}
+			\item \textbf{tipo}: indica se è di tipo:
+			\begin{enumerate}
+				\item \textbf{F}: funzionale;
+				\item \textbf{Q}: di qualità;
+				\item \textbf{P}: prestazionale;
+				\item \textbf{V}: di vincolo;
+			\end{enumerate}
+			\item \textbf{identificativo}: è il codice univoco e gerarchico che automaticamente il software assegna al requisito(esempio: 4.2.1);
+			\item \textbf{descrizione}: una breve descrizione del requisito;
+			%da completare \item \textbf{fonte}:
+		\end{itemize}
+		\subsubsection{Classificazione dei casi d'uso}
+		I casi d'uso saranno rappresentati secondo la seguente codifica:
+		\begin{center}
+			UC[identificativo]
+		\end{center}
+		\begin{itemize}
+			\item \textbf{identificativo}: codice univoco e gerarchico che automaticamente il software assegna al caso d'uso (esempio: 3.4.1);
+		\end{itemize}
+		inoltre i casi d'uso saranno caratterizzati da:
+		\begin{itemize}
+			\item \textbf{tipo}: scelto fra:
+			\begin{enumerate}
+				\item \textbf{estensione}
+				\item \textbf{inclusione}
+				\item \textbf{generalizzazione}
+			\end{enumerate}
+			\item \textbf{titolo} breve del caso d'uso;
+			\item \textbf{descrizione} del caso d'uso;
+			\item \textbf{precondizione} del caso d'uso;
+			\item \textbf{postcondizione} del caso d'uso 
+			\item \textbf{scenario principale} degli eventi;
+			\item \textbf{scenario secondario} eventuale;
+			\item \textbf{attori}: lista degli attori; coinvolti;
+		\end{itemize}
