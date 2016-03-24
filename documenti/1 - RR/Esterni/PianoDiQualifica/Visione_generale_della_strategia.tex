@@ -56,7 +56,73 @@
 				\item\ Revisione di Qualifica: 2016/08/24.
 			\end{itemize}
 		\end{itemize}
-
+	\subsection{Responsabilità}
+		La responsabilità dell'assegnazione degli incarichi è a carico del \RES. L'\AM\ avrà come responsabilità l'adeguamento dell'ambiente di lavoro per lo svolgimento di tutti i compiti necessari alla realizzazione del progetto. Ogni componente del \gl{team} è responsabile del proprio materiale prodotto.
+	\subsection{Risorse}
+		\subsubsection{Necessarie}
+			Per la realizzazione del \gl{prodotto} sono necessarie risorse sia tecnologiche che umane:
+			\begin{itemize}
+				\item \textbf{risorse umane:}\ vengono descritte dettagliatamente nel \PPdoc.
+				\begin{itemize}
+					\item\ Amministratore;
+					\item\ Responsabile;
+					\item\ Analista;
+					\item\ Progettista;
+					\item\ Programmatore;
+					\item\ Verificatore.
+				\end{itemize}
+				\item \textbf{risorse software:} sono necessari strumenti software utili:
+				\begin{itemize}
+					\item\ alla stesura di documentazione in \gl{\LaTeX};
+					\item\ alla creazione di diagrammi in \gl{UML};
+					\item\ allo sviluppo nei linguaggi di programmazione scelti;
+					\item\ a semplificare ed automatizzare la verifica;
+					\item\ all'analisi statica del codice;
+					\item\ alla gestione dei test sul codice.
+				\end{itemize}
+				\item \textbf{risorse hardware:} sono necessari computer con tutti gli strumenti software descritti nelle \NPdoc. È necessario avere a disposizione uno o più luoghi dove poter effettuare le riunioni interne del gruppo \AUTORE. Sono necessari i \gl{beacon} in un numero sufficiente per i test del progetto.
+			\end{itemize}
+		\subsubsection{Disponibili}
+			Ogni membro di \AUTORE\ ha a disposizione almeno un computer personale dotato di tutti gli strumenti necessari con cui poter svolgere tutti i propri compiti. \\
+			A scopo di test e di supporto degli strumenti scelti per l'ambiente di sviluppo vengono messi a disposizione uno spazio web e un server privato da \PROPONENTE. \\
+			Per lo svolgimento delle riunioni interne il \gl{team} usa le aule del Dipartimento di Matematica dell'Università degli Studi di Padova; inoltre usa \gl{Google Hangouts} come strumento di discussione tramite videochiamate.
+	\subsection{Strumenti}
+		Nella sezione ‘‘Ambiente di sviluppo’’ del documento \NPdoc, sono descritti gli strumenti software impiegati dl \gl{team} per:
+		\begin{itemize}
+			\item\ il versionamento;
+			\item\ la redazione e la verifica di documenti;
+			\item\ la stesura e la verifica del codice;
+			\item\ la semplificazione del lavoro tramite la stesura di \gl{script}; %visto che la Vivi ha fatto lo script per trovare le parole con \gl penso si possa lasciare quest'affermazione
+			\item\ l'organizzazione e la condivisione dei file.
+		\end{itemize}
+	\subsection{Tecniche di analisi}
 		\label{sec:TecnicheAnalisi} %3.8
+		\subsubsection{Analisi statica}
+			L'analisi statica è una tecnica di verifica applicabile sia ai documenti che al codice. Verrà effettuata per tutta la fase di sviluppo del progetto e serve per trovare anomalie, che verranno trattate come descritto nelle \NPdoc. Può essere applicata nei due modi seguenti.
+			\paragraph{Walkthrough}
+				Consiste in una lettura del documento/codice cercando anomalie ed errori ad ampio spettro, cioè senza avere un'idea precisa di quali possibili errori si potranno trovare. Per evitare incomprensioni ogni modifica verrà discussa con gli autori e concordata tra le due parti. \\
+				Il \gl{walkthrough}\ è una tecnica indispensabile nelle prime fasi di sviluppo, in cui non si ha un'idea precisa dei possibili errori. Usando questa tecnica sarà poi possibile stilare una ‘‘lista di controllo’’, dove verranno archiviati gli errori più frequenti. Tale lista sarà salvata nell'Appendice delle \NPdoc. \\ %quest'ultima frase sarà da decidere se tenere o no e quindi agire di conseguenza
+				Inizialmente le fasi di verifica prevederanno perlopiù l'uso della tecnica \gl{walkthrough}. Appena la lista di controllo sarà sufficientemente ampia si userà sempre di più la tecnica di \gl{Inspection}.
+			\paragraph{Inspection}
+				L'\gl{inspection}\ si basa sulla lettura mirata dei documenti/codice, cercando gli errori segnalati nella lista di controllo. Man mano che le verifiche procedono la lista verrà estesa e l'\gl{inspection}\ sarà più efficace.
+		\subsubsection{Analisi dinamica}
+			L'analisi dinamica verifica il funzionamento delle sole componenti software e aiuta ad identificarne le anomalie. \\
+			Per garantire un risultato attendibile il test dev'essere ripetibile, ovvero devo ottenere sempre lo stesso output dallo stesso input. Solo così il test garantisce di trovare eventuali problemi e quindi verificare la correttezza del prodotto software. \\
+			Per ogni test dev'essere definito:
+			\begin{itemize}
+				\item \textbf{ambiente:} è il sistema hardware e software sui quali viene pianificata l'esecuzione del test sul prodotto. Va inoltre specificato uno stato iniziale da cui il test deve partire;
+				\item \textbf{specifica:} consiste nella specifica degli input e degli output attesi;
+				\item \textbf{procedure:} è la specifica di ulteriori istruzioni sull'esecuzione del test e sull'interpretazione dei risultati.
+			\end{itemize}
+			Nelle prossime sezioni sono definiti i tipi di test effettuati sul prodotto software in sviluppo dal \gl{team}.
+			\paragraph{Test di unità}
+				Il test di unità verifica che ogni singola di unità di prodotto funzioni correttamente. Per unità si intende una porzione di software abbastanza piccola da poterne assegnare lo sviluppo ad un singolo \PR. \\
+				Attraverso questo test verrà verificata la correttezza di ogni modulo base che compone il software, limitando gli errori di implementazione.
+			\paragraph{Test di integrazione}
+				Il test di integrazione verifica che due o più moduli già verificati funzionino come previsto quando vengono assemblati insieme. Inoltre aiuta a scovare i difetti residui sfuggiti dalla fase di test precedente. \\
+				In più con questo test viene verificata la collaborazione tra i moduli prodotti e le componenti esterne usate come \gl{framework} o \gl{librerie}. \\
+				È possibile che vengano usate delle componenti ‘‘fittizie’’ al posto dei moduli non ancora completati per poter eseguire comunque dei test.
+			\paragraph{Test di sistema}
+		
 		\label{sec:MisureGenerale} %3.9
 		\label{sec:Misure} %3.9.3
