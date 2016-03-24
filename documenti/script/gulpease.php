@@ -1,11 +1,16 @@
 <?php
 
 /*
-	ISTRUZIONI:
-	copiare il file all'interno della cartella di una delle revisioni
-	(ad esempio "1 - RR") ed eseguire da terminale lo script.
+	modifiche script: Viviana Alessio - Beacon Strips - 2016: 
+	lo script è ora compatibile con la struttura del repository del team Beacon strips.
 
+	creazione script: Enrico Ceron - Infinitech - 2015
 */
+
+
+// eseguire lo script direttamente all'interno della cartella "script"
+$rev = ('../1 - RR/'); //al cambio di revisione modificare questa variabile
+$revisione = 'Revisione dei Requisiti';//e questa
 
 $rootE = 'Esterni/';
 $rootI = 'Interni/';
@@ -23,7 +28,8 @@ $docs = array(
 
 
 echo <<< EOF
-
++-----------+--------+----------+
+    $revisione     
 +-----------+--------+----------+
 | Documento | Valore | Esito    |
 +-----------+--------+----------+
@@ -58,20 +64,20 @@ function median($array) {
  * Calcola e stampa la media del Gulpease di tutti i file per ogni documento
  */
 foreach ($docs as $doc => $dir) {
-  if (file_exists($rootE . $dir)) $root = $rootE;
+  if (file_exists($rev . $rootE . $dir)) $root = $rootE;
   else
-  	if (file_exists($rootI . $dir)) $root = $rootI;
+  	if (file_exists($rev . $rootI . $dir)) $root = $rootI;
   
     // Se la cartella $dir esiste inizializza $gulpease e salva il nome di tutti
     // i file al suo interno in $files
     $gulpease = array();
-    $files = scandir($root . $dir);
+    $files = scandir($rev . $root . $dir);
     foreach ($files as $file) {
     	// echo "\n$file\n";
       // Di ogni $file, se ha estensione .tex, ne calcola il Gulpease che salva
       // in $gulpease con una push
       if (preg_match('/.tex$/', $file)) {
-        $path = $root . $dir . $file;
+        $path = $rev . $root . $dir . $file;
         if (file_exists($path)) {
           array_push($gulpease, gulpease($path));
         }
