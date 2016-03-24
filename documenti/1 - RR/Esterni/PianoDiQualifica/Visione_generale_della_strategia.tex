@@ -116,13 +116,19 @@
 			\end{itemize}
 			Nelle prossime sezioni sono definiti i tipi di test effettuati sul prodotto software in sviluppo dal \gl{team}.
 			\paragraph{Test di unità}
-				Il test di unità verifica che ogni singola di unità di prodotto funzioni correttamente. Per unità si intende una porzione di software abbastanza piccola da poterne assegnare lo sviluppo ad un singolo \PR. \\
+				Il test di unità verifica che ogni singola unità di prodotto funzioni correttamente. Per unità si intende una porzione di software abbastanza piccola da poterne assegnare lo sviluppo ad un singolo \PR. \\
 				Attraverso questo test verrà verificata la correttezza di ogni modulo base che compone il software, limitando gli errori di implementazione.
 			\paragraph{Test di integrazione}
 				Il test di integrazione verifica che due o più moduli già verificati funzionino come previsto quando vengono assemblati insieme. Inoltre aiuta a scovare i difetti residui sfuggiti dalla fase di test precedente. \\
 				In più con questo test viene verificata la collaborazione tra i moduli prodotti e le componenti esterne usate come \gl{framework} o \gl{librerie}. \\
 				È possibile che vengano usate delle componenti ‘‘fittizie’’ al posto dei moduli non ancora completati per poter eseguire comunque dei test.
 			\paragraph{Test di sistema}
+				I test di sistema validano l'intero prodotto software quando si ritiene che esso sia giunto ad una versione definitiva. Viene quindi controllato se tutti i requisiti sono stati soddisfatti.
+			\paragraph{Test di regressione}
+				Questo test viene eseguito dopo la modifica di una componente, e consiste nel rieseguire tutti i test. In questo modo si controlla che dopo la modifica tutti i moduli continuino a funzionare correttamente. \\
+				Il tracciamento aiuta a capire quali sono i test da ripetere (di ogni tipo) poiché potenzialmente a rischio in caso di modifica.
+			\paragraph{Test di accettazione}
+				Coincide con il collaudo del software in presenza del \gl{proponente}. Se il test risulta positivo il prodotto sarà considerato sufficientemente maturo da permetterne il rilascio.
 		
 		\label{sec:MisureGenerale} %3.9
 		\label{sec:Misure} %3.9.3
