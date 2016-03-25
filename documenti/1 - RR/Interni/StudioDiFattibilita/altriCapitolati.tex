@@ -3,7 +3,7 @@
 \subsection{Capitolato C1 - Actorbase}
 \subsubsection{Scopo del progetto}
 
-Il progetto Actorbase consiste nella progettazione di un database non relazionale ad attori utilizzando le seguenti teconologie:
+Il progetto Actorbase consiste nella progettazione di un database non relazionale che utilizzi il modello ad attori grazie all'uso delle seguenti tecnologie:
 \begin{itemize}
 	\item La libreria Akka per l'implementazione del modello ad attori su JVM
 	\item Java o Scala come linguaggi di programmazione
@@ -11,7 +11,8 @@ Il progetto Actorbase consiste nella progettazione di un database non relazional
 Inoltre è prevista l'implementazione di un DSL per poter interagire con il database da riga di comando.
 
 \subsubsection{Osservazioni}
-
+Poichè un progetto con il modello ad attori è già stato affrontato per il progetto del corso di Programmazione Concorrente e Distribuita, il gruppo ha deciso di
+non intraprendere lo sviluppo di questo capitolato.
 
 
 \subsection{Capitolato C3 - Internet of things}
@@ -40,11 +41,33 @@ Le tecnologie consigliate sono le seguenti:
 \end{itemize}
 
 \subsubsection{Osservazioni}
+La progettazione di un algoritmo predittivo è un argomento che interessa ai membri del gruppo ma la complessità dell'argomento e la mancanza delle conoscenze
+richieste per lo svolgimento del progetto hanno portato all'esclusione del capitolato da parte del gruppo.
+
+
 
 \subsection{Capitolato C4 - MaaS}
 \subsubsection{Scopo del progetto}
+Il progetto MaaS prevede la realizzazione di un servizio web che renda disponibile direttamente attraverso internet la piattaforma MaaP alle varie compagnie
+che vogliono utilizzare tale piattaforma. Il servizio deve estendere MaaP in due modi:
+\begin{itemize}
+	\item \textbf{SaaS:} deve essere disponibile come unica istanza disponibile a più gruppi di persone, dedicando a ciascun gruppo una propria area di lavoro
+	\item \textbf{DSL:} deve essere possibile modificare online le definizioni del DSL, inoltre dovrebbero anche essere progettate delle azioni predefinite (es.: esporta il csv del documento)
+	e la dashboard
+\end{itemize}
+
+I  requisiti tecnologici sono i seguenti:
+\begin{itemize}
+	\item Node.js per il backend, per la precisione deve supportare la versione LTS Argon
+	\item MongoDB con versione non inferiore alla 3 come database
+	\item Il framework loopback per la gestione del sistema
+	\item Rendere disponibile il servizio su Heroku
+	\item Utilizzare github o bitbucket per il versionamento
+\end{itemize}
 
 \subsubsection{Osservazioni}
+La carenza delle conoscenze necessarie per sviluppare il progetto ha portato il gruppo a decidere di scartare il capitolato data la grande quantità
+di tempo necessaria per colmare le lacune.
 
 
 \subsection{Capitolato C5 - Quizzipedia}
@@ -76,9 +99,29 @@ La parte destinata ai creatori di domande e quiz dovrà essere utilizzabile su P
 dovrà funzionare con qualunque dispositivo.
 
 \subsubsection{Osservazioni}
+I membri del gruppo si sono trovati interessati allo sviluppo dell'applicazione visto che le conoscenze necessarie per lo sviluppo rientrano
+nelle conoscenze possedute dai membri stessi. Sfortunatamente non è stato possibile scegliere il capitolato in quanto non più disponibile al momento
+della creazione del gruppo.
 
-\subsection{Capitolato C6 - MIVOQ}
+\subsection{Capitolato C6 - Sintesi vocali su dispositivi mobili}
 \subsubsection{Scopo del progetto}
+Il progetto consiste nella realizzazione di un'applicazione che aggiunga nuove funzioni su smartphone e/o tablet per la sintesi vocale.
+L'applicazione deve usare il motore di sintesi Flexible and Adaptive Text-To-Speech e deve rispettare i seguenti requisiti obbligatori:
+
+\begin{itemize}
+	\item Gestire i problemi causati dall'utilizzo di un servizio remoto (es.: gestire il caso in cui non si è in grado di accedere ad internet)
+	\item Implementare un'interfaccia grafica per la configurazione dei servizi TTS
+\end{itemize}
+
+I requisiti opzionali sono:
+
+\begin{itemize}
+	\item Supporto multipiattaforma
+	\item Utilizzo e integrazione di servizi aggiuntivi (es.: l'integrazione del servizio di personalizzazione
+	della voce nell'applicazione o l'utilizzo di risorse esterne per ottenere contenuti)
+\end{itemize}
+
+Per quanto riguarda le tecnologie da utilizzare, l'unico vincolo è quello di utilizzare il motore di sintesi Flexible and Adaptive Text-to-Speech.
 
 \subsubsection{Osservazioni}
-
+Il gruppo non ha riscontrato alcun interesse nello sviluppo di applicazioni riguardanti il TTS.
