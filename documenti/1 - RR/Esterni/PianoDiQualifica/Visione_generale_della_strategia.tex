@@ -13,12 +13,12 @@
 		\end{itemize}
 		L'attuazione di questi punto è approfondita nel \PPdoc. \\
 		Analizzando la qualità del prodotto si controlla anche la qualità dei processi. Un prodotto scadente indica che i processi sono migliorabili. \\
-		Inoltre si possono usare delle metriche per quantificare la qualità dei processi, tali metriche sono descritte nella sezione \hyperref[sec:MisureGenerale]{3.9 Misure e metriche}.
+		Inoltre si possono usare delle metriche per quantificare la qualità dei processi, tali metriche sono descritte nella sezione \hyperref[sec:3.9]{3.9 Misure e metriche}.
 	\subsection{Procedure di controllo di qualità di prodotto}
 		Il controllo di qualità del prodotto verrà garantito da:
 		\begin{itemize}
-			\item \textbf{quality assurance:} è l'insieme di attività realizzate per raggiungere gli obiettivi di qualità. Queste attività prevedono l'attuazione di tecniche di analisi statica e dinamica, descritte nella sezione \hyperref[sec:TecnicheAnalisi]{3.8 Tecniche di analisi}.
-			\item \textbf{verifica:} è un processo che determina se l'output di una fase è consistente, corretto e completo. Per tutta la durata del progetto verranno svolte attività di verifica, i cui risultati sono e saranno riportati nell'Appendice \hyperref[sec:A]{A}.
+			\item \textbf{quality assurance:} è l'insieme di attività realizzate per raggiungere gli obiettivi di qualità. Queste attività prevedono l'attuazione di tecniche di analisi statica e dinamica, descritte nella sezione \hyperref[sec:3.8]{3.8 Tecniche di analisi}.
+			\item \textbf{verifica:} è un processo che determina se l'output di una fase è consistente, corretto e completo. Per tutta la durata del progetto verranno svolte attività di verifica, i cui risultati sono e saranno riportati nell'\hyperref[sec:A]{Appendice A}.
 			\item \textbf{validazione:} è il processo di conferma oggettiva del soddisfacimento dei requisiti, attuato per ogni fase del gl{progetto}.
 		\end{itemize}
 	\subsection{Organizzazione}
@@ -34,8 +34,8 @@
 				\item Ogni documento dovrà rispettare le \NPdoc; per verificarlo verranno adoperati gli strumenti più appropriati.
 				\item Verrà verificato che sia presente una didascalia per ogni rappresentazione grafica e il contenuto di ogni figura e tabella.
 			\end{itemize}
-			\item \textbf{progettazione architetturale:} verrà garantito che ogni requisito sarà rintracciabile, attraverso il processo di verifica. Ogni requisito sarà rintracciabile nei componenti individuati in questa fase, si veda la \hyperref[sec:Definizione]{Sezione 2}\ per ulteriori approfondimenti.
-			\item \textbf{progettazione di dettaglio dei requisiti obbligatori, desiderabili, opzionali e della codifica:} i Programmatori svolgeranno le attività di codifica e di esecuzione dei test di unità per la verifica del codice. Queste attività avverranno nel modo più automatizzato possibile, rispettando anche i vincoli statici. I Verificatori controlleranno parallelamente la presenza di eventuali anomalie, definite nella \hyperref[sec:Gestione]{Sezione 4}.
+			\item \textbf{progettazione architetturale:} verrà garantito che ogni requisito sarà rintracciabile, attraverso il processo di verifica. Ogni requisito sarà rintracciabile nei componenti individuati in questa fase, si veda la \hyperref[sec:2]{Sezione 2}\ per ulteriori approfondimenti.
+			\item \textbf{progettazione di dettaglio dei requisiti obbligatori, desiderabili, opzionali e della codifica:} i Programmatori svolgeranno le attività di codifica e di esecuzione dei test di unità per la verifica del codice. Queste attività avverranno nel modo più automatizzato possibile, rispettando anche i vincoli statici. I Verificatori controlleranno parallelamente la presenza di eventuali anomalie, definite nella \hyperref[sec:4]{Sezione 4}.
 			\item \textbf{validazione:} alla Revisione di Accettazione (RA) il gruppo \AUTORE\ garantisce il funzionamento corretto del prodotto realizzato. Le eventuali modifiche per eliminare le possibili diversità rispetto al prodotto atteso saranno a carico del \gl{fornitore}.
 		\end{itemize}
 		In ogni documento viene inoltre incluso il diario delle modifiche, in modo da mantenere uno storico delle attività svolte e delle relative responsabilità.
@@ -96,7 +96,7 @@
 			\item\ l'organizzazione e la condivisione dei file.
 		\end{itemize}
 	\subsection{Tecniche di analisi}
-		\label{sec:TecnicheAnalisi} %3.8
+		\label{sec:3.8}
 		\subsubsection{Analisi statica}
 			L'analisi statica è una tecnica di verifica applicabile sia ai documenti che al codice. Verrà effettuata per tutta la fase di sviluppo del progetto e serve per trovare anomalie, che verranno trattate come descritto nelle \NPdoc. Può essere applicata nei due modi seguenti.
 			\paragraph{Walkthrough}
@@ -129,6 +129,129 @@
 				Il tracciamento aiuta a capire quali sono i test da ripetere (di ogni tipo) poiché potenzialmente a rischio in caso di modifica.
 			\paragraph{Test di accettazione}
 				Coincide con il collaudo del software in presenza del \gl{proponente}. Se il test risulta positivo il prodotto sarà considerato sufficientemente maturo da permetterne il rilascio.
-		
-		\label{sec:MisureGenerale} %3.9
-		\label{sec:Misure} %3.9.3
+	\subsection{Misure e metriche}
+		\label{sec:3.9}
+		Per essere utile ed informativo il processo di verifica dev'essere quantificabile. Vanno quindi stabilite a priori delle metriche, sulle quali saranno basate le misure rilevate dal processo di verifica. Nel caso in cui vi fossero delle metriche approssimate ed incerte, esse miglioreranno in modo incrementale. Questo grazie al ciclo di vita adottato descritto nel \PPdoc. Possono esserci due tipi di \gl{range}:
+		\begin{itemize}
+			\item \textbf{range di accettazione:}\ insieme di valori richiesti affinché il prodotto sia accettato.
+			\item \textbf{range ottimale:}\ insieme di valori entro i quali dovrebbe collocarsi la misurazione. Esso non è vincolante, ma fortemente consigliato. Scostamenti da tali valori necessitano una verifica approfondita.
+		\end{itemize}
+		\subsubsection{Metriche per i processi}
+			\label{sec:3.9.1}
+			\paragraph{Valutazione CMM}
+				\label{sec:3.9.1.1}
+				I processi verranno valutati secondo il modello \gl{CMM}. Tale modello prevede che ogni processo verrà valutato secondo le proprie ‘‘Capability’’ e ‘‘Maturity’’. Per entrambe verrà assegnato un voto da 1 (stato iniziale) a 5 (stato controllato), che ne indicherà la valutazione complessiva. \\
+				La scelta di \gl{CMM} rispetto ai più recenti CMMI e \iso{ISO/IEC 15504} è dovuta alla maggior snellezza della valutazione. Il primo valuta usando solo due parametri, i secondi invece dividono il processo in più attributi. \\
+				È stata fatta questa scelta a causa del progetto non molto grande. Questo renderebbe alcuni attributi superflui o sopravvalutati. Altri due elementi che hanno portato a questa scelta sono l'inesperienza del gruppo e la rotazione dei ruoli. Questi porterebbero a facili fraintendimenti e disaccordi sulle singole valutazioni.
+				
+				\textbf{Parametri utilizzati:}
+				\begin{itemize}
+					\item \textbf{Range accettazione:}\ 3 - 5;
+					\item \textbf{Range ottimale:}\ 4 - 5.
+				\end{itemize}
+		\subsubsection{Metriche per i documenti}
+			\label{sec:3.9.2}
+			\paragraph{Indice Gulpease}
+				\label{sec:3.9.2.1}
+				L'indice \gl{Gulpease} è un indice di leggibilità del testo creato appositamente per valutare la lingua italiana. Dato che non valuta la lunghezza delle parole mediante il numero di sillabe tale indice semplifica il calcolo rispetto ad altri indici di leggibilità. Esso infatti è basato sul numero di caratteri contenuti in una parola e ad altri fattori come il numero di parole e di frasi. Come tutti gli indici di leggibilità esso permette di indicare la complessità di un documento. Il calcolo da effettuare è il seguente:
+				\[89+\frac{300(numero\,\, delle\,\, frasi) - 10(numero\,\, delle\,\, lettere)}{numero\,\, delle\,\, parole}\]
+				I risultati sono compresi tra 0 e 100, dove 100 è il valore di leggibilità più alto e 0 quello più basso. Sono state stabilite delle soglie per rapportare il livello delle istruzioni di un individuo con i vari gradi dell'indice:
+				\begin{itemize}
+					\item \textbf{inferiore a 80:} documento difficile da leggere per chi ha la licenza elementare;
+					\item \textbf{inferiore a 60:} documento difficile da leggere per chi ha licenza media;
+					\item \textbf{inferiore a 40:} documento difficile da leggere per chi ha la licenza superiore.
+				\end{itemize}
+				In realtà tale indice non certifica se il testo sia comprensibile o meno. Per lo scopo dei documenti e per la formalità richiesti da essi verranno usati spesso termini tecnici che non si possono sostituire. Di conseguenza un documento potrebbe avere un ottimo indice di \gl{Gulpease} ma essere difficile da comprendere per i termini usati. Anche spezzare una frase può migliorare l'indice, ma interromperebbe il ragionamento fatto in quella frase. Infine usare frasi troppo dirette potrebbe essere poco professionale ai fini del documento. Per queste ragioni i documenti verranno valutati da un essere umano, così potrà stabilire se il testo è semplificabile. I limiti imposti da tale indice saranno sufficientemente rilassati per accettare frasi un po' più articolate.
+				
+				\textbf{Parametri utilizzati:}
+				\begin{itemize}
+					\item \textbf{Range accettazione:}\ 40- 100;
+					\item \textbf{Range ottimale:}\ 50 - 100.
+				\end{itemize}
+		\subsubsection{Metriche per il codice}		
+			\label{sec:3.9.3}
+			\paragraph{Numero di parametri}
+				\label{sec:3.9.3.1}
+				Indica il numero di parametri formali in input di un metodo. Se il numero di parametri è elevato, lo \gl{stack} del programma può essere riempito rapidamente in caso di chiamate multiple innestate.
+				
+				\textbf{Parametri utilizzati:}
+				\begin{itemize}
+					\item \textbf{Range accettazione:}\ 0 -8;
+					\item \textbf{Range ottimale:}\ 0 -5.
+				\end{itemize}
+			\paragraph{Complessità ciclomatica}
+				\label{sec:3.9.3.2}
+				Indica il numero di cammini linearmente indipendenti che attraversano il grafo di flusso di controllo del metodo. In tale grafo i nodi rappresentano unità atomiche di istruzioni. Gli archi indicano che le istruzioni collegate dai nodi collegati possono essere eseguite consecutivamente. \\
+				Un alto valore di complessità si può ridurre con la suddivisione in più metodi. È accettata anche una misurazione più lasca se questo dovesse influire in modo positivo sulla velocità di esecuzione. Oltretutto un valore alto potrebbe essere causato da strutture che in realtà aiutano ad ordinare il codice, come gli switch di condizioni.
+				
+				\textbf{Parametri utilizzati:}
+				\begin{itemize}
+					\item \textbf{Range accettazione:}\ 0 - 10;
+					\item \textbf{Range ottimale:}\ 0 - 6.
+				\end{itemize}
+			\paragraph{Numero di campi dati per classe}
+				\label{sec:3.9.3.3}
+				Un elevato numero di attributi interni rende la classe troppo poco specializzata, ed è indice di cattiva progettazione. Dato che la classe ricoprirà più ruoli, rende anche più difficile il mantenimento del codice. \\
+				La riduzione del numero dei campi dati si può ottenere con l'incapsulamento in nuove classi.
+				
+				\textbf{Parametri utilizzati:}
+				\begin{itemize}
+					\item \textbf{Range accettazione:}\ 0 - 16;
+					\item \textbf{Range ottimale:}\ 0 - 10.
+				\end{itemize}
+			\paragraph{Livello d'annidamento}
+				\label{sec:3.9.3.4}
+				Indica quante volte le strutture di controllo sono state inserite l'una all'interno dell'altra. Un alto valore può portare a difficoltà nella verifica e nell'astrazione del codice.
+				
+				\textbf{Parametri utilizzati:}
+				\begin{itemize}
+					\item \textbf{Range accettazione:}\ 0 - 6;
+					\item \textbf{Range ottimale:}\ 0 -4.
+				\end{itemize}
+			\paragraph{Grado di accoppiamento}
+				\label{sec:3.9.3.5}
+				È derivato da due singoli indici.
+				\begin{itemize}
+					\item \textbf{Indice di utilità:}\ numero di classi esterne al package che dipendono da classi al suo interno. Se il numero è basso il package non fornirà molte funzionalità e sarà poco utile. Se invece è alto troppe classi saranno dipendenti da tale package, rischiando di dover effettuare troppi cambiamenti ad ogni sua modifica.
+					
+					\textbf{Indice di utilità - Parametri utilizzati:}
+					\begin{itemize}
+						\item \textbf{Range accettazione:}\ 0 - 16;
+						\item \textbf{Range ottimale:}\ 0 - 8.
+					\end{itemize}
+					\item \textbf{Indice di dipendenza:}\ numero di classi interne al package dipendenti da classi esterne. Un alto numero può indicare una scarsa progettazione.
+					
+					\textbf{Indice di dipendenza - Parametri utilizzati:}
+					\begin{itemize}
+						\item \textbf{Range accettazione:}\ 0 - 32;
+						\item \textbf{Range ottimale:}\ 0 - 16.
+					\end{itemize}
+				\end{itemize}
+			\paragraph{Chiamate innestate di metodi}
+				\label{sec:3.9.3.6}
+				Un grande numero di chiamate innestate di metodi può portare alla saturazione dello \gl{stack}, soprattutto in caso di un grande numero di parametri, quindi è necessario limitarne il numero.
+				
+				\textbf{Parametri utilizzati:}
+				\begin{itemize}
+					\item \textbf{Range accettazione:}\ 0 - 8;
+					\item \textbf{Range ottimale:}\ 0 - 5.
+				\end{itemize}
+			\paragraph{Riepilogo}
+				\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}}
+					\intestazionethreecol{Metriche}{Range accettazione}{Range ottimale}
+					\hyperref[sec:3.9.1]{3.9.1 Metriche per i processi} & & \\
+					\hyperref[sec:3.9.1.1]{3.9.1.1 Valutazione CMM} & 3 -5 & 4 - 5 \\
+					\hyperref[sec:3.9.2]{3.9.2 Metriche per i documenti} & & \\
+					\hyperref[sec:3.9.2.1]{3.9.2.1 Indice Gulpease} & 40 - 100 & 50 - 100 \\
+					\hyperref[sec:3.9.3]{3.9.3 Metriche per il codice} & & \\
+					\hyperref[sec:3.9.3.1]{3.9.3.1 Numero di parametri} & 0 - 8 & 0 - 5 \\
+					\hyperref[sec:3.9.3.2]{3.9.3.2 Complessità ciclomatica} & 0 - 10 & 0 - 6 \\
+					\hyperref[sec:3.9.3.3]{3.9.3.3 Numero campi dati per classe} & 0 -16 & 0 - 10 \\
+					\hyperref[sec:3.9.3.4]{3.9.3.4 Livello d'annidamento} & 0 - 6 & 0 - 4 \\
+					\hyperref[sec:3.9.3.5]{3.9.3.5 Grado di accoppiamento - Indice di utilità} & 0 - 16 & 0 - 8 \\
+					\hyperref[sec:3.9.3.5]{3.9.3.5 Grado di accoppiamento - Indice di dipendenza} & 0 - 32 & 0 - 16 \\
+					\hyperref[sec:3.9.3.6]{3.9.3.6 Chiamate innestate di metodi} & 0 - 8 & 0 - 5 \\
+					
+					\hiderowcolors
+					\caption{Riepilogo delle metriche e dei range di accettazione e ottimali}
+				\end{tabella}
