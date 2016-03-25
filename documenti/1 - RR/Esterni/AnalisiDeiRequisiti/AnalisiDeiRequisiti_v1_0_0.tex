@@ -8,6 +8,21 @@
 \usepackage{Riferimenti}
 \usepackage{Stile}
 
+% -- COMANDI PER I CASI D'USO -- %
+\newcommand\UC[1]{\hyperref[UC#1]{UC#1}}
+\newcommand\boldTitle[1]{\\\\\textbf{#1: }}
+\newcommand\id[1]{\boldTitle{Identificativo} UC #1}
+\newcommand\tipo{\boldTitle{Tipo}}
+\newcommand\tit{\boldTitle{Titolo}}
+\newcommand\desc{\boldTitle{Descrizione}}
+\newcommand\pre{\boldTitle{Precondizione}}
+\newcommand\post{\boldTitle{Postcondizione}}
+\newcommand\scen{\boldTitle{Scenario principale}}
+\newcommand\scensec{\boldTitle{Scenario secondario}}
+\newcommand\att{\boldTitle{Attori}}
+\newcommand\ext{\boldTitle{Extension Point}}
+\newcommand\casoduso[2]{\subsection{UC#1 - #2}\label{UC#1}}
+
 \def\NOME{Analisi dei Requisiti}
 \def\VERSIONE{0.1}
 \def\DATA{\today}
