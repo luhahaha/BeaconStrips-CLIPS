@@ -3,14 +3,13 @@
 		È presente una cartella nel \gl{repository} in \file{documenti/template}. \\
 		La cartella contiene i seguenti files:
 		\begin{itemize}
-			\item \textit{Comandi.sty}: contiene i comandi personalizzati (\gl);
-			\item \textit{Riferimenti.sty}: %contiene i riferimenti, tipo "Variabile globale"
+			\item \textit{Comandi.sty}: contiene i comandi personalizzati (ad es. \texttt {\textbackslash gl});
+			\item \textit{Riferimenti.sty}: all'interno del file sono presenti vari comandi da utilizzare come scorciatoie (ad es. \texttt{\textbackslash RES)};
 			\item \textit{Stile.sty}: contiene gli stili grafici da applicare al template;
-			\item \textit{TemplateDoc.tex}: è il template da utilizzare per realizzare i documenti.
-			\item \textit{Glossario.sty}: %aggiungere descrizione
+			\item \textit{TemplateDoc.tex}: è il \gl{template} da utilizzare per realizzare i documenti. Ogni documento dovrà essere realizzato a partire da questo file;
+			\item \textit{Glossario.sty}: questo file serve per impostare il \textit{Glossario}, che avrà una configurazione diversa al template standard. %controllare
 		\end{itemize}
 		È presente inoltre una cartella \textit{img} dove è presente il logo del team e dove potranno essere caricate tutte le altre immagini necessarie al template. \\
-		Ogni documento dovrà essere realizzato utilizzando il \gl{template} presente nella cartella.
 	\subsection{Struttura del documento}
 		\subsubsection{Frontespizio}
 		La prima pagina di ogni documento dovrà contenere le seguenti informazioni:
@@ -38,8 +37,7 @@
 			\item data di modifica.
 		\end{itemize}		
 		\subsubsection{Indici}
-		In ogni documento è presente un indice delle sezioni, il quale fornisce una visione macroscopica della struttura del documento.
-		%Indice delle tabelle e delle figure
+		In ogni documento è presente un indice delle sezioni, il quale fornisce una visione macroscopica della struttura del documento. Nel caso comparissero tabelle e figure nel documento, potranno essere presenti i rispettivi indici.
 		\subsubsection{Intestazione e piè di pagina}
 		L'intestazione di ogni pagina contiene i seguenti elementi:
 		\begin{itemize}
@@ -52,8 +50,6 @@
 			\item nome del team, allineato al centro;
 			\item pagina X di Y, dove X è la pagina corrente e Y è il numero di pagine totali, allineato a destra.
 		\end{itemize}
-		\subsubsection{Formattazione}
-		
 	
 	\subsection{Norme tipografiche}
 	In questa sezione vengono definite le norme riguardanti l'ortografia e la tipografia, al fine di avere uno stile uniforme per tutti i documenti prodotti.
@@ -62,22 +58,19 @@
 			\item \textbf{Grassetto}: il grassetto va utilizzato nei seguenti casi:
 			\begin{itemize}
 				\item titoli;
-				\item elenchi puntati: può essere utilizzato il grassetto nel caso sia necessario evidenziare il concetto da sviluppare.
+				\item elenchi puntati: può essere utilizzato il grassetto nel caso sia necessario evidenziare il concetto da sviluppare;
+				\item altri casi: per evidenziare parole chiave o contenuti importanti.
 			\end{itemize}
-			\item Corsivo: il corsivo va utilizzato:
-			\begin{itemize}
-				\item quando si parla di documenti;
-				\item 
-			\end{itemize}
-			\item \LaTeX: ogni occorrenza di \LaTeX{} va scritta con il comando \textbackslash LaTeX
-			\item Maiuscolo: è possibile utilizzare lo stile maiuscolo solo per gli acronimi;
-			\item \gl{Monospace}: le porzioni di testo scritte in monospace definiscono:
+			\item \textbf{Corsivo}: lo stile corsivo va applicato quando si citano documenti;
+			\item \LaTeX: ogni occorrenza di \LaTeX{} va scritta con il comando \texttt{\textbackslash LaTeX}
+			\item Maiuscolo: è possibile utilizzare lo stile maiuscolo \textbf{solo} per gli acronimi;
+			\item \gl{Monospace}: le porzioni di testo scritte in \gl{monospace} definiscono:
 			\begin{itemize}
 				\item frammenti di codice;
 				\item comandi;
-				\item URL;
+				\item URL.
 			\end{itemize} 
-			%\item Glossario: le parole che hanno un riferimento nel glossario sono in corsivo e hanno una 'g' a pedice
+			\item Glossario: le parole che hanno un riferimento nel glossario sono in corsivo e hanno una 'g' a pedice.
 		\end{itemize}
 		\subsubsection{Punteggiatura}
 		\begin{itemize}
@@ -87,6 +80,11 @@
 			\item \textbf{Virgolette doppie}: le virgolette doppie vanno utilizzate per indicare citazioni e documenti.
 		\end{itemize}
 		\subsubsection{Composizione del testo}
+		\begin{itemize}
+			\item \textbf{Elenchi puntati}: ogni punto dell'elenco termina con un punto e virgola, ad eccezione dell'ultimo che deve terminare con un punto. \\
+			Ogni punto inizia con la minuscola; nel caso però il punto necessiti di una spiegazione, si utilizzerà la maiuscola. %da discutere
+			\item \textbf{}
+		\end{itemize}
 		\subsubsection{Formati}
 		\begin{itemize}
 			\item \textbf{Date}: per le date va utilizzata la notazione definita dallo standard \gl{ISO} 8601:2004:
@@ -107,7 +105,24 @@
 				\item \textbf{SdF} per \SFdoc
 				\item \textbf{ST} per \STdoc
 			\end{itemize}	
+			\item \textbf{Ruoli di progetto}: per indicare i vari ruoli, vanno utilizzati i seguenti comandi:
+			\begin{itemize}
+				\item \file{\textbackslash AM} per \AM
+				\item \file{\textbackslash AN} per \AN
+				\item \file{\textbackslash PR} per \PR
+				\item \file{\textbackslash PRJ} per \PRJ
+				\item \file{\textbackslash RES} per \RES
+				\item \file{\textbackslash VER} per \VER
+			\end{itemize}
+			\item \textbf{Nomi propri}: per indicare nomi propri va utilizzata la forma \textit{Nome Cognome};
+			\item
 		\end{itemize}
+	\subsection{Componenti grafiche}		
+		\subsubsection{Immagini}
+		
+		\subsubsection{Tabelle}
+		
+	
 	\subsection{Versionamento}
 	I documenti prodotti sono soggetti al seguente versionamento attraverso la seguente codifica:
 	\highlight{vX.Y.Z}
