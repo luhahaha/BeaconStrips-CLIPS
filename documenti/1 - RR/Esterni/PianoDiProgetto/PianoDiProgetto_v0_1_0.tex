@@ -9,11 +9,25 @@
 \usepackage{Stile}
 
 \usepackage{comment}
+
+% mi serve nella sezione Pianificazione. Mette "Attività" centrato sotto al processo
 \newcommand{\att}{
 	\begin{center}
 	\textbf{Attività}
 	\end{center}
+	}
+
+% mi serve nella sezione preventivo per mettere i grafici a torta. #1=path immagine, #2=caption
+\newcommand{\torta}[2]{
+	\begin{figure}[h]
+		\centering
+		\includegraphics[height=8cm, width=14cm]{#1} 
+		\caption{#2}
+	\end{figure}		
 }
+
+
+
 
 \def\NOME{Piano di Progetto}
 \def\VERSIONE{0.1}
@@ -31,7 +45,7 @@
 \maketitle
 
 \begin{diario}
-	\modifica{Viviana Alessio}{\RES}{Sezione Pianificazione: Stesura fasi da PA e PDC}{2016-03-26}{0.3.3}
+	\modifica{Viviana Alessio}{\RES}{Sezione Pianificazione: Stesura fasi da PA a V}{2016-03-26}{0.3.3}
 	\modifica{Viviana Alessio}{\RES}{Sezione Pianificazione: miglioramento organizzazione, Stesura fase AD}{2016-03-25}{0.3.2}
 	\modifica{Viviana Alessio}{\RES}{Stesura Pianificazione: introduzione, fase A}{2016-03-23}{0.3.1}
 	\modifica{Viviana Alessio}{\RES}{Stesura Analisi dei rischi: livello personale e organizzativo}{2016-03-23}{0.3.0}
