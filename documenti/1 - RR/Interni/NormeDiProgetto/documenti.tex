@@ -1,6 +1,6 @@
 \section{Documenti}
 	\subsection{Template}
-		È presente una cartella nel \gl{repository} in \file{documenti/template}. \\
+		È presente una cartella nel \gl{repository} in \file{/documenti/template}. \\
 		La cartella contiene i seguenti files:
 		\begin{itemize}
 			\item \textit{Comandi.sty}: contiene i comandi personalizzati (ad es. \texttt {\textbackslash gl});
@@ -61,7 +61,11 @@
 				\item elenchi puntati: può essere utilizzato il grassetto nel caso sia necessario evidenziare il concetto da sviluppare;
 				\item altri casi: per evidenziare parole chiave o contenuti importanti.
 			\end{itemize}
-			\item \textbf{Corsivo}: lo stile corsivo va applicato quando si citano documenti;
+			\item \textbf{Corsivo}: lo stile corsivo si applica a:
+				\begin{itemize}
+					\item documenti;
+					\item abbreviazioni.
+				\end{itemize}
 			\item \LaTeX: ogni occorrenza di \LaTeX{} va scritta con il comando \texttt{\textbackslash LaTeX}
 			\item Maiuscolo: è possibile utilizzare lo stile maiuscolo \textbf{solo} per gli acronimi;
 			\item \gl{Monospace}: le porzioni di testo scritte in \gl{monospace} definiscono:
@@ -83,7 +87,7 @@
 		\begin{itemize}
 			\item \textbf{Elenchi puntati}: ogni punto dell'elenco termina con un punto e virgola, ad eccezione dell'ultimo che deve terminare con un punto. \\
 			Ogni punto inizia con la minuscola; nel caso però il punto necessiti di una spiegazione, si utilizzerà la maiuscola. %da discutere
-			\item \textbf{}
+			\item \textbf{Nota a piè di pagina}: ogni nota inizia con l'iniziale della prima parola maiuscola e termina con il punto. Non ci sono spaziature tra il numero della nota e il testo.
 		\end{itemize}
 		\subsubsection{Formati}
 		\begin{itemize}
@@ -97,31 +101,33 @@
 			\end{itemize}
 			\item \textbf{Sigle}: le sigle dei documenti vanno utilizzate solo nei diagrammi o nelle tabelle, con lo scopo di risparmiare spazio. Tali sigle sono:
 			\begin{itemize}
-				\item \textbf{AdR} per \ARdoc
-				\item \textbf{Gl} per \Gldoc
-				\item \textbf{NdP} per \NPdoc
-				\item \textbf{PdP} per \PPdoc
-				\item \textbf{PdQ} per \PQdoc
-				\item \textbf{SdF} per \SFdoc
-				\item \textbf{ST} per \STdoc
+				\item \textbf{AdR} per \ARdoc;
+				\item \textbf{Gl} per \Gldoc;
+				\item \textbf{NdP} per \NPdoc;
+				\item \textbf{PdP} per \PPdoc;
+				\item \textbf{PdQ} per \PQdoc;
+				\item \textbf{SdF} per \SFdoc;
+				\item \textbf{ST} per \STdoc.
 			\end{itemize}	
 			\item \textbf{Ruoli di progetto}: per indicare i vari ruoli, vanno utilizzati i seguenti comandi:
 			\begin{itemize}
-				\item \file{\textbackslash AM} per \AM
-				\item \file{\textbackslash AN} per \AN
-				\item \file{\textbackslash PR} per \PR
-				\item \file{\textbackslash PRJ} per \PRJ
-				\item \file{\textbackslash RES} per \RES
-				\item \file{\textbackslash VER} per \VER
+				\item \file{\textbackslash AM} per \AM;
+				\item \file{\textbackslash AN} per \AN;
+				\item \file{\textbackslash PR} per \PR;
+				\item \file{\textbackslash PRJ} per \PRJ;
+				\item \file{\textbackslash RES} per \RES;
+				\item \file{\textbackslash VER} per \VER.
 			\end{itemize}
-			\item \textbf{Nomi propri}: per indicare nomi propri va utilizzata la forma \textit{Nome Cognome};
-			\item
-		\end{itemize}
+				\item \textbf{Nomi propri}: per indicare nomi propri va utilizzata la forma \textit{Nome Cognome};
+				\item \textbf{Nome del proponente}: tramite il comando \texttt{\textbackslash PROPONENTE} ci si riferisce al proponente "Miriade SpA";
+				\item \textbf{Nome del progetto}: con \texttt{\textbackslash PROGETTO} verrà citato il nome del progetto, ovvero CLIPS;
+				\item \textbf{Nome del committente}: \texttt{\textbackslash COMMITTENTE} viene impiegato per riferirsi al "Prof. Tullio Vardanega".
+			\end{itemize}
 	\subsection{Componenti grafiche}		
 		\subsubsection{Immagini}
-		
+		Il formato preferito per le immagini è SVG (\gl{Scalable Vector Graphics}), in quanto è possibile garantire una qualità maggiore e sono ridimensionabili senza perdere qualità. Nel caso non sia possibile integrare questo formato, si raccomanda l'utilizzo di immagini in formato PNG (\gl{Portable Network Graphics}).
 		\subsubsection{Tabelle}
-		
+		Le tabelle devono essere accompagnate da una didascalia e da un numero incrementale per garantirne la tracciabilità.
 	
 	\subsection{Versionamento}
 	I documenti prodotti sono soggetti al seguente versionamento attraverso la seguente codifica:
@@ -145,7 +151,6 @@
 	Il formato da utilizzare per la creazione di file è:
 	\highlight{\file{NomeDocumento\_vX.Y.Z.pdf}}
 	\subsection{Ciclo di vita}
-	%Un documento segue una serie di fasi prima di arrivare alla sua pubblicazione
 	Ogni documento può trovarsi in tre fasi differenti:
 	\begin{itemize}
 		\item \textbf{In lavorazione}: un documento è in lavorazione quando vengono aggiunti, modificati o rimossi dei contenuti;
