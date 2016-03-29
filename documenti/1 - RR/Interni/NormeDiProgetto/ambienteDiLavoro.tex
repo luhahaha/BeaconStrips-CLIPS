@@ -2,13 +2,20 @@
 	\subsection{Sistema operativo}
 	Non ci sono restrizioni riguardo l'utilizzo di un sistema operativo: ogni membro del team può utilizzare quindi il sistema operativo che preferisce; in ogni caso, è tenuto a rendere il materiale prodotto \textbf{completamente} compatibile su tutte le piattaforme.
 	\subsection{Condivisione}
-	Tutti i file e documenti non soggetti a controllo di versione possono essere condivisi su \gl{Google Drive}. \\
-	È possibile anche condividere link o manuali utili per la formazione del team.
+	Il servizio da utilizzare per i documenti informali è \gl{Google Drive}.
+	All'interno di questo repository vanno caricati documenti che:
+	\begin{itemize}
+		\item non necessitano di controllo di versione;
+		\item necessitano di essere modificati contemporaneamente da più persone; infatti Google Drive permette la modifica di un documento in contemporanea: in questo modo non ci saranno conflitti.
+	\end{itemize}
+	È possibile anche condividere link o manuali utili per la formazione del team. Si può installare Google Drive sul proprio PC: i file così potranno essere disponibili anche offline e sincronizzare il contenuto della cartella ad ogni aggiornamento.
 	\subsection{Gestione}
-		\subsubsection{Ticket}
-		Per la gestione dei ticket è stato scelto di utilizzare \gl{Asana}. %vedi sezione ticketing
-		\subsubsection{Requisiti e casi d'uso}
-		Per il tracciamento dei requisiti si utilizzerà \gl{Trender}. Per quanto riguarda la rappresentazione dei casi d'uso l'editor consigliato è \gl{Star UML} %vedi sezione requisiti
+		\begin{itemize}
+			\item \textbf{Ticket}: per la gestione dei ticket è stato scelto di utilizzare \gl{Asana}; per la gestione dei ticket, si rimanda alla sezione %vedi sezione ticketing
+			\item \textbf{Requisiti e casi d'uso}: per il tracciamento dei requisiti si utilizzerà \gl{Trender}. Per quanto riguarda la rappresentazione dei casi d'uso l'editor consigliato è \gl{Star UML}; %vedi sezione requisiti 
+			\item \textbf{Scadenze}: \gl{Google Calenar} verrà utlizzato per segnare le scadenze del gruppo; si riceverà una notifica su Slack trenta minuti prima dell'evento;
+			\item \textbf{Progetto}: per la realizzazione dei \gl{grafici di Gantt} è stato impiegato il programma \gl{GanttProject}.
+		\end{itemize}
 	\subsection{Documentazione}
 		\subsubsection{Stesura documentazione}
 		Per redigere la documentazione si è scelto di utilizzare il linguaggio di markup \LaTeX in quanto: \\
@@ -20,6 +27,7 @@
 			\item è multipiattaforma, essendo un file sorgente di \LaTeX una semplice codifica \gl{ASCII};
 		\end{itemize}
 		Come editor di file \LaTeX è consigliato l'uso di \textit{TeXstudio}, anch'esso multipiattaforma.
-	\subsection{Verifica documentazione}
-			\subsubsection{Correttore ortografico automatico}
-			In TeXstudio è presente un correttore ortografico automatico che permette la correzione in tempo reale. I file da utilizzare sono presenti nella cartella condivisa in Google Drive all'indirizzo \file{\textbackslash dizionari}.
+		\subsubsection{Verifica documentazione}
+			In TeXstudio è presente un correttore ortografico automatico che permette la correzione in tempo reale. I file da utilizzare sono presenti nella cartella condivisa in Google Drive all'indirizzo \file{/dizionari}.
+	\subsection{Script}
+	Su Github è presente una cartella \texttt{/script} dove sono presenti degli script utilizzabili dal gruppo per semplificare alcune operazioni.
