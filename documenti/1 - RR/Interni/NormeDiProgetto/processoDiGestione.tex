@@ -1,0 +1,121 @@
+\subsubsection{Processo di gestione}
+	\paragraph{Comunicazioni}
+		\subparagraph{Comunicazioni interne}
+		Per le comunicazioni interne si è deciso di utilizzare \gl{Slack}. Sono stati creati diversi canali per suddividere il lavoro. I canali sono:
+		\begin{itemize}
+			\item \textit{\#general}: in questo canale va utilizzato per le comunicazioni di carattere generale e per le convocazioni delle riunioni; 
+			\item \textit{\#random}: in caso di piccoli dubbi o questioni di scarsa rilevanza, si consiglia l'utilizzo di questo canale; 
+			\item \textit{\#tools}: questo canale è stato creato per domande relative a dubbi e/o problemi sugli strumenti utilizzati per lo sviluppo;
+			\item \textit{\#git}: su questo canale è stato collegato un \gl{bot} che si occupa di notificare tutti i commit effettuati da ogni singolo componente del gruppo;
+			\item \textit{\#nome\_del\_documento}: per ogni documento è stato creato un canale dove è possibile discutere di tutte le scelte da prendere per quel singolo documento.
+		\end{itemize}
+		In caso di necessità, sarà possibile aggiungere nuovi canali nelle fasi successive dello sviluppo. \\
+		Inoltre, è possibile utilizzare il gruppo creato su \gl{Telegram}, per comunicazioni interne non inerenti al progetto. Per le videoconferenze invece verrà utilizzato \gl{Skype}.
+		\subparagraph{Comunicazioni esterne}
+		Per le comunicazioni esterne è stata creata la casella di posta elettronica: \\
+		\highlight{\EMAIL}\\
+		Questo indirizzo deve essere l'unico usato per comunicare con le componenti esterne al team ed è controllato unicamente dal \gl{\RES}. Il \RES è tenuto poi ad informare i membri del team riguardo le comunicazioni avvenute con l'esterno.
+	\paragraph{Riunioni}
+		\subparagraph{Riunioni interne}
+		Il gruppo si ritroverà ad organizzare una riunione almeno ogni dieci giorni. \\
+		Il \RES si occuperà di convocare su Slack le riunioni generali, dove tutti i membri del team sono convocati, avvisando i componenti con almeno due giorni di preavviso. \\
+		In caso di necessità, un componente del team può richiedere la convocazione di una riunione: tale richiesta deve essere inoltrata al \RES, che deciderà se accettarla o respingerla. \\
+		Inoltre sono possibili riunioni tra specifici membri: in questo caso sono tenuti ad informare il resto del team tramite un verbale, nel caso siano state prese decisioni rilevanti. \\
+		\subparagraph{Riunioni esterne}
+		Il \RES si occuperà di concordare con il proponente o con i committenti le riunioni esterne al gruppo. È gradita la presenza di tutti i componenti del gruppo ad ogni incontro. \\
+		Prima dell'inizio di ogni riunione, verrà scelto un componente del gruppo, che svolgerà la funzione di segratario, il quale annoterà ogni argomento trattato e si occuperà di redigere un verbale, che andrà poi inviato agli altri componenti del team.
+	\paragraph{Ticket}
+	 I ticket avranno la seguente struttura:
+	 \begin{itemize}
+	 	\item \textbf{titolo}: deve rappresentare in modo chiaro e conciso il task;
+	 	\item \textbf{scadenza}: data entro cui l'assegnatario deve concludere il task;
+	 	\item \textbf{descrizione}: se necessario,deve chiarire con una breve descrizione il task;
+	 	\item \textbf{assegnatario}: colui che dovrà completare il task;
+	 	\item \textbf{tag di stato}: deve contenere il giusto tag che rappresenta lo stato attuale del task; 
+	 	\item \textbf{subtasks}: il task può essere suddiviso in task piu piccoli.
+	 	\end{itemize}
+	 	\subsubsection{Lista dei tag}
+	 	Ogni ticket dovrà sempre contenere un tag che rappresenti lo stato attuale di avanzamento:
+	 	\begin{itemize}
+	 		\item \textbf{Assegnato}:il ticket è stato assegnato ad un membro del team;
+	 		\item \textbf{accettato}: l'assegnatario ha preso in carico il ticket;
+	 		\item \textbf{Rifiutato}: l'assegnatario ha rifiutato il ticket ed ha inserito la motivazione in un commento;
+	 		\item \textbf{inCorso}: l'assegnatario sta svolgendo il task;
+	 		\item \textbf{inSospeso}: l'assegnatario specifica della motivazione per cui ha messo in attesa il ticket;
+	 		\item \textbf{Completato}: l'assegnatario ha concluso il task;
+	 		\item \textbf{Verificato}:il ticket è stato verificato.
+	 		\end{itemize}
+\subsubsection{Procedure}
+	\paragraph{Creazione di un ticket}
+	La creazione e l'assegnazione dei ticket sarà delegata al Responsabile che seguirà la seguente procedura:
+	\begin{itemize}
+		\item assegna il \textbf{titolo} del ticket;
+		\item assegna la data di \textbf{scadenza} del ticket;
+		\item se necessario descrive il task più approfonditamente tramite la \textbf{descrizione};
+		\item assegna il ticket ad un \textbf{assegnatario};
+		\item imposta il \textbf{tag di stato} ad \textbf{Assegnato}.
+	\end{itemize}
+	\paragraph{Aggiornamento di un ticket}
+	Ogni membro del gruppo avrà una lista di ticket a lui assegnati, su di essi dovrà modificare il tag di stato ogni qual volta uno di questi cambi di stato come descritto dalla sezione 8.2.1. Nel caso in cui il ticket venga \textbf{rifiutato} o venga messo \textbf{in sospeso} è necessario scrivere una motivazione attraverso un commento.
+\subsubsection{Norme}
+	\paragraph{Repository}
+	Per la gestione condivisa e per il controllo delle versioni dei file il \gl{team} ha deciso di utilizzare una repository fornita dal servizio web \gl{GitHub}.
+		\subparagraph{Struttura del repository}
+		La respository si divide in due cartelle principali:
+		\begin{itemize}
+			\item \textbf{Codice}: contenente il codice del progetto, con struttura ancora da definire;
+			\item \textbf{Documenti}: contenente:
+			\begin{enumerate}
+				\item \textbf{template}: con al suo interno i file \file{.sty} e una cartella \textbf{img} contenente le immagini;
+				\item una cartella per ogni \textbf{revisione di avanzamento}, il cui nome è definito dal numero e dalla sigla della revisione, separata da un trattino. Ciascuna di esse è suddivisa in:
+				\begin{enumerate}
+					\item \textbf{interni}: contenente una cartella per ogni documento interno, con nome, in notazione \gl{CamelCase}, uguale a quello del documento(senza numero di versione);
+					\item \textbf{esterni}: contenente una cartella per ogni documento esterno, con nome, in notazione \gl{CamelCase}, uguale a quello del documento(senza numero di versione);
+				\end{enumerate}
+			\end{enumerate}
+		\end{itemize}
+		\subparagraph{Tipi di file e .gitignore}
+		All'interno delle cartelle dei documenti saranno presenti solamente i file \file{.tex}, i restanti file ausiliari prodotti da \LaTeX{} sono stati aggiunti a .gitignore e quindi vengono ignorati e resi invisibili da \gl{Git}.
+		\subparagraph{Norme sulla commit}
+		Per rendere effettive le modifiche applicate ai file della repository locale è necessario eseguire una \textbf{commit}.
+		I membri del team sono tenuti ad effettuare una commit ogni qual volta venga aggiunta, rimossa o aggiornata una funzionalità oppure una sezione, aggiungendo i file interessati tramite il commando:
+		\begin{center}
+			\file{git add nome\_del\_file.est}
+		\end{center}
+		ed eseguendo la commit tramite il commando:
+		\begin{center}
+			\file{git commit -m ``messaggio''}
+		\end{center}
+		con \file{messaggio} che segua le regole della sezione 3.2.1.
+		Infine per rendere effettive le modifiche nel repository in remoto eseguire:
+		\begin{center}
+			\file{git push}
+		\end{center}
+		\subparagraph{Messaggi delle commit}
+		Ogni qual volta venga eseguita una \file{commit} è obbligatorio inserire un breve messaggio con la spiegazione
+		delle modifiche apportate; il messaggio deve iniziare con:
+		\begin{itemize}
+			\item \textbf{Add:} se vengono aggiunte funzionalità o sezioni;
+			\item \textbf{Remove:} se vengono tolte funzionalità o sezioni;
+			\item \textbf{Update:} se vendono aggiornate funzionalità o sezioni;
+			\item \textbf{Fix:} se viene sistemato un bug noto;
+		\end{itemize}
+		deve seguire una descrizione sintetica in lingua italiana delle modifiche apportate.
+\subsubsection{Strumenti}
+	\paragraph{Sistema operativo}
+	Non ci sono restrizioni riguardo l'utilizzo di un sistema operativo: ogni membro del team può utilizzare quindi il sistema operativo che preferisce; in ogni caso, è tenuto a rendere il materiale prodotto \textbf{completamente} compatibile su tutte le piattaforme.
+	\paragraph{Condivisione}
+	Il servizio da utilizzare per i documenti informali è \gl{Google Drive}.
+	All'interno di questo repository vanno caricati documenti che:
+	\begin{itemize}
+		\item non necessitano di controllo di versione;
+		\item necessitano di essere modificati contemporaneamente da più persone; infatti Google Drive permette la modifica di un documento in contemporanea: in questo modo non ci saranno conflitti.
+	\end{itemize}
+	È possibile anche condividere link o manuali utili per la formazione del team. Si può installare Google Drive sul proprio PC: i file così potranno essere disponibili anche offline e sincronizzare il contenuto della cartella ad ogni aggiornamento.
+	\paragraph{Gestione}
+	\begin{itemize}
+		\item \textbf{Ticket}: per la gestione dei ticket è stato scelto di utilizzare \gl{Asana}; per la gestione dei ticket, si rimanda alla sezione %vedi sezione ticketing
+		\item \textbf{Requisiti e casi d'uso}: per il tracciamento dei requisiti si utilizzerà \gl{Trender}. Per quanto riguarda la rappresentazione dei casi d'uso l'editor consigliato è \gl{Star UML}; %vedi sezione requisiti 
+		\item \textbf{Scadenze}: \gl{Google Calenar} verrà utlizzato per segnare le scadenze del gruppo; si riceverà una notifica su Slack trenta minuti prima dell'evento;
+		\item \textbf{Progetto}: per la realizzazione dei \gl{grafici di Gantt} è stato impiegato il programma \gl{GanttProject}.
+	\end{itemize}
