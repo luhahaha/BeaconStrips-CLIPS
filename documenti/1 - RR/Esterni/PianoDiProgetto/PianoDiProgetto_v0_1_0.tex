@@ -8,6 +8,7 @@
 \usepackage{Riferimenti}
 \usepackage{Stile}
 
+\usepackage{eurosym}
 \usepackage{comment}
 
 % mi serve nella sezione Pianificazione. Mette "Attività" centrato sotto al processo
@@ -19,14 +20,21 @@
 
 % mi serve nella sezione preventivo per mettere i grafici a torta. #1=path immagine, #2=caption
 \newcommand{\torta}[2]{
-	\begin{figure}[h]
-		\centering
+	\begin{figure}[H]
+	%	\centering
 		\includegraphics[height=8cm, width=14cm]{#1} 
 		\caption{#2}
 	\end{figure}		
 }
 
-
+% comando per inserire gli istogrammi
+\newcommand{\ist}[2]{
+	\begin{figure}[H]
+		%\centering
+		\includegraphics[height=9cm, width=15cm]{#1} 
+		\caption{#2}
+	\end{figure}		
+}
 
 
 \def\NOME{Piano di Progetto}

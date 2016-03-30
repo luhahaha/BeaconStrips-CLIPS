@@ -1,42 +1,163 @@
 \section{Preventivo} 
 	\subsection{Introduzione}
-	
+		A fronte della pianificazione sono stati decise per ogni fase quante ore ogni componente del gruppo dovrà svolgere per ruolo.
+		Per favorire la rotazione dei ruoli sarà possibile che alcuni membri in una singola fase svolgano diversi ruoli. \\
+		Nelle tabelle e in alcuni grafici si farà uso delle abbreviazioni seguenti per indicare i ruoli:
+		\begin{itemize}
+			\item RE: Responsabile;
+			\item AM: Amministratore;
+			\item AN: Analista;
+			\item PG: Progettista;
+			\item PR: Programmatore;
+			\item VR: Verificatore.
+		\end{itemize}
+		
 	\subsection{Fase non rendicontanta}
-	\subsubsection{Fase A}
-	
-	\begin{tabella}{!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}}
 		
-		\intestazioneeightcol{Nome}{RE}{AM}{AN}{PG}{PR}{VR}{Ore totali}
+		\subsubsection{Fase A}
 		
-		Viviana Alessio & 12 & 2 & - & - & - & 8 & 22 \\
-		Enrico Bellio & - & - & 15 & - & - & 7 & 22 \\
-		Matteo Franco & - & 14 & - & - & - & 8 & 22 \\
-		Andrea Grendene & - & - & 20 & - & - & 3 & 23 \\
-		Tommaso Panozzo & - & 6 & 15 & - & - & 3 & 24 \\
-		Luca Soldera  & - & 14 & - &- & - & 8 & 22 \\
+			\paragraph{Suddivisione del lavoro}
+			Nella seguente tabella è descritta la divisione del lavoro nella fase A:
+			\begin{tabella}{!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}}
+				
+				\intestazioneeightcol{Nome}{RE}{AM}{AN}{PG}{PR}{VR}{Ore totali}
+				
+				Viviana Alessio & 12 & 2 & - & - & - & 8 & 22 \\
+				Enrico Bellio & - & - & 15 & - & - & 7 & 22 \\
+				Matteo Franco & - & 14 & - & - & - & 8 & 22 \\
+				Andrea Grendene & - & - & 20 & - & - & 3 & 23 \\
+				Tommaso Panozzo & - & 6 & 15 & - & - & 3 & 24 \\
+				Luca Soldera  & - & 14 & - &- & - & 8 & 22 \\
+				
+				\hiderowcolors
+				\caption{Ore per componente - Fase A}
+				
+			\end{tabella}
+			
+			\ist{img/istogrammiOre/istA}{Istogramma ruoli - Fase A}
+			
+			\paragraph{Prospetto economico}
+			
+			\begin{tabella}{!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}}
+				\intestazionethreecol{Ruolo}{Ore}{Costo}
+				
+				Responsabile & 12 & 360\euro \\
+				
+				\hiderowcolors
+				\caption{Ore per componente - Fase A}
+			\end{tabella}			
+			\torta{img/percOre/PercentualeOreFaseA.png}{Percentuale di ore per ruolo - Fase A}
 		
-		\hiderowcolors
-		\caption{Fasi di sviluppo con relative abbreviazioni e date di inizio e fine.}
-		
-	\end{tabella}
-	
-	\torta{img/percOre/PercentualeOreFaseA.png}{Percentuale di ore per ruolo - Fase A}
-	
-	
 	
 	\subsection{Fasi rendicontate}
 	
-	\subsubsection{Fase AD}
-	\torta{img/percOre/PercentualeOreFaseAD.png}{Percentuale di ore per ruolo - Fase AD}
-	
-	\subsubsection{Fase PA}
-	\torta{img/percOre/PercentualeOreFasePA.png}{Percentuale di ore per ruolo - Fase PA}
-	
-	\subsubsection{Fase PDC}
-	\torta{img/percOre/PercentualeOreFasePDC.png}{Percentuale di ore per ruolo - Fase PDC}
-	
-	\subsubsection{Fase RD}	
-	\torta{img/percOre/PercentualeOreFaseRD.png}{Percentuale di ore per ruolo - Fase RD}
-	
-	\subsubsection{Fase V}
-	\torta{img/percOre/PercentualeOreFaseV.png}{Percentuale di ore per ruolo - Fase V}
+		\subsubsection{Fase AD}
+			Nella seguente tabella è descritta la divisione del lavoro nella fase AD:
+			\begin{tabella}{!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}}
+				
+				\intestazioneeightcol{Nome}{RE}{AM}{AN}{PG}{PR}{VR}{Ore totali}
+				
+				Viviana Alessio & - & - & 10 & - & - & - & 10 \\
+				Enrico Bellio & - & - & - & - & - & 10 & 10 \\
+				Matteo Franco & - & - & 10 & - & - & - & 10 \\
+				Andrea Grendene & - & 3 & - & - & - & 7 & 10 \\
+				Tommaso Panozzo & - & 5 & 5 & - & - & - & 10 \\
+				Luca Soldera  & 5 & - & 5 & - & - & - & 10 \\
+				
+				\hiderowcolors
+				\caption{Ore per componente - Fase AD}
+				
+			\end{tabella}
+			
+			\ist{img/istogrammiOre/istAD}{Istogramma ruoli - Fase AD}
+			
+			\torta{img/percOre/PercentualeOreFaseAD.png}{Percentuale di ore per ruolo - Fase AD}
+		
+		\subsubsection{Fase PA}
+			Nella seguente tabella è descritta la divisione del lavoro nella fase PA:
+			\begin{tabella}{!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}}
+				
+				\intestazioneeightcol{Nome}{RE}{AM}{AN}{PG}{PR}{VR}{Ore totali}
+				
+				Viviana Alessio & - & 5 & 15 & - & - & 12 & 32 \\
+				Enrico Bellio & - & 5 & 15 & - & - & 12 & 32 \\
+				Matteo Franco & - & - & - & 23 & - & 10 & 33 \\
+				Andrea Grendene & - & - & 6 & 10 & - & 15 & 31 \\
+				Tommaso Panozzo & 10 & - & - & 23 & - & - & 33 \\
+				Luca Soldera  & - & - & - & 23 & - & 10 & 33 \\
+				
+				\hiderowcolors
+				\caption{Ore per componente - Fase PA}
+				
+			\end{tabella}
+			
+			\ist{img/istogrammiOre/istPA}{Istogramma ruoli - Fase PA}
+			
+			\torta{img/percSoldi/percSoldiProva.png}{soldi fase PA}
+			\torta{img/percOre/PercentualeOreFasePA.png}{Percentuale di ore per ruolo - Fase PA}
+		
+		\subsubsection{Fase PDC}
+			Nella seguente tabella è descritta la divisione del lavoro nella fase PDC:
+			\begin{tabella}{!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}}
+				
+				\intestazioneeightcol{Nome}{RE}{AM}{AN}{PG}{PR}{VR}{Ore totali}
+				
+				Viviana Alessio & - & - & - & 12 & 15 & 8 & 35 \\
+				Enrico Bellio & - & - & - & - & 23 & 12 & 35 \\
+				Matteo Franco & 10 & - & 6 & 6 & - & 11 & 33 \\
+				Andrea Grendene & - & - & - & - & 25 & 10 & 35 \\
+				Tommaso Panozzo & - & - & - & 12 & 15 & 7 & 34 \\
+				Luca Soldera  & - & 5 & 15 & - & - & 15 & 35 \\
+				
+				\hiderowcolors
+				\caption{Ore per componente - Fase PDC}
+				
+			\end{tabella}
+			
+			\ist{img/istogrammiOre/istPDC}{Istogramma ruoli - Fase PDC}
+			
+			\torta{img/percOre/PercentualeOreFasePDC.png}{Percentuale di ore per ruolo - Fase PDC}
+		
+		\subsubsection{Fase RD}	
+			Nella seguente tabella è descritta la divisione del lavoro nella fase RD:
+			\begin{tabella}{!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}}
+				
+				\intestazioneeightcol{Nome}{RE}{AM}{AN}{PG}{PR}{VR}{Ore totali}
+				
+				Viviana Alessio & - & 3 & - & - & - & 7 & 10 \\
+				Enrico Bellio & 6 & - & - & 6 & - & 0 & 12 \\
+				Matteo Franco & - & - & - & 3 & 10 & - & 13 \\
+				Andrea Grendene & - & - & - & - & - & 11 & 11 \\
+				Tommaso Panozzo & - & - & - & 5 & 5 & 2 & 12 \\
+				Luca Soldera  & - & - & - & - & 10 & - & 10 \\
+				
+				\hiderowcolors
+				\caption{Ore per componente - Fase RD}
+				
+			\end{tabella}
+			
+			\ist{img/istogrammiOre/istRD}{Istogramma ruoli - Fase RD}
+			
+			\torta{img/percOre/PercentualeOreFaseRD.png}{Percentuale di ore per ruolo - Fase RD}
+		
+		\subsubsection{Fase V}
+			Nella seguente tabella è descritta la divisione del lavoro nella fase V:
+			\begin{tabella}{!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}}
+				
+				\intestazioneeightcol{Nome}{RE}{AM}{AN}{PG}{PR}{VR}{Ore totali}
+				
+				Viviana Alessio & - & 3 & - & - & - & 12 & 15 \\
+				Enrico Bellio & - & 5 & - & - & - & 8 & 13 \\
+				Matteo Franco & - & - & - & 3 & - & 10 & 13 \\
+				Andrea Grendene & 5 & - & - & - & - & 10 & 15 \\
+				Tommaso Panozzo & - & - & - & 5 & 5 & 3 & 13 \\
+				Luca Soldera  & - & - & 5 & - & 6 & 3 & 14 \\
+				
+				\hiderowcolors
+				\caption{Ore per componente - Fase RD}
+				
+			\end{tabella}
+			
+			\ist{img/istogrammiOre/istRD}{Istogramma ruoli - Fase V}
+			
+			\torta{img/percOre/PercentualeOreFaseV.png}{Percentuale di ore per ruolo - Fase V}
