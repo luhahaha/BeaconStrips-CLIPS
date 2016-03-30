@@ -1,4 +1,4 @@
-\subsubsection{Processo di gestione}
+\subsubsection{Attività}
 	\paragraph{Comunicazioni}
 		\subparagraph{Comunicazioni interne}
 		Per le comunicazioni interne si è deciso di utilizzare \gl{Slack}. Sono stati creati diversi canali per suddividere il lavoro. I canali sono:
@@ -10,11 +10,11 @@
 			\item \textit{\#nome\_del\_documento}: per ogni documento è stato creato un canale dove è possibile discutere di tutte le scelte da prendere per quel singolo documento.
 		\end{itemize}
 		In caso di necessità, sarà possibile aggiungere nuovi canali nelle fasi successive dello sviluppo. \\
-		Inoltre, è possibile utilizzare il gruppo creato su \gl{Telegram}, per comunicazioni interne non inerenti al progetto. Per le videoconferenze invece verrà utilizzato \gl{Skype}.
+		Inoltre, è possibile utilizzare il gruppo creato su \gl{Telegram}, per comunicazioni interne non inerenti al progetto. Per le videoconferenze invece verrà utilizzato \gl{Google Hangouts}.
 		\subparagraph{Comunicazioni esterne}
 		Per le comunicazioni esterne è stata creata la casella di posta elettronica: \\
 		\highlight{\EMAIL}\\
-		Questo indirizzo deve essere l'unico usato per comunicare con le componenti esterne al team ed è controllato unicamente dal \gl{\RES}. Il \RES è tenuto poi ad informare i membri del team riguardo le comunicazioni avvenute con l'esterno.
+		Questo indirizzo deve essere l'unico usato per comunicare con le componenti esterne al team ed è controllato unicamente dal \RES. Il \RES è tenuto poi ad informare i membri del team riguardo le comunicazioni avvenute con l'esterno.
 	\paragraph{Riunioni}
 		\subparagraph{Riunioni interne}
 		Il gruppo si ritroverà ad organizzare una riunione almeno ogni dieci giorni. \\
@@ -27,21 +27,21 @@
 	\paragraph{Ticket}
 	 I ticket avranno la seguente struttura:
 	 \begin{itemize}
-	 	\item \textbf{titolo}: deve rappresentare in modo chiaro e conciso il task;
-	 	\item \textbf{scadenza}: data entro cui l'assegnatario deve concludere il task;
-	 	\item \textbf{descrizione}: se necessario,deve chiarire con una breve descrizione il task;
-	 	\item \textbf{assegnatario}: colui che dovrà completare il task;
-	 	\item \textbf{tag di stato}: deve contenere il giusto tag che rappresenta lo stato attuale del task; 
-	 	\item \textbf{subtasks}: il task può essere suddiviso in task piu piccoli.
+	 	\item \textbf{Titolo}: deve rappresentare in modo chiaro e conciso il task;
+	 	\item \textbf{Scadenza}: data entro cui l'assegnatario deve concludere il task;
+	 	\item \textbf{Descrizione}: se necessario,deve chiarire con una breve descrizione il task;
+	 	\item \textbf{Assegnatario}: colui che dovrà completare il task;
+	 	\item \textbf{Tag di stato}: deve contenere il giusto tag che rappresenta lo stato attuale del task; 
+	 	\item \textbf{Subtasks}: il task può essere suddiviso in task piu piccoli.
 	 	\end{itemize}
-	 	\subsubsection{Lista dei tag}
+	 	\subparagraph{Lista dei tag}
 	 	Ogni ticket dovrà sempre contenere un tag che rappresenti lo stato attuale di avanzamento:
 	 	\begin{itemize}
 	 		\item \textbf{Assegnato}:il ticket è stato assegnato ad un membro del team;
-	 		\item \textbf{accettato}: l'assegnatario ha preso in carico il ticket;
+	 		\item \textbf{Accettato}: l'assegnatario ha preso in carico il ticket;
 	 		\item \textbf{Rifiutato}: l'assegnatario ha rifiutato il ticket ed ha inserito la motivazione in un commento;
-	 		\item \textbf{inCorso}: l'assegnatario sta svolgendo il task;
-	 		\item \textbf{inSospeso}: l'assegnatario specifica della motivazione per cui ha messo in attesa il ticket;
+	 		\item \textbf{InCorso}: l'assegnatario sta svolgendo il task;
+	 		\item \textbf{InSospeso}: l'assegnatario specifica della motivazione per cui ha messo in attesa il ticket;
 	 		\item \textbf{Completato}: l'assegnatario ha concluso il task;
 	 		\item \textbf{Verificato}:il ticket è stato verificato.
 	 		\end{itemize}
@@ -56,7 +56,7 @@
 		\item imposta il \textbf{tag di stato} ad \textbf{Assegnato}.
 	\end{itemize}
 	\paragraph{Aggiornamento di un ticket}
-	Ogni membro del gruppo avrà una lista di ticket a lui assegnati, su di essi dovrà modificare il tag di stato ogni qual volta uno di questi cambi di stato come descritto dalla sezione 8.2.1. Nel caso in cui il ticket venga \textbf{rifiutato} o venga messo \textbf{in sospeso} è necessario scrivere una motivazione attraverso un commento.
+	Ogni membro del gruppo avrà una lista di ticket a lui assegnati, su di essi dovrà modificare il tag di stato ogni qual volta uno di questi cambi di stato come descritto dalla sezione 4.1.1.3.1. Nel caso in cui il ticket venga \textbf{rifiutato} o venga messo \textbf{in sospeso} è necessario scrivere una motivazione attraverso un commento.
 \subsubsection{Norme}
 	\paragraph{Repository}
 	Per la gestione condivisa e per il controllo delle versioni dei file il \gl{team} ha deciso di utilizzare una repository fornita dal servizio web \gl{GitHub}.
@@ -66,7 +66,7 @@
 			\item \textbf{Codice}: contenente il codice del progetto, con struttura ancora da definire;
 			\item \textbf{Documenti}: contenente:
 			\begin{enumerate}
-				\item \textbf{template}: con al suo interno i file \file{.sty} e una cartella \textbf{img} contenente le immagini;
+				\item \textbf{template}: con al suo interno i file \file{.sty} e una cartella \textbf{img} contenente le immagini (vedi sezione 3.1.2.1);
 				\item una cartella per ogni \textbf{revisione di avanzamento}, il cui nome è definito dal numero e dalla sigla della revisione, separata da un trattino. Ciascuna di esse è suddivisa in:
 				\begin{enumerate}
 					\item \textbf{interni}: contenente una cartella per ogni documento interno, con nome, in notazione \gl{CamelCase}, uguale a quello del documento(senza numero di versione);
