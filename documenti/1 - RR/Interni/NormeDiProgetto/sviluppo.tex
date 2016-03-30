@@ -34,11 +34,18 @@
 		\subsubsection{Aggiornamento di un ticket}
 		Ogni membro del gruppo avrà una lista di ticket a lui assegnati, su di essi dovrà modificare il tag di stato ogni qual volta uno di questi cambi di stato come descritto dalla sezione 8.2.1. Nel caso in cui il ticket venga \textbf{rifiutato} o venga messo \textbf{in sospeso} è necessario scrivere una motivazione attraverso un commento.
 		\subsubsection{Verifica di un ticket}
-		Ogni qual volta un ticket sarà contrassegnato come \textbf{Completato} il Responsabile procederà nel seguente modo: \textbf{verificatore}
+		Ogni qual volta un ticket sarà contrassegnato come \textbf{Completato} il Responsabile procederà nel seguente modo: 
 		\begin{itemize}
 			\item crea un ticket di verifica;
-			\item lo assegna ad un Verificatore;
-			\item qualora ci fossero anomalie, crea un nuovo ticket per notificarlo;
-			\item nel caso non ci fossero anomalie imposta il tag del ticket oggetto di verifica a \textbf{Verificato};
+			\item lo assegna ad un \textbf{verificatore};
+			\item non appena il ticket viene contrassegnato come \textbf{completato} imposta il tag del ticket oggetto di verifica a \textbf{Verificato}.
+		\end{itemize}
+		\paragraph{Notifiche delle anomalie}
+		Il \textbf{validatore} qualora riscontrasse delle anomalie procederà secondo la seguente procedura:
+		\begin{itemize}
+			\item crea un nuovo subtask del ticket di verifica per ogni anomalia riscontrata;
+			\item assegna un titolo breve e preciso ad ogni subtask;
+			\item se necessario aggiunge un commento che descriva l'anomalia riscontrata;
+			\item assegna i subtasks al redattore del documento;
 		\end{itemize}
 		
