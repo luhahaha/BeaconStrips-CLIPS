@@ -1,0 +1,178 @@
+\subsubsection{Procedure}
+	\paragraph{Ciclo di vita}
+	Ogni documento può trovarsi in tre fasi differenti:
+	\begin{itemize}
+		\item \textbf{In lavorazione}: un documento è in lavorazione quando vengono aggiunti, modificati o rimossi dei contenuti;
+		\item \textbf{Da verificare}: quando un documento è completo, esso dovrà essere preso in consegna dai verificatori, che si occuperanno di rilevare e/o correggere errori sintattici e semantici;
+		\item textbf{Approvato}: un documento, utlimata la verifica, deve essere approvato dal \RES. L'approvazione quindi determina lo stato finale della versione del documento.
+	\end{itemize}
+	Le varie fasi vengono scandite dal sistema di ticketing (vedi sezione) %aggiungere link
+\subsubsection{Norme}
+	\paragraph{Template}
+	È presente una cartella nel \gl{repository} in \file{/documenti/template}. \\
+	La cartella contiene i seguenti files:
+	\begin{itemize}
+		\item \textit{Comandi.sty}: contiene i comandi personalizzati (ad es. \texttt {\textbackslash gl});
+		\item \textit{Riferimenti.sty}: all'interno del file sono presenti vari comandi da utilizzare come scorciatoie (ad es. \texttt{\textbackslash RES)};
+		\item \textit{Stile.sty}: contiene gli stili grafici da applicare al template;
+		\item \textit{TemplateDoc.tex}: è il \gl{template} da utilizzare per realizzare i documenti. Ogni documento dovrà essere realizzato a partire da questo file;
+		\item \textit{Glossario.sty}: questo file serve per impostare il \textit{Glossario}, che avrà una configurazione diversa al template standard. %controllare
+	\end{itemize}
+	È presente inoltre una cartella \textit{img} dove è presente il logo del team e dove potranno essere caricate tutte le altre immagini necessarie al template. 
+	\paragraph{Norme tipografiche}
+	In questa sezione vengono definite le norme riguardanti l'ortografia e la tipografia, al fine di avere uno stile uniforme per tutti i documenti prodotti.
+	\subparagraph{Stile del testo}
+		\begin{itemize}
+			\item \textbf{Grassetto}: il grassetto va utilizzato nei seguenti casi:
+			\begin{itemize}
+				\item titoli;
+				\item elenchi puntati: può essere utilizzato il grassetto nel caso sia necessario evidenziare il concetto da sviluppare;
+				\item altri casi: per evidenziare parole chiave o contenuti importanti.
+			\end{itemize}
+			\item \textbf{Corsivo}: lo stile corsivo si applica a:
+			\begin{itemize}
+				\item documenti;
+				\item abbreviazioni.
+			\end{itemize}
+			\item \LaTeX: ogni occorrenza di \LaTeX{} va scritta con il comando \texttt{\textbackslash LaTeX}
+			\item Maiuscolo: è possibile utilizzare lo stile maiuscolo \textbf{solo} per gli acronimi;
+			\item \gl{Monospace}: le porzioni di testo scritte in \gl{monospace} definiscono:
+			\begin{itemize}
+				\item frammenti di codice;
+				\item comandi;
+				\item URL.
+			\end{itemize} 
+			\item Glossario: le parole che hanno un riferimento nel glossario sono in corsivo e hanno una 'g' a pedice.
+		\end{itemize}
+	\subparagraph{Punteggiatura}
+		\begin{itemize}
+			\item \textbf{Spaziature}: ogni simbolo di punteggiatura deve essere seguito da uno spazio, e mai preceduto;
+			\item \textbf{Parentesi}: le parentesi costituiscono un'eccezione riguardo le spaziature, in quanto devono essere precedute da uno spazio, ma non seguite;
+			\item \textbf{Virgolette singole}: le virgolette singole indicano un singolo carattere;
+			\item \textbf{Virgolette doppie}: le virgolette doppie vanno utilizzate per indicare citazioni e documenti.
+		\end{itemize}
+	\subparagraph{Composizione del testo}
+		\begin{itemize}
+			\item \textbf{Elenchi puntati}: ogni punto dell'elenco termina con un punto e virgola, ad eccezione dell'ultimo che deve terminare con un punto. \\
+			Ogni punto inizia con la minuscola; nel caso però il punto necessiti di una spiegazione, si utilizzerà la maiuscola; %da discutere
+			\item \textbf{Nota a piè di pagina}: ogni nota inizia con l'iniziale della prima parola maiuscola e termina con il punto. Non ci sono spaziature tra il numero della nota e il testo.
+		\end{itemize}
+	\subparagraph{Formati}
+		\begin{itemize}
+			\item \textbf{Date}: per le date va utilizzata la notazione definita dallo standard \gl{ISO} 8601:2004:
+			\highlight{\textit{AAAA -- MM -- GG}}
+			dove:
+			\begin{itemize}
+				\item AAAA: rappresenta l'anno utilizzando quattro cifre;
+				\item MM: rappresenta il mese utilizzando due cifre;
+				\item GG: rappresenta il giorno utilizzando quattro cifre;
+			\end{itemize}
+			\item \textbf{Sigle}: le sigle dei documenti vanno utilizzate solo nei diagrammi o nelle tabelle, con lo scopo di risparmiare spazio. Tali sigle sono:
+			\begin{itemize}
+				\item \textbf{AdR} per \ARdoc;
+				\item \textbf{Gl} per \Gldoc;
+				\item \textbf{NdP} per \NPdoc;
+				\item \textbf{PdP} per \PPdoc;
+				\item \textbf{PdQ} per \PQdoc;
+				\item \textbf{SdF} per \SFdoc;
+				\item \textbf{ST} per \STdoc.
+			\end{itemize}	
+			\item \textbf{Ruoli di progetto}: per indicare i vari ruoli, vanno utilizzati i seguenti comandi:
+			\begin{itemize}
+				\item \file{\textbackslash AM} per \AM;
+				\item \file{\textbackslash AN} per \AN;
+				\item \file{\textbackslash PR} per \PR;
+				\item \file{\textbackslash PRJ} per \PRJ;
+				\item \file{\textbackslash RES} per \RES;
+				\item \file{\textbackslash VER} per \VER.
+			\end{itemize}
+			\item \textbf{Nomi propri}: per indicare nomi propri va utilizzata la forma \textit{Nome Cognome};
+			\item \textbf{Nome del proponente}: tramite il comando \texttt{\textbackslash PROPONENTE} ci si riferisce al proponente "Miriade SpA";
+			\item \textbf{Nome del progetto}: con \texttt{\textbackslash PROGETTO} verrà citato il nome del progetto, ovvero CLIPS;
+			\item \textbf{Nome del committente}: \texttt{\textbackslash COMMITTENTE} viene impiegato per riferirsi al "Prof. Tullio Vardanega".
+		\end{itemize}
+		
+		\paragraph{Componenti grafiche}		
+			\subparagraph{Immagini}
+			Il formato preferito per le immagini è SVG (\gl{Scalable Vector Graphics}), in quanto è possibile garantire una qualità maggiore e sono ridimensionabili senza perdere qualità. Nel caso non sia possibile integrare questo formato, si raccomanda l'utilizzo di immagini in formato PNG (\gl{Portable Network Graphics}).
+			\subparagraph{Tabelle}
+			Le tabelle devono essere accompagnate da una didascalia e da un numero incrementale per garantirne la tracciabilità.
+		
+	\paragraph{Struttura del documento}
+		\subparagraph{Frontespizio}
+		La prima pagina di ogni documento dovrà contenere le seguenti informazioni:
+		\begin{itemize}
+			\item nome del gruppo;
+			\item nome del progetto;
+			\item nome del documento e la sua versione;
+			\item sommario;
+			\item data di redazione;
+			\item nome e cognome dei redattori del documento;
+			\item nome e cognome dei verificatori del documento;
+			\item nome e cognome del responsabile per l'approvazione del documento;
+			\item destinazione d'uso del documento;
+			\item lista di distribuzione del documento.
+		\end{itemize}
+		\subparagraph{Diario delle modifiche}
+		La seconda pagina di ogni documento dovrà contenere il diario delle modifiche.\\
+		Il diario consiste in una tabella ordinata in modo decrescente secondo la data di modifica e, conseguentemente, al numero di versione. È particolarmente utile per tenere traccia delle varie modifiche effettuate nel documento. \\
+		Ogni riga del diario conterrà:
+		\begin{itemize}
+			\item numero di versione;
+			\item breve riepilogo delle modifiche effettuate;
+			\item autore delle modifiche;
+			\item ruolo ricoperto dall'autore;
+			\item data di modifica.
+		\end{itemize}		
+		\subparagraph{Indici}
+		In ogni documento è presente un indice delle sezioni, il quale fornisce una visione macroscopica della struttura del documento. Nel caso comparissero tabelle e figure nel documento, potranno essere presenti i rispettivi indici.
+		\subparagraph{Intestazione e piè di pagina}
+		L'intestazione di ogni pagina contiene i seguenti elementi:
+		\begin{itemize}
+			\item numero della sezione;
+			\item titolo della sezione.
+		\end{itemize}
+		A piè di pagina invece si trovano:
+		\begin{itemize}
+			\item nome del documento e numero di versione, allineato a sinistra;
+			\item nome del team, allineato al centro;
+			\item pagina X di Y, dove X è la pagina corrente e Y è il numero di pagine totali, allineato a destra.
+		\end{itemize}
+	
+	\paragraph{Versionamento}
+	I documenti prodotti sono soggetti al seguente versionamento attraverso la seguente codifica:
+	\highlight{vX.Y.Z}
+	dove:
+	\begin{itemize}
+		\item \textbf{X}: indica il numero crescente di uscite formali del documento;
+		\item \textbf{Y}: indica il numero crescente di modifiche sostanziali al documento quali stesura, verifica, approvazione;
+		\item \textbf{Z}: indica il numero crescente di modifiche minori effettuate sul documento.
+	\end{itemize}
+	I documenti vanno citati sempre con una versione specifica del documento, utilizzando i comandi:
+	\begin{itemize}
+		\item \texttt{\textbackslash ARdoc} per il documento \ARdoc;
+		\item \texttt{\textbackslash Gldoc} per il documento \Gldoc;
+		\item \texttt{\textbackslash NPdoc} per il documento \NPdoc;
+		\item \texttt{\textbackslash PPdoc} per il documento \PPdoc;
+		\item \texttt{\textbackslash PQdoc} per il documento \PQdoc;
+		\item \texttt{\textbackslash SFdoc} per il documento \SFdoc;
+		\item \texttt{\textbackslash STdoc} per il documento \STdoc.
+	\end{itemize}
+	Il formato da utilizzare per la creazione di file è:
+	\highlight{\file{NomeDocumento\_vX.Y.Z.pdf}}
+
+\paragraph{Strumenti}
+	\subparagraph{\LaTeX}
+	Per redigere la documentazione si è scelto di utilizzare il linguaggio di markup \LaTeX in quanto: \\
+	\begin{itemize} 
+		\item permette di produrre documenti di alta qualità rispetto a \gl{word processor} tradizionali; 
+		\item è possibile creare dei template comuni per i documenti;
+		\item permette una separazione tra contenuto e formattazione;
+		\item è estendibile ed altamente personalizzabile tramite l'utilizzo di pacchetti specifici;
+		\item è multipiattaforma, essendo un file sorgente di \LaTeX una semplice codifica \gl{ASCII};
+		\end{itemize}
+		Come editor di file \LaTeX è consigliato l'uso di \textit{TeXstudio}, anch'esso multipiattaforma.	
+	\subparagraph{Correttore ortografico}
+	In TeXstudio è presente un correttore ortografico automatico che permette la correzione in tempo reale. I file da utilizzare sono presenti nella cartella condivisa in Google Drive all'indirizzo \file{/dizionari}.
+	\subparagraph{Script}
+		Su Github è presente una cartella \texttt{/script} dove sono presenti degli script utilizzabili dal gruppo per semplificare alcune operazioni.
