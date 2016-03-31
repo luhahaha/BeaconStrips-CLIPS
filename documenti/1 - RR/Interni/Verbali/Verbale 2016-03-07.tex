@@ -1,0 +1,161 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Verbale del Giorno 2016-03-07}
+\def\VERSIONE{1}
+\def\DATA{\today}
+\def\REDATTORE{Luca Soldera}
+\def\VERIFICATORE{Nome Cognome}
+\def\RESPONSABILE{Viviana Alessio}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Breve descrizione della riunione.}
+
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Informazioni}
+\label{sec:Informazioni}
+
+\begin{itemize}
+  \item \textbf{Luogo: Torre Archimede}
+  \item \textbf{Data: 2016-03-07}
+  \item \textbf{Ora: 09:30}
+  \item \textbf{Durata: 2 ore}
+  \item \textbf{Partecipanti: Viviana Alessio, Luca Soldera, Matteo Franco, Andrea Grendene, Enrico Bellio, Tommaso Panozzo.}
+\end{itemize}
+
+\newpage
+\section{Premessa}
+
+La riunione è stata indetta a scopo conoscitivo poichè il team essendosi appena formato non si era ancora incontrato.
+
+\section{Ordine Del Giorno}
+\label{sec:OrdineDelGiorno}
+
+\begin{enumerate}
+  \item Presentazione membri del gruppo: impegni accademici, impegni extra-accademici, skills;
+  \item Discussione strumenti di gestione progetto tra cui ticketing, tracking dei requisiti,comunicazioni tra membri e con esterni,strumento per il versionamento;
+  \item Discussione generale sulle norme di progetto;
+\end{enumerate}
+
+\newpage
+\section{Verbale}
+\label{sec:Verbale}
+
+\begin{enumerate}
+  \item C'è stata una rapida presentazione tra i membri del gruppo ed ogniuno ha illustrato i propri impegni e abilità personali.\\
+  \textbf{Impegni}:
+    	\begin{enumerate}
+    		\item \textbf{Andrea}:
+    		\begin{itemize}
+    			\item lunedì e martedì 13:30-15:15;
+    			\item lunedì sera;
+    			\item algoritmi e strutture dati.
+    		\end{itemize}
+    		\item \textbf{Viviana}:
+    		\begin{itemize}
+    			\item martedì pomeriggio;
+    			\item sabato mattina.
+    		\end{itemize}
+    		\item \textbf{Luca}: 
+    		\begin{itemize}
+    			\item mercoledì sera;
+    			\item venerdì pomerggio;
+    			\item sabato e domenica mattina;
+    			\item algoritmi e strutture dati.
+    		\end{itemize}
+    		\item \textbf{Tommaso}: 
+    		\begin{itemize}
+    			\item sabato pomeriggio;
+    			\item algoritmi e strutture dati;
+    		\end{itemize}
+    		\item \textbf{Enrico}: nessuno;
+    		\item \textbf{Matteo}: 
+    		\begin{itemize}
+    			\item mercoledì dalle 16:30;
+    			\item alcune volte giovedi pomeriggio;
+    		\end{itemize}
+    	\end{enumerate}
+    	\textbf{Skills}:
+    	\begin{enumerate}
+    		\item \textbf{Andrea}:
+    		\begin{itemize}
+    			\item accademiche.
+    		\end{itemize}
+    		\item \textbf{Viviana}:
+    		\begin{itemize}
+    			\item accademiche;
+    			\item latex.
+    		\end{itemize}
+    		\item \textbf{Luca}: 
+    		\begin{itemize}
+    			\item accademiche;
+    			\item analisi.
+    		\end{itemize}
+    		\item \textbf{Tommaso}: 
+    		\begin{itemize}
+    			\item accademiche;
+    			\item matematica;
+    			\item iOS;
+    			\item C++;
+    			\item Conoscenze sui beacon.
+    		\end{itemize}
+    		\item \textbf{Enrico}:
+    		\begin{itemize}
+    			\item Java
+    			\item HTML;
+    			\item JavaScript;
+    			\item C++.
+    		\end{itemize}
+    		\item \textbf{Matteo}: 
+    		\begin{itemize}
+    			\item accademiche.
+    		\end{itemize}
+    	\end{enumerate}
+    	
+  
+  \item Si è discusso su quali strumenti utilizzare ed è stato deciso di utilizzare:
+  \begin{itemize}
+  	\item \textbf{Ticketing}: è stato scelto Asana;
+  	\item \textbf{Tracking dei requisiti}: si è deciso di valutare tra Tracy e Trender;
+  	\item \textbf{Comunicazioni}: per quelle interne Slack e Telegram mentre per quelle formali tramite la mail che è stata creata: \file{beaconstrips.swe@gmail.com};
+  	\item \textbf{Versionamento}: è stato scelto di utilizzare GitHub;
+  	\item \textbf{Redazione Documenti}: è stato scelto \LaTeX;
+  	\item \textbf{Schemi UML}: è stato scelto StarUML;
+  \end{itemize}
+  \item Sulle norme di progetto è stato discusso della gestione dei ticket e del loro stato ma non è stata ancora decisa alcuna regola;
+\end{enumerate}
+
+\subsection{Altri Argomenti}
+\label{sub:AltriArgomenti}
+
+Sono state inoltre toccati i seguenti punti
+
+\begin{itemize}
+  \item divisione di compiti a breve termine:
+  \begin{enumerate}
+  	\item \textbf{Andrea}: redazione bozza del \file{Piano di Qualifica}
+  	\item \textbf{Viviana}: redazione bozza del \file{Piano di Progetto}
+  	\item \textbf{Luca}: ricerca e prova del software di analisi dei requisiti;
+  	\item \textbf{Tommaso}: redazione template \LaTeX;
+  	\item \textbf{Enrico}: redazione \file{Studio di fattibilità} per la parte "altri capitolati";
+  	\item \textbf{Matteo}: redazione indice delle \file{Norme di progetto}.
+  \end{enumerate}
+  \item è stato deciso che tutti i membri devono informarsi sulla tecnologia dei beacon e su qualche proposta da fare al Proponente;
+\end{itemize}
+
+\end{document}
