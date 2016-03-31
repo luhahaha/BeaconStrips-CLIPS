@@ -3,8 +3,8 @@
 	Ogni documento può trovarsi in tre fasi differenti:
 	\begin{itemize}
 		\item \textbf{In lavorazione}: un documento è in lavorazione quando vengono aggiunti, modificati o rimossi dei contenuti;
-		\item \textbf{Da verificare}: quando un documento è completo, esso dovrà essere preso in consegna dai verificatori, che si occuperanno di rilevare e/o correggere errori sintattici e semantici;
-		\item \textbf{Approvato}: un documento, ultimata la verifica, deve essere approvato dal \RES. L'approvazione quindi determina lo stato finale della versione del documento.
+		\item \textbf{Da verificare}: quando un documento è completo dovrà essere preso in consegna dai verificatori, che si occuperanno di rilevare e/o correggere errori sintattici e semantici;
+		\item \textbf{Approvato}: un documento, ultimata la verifica, deve essere approvato dal \RES. L'approvazione determina lo stato finale della versione del documento.
 	\end{itemize}
 	Le varie fasi vengono scandite dal sistema di ticketing (vedi sezione) %aggiungere link
 \subsubsection{Norme}
@@ -18,7 +18,7 @@
 		\item \textit{TemplateDoc.tex}: è il \gl{template} da utilizzare per realizzare i documenti. Ogni documento dovrà essere realizzato a partire da questo file;
 		\item \textit{Glossario.sty}: questo file serve per impostare il \textit{Glossario}, che avrà una configurazione diversa al template standard. %controllare
 	\end{itemize}
-	È presente inoltre una cartella \textit{img} dove è presente il logo del team e dove potranno essere caricate tutte le altre immagini necessarie al template. 
+	È presente inoltre una cartella \textit{img} dove si trova il logo del team e dove potranno essere caricate tutte le altre immagini necessarie al template. 
 	\paragraph{Norme tipografiche}
 	In questa sezione vengono definite le norme riguardanti l'ortografia e la tipografia, al fine di avere uno stile uniforme per tutti i documenti prodotti.
 	\subparagraph{Stile del testo}
@@ -53,8 +53,8 @@
 		\end{itemize}
 	\subparagraph{Composizione del testo}
 		\begin{itemize}
-			\item \textbf{Elenchi puntati}: ogni punto dell'elenco termina con un punto e virgola, ad eccezione dell'ultimo che deve terminare con un punto. \\
-			Ogni punto inizia con la minuscola; nel caso però il punto necessiti di una spiegazione, si utilizzerà la maiuscola;
+			\item \textbf{Elenchi puntati}: ogni punto dell'elenco termina con un punto e virgola, ad eccezione dell'ultimo che deve terminare con un punto fermo. \\
+			Ogni punto inizia con la minuscola, tranne nel caso in cui necessiti di una spiegazione: allora si utilizzerà la maiuscola;
 			\item \textbf{Nota a piè di pagina}: ogni nota inizia con l'iniziale della prima parola maiuscola e termina con il punto. Non ci sono spaziature tra il numero della nota e il testo.
 		\end{itemize}
 	\subparagraph{Formati}
@@ -77,7 +77,7 @@
 				\item \textbf{SdF} per \SFdoc;
 				\item \textbf{ST} per \STdoc.
 			\end{itemize}	
-			\item \textbf{Ruoli di progetto}: per indicare i vari ruoli, vanno utilizzati i seguenti comandi:
+			\item \textbf{Ruoli di progetto}: per indicare i vari ruoli vanno utilizzati i seguenti comandi:
 			\begin{itemize}
 				\item \file{\textbackslash AM} per \AM;
 				\item \file{\textbackslash AN} per \AN;
@@ -125,7 +125,7 @@
 			\item data di modifica.
 		\end{itemize}		
 		\subparagraph{Indici}
-		In ogni documento è presente un indice delle sezioni, il quale fornisce una visione macroscopica della struttura del documento. Nel caso comparissero tabelle e figure nel documento, potranno essere presenti i rispettivi indici.
+		In ogni documento si trova un indice delle sezioni, il quale fornisce una visione macroscopica della struttura del documento. Nel caso comparissero tabelle e figure nel documento, potranno essere presenti i rispettivi indici.
 		\subparagraph{Intestazione e piè di pagina}
 		L'intestazione di ogni pagina contiene i seguenti elementi:
 		\begin{itemize}
@@ -163,10 +163,10 @@
 
 \paragraph{Strumenti}
 	\subparagraph{\LaTeX}
-	Per redigere la documentazione si è scelto di utilizzare il linguaggio di markup \LaTeX in quanto: \\
+	Per redigere la documentazione si è scelto di utilizzare il linguaggio di markup \LaTeX, in quanto: \\
 	\begin{itemize} 
-		\item permette di produrre documenti di alta qualità rispetto a \gl{word processor} tradizionali; 
-		\item è possibile creare dei template comuni per i documenti;
+		\item permette di produrre documenti di alta qualità rispetto ai \gl{word processor} tradizionali; 
+		\item rende possibile creare dei template comuni per i documenti;
 		\item permette una separazione tra contenuto e formattazione;
 		\item è estendibile ed altamente personalizzabile tramite l'utilizzo di pacchetti specifici;
 		\item è multipiattaforma, essendo un file sorgente di \LaTeX una semplice codifica \gl{ASCII};
