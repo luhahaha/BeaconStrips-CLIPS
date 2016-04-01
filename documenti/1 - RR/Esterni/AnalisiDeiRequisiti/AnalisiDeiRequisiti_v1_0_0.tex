@@ -9,9 +9,9 @@
 \usepackage{Stile}
 
 % -- COMANDI PER I CASI D'USO -- %
-\newcommand\UC[1]{\hyperref[UC#1]{UC#1}}
+\newcommand\UC[1]{\hyperref[#1]{#1}}
 \newcommand\boldTitle[1]{\textbf{#1: }}
-\newcommand\id[1]{\boldTitle{Identificativo} UC #1}
+\newcommand\id[1]{\boldTitle{Identificativo} #1}
 \newcommand\tipo{\boldTitle{Tipo}}
 \newcommand\tit{\boldTitle{Titolo}}
 \newcommand\desc{\boldTitle{Descrizione}}
@@ -54,10 +54,46 @@
 \include{descrizioneGenerale}
 
 \newpage
-\include{casiUso}
+\section{Casi d'Uso}
+\label{sec:CasiUso}
 \include{arUsecase}
 
 \newpage
 \include{requisiti}
+
+\newpage
+\section{Requisiti}
+\label{sec:Requisiti}
+\include{arBindingRequirement}
+
+\newpage
+\subsection{Requisiti Funzionali}
+\label{sub:Requisiti Funzionali}
+\include{arFunctionalRequirement}
+
+\newpage
+\subsection{Requisiti di Performance}
+\label{sub:Requisiti di Performance}
+\include{arPerformanceRequirement}
+
+\newpage
+\subsection{Requisiti Qualitativi}
+\label{sub:Requisiti Qualitativi}
+\include{arQualitativeRequirement}
+
+\newpage
+\subsection{Tracciamento Requisito-Fonte}
+\label{sub:Tracciamento Requisito-Fonte}
+\include{arTrackingRequirementSource}
+
+\newpage
+\subsection{Tracciamento Fonte-Requisito}
+\label{sub:Tracciamento Fonte-Requisito}
+\include{arTrackingSourceRequirement}
+
+\newpage
+\subsection{Riassunto Requisiti}
+\label{sub:Riassunto Requisiti}
+\include{arResume}
 
 \end{document}
