@@ -8,6 +8,7 @@
 \usepackage[italian]{babel}
 \usepackage[table]{xcolor}
 \usepackage{longtable}
+\usepackage{tabu}
 \usepackage[parfill]{parskip}
 \usepackage[yyyymmdd]{datetime}
 
@@ -50,12 +51,16 @@
 {
 	\def\arraystretch{1.5}
 	\rowcolors{2}{dispari}{pari}
-	\begin{longtable}{#1}
-	\rowcolor{intestazione}
+	\begin{longtabu}{#1}
+	% \rowcolor{intestazione}
 	\arrayrulecolor{linecolor}
+	\taburowcolors[2] 3{dispari .. pari}
 }{
-	\end{longtable}
+	\end{longtabu}
 }
+
+% CAPORIGA IN CELLA
+\newcommand{\cellacaporiga}[2][c]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
 
 % LINEE VERTICALI
 \newcommand\VRule[1][\arrayrulewidth]{\color{linecolor} \vrule width 1pt}
@@ -68,7 +73,8 @@
 \rowcolor{intestazione}
 \color{intestazione_txt}\textbf{#1} & \color{intestazione_txt}\textbf{#2}\\
 \endhead
-\hline}
+\hline
+}
 
 \newcommand{\intestazionethreecol}[3]
 {\rowcolor{intestazione}
@@ -127,7 +133,7 @@
 {
 	\setcounter{table}{-1}
 	\section*{Diario delle modifiche}
-	\begin{tabella}{!{\VRule}l!{\VRule}p{4.5cm}!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}}
+	\begin{tabella}{!{\VRule}l!{\VRule}X[1,b,l]!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}}
 	\intestazionefivecol{Versione}{Riepilogo}{Autore}{Ruolo}{Data}
 }{
 	\end{tabella}
