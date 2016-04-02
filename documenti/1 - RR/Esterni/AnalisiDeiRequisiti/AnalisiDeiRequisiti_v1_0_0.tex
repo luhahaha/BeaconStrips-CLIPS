@@ -10,6 +10,7 @@
 
 % -- COMANDI PER I CASI D'USO -- %
 \newcommand\UC[1]{\hyperref[#1]{#1}}
+\newcommand\Req[1]{\hyperref[#1]{#1}}
 \newcommand\boldTitle[1]{\textbf{#1: }}
 \newcommand\id[1]{\boldTitle{Identificativo} #1}
 \newcommand\tipo{\boldTitle{Tipo}}
@@ -21,7 +22,9 @@
 \newcommand\scensec{\boldTitle{Scenario secondario}}
 \newcommand\att{\boldTitle{Attori}}
 \newcommand\ext{\boldTitle{Extension Point}}
-\newcommand\casoduso[2]{\subsection{UC#1 - #2}\label{UC#1}}
+\newcommand\casoduso[2]{\subsection{#1 - #2}\label{#1}}
+\newcounter{requisitiCounter}
+\newcommand\requisito[1]{\refstepcounter{requisitiCounter} \label{#1} #1}
 
 \def\NOME{Analisi dei Requisiti}
 \def\VERSIONE{0.1}
