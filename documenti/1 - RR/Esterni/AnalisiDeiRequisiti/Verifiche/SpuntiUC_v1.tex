@@ -1,0 +1,45 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\author{Matteo}
+\title{Verifica AR}
+\begin{document}
+	\maketitle
+	\newpage
+	\begin{flushright}
+		\textit {A Tommaso, \\ che mi ha incoraggiato ad abbandonare Word\\ e  mi ha dato la forza di scrivere in \LaTeX, \\ solo per fare un semplice elenco puntato.}
+	\end{flushright}
+	\newpage
+	\textbf{verificatore: Matteo, analista: Tommaso}
+	\begin{itemize}
+		\item come gestiamo l'utente se dimentica la password?
+			\subitem Ho dimenticato di inserire il Caso d'Uso, ora correggo. In generale comunque, viste la difficoltà (lato server) di implementare un recupero password con un un link all'email e la non sensibilità delle informazioni salvate nell'account, pensavamo che la cosa più efficace/difficile sia quando l'utente la dimentica di sostituire quella impostata con una random e di inviarla all'indirizzo mail quella nuova.
+		\item UC1.3 Inclusione: l'utente non autenticato ha l'opportunit� di autenticarsi?
+			\subitem Effettivamente manca nel diagramma dei casi d'uso. Praticamente il flusso degli eventi è il seguente: \begin{itemize}
+				\item prima di tutto l'utente svolge un percorso
+				\item poi visualizza una riepilogo della percorso svolto (punteggio, tempi, …)
+				\item a questo punto solo gli utenti autenticati possono procedere al salvataggio dei dati, quindi si offre la possibilità, tramite l'inclusione di UC1.1, anche ai non autenticati di autenticarsi
+			\end{itemize}
+			effettivamente dallo scenario questo non è chiaro, cambio il testo, fammi sapere se si capisce meglio.
+		\item in UC1.3.1.2 non c'è nessun riferimento al tempo, mentre in UC1.3.1.2.1 s�;
+			\subitem Nella descrizione di UC1.3.1.2.1 si fa riferimento al tempo probabilmente a sproposito. È solo per specificare lo scopo di 'Visualizza istruzioni prova': la prova non è ancora iniziata e l'utente si prepara ad affrontarla. Possiamo decidere di togliere il riferimento o di specificare meglio: fammi sapere secondo te qual è la cosa più chiara. Secondo me possiamo spiegare meglio scrivendo \textit{a questo punto la prova in se non è ancora iniziata ma vengono mostrate delle informazioni preliminari (quindi, ad esempio, il tempo speso dall'utente nella lettura delle informazioni non è conteggiato nel tempo impiegato per affrontare la prova)}. Lemme know!
+		\item precondizione di 1.3.1.2.1 "l'utente � pronto ad iniziare la prova"? Se si considera l'informazione come parte della prova allora va bene la vostra descrizione invece.
+			\subitem la descrizione è \textit{l'utente è in \textbf{procinto} di iniziare la prova}.
+		\item precondizione di 1.3.1.2.1 appartiene a precondizione di 1.3.1.2.2?
+			\subitem Vedi sopra: probabilmente hai letto \textit{è pronto} ivece ti \textit{è in procinto}. La precondizione di 1.3.1.2.2 dovrebbe significare: \textit{l'utente ha letto le info per la prova} mentre la 1.3.1.2.1 semplicemente significa \textit{l'utente sta per svolgere la prova (prima però deve avere delle informazioni)}.
+			Chiarisco un attimo il significato della schermata di informazioni: in molti contesti (ad esempio in un museo) all'utente potrebbe essere necessario avere alcune informazioni aggiuntive preliminari allo svolgimento della prova in se (in una stanza con molti quadri potrebbe specificare all'utente a quale specifico quadro si riferisce la prova). Qualora tali informazioni risultassero superflue si può implementare un testo generico (ad esempio \textit{Complimenti, hai raggiunta la prossima prova! Premi gioca per iniziare.})
+		\item si potrebbe considerare l'idea di un'inclusione su 1.3.1.2.1 e 1.3.1.2.3 da 1.3.1.2.2?
+			\subitem Penso di sì, ma siccome non abbiamo necessità di riutilizzare UC1.3.1.2.1 e UC1.3.1.2.1 altrove mi sembra che la struttura attuale rende più chiara la sequenzialità degli eventi: prima mi informo (UC1.3.1.2.1), poi svolgo (UC1.3.1.2.2) e infine visualizzo il riepilogo della prova (UC1.3.1.2.3).
+		\item UC1.4 se rendiamo modulare � possibile anche caricare una prova?
+			\subitem Boh. Cioè si era detto di escludere dal progetto la parte di amministrazione (creazione di percorsi, prove, …). E in ogni caso (anche volendo aggiungerla) non credo sia furbo inserirla all'interno dell'App 'Consumer', quella per i clienti. Piuttosto sarebbe il caso di creare un'app (o un sito) destinata all'amministrazione dei percorsi. Temo inoltre che l'aggiunta di caso d'uso di tipo amministrativo implichi di doverne iserire molti altri.
+		\item UC1.5 la descrizione dello scenario principale mi sembra troppo articolata: non sarebbe meglio fare una differenziazione tra utente autenticato e non per la descrizione?
+			\subitem Ho evitato per non ripetere le stesse cose presenti nello scenario, quindi ho riassunto velocemente. Se dici che è meglio ripetere tutto nella descrizione lo faccio! :)
+		\item UC1.7.1, UC1.7.2, UC1.7.3 se l'utente � gi� autenticato perch� c'� l'estensione su UC1.1.4? La precondizione di questi tre casi � diversa dal tentare la registrazione;
+			\subitem Hai ragione! Ho modificato la precondizione di UC1.1.4. Di fatto gli errori compiuti quando mi registro (tipo la password non è sufficientemente sicura) sono esattamente gli stessi che compio quando modifico i dati del mio login (tipo la nuova password non è sufficientemente sicura), quindi sarebbe sciocco non riutilizzare l'UC1.1.4. Giustamente era però sbagliata la precondizione. L'ho cambiata in una più generica.
+	\end{itemize}
+\end{document}
