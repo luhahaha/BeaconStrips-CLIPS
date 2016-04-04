@@ -14,7 +14,7 @@ l'utente può giocare,
 l'utente può ricevere informazioni sull'App,
 l'utente registrato può vedere i propri risultati salvati,
 l'utente può visualizzare i percorsi vicini.}\\\\ 
-\att{Utente, Utente autenticato}
+\att{Utente}
 
 \casoduso{UC1.1}{Autenticazione} 
 \begin{figure}[H] 
@@ -27,7 +27,7 @@ l'utente può visualizzare i percorsi vicini.}\\\\
 \post{l'utente è autenticato}\\\\ 
 \scen{\UC{1.1.1} l'utente esegue il login se è già registrato,
 \UC{1.1.2} l'utente si registra e poi esegue il login (\UC{1.1.1}) se non è registrato.}\\\\ 
-\att{Utente}
+\att{Utente non autenticato}
 
 \casoduso{UC1.1.1}{Login} 
 \begin{figure}[H] 
@@ -48,19 +48,19 @@ ESTENSIONE:
 \item ESTENSIONE: se i dati inseriti non sono corretti l'esecuzione prosegue con \UC{UC1.1.3},
 \item altrimenti l'utente viene autenticato (\UC{UC1.1.1.4})
 \end{itemize}.}\\\\ 
-\att{Utente}
+\att{Utente non autenticato}
 
 \casoduso{UC1.1.1.1}{Inserimento email} 
 \desc{l'utente inserisce l'indirizzo email con cui si è registrato in precedenza}\\\\ 
 \pre{la connessione ad internet è attiva e l'App fornisce la pagina di login}\\\\ 
 \post{l'utente ha inserito la mail}\\\\ 
-\att{Utente}
+\att{Utente non autenticato}
 
 \casoduso{UC1.1.1.2}{Inserimento password} 
 \desc{l'utente inserisce la password con cui si è registrato in precedenza}\\\\ 
 \pre{la connessione ad internet è attiva e l'App fornisce la pagina di login}\\\\ 
 \post{l'utente ha inserito la password}\\\\ 
-\att{Utente}
+\att{Utente non autenticato}
 
 \casoduso{UC1.1.1.3}{Conferma Login} 
 \desc{l'utente conferma di voler eseguire il login}\\\\ 
@@ -70,13 +70,13 @@ ESTENSIONE:
 
 ESTENSIONE:
 \UC{UC1.1.3}}\\\\ 
-\att{Utente}
+\att{Utente non autenticato}
 
 \casoduso{UC1.1.1.4}{L'utente viene autenticato} 
 \desc{se le informazioni inserite in precedenza sono corrette (in particolare se l'associazione email/password esiste nel sistema) l'utente viene autenticato}\\\\ 
 \pre{l'email e la password inserite sono valide}\\\\ 
 \post{l'utente è autenticato nel sistema}\\\\ 
-\att{}
+\att{Utente non autenticato}
 
 \casoduso{UC1.1.2}{Registrazione} 
 \begin{figure}[H] 
@@ -98,31 +98,31 @@ la password non è sufficientemente sicura}\\\\
 \scen{l'utente inserisce un indirizzo email valido,
 l'utente inserisce un username univoco,
 l'utente inserisce una password sufficientemente sicura.}\\\\ 
-\att{Utente}
+\att{Utente non autenticato}
 
 \casoduso{UC1.1.2.1}{Inserimento nuova email} 
 \desc{l'utente inserisce l'indirizzo email con cui desidera registrarsi}\\\\ 
 \pre{la connessione ad internet è attiva e l'App fornisce la pagina di registrazione}\\\\ 
 \post{l'utente ha inserito la email}\\\\ 
-\att{Utente}
+\att{Utente non autenticato}
 
 \casoduso{UC1.1.2.2}{Inserimento nuovo username} 
 \desc{l'utente inserisce l'username con cui desidera registrarsi}\\\\ 
 \pre{la connessione ad internet è attiva e l'App fornisce la pagina di registrazione}\\\\ 
 \post{l'utente ha inserito l'username}\\\\ 
-\att{Utente}
+\att{Utente non autenticato}
 
 \casoduso{UC1.1.2.3}{Inserimento nuova password} 
 \desc{l'utente inserisce la password con cui desidera registrarsi}\\\\ 
 \pre{la connessione ad internet è attiva e l'App fornisce la pagina di registrazione}\\\\ 
 \post{l'utente ha inserito la password}\\\\ 
-\att{Utente}
+\att{Utente non autenticato}
 
 \casoduso{UC1.1.2.4}{Conferma Registrazione} 
 \desc{l'utente conferma di voler eseguire la registrazione}\\\\ 
 \pre{la connessione ad internet è attiva e l'App fornisce la pagina di registrazione}\\\\ 
 \post{l'utente chiede al sistema di essere registrato}\\\\ 
-\att{Utente}
+\att{Utente non autenticato}
 
 \casoduso{UC1.1.3}{Visualizza errore su dati Login} 
 \desc{l'associazione email/password non esiste nel nel database, quindi viene notificato all'utente che l'email o la password inserite sono errate}\\\\ 
@@ -130,19 +130,19 @@ l'utente inserisce una password sufficientemente sicura.}\\\\
 \post{l'utente visualizza l'errore sul login e può inserire nuovamente le credenziali.}\\\\ 
 \scen{\UC{UC1.1.3.1} l'utente visualizza l'informazione che i dati inseriti sono errati,
 \UC{UC1.1.3.2} l'utente può resettare la propria password}\\\\ 
-\att{Utente}
+\att{Utente non autenticato}
 
 \casoduso{UC1.1.3.1}{Visualizza info dati login errati} 
 \desc{l'utente visualizza un breve testo che lo informa della scorrettezza dei dati inseriti}\\\\ 
 \pre{l'utente inserisce una associazione email/password inesistente}\\\\ 
 \post{l'utente è informato della scorrettezza dei dati inseriti}\\\\ 
-\att{}
+\att{Utente non autenticato}
 
 \casoduso{UC1.1.3.2}{Resetta la password} 
 \desc{l'utente non autenticato che abbia smarrito la password può resettare la password: una password casuale valida viene sostituita a quella correntemente associata all'indirizzo email e viene inviata allo stesso indirizzo (insieme ad un invito ad aggiornarla al più presto).}\\\\ 
 \pre{l'utente non è autenticato e desidera effettuare il reset della password}\\\\ 
 \post{l'utente trova la nuova password nella propria casella di posta}\\\\ 
-\att{}
+\att{Utente non autenticato}
 
 \casoduso{UC1.1.4}{Visualizza errore su dati registrazione} 
 \desc{l'utente compie uno dei seguenti errore e viene notificato per ciò:
@@ -151,7 +151,7 @@ l'utente inserisce una password sufficientemente sicura.}\\\\
 - la password non è sufficientemente sicura}\\\\ 
 \pre{l'utente inserisce dei dati di registrazione non validi}\\\\ 
 \post{l'utente visualizza l'errore sulla registrazione e può correggere i campi errati}\\\\ 
-\att{Utente}
+\att{Utente non autenticato}
 
 \casoduso{UC1.2}{Deautenticazione} 
 \desc{l'utente autenticato esegue il logout}\\\\ 
@@ -311,7 +311,7 @@ percorso}
 \scen{\UC{UC1.4.1} l'utente visualizza una descrizione delle funzionalità dell'app,
 \UC{UC1.4.2} l'utente visita il sito web dell'app,
 \UC{UC1.4.3} l'utente contatta il supporto tecnico dell'app.}\\\\ 
-\att{}
+\att{Utente}
 
 \casoduso{UC1.4.1}{Visualizza descrizione dell'app} 
 \desc{l'utente visualizza una schermata con un testo esplicativo delle funzionalità dell'App}\\\\ 
@@ -349,7 +349,7 @@ altrimenti, se l'utente non ha percorsi registrati:
 altrimenti:
  - \UC{UC1.5.1} l'utente visualizza l'elenco dei percorsi svolti,
  - \UC{UC1.5.1.1} l'utente può visualizzare il dettaglio di un percorso salvato.}\\\\ 
-\att{Utente, Utente autenticato}
+\att{Utente}
 
 \casoduso{UC1.5.1}{Visualizza percorsi effettuati} 
 \desc{l'utente autenticato visualizza l'elenco dei percorsi effettuati, visualizzando qualche informazione associata (data percorso, punteggio raggiunto, …)}\\\\ 
@@ -373,7 +373,7 @@ altrimenti:
 \desc{l'app mostra all'utente non autenticato una schermata in cui spiega che se l'utente si autentica potrà salvare i risultati dei percorsi e, in questa schermata, visualizzarli.}\\\\ 
 \pre{l'utente non è autenticato}\\\\ 
 \post{l'app informa l'utente della funzionalità di salvataggio dei percorsi disponibile per i soli utenti autenticati}\\\\ 
-\att{Utente}
+\att{Utente non autenticato}
 
 \casoduso{UC1.6}{Visualizza percorsi vicini} 
 \begin{figure}[H] 
@@ -386,7 +386,7 @@ altrimenti:
 \post{l'utente visualizza i percorsi disponibili nelle vicinanze.}\\\\ 
 \scen{\UC{1.6.1} l'utente visualizza gli edifici abilitati entro un certo raggio,
 \UC{1.6.2} l'utente visualizza i 10 edifici più vicini.}\\\\ 
-\att{}
+\att{Utente}
 
 \casoduso{UC1.6.1}{Visualizza edifici abilitati in un raggio} 
 \begin{figure}[H] 
