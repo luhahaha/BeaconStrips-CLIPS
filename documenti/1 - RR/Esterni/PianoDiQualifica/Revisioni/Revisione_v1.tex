@@ -1,0 +1,43 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+
+\author{Tommaso Panozzo}
+\date{2016-04-03}
+\title{Revisione Piano di Qualifica}
+\subtitle{Redatto da Andrea Grendene, revisionato da Tommaso Panozzo}
+
+\begin{document}
+  \maketitle
+
+  \section{Revisione 1}
+  \label{sec:Revisione 1}
+
+  Intanto complimenti davvero per il documento. \\
+  Ti scrivo di seguito i miei pensieri a riguardo.
+  \begin{itemize}
+    \item [2.3 Usabilità] Secondo me potremmo aggiungere, nella metrica, che verranno consultati almeno 15 tester di cui almeno 5 con una buona confidenza con la tecnologia mobile in generale, 5 con una media confidenza con la tecnologia e 5 che siano possessori di uno smartphone ma che lo usino solamente per funzioni basilari (telefonate, app di messagging, consultazione di email e raramente app di altro genere). Specificando che questo test non fornisce nessuna garanzia ma contribuisce a far render conto al team di quale sia il livello di usabilità del prodotto.
+
+    \item [2.4 Efficienza] Io farei la stessa distinzione che abbiamo fatto nei requisiti, indicando 5 sec per la presentazione di dati ottenuti da internet o frutto di eventuali pesanti elaborazioni e 0.5 secondi per le schermate in locale.
+
+    \item [2.6 Portabilità] Io scriverei o Android dalla versione 5.0 in avanti o iOS dalla 9.0 in avanti. Cioè metterei entrambi specificando che ne verrà scelta una da implementare.
+
+    \item [3.6.1 Risorse Necessarie] Tra le risorse hardware necessarie aggiungerei un server in cui installare il database necessario per il funzionamento del prodotto e dei telefonini adeguati ad eseguire il test del prodotto.
+
+    \item [3.6.2 Risorse Disponibili] Quando si parla del server forse conviene dare maggior risalto al fatto che è necessario per il progetto.
+
+    \item [3.9.3 Metriche per il codice] Scrivo da programmatore: forse vale la pena di specificare che i costruttori sono esclusi da questo range, in quanto in certi casi è necessario avere costruttori con molti parametri per inizializzare oggetti che siano facilmente verificabili con test e più a prova di errore. \textit{Questa cosa non me la sono inventata io, se vuoi ti fornisco alcuni link a supporto della tesi, oppure la prima volta che ci sentiamo a voce, tipo al prossimo Hangout ti spiego il senso.} Quindi secondo me specifica che, qualora fosse necessario a rendere il codice più sicuro e testabile, i costruttori potranno sforare questa regola degli 8 parametri.
+  \end{itemize}
+
+  \subsection{Cavolate}
+  \label{sub:Cavolate}
+
+  Annoto qui delle cavolate, alcune sono solo gusto personale, vedi tu se leggere o saltare.
+
+  \begin{itemize}
+    \item [3.3 Organizzazione] nella prima frase magari si potrebbe sostituire \textit{attuato} con completato.
+  \end{itemize}
+
+
+\end{document}
