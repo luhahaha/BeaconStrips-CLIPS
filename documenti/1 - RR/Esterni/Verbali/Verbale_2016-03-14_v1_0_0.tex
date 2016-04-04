@@ -1,0 +1,91 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Verbale del Giorno 2016-03-14}
+\def\VERSIONE{1.0.0}
+\def\DATA{\today}
+\def\REDATTORE{Luca Soldera}
+\def\VERIFICATORE{Matteo Franco}
+\def\RESPONSABILE{Viviana Alessio}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Presentazione con \PROPONENTE}
+
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Informazioni}
+\label{sec:Informazioni}
+
+\begin{itemize}
+  \item \textbf{Luogo}: Via Castelletto 11, 36016, Thiene (VI);
+  \item \textbf{Data}: 2016-03-14;
+  \item \textbf{Ora}: 15:00;
+  \item \textbf{Durata}: 1 ora;
+  \item \textbf{Partecipanti}: Viviana Alessio, Luca Soldera, Matteo Franco, Andrea Grendene, Enrico Bellio, Tommaso Panozzo, Emanuele Righetto, Carlo Scattolin.
+\end{itemize}
+
+\newpage
+\section{Premessa}
+
+La riunione è stata indetta a scopo conoscitivo tra il team e il proponente.
+
+\section{Ordine del giorno}
+\label{sec:OrdineDelGiorno}
+
+\begin{enumerate}
+  \item Presentazione tra \AUTORE{} e \PROPONENTE;
+  \item domande di chiarimento riguardanti il capitolato;
+  \item domanda di chiarimento sugli strumenti da utilizzare.
+\end{enumerate}
+
+\newpage
+\section{Verbale}
+\label{sec:Verbale}
+
+\begin{enumerate}
+  \item \textbf{Domanda}: \\
+  Vorremmo avere qualche delucidazione su cosa sia Ubiika e se sia utile per noi utilizzarla nel nostro progetto. \\
+  \textbf{Risposta}: \\
+  Ubiika è una piattaforma accessibile tramite un'applicazione creata da \PROPONENTE {} che viene utilizzata dal utente per accedere ai contenuti che un beacon offre; non crediamo sia interessante che il progetto utilizzi questa piattaforma ma piuttosto che ne venga sviluppata una simile per gli scopi desiderati.\\
+  \textbf{Domanda}: \\
+  Cosa si intende per \textit{sviluppo di un prototipo di software di navigazione e comunicazione all’interno dell’area definita}?\\
+  \textbf{Risposta}: \\
+  La proposta del capitolato si può dividere in due idee:
+  \begin{itemize}
+  	\item quella basata sulla navigazione e quindi la ricerca di una nuova idea in cui i beacons vengano utilizzati per guidare l'utente in uno spazio chiuso; per questo si chiede di sviluppare un software, che tipicamente sarà un'applicazione, che possa aiutare l'utente medio a muoversi in determinati spazi. Naturalmente si chiede un prototipo poiché non sarà necessario produrre un'applicazione completa e finita dato il tempo ridotto a vostra disposizione;
+  	\item quella basata su una nuova idea commerciale, che può allontanarsi dalla navigazione, ma che sfrutti la possibilità dei beacons di dare contenuti all'utente.
+  \end{itemize}
+  A noi va bene ugualmente una delle due proposte.
+  \item \textbf{Domanda}:\\
+  Nella sezione 2.1 del capitolato riguardante l'indicazione dei risultati da conseguire sono richiesti dei documenti aggiuntivi a quelli che noi dobbiamo produrre a fini del progetto?\\
+  \textbf{Risposta}: \\ 
+  Quello che interessa a noi è che, nel caso soprattutto della navigazione, venga fornita una documentazione dei test che sono stati fatti sul posizionamento dei beacons e un documento che spieghi come possano essere installati in un nuovo contesto, in modo da poter utilizzare al meglio ciò che voi avete prodotto.
+  \item \textbf{Domanda}:\\
+  Nel capitolato, nella sezione relativa agli strumenti, c'è scritto che potreste offrirci una repository: come potremmo accedervi? Se usassimo GitHub dato che alcuni di noi già lo conoscono andrebbe comunque bene?\\
+  \textbf{Risposta}: \\
+  Non c'è nessun problema se volete utilizzare uno strumento che preferite: semplicemente noi utilizziamo una repository per il versionamento di tipo \gl{SVN} e se volete possiamo darvi una parte di questa; naturalmente se utilizzerete una vostra repository vi chiederemo di darci modo di accedervi;
+\end{enumerate}
+
+\subsection{Altri Argomenti}
+\label{sub:AltriArgomenti}
+
+Sono state inoltre toccati i seguenti punti:
+
+\begin{itemize}
+  \item è stato proposto da \PROPONENTE, per i futuri incontri, di trovarsi nella loro sede di Padova.
+\end{itemize}
+\end{document}
