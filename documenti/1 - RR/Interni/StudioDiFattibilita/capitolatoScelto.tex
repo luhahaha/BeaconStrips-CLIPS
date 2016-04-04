@@ -3,38 +3,38 @@
 \subsection{Descrizione}
 
 Il progetto CLIPS consiste nel ricercare nuovi scenari per l'implementazione della navigazione indoor e in particolare 
-un nuovo metodo di navigazione alternativo al GPS che utilizzi la tecnologia BLE e un dispositivo mobile.
+un nuovo metodo di navigazione alternativo al \gl{GPS} che utilizzi la tecnologia \gl{BLE} e un dispositivo mobile.
 Alcuni esempi di applicazione sono i seguenti:
 \begin{itemize}
 	\item Interrelazione con altri dispositivi e macchinari robotici (per esempio la programmazione di un apparecchio pilota per diversamente abili);
-	\item Trasmissione di contenuti attraverso i beacon, con sviluppo di un progetti di interazione e comunicazione (per esempio broadcast all'interno di un campus universitario);
-	\item Utilizzo dei beacon nel social gaming (per esempio la caccia al tesoro).
+	\item Trasmissione di contenuti attraverso i \gl{beacon}, con sviluppo di un progetti di interazione e comunicazione (per esempio broadcast all'interno di un campus universitario);
+	\item Utilizzo dei \gl{beacon} nel social gaming (per esempio la caccia al tesoro).
 \end{itemize}
 
 \subsection{Studio del Dominio}
 
-Come si evince dalla descrizione, il dominio del progetto è molto ampio, in quanto la tecnologia BLE può essere applicata in una moltitudine
+Come si evince dalla descrizione, il dominio del progetto è molto ampio, in quanto la tecnologia \gl{BLE} può essere applicata in una moltitudine
 di casi molto diversi l'uno dall'altro. L'obiettivo principale è quello di trovare, se possibile, un nuovo metodo di localizzazione per la navigazione indoor e secondariamente
 un nuovo tipo di utilizzo.
 
 
 \subsubsection{Dominio Applicativo}
-Il problema principale affrontato dal capitolato è quello della navigazione indoor. I metodi di localizzazione di un dispositivo in una zona limitata (es.: una stanza di un qualsiasi edificio)
-risultano essere molto approssimativi, infatti la maggioranza dei beacon viene utilizzata per fornire dei contenuti agli utenti che si trovano nel raggio d'azione del beacon stesso, senza sapere 
+Il problema principale affrontato dal capitolato è quello della navigazione indoor. I metodi di localizzazione di un dispositivo in una zona limitata (es.: una stanza all'interno di un edificio)
+risultano essere molto approssimativi, infatti la maggioranza dei \gl{beacon} viene utilizzata per fornire dei contenuti agli utenti che si trovano nel raggio d'azione del \gl{beacon} stesso, senza sapere 
 la posizione esatta.
 
 \subsubsection{Dominio Tecnologico}
 Le principali conoscenze tecnologiche richieste sono:
 
 \begin{itemize}
-	\item \textbf{JAVA/Objective C:} questi sono i linguaggi di programmazioni necessari per sviluppare nativamente un'applicazione per Android e iOS. Un'alternativa è un framework come Phonegap che 
-	permette di programmare in HTML + CSS + Javascript per sviluppare un'applicazione multipiattaforma;
-	\item \textbf{Beacon:} vista la natura del progetto è necessario essere a conoscenza di come i beacon interagiscono con i dispositivi a loro collegati;
+	\item \textbf{\gl{JAVA}/\gl{Objective-C}:} questi sono i linguaggi di programmazioni necessari per sviluppare nativamente un'applicazione per \gl{Android} e \gl{iOS}. Un'alternativa è un framework come \gl{Phonegap} che 
+	permette di programmare in \gl{HTML} + \gl{CSS} + \gl{Javascript} per sviluppare un'applicazione multipiattaforma;
+	\item \textbf{\gl{Beacon}:} vista la natura del progetto è necessario essere a conoscenza di come i \gl{beacon} interagiscono con i dispositivi a loro collegati;
 	\item \textbf{Database:} qualsiasi sia l'ambiente di applicazione scelto, risulta necessario utilizzare un database per il salvataggio dei dati;
-	\item \textbf{Comunicazione tra database e beacon:} è necessario conoscere dei protocolli di trasferimento dati (es: HTTP) per gestire la comunicazione tra il database e i beacon.
+	\item \textbf{Comunicazione tra database e \gl{beacon}:} è necessario conoscere dei protocolli di trasferimento dati (es: \gl{HTTP}) per gestire la comunicazione tra il database e i \gl{beacon}.
 \end{itemize}
 
-In aggiunta potrebbe essere necessario dover realizzare un portale web quindi in tal caso la conoscenza dei linguaggi HTML, CSS, Javascript e PHP risulta molto utile.
+In aggiunta potrebbe essere necessario dover realizzare un portale web quindi in tal caso la conoscenza dei linguaggi \gl{HTML}, \gl{CSS}, \gl{Javascript} e \gl{PHP} risulta molto utile.
 
 
 \subsubsection{Conclusioni}
@@ -50,6 +50,6 @@ Aspetti positivi:
 Aspetti negativi:
 
 \begin{itemize}
-	\item L'utilizzo dei beacon per la navigazione indoor potrebbe risultare fallimentare vista la quantità di ostacoli che potrebbero causare problemi con 
+	\item L'utilizzo dei \gl{beacon} per la navigazione indoor potrebbe risultare fallimentare vista la quantità di ostacoli che potrebbero causare problemi con 
 	la ricezione del segnale (es.: tipo di materiale delle pareti, persone,ecc.).
 \end{itemize}

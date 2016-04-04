@@ -3,15 +3,15 @@
 \subsection{Capitolato C1 - Actorbase}
 \subsubsection{Scopo del progetto}
 
-Il progetto Actorbase consiste nella progettazione di un database non relazionale che utilizzi il modello ad attori grazie all'uso delle seguenti tecnologie:
+Il progetto Actorbase consiste nella progettazione di un \gl{database non relazionale} che utilizzi il modello ad attori grazie all'uso delle seguenti tecnologie:
 \begin{itemize}
-	\item La libreria Akka per l'implementazione del modello ad attori su JVM;
-	\item Java o Scala come linguaggi di programmazione.
+	\item La libreria \gl{Akka} per l'implementazione del modello ad attori su \gl{JVM};
+	\item Java o \gl{Scala} come linguaggi di programmazione.
 \end{itemize}
-Inoltre è prevista l'implementazione di un DSL per poter interagire con il database da riga di comando.
+Inoltre è prevista l'implementazione di un \gl{DSL} per poter interagire con il database da riga di comando.
 
 \subsubsection{Osservazioni}
-Poichè un progetto con il modello ad attori è già stato affrontato per il progetto del corso di Programmazione Concorrente e Distribuita, il gruppo ha deciso di
+Poiché un progetto in cui viene utilizzato il modello ad attori è già stato affrontato per il progetto del corso di Programmazione Concorrente e Distribuita, il gruppo ha deciso di
 non intraprendere lo sviluppo di questo capitolato.
 
 
@@ -26,18 +26,18 @@ L'applicativo software dovrà essere composto in tre parti:
 \begin{itemize}
 	\item Una console web amministrativa per la definizione di regole di apprendimento a seconda del contesto e tipo di dati;
 	\item Una console web di amministrazione per le singole aziende;
-	\item Dei servizi web restful JSON interrogabili.
+	\item Dei servizi web restful \gl{JSON} interrogabili.
 \end{itemize}
-La piattaforma dovrà inoltre permettere la comunicazione tramite i protocolli HTTP/HTTPS standard e il protocollo MQTT.
+La piattaforma dovrà inoltre permettere la comunicazione tramite i protocolli \gl{HTTP}/\gl{HTTPS} standard e il protocollo \gl{MQTT}.
 
 
 Le tecnologie consigliate sono le seguenti:
 \begin{itemize}
-	\item MongoDB e/o OrientDB per il database;
-	\item Amazon Web Services per l'infrastruttura;
-	\item Java e/o Scala come linguaggi di programmazione;
-	\item Play Framework come framework di sviluppo;
-	\item HTML5, CSS3, Javascript e il framework Bootstrap di Twitter per l'interfaccia web.
+	\item \gl{MongoDB} e/o \gl{OrientDB} per il database;
+	\item \gl{Amazon Web Services} per l'infrastruttura;
+	\item \gl{JAVA} e/o \gl{Scala} come linguaggi di programmazione;
+	\item \gl{Play Framework} come framework di sviluppo;
+	\item \gl{HTML5}, \gl{CSS3}, \gl{Javascript} e il \gl{framework Bootstrap} di Twitter per l'interfaccia web.
 \end{itemize}
 
 \subsubsection{Osservazioni}
@@ -48,21 +48,22 @@ richieste per lo svolgimento del progetto hanno portato all'esclusione del capit
 
 \subsection{Capitolato C4 - MaaS}
 \subsubsection{Scopo del progetto}
-Il progetto MaaS prevede la realizzazione di un servizio web che renda disponibile direttamente attraverso internet la piattaforma MaaP alle varie compagnie
-che vogliono utilizzare tale piattaforma. Il servizio deve estendere MaaP in due modi:
+Il progetto MaaS consiste nella realizzazione di una piattaforma per rendere facilmente accessibile i dati contenuti in un database a coloro che non possiedono conoscenze in ambito informatico (es.: uomini d'affari).
+L'applicazione dovrà essere accessibile tramite un servizio web per le compagnie che ne usufruiranno e sfruttare \gl{MaaP} per la rappresentazione grafica dei dati, inoltre dovrà estenderlo con le seguenti funzioni:
+
 \begin{itemize}
-	\item \textbf{SaaS:} deve essere disponibile come unica istanza disponibile a più gruppi di persone, dedicando a ciascun gruppo una propria area di lavoro;
-	\item \textbf{DSL:} deve essere possibile modificare online le definizioni del DSL, inoltre dovrebbero anche essere progettate delle azioni predefinite (es.: esporta il csv del documento).
-	e la dashboard
+	\item \textbf{\gl{SaaS}:} deve essere disponibile come unica istanza disponibile a più gruppi di persone, dedicando a ciascun gruppo una propria area di lavoro;
+	\item \textbf{\gl{DSL}:} deve essere possibile modificare online le definizioni del \gl{DSL}, inoltre dovrebbero anche essere rese disponibili delle azioni predefinite (es.: esporta il \gl{csv} del documento)
+	e la \gl{dashboard}.
 \end{itemize}
 
 I  requisiti tecnologici sono i seguenti:
 \begin{itemize}
-	\item Node.js per il backend, per la precisione deve supportare la versione LTS Argon;
-	\item MongoDB con versione non inferiore alla 3 come database;
-	\item Il framework loopback per la gestione del sistema;
-	\item Rendere disponibile il servizio su Heroku;
-	\item Utilizzare github o bitbucket per il versionamento.
+	\item \gl{Node.js} per il backend, per la precisione deve supportare la versione \gl{LTS} \gl{Argon};
+	\item \gl{MongoDB} con versione non inferiore alla 3 come database;
+	\item Il \gl{framework Loopback} per la gestione del sistema;
+	\item Rendere disponibile il servizio su \gl{Heroku};
+	\item Utilizzare \gl{github} o \gl{bitbucket} per il versionamento.
 \end{itemize}
 
 \subsubsection{Osservazioni}
@@ -92,8 +93,8 @@ I requisisti minimi da soddisfare sono i seguenti:
 
 Il sistema dovrà essere utilizzato con tecnologie web quali:
 \begin{itemize}
-	\item Java e server Tomcat oppure Javascript e server Node.js per la parte server;
-	\item HTML5, CSS e Javascript per il client che dovrà essere eseguibile in un browser.
+	\item \gl{JAVA} e server \gl{Tomcat} oppure \gl{Javascript} e server \gl{Node.js} per la parte server;
+	\item \gl{HTML5}, \gl{CSS} e \gl{Javascript} per il client che dovrà essere eseguibile in un browser.
 \end{itemize}
 La parte destinata ai creatori di domande e quiz dovrà essere utilizzabile su PC mentre la parte destinata agli esaminandi
 dovrà funzionare con qualunque dispositivo.
@@ -103,14 +104,14 @@ I membri del gruppo si sono trovati interessati allo sviluppo dell'applicazione 
 nelle conoscenze possedute dai membri stessi. Sfortunatamente non è stato possibile scegliere il capitolato in quanto non più disponibile al momento
 della creazione del gruppo.
 
-\subsection{Capitolato C6 - Sintesi vocali su dispositivi mobili}
+\subsection{Capitolato C6 - Sintesi vocale su dispositivi mobili}
 \subsubsection{Scopo del progetto}
 Il progetto consiste nella realizzazione di un'applicazione che aggiunga nuove funzioni su smartphone e/o tablet per la sintesi vocale.
-L'applicazione deve usare il motore di sintesi Flexible and Adaptive Text-To-Speech e deve rispettare i seguenti requisiti obbligatori:
+L'applicazione deve usare il motore di sintesi \gl{Flexible and Adaptive Text-To-Speechmcat} e deve rispettare i seguenti requisiti obbligatori:
 
 \begin{itemize}
 	\item Gestire i problemi causati dall'utilizzo di un servizio remoto (es.: gestire il caso in cui non si è in grado di accedere ad internet);
-	\item Implementare un'interfaccia grafica per la configurazione dei servizi TTS.
+	\item Implementare un'interfaccia grafica per la configurazione dei servizi \gl{TTS}.
 \end{itemize}
 
 I requisiti opzionali sono:
@@ -124,4 +125,4 @@ I requisiti opzionali sono:
 Per quanto riguarda le tecnologie da utilizzare, l'unico vincolo è quello di utilizzare il motore di sintesi Flexible and Adaptive Text-to-Speech.
 
 \subsubsection{Osservazioni}
-Il gruppo non ha riscontrato alcun interesse nello sviluppo di applicazioni riguardanti il TTS.
+Il gruppo non ha riscontrato alcun interesse nello sviluppo di applicazioni riguardanti il \gl{TTS}.
