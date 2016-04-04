@@ -10,6 +10,7 @@
 
 \usepackage{eurosym}
 
+\newcommand{\spazio}{\vspace{1.5cm}}
 %per far compilare il LaTeX mi servivano questi dati con il template esistente, vanno tolti
  \def\NOME{Lettera di Presentazione}
  \def\VERSIONE{0.1}
@@ -23,8 +24,17 @@
 
 \begin{document}
 
+\spazio
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.3]{img/logo_full.png} \\
+	beaconstrips.swe@gmail.com
+\end{figure}
+
+\spazio
+
 \begin{flushright}
-\date{}
+\date{\today}
 Egregi \\
 \COMMITTENTE \\
 \CARDIN \\
@@ -33,14 +43,13 @@ Dipartimento di Matematica \\
 via Trieste, 63 \\
 35121 Padova (PD)
 \end{flushright}
+\spazio
 
-
-Oggetto: \textbf{presentazione della proposta per il capitolato d'appalto C2}
-\\
+Oggetto: \textbf{presentazione della proposta per il capitolato d'appalto C2} \\ \\
 Egregio \COMMITTENTE,\\
-con la presente il gruppo \AUTORE \ intende comunicarLe ufficialmente l'impegno alla realizzazione del progetto
-\highlight{\textbf{CLIPS: Communication \& Localization with Indoor Positioning Systems}} \\
-proposto da \PROPONENTE. \\
+con la presente il gruppo \AUTORE \ intende comunicarLe ufficialmente l'impegno alla realizzazione del progetto proposto da \PROPONENTE: \\
+\highlight{\textbf{CLIPS: Communication \& Localization with Indoor Positioning Systems}}
+
 Si allegano i seguenti documenti:
 \begin{itemize}
 	\item \textbf{\ARdoc}: \textit{Esterni/AnalisiDeiRequisiti\_v1.0.0.pdf}
@@ -51,10 +60,14 @@ Si allegano i seguenti documenti:
 	\item \textbf{\SFdoc}: \textit{Interni/StudioDiFattibilità\_v1.0.0.pdf}
 	%verbali
 \end{itemize}
+\spazio
 
-Il gruppo \AUTORE \ stima per la realizzazione del progetto un preventivo di costo pari a \euro  \textbf{11.452,00}. \\
+Il gruppo \AUTORE ha valutato un preventivo di costo pari a \euro{} \textbf{11.581,00}. \\ \\
+Data di prevista consegna: \textbf{2016/09/12}. \\
+\spazio
 
-Si seguito l'organigramma del team:
+
+Di seguito l'organigramma del team:
 
 \begin{tabella}{c!{\VRule}c!{\VRule}c!}
 	\intestazionethreecol{Nominativo}{Matricola}{Indirizzo e-mail}{}
@@ -66,7 +79,8 @@ Si seguito l'organigramma del team:
 	Luca Soldera & 1028464 & luca.soldera@studenti.unipd.it  \\
 \end{tabella}
 
-Distinti saluti,
+\spazio
+Distinti saluti, \\
 
 %allineato a dx
 \begin{flushright}
