@@ -1,0 +1,97 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\usepackage{eurosym}
+\usepackage{comment}
+
+% mi serve nella sezione Pianificazione. Mette "Attività" centrato sotto al processo
+\newcommand{\att}{
+	\begin{center}
+	\textbf{Attività}
+	\end{center}
+	}
+
+% mi serve nella sezione preventivo per mettere i grafici a torta. #1=path immagine, #2=caption
+\newcommand{\torta}[2]{
+	\begin{figure}[!h]
+	\centering
+		\includegraphics[height=6cm, width=12cm]{#1} 
+		\caption{#2}
+	\end{figure}		
+}
+
+% comando per inserire gli istogrammi
+\newcommand{\ist}[2]{
+	\begin{figure}[!h]
+	\centering
+	\includegraphics[height=7cm, width=12cm]{#1} 
+	\caption{#2}
+	\end{figure}		
+}
+
+% comando per inserire i gantt
+\newcommand{\gantt}[2]{
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[height=10cm, width=15cm]{#1}
+		\caption{#2}
+	\end{figure}		
+}
+
+
+
+
+\def\NOME{Piano di Progetto}
+\def\VERSIONE{1.0}
+\def\DATA{\today}
+\def\REDATTORE{Viviana Alessio}
+\def\VERIFICATORE{Andrea Grendene}
+\def\RESPONSABILE{Viviana Alessio}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Piano per la per la gestione dei rischi, dei costi e dei tempi nella realizzazione del progetto del gruppo Beacon Strips.}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{diario}
+	\modifica{Viviana Alessio}{\RES}{Sezione Preventivo: riorganizzazione immagini}{2016-03-30}{0.4.1}
+	\modifica{Viviana Alessio}{\RES}{Sezione Preventivo: inserimento grafici}{2016-03-30}{0.4.0}
+	\modifica{Viviana Alessio}{\RES}{Sezione Pianificazione: stesura fasi da PA a V}{2016-03-26}{0.3.3}
+	\modifica{Viviana Alessio}{\RES}{Sezione Pianificazione: miglioramento organizzazione, Stesura fase AD}{2016-03-25}{0.3.2}
+	\modifica{Viviana Alessio}{\RES}{Stesura Pianificazione: introduzione, fase A}{2016-03-23}{0.3.1}
+	\modifica{Viviana Alessio}{\RES}{Stesura Analisi dei rischi: livello personale e organizzativo}{2016-03-23}{0.3.0}
+	\modifica{Viviana Alessio}{\RES}{Stesura Analisi dei rischi: livello tecnologico}{2016-03-22}{0.2.1}
+	\modifica{Viviana Alessio}{\RES}{Stesura Introduzione}{2016-03-16}{0.2.0}
+	\modifica{Viviana Alessio}{\RES}{Stesura intestazione e indice documento}{2016-03-16}{0.1.0}
+\end{diario}
+
+\newpage
+\tableofcontents
+\newpage
+\listoftables
+\newpage
+\listoffigures
+\newpage
+
+\include{introduzione}
+
+\include{analisiRischi}
+
+\include{pianificazione}
+
+\include{preventivo}
+
+\appendix
+\include{organigramma}
+
+\end{document}
