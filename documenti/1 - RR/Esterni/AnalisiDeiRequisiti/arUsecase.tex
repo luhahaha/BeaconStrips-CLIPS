@@ -41,9 +41,13 @@ ESTENSIONE:
 \UC{UC1.1.3}: l'associazione email/password non esiste nel database.}\\\\ 
 \pre{l'utente è registrato presso il database}\\\\ 
 \post{l'utente è autenticato}\\\\ 
-\scen{\UC{UC1.1.1.1} l'utente inserisce l'email,
-\UC{UC1.1.1.2} l'utente inserisce la password,
-\UC{UC1.1.1.3} l'utente conferma di voler eseguire il login.}\\\\ 
+\scen{\begin{itemize}
+\item \UC{UC1.1.1.1} l'utente inserisce l'email,
+\item \UC{UC1.1.1.2} l'utente inserisce la password,
+\item \UC{UC1.1.1.3} l'utente conferma di voler eseguire il login,
+\item ESTENSIONE: se i dati inseriti non sono corretti l'esecuzione prosegue con \UC{UC1.1.3},
+\item altrimenti l'utente viene autenticato (\UC{UC1.1.1.4})
+\end{itemize}.}\\\\ 
 \att{Utente}
 
 \casoduso{UC1.1.1.1}{Inserimento email} 
@@ -62,18 +66,16 @@ ESTENSIONE:
 \desc{l'utente conferma di voler eseguire il login}\\\\ 
 \pre{la connessione ad internet è attiva e l'App fornisce la pagina di login}\\\\ 
 \post{l'utente chiede al sistema di essere autenticato}\\\\ 
+\scen{Se i dati che vengono confermati sono corretti l'utente viene autenticato (eseguendo \UC{UC1.1.1.4}); altrimenti il sistema informa l'utente della scorrettezza dei dati inseriti tramite l'estensione (\UC{UC1.1.3}).
+
+ESTENSIONE:
+\UC{UC1.1.3}}\\\\ 
 \att{Utente}
 
-\casoduso{UC1.1.1.3.1}{Visualizza info dati login errati} 
-\desc{l'utente visualizza un breve testo che lo informa della scorrettezza dei dati inseriti}\\\\ 
-\pre{l'utente inserisce una associazione email/password inesistente}\\\\ 
-\post{l'utente è informato della scorrettezza dei dati inseriti}\\\\ 
-\att{}
-
-\casoduso{UC1.1.1.3.2}{Resetta la password} 
-\desc{l'utente non autenticato che abbia smarrito la password può resettare la password: una password casuale valida viene sostituita a quella correntemente associata all'indirizzo email e viene inviata allo stesso indirizzo (insieme ad un invito ad aggiornarla al più presto).}\\\\ 
-\pre{l'utente non è autenticato e desidera effettuare il reset della password}\\\\ 
-\post{l'utente trova la nuova password nella propria casella di posta}\\\\ 
+\casoduso{UC1.1.1.4}{L'utente viene autenticato} 
+\desc{se le informazioni inserite in precedenza sono corrette (in particolare se l'associazione email/password esiste nel sistema) l'utente viene autenticato}\\\\ 
+\pre{l'email e la password inserite sono valide}\\\\ 
+\post{l'utente è autenticato nel sistema}\\\\ 
 \att{}
 
 \casoduso{UC1.1.2}{Registrazione} 
@@ -129,6 +131,18 @@ l'utente inserisce una password sufficientemente sicura.}\\\\
 \scen{\UC{UC1.1.3.1} l'utente visualizza l'informazione che i dati inseriti sono errati,
 \UC{UC1.1.3.2} l'utente può resettare la propria password}\\\\ 
 \att{Utente}
+
+\casoduso{UC1.1.3.1}{Visualizza info dati login errati} 
+\desc{l'utente visualizza un breve testo che lo informa della scorrettezza dei dati inseriti}\\\\ 
+\pre{l'utente inserisce una associazione email/password inesistente}\\\\ 
+\post{l'utente è informato della scorrettezza dei dati inseriti}\\\\ 
+\att{}
+
+\casoduso{UC1.1.3.2}{Resetta la password} 
+\desc{l'utente non autenticato che abbia smarrito la password può resettare la password: una password casuale valida viene sostituita a quella correntemente associata all'indirizzo email e viene inviata allo stesso indirizzo (insieme ad un invito ad aggiornarla al più presto).}\\\\ 
+\pre{l'utente non è autenticato e desidera effettuare il reset della password}\\\\ 
+\post{l'utente trova la nuova password nella propria casella di posta}\\\\ 
+\att{}
 
 \casoduso{UC1.1.4}{Visualizza errore su dati registrazione} 
 \desc{l'utente compie uno dei seguenti errore e viene notificato per ciò:
@@ -329,12 +343,12 @@ l'utente invia una richiesta di supporto.}\\\\
 \pre{l'utente desidera visualizzare informazioni circa gli scenari visualizzati}\\\\ 
 \post{l'utente visualizza i dati relativi ai percorsi già compiuti (se ce ne sono) o gli viene spiegato perché ciò non è possibile}\\\\ 
 \scen{se l'utente non è autenticato:
- - \UC{UC1.5.4} l'utente viene informato della possibilità di salvare i percorsi effettuati se si autentica,
+ - \UC{UC1.5.3} l'utente viene informato della possibilità di salvare i percorsi effettuati se si autentica,
 altrimenti, se l'utente non ha percorsi registrati:
- - \UC{UC1.5.3} l'utente viene invitato a compiere un percorso per poi visualizzarne il dettaglio in questa pagina
+ - \UC{UC1.5.2} l'utente viene invitato a compiere un percorso per poi visualizzarne il dettaglio in questa pagina
 altrimenti:
  - \UC{UC1.5.1} l'utente visualizza l'elenco dei percorsi svolti,
- - \UC{UC1.5.2} l'utente può visualizzare il dettaglio di un percorso salvato.}\\\\ 
+ - \UC{UC1.5.1.1} l'utente può visualizzare il dettaglio di un percorso salvato.}\\\\ 
 \att{Utente, Utente autenticato}
 
 \casoduso{UC1.5.1}{Visualizza percorsi effettuati} 
@@ -343,19 +357,19 @@ altrimenti:
 \post{l'app mostra all'utente alcune informazioni sui percorsi svolti}\\\\ 
 \att{Utente autenticato}
 
-\casoduso{UC1.5.2}{Visualizza dettagli percorso svolto} 
+\casoduso{UC1.5.1.1}{Visualizza dettagli percorso svolto} 
 \desc{l'utente autenticato desidera visualizzare tutte le informazioni relative ad un percorso effettuato (luogo, data, ora di inizio, ora di fine, tempo totale speso nelle prove, punteggio finale, …)}\\\\ 
 \pre{l'utente è autenticato, ha qualche percorso salvato nell'account e ha selezionato un percorso da visualizzare in dettaglio}\\\\ 
 \post{l'app mostra il dettaglio del percorso selezionato}\\\\ 
 \att{Utente autenticato}
 
-\casoduso{UC1.5.3}{Visualizza elenco percorsi vuoto} 
+\casoduso{UC1.5.2}{Visualizza elenco percorsi vuoto} 
 \desc{se l'utente è autenticato ma non ha mai svolto alcun percorso, l'app mostrerà una breve spiegazione del perché non si vede alcun percorso (nessuno è stato svolto finora) e invita l'utente a completarne uno.}\\\\ 
 \pre{l'utente è autenticato e non ha alcun percorso registrato nel suo account}\\\\ 
 \post{l'app presenta all'utente un testo di chiarificazione della pagina}\\\\ 
 \att{Utente autenticato}
 
-\casoduso{UC1.5.4}{Visualizza invito ad autenticarsi} 
+\casoduso{UC1.5.3}{Visualizza invito ad autenticarsi} 
 \desc{l'app mostra all'utente non autenticato una schermata in cui spiega che se l'utente si autentica potrà salvare i risultati dei percorsi e, in questa schermata, visualizzarli.}\\\\ 
 \pre{l'utente non è autenticato}\\\\ 
 \post{l'app informa l'utente della funzionalità di salvataggio dei percorsi disponibile per i soli utenti autenticati}\\\\ 
@@ -364,7 +378,7 @@ altrimenti:
 \casoduso{UC1.6}{Visualizza percorsi vicini} 
 \begin{figure}[H] 
 \centering 
-\includegraphics[scale=0.4]{img/UC_1_6_png} 
+\includegraphics[scale=0.4]{img/UC_1_6.png} 
 \caption{Caso d'uso UC 1.6} 
  \end{figure} 
 \desc{l'utente visualizza i percorsi nelle vicinanze (o i più vicini)}\\\\ 
@@ -458,25 +472,25 @@ i seguenti sono opzionali:
 
 \casoduso{UC1.6.3.3.3}{Contatta edificio via Facebook} 
 \desc{l'utente può contattare l'edificio tramite Facebook}\\\\ 
-\pre{l'edificio pu� essere contattato tramite Facebook}\\\\ 
+\pre{l'edificio può essere contattato tramite Facebook}\\\\ 
 \post{il dispositivo lancia l'applicazione di default per inviare messaggi tramite Facebook}\\\\ 
 \att{Utente}
 
 \casoduso{UC1.6.3.3.4}{Contatta edificio via Twitter} 
 \desc{l'utente può contattare l'edificio tramite Twitter}\\\\ 
-\pre{l'edificio pu� essere contattato tramite Twitter}\\\\ 
+\pre{l'edificio può essere contattato tramite Twitter}\\\\ 
 \post{il dispositivo lancia l'applicazione di default per inviare messaggi tramite Twitter}\\\\ 
 \att{Utente}
 
 \casoduso{UC1.6.3.3.5}{Contatta edificio via Telegram} 
 \desc{l'utente può contattare l'edificio tramite Telegram}\\\\ 
-\pre{l'edificio pu� essere contattato tramite Telegram}\\\\ 
+\pre{l'edificio può essere contattato tramite Telegram}\\\\ 
 \post{il dispositivo lancia Telegram aprendo una nuova conversazione con l'account fornito dall'edificio}\\\\ 
 \att{Utente}
 
 \casoduso{UC1.6.3.3.6}{Contatta edificio via WhatsApp} 
 \desc{l'utente può contattare l'edificio tramite WhatsApp}\\\\ 
-\pre{l'edificio pu� essere contattato tramite WhatsApp}\\\\ 
+\pre{l'edificio può essere contattato tramite WhatsApp}\\\\ 
 \post{il dispositivo lancia WhatsApp aprendo una nuova conversazione con l'account fornito dall'edificio}\\\\ 
 \att{Utente}
 
