@@ -51,11 +51,11 @@
 \newenvironment{tabella}[1]
 {
 	\def\arraystretch{1.5}
-	\rowcolors{2}{dispari}{pari}
+	% \rowcolors{2}{dispari}{pari}
 	\begin{longtabu}{#1}
 	% \rowcolor{intestazione}
 	\arrayrulecolor{linecolor}
-	% \taburowcolors[2] 3{dispari .. pari}
+	\taburowcolors[2] 3{dispari .. pari}
 }{
 	\end{longtabu}
 }
