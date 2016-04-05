@@ -16,6 +16,7 @@
 		\item \textit{Riferimenti.sty}: all'interno del file sono presenti vari comandi da utilizzare come scorciatoie (ad es. \texttt{\textbackslash RES)};
 		\item \textit{Stile.sty}: contiene gli stili grafici da applicare al template;
 		\item \textit{TemplateDoc.tex}: è il \gl{template} da utilizzare per realizzare i documenti. Ogni documento dovrà essere realizzato a partire da questo file;
+		\item \textit{TemplateVerbale.tex}: questo \gl{template} va impiegato per realizzare i verbali. Ogni verbale dovrà essere realizzato a partire da questo file;
 		\item \textit{Glossario.sty}: questo file serve per impostare il \textit{Glossario}, che avrà una configurazione diversa al template standard. %controllare
 	\end{itemize}
 	È presente inoltre una cartella \textit{img} dove si trova il logo del team e dove potranno essere caricate tutte le altre immagini necessarie al template. 
@@ -65,8 +66,18 @@
 			\begin{itemize}
 				\item AAAA: rappresenta l'anno utilizzando quattro cifre;
 				\item MM: rappresenta il mese utilizzando due cifre;
-				\item GG: rappresenta il giorno utilizzando quattro cifre;
+				\item GG: rappresenta il giorno utilizzando quattro cifre.
 			\end{itemize}
+			\item \textbf{Orari}: gli orari rappresentati dovranno essere in linea con lo standard \gl{ISO} 8601:2004:
+			\highlight{\textit{HH:MM}}
+			dove:
+			\begin{itemize}
+				\item HH: rappresenta l'ora utilizzando due cifre;
+				\item MM: rappresenta i minuti utilizzando due cifre.
+			\end{itemize}
+			\item \textbf{Indirizzi}: per gli indirizzi verrà utilizzata la rappresentazione:
+			\highlight{\textit{Destinatario o luogo - Via e numero, CAP, Comune(Provincia)}}
+			Nel caso l'indirizzo si riferisca ad uno Stato estero sarà necessario aggiungere il nome dello Stato dopo la provincia.	
 			\item \textbf{Sigle}: le sigle dei documenti vanno utilizzate solo nei diagrammi o nelle tabelle, con lo scopo di risparmiare spazio. Tali sigle sono:
 			\begin{itemize}
 				\item \textbf{AdR} per \ARdoc;
@@ -125,7 +136,7 @@
 			\item data di modifica.
 		\end{itemize}		
 		\subparagraph{Indici}
-		In ogni documento si trova un indice delle sezioni, il quale fornisce una visione macroscopica della struttura del documento. Nel caso comparissero tabelle e figure nel documento, potranno essere presenti i rispettivi indici.
+		In ogni documento si trova un indice delle sezioni, il quale fornisce una visione macroscopica della struttura del documento. Nel caso comparissero tabelle e figure nel documento, potranno essere presenti i rispettivi indici, che dovranno apparire nel seguente ordine: indice delle sezioni, indice delle tabelle ed indice delle figure.
 		\subparagraph{Intestazione e piè di pagina}
 		L'intestazione di ogni pagina contiene i seguenti elementi:
 		\begin{itemize}
@@ -139,6 +150,22 @@
 			\item pagina X di Y, dove X è la pagina corrente e Y è il numero di pagine totali, allineato a destra.
 		\end{itemize}
 	
+	\paragraph{Verbali}
+	I verbali verranno utilizzati per tenere traccia di informazioni importanti emerse durante alcune riunioni interne ed esterne. \\
+	Nella cartella \file{template} è presente un template da utilizzare per redigere i verbali e sono presenti le seguenti sezioni:
+	\begin{itemize}
+		\item \textbf{Informazioni}: vanno indicate \textbf{sempre} le seguenti informazioni:
+		\begin{itemize}
+			\item luogo;
+			\item data;
+			\item ora;
+			\item durata;
+			\item partecipanti.
+		\end{itemize}
+		\item \textbf{Premessa}: la premessa consiste in una breve descrizione del motivo della riunione;
+		\item \textbf{Ordine del giorno}: in questa sezione vanno indicati i vari punti da trattare durante la riunione;
+		\item \textbf{Verbale}: nella sezione \textit{Verbale} verranno trascritte tutte le informazioni rilevanti trattate durante la riunione.
+	\end{itemize}	
 	\paragraph{Versionamento}
 	I documenti prodotti sono soggetti al seguente versionamento attraverso la seguente codifica:
 	\highlight{vX.Y.Z}
