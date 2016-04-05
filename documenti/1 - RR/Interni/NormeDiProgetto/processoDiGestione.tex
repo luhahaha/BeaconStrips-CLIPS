@@ -77,11 +77,13 @@
 			\item \textbf{Documenti}: contenente:
 			\begin{enumerate}
 				\item \textbf{template}: con al suo interno i file \file{.sty} e una cartella \textbf{img} contenente le immagini (vedi sezione 3.1.2.1);
+				\item \textbf{script}: con al suo interno gli script;
 				\item una cartella per ogni \textbf{revisione di avanzamento}, il cui nome è definito dal numero e dalla sigla della revisione, separata da un trattino. Ciascuna di esse è suddivisa in:
 				\begin{enumerate}
 					\item \textbf{interni}: contenente una cartella per ogni documento interno, con nome, in notazione \gl{CamelCase}, uguale a quello del documento(senza numero di versione);
 					\item \textbf{esterni}: contenente una cartella per ogni documento esterno, con nome, in notazione \gl{CamelCase}, uguale a quello del documento(senza numero di versione);
 				\end{enumerate}
+				Ogni cartella dei documenti ha al suo interno, se necessario, una cartella \textbf{img} contenente le immagini e i diagrammi presenti in quel documento.
 			\end{enumerate}
 		\end{itemize}
 		\subparagraph{Tipi di file e .gitignore}
