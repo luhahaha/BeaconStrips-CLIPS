@@ -22,7 +22,7 @@
 			\item \textbf{validazione:} è il processo di conferma oggettiva del soddisfacimento dei requisiti, attuato per ogni fase del gl{progetto}.
 		\end{itemize}
 	\subsection{Organizzazione}
-		L'organizzazione della strategia di verifica si basa sull'attuazione di verifiche per ogni processo attuato. Queste verifiche controllano sia la qualità del processo stesso sia la qualità del prodotto ottenuto. Grazie al diario delle modifiche sarà possibile eseguire una verifica solo sui cambiamenti effettuati. \\
+		L'organizzazione della strategia di verifica si basa sull'attuazione di verifiche per ogni processo completato. Queste verifiche controllano sia la qualità del processo stesso sia la qualità del prodotto ottenuto. Grazie al diario delle modifiche sarà possibile eseguire una verifica solo sui cambiamenti effettuati. \\
 		A causa della diversa natura dei risultati ottenuti da ogni fase del processo ognuno di essi richiederà l'attuazione di specifiche procedure di verifica. Il \gl{team} ha deciso di adottare un ciclo di vita incrementale per lo sviluppo del progetto. Di conseguenza il processo di verifica adottato per ogni fase del progetto opererà nel modo seguente:
 		\begin{itemize}
 			\item \textbf{individuazione degli strumenti, analisi dei requisiti e di dettaglio:} in questa fase verranno redatti i documenti che riporteranno i requisiti individuati, le strategie e le norme adottate.
@@ -80,11 +80,11 @@
 					\item\ all'analisi statica del codice;
 					\item\ alla gestione dei test sul codice.
 				\end{itemize}
-				\item \textbf{risorse hardware:} sono necessari computer con tutti gli strumenti software descritti nelle \NPdoc. È necessario avere a disposizione uno o più luoghi dove poter effettuare le riunioni interne del gruppo \AUTORE. Sono necessari i \gl{beacon} in un numero sufficiente per i test del progetto.
+				\item \textbf{risorse hardware:} sono necessari computer con tutti gli strumenti software descritti nelle \NPdoc. È necessario avere a disposizione uno o più luoghi dove poter effettuare le riunioni interne del gruppo \AUTORE. Sono necessari i \gl{beacon} in un numero sufficiente per i test del progetto. È necessario avere un server su cui installare il database necessario per il funzionamento del prodotto. Sono necessari degli \gl{smartphone} adatti ad eseguire i test del prodotto.
 			\end{itemize}
 		\subsubsection{Disponibili}
 			Ogni membro di \AUTORE\ ha a disposizione almeno un computer personale dotato di tutti gli strumenti necessari con cui poter svolgere tutti i propri compiti. \\
-			A scopo di test e di supporto degli strumenti scelti per l'ambiente di sviluppo vengono messi a disposizione uno spazio web e un server privato da \PROPONENTE. \\
+			A scopo di test, di supporto degli strumenti scelti per l'ambiente di sviluppo, e per il funzionamento dell'app vengono messi a disposizione uno spazio web e un server privato da \PROPONENTE. \\
 			Per lo svolgimento delle riunioni interne il \gl{team} usa le aule del Dipartimento di Matematica dell'Università degli Studi di Padova; inoltre usa \gl{Google Hangouts} come strumento di discussione tramite videochiamate.
 	\subsection{Strumenti}
 		Nella sezione ‘‘Ambiente di sviluppo’’ del documento \NPdoc, sono descritti gli strumenti software impiegati dl \gl{team} per:
@@ -172,12 +172,12 @@
 			\label{sec:3.9.3}
 			\paragraph{Numero di parametri}
 				\label{sec:3.9.3.1}
-				Indica il numero di parametri formali in input di un metodo. Se il numero di parametri è elevato, lo \gl{stack} del programma può essere riempito rapidamente in caso di chiamate multiple innestate.
+				Indica il numero di parametri formali in input di un metodo. Se il numero di parametri è elevato, lo \gl{stack} del programma può essere riempito rapidamente in caso di chiamate multiple innestate. I costruttori potranno superare questo limite se il numero elevato di parametri potrà facilitare la verifica tramite test e rendere più robusto agli errori l'oggetto definito.
 				
 				\textbf{Parametri utilizzati:}
 				\begin{itemize}
-					\item \textbf{Range accettazione:}\ 0 -8;
-					\item \textbf{Range ottimale:}\ 0 -5.
+					\item \textbf{Range accettazione:}\ 0 - 8;
+					\item \textbf{Range ottimale:}\ 0 - 5.
 				\end{itemize}
 			\paragraph{Complessità ciclomatica}
 				\label{sec:3.9.3.2}
