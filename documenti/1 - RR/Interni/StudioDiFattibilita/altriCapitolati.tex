@@ -5,28 +5,25 @@
 
 Il progetto Actorbase consiste nella progettazione di un \gl{database non relazionale} che utilizzi il modello ad attori grazie all'uso delle seguenti tecnologie:
 \begin{itemize}
-	\item La libreria \gl{Akka} per l'implementazione del modello ad attori su \gl{JVM};
+	\item la libreria \gl{Akka} per l'implementazione del modello ad attori su \gl{JVM};
 	\item Java o \gl{Scala} come linguaggi di programmazione.
 \end{itemize}
 Inoltre è prevista l'implementazione di un \gl{DSL} per poter interagire con il database da riga di comando.
 
 \subsubsection{Osservazioni}
-Poiché un progetto in cui viene utilizzato il modello ad attori è già stato affrontato per il progetto del corso di Programmazione Concorrente e Distribuita, il gruppo ha deciso di
-non intraprendere lo sviluppo di questo capitolato.
+Poiché un progetto in cui viene utilizzato il modello ad attori è già stato affrontato per il progetto del corso di Programmazione Concorrente e Distribuita, il gruppo ha deciso di non intraprendere lo sviluppo di questo capitolato.
 
 
 \subsection{Capitolato C3 - Internet of things}
 \subsubsection{Scopo del progetto}
 
-Il progetto Internet of things consiste, citando il capitolato, nella creazione di un un algoritmo predittivo in grado analizzare i dati provenienti da “oggetti”, inseriti
-in diversi contesti, e fornire delle previsioni su possibili guasti, interazioni con nuovi utenti ed identificare dei pattern di comportamento degli utenti per prevedere le azioni degli
-stessi su altri oggetti o altri contesti.
+Il progetto Internet of things consiste, citando il capitolato, nella creazione di un un algoritmo predittivo in grado analizzare i dati provenienti da “oggetti”, inseriti in diversi contesti, e fornire delle previsioni su possibili guasti, interazioni con nuovi utenti ed identificare dei pattern di comportamento degli utenti per prevedere le azioni degli stessi su altri oggetti o altri contesti.
 
 L'applicativo software dovrà essere composto in tre parti:
 \begin{itemize}
-	\item Una console web amministrativa per la definizione di regole di apprendimento a seconda del contesto e tipo di dati;
-	\item Una console web di amministrazione per le singole aziende;
-	\item Dei servizi web restful \gl{JSON} interrogabili.
+	\item una console web amministrativa per la definizione di regole di apprendimento a seconda del contesto e tipo di dati;
+	\item una console web di amministrazione per le singole aziende;
+	\item dei servizi web restful \gl{JSON} interrogabili.
 \end{itemize}
 La piattaforma dovrà inoltre permettere la comunicazione tramite i protocolli \gl{HTTP}/\gl{HTTPS} standard e il protocollo \gl{MQTT}.
 
@@ -61,14 +58,13 @@ I  requisiti tecnologici sono i seguenti:
 \begin{itemize}
 	\item \gl{Node.js} per il backend, per la precisione deve supportare la versione \gl{LTS} \gl{Argon};
 	\item \gl{MongoDB} con versione non inferiore alla 3 come database;
-	\item Il \gl{framework Loopback} per la gestione del sistema;
-	\item Rendere disponibile il servizio su \gl{Heroku};
-	\item Utilizzare \gl{github} o \gl{bitbucket} per il versionamento.
+	\item il \gl{framework Loopback} per la gestione del sistema;
+	\item rendere disponibile il servizio su \gl{Heroku};
+	\item utilizzare \gl{github} o \gl{bitbucket} per il versionamento.
 \end{itemize}
 
 \subsubsection{Osservazioni}
-La carenza delle conoscenze necessarie per sviluppare il progetto ha portato il gruppo a decidere di scartare il capitolato data la grande quantità
-di tempo necessaria per colmare le lacune.
+La carenza delle conoscenze necessarie per sviluppare il progetto ha portato il gruppo a decidere di scartare il capitolato data la grande quantità di tempo necessaria per colmare le lacune.
 
 
 \subsection{Capitolato C5 - Quizzipedia}
@@ -84,7 +80,7 @@ Le domande devono essere raccolte attraverso uno specifico linguaggio chiamato Q
 I requisisti minimi da soddisfare sono i seguenti:
 \begin{itemize}
 	\item Archiviare i quiz in un server e suddividerli per argomento;
-	\item Tradurre le domande archiviate da QML a HTML;
+	\item Tradurre le domande archiviate da QML a \gl{HTML};
 	\item Il QML deve poter gestire risposte vero/falso, a scelta multipla, testi ed immagini;
 	\item Archiviare questionari contenenti le domande archiviate nel server;
 	\item Proporre questionari preconfezionati;
@@ -100,9 +96,7 @@ La parte destinata ai creatori di domande e quiz dovrà essere utilizzabile su P
 dovrà funzionare con qualunque dispositivo.
 
 \subsubsection{Osservazioni}
-I membri del gruppo si sono trovati interessati allo sviluppo dell'applicazione visto che le conoscenze necessarie per lo sviluppo rientrano
-nelle conoscenze possedute dai membri stessi. Sfortunatamente non è stato possibile scegliere il capitolato in quanto non più disponibile al momento
-della creazione del gruppo.
+I membri del gruppo si sono trovati interessati allo sviluppo dell'applicazione visto che le conoscenze necessarie per lo sviluppo rientrano nelle conoscenze possedute dai membri stessi. Sfortunatamente non è stato possibile scegliere il capitolato in quanto non più disponibile al momento della creazione del gruppo.
 
 \subsection{Capitolato C6 - Sintesi vocale su dispositivi mobili}
 \subsubsection{Scopo del progetto}
@@ -110,15 +104,15 @@ Il progetto consiste nella realizzazione di un'applicazione che aggiunga nuove f
 L'applicazione deve usare il motore di sintesi \gl{Flexible and Adaptive Text-To-Speechmcat} e deve rispettare i seguenti requisiti obbligatori:
 
 \begin{itemize}
-	\item Gestire i problemi causati dall'utilizzo di un servizio remoto (es.: gestire il caso in cui non si è in grado di accedere ad internet);
-	\item Implementare un'interfaccia grafica per la configurazione dei servizi \gl{TTS}.
+	\item gestire i problemi causati dall'utilizzo di un servizio remoto (es.: gestire il caso in cui non si è in grado di accedere ad internet);
+	\item implementare un'interfaccia grafica per la configurazione dei servizi \gl{TTS}.
 \end{itemize}
 
 I requisiti opzionali sono:
 
 \begin{itemize}
-	\item Supporto multipiattaforma;
-	\item Utilizzo e integrazione di servizi aggiuntivi (es.: l'integrazione del servizio di personalizzazione
+	\item supporto multipiattaforma;
+	\item utilizzo e integrazione di servizi aggiuntivi (es.: l'integrazione del servizio di personalizzazione
 	della voce nell'applicazione o l'utilizzo di risorse esterne per ottenere contenuti).
 \end{itemize}
 
