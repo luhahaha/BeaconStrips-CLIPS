@@ -1,0 +1,30 @@
+i numeri a inizio riga si riferiscono alle sezioni del documento. Sono seguiti dal codice del caso d'uso se la sezione contiene un caso d'uso.
+
+1.2 non è stato usato il riferimento \SCOPO
+2.1 non sono chiari gli obiettivi.
+2.2 non presente.
+3 sostituire prima frase con -> Gli Analisti, dopo aver discusso, analizzato il capitolato e grazie agli incontri con il proponente hanno definito i seguenti casi d'uso.
+3.1 UC1 non so se è un errore di trender, ma la ripetizione di "l'utente" sarebbe da evitare. -> l'utente registrato può blablabla... . L'utente può blablabla....
+3.2 UC1.1 mancano i link ai caso d'uso citati come succede nei casi d'uso successivi. Gli scenari non sono inseriti in un elenco puntato come nei casi d'uso successivi.
+3.16 UC1.1.4 errore -> errori
+3.20 UC1.3.1.1 sostituire parentesi con virgole.
+3.25 UC1.3.2 descrizione: togliere virgola. e sostituire prentesi con :
+3.26-3.29 (UC1.3.2.1-UC1.3.2.4) sostituire parentesi con :, o almeno i puntini di sospensione dentro la parentesi.
+3.33 UC1.4 togliere un punto finale
+3.37 UC1.5 sostituire parentesi con virgole.
+3.40 UC1.5.2 togliere un punto alla fine.
+3.41 UC1.5.3 come sopra.
+3.41 UC1.6 mettere apposto punti alla fine delle frasi.
+3.43 UC1.6.1 come sopra.
+3.44 UC1.6.1.1 come sopra.
+3.46 UC1.6.3 'in app' -> ``in app'' (colpa di latex che non fa le virgolette "normali")
+3.49 UC1.6.3.3 mettere apposto elenco puntato, mettere "via" dappertutto.
+3.58 UC1.7.2 -> l'utente è autenticato e desidera modificare la password.
+
+mettere tabelle dei requisiti al posto giusto (probabilmente basta togliere dei new page)
+
+
+
+
+
+
