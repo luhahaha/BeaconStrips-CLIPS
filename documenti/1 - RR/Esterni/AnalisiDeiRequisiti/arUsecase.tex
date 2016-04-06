@@ -7,13 +7,16 @@
 \desc{Utente utilizza l'App.}\\\\ 
 \pre{l'utente ha l'app installata nel dispositivo.}\\\\ 
 \post{il sistema ha erogato le funzionalità richieste dall'utente.}\\\\ 
-\scen{l'utente può registrarsi,
-l'utente può autenticarsi,
-l'utente può deautenticarsi,
-l'utente può giocare,
-l'utente può ricevere informazioni sull'App,
-l'utente registrato può vedere i propri risultati salvati,
-l'utente può visualizzare i percorsi vicini.}\\\\ 
+\scen{l'utente:
+\begin{itemize}
+\item \UC{UC1.1} può autenticarsi,
+\item \UC{UC1.2} può deautenticarsi,
+\item \UC{UC1.3} può giocare,
+\item \UC{UC1.4}può ricevere informazioni sull'App,
+\item \UC{UC1.5} può vedere i propri risultati salvati,
+\item \UC{UC1.6} può visualizzare i percorsi vicini,
+\item \UC{UC1.7} può modificare le credenziali di accesso.
+\end{itemize}}\\\\ 
 \att{Utente.}
 
 \casoduso{UC1.1}{Autenticazione} 
@@ -25,8 +28,10 @@ l'utente può visualizzare i percorsi vicini.}\\\\
 \desc{l'utente può autenticarsi inserendo le proprie credenziali.}\\\\ 
 \pre{l'utente non è già autenticato.}\\\\ 
 \post{l'utente è autenticato.}\\\\ 
-\scen{\UC{1.1.1} l'utente esegue il login se è già registrato,
-\UC{1.1.2} l'utente si registra e poi esegue il login (\UC{1.1.1}) se non è registrato.}\\\\ 
+\scen{\begin{itemize}
+\item \UC{UC1.1.1} l'utente esegue il login se è già registrato,
+\item \UC{UC1.1.2} l'utente si registra e poi esegue il login (\UC{UC1.1.1}) se non è registrato.
+\end{itemize}}\\\\ 
 \scensec{l'utente rinuncia ad autenticarsi e torna alla schermata precedente}\\\\ 
 \att{Utente non autenticato.}
 
@@ -150,7 +155,7 @@ la password non è sufficientemente sicura (\UC{UC1.1.4}).}\\\\
 \post{l'utente trova la nuova password nella propria casella di posta.}\\\\ 
 \att{Utente non autenticato.}
 
-\casoduso{UC1.1.4}{Visualizza errore su dati registrazione} 
+\casoduso{UC1.1.4}{Visualizza errori su dati registrazione} 
 \desc{l'utente compie uno dei seguenti errore e viene notificato per ciò:
 - l'email inserita non è valida,
 - l'username inserito non è disponibile
@@ -211,7 +216,7 @@ ESTENSIONE: se la prova conclusa è l'ultima l'utente visualizza il riepilogo \U
 \att{Utente.}
 
 \casoduso{UC1.3.1.1}{Ricerca stazione} 
-\desc{l'utente è alla ricerca della stazione in cui recarsi per la prossima (o la prima) prova.}\\\\ 
+\desc{l'utente è alla ricerca della stazione in cui recarsi per la prossima, o la prima, prova.}\\\\ 
 \pre{l'utente non sta svolgendo alcuna prova e non ha concluso il percorso.}\\\\ 
 \post{l'utente è presso la stazione in cui svolgere la prossima prova.}\\\\ 
 \att{Utente.}
@@ -258,7 +263,7 @@ percorso}
 \includegraphics[scale=0.4]{img/UC_1_3_2.png} 
 \caption{Caso d'uso UC 1.3.2} 
  \end{figure} 
-\desc{dopo che l'utente termina il percorso, visualizza il riassunto (durata totale, durata totale delle prove, punteggio ottenuto, posizione in classifica).}\\\\ 
+\desc{dopo che l'utente termina il percorso visualizza il riassunto: durata totale, durata totale delle prove, punteggio ottenuto, posizione in classifica.}\\\\ 
 \pre{l'utente ha completato il percorso.}\\\\ 
 \post{l'app presenta il riassunto del percorso.}\\\\ 
 \scen{L'utente visualizza le seguenti informazioni:
@@ -273,25 +278,25 @@ percorso}
 \att{Utente.}
 
 \casoduso{UC1.3.2.1}{Visualizza durata totale} 
-\desc{Visualizza la durata totale del percorso (il tempo intercorso tra l'orario di inizio e quello di fine)..}\\\\ 
+\desc{Visualizza la durata totale del percorso: il tempo intercorso tra l'orario di inizio e quello di fine.}\\\\ 
 \pre{l'utente ha concluso il percorso.}\\\\ 
 \post{l'app mostra i dettagli sul tempo di inizio, fine e durata..}\\\\ 
 \att{Utente.}
 
 \casoduso{UC1.3.2.2}{Visualizza durata totale delle prove} 
-\desc{Visualizza la durata totale del percorso (la somma dei tempi spesi dall'utente nel compiere le varie prove)..}\\\\ 
+\desc{Visualizza la durata totale del percorso: la somma dei tempi spesi dall'utente nel compiere le varie prove.}\\\\ 
 \pre{l'utente ha concluso il percorso.}\\\\ 
 \post{l'app mostra i dettagli sulla durata delle prove..}\\\\ 
 \att{Utente.}
 
 \casoduso{UC1.3.2.3}{Visualizza il punteggio ottenuto} 
-\desc{Visualizza il punteggio ottenuto durante il percorso (la somma dei punteggi ottenuti nelle varie prove)..}\\\\ 
+\desc{Visualizza il punteggio ottenuto durante il percorso: la somma dei punteggi ottenuti nelle varie prove.}\\\\ 
 \pre{l'utente ha concluso il percorso.}\\\\ 
 \post{l'app mostra il punteggio ottenuto..}\\\\ 
 \att{Utente.}
 
 \casoduso{UC1.3.2.4}{Visualizza classifica del percorso} 
-\desc{Visualizza alcune informazioni circa le prime posizioni in classifica, quelle antecedenti e quelle seguenti l'utente nel percorso appena concluso (si veda \Req{R0F3.2.4} e figli..}\\\\ 
+\desc{Visualizza alcune informazioni circa le prime posizioni in classifica, quelle antecedenti e quelle seguenti l'utente nel percorso appena concluso (si veda \Req{R0F3.2.4} e figli).}\\\\ 
 \pre{l'utente ha concluso il percorso.}\\\\ 
 \post{l'app mostra la posizione in classifica assoluta ottenuta per quel percorso.}\\\\ 
 \att{Utente.}
@@ -358,7 +363,7 @@ l'utente invia una richiesta di supporto.}\\\\
  \end{figure} 
 \desc{l'utente autenticato visualizza i risultati salvati in precedenza.}\\\\ 
 \pre{l'utente desidera visualizzare informazioni circa gli scenari visualizzati.}\\\\ 
-\post{l'utente visualizza i dati relativi ai percorsi già compiuti (se ce ne sono) o gli viene spiegato perché ciò non è possibile.}\\\\ 
+\post{l'utente visualizza i dati relativi ai percorsi già compiuti, se ce ne sono, o gli viene spiegato perché ciò non è possibile.}\\\\ 
 \scen{se l'utente non è autenticato:
 \begin{itemize}
 \item \UC{UC1.5.3} l'utente viene informato della possibilità di salvare i percorsi effettuati se si autentica,
@@ -391,13 +396,13 @@ altrimenti:
 \att{Utente autenticato.}
 
 \casoduso{UC1.5.2}{Visualizza elenco percorsi vuoto} 
-\desc{se l'utente è autenticato ma non ha mai svolto alcun percorso, l'app mostrerà una breve spiegazione del perché non si vede alcun percorso (nessuno è stato svolto finora) e invita l'utente a completarne uno..}\\\\ 
+\desc{se l'utente è autenticato ma non ha mai svolto alcun percorso, l'app mostrerà una breve spiegazione del perché non si vede alcun percorso (nessuno è stato svolto finora) e invita l'utente a completarne uno.}\\\\ 
 \pre{l'utente è autenticato e non ha alcun percorso registrato nel suo account.}\\\\ 
 \post{l'app presenta all'utente un testo di chiarificazione della pagina.}\\\\ 
 \att{Utente autenticato.}
 
 \casoduso{UC1.5.3}{Visualizza invito ad autenticarsi} 
-\desc{l'app mostra all'utente non autenticato una schermata in cui spiega che se l'utente si autentica potrà salvare i risultati dei percorsi e, in questa schermata, visualizzarli..}\\\\ 
+\desc{l'app mostra all'utente non autenticato una schermata in cui spiega che se l'utente si autentica potrà salvare i risultati dei percorsi e, in questa schermata, visualizzarli.}\\\\ 
 \pre{l'utente non è autenticato.}\\\\ 
 \post{l'app informa l'utente della funzionalità di salvataggio dei percorsi disponibile per i soli utenti autenticati.}\\\\ 
 \att{Utente non autenticato.}
@@ -409,10 +414,12 @@ altrimenti:
 \caption{Caso d'uso UC 1.6} 
  \end{figure} 
 \desc{l'utente visualizza i percorsi nelle vicinanze (o i più vicini).}\\\\ 
-\pre{l'utente ha i servizi di localizzazione attivi, l'utente ha la connessione ad internet attiva..}\\\\ 
-\post{l'utente visualizza i percorsi disponibili nelle vicinanze..}\\\\ 
-\scen{\UC{1.6.1} l'utente visualizza gli edifici abilitati entro un certo raggio,
-\UC{1.6.2} l'utente visualizza i 10 edifici più vicini.}\\\\ 
+\pre{l'utente ha i servizi di localizzazione attivi, l'utente ha la connessione ad internet attiva.}\\\\ 
+\post{l'utente visualizza i percorsi disponibili nelle vicinanze.}\\\\ 
+\scen{\begin{itemize}
+\item \UC{1.6.1} l'utente visualizza gli edifici abilitati entro un certo raggio,
+\item \UC{1.6.2} l'utente visualizza i 10 edifici più vicini.
+\end{itemize}}\\\\ 
 \scensec{l'utente non desidera più visualizzare gli edifici vicini ed esce dalla schermata}\\\\ 
 \att{Utente.}
 
@@ -422,14 +429,14 @@ altrimenti:
 \includegraphics[scale=0.4]{img/UC_1_6_1.png} 
 \caption{Caso d'uso UC 1.6.1} 
  \end{figure} 
-\desc{l'utente vuole sapere quali sono gli edifici abilitati (con percorsi) nelle vicinanze ed imposta un raggio per effettuare la ricerca..}\\\\ 
+\desc{l'utente vuole sapere quali sono gli edifici abilitati (con percorsi) nelle vicinanze ed imposta un raggio per effettuare la ricerca.}\\\\ 
 \pre{l'utente ha i servizi di localizzazione attivi, una connessione ad internet ed ha inserito il raggio (in km) entro cui desidera cercare edifici abilitati.}\\\\ 
 \post{l'app mostra all'utente gli edifici abilitati entro il raggio impostato.}\\\\ 
 \scen{attraverso \UC{UC1.6.1.1} l'utente inserisce un raggio entro cui effettuare la ricerca di edifici abilitati}\\\\ 
 \att{Utente.}
 
 \casoduso{UC1.6.1.1}{Inserimento raggio di ricerca edifici} 
-\desc{l'utente inserisce un raggio (in km) entro il quale ricercare edifici abilitati (con percorsi)..}\\\\ 
+\desc{l'utente inserisce un raggio (in km) entro il quale ricercare edifici abilitati (con percorsi).}\\\\ 
 \pre{l'utente ha inserito i km entro cui effettuare la ricerca degli edifici.}\\\\ 
 \post{l'app mostra all'utente la lista degli edifici nel raggio scelto.}\\\\ 
 \att{Utente.}
@@ -451,7 +458,7 @@ altrimenti:
 \post{l'app mostra le informazioni riguardanti l'edificio.}\\\\ 
 \scen{l'utente può ottenere informazioni sull'edificio in diverse maniere:
 \begin{itemize}
-\item \UC{UC1.6.3.1} attraverso le informazioni 'in-app' sull'edificio,
+\item \UC{UC1.6.3.1} attraverso le informazioni ``in-app'' sull'edificio,
 \item \UC{UC1.6.3.2} accedendo al sito web relativo all'edificio,
 \item \UC{UC1.6.3.3} contattando in maniera diretta l'edificio.
 \end{itemize}}\\\\ 
@@ -481,8 +488,8 @@ altrimenti:
 \post{l'app fornisce all'utente uno o più canali attraverso cui è possibile farlo.}\\\\ 
 \scen{almeno uno tra i seguenti dev'essere disponibile:
 \begin{itemize}
-\item \UC{UC1.6.3.3.1} telefonicamente,
-\item \UC{UC1.6.3.3.2} per email,
+\item \UC{UC1.6.3.3.1} via telefono,
+\item \UC{UC1.6.3.3.2} via email,
 \item \UC{UC1.6.3.3.3} via Facebook,
 \item \UC{UC1.6.3.3.4} via Twitter,
 i seguenti sono opzionali:
@@ -554,7 +561,7 @@ se l'utente inserisce una password non valida il sistema restituisce un avviso e
 \att{Utente autenticato.}
 
 \casoduso{UC1.7.2}{Modifica password} 
-\desc{l'utente autenticato desidera modificare la password di registrazione al sistema
+\desc{l'utente è autenticato e desidera modificare la password di registrazione al sistema
 
 ESTENSIONE:
 se l'utente inserisce una password che non rispetta i requisiti \Req{R0F1.2.5.4}, all'utente non viene consentito di procedere e si procede invece con \UC{UC1.1.4}.}\\\\ 
