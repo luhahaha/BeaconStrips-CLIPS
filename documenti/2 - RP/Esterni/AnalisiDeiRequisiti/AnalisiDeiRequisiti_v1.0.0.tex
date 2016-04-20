@@ -1,0 +1,108 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+% -- COMANDI PER I CASI D'USO -- %
+\newcommand\UC[1]{\hyperref[#1]{#1}}
+\newcommand\Req[1]{\hyperref[#1]{#1}}
+\newcommand\boldTitle[1]{\textbf{#1: }}
+\newcommand\id[1]{\boldTitle{Identificativo} #1}
+\newcommand\tipo{\boldTitle{Tipo}}
+\newcommand\tit{\boldTitle{Titolo}}
+\newcommand\desc{\boldTitle{Descrizione}}
+\newcommand\pre{\boldTitle{Precondizione}}
+\newcommand\post{\boldTitle{Postcondizione}}
+\newcommand\scen{\boldTitle{Scenario principale}}
+\newcommand\scensec{\boldTitle{Scenario secondario}}
+\newcommand\att{\boldTitle{Attori}}
+\newcommand\ext{\boldTitle{Extension Point}}
+\newcommand\casoduso[2]{\subsection{#1 - #2}\label{#1}}
+\newcounter{requisitiCounter}
+\newcommand\requisito[1]{\refstepcounter{requisitiCounter} \label{#1} #1}
+
+\def\NOME{Analisi dei Requisiti}
+\def\VERSIONE{1.0.0}
+\def\DATA{2016-04-06}
+\def\REDATTORE{Enrico Bellio \\ & Andrea Grendene \\ & Tommaso Panozzo}
+\def\VERIFICATORE{Viviana Alessio \\ & Matteo Franco}
+\def\RESPONSABILE{Viviana Alessio}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Descrizione dei Casi d'Uso e l'Analisi dei Requisiti del \gl{progetto}.}
+
+\begin{document}
+
+\maketitle
+
+\begin{diario}
+  \modifica{Viviana Alessio}{\RES}{Approvazione documento}{2016-04-06}{1.0.0}
+  \modifica{Tommaso Panozzo}{\AN}{Correzione alla verifica generale del documento}{2016-04-03}{0.4.7}
+  \modifica{Viviana Alessio}{\VER}{Verifica generale del documento}{2016-04-03}{0.4.6}
+  \modifica{Enrico Bellio}{\AN}{Correzioni alla verifica dei requisiti}{2016-04-03}{0.4.5}
+  \modifica{Matteo Franco}{\VER}{Verifica dei requisiti}{2016-04-03}{0.4.4}
+  \modifica{Andrea Grendene}{\AN}{Correzioni alla seconda verifica dei casi d'uso}{2016-04-03}{0.4.3}
+  \modifica{Viviana Alessio}{\VER}{Seconda verifica dei casi d'uso}{2016-04-03}{0.4.2}
+  \modifica{Tommaso Panozzo}{\AN}{Correzioni alla prima verifica dei casi d'uso}{2016-04-02}{0.4.1}
+  \modifica{Matteo Franco}{\VER}{Prima verifica dei casi d'uso}{2016-04-02}{0.4.0}
+  \modifica{Enrico Bellio}{\AN}{Aggiunta diagrammi dei casi d'uso}{2016-03-31}{0.3.0}
+  \modifica{Enrico Bellio}{\AN}{Correzioni al testo della descrizione}{2016-03-30}{0.2.8}
+  \modifica{Andrea Grendene}{\AN}{Correzioni minori ai requisiti}{2016-03-28}{0.2.7}
+  \modifica{Tommaso Panozzo}{\AN}{Correzioni minori ai casi d'uso}{2016-03-28}{0.2.6}
+  \modifica{Enrico Bellio}{\AN}{Stesura casi d'uso figli di UC1.6}{2016-03-26}{0.2.5}
+  \modifica{Tommaso Panozzo}{\AN}{Stesura requisiti derivati da UC1.3}{2016-03-26}{0.2.4}
+  \modifica{Andrea Grendene}{\AN}{Stesura casi d'uso figli di UC1.3}{2016-03-24}{0.2.3}
+  \modifica{Enrico Bellio}{\AN}{Stesura preliminare delle sezioni di descrizione}{2016-03-24}{0.2.2}
+  \modifica{Andrea Grendene}{\AN}{Stesura dei primi requisiti}{2016-03-24}{0.2.1}
+  \modifica{Tommaso Panozzo}{\AN}{Stesura dei primi casi d'uso}{2016-03-24}{0.2.0}
+  \modifica{Andrea Grendene}{\AN}{Modifiche minori alla struttura}{2016-03-22}{0.1.1}
+  \modifica{Tommaso Panozzo}{\AN}{Stesura struttura documento}{2016-03-18}{0.1.0}
+\end{diario}
+
+\newpage
+\tableofcontents
+\newpage
+\listoftables
+\newpage
+\listoffigures
+
+\newpage
+\include{introduzione}
+
+\newpage
+\include{descrizioneGenerale}
+
+\newpage
+\label{sec:CasiUso}
+\include{casiUso}
+\include{arUsecase}
+
+\newpage
+\include{requisiti}
+\label{sec:Requisiti}
+\include{arBindingRequirement}
+
+\newpage
+\include{arFunctionalRequirement}
+
+\newpage
+\include{arPerformanceRequirement}
+
+\newpage
+\include{arQualitativeRequirement}
+
+\newpage
+\include{arTrackingRequirementSource}
+
+\newpage
+\include{arTrackingSourceRequirement}
+
+\newpage
+\include{arResume}
+
+\end{document}

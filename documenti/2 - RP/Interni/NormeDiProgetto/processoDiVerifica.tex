@@ -1,0 +1,22 @@
+\subsubsection{Attività}
+	\paragraph{Verifica di un \gl{ticket}}
+	Ogni qual volta un \gl{ticket} sarà contrassegnato come \textbf{Completato} il \RES {} procederà nel seguente modo: 
+	\begin{itemize}
+		\item crea un \gl{ticket} di verifica;
+		\item lo assegna ad un \textbf{verificatore};
+		\item non appena il \gl{ticket} viene contrassegnato come \textbf{Completato} imposta il tag del \gl{ticket} oggetto di verifica a \textbf{Verificato}.
+	\end{itemize}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.40]{img/ticketVerifica.png}
+		\caption{Ticket di verifica}
+	\end{figure}
+\subsubsection{Procedure}
+	\paragraph{Gestione delle anomalie}
+			Il \textbf{validatore} qualora riscontrasse delle anomalie procederà secondo la seguente procedura:
+			\begin{itemize}
+				\item crea un nuovo \gl{subtask} del \gl{ticket} di verifica per ogni anomalia riscontrata;
+				\item assegna un titolo breve e preciso ad ogni \gl{subtask};
+				\item se necessario aggiunge un commento che descriva l'anomalia riscontrata;
+				\item assegna i subtasks al redattore del documento.
+			\end{itemize}

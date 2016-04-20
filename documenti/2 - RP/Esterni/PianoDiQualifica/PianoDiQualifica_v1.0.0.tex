@@ -1,0 +1,74 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+% !TEX spellcheck = it-IT
+\documentclass[a4paper,titlepage]{article}
+
+\usepackage[utf8x]{inputenc}
+
+\makeatletter
+\def\input@path{{../../../template/}}
+\makeatother
+\usepackage{Riferimenti,Comandi,Stile} %Carico il template
+
+%Nome del documento
+\def\NOME{Piano di Qualifica}
+%Versione del documento
+\def\VERSIONE{1.0.0}
+%Data del documento
+\def\DATA{2016-04-06}
+%Redattore/i del documento. Va scritto prima il nome, poi il cognome
+\def\REDATTORE{Andrea Grendene}
+%Verificatore del documento
+\def\VERIFICATORE{Tommaso Panozzo}
+%Responsabile del \gl{progetto}
+\def\RESPONSABILE{Viviana Alessio}
+%Uso del documento
+\def\USO{Esterno}
+%Destinatari del documento
+\def\DESTINATARI{\COMMITTENTE \\ &
+				 \CARDIN\ \\ &
+				 \PROPONENTE}
+%Sommario del documento
+\def\SOMMARIO{Questo documento ha lo scopo di fissare le norme necessarie ad assicurare i requisiti qualitativi del \gl{progetto} \PROGETTO, regolamentando le operazioni di pianificazione e di verifica attuate per rispettare tali norme.}
+
+\begin{document}
+
+\maketitle
+
+	% le ultime modifiche vanno messe in testa alla tabella
+\begin{diario}
+	\modifica{Viviana Alessio}{\RES}{Approvazione documento}{2016-04-06}{1.0.0}
+	\modifica{Tommaso Panozzo}{\VER}{Terminata la verifica delle modifiche}{2016-04-05}{0.8.0}
+	\modifica{Andrea Grendene}{\PRJ}{Aggiunti i valori dell'indice \gl{Gulpease} dei documenti e il loro esito}{2016-04-05}{0.7.1}
+	\modifica{Andrea Grendene}{\PRJ}{Applicate le modifiche proposte dal \VER}{2016-04-05}{0.7.0}
+	\modifica{Tommaso Panozzo}{\VER}{Terminata la verifica del documento}{2016-04-04}{0.6.0}
+	\modifica{Andrea Grendene}{\PRJ}{Terminata stesura della struttura del Resoconto dell'attività di verifica (senza i valori dell'indice \gl{Gulpease} nella tabella)}{2016-03-25}{0.5.1}
+	\modifica{Andrea Grendene}{\PRJ}{Terminata stesura della Gestione amministrativa della revisione}{2016-03-25}{0.5.0}
+	\modifica{Andrea Grendene}{\PRJ}{Terminata stesura della Visione generale della strategia}{2016-03-25}{0.4.0}
+	\modifica{Andrea Grendene}{\PRJ}{Terminata stesura della sezione 3.8}{2016-03-24}{0.3.2}
+	\modifica{Andrea Grendene}{\PRJ}{Terminata stesura delle sezioni 3.6 e 3.7}{2016-03-23}{0.3.1}
+	\modifica{Andrea Grendene}{\PRJ}{Terminata stesura delle sezioni da 3.1 a 3.5}{2016-03-22}{0.3.0}
+	\modifica{Andrea Grendene}{\PRJ}{Terminata stesura della Definizione degli obiettivi di qualità}{2016-03-21}{0.2.2}
+	\modifica{Andrea Grendene}{\PRJ}{Terminata stesura dell'Introduzione}{2016-03-20}{0.2.1}
+	\modifica{Andrea Grendene}{\PRJ}{Stesura della prima parte dei Riferimenti}{2016-03-19}{0.2.0}
+	\modifica{Andrea Grendene}{\PRJ}{Stesura dell'introduzione fino ai Riferimenti}{2016-03-18}{0.1.1}
+	\modifica{Andrea Grendene}{\PRJ}{Impostazione della struttura e dei dettagli del documento}{2016-03-15}{0.1.0}
+\end{diario}
+
+\newpage
+\tableofcontents
+\newpage
+
+\include{introduzione}
+% fa già \newpage in automatico
+
+\include{Definizione_obiettivi_di_qualita}
+
+\include{Visione_generale_della_strategia}
+
+\include{Gestione_amministrativa_della_revisione}
+
+\appendix
+\include{Resoconto_dell'attivita_di_verifica}
+
+\end{document}
