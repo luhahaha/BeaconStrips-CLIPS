@@ -63,7 +63,7 @@ ESTENSIONE:
 \att{Utente non autenticato.}
 
 \casoduso{UC1.1.1.2}{Inserimento password} 
-\desc{l'utente inserisce la password con cui si è registrato in precedenza.}\\\\ 
+\desc{l'utente inserisce la password con cui si è registrato in precedenza rispettando il requisito R0F1.2.6.4.}\\\\ 
 \pre{la connessione ad internet è attiva e l'App fornisce la pagina di login.}\\\\ 
 \post{l'utente ha inserito la password.}\\\\ 
 \att{Utente non autenticato.}
@@ -564,7 +564,7 @@ se l'utente inserisce una password non valida il sistema restituisce un avviso e
 \desc{l'utente è autenticato e desidera modificare la password di registrazione al sistema
 
 ESTENSIONE:
-se l'utente inserisce una password che non rispetta i requisiti \Req{R0F1.2.5.4}, all'utente non viene consentito di procedere e si procede invece con \UC{UC1.1.4}.}\\\\ 
+se l'utente inserisce una password che non rispetta i requisiti \Req{R0F1.2.6.4}, all'utente non viene consentito di procedere e si procede invece con \UC{UC1.1.4}.}\\\\ 
 \pre{l'utente è autenticato, l'utente desidera modificare la password.}\\\\ 
 \post{l'utente modifica con successo la password di accesso.}\\\\ 
 \att{Utente autenticato.}
