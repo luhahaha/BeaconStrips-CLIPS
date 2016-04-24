@@ -11,7 +11,7 @@
 			\item\ vi sia un controllo sul lavoro di ogni membro del \gl{team};
 			\item\ nella pianificazione siano ripartite chiaramente le risorse.
 		\end{itemize}
-		L'attuazione di questi punto è approfondita nel \PPdoc. \\
+		L'attuazione di questi punti è approfondita nel \PPdoc. \\
 		Analizzando la qualità del \gl{prodotto} si controlla anche la qualità dei processi. Un \gl{prodotto} scadente indica che i processi sono migliorabili. \\
 		Inoltre si possono usare delle metriche per quantificare la qualità dei processi, tali metriche sono descritte nella sezione \hyperref[sec:3.9]{3.9 Misure e metriche}.
 	\subsection{Procedure di controllo di qualità di \gl{prodotto}}
@@ -25,7 +25,7 @@
 		L'organizzazione della strategia di verifica si basa sull'attuazione di verifiche per ogni processo completato. Queste verifiche controllano sia la qualità del processo stesso sia la qualità del \gl{prodotto} ottenuto. Grazie al diario delle modifiche sarà possibile eseguire una verifica solo sui cambiamenti effettuati. \\
 		A causa della diversa natura dei risultati ottenuti da ogni fase del processo ognuno di essi richiederà l'attuazione di specifiche procedure di verifica. Il \gl{team} ha deciso di adottare un ciclo di vita \gl{incrementale} per lo sviluppo del \gl{progetto}. Di conseguenza il processo di verifica adottato per ogni fase del \gl{progetto} opererà nel modo seguente:
 		\begin{itemize}
-			\item \textbf{individuazione degli strumenti, analisi dei requisiti e di dettaglio:} in questa fase verranno redatti i documenti che riporteranno i requisiti individuati, le strategie e le norme adottate.
+			\item \textbf{A e B:} in questa fase verranno redatti i documenti che riporteranno i requisiti individuati, le strategie e le norme adottate.
 			\begin{itemize}
 				\item Verrà controllata la correttezza ortografica con il correttore automatico di \gl{TeXstudio}.
 				\item Verrà controllata la correttezza lessicale con un'attenta ed accurata rilettura.
@@ -34,9 +34,9 @@
 				\item Ogni documento dovrà rispettare le \NPdoc; per verificarlo verranno adoperati gli strumenti più appropriati.
 				\item Verrà verificato che sia presente una didascalia per ogni rappresentazione grafica e il contenuto di ogni figura e tabella.
 			\end{itemize}
-			\item \textbf{progettazione architetturale:} verrà garantito che ogni requisito sarà rintracciabile, attraverso il processo di verifica. Ogni requisito sarà rintracciabile nei componenti individuati in questa fase, si veda la \hyperref[sec:2]{Sezione 2}\ per ulteriori approfondimenti.
-			\item \textbf{progettazione di dettaglio dei requisiti obbligatori, desiderabili, opzionali e della codifica:} i Programmatori svolgeranno le attività di codifica e di esecuzione dei test di unità per la verifica del codice. Queste attività avverranno nel modo più automatizzato possibile, rispettando anche i vincoli statici. I Verificatori controlleranno parallelamente la presenza di eventuali anomalie, definite nella \hyperref[sec:4]{Sezione 4}.
-			\item \textbf{validazione:} alla Revisione di Accettazione (RA) il gruppo \AUTORE\ garantisce il funzionamento corretto del \gl{prodotto} realizzato. Le eventuali modifiche per eliminare le possibili diversità rispetto al \gl{prodotto} atteso saranno a carico del \gl{proponente}.
+			\item \textbf{C:} verrà garantito che ogni requisito possa essere rintracciabile, attraverso il processo di verifica. Ogni requisito sarà rintracciabile nei componenti individuati in questa fase, si veda la \hyperref[sec:2]{Sezione 2}\ per ulteriori approfondimenti.
+			\item \textbf{D, E e F:} i Programmatori svolgeranno le attività di codifica e di esecuzione dei test di unità per la verifica del codice. Queste attività avverranno nel modo più automatizzato possibile, rispettando anche i vincoli statici. I Verificatori controlleranno parallelamente la presenza di eventuali anomalie, definite nella \hyperref[sec:4]{Sezione 4}.
+			\item \textbf{G:} alla Revisione di Accettazione (RA) il gruppo \AUTORE\ garantisce il funzionamento corretto del \gl{prodotto} realizzato. Le eventuali modifiche per eliminare le possibili diversità rispetto al \gl{prodotto} atteso saranno a carico del \gl{proponente}.
 		\end{itemize}
 		In ogni documento viene inoltre incluso il diario delle modifiche, in modo da mantenere uno storico delle attività svolte e delle relative responsabilità.
 	\subsection{Pianificazione strategica e temporale}
@@ -87,7 +87,7 @@
 			A scopo di test, di supporto degli strumenti scelti per l'ambiente di sviluppo, e per il funzionamento dell'app vengono messi a disposizione uno spazio web e un server privato da \PROPONENTE. \\
 			Per lo svolgimento delle riunioni interne il \gl{team} usa le aule del Dipartimento di Matematica dell'Università degli Studi di Padova; inoltre usa \gl{Google Hangouts} come strumento di discussione tramite videochiamate.
 	\subsection{Strumenti}
-		Nella sezione ‘‘Ambiente di sviluppo’’ del documento \NPdoc, sono descritti gli strumenti \gl{software} impiegati dl \gl{team} per:
+		Nella sezione ‘‘Ambiente di sviluppo’’ del documento \NPdoc sono descritti gli strumenti \gl{software} impiegati dal \gl{team} per:
 		\begin{itemize}
 			\item\ il versionamento;
 			\item\ la redazione e la verifica di documenti;
@@ -107,10 +107,10 @@
 				L'\gl{inspection}\ si basa sulla lettura mirata dei documenti/codice, cercando gli errori segnalati nella lista di controllo. Man mano che le verifiche procedono la lista verrà estesa e l'\gl{inspection}\ sarà più efficace.
 		\subsubsection{Analisi dinamica}
 			L'analisi dinamica verifica il funzionamento delle sole componenti \gl{software} e aiuta ad identificarne le anomalie. \\
-			Per garantire un risultato attendibile il test dev'essere ripetibile, ovvero devo ottenere sempre lo stesso output dallo stesso input. Solo così il test garantisce di trovare eventuali problemi e quindi verificare la correttezza del \gl{prodotto} \gl{software}. \\
+			Per garantire un risultato attendibile il test dev'essere ripetibile, ovvero deve ottenere sempre lo stesso output dallo stesso input. Solo così il test garantisce di trovare eventuali problemi e quindi verificare la correttezza del \gl{prodotto} \gl{software}. \\
 			Per ogni test dev'essere definito:
 			\begin{itemize}
-				\item \textbf{ambiente:} è il sistema \gl{hardware} e \gl{software} sui quali viene pianificata l'esecuzione del test sul \gl{prodotto}. Va inoltre specificato uno stato iniziale da cui il test deve partire;
+				\item \textbf{ambiente:} è l'insieme dei sistemi \gl{hardware} e \gl{software} sui quali viene pianificata l'esecuzione del test sul \gl{prodotto}. Va inoltre specificato uno stato iniziale da cui il test deve partire;
 				\item \textbf{specifica:} consiste nella specifica degli input e degli output attesi;
 				\item \textbf{procedure:} è la specifica di ulteriori istruzioni sull'esecuzione del test e sull'interpretazione dei risultati.
 			\end{itemize}
@@ -155,7 +155,7 @@
 				\label{sec:3.9.2.1}
 				L'indice \gl{Gulpease} è un indice di leggibilità del testo creato appositamente per valutare la lingua italiana. Dato che non valuta la lunghezza delle parole mediante il numero di sillabe tale indice semplifica il calcolo rispetto ad altri indici di leggibilità. Esso infatti è basato sul numero di caratteri contenuti in una parola e ad altri fattori come il numero di parole e di frasi. Come tutti gli indici di leggibilità esso permette di indicare la complessità di un documento. Il calcolo da effettuare è il seguente:
 				\[89+\frac{300(numero\,\, delle\,\, frasi) - 10(numero\,\, delle\,\, lettere)}{numero\,\, delle\,\, parole}\]
-				I risultati sono compresi tra 0 e 100, dove 100 è il valore di leggibilità più alto e 0 quello più basso. Sono state stabilite delle soglie per rapportare il livello delle istruzioni di un individuo con i vari gradi dell'indice:
+				I risultati sono compresi tra 0 e 100, dove 100 è il valore di leggibilità più alto e 0 quello più basso. Sono state stabilite delle soglie per rapportare il livello di istruzione di un individuo con i vari gradi dell'indice:
 				\begin{itemize}
 					\item \textbf{inferiore a 80:} documento difficile da leggere per chi ha la licenza elementare;
 					\item \textbf{inferiore a 60:} documento difficile da leggere per chi ha licenza media;
