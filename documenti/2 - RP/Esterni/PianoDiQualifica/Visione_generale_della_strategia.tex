@@ -106,8 +106,8 @@
 			\paragraph{Inspection}
 				L'\gl{inspection}\ si basa sulla lettura mirata dei documenti/codice, cercando gli errori segnalati nella lista di controllo. Man mano che le verifiche procedono la lista verrà estesa e l'\gl{inspection}\ sarà più efficace.
 		\subsubsection{Analisi dinamica}
-			L'analisi dinamica verifica il funzionamento delle sole componenti \gl{software} e aiuta ad identificarne le anomalie. \\
-			Per garantire un risultato attendibile il test dev'essere ripetibile, ovvero deve ottenere sempre lo stesso output dallo stesso input. Solo così il test garantisce di trovare eventuali problemi e quindi verificare la correttezza del \gl{prodotto} \gl{software}. \\
+			L'analisi dinamica verifica il funzionamento delle sole componenti \gl{software} tramite dei test e aiuta ad identificarne le anomalie. \\
+			Per garantire un risultato attendibile il test dev'essere ripetibile, ovvero deve ottenere sempre lo stesso output dallo stesso input quando viene eseguito nello stesso ambiente. Solo così il test garantisce di trovare eventuali problemi e quindi verificare la correttezza del \gl{prodotto} \gl{software}. \\
 			Per ogni test dev'essere definito:
 			\begin{itemize}
 				\item \textbf{ambiente:} è l'insieme dei sistemi \gl{hardware} e \gl{software} sui quali viene pianificata l'esecuzione del test sul \gl{prodotto}. Va inoltre specificato uno stato iniziale da cui il test deve partire;
@@ -117,18 +117,46 @@
 			Nelle prossime sezioni sono definiti i tipi di test effettuati sul \gl{prodotto} \gl{software} in sviluppo dal \gl{team}.
 			\paragraph{Test di unità}
 				Il test di unità verifica che ogni singola unità di \gl{prodotto} funzioni correttamente. Per unità si intende una porzione di \gl{software} abbastanza piccola da poterne assegnare lo sviluppo ad un singolo \PR. \\
-				Attraverso questo test verrà verificata la correttezza di ogni modulo base che compone il \gl{software}, limitando gli errori di implementazione.
+				Attraverso questo test verrà verificata la correttezza di ogni modulo base che compone il \gl{software}, limitando gli errori di implementazione. \\
+				I test di unità sono identificati dalla seguente sintassi:
+				\begin{center}
+					TU[Codice test]
+				\end{center}
 			\paragraph{Test di integrazione}
 				Il test di integrazione verifica che due o più moduli già verificati funzionino come previsto quando vengono assemblati insieme. Inoltre aiuta a scovare i difetti residui sfuggiti dalla fase di test precedente. \\
 				In più con questo test viene verificata la collaborazione tra i moduli prodotti e le componenti esterne usate come \gl{framework} o librerie. \\
-				È possibile che vengano usate delle componenti ‘‘fittizie’’ al posto dei moduli non ancora completati per poter eseguire comunque dei test.
+				È possibile che vengano usate delle componenti ‘‘fittizie’’ al posto dei moduli non ancora completati per poter eseguire comunque dei test. \\
+				I test di integrazione sono identificati dalla seguente sintassi:
+				\begin{center}
+					TI[identificativo del componente]
+				\end{center}
+				Tale identificativo corrisponde al componente i cui elementi sono integrati.
 			\paragraph{Test di sistema}
-				I test di sistema validano l'intero \gl{prodotto} \gl{software} quando si ritiene che esso sia giunto ad una versione definitiva. Viene quindi controllato se tutti i requisiti sono stati soddisfatti.
+				I test di sistema validano l'intero \gl{prodotto} \gl{software} quando si ritiene che esso sia giunto ad una versione definitiva. Viene quindi controllato se tutti i requisiti sono stati soddisfatti. \\
+				I test di sistema sono identificati dalla seguente sintassi:
+				\begin{center}
+					TS[Tipo Requisito][Codice Requisito]
+				\end{center}
+				Il tipo e il codice si riferiscono al requisito di cui verrà testato il soddisfacimento.
 			\paragraph{Test di regressione}
 				Questo test viene eseguito dopo la modifica di una componente, e consiste nel rieseguire tutti i test. In questo modo si controlla che dopo la modifica tutti i moduli continuino a funzionare correttamente. \\
 				Il tracciamento aiuta a capire quali sono i test da ripetere (di ogni tipo) poiché potenzialmente a rischio in caso di modifica.
-			\paragraph{Test di accettazione}
-				Coincide con il collaudo del \gl{software} in presenza del \gl{proponente}. Se il test risulta positivo il \gl{prodotto} sarà considerato sufficientemente maturo da permetterne il rilascio.
+			\paragraph{Test di validazione}
+				Coincide con il collaudo del \gl{software} in presenza del \gl{proponente}. Se il test risulta positivo il \gl{prodotto} sarà considerato sufficientemente maturo da permetterne il rilascio. \\
+				I test di validazione sono identificati dalla seguente sintassi:
+				\begin{center}
+					TV[Tipo Requisito][Codice Requisito]
+				\end{center}
+				Il tipo e il codice si riferiscono al requisito di cui verrà testato il soddisfacimento.
+			\paragraph{Modello a V}
+				Per la pianificazione dei test si utilizzerà il Modello a V. Secondo questo modello il testing del software viene suddiviso in livelli differenti, i quali si concretizzano in un'esecuzione bottom-up che avanza sequenzialmente alle attività di codifica e di validazione. Ad ogni livello corrisponde un ciclo di uno specifico tipo di test, ed ogni test viene creato in base al relativo livello di progettazione.
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.5\textwidth]{img/V-model.jpg}
+					\caption{Modello a V}
+				\end{figure}
+			\paragraph{Tracciamento}
+				Sarà compito dei Verificatori controllare la corrispondenza di ogni requisito con una o più fonti. In caso di anomalie bisogna comportarsi come descritto [NOTA PER IL VERIFICATORE: bisogna controllare se da qualche parte c'è una procedura per informare della presenza dell'anomalia e scrivere quindi qui il riferimento].
 	\subsection{Misure e metriche}
 		\label{sec:3.9}
 		Per essere utile ed informativo il processo di verifica dev'essere quantificabile. Vanno quindi stabilite a priori delle metriche, sulle quali saranno basate le misure rilevate dal processo di verifica. Nel caso in cui vi fossero delle metriche approssimate ed incerte, esse miglioreranno in modo \gl{incrementale}. Questo grazie al ciclo di vita adottato descritto nel \PPdoc. Possono esserci due tipi di \gl{range}:
