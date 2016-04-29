@@ -151,7 +151,7 @@
 		\subsubsection{Metriche per i processi}
 			\label{sec:3.7.1}
 			\paragraph{Valutazione \gl{CMM}}
-				\label{sec:3.9.1.1}
+				\label{sec:3.7.1.1}
 				I processi verranno valutati secondo il modello \gl{CMM}. Tale modello prevede che ogni processo verrà valutato secondo le proprie ‘‘Capability’’ e ‘‘Maturity’’. Per entrambe verrà assegnato un voto da 1 (stato iniziale) a 5 (stato controllato), che ne indicherà la valutazione complessiva. \\
 				La scelta di \gl{CMM} rispetto ai più recenti CMMI e \iso{\gl{ISO}/IEC 15504} è dovuta alla maggior snellezza della valutazione. Il primo valuta usando solo due parametri, i secondi invece dividono il processo in più attributi. \\
 				È stata fatta questa scelta a causa del \gl{progetto} non molto grande. Questo renderebbe alcuni attributi superflui o sopravvalutati. Altri due elementi che hanno portato a questa scelta sono l'inesperienza del gruppo e la rotazione dei ruoli. Questi porterebbero a facili fraintendimenti e disaccordi sulle singole valutazioni.
@@ -160,6 +160,26 @@
 				\begin{itemize}
 					\item \textbf{Range accettazione:}\ 3 - 5;
 					\item \textbf{Range ottimale:}\ 4 - 5.
+				\end{itemize}
+			\paragraph{Schedule Variance}
+				L'avanzamento dei processi verrà valutato tramite la schedule variance. Questo indice di efficacia mette in relazione il lavoro pianificato con quello svolto. \\
+				Se l'indice è maggiore di zero allora si è svolto più lavoro rispetto a quello pianificato, viceversa se è negativo. L'utilizzo di periodi di \gl{slack} aumenta la possibilità che la schedule variance assuma valori positivi.
+				
+				\textbf{Parametri utilizzati:}
+				\begin{itemize}
+					\item \textbf{Range accettazione:}\ $\ge\-(preventivo\,\, f\!ase*10\%);$
+					\item \textbf{Range ottimale:}\ $\ge\-(preventivo\,\, f\!ase*5\%).$
+				\end{itemize}
+				\label{sec:3.7.1.2}
+			\paragraph{Budget Variance}
+				\label{sec:3.7.1.3}
+				L'avanzamento dei processi verrà valutato anche tramite la budget variance. Questo indice do efficienza mette in relazione il preventivo pianificato con il consuntivo. \\
+				Se l'indice è maggiore di zero allora si è riusciti ad essere più efficienti di quello pianificato, viceversa se negativo.
+				
+				\textbf{Parametri utilizzati:}
+				\begin{itemize}
+					\item \textbf{Range accettazione:}\ $\ge\-(preventivo\,\, f\!ase*10\%);$
+					\item \textbf{Range ottimale:}\ $\ge\-(preventivo\,\, f\!ase*5\%).$
 				\end{itemize}
 		\subsubsection{Metriche per i documenti}
 			\label{sec:3.7.2}
@@ -171,19 +191,19 @@
 				\begin{itemize}
 					\item \textbf{inferiore a 80:} documento difficile da leggere per chi ha la licenza elementare;
 					\item \textbf{inferiore a 60:} documento difficile da leggere per chi ha licenza media;
-					\item \textbf{inferiore a 40:} documento difficile da leggere per chi ha la licenza superiore.
+					\item \textbf{inferiore a 40:} documento difficile da leggere per chi ha la licenza superiore.http://52.58.6.246
 				\end{itemize}
 				In realtà tale indice non certifica se il testo sia comprensibile o meno. Per lo scopo dei documenti e per la formalità richiesti da essi verranno usati spesso termini tecnici che non si possono sostituire. Di conseguenza un documento potrebbe avere un ottimo indice di \gl{Gulpease} ma essere difficile da comprendere per i termini usati. Anche spezzare una frase può migliorare l'indice, ma interromperebbe il ragionamento fatto in quella frase. Infine usare frasi troppo dirette potrebbe essere poco professionale ai fini del documento. Per queste ragioni i documenti verranno valutati da un essere umano, così potrà stabilire se il testo è semplificabile. I limiti imposti da tale indice saranno sufficientemente rilassati per accettare frasi un po' più articolate.
 				
 				\textbf{Parametri utilizzati:}
 				\begin{itemize}
-					\item \textbf{Range accettazione:}\ 40- 100;
+					\item \textbf{Range accettazione:}\ 40 - 100;
 					\item \textbf{Range ottimale:}\ 50 - 100.
 				\end{itemize}
 		\subsubsection{Metriche per il codice}		
 			\label{sec:3.7.3}
 			\paragraph{Numero di parametri}
-				\label{sec:3.9.3.1}
+				\label{sec:3.7.3.1}
 				Indica il numero di parametri formali in input di un metodo. Se il numero di parametri è elevato, lo \gl{stack} del programma può essere riempito rapidamente in caso di chiamate multiple innestate. I costruttori potranno superare questo limite se il numero elevato di parametri potrà facilitare la verifica tramite test e rendere più robusto agli errori l'oggetto definito.
 				
 				\textbf{Parametri utilizzati:}
@@ -220,24 +240,24 @@
 					\item \textbf{Range accettazione:}\ 0 - 6;
 					\item \textbf{Range ottimale:}\ 0 -4.
 				\end{itemize}
-			\paragraph{Grado di accoppiamento}
+			\paragraph{Grado di accoppiamento e Grado di instabilità}
 				\label{sec:3.7.3.5}
-				È derivato da due singoli indici.
+				Il grado di accoppiamento è derivato da due singoli indici.
 				\begin{itemize}
-					\item \textbf{Indice di utilità:}\ numero di classi esterne al package che dipendono da classi al suo interno. Se il numero è basso il package non fornirà molte funzionalità e sarà poco utile. Se invece è alto troppe classi saranno dipendenti da tale package, rischiando di dover effettuare troppi cambiamenti ad ogni sua modifica.
+					\item \textbf{Accoppiamento afferente:}\ numero di classi esterne al \gl{package} che dipendono da classi al suo interno. Se il numero è basso il \gl{package} non fornirà molte funzionalità e sarà poco utile. Se invece è alto troppe classi saranno dipendenti da tale \gl{package}, rischiando di dover effettuare troppi cambiamenti ad ogni sua modifica.
 					
-					\textbf{Indice di utilità - Parametri utilizzati:}
-					\begin{itemize}
-						\item \textbf{Range accettazione:}\ 0 - 16;
-						\item \textbf{Range ottimale:}\ 0 - 8.
-					\end{itemize}
-					\item \textbf{Indice di dipendenza:}\ numero di classi interne al package dipendenti da classi esterne. Un alto numero può indicare una scarsa progettazione.
+					\item \textbf{Accoppiamento efferente:}\ numero di classi interne al \gl{package} dipendenti da classi esterne. Un alto numero può indicare una scarsa progettazione.
 					
-					\textbf{Indice di dipendenza - Parametri utilizzati:}
-					\begin{itemize}
-						\item \textbf{Range accettazione:}\ 0 - 32;
-						\item \textbf{Range ottimale:}\ 0 - 16.
-					\end{itemize}
+				\end{itemize}
+				Il grado di instabilità invece misura l'instabilità delle componenti del sistema utilizzando i due indici precedenti. \\
+				La stabilità di una componente indica la possibilità di effettuare modifiche a quella componente senza influenzarne altre all'interno dell'applicazione. Questo indice viene calcolato attraverso la formula:
+				\[I=\frac{Ce}{Ca+Ce}\]
+				dove Ce rappresenta l'accoppiamento efferente e Ca quello afferente.
+				
+				\textbf{Parametri utilizzati:}
+				\begin{itemize}
+					\item \textbf{Range accettazione:}\ 0 - 0.8;
+					\item \textbf{Range ottimale:}\ 0.3 - 0.7.
 				\end{itemize}
 			\paragraph{Chiamate innestate di metodi}
 				\label{sec:3.7.3.6}
@@ -248,21 +268,44 @@
 					\item \textbf{Range accettazione:}\ 0 - 8;
 					\item \textbf{Range ottimale:}\ 0 - 5.
 				\end{itemize}
+			\paragraph{Copertura del codice}
+				\label{sec:3.7.3.7}
+				Rappresenta la percentuale di istruzioni eseguite durante i test. Maggiore è questo valore più significativi saranno i test eseguiti, quindi saranno minori le probabilità di rilevare errori residui al termine dei test. \\
+				Si puo ridurre l'indice tramite l'utilizzo di metodi semplici che non richiedono test, come i metodi getter e setter.
+				
+				\textbf{Parametri utilizzati:}
+				\begin{itemize}
+					\item \textbf{Range accettazione:}\ $80\% - 100\%;$
+					\item \textbf{Range ottimale:}\ $90\% - 100\%.$
+				\end{itemize}
+			\paragraph{Numero di linee per metodo}
+				\label{sec:3.7.3.8}
+				Indica il numero di \gl{statement}\ che compongono un metodo. Maggiore è la quantità, più lungo è il metodo, più difficile risulta comprenderne il funzionamento. \\
+				Se un metodo risulta troppo lungo allora può servire dividerlo in piu sottofunzioni. Può anche essere indice di cattiva progettazione della classe, per cui risulta essere necessaria anche una riprogettazione per intero.
+				
+				\textbf{Parametri utilizzati:}
+				\begin{itemize}
+					\item \textbf{Range accettazione:}\ al massimo 50;
+					\item \textbf{Range ottimale:}\ al massimo 40.
+				\end{itemize}
 			\paragraph{Riepilogo}
 				\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}}
 					\intestazionethreecol{Metriche}{Range accettazione}{Range ottimale}
-					\hyperref[sec:3.9.1]{3.9.1 Metriche per i processi} & & \\
-					\hyperref[sec:3.9.1.1]{3.9.1.1 Valutazione \gl{CMM}} & 3 -5 & 4 - 5 \\
-					\hyperref[sec:3.9.2]{3.9.2 Metriche per i documenti} & & \\
-					\hyperref[sec:3.9.2.1]{3.9.2.1 Indice \gl{Gulpease}} & 40 - 100 & 50 - 100 \\
-					\hyperref[sec:3.9.3]{3.9.3 Metriche per il codice} & & \\
-					\hyperref[sec:3.9.3.1]{3.9.3.1 Numero di parametri} & 0 - 8 & 0 - 5 \\
-					\hyperref[sec:3.9.3.2]{3.9.3.2 Complessità ciclomatica} & 0 - 10 & 0 - 6 \\
-					\hyperref[sec:3.9.3.3]{3.9.3.3 Numero campi dati per classe} & 0 -16 & 0 - 10 \\
-					\hyperref[sec:3.9.3.4]{3.9.3.4 Livello d'annidamento} & 0 - 6 & 0 - 4 \\
-					\hyperref[sec:3.9.3.5]{3.9.3.5 Grado di accoppiamento - Indice di utilità} & 0 - 16 & 0 - 8 \\
-					\hyperref[sec:3.9.3.5]{3.9.3.5 Grado di accoppiamento - Indice di dipendenza} & 0 - 32 & 0 - 16 \\
-					\hyperref[sec:3.9.3.6]{3.9.3.6 Chiamate innestate di metodi} & 0 - 8 & 0 - 5 \\
+					\hyperref[sec:3.7.1]{3.7.1 Metriche per i processi} & & \\
+					\hyperref[sec:3.7.1.1]{3.7.1.1 Valutazione \gl{CMM}} & 3 - 5 & 4 - 5 \\
+					\hyperref[sec:3.7.1.2]{3.7.1.2 Schedule Variance} & $\ge-10\%$ & $\ge-5\%$ \\
+					\hyperref[sec:3.7.1.3]{3.7.1.3 Budget Variance} & $\ge-10\%$ & $\ge-5\%$ \\
+					\hyperref[sec:3.7.2]{3.7.2 Metriche per i documenti} & & \\
+					\hyperref[sec:3.7.2.1]{3.7.2.1 Indice \gl{Gulpease}} & 40 - 100 & 50 - 100 \\
+					\hyperref[sec:3.7.3]{3.7.3 Metriche per il codice} & & \\
+					\hyperref[sec:3.7.3.1]{3.7.3.1 Numero di parametri} & 0 - 8 & 0 - 5 \\
+					\hyperref[sec:3.7.3.2]{3.7.3.2 Complessità ciclomatica} & 0 - 10 & 0 - 6 \\
+					\hyperref[sec:3.7.3.3]{3.7.3.3 Numero campi dati per classe} & 0 -16 & 0 - 10 \\
+					\hyperref[sec:3.7.3.4]{3.7.3.4 Livello d'annidamento} & 0 - 6 & 0 - 4 \\
+					\hyperref[sec:3.7.3.5]{3.7.3.5 Grado di instabilità} & 0 - 0.8 & 0.3 - 0.7 \\
+					\hyperref[sec:3.7.3.6]{3.7.3.6 Chiamate innestate di metodi} & 0 - 8 & 0 - 5 \\
+					\hyperref[sec:3.7.3.7]{3.7.3.7 Copertura del codice} & 80\% - 100\% & 90\% - 100\% \\
+					\hyperref[sec:3.7.3.8]{3.7.3.8 Numero linee per metodo} & $\le60$ & $\le40$ \\
 					
 					\hiderowcolors
 					\caption{Riepilogo delle metriche e dei \gl{range} di accettazione e ottimali}
