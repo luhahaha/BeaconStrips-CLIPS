@@ -1,0 +1,98 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+% !TEX spellcheck = it-IT
+\documentclass[a4paper,titlepage]{article}
+
+\usepackage[utf8x]{inputenc}
+
+\makeatletter
+\def\input@path{{../../../template/}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Verbale del Giorno 2016-05-03}
+\def\VERSIONE{1.0.0}
+\def\DATA{\today}
+\def\REDATTORE{Andrea Grendene}
+\def\VERIFICATORE{Luca Soldera}
+\def\RESPONSABILE{Luca Soldera}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Breve descrizione della riunione con il \CARDIN\ del 2016-05-03.}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{diario}
+	\modifica{Andrea Grendene}{\PRJ}{Stese le Sezioni 1, 2 e 3}{2016-05-05}{0.0.1}
+\end{diario}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Informazioni}
+\label{sec:Informazioni}
+
+\begin{itemize}
+ \item \textbf{Luogo}: Aula 1C150, Torre Archimede - Via Trieste 63, 35121, Padova (PD);
+ \item \textbf{Data}: 2016-05-03;
+ \item \textbf{Ora}: 13:15;
+ \item \textbf{Durata}: 30 minuti;
+ \item \textbf{Partecipanti interni}: Luca Soldera, Matteo Franco, Andrea Grendene, Enrico Bellio.
+ \item \textbf{Partecipanti esterni}: \CARDIN.
+\end{itemize}
+
+\section{Domande e risposte}
+\label{sec:Domande e risposte}
+Di seguito sono riportate le domande poste al \CARDIN\ con le relative risposte.
+
+\begin{enumerate}
+	\item \textbf{I casi d'uso principali devono derivare da un'unico caso generale UC1 o non devono avere un padre (quindi il loro nome sarà UC1, UC2 e così via)?} \\
+	I casi d'uso principali non devono obbligatoriamente avere un caso d'uso padre, anche perché esso avrebbe delle pre e postcondizioni poco significative.
+	\item \textbf{Nei casi d'uso foglia si può omettere la descrizione e lasciare quindi solo lo scenario principale?} \\
+	No, la descrizione va sempre messa, anche se diventa una ripetizione dello scenario principale.
+	\item \textbf{Le estensioni nei casi d'uso possono avere sottocasi d’uso? Per i casi d'uso riguardanti gli errori è meglio avere un unico caso principale i cui sottocasi sono gli errori specifici o fare un'estensione di errore partendo dal caso d'uso normale?} \\
+	L'estensione può avere sottocasi d'uso, in genere si usa la generalizzazione. Bisogna fare attenzione alle pre e postcondizioni dei casi e ragionarci bene sopra. Nel caso del login non bisogna specificare quale credenziale tra username e password è errata perché comporterebbe una forte mancanza di sicurezza.
+	\item \textbf{Nella nostra applicazione verranno applicati due tipi di ricerca, quella per raggio in chilometri e quella per numero di edifici più vicini, è giusto aggiungere un caso d'uso di ricerca come loro generalizzazione? È corretto trattare i sottocasi d'uso in questo modo? La loro profondità è giusta?} \\
+	In questo caso la generalizzazione è corretta e anche la profondità va bene, basta che i due casi e la generalizzazione siano allo stesso livello. Semplicemente il caso d'uso ‘‘Cerca edifici’’ non avrà attori collegati ma conterrà tutte le funzionalità comuni ai due tipi di ricerca. Attenzione a come collegate la ricerca degli edifici e la loro visualizzazione, sono due casi d'uso completamente distinti.
+	\item \textbf{Nell'estensione ‘‘Attivazione GPS’’ la postcondizione inserita è ‘‘l'utente visualizza il messaggio ‘‘Attiva GPS’’’’, è corretta o bisogna approfondire di più? È corretto fare un'estensione di estensione?} \\
+	Per risolvere la questione dovete pensare alla postcondizione e quindi a come gestire l'errore dell'utente che non attiva il GPS. Attenzione a non pensare all'estensione come ad un diagramma di attività. L'estensione di estensione è possibile ma fortemente sconsigliata.
+	\item \textbf{Il caso d'uso ‘‘Contatta edificio’’ può essere una generalizzazione dei casi in cui si specificano i mezzi con cui poter contattare l'edificio?} \\
+	La generalizzazione è corretta purché si seguano le raccomandazioni fatte prima.
+	\item \textbf{In che modo possiamo descrivere più in profondità il requisito R1Q4 ‘‘Al primo utilizzo l'app mostra un tutorial introduttivo’’? È meglio metterlo come un unico requisito da descrivere maggiormente con i vari sottocasi o inserire le varie parti distribuite all'interno degli altri requisiti?} \\
+	R1Q4 in realtà è un requisito funzionale, il come implementarlo dipende dalla situazione, dovete decidere voi quale dei due modi adottare.
+	\item \textbf{Le precondizioni che dobbiamo rivedere secondo l'esito della Revisione dei Requisiti sono quelle del tipo ‘‘l'utente vuole...’’, giusto?}	\\
+	Sì, perché le precondizioni sono riferite allo stato del sistema, quindi dovete pensarle in questo senso.
+\end{enumerate}
+
+\section{Decisioni}
+A seguito di questo incontro vengono riportate le decisioni prese riguardo agli argomenti discussi. \\
+Per facilitare il loro tracciamento all'esterno di questo documento ad ogni decisione viene assegnato un codice identificativo secondo la seguente codifica:
+\begin{center}
+D[Codice Identificativo]
+\end{center}
+Vengono inoltre riportate le fonti, esterne e interne, che hanno portato a prendere una determinata decisione. Per fonti interne si intendono le domande presentate durante questo incontro.
+
+\begin{tabella}{!{\VRule}c!{\VRule}X[l,b,l]!{\VRule}c!{\VRule}}
+	\intestazionethreecol{Decisione}{Descrizione}{Fonti}
+		D1 & È stato eliminato il caso d'uso generale UC1, di conseguenza i casi d'uso principali non hanno più un padre & Domanda 1 \\
+		D2 & È stata aggiunta o modificata la descrizione ad ogni foglia & Domanda 2 \\
+		D3 & I casi d'uso sugli errori sono stati divisi tra le varie situazioni descritte negli altri casi d'uso. & Domanda 3 \\
+		D4 & È stato modificato il requisito in cui si specificava come si doveva comportare il sistema in caso di errore durante l'autenticazione. Sono stati eliminati i requisiti specifici che imponevano al sistema di segnalare all'utente durante l'autenticazione quale dato era sbagliato tra lo username e la password & Domanda 3 \\
+		D5 & Sono stati spostati i casi d'uso relativi ai due tipi di ricerca ponendoli allo stesso livello del caso di ricerca generico, il quale è diventato una generalizzazione per i due casi specifici & Domanda 4 \\
+		D6 & Sono stati divisi e portati allo stesso livello i casi d'uso di ricerca e di visualizzazione degli edifici & Domanda 4 \\
+		D7 & È stata migliorata la descrizione relativa al caso d'uso dell'attivazione del GPS & Domanda 5 \\
+		D8 & È stato aggiunto il caso d'uso generale ‘‘Contatta edificio’’ & Domanda 6 \\
+		D9 & R1Q4 diventa un requisito funzionale (principale o no? Distribuito o unico? Ai posteri/verificatori l'ardua sentenza) & Domanda 7 \\
+		D10 & Sono state corrette tutte le precondizioni errate & Domanda 8 \\
+	\hiderowcolors
+	\caption{Tabella delle decisioni prese}
+\end{tabella}
+
+\end{document}
