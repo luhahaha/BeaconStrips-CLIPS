@@ -1,0 +1,88 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+% !TEX spellcheck = it-IT
+\documentclass[a4paper,titlepage]{article}
+
+\usepackage[utf8x]{inputenc}
+
+\makeatletter
+\def\input@path{{../../../template/}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Verbale del Giorno 2016-05-05}
+\def\VERSIONE{1.0.0}
+\def\DATA{\today}
+\def\REDATTORE{Andrea Grendene}
+\def\VERIFICATORE{Luca Soldera}
+\def\RESPONSABILE{Luca Soldera}
+\def\USO{Interno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Breve descrizione della riunione interna del 2016-05-05.}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{diario}
+	\modifica{Andrea Grendene}{\PRJ}{Stese le Sezioni 1, 2 e 3}{2016-05-05}{0.0.1}
+\end{diario}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Informazioni}
+\label{sec:Informazioni}
+
+\begin{itemize}
+ \item \textbf{Luogo}: LabTA, Torre Archimede - Via Trieste 63, 35121, Padova (PD);
+ \item \textbf{Data}: 2016-05-05;
+ \item \textbf{Ora}: 10:30;
+ \item \textbf{Durata}: 90 minuti;
+ \item \textbf{Partecipanti}: Viviana Alessio, Luca Soldera, Matteo Franco, Andrea Grendene, Enrico Bellio.
+\end{itemize}
+
+\section{Ordine del giorno}
+\label{sec:Ordine del giorno}
+Di seguito sono riportati i punti affrontati durante la riunione.
+
+\begin{enumerate}
+	\item Assegnare ad un membro del gruppo la stesura dei verbali delle riunioni interne ed esterne.
+	\item Assegnare ad un membro del gruppo la verifica dei verbali scritti.
+	\item Assegnare ad un membro del gruppo la modifica e l'aggiunta dei diagrammi dei casi d'uso necessarie a seguito dell'esito della Revisione dei Requisiti e delle ultime modifiche effettuate ai casi d'uso stessi.
+	\item Assegnare ad un membro del gruppo la verifica dei diagrammi dei casi d'uso modificati o aggiunti.
+	\item Assegnare ad un membro del gruppo la verifica del \PQdoc.
+	\item Assegnare ad un membro del gruppo la verifica del \PPdoc.
+	\item Decidere come procedere per la modifica dell'UC5 e dei relativi sottocasi d'uso.
+\end{enumerate}
+
+\section{Decisioni}
+A seguito di questo incontro vengono riportate le decisioni prese riguardo agli argomenti discussi. \\
+Per facilitare il loro tracciamento all'esterno di questo documento ad ogni decisione viene assegnato un codice identificativo secondo la seguente codifica:
+\begin{center}
+D[Codice Identificativo]
+\end{center}
+Vengono inoltre riportate le fonti, esterne e interne, che hanno portato a prendere una determinata decisione. Per fonti interne si intendono le domande presentate durante questo incontro.
+
+\begin{tabella}{!{\VRule}c!{\VRule}X[l,b,l]!{\VRule}c!{\VRule}}
+	\intestazionethreecol{Decisione}{Descrizione}{Fonti}
+		D1 & La stesura dei verbali interni ed esterni è stata assegnata a Andrea Grendene. Per la stesura dei verbali esterni è stato deciso di consultare dei verbali stesi da un altro gruppo il cui esito è stato ottimo & Punto 1 \\
+		D2 & La verifica dei verbali interni ed esterni è stata assegnata a Luca Soldera & Punto 2 \\
+		D3 & L'aggiunta e la modifica dei diagrammi dei casi d'uso sono state assegnate a Tommaso Panozzo & Punto 3 \\
+		D4 & La verifica dei diagrammi dei casi d'uso è stata assegnata a Matteo Franco & Punto 4 \\
+		D5 & La verifica del \PQdoc\ è stata assegnata a Enrico Bellio & Punto 5 \\
+		D6 & La verifica del \PPdoc\ è stata assegnata a Enrico Bellio & Punto 6 \\
+		D7 & È stata migliorata la descrizione relativa al caso d'uso dell'attivazione del GPS & Punto 7 \\
+		D8 & È stato aggiunto il caso d'uso generale ‘‘Contatta edificio’’ & Punto 7 \\
+		D9 & R1Q4 diventa un requisito funzionale (principale o no? Distribuito o unico? Ai posteri/verificatori l'ardua sentenza) & Punto 7 \\
+		D10 & Sono state corrette tutte le precondizioni errate & Punto 7 \\
+	\hiderowcolors
+	\caption{Tabella delle decisioni prese}
+\end{tabella}
+
+\end{document}
