@@ -1,0 +1,83 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+% !TEX spellcheck = it-IT
+\documentclass[a4paper,titlepage]{article}
+
+\usepackage[utf8x]{inputenc}
+
+\makeatletter
+\def\input@path{{../../../template/}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Verbale del Giorno 2016-05-11}
+\def\VERSIONE{1.0.0}
+\def\DATA{\today}
+\def\REDATTORE{Andrea Grendene}
+\def\VERIFICATORE{Luca Soldera}
+\def\RESPONSABILE{Luca Soldera}
+\def\USO{Interno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Breve descrizione della riunione interna del 2016-05-05.}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{diario}
+	\modifica{Andrea Grendene}{\PRJ}{Stese le Sezioni 1, 2 e 3}{2016-05-12}{0.0.1}
+\end{diario}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Informazioni}
+\label{sec:Informazioni}
+
+\begin{itemize}
+ \item \textbf{Luogo}: LuF1, Plesso Paolotti - Via G. B. Belzoni 7, 35121, Padova (PD);
+ \item \textbf{Data}: 2016-05-11;
+ \item \textbf{Ora}: 9:30;
+ \item \textbf{Durata}: 2 ore;
+ \item \textbf{Partecipanti}: Viviana Alessio, Luca Soldera, Matteo Franco, Andrea Grendene, Enrico Bellio.
+\end{itemize}
+
+\section{Ordine del giorno}
+\label{sec:Ordine del giorno}
+Di seguito sono riportati i punti affrontati durante la riunione.
+
+\begin{enumerate}
+	\item Decidere per quale sistema operativo creare l'applicazione tra Android e iOS.
+	\item Decidere come organizzarsi per la progettazione, ovvero come dividere i progettisti, cosa assegnare ad ogni loro divisione e come procedere per fare la progettazione.
+	\item Capire quali linguaggi ci serviranno per l'applicazione.
+	\item Decidere quali stili architetturali utilizzare per l'applicazione.
+\end{enumerate}
+
+\section{Decisioni}
+A seguito di questo incontro vengono riportate le decisioni prese riguardo agli argomenti discussi. \\
+Per facilitare il loro tracciamento all'esterno di questo documento ad ogni decisione viene assegnato un codice identificativo secondo la seguente codifica:
+\begin{center}
+D[Codice Identificativo]
+\end{center}
+Vengono inoltre riportate le fonti, esterne e interne, che hanno portato a prendere una determinata decisione. Per fonti interne si intendono le domande presentate durante questo incontro.
+
+\begin{tabella}{!{\VRule}c!{\VRule}X[l,b,l]!{\VRule}c!{\VRule}}
+	\intestazionethreecol{Decisione}{Descrizione}{Fonti}
+		D1 & Il sistema operativo scelto è Android. Le motivazioni di questa decisione sono & Punto 1 \\
+		D2 & I 4 progettisti si divideranno in due gruppi da 2 persone, il primo sarà composto da Andrea Grendene e Matteo Franco mentre il secondo sarà formato da Viviana Alessio e Luca Soldera & Punto 2 \\
+		D3 & Il primo gruppo affronterà i requisiti da 1 a 3 inclusi tutti i relativi sottocasi, mentre il secondo gruppo si occuperà dei requisiti rimanenti & Punto 2 \\
+		D4 & La progettazione sarà top-down, ovvero partirà dagli stili architetturali dell'applicazione, affronterà poi la suddivisione dei package e infine arriverà a progettare le classi e i collegamenti tra loro & Punto 2 \\
+		D5 & I linguaggi che sicuramente useremo sono Java e XML. Non saranno gli unici che verranno utilizzati ma la loro individuazione completa verrà delegata ad una riunione successiva & Punto 3 \\
+		D6 & Il pattern architetturale che verrà utilizzato per l'intera applicazione sarà il Three Tier, ovvero essa sarà divisa chiaramente in Client Tier, Server Tier e Database Tier & Punto 4 \\
+		D7 & L'applicazione lato client userà il pattern architetturale Model View Control (MVC), visto che l'app si baserà molto sulla rappresentazione grafica mentre l'accesso al Database viene delegato al Server Tier & Punto 4 \\
+		D8 & L'applicazione lato server adopererà il pattern architetturale Three Tier, ovvero viene divisa in Presentation, cioè la sezione dedicata alla gestione della parte grafica, Business Logic, ovvero la sezione riservata alla parte di calcolo e alla gestione degli algoritmi, e Dataaccess, cioè la sezione dedicata alla comunicazione con il Database Tier & Punto 4 \\ %Questo punto non è stato aggiornato con quello deciso alla riunione per ricordarmi che dobbiamo discutere se applicare questo pattern, il MVC o un altro
+	\hiderowcolors
+	\caption{Tabella delle decisioni prese}
+\end{tabella}
+
+\end{document}
