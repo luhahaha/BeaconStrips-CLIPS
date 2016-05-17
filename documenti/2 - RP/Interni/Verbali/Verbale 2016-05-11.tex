@@ -18,7 +18,7 @@
 \def\DATA{\today}
 \def\REDATTORE{Andrea Grendene}
 \def\VERIFICATORE{Luca Soldera}
-\def\RESPONSABILE{Luca Soldera}
+\def\RESPONSABILE{Matteo Franco}
 \def\USO{Interno}
 \def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
 \def\SOMMARIO{Breve descrizione della riunione interna del 2016-05-11.}
@@ -29,6 +29,8 @@
 \maketitle
 
 \begin{diario}
+	\modifica{Andrea Grendene}{\PRJ}{Attuazione delle modifiche segnalate durante la verifica}{2016-05-17}{0.1.1}
+	\modifica{Luca Soldera}{\VER}{Verifica del verbale}{2016-05-15}{0.1.0}
 	\modifica{Andrea Grendene}{\PRJ}{Stese le Sezioni 1, 2 e 3}{2016-05-12}{0.0.1}
 \end{diario}
 
@@ -52,28 +54,35 @@
 Di seguito sono riportati i punti affrontati durante la riunione.
 
 \begin{enumerate}
-	\item Decidere per quale sistema operativo creare l'applicazione tra Android e iOS.
-	\item Decidere come organizzarsi per la progettazione, ovvero come dividere i progettisti, cosa assegnare ad ogni loro divisione e come procedere per fare la progettazione.
-	\item Capire quali linguaggi ci serviranno per l'applicazione.
+	\item Decidere per quale sistema operativo tra Android e iOS creare l'applicazione.
+	\item Decidere come organizzarsi per la progettazione, ovvero come dividere i progettisti, cosa assegnare ad ogni eventuale gruppo e come procedere per fare la progettazione.
+	\item Capire quali linguaggi serviranno per l'applicazione.
 	\item Decidere quali stili architetturali utilizzare per l'applicazione.
 \end{enumerate}
 
 \section{Decisioni}
-A seguito di questo incontro vengono riportate le decisioni prese riguardo agli argomenti discussi. \\
-Per facilitare il loro tracciamento all'esterno di questo documento ad ogni decisione viene assegnato un codice identificativo secondo la seguente codifica:
+Vengono riportate ora le decisioni prese durante la riunione. \\
+Per rendere più facile il tracciamento e il riferimento dentro e fuori questo documento ad ogni decisione viene assegnato un codice identificativo secondo la seguente codifica:
 \begin{center}
 D[Codice Identificativo]
 \end{center}
-Vengono inoltre riportate le fonti, esterne e interne, che hanno portato a prendere una determinata decisione. Per fonti interne si intendono le domande presentate durante questo incontro.
+Vengono riportate anche le fonti che hanno portato a queste decisioni, sia interne che esterne. Per fonti interne si intendono le domande a cui è stata trovata risposta durante la riunione.
 
 \begin{tabella}{!{\VRule}c!{\VRule}X[l,b,l]!{\VRule}c!{\VRule}}
 	\intestazionethreecol{Decisione}{Descrizione}{Fonti}
-		D1 & Il sistema operativo scelto è Android. Le motivazioni di questa decisione riguardano sia questo progetto sia l'utilità della conoscenza di questa tecnologia nel futuro; più precisamente sono la grande richiesta di programmatori Android, l'alta disponibilità di dispositivi con questo sistema operativo tra le persone di nostra conoscenza, il buon numero di persone che conosciamo con una certa esperienza di Android e il fatto che questo linguaggio di programmazione derivi da Java, perciò ci aiuta anche per i corsi dell'università & Punto 1 \\
+		D1 & Il sistema operativo scelto è Android. Le motivazioni di questa decisione riguardano sia questo progetto sia l'utilità della conoscenza di questa tecnologia nel futuro; più precisamente sono:
+		\begin{itemize}
+		\item\ la grande richiesta di programmatori Android;
+		\item\ la grossa disponibilità di dispositivi con questo sistema operativo che possono essere facilmente usati per la fase di testing;
+		\item\ il numero elevato di persone con una certa esperienza di Android che i membri del gruppo conoscono;
+		\item\ l'utilità per i membri del gruppo anche per affrontare alcuni esami universitari, dato che questo linguaggio di programmazione deriva da Java.
+		\end{itemize}
+		& Punto 1 \\
 		D2 & I 4 progettisti si divideranno in due gruppi da 2 persone, il primo sarà composto da Andrea Grendene e Matteo Franco mentre il secondo sarà formato da Viviana Alessio e Luca Soldera & Punto 2 \\
-		D3 & Il primo gruppo affronterà i requisiti da 1 a 3 inclusi tutti i relativi sottocasi, mentre il secondo gruppo si occuperà dei requisiti rimanenti & Punto 2 \\
+		D3 & Il primo gruppo affronterà i requisiti da 1 a 3, inclusi tutti i relativi sottocasi, mentre il secondo gruppo si occuperà dei requisiti rimanenti & Punto 2 \\
 		D4 & La progettazione sarà top-down, ovvero partirà dagli stili architetturali dell'applicazione, affronterà poi la suddivisione dei package e infine arriverà a progettare le classi e i collegamenti tra loro & Punto 2 \\
 		D5 & I linguaggi che sicuramente useremo sono Java e XML. Non saranno gli unici che verranno utilizzati ma la loro individuazione completa verrà delegata ad una riunione successiva & Punto 3 \\
-		D6 & I possibili stili architetturali che potrebbero essere adottati sono l'MVC o il Three Tier. Non è ancora stata presa una decisione precisa perché è necessario un ulteriore confronto all'interno del gruppo visto che entrambi i metodi possono essere validi & Punto 4 \\
+		D6 & I possibili stili architetturali che potrebbero essere adottati sono l'MVC o il Three Tier. Non è ancora stata presa una decisione precisa perché è necessario un ulteriore confronto all'interno del gruppo, visto che entrambi i metodi possono essere validi & Punto 4 \\
 	\hiderowcolors
 	\caption{Tabella delle decisioni prese}
 \end{tabella}
