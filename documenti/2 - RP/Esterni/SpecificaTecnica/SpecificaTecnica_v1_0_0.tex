@@ -1,0 +1,45 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\usepackage{eurosym}
+\usepackage{comment}
+\usepackage{hyperref}
+
+\def\NOME{Specifica Tecnica}
+\def\VERSIONE{1.0.0}
+\def\DATA{2016-06-xx}
+\def\REDATTORE{Viviana Alessio \\ & Matteo Franco \\ & Andrea Grandene \\ & Luca Soldera}
+\def\VERIFICATORE{Enrico Bellio \\ & Tommaso Panozzo}
+\def\RESPONSABILE{Matteo Franco}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Descrizione dell'architettura ad alto livello per il \gl{progetto} \PROGETTO.}
+
+
+\begin{document}
+
+
+\maketitle
+
+\begin{diario}
+	\modifica{Matteo Franco}{\PRJ}{Stesura intestazione documento}{2016-05-23}{0.0.1}
+\end{diario}
+
+\newpage
+\tableofcontents
+\newpage
+\listoftables
+\newpage
+\listoffigures
+\newpage
+
+%\include{introduzione}
+
+\end{document}
