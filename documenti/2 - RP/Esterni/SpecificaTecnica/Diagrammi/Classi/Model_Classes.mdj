@@ -2037,9 +2037,9 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1151,
+									"left": 1152,
 									"top": 372,
-									"width": 69,
+									"width": 67.5771484375,
 									"height": 13,
 									"autoResize": false,
 									"alpha": 1.5707963267948966,
@@ -13660,8 +13660,8 @@
 							"showShadow": true,
 							"containerChangeable": false,
 							"containerExtending": false,
-							"left": 1632,
-							"top": 40,
+							"left": 1624,
+							"top": 0,
 							"width": 201,
 							"height": 250,
 							"autoResize": false,
@@ -13690,7 +13690,7 @@
 								"$ref": "AAAAAAFUwC02EQb93xI="
 							},
 							"lineStyle": 1,
-							"points": "1733:290;1734:337"
+							"points": "1730:250;1731:279"
 						},
 						{
 							"_type": "UMLNoteView",
