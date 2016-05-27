@@ -105,18 +105,8 @@
 		\subsubsection{Metriche per i processi}
 		\label{sec:3.7.1}
 			\paragraph{Valutazione \gl{CMM}}
-			\label{sec:3.7.1.1}
-				I processi verranno valutati secondo il modello \gl{CMM}. Tale modello prevede che ogni processo verrà valutato secondo le proprie ‘‘Capability’’ e ‘‘Maturity’’. Per entrambe verrà assegnato un voto da 1 (stato iniziale) a 5 (stato controllato), che ne indicherà la valutazione complessiva. \\
-				La scelta di \gl{CMM} rispetto ai più recenti CMMI e \iso{\gl{ISO}/IEC 15504} è dovuta alla maggior snellezza della valutazione. Il primo valuta usando solo due parametri, i secondi invece dividono il processo in più attributi. \\
-				È stata fatta questa scelta a causa del \gl{progetto} non molto grande. Questo renderebbe alcuni attributi superflui o sopravvalutati. Altri due elementi che hanno portato a questa scelta sono l'inesperienza del gruppo e la rotazione dei ruoli. Questi porterebbero a facili fraintendimenti e disaccordi sulle singole valutazioni.
-				
-				\textbf{Parametri utilizzati:}
-				\begin{itemize}
-					\item \textbf{Range accettazione:}\ 3 - 5;
-					\item \textbf{Range ottimale:}\ 4 - 5.
-				\end{itemize}
 			\paragraph{Schedule Variance}
-			\label{sec:3.7.1.2}
+			\label{sec:3.7.1.1}
 				L'avanzamento dei processi verrà valutato tramite la schedule variance. Questo indice di efficacia mette in relazione il lavoro pianificato con quello svolto. \\
 				Se l'indice è maggiore di zero allora si è svolto più lavoro rispetto a quello pianificato, viceversa se è negativo. L'utilizzo di periodi di \gl{slack} aumenta la possibilità che la schedule variance assuma valori positivi.
 				
@@ -126,7 +116,7 @@
 					\item \textbf{Range ottimale:}\ $\ge\-(preventivo\,\, f\!ase*5\%).$
 				\end{itemize}
 			\paragraph{Budget Variance}
-			\label{sec:3.7.1.3}
+			\label{sec:3.7.1.2}
 				L'avanzamento dei processi verrà valutato anche tramite la budget variance. Questo indice di efficienza mette in relazione il preventivo pianificato con il consuntivo. \\
 				Se l'indice è maggiore di zero allora si è riusciti ad essere più efficienti di quello pianificato, viceversa se negativo.
 				
@@ -247,9 +237,8 @@
 				\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}}
 					\intestazionethreecol{Metriche}{Range accettazione}{Range ottimale}
 					\hyperref[sec:3.7.1]{3.7.1 Metriche per i processi} & & \\
-					\hyperref[sec:3.7.1.1]{3.7.1.1 Valutazione \gl{CMM}} & 3 - 5 & 4 - 5 \\
-					\hyperref[sec:3.7.1.2]{3.7.1.2 Schedule Variance} & $\ge-10\%$ & $\ge-5\%$ \\
-					\hyperref[sec:3.7.1.3]{3.7.1.3 Budget Variance} & $\ge-10\%$ & $\ge-5\%$ \\
+					\hyperref[sec:3.7.1.2]{3.7.1.1 Schedule Variance} & $\ge-10\%$ & $\ge-5\%$ \\
+					\hyperref[sec:3.7.1.3]{3.7.1.2 Budget Variance} & $\ge-10\%$ & $\ge-5\%$ \\
 					\hyperref[sec:3.7.2]{3.7.2 Metriche per i documenti} & & \\
 					\hyperref[sec:3.7.2.1]{3.7.2.1 Indice \gl{Gulpease}} & 40 - 100 & 50 - 100 \\
 					\hyperref[sec:3.7.3]{3.7.3 Metriche per il codice} & & \\
