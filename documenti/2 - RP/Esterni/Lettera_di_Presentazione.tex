@@ -1,0 +1,92 @@
+\documentclass[a4paper]{article}
+
+\makeatletter
+\def\input@path{{../../template/}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\usepackage{eurosym}
+
+\newcommand{\spazio}{\vspace{1.5cm}}
+%per far compilare il LaTeX mi servivano questi dati con il template esistente, vanno tolti
+ \def\NOME{Lettera di Presentazione}
+ \def\VERSIONE{1.0.0}
+ \def\DATA{\today}
+ \def\REDATTORE{Matteo Franco}
+ \def\VERIFICATORE{Luca Soldera}
+ \def\RESPONSABILE{Matteo Franco}
+ \def\USO{Esterno}
+ \def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+ \def\SOMMARIO{Sommario}
+
+\begin{document}
+
+\spazio
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.3]{img/logo_full.png} \\
+	beaconstrips.swe@gmail.com
+\end{figure}
+
+\spazio
+
+\begin{flushright}
+\date{\today}
+Egregi \\
+\COMMITTENTE \\
+\CARDIN \\
+c/o Università degli Studi di Padova  \\
+Dipartimento di Matematica \\
+via Trieste, 63 \\
+35121 Padova (PD)
+\end{flushright}
+\spazio
+
+Oggetto: \textbf{presentazione della proposta per il capitolato d'appalto C2} \\ \\
+Egregio \COMMITTENTE,\\
+con la presente il gruppo \AUTORE \ intende comunicarLe ufficialmente l'impegno alla realizzazione del progetto proposto da \PROPONENTE: \\
+\highlight{\textbf{CLIPS: Communication \& Localization with Indoor Positioning Systems}}
+
+Si allegano i seguenti documenti:
+\begin{itemize}
+	\item \textbf{\ARdoc}: \textit{Esterni/AnalisiDeiRequisiti\_v1.0.0.pdf}
+	\item \textbf{\Gldoc}: \textit{Esterni/Glossario\_v1.0.0.pdf}
+	\item \textbf{\NPdoc}: \textit{Interni/NormeDiProgetto\_v1.0.0.pdf}
+	\item \textbf{\PPdoc}: \textit{Esterni/PianoDiProgetto\_v1.0.0.pdf}
+	\item \textbf{\PQdoc}: \textit{Esterni/PianoDiQualifica\_v1.0.0.pdf}
+	\item \textbf{\SFdoc}: \textit{Interni/StudioDiFattibilità\_v1.0.0.pdf}
+	%verbali
+\end{itemize}
+\spazio
+
+Il gruppo \AUTORE{} ha valutato un preventivo di costo pari a \euro{} \textbf{11.581,00}. \\ \\
+Data di prevista consegna: \textbf{2016/09/12}. \\
+\spazio
+
+
+Di seguito l'organigramma del team:
+
+\begin{tabella}{c!{\VRule}c!{\VRule}c!}
+	\intestazionethreecol{Nominativo}{Matricola}{Indirizzo e-mail}{}
+	Viviana Alessio & 1029720 & viviana.alessio@studenti.unipd.it  \\
+	Enrico Bellio & 1070872 & enrico.bellio@studenti.unipd.it  \\
+	Matteo Franco & 1027207 & matteo.franco.2@studenti.unipd.it  \\
+	Andrea Grendene & 1071863 & andrea.grendene@studenti.unipd.it  \\
+	Tommaso Panozzo & 1029174 & tommaso.panozzo@studenti.unipd.it  \\
+	Luca Soldera & 1028464 & luca.soldera@studenti.unipd.it  \\
+\end{tabella}
+
+\spazio
+Distinti saluti, \\
+
+%allineato a dx
+\begin{flushright}
+	Il \RES \\ 
+	Viviana Alessio \\ 
+	\includegraphics[scale=0.1]{PianoDiProgetto/img/firme/viviana}
+	%firma
+\end{flushright}
+\end{document}
