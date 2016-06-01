@@ -456,13 +456,13 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 848,
-									"top": 934,
-									"width": 249.6279296875,
+									"left": 616,
+									"top": 767,
+									"width": 247,
 									"height": 13,
 									"autoResize": false,
-									"alpha": 1.5869238622507642,
-									"distance": 124.01612798341996,
+									"alpha": -2.566054883200432,
+									"distance": 200.26232796010336,
 									"hostEdge": {
 										"$ref": "AAAAAAFU+A+NGAimVm8="
 									},
@@ -932,13 +932,13 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 600,
-									"top": 889,
-									"width": 224.326171875,
+									"left": 607,
+									"top": 808,
+									"width": 222,
 									"height": 13,
 									"autoResize": false,
-									"alpha": 0.9687457222259557,
-									"distance": 132.07573584879245,
+									"alpha": 1.6321224325692218,
+									"distance": 114.21471008587291,
 									"hostEdge": {
 										"$ref": "AAAAAAFU+BIIoAjzYUE="
 									},
@@ -1410,7 +1410,7 @@
 									"containerExtending": false,
 									"left": 367,
 									"top": 1015,
-									"width": 183.5234375,
+									"width": 183,
 									"height": 13,
 									"autoResize": false,
 									"alpha": -1.4701275152455313,
@@ -2212,13 +2212,13 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 606,
-									"top": 500,
-									"width": 218.13720703125,
+									"left": 608,
+									"top": 424,
+									"width": 215,
 									"height": 13,
 									"autoResize": false,
-									"alpha": 1.0121967289990974,
-									"distance": 132.07573584879245,
+									"alpha": 1.6247974223153179,
+									"distance": 111.16204388189342,
 									"hostEdge": {
 										"$ref": "AAAAAAFU+CTd2Ao4MZQ="
 									},
@@ -2354,12 +2354,12 @@
 									"containerChangeable": false,
 									"containerExtending": false,
 									"left": 614,
-									"top": 370,
-									"width": 243.43896484375,
+									"top": 383,
+									"width": 240,
 									"height": 13,
 									"autoResize": false,
-									"alpha": -2.649630274632654,
-									"distance": 205.35335400231475,
+									"alpha": -2.6135183128661215,
+									"distance": 194.49421585229726,
 									"hostEdge": {
 										"$ref": "AAAAAAFU+CXdwApXSwk="
 									},
@@ -3140,9 +3140,9 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 372,
+									"left": 373,
 									"top": 630,
-									"width": 211.00244140625,
+									"width": 209,
 									"height": 13,
 									"autoResize": false,
 									"alpha": -1.4975938686353112,
@@ -4003,7 +4003,7 @@
 									"model": {
 										"$ref": "AAAAAAFVAN0tOE/A9XU="
 									},
-									"visible": false,
+									"visible": true,
 									"enabled": true,
 									"lineColor": "#000000",
 									"fillColor": "#ffffff",
@@ -4012,18 +4012,19 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 618,
+									"left": 607,
 									"top": 674,
-									"width": 0,
+									"width": 184,
 									"height": 13,
 									"autoResize": false,
-									"alpha": 1.5707963267948966,
-									"distance": 15,
+									"alpha": 1.5813218527187116,
+									"distance": 95.00526301210897,
 									"hostEdge": {
 										"$ref": "AAAAAAFVAN0tOU/Ct60="
 									},
 									"edgePosition": 1,
 									"underline": false,
+									"text": "[Formato dello username valido]",
 									"horizontalAlignment": 2,
 									"verticalAlignment": 5
 								},
@@ -4143,7 +4144,7 @@
 									"model": {
 										"$ref": "AAAAAAFVAN7lL0/kK7U="
 									},
-									"visible": false,
+									"visible": true,
 									"enabled": true,
 									"lineColor": "#000000",
 									"fillColor": "#ffffff",
@@ -4152,18 +4153,19 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 618,
+									"left": 607,
 									"top": 1059,
-									"width": 0,
+									"width": 194,
 									"height": 13,
 									"autoResize": false,
-									"alpha": 1.5707963267948966,
-									"distance": 15,
+									"alpha": 1.580795592481662,
+									"distance": 100.00499987500625,
 									"hostEdge": {
 										"$ref": "AAAAAAFVAN7lME/m/Nk="
 									},
 									"edgePosition": 1,
 									"underline": false,
+									"text": "[Formato della password corretto]",
 									"horizontalAlignment": 2,
 									"verticalAlignment": 5
 								},
@@ -4724,6 +4726,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFU9+NKJECkw/I="
 					},
+					"name": "[Formato dello username valido]",
 					"source": {
 						"$ref": "AAAAAAFU+CdfKwqLCDQ="
 					},
@@ -4738,6 +4741,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFU9+NKJECkw/I="
 					},
+					"name": "[Formato della password corretto]",
 					"source": {
 						"$ref": "AAAAAAFU+BKcWAkHqGY="
 					},
