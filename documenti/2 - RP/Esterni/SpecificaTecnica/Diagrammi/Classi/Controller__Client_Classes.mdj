@@ -1880,6 +1880,64 @@
 									"model": {
 										"$ref": "AAAAAAFVAgGBrG4L/eA="
 									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFVEKbOKmsRtO8=",
+											"_parent": {
+												"$ref": "AAAAAAFVAgGBrW4TTGA="
+											},
+											"model": {
+												"$ref": "AAAAAAFVEKbN7WsOqH8="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 1771,
+											"top": 541,
+											"width": 344,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "-pathView: PathView",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFVEKcy+msYfOs=",
+											"_parent": {
+												"$ref": "AAAAAAFVAgGBrW4TTGA="
+											},
+											"model": {
+												"$ref": "AAAAAAFVEKcywWsVFhQ="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 1771,
+											"top": 556,
+											"width": 344,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "-path: Path",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5
+										}
+									],
 									"visible": true,
 									"enabled": true,
 									"lineColor": "#000000",
@@ -1892,7 +1950,7 @@
 									"left": 1766,
 									"top": 536,
 									"width": 354,
-									"height": 10,
+									"height": 38,
 									"autoResize": false
 								},
 								{
@@ -1904,6 +1962,64 @@
 									"model": {
 										"$ref": "AAAAAAFVAgGBrG4L/eA="
 									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFVEKY7CWsBbfs=",
+											"_parent": {
+												"$ref": "AAAAAAFVAgGBrW4Un80="
+											},
+											"model": {
+												"$ref": "AAAAAAFVEKY6tmr+Em0="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 1771,
+											"top": 579,
+											"width": 344,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+startButtonPressed()",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFVEKZpM2sIozw=",
+											"_parent": {
+												"$ref": "AAAAAAFVAgGBrW4Un80="
+											},
+											"model": {
+												"$ref": "AAAAAAFVEKZo/GsFAY4="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 1771,
+											"top": 594,
+											"width": 344,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+PathController(pathInfo: PathInfo)",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5
+										}
+									],
 									"visible": true,
 									"enabled": true,
 									"lineColor": "#000000",
@@ -1914,9 +2030,9 @@
 									"containerChangeable": false,
 									"containerExtending": false,
 									"left": 1766,
-									"top": 546,
+									"top": 574,
 									"width": 354,
-									"height": 10,
+									"height": 38,
 									"autoResize": false
 								},
 								{
@@ -3892,12 +4008,12 @@
 							"showShadow": true,
 							"containerChangeable": false,
 							"containerExtending": false,
-							"left": 2287,
-							"top": 512,
-							"width": 281,
+							"left": 2192,
+							"top": 520,
+							"width": 673,
 							"height": 121,
 							"autoResize": false,
-							"text": "- Inizializza View::PathView\n- Scarica i percorsi dal server\n- Salva i percorsi nel Model",
+							"text": "- Gestisce la View del singolo percorso.\n- Implementa i metodi dell'interfaccia PathViewDelegate.\n- Nota: il costruttore chiama il metodo statico del DataManager per caricare i dati completi del percorso. pathInfo non è necessario salvarlo in un attributo della classe perché la View non verrà mai aggiornata né ricaricata.\n- startButtonPressed() crea e cede il focus al ProofController relativo alla prima prova, inoltre inizializza il PathProgress per l'intera durata del percorso.",
 							"wordWrap": true
 						},
 						{
@@ -4040,7 +4156,7 @@
 								"$ref": "AAAAAAFVAhHU/m9yywI="
 							},
 							"lineStyle": 1,
-							"points": "2286:573;2120:573"
+							"points": "2191:577;2120:576"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -4271,10 +4387,10 @@
 							"containerExtending": false,
 							"left": 336,
 							"top": 24,
-							"width": 305,
-							"height": 89,
+							"width": 481,
+							"height": 81,
 							"autoResize": false,
-							"text": "In ogni controller sono presenti i metodi delle interfacce dei delegate corrispondenti presenti all'interno della View",
+							"text": "In ogni controller sono presenti i metodi delle interfacce dei delegate corrispondenti presenti all'interno della View.\nNei commenti contrassegnati come DUBBIO/DUBBI ci sono delle note che esprimono dubbi o semplici annotazioni da confermare e da tenere conto per la modifica sia del Controller sia degli altri pacchetti.",
 							"wordWrap": true
 						},
 						{
@@ -6299,7 +6415,7 @@
 							"width": 265,
 							"height": 66,
 							"autoResize": false,
-							"text": "DUBBIO\nL'autenticazione non dovrebbe essere la Login con l'aggiunta del bottone per passare alla registrazione? O non esiste?",
+							"text": "DUBBIO\nL'autenticazione non dovrebbe essere la Registrazione con l'aggiunta del bottone per passare al login? O non esiste?",
 							"wordWrap": true
 						},
 						{
@@ -6838,7 +6954,30 @@
 							"width": 465,
 							"height": 137,
 							"autoResize": false,
-							"text": "DUBBI\nBuildingView dovrebbe avere come parametro del costruttore la Building corrispondente.\nLa descrizione dei bottoni sarebbe da controllare perché probabilmente non è corretta, in particolare per quanto riguarda il telefono e l'indirizzo. Ha senso mettere il telefono come pulsante o forse sarebbe meglio tenerlo come una semplice label?\nSe ho capito bene il costruttore della BuildingView deve avere come parametro building.\n",
+							"text": "DUBBI\nLa descrizione dei bottoni sarebbe da controllare perché probabilmente non è corretta, in particolare per quanto riguarda il telefono e l'indirizzo. Ha senso mettere il telefono come pulsante o forse sarebbe meglio tenerlo come una semplice label?\nSe ho capito bene il costruttore della BuildingView deve avere come parametro building.\n",
+							"wordWrap": true
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAFVEK3382so8kM=",
+							"_parent": {
+								"$ref": "AAAAAAFVAf+k9m0d8yk="
+							},
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ffffff",
+							"fontColor": "#000000",
+							"font": "Arial;13;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"left": 2896,
+							"top": 536,
+							"width": 473,
+							"height": 83,
+							"autoResize": false,
+							"text": "DUBBI\nPathView dovrebbe avere come parametri del costruttore PathInfo e Path.\nIl PathProgress dovrà essere passato ad ogni controller delle prove man mano che si avanza.\nIn PathViewDelegate il metodo inserito ha il nome errato.",
 							"wordWrap": true
 						}
 					]
@@ -7270,6 +7409,92 @@
 					},
 					"name": "PathController",
 					"visibility": "public",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFVEKbN7WsOqH8=",
+							"_parent": {
+								"$ref": "AAAAAAFVAgGBrG4L/eA="
+							},
+							"name": "pathView",
+							"visibility": "private",
+							"isStatic": false,
+							"isLeaf": false,
+							"type": "PathView",
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFVEKcywWsVFhQ=",
+							"_parent": {
+								"$ref": "AAAAAAFVAgGBrG4L/eA="
+							},
+							"name": "path",
+							"visibility": "private",
+							"isStatic": false,
+							"isLeaf": false,
+							"type": "Path",
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFVEKY6tmr+Em0=",
+							"_parent": {
+								"$ref": "AAAAAAFVAgGBrG4L/eA="
+							},
+							"name": "startButtonPressed",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFVEKZo/GsFAY4=",
+							"_parent": {
+								"$ref": "AAAAAAFVAgGBrG4L/eA="
+							},
+							"name": "PathController",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFVEKa772sMOnU=",
+									"_parent": {
+										"$ref": "AAAAAAFVEKZo/GsFAY4="
+									},
+									"name": "pathInfo",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "PathInfo",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
+								}
+							],
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						}
+					],
 					"isAbstract": false,
 					"isFinalSpecialization": false,
 					"isLeaf": false,
