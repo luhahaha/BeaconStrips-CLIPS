@@ -1,1 +1,38 @@
+\newcommand{\utilizzo}{\item \textbf{Utilizzo nel progetto}}
+
 \section{Design pattern utilizzati}
+
+\subsection{Pattern architetturali}
+	\subsubsection{Model View Controller}
+		\begin{itemize}
+			\item \textbf{Descrizione} \\ Model View Controller è un design pattern architetturale che permette di dividere l'architettura del sistema che si intende sviluppare in tre blocchi: \\
+			\textbf{il modello} che contiene le classi con i metodi di accesso ai dati, \\
+			\textbf{la vista} che contiene le classi che permettono all'utente di visualizzare i dati e di interagire con il modello, \\
+			\textbf{il controllore} che si occupa di fare da tramite tra vista e modello, ovvero riceve i comandi dell'utente attraverso la vista e va a cambiare lo stato del modello di conseguenza, successivamente aggiorna la vista. \\
+			% immagine generale
+			
+			\item \textbf{Vantaggi} \\
+			Questo pattern architetturale permette il riuso del codice in quanto molte parti di lavoro sono indipendenti. Ad esempio il modello creato potrà essere utilizzato con diverse viste. \\ Grazie all'indipendenza di alcune parti è semplice dividere il lavoro tra più componenti di un team e sarà quindi più facile anche la manutenzione.
+			\utilizzo: \\
+			Nel nostro progetto il pattern MVC è usato nella parte client dell'architettura. 
+		\end{itemize}
+		
+\subsection{Pattern creazionali}
+	\subsubsection{Abstract Factory}
+		\begin{itemize}
+			\item \textbf{Descrizione}\\ il design pattern Abstract Factort fornisce un' interfaccia per creare famiglie di prodotti senza specificare classi concrete. Ogni famiglia di prodotti ha una classe base astratta da cui derivano delle classi concrete. Queste classi concrete sono istanziate dalle classi concrete della factory corrispondenti;
+			% immagine d esempio
+			
+			\item \textbf{Vantaggi}\\ questo design pattern offre vantaggi quando si vogliono modellare famiglie di prodotti che potranno essere ampliate nel futuro. Le modifiche necessarie ad aggiungere nuovi elementi alle famiglie saranno essenzialmente due, aggiungere una classe in ogni famiglia di prodotti ed un solo metodo nella factory;
+			\utilizzo \\ nel nostro progetto abbiamo utilizzato questo design pattern per modellare i tipi di quiz che vengono proposti agli utenti. Abbiamo infatti deciso di utilizzare solo due famiglie di quiz, quindi vi è la necessità di avere modo in futuro di ampliare le tipologie di quiz disponibili in modo semplice ed efficace.
+			
+			% immagine diagramma nostro
+		\end{itemize}
+		
+\subsection{Pattern strutturali}
+	\subsubsection{Facade}
+		\begin{itemize}
+			\item \textbf{Descrizione}: il design pattern Facade fornisce un'interfaccia unica e semplice per un sottosistema complesso. Si crea un'interfaccia più ad alto livello del sottosistema;
+			\item \textbf{Vantaggi}: 
+			\utilizzo: % visualizzare le informazioni degli edifici
+		\end{itemize}
