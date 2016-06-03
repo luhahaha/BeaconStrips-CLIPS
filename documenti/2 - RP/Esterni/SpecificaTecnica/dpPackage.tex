@@ -1,0 +1,140 @@
+\componente{CLIPS}
+\compDescrizione{package generale contenente il prodotto del progetto}
+\begin{compPackageContenuti}
+	\item CLIPS::client: componente globale per il front end del prodotto che utilizza il design pattern \gl{MVC}. Si occupa di fornire un'interfaccia grafica dell'applicazione e di interagire con il lato server.
+	\item CLIPS::server: componente globale per il back end del prodotto
+	\end{compPackageContenuti}
+	\end{componente}
+	\componente{CLIPS::client}
+	\compDescrizione{componente globale per il front end del prodotto che utilizza il design pattern \gl{MVC}. Si occupa di fornire un'interfaccia grafica dell'applicazione e di interagire con il lato server.}
+	\compPadre{CLIPS}
+	\begin{compPackageContenuti}
+		\item CLIPS::client::authentication: componente che si occupa di gestire l'autenticazione dell'utente
+		\end{compPackageContenuti}
+		\end{componente}
+		\componente{CLIPS::client::authentication}
+		\compDescrizione{componente che si occupa di gestire l'autenticazione dell'utente}
+		\compPadre{client}
+		\begin{compClassi}
+			\begin{classe}{CLIPS::client::authentication::ForgotPasswordView}
+				\classeDescrizione{classe che si occupa della visualizzazione della schermata per la richiesta di una nuova password}
+				\classeUtilizzo{consente all'utente di inserire la mail per ricevere una nuova password}
+				\end{classe}\begin{classe}{CLIPS::client::authentication::LoggedUser}
+				\classeDescrizione{classe che si occupa di memorizzare in locale i dati dell'utente loggato}
+				\classeUtilizzo{permette il salvataggio in locale dei dati di un utente loggato}
+				\end{classe}\begin{classe}{CLIPS::client::authentication::LoginView}
+				\classeDescrizione{classe che si occupa della visualizzazione della schermata per il login}
+				\classeUtilizzo{consente all'utente di inserire i propri dati per effettuare il login}
+				\end{classe}\begin{classe}{CLIPS::client::authentication::RegistrationView}
+				\classeDescrizione{classe che si occupa della visualizzazione della schermata per la registrazione}
+				\classeUtilizzo{consente all'utente di inserire i propri dati per effettuare la registrazione}
+				\end{classe}\begin{classe}{CLIPS::client::authentication::UpdateUserInfoView}
+				\classeDescrizione{classe che si occupa della visualizzazione della schermata per il cambio delle credenziali}
+				\classeUtilizzo{consente all'utente di inserire i nuovi dati per cambiare le sue credenziali}
+				\end{classe}\end{compClassi}
+				\end{componente}
+				\componente{CLIPS::server}
+				\compDescrizione{componente globale per il back end del prodotto}
+				\compPadre{CLIPS}
+				\end{componente}
+				\componente{gamelogic}
+				\compDescrizione{componente che si occupa di tutte le componenti riguardanti il gioco.}
+				\begin{compPackageContenuti}
+					\item gamelogic::buildings: componete che gestisce le informazioni e le interazioni dell'utente con gli edifici abilitati
+					\item gamelogic::paths: componente che gestisce i dati dei percorsi giocabili dall'utente
+					\end{compPackageContenuti}
+					\end{componente}
+					\componente{gamelogic::buildings}
+					\compDescrizione{componete che gestisce le informazioni e le interazioni dell'utente con gli edifici abilitati}
+					\compPadre{gamelogic}
+					\end{componente}
+					\componente{gamelogic::paths}
+					\compDescrizione{componente che gestisce i dati dei percorsi giocabili dall'utente}
+					\compPadre{gamelogic}
+					\begin{compClassi}
+						\begin{classe}{gamelogic::paths::Path}
+							\classeDescrizione{classe che si occupa di salvare in locale i dati riguardanti un percorso}
+							\classeUtilizzo{permette di salvare i dati di un percorso in locale}
+							\end{classe}\begin{classe}{gamelogic::paths::PathInfo}
+							\classeDescrizione{classe che si occupa di salvare in locale le informazioni generali di un percorso}
+							\classeUtilizzo{consente di salvare in locale le informazioni generali di un percorso}
+							\end{classe}\begin{classe}{gamelogic::paths::PathView}
+							\classeDescrizione{classe che si occupa della visualizzazione della schermata riguardante un percorso}
+							\classeUtilizzo{consente all'utente di visualizzare le informazioni riguardanti un percorso e se l'utente si trova nell'edificio del percorso consente di iniziarlo}
+							\end{classe}\end{compClassi}
+							\end{componente}
+							\componente{games}
+							\compDescrizione{componente che gestisce le prove che l'utente deve completare all'interno di un percorso}
+							\begin{compClassi}
+								\begin{classe}{games::MultipleChoiceQuiz}
+									\classeDescrizione{classe per il quiz a risposta multipla}
+									\classeUtilizzo{si occupa di fornire un'interfaccia per il quiz a risposta multipla}
+									\begin{classeAttributi}
+										\classeAttributo{answerButtons}{void}{una lista di buttons per visualizzare le possibili risposte}
+										\end{classeAttributi}
+										\begin{classeMetodi}
+											\classeMetodo{buttonPressed}{atIndex}{void}{segnala al controller il button premuto}
+											\begin{classeMetodoArgomenti}
+												\classeMetodoArgomento{atIndex}{int}{indica l'indice della risposta selezionata}
+												\end{classeMetodoArgomenti}
+												\end{classeMetodi}
+												\end{classe}\begin{classe}{games::QuizResultView}
+												\classeDescrizione{classe per la visualizzazione del risultato di un quiz}
+												\classeUtilizzo{fornisce all'utente un'interfaccia affinché visualizzi il risultato del quiz}
+												\begin{classeAttributi}
+													\classeAttributo{continueButton}{void}{button per chiudere la schermata e continuare il percorso}
+													\classeAttributo{feedbackLabel}{string}{mostra la frase di successo/fallimento del quiz}
+													\end{classeAttributi}
+													\begin{classeMetodi}
+														\classeMetodo{continueButtonPressed}{}{void}{notifica il controller che il button per continuare è stato premuto}
+														\classeMetodo{showFailureResult}{correctAnswer}{void}{mostra la risposta corretta se il quiz è stato fallito}
+														\begin{classeMetodoArgomenti}
+															\classeMetodoArgomento{correctAnswer}{string}{indica la risposta corretta}
+															\end{classeMetodoArgomenti}
+															\classeMetodo{showSuccessfulResult}{score}{void}{mostra il risultato ottenuto se il quiz è stato superato}
+															\begin{classeMetodoArgomenti}
+																\classeMetodoArgomento{score}{int}{indica il punteggio ottenuto}
+																\end{classeMetodoArgomenti}
+																\end{classeMetodi}
+																\end{classe}\begin{classe}{games::QuizView}
+																\classeDescrizione{classe base per i quiz}
+																\classeUtilizzo{fornisce una base per i vari tipi di test da istanziare}
+																\begin{classeAttributi}
+																	\classeAttributo{questionLabel}{string}{rappresenta la domanda da porre nel quiz}
+																	\end{classeAttributi}
+																	\end{classe}\begin{classe}{games::StrangersQuiz}
+																	\classeDescrizione{classe per il quiz strana coppia}
+																	\classeUtilizzo{si occupa di fornire un'interfaccia per la prova strana coppia}
+																	\begin{classeAttributi}
+																		\classeAttributo{answerCheckBox}{void}{fornisce una lista di risposte da selezionare tramite checkbox}
+																		\classeAttributo{confirmButton}{void}{button grafico per confermare la selezione delle risposte}
+																		\end{classeAttributi}
+																		\begin{classeMetodi}
+																			\classeMetodo{confirmButtonPressed}{}{void}{notifica il controller che è stato premuto il tasto conferma e quindi si può procedere alla valutazione delle risposte}
+																			\end{classeMetodi}
+																			\end{classe}\begin{classe}{games::TestResultView}
+																			\classeDescrizione{classe che fornisce una base per la visualizzazione del risultato della prova}
+																			\classeUtilizzo{permette all'utente di visualizzare il risultato della prova}
+																			\begin{classeMetodi}
+																				\classeMetodo{showResult()}{}{void}{restituisce la view con il risultato}
+																				\end{classeMetodi}
+																				\end{classe}\begin{classe}{games::TestView}
+																				\classeDescrizione{questa classe fornisce una base dalla quale è possibile creare vari tipi di giochi }
+																				\classeUtilizzo{viene utilizzata per visualizzare un'interfaccia di gioco all'utente}
+																				\begin{classeMetodi}
+																					\classeMetodo{showTest}{}{TestView}{restituisce l'interfaccia grafica del test}
+																					\end{classeMetodi}
+																					\end{classe}\begin{classe}{games::TrueFalseQuiz}
+																					\classeDescrizione{classe per il quiz vero/falso}
+																					\classeUtilizzo{si occupa di fornire un'interfaccia per la prova di tipo vero/falso}
+																					\begin{classeAttributi}
+																						\classeAttributo{falseButton}{void}{button grafico per rispondere falso al quiz}
+																						\classeAttributo{trueButton}{void}{button grafico per rispondere vero al quiz}
+																						\end{classeAttributi}
+																						\begin{classeMetodi}
+																							\classeMetodo{falseButtonPressed}{}{void}{questo metodo si occupa di notificare al controller che è stato premuto falseButton}
+																							\classeMetodo{trueButtonPressed}{}{void}{questo metodo si occupa di notificare al controller che è stato premuto trueButton}
+																							\end{classeMetodi}
+																							\end{classe}\end{compClassi}
+																							\end{componente}
+																							
