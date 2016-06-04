@@ -2302,7 +2302,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 676,
-											"width": 344,
+											"width": 390,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -2371,7 +2371,7 @@
 									"containerExtending": false,
 									"left": 1766,
 									"top": 669,
-									"width": 354,
+									"width": 400,
 									"height": 25,
 									"autoResize": false,
 									"stereotypeLabel": {
@@ -2417,7 +2417,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 699,
-											"width": 344,
+											"width": 390,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -2437,7 +2437,7 @@
 									"containerExtending": false,
 									"left": 1766,
 									"top": 694,
-									"width": 354,
+									"width": 400,
 									"height": 23,
 									"autoResize": false
 								},
@@ -2471,7 +2471,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 722,
-											"width": 344,
+											"width": 390,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -2499,7 +2499,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 737,
-											"width": 344,
+											"width": 390,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -2527,7 +2527,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 752,
-											"width": 344,
+											"width": 390,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -2555,11 +2555,11 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 767,
-											"width": 344,
+											"width": 390,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+ResultController(pathResult: PathResult)",
+											"text": "+ResultController(pathResult: PathResult, resultCanBeSaved: Bool)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -2575,7 +2575,7 @@
 									"containerExtending": false,
 									"left": 1766,
 									"top": 717,
-									"width": 354,
+									"width": 400,
 									"height": 68,
 									"autoResize": false
 								},
@@ -2639,7 +2639,7 @@
 							"containerExtending": false,
 							"left": 1766,
 							"top": 669,
-							"width": 354,
+							"width": 400,
 							"height": 128,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
@@ -3105,7 +3105,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": -560,
-											"top": 1312,
+											"top": 1264,
 											"width": 0,
 											"height": 13,
 											"autoResize": false,
@@ -3129,7 +3129,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 645,
-											"top": 823,
+											"top": 799,
 											"width": 344,
 											"height": 13,
 											"autoResize": false,
@@ -3154,7 +3154,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": -560,
-											"top": 1312,
+											"top": 1264,
 											"width": 80,
 											"height": 13,
 											"autoResize": false,
@@ -3179,7 +3179,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": -560,
-											"top": 1312,
+											"top": 1264,
 											"width": 0,
 											"height": 13,
 											"autoResize": false,
@@ -3198,7 +3198,7 @@
 									"containerChangeable": false,
 									"containerExtending": false,
 									"left": 640,
-									"top": 816,
+									"top": 792,
 									"width": 354,
 									"height": 25,
 									"autoResize": false,
@@ -3244,7 +3244,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 645,
-											"top": 846,
+											"top": 822,
 											"width": 344,
 											"height": 13,
 											"autoResize": false,
@@ -3272,7 +3272,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 645,
-											"top": 861,
+											"top": 837,
 											"width": 344,
 											"height": 13,
 											"autoResize": false,
@@ -3300,7 +3300,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 645,
-											"top": 876,
+											"top": 852,
 											"width": 344,
 											"height": 13,
 											"autoResize": false,
@@ -3328,7 +3328,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 645,
-											"top": 891,
+											"top": 867,
 											"width": 344,
 											"height": 13,
 											"autoResize": false,
@@ -3356,7 +3356,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 645,
-											"top": 906,
+											"top": 882,
 											"width": 344,
 											"height": 13,
 											"autoResize": false,
@@ -3376,7 +3376,7 @@
 									"containerChangeable": false,
 									"containerExtending": false,
 									"left": 640,
-									"top": 841,
+									"top": 817,
 									"width": 354,
 									"height": 83,
 									"autoResize": false
@@ -3410,7 +3410,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 645,
-											"top": 929,
+											"top": 905,
 											"width": 344,
 											"height": 13,
 											"autoResize": false,
@@ -3438,7 +3438,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 645,
-											"top": 944,
+											"top": 920,
 											"width": 344,
 											"height": 13,
 											"autoResize": false,
@@ -3466,12 +3466,40 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 645,
-											"top": 959,
+											"top": 935,
 											"width": 344,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
 											"text": "+ProofController(pathProgress: PathProgress)",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFVHB1hbZDWXfo=",
+											"_parent": {
+												"$ref": "AAAAAAFVAgIcKW6Si1M="
+											},
+											"model": {
+												"$ref": "AAAAAAFVHB1hB5DTgCg="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 645,
+											"top": 950,
+											"width": 344,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+endProof(result: ProofResult)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -3486,9 +3514,9 @@
 									"containerChangeable": false,
 									"containerExtending": false,
 									"left": 640,
-									"top": 924,
+									"top": 900,
 									"width": 354,
-									"height": 53,
+									"height": 68,
 									"autoResize": false
 								},
 								{
@@ -3510,7 +3538,7 @@
 									"containerChangeable": false,
 									"containerExtending": false,
 									"left": -280,
-									"top": 656,
+									"top": 632,
 									"width": 10,
 									"height": 10,
 									"autoResize": false
@@ -3534,7 +3562,7 @@
 									"containerChangeable": false,
 									"containerExtending": false,
 									"left": -280,
-									"top": 656,
+									"top": 632,
 									"width": 10,
 									"height": 10,
 									"autoResize": false
@@ -3550,9 +3578,9 @@
 							"containerChangeable": true,
 							"containerExtending": false,
 							"left": 640,
-							"top": 816,
+							"top": 792,
 							"width": 354,
-							"height": 161,
+							"height": 176,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
@@ -4820,7 +4848,7 @@
 							"width": 473,
 							"height": 143,
 							"autoResize": false,
-							"text": "- Gestisce la View del menù.\n- Implementa i metodi dell'interfaccia MenuViewDelegate.\n- buildingsButtonPressed() crea e cede il focus a BuildingsSearchController.\n- authenticationButtonPressed() crea e cede il focus a AuthenticationController.\n- goAppInfoView() crea e cede il focus a .\n- appInfoButtonPressed() crea e cede il focus a AppInfoController.\n- userDidLogin() crea e cede il focus a LognController.\n- userDidLogout() chiama il metodo statico del DataManager corrispondente.",
+							"text": "- Gestisce la View del menù.\n- Implementa i metodi dell'interfaccia MenuViewDelegate.\n- buildingsButtonPressed() crea e cede il focus a BuildingsSearchController.\n- authenticationButtonPressed() crea e cede il focus a AuthenticationController.\n- goAppInfoView() crea e cede il focus a .\n- appInfoButtonPressed() crea e cede il focus a AppInfoController.\n- userDidLogin() crea e cede il focus a LoginController.\n- userDidLogout() chiama il metodo statico del DataManager corrispondente.",
 							"wordWrap": true
 						},
 						{
@@ -4956,11 +4984,11 @@
 							"containerChangeable": false,
 							"containerExtending": false,
 							"left": 2216,
-							"top": 688,
+							"top": 680,
 							"width": 545,
-							"height": 85,
+							"height": 113,
 							"autoResize": false,
-							"text": "- Gestisce la View dei risultati del percorso.\n- Implementa i metodi dell'interfaccia ResultViewDelegate.\n- rankingButtonPressed() crea e passa il focus a RankingController.\n- saveResultButtonPressed() permette all'utente di salvare i propri dati se è autenticato.\n- proofsButtonPressed() mostra la schermata con l'elenco dei risultati delle prove affrontate.",
+							"text": "- Gestisce la View dei risultati del percorso.\n- Implementa i metodi dell'interfaccia ResultViewDelegate.\n- Nota: se resultCanBeSaved è positivo nella View apparirà il pulsante per salvare i risultati, altrimenti no.\n- rankingButtonPressed() crea e passa il focus a RankingController.\n- saveResultButtonPressed() permette all'utente di salvare i propri dati se è autenticato.\n- proofsButtonPressed() mostra la schermata con l'elenco dei risultati delle prove affrontate.",
 							"wordWrap": true
 						},
 						{
@@ -4979,11 +5007,11 @@
 							"containerChangeable": false,
 							"containerExtending": false,
 							"left": 2232,
-							"top": 829,
+							"top": 824,
 							"width": 418,
-							"height": 124,
+							"height": 137,
 							"autoResize": false,
-							"text": "- Gestisce la View dell'elenco dei risultati salvati.\n- Implementa i metodi dell'interfaccia SavedResultViewDelegate.\nNota: il costruttore trova l'username tramite il DataManager e quindi sempre tramite esso richiede i dati dei percorsi salvati.\n- loginButtonPressed() permette di effettuare il login; il bottone che usa questa funzione sarà visibile solo se l'utente non è loggato.\n- resultRowDidPressed() crea e cede il focus al ResultController corrispondente al valore di atIndex.",
+							"text": "- Gestisce la View dell'elenco dei risultati salvati.\n- Implementa i metodi dell'interfaccia SavedResultViewDelegate.\nNota: il costruttore trova l'username tramite il DataManager e quindi sempre tramite esso richiede i dati dei percorsi salvati.\n- loginButtonPressed() permette di effettuare il login; il bottone che usa questa funzione sarà visibile solo se l'utente non è loggato.\n- resultRowDidPressed() crea e cede il focus al ResultController fornendo il risultato corrispondente al valore di atIndex e impondendo che il risultato non possa essere salvato.",
 							"wordWrap": true
 						},
 						{
@@ -5032,7 +5060,7 @@
 								"$ref": "AAAAAAFVAhH0vG9468A="
 							},
 							"lineStyle": 1,
-							"points": "2231:890;2120:890"
+							"points": "2231:891;2120:891"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -5056,7 +5084,7 @@
 								"$ref": "AAAAAAFVAhHoq291cuk="
 							},
 							"lineStyle": 1,
-							"points": "2215:731;2120:731"
+							"points": "2215:734;2166:734"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -5122,11 +5150,11 @@
 							"containerChangeable": false,
 							"containerExtending": false,
 							"left": 120,
-							"top": 808,
+							"top": 800,
 							"width": 424,
-							"height": 163,
+							"height": 165,
 							"autoResize": false,
-							"text": "- Gestisce le View dell'inizio e della fine della prova.\n- Implementa i metodi delle interfacce ProofView e ProofResultView.\n- Nota: il costruttore invocherà il metodo statico del DataManager per scaricare l'intera prova, inoltre crea e cede il focus a SearchNextStepController, quando esso ha finito mostra la schermata iniziale della prova.\n- startButtonPressed cede il focus al controller della prova tramite il campo dati proof, quando esso avrà finito il focus dovrà tornare a ProofController insieme al risultato della prova.\n- nextStepButtonPressed() crea e cede il focus al prossimo step tramite il PathProgress.",
+							"text": "- Gestisce le View dell'inizio e della fine della prova.\n- Implementa i metodi delle interfacce ProofView e ProofResultView.\n- Nota: il costruttore preleva la prova da pathProgress, crea e cede il focus a SearchNextStepController, quando esso ha finito mostra la schermata iniziale della prova.\n- startButtonPressed cede il focus al controller della prova tramite il campo dati proof, quando esso avrà finito il focus dovrà tornare a ProofController insieme al risultato della prova.\n- nextStepButtonPressed() crea e cede il focus al prossimo step tramite il PathProgress.\n- endProof() gestisce proofResultView.",
 							"wordWrap": true
 						},
 						{
@@ -5220,7 +5248,7 @@
 								"$ref": "AAAAAAFVAiVqo2+wVIc="
 							},
 							"lineStyle": 1,
-							"points": "544:892;639:893"
+							"points": "544:881;639:880"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -6535,6 +6563,34 @@
 										},
 										{
 											"_type": "UMLOperationView",
+											"_id": "AAAAAAFVHAsEnFbeWdc=",
+											"_parent": {
+												"$ref": "AAAAAAFVDNdeAc/krd8="
+											},
+											"model": {
+												"$ref": "AAAAAAFVHAsEJlbbVqA="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 1773,
+											"top": 1388,
+											"width": 344,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+emailFormatCheck(email: String)",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5
+										},
+										{
+											"_type": "UMLOperationView",
 											"_id": "AAAAAAFVEFpNLmoypjA=",
 											"_parent": {
 												"$ref": "AAAAAAFVDNdeAc/krd8="
@@ -6552,7 +6608,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 1773,
-											"top": 1388,
+											"top": 1403,
 											"width": 344,
 											"height": 13,
 											"autoResize": false,
@@ -6574,7 +6630,7 @@
 									"left": 1768,
 									"top": 1368,
 									"width": 354,
-									"height": 38,
+									"height": 53,
 									"autoResize": false
 								},
 								{
@@ -6685,9 +6741,9 @@
 							"left": 2288,
 							"top": 1344,
 							"width": 553,
-							"height": 81,
+							"height": 94,
 							"autoResize": false,
-							"text": "- Gestisce la View della password dimenticata.\n- Implementa i metodi dell'interfaccia ForgotPasswordDelegate().\n- forgotPassword() fa il check del formato dell'email con emailFormatCheck(), se l'esito è negativo ritorna l'errore, altrimenti apre il gestore email di default del dispositivo, impostando nel destinatario la nostra email, e richiama MenuController.",
+							"text": "- Gestisce la View della password dimenticata.\n- Implementa i metodi dell'interfaccia ForgotPasswordDelegate().\n- forgotPassword() fa il check del formato dell'email con emailFormatCheck() chiamando il metodo statico del DataManager apposito, se l'esito è negativo ritorna l'errore, altrimenti cambia la password dell'account relativo a quell'indirizzo email con una generata automaticamente e invia un'email all'indirizzo email dove viene annotata la nuova password.",
 							"wordWrap": true
 						},
 						{
@@ -6712,7 +6768,7 @@
 								"$ref": "AAAAAAFVDNdd/s/deS4="
 							},
 							"lineStyle": 1,
-							"points": "2122:1383;2287:1384"
+							"points": "2122:1385;2287:1387"
 						},
 						{
 							"_type": "UMLClassView",
@@ -7186,11 +7242,11 @@
 							"containerChangeable": false,
 							"containerExtending": false,
 							"left": 2288,
-							"top": 1488,
-							"width": 577,
-							"height": 157,
+							"top": 1504,
+							"width": 529,
+							"height": 124,
 							"autoResize": false,
-							"text": "- Gestisce la View della modifica credenziali.\n- Implementa i metodi dell'interfaccia UpdateUserInfoDelegate().\n- change() invia i dati da modificare al metodo statico del DataManager corrispondente.\n- usernameTextFieldCheck() e passwordTextFieldCheck() controllano il formato del rispettivo dato, se non è corretto viene ritornato l'errore corrispondente, altrimenti i due metodi si comportano in modi diversi: passwordTextFieldCheck() ritorna l'esito positivo dato che non ha altre operazioni da fare, mentre usernameTextFieldCheck() chiama il metodo statico del DataManager che verifica se lo username è già in uso, se lo è viene ritornato l'errore corrispondente, altrimenti viene ritornato l'esito positivo.\n- confirmPasswordTextFieldCheck() confronta le due password e ritorna l'esito corrispondente.",
+							"text": "- Gestisce la View della modifica credenziali.\n- Implementa i metodi dell'interfaccia UpdateUserInfoDelegate().\n- change() invia i dati da modificare al metodo statico del DataManager corrispondente.\n- usernameTextFieldCheck() e passwordTextFieldCheck() chiamano il metodo statico del DataManager per fare il check del dato relativo e riportano l'esito del metodo: se è negativo ritornano l'errore riscontrato, altrimenti informano del successo dell'operazione.\n- confirmPasswordTextFieldCheck() confronta le due password e ritorna l'esito corrispondente.",
 							"wordWrap": true
 						},
 						{
@@ -7820,9 +7876,9 @@
 							"left": 2896,
 							"top": 536,
 							"width": 473,
-							"height": 111,
+							"height": 83,
 							"autoResize": false,
-							"text": "DUBBI\nPathView dovrebbe avere come parametri del costruttore PathInfo e Path.\nIl PathProgress dovrà essere passato ad ogni controller delle prove man mano che si avanza.\nIn PathViewDelegate il metodo inserito ha il nome errato.\nEsistono due classi omonime di PathProgress, quella del controller e quella della view.",
+							"text": "DUBBI\nPathView dovrebbe avere come parametri del costruttore PathInfo e Path.\nIl PathProgress dovrà essere passato ad ogni controller delle prove man mano che si avanza.\nIn PathViewDelegate il metodo inserito ha il nome errato.",
 							"wordWrap": true
 						},
 						{
@@ -7864,7 +7920,7 @@
 							"containerChangeable": false,
 							"containerExtending": false,
 							"left": 1056,
-							"top": 816,
+							"top": 792,
 							"width": 497,
 							"height": 180,
 							"autoResize": false,
@@ -10702,6 +10758,22 @@
 									"isOrdered": false,
 									"isUnique": false,
 									"direction": "in"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFVHJz9FloCYmc=",
+									"_parent": {
+										"$ref": "AAAAAAFVFtRrKcRJY1w="
+									},
+									"name": "resultCanBeSaved",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "Bool",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
 								}
 							],
 							"concurrency": "sequential",
@@ -10962,6 +11034,38 @@
 									"isStatic": false,
 									"isLeaf": false,
 									"type": "PathProgress",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
+								}
+							],
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFVHB1hB5DTgCg=",
+							"_parent": {
+								"$ref": "AAAAAAFVAgIcKG6JXs0="
+							},
+							"name": "endProof",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFVHB7JHZDaw6s=",
+									"_parent": {
+										"$ref": "AAAAAAFVHB1hB5DTgCg="
+									},
+									"name": "result",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "ProofResult",
 									"isReadOnly": false,
 									"isOrdered": false,
 									"isUnique": false,
@@ -11554,6 +11658,38 @@
 									"_id": "AAAAAAFVDPaMstBN1uE=",
 									"_parent": {
 										"$ref": "AAAAAAFVDPXuL9BF+/Y="
+									},
+									"name": "email",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "String",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
+								}
+							],
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFVHAsEJlbbVqA=",
+							"_parent": {
+								"$ref": "AAAAAAFVDNdd/M/bWAc="
+							},
+							"name": "emailFormatCheck",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFVHAvaTFbj8yM=",
+									"_parent": {
+										"$ref": "AAAAAAFVHAsEJlbbVqA="
 									},
 									"name": "email",
 									"visibility": "public",
