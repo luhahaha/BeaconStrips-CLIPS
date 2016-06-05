@@ -2,8 +2,16 @@
 \label{attivita}
 I diagrammi delle attività realizzati mostrano in dettaglio i flussi di azioni che un utente può svolgere all'interno dell'applicazione. \\
 Alcuni diagrammi contengono azioni che sono a loro volta state descritte dettagliatamente in altri diagrammi di attività. Per migliorare la comprensibilità queste azioni sono state differenziate dalle altre inserendovi uno sfondo colorato.
+
 \subsection{Avvio}
 Questo diagramma contiene tutte le azioni che l'utente può svolgere all'interno dell'applicazione. \\
+L'utente può effettuare principalmente tre azioni appena avviata l'applicazione:
+\begin{itemize}
+	\item \textbf{Autenticarsi}: per autenticarsi l'utente può effettuare la registrazione oppure, se è già registrato, può effettuare il login. Un utente autenticato potrà successivamente modificare le proprie credenziali.
+	\item \textbf{Giocare}: l'utente può cercare un edificio nelle vicinanze, successivamente selezionare un edificio, selezionare un percorso e poi giocare. Quest'ultima azione è possibile solo se l'utente si trova nell'edificio che ha selezionato, se così non fosse può uscire dall'applicazione o procedere con altre operazioni.
+	\item \textbf{Visualizzare le informazioni relative all'applicazione}: se vuole ricevere informazioni relative all'applicazione l'utente potrà accedere alla schermata apposita accedibile dal menu.
+\end{itemize}
+
 
 \subsection{Registrazione}
 L' utente può registrarsi al sistema inserendo tutti i campi nel form che gli si presenterà davanti una volta cliccato il pulsante ``Registrati'' dal menu dell'applicazione. È previsto l'inserimento obbligatorio di tutti i campi del form.
