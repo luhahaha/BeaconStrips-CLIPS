@@ -7752,7 +7752,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "RequestFactory",
+											"text": "RequestMaker",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -13424,7 +13424,7 @@
 											"containerExtending": false,
 											"left": 1085,
 											"top": 111,
-											"width": 99,
+											"width": 107.3134765625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -13449,7 +13449,7 @@
 											"containerExtending": false,
 											"left": -32,
 											"top": 16,
-											"width": 73,
+											"width": 80.49462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -13493,7 +13493,7 @@
 									"containerExtending": false,
 									"left": 1080,
 									"top": 104,
-									"width": 109,
+									"width": 117.3134765625,
 									"height": 25,
 									"autoResize": false,
 									"stereotypeLabel": {
@@ -13529,7 +13529,7 @@
 									"containerExtending": false,
 									"left": 1080,
 									"top": 129,
-									"width": 109,
+									"width": 117.3134765625,
 									"height": 10,
 									"autoResize": false
 								},
@@ -13553,7 +13553,7 @@
 									"containerExtending": false,
 									"left": 1080,
 									"top": 139,
-									"width": 109,
+									"width": 117.3134765625,
 									"height": 10,
 									"autoResize": false
 								},
@@ -13617,7 +13617,7 @@
 							"containerExtending": false,
 							"left": 1080,
 							"top": 104,
-							"width": 109,
+							"width": 117.3134765625,
 							"height": 45,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
@@ -13675,7 +13675,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1130,
+									"left": 1133,
 									"top": 416,
 									"width": 0,
 									"height": 13,
@@ -13708,8 +13708,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1115,
-									"top": 417,
+									"left": 1118,
+									"top": 416,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -13741,7 +13741,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1159,
+									"left": 1162,
 									"top": 415,
 									"width": 0,
 									"height": 13,
@@ -13774,7 +13774,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1140,
+									"left": 1141,
 									"top": 663,
 									"width": 0,
 									"height": 13,
@@ -13807,7 +13807,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1126,
+									"left": 1127,
 									"top": 661,
 									"width": 0,
 									"height": 13,
@@ -13840,7 +13840,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1167,
+									"left": 1168,
 									"top": 666,
 									"width": 0,
 									"height": 13,
@@ -13873,7 +13873,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1121,
+									"left": 1124,
 									"top": 169,
 									"width": 0,
 									"height": 13,
@@ -13906,7 +13906,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1107,
+									"left": 1111,
 									"top": 172,
 									"width": 0,
 									"height": 13,
@@ -13939,7 +13939,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1148,
+									"left": 1152,
 									"top": 164,
 									"width": 0,
 									"height": 13,
@@ -14019,7 +14019,7 @@
 								"$ref": "AAAAAAFU7tUnSl05AjE="
 							},
 							"lineStyle": 1,
-							"points": "1156:695;1135:149",
+							"points": "1157:695;1139:149",
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
 							"showProperty": true,
@@ -14185,7 +14185,7 @@
 								"$ref": "AAAAAAFVIWeqiNO8bdk="
 							},
 							"lineStyle": 1,
-							"points": "1079:128;499:154",
+							"points": "1079:129;499:154",
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
 							"showProperty": true,
@@ -14198,6 +14198,53 @@
 							"propertyLabel": {
 								"$ref": "AAAAAAFVIWf049aF//U="
 							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAFVIWywzgrshdM=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ffffff",
+							"fontColor": "#000000",
+							"font": "Arial;13;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"left": 856,
+							"top": 1048,
+							"width": 481,
+							"height": 145,
+							"autoResize": false,
+							"text": "Nonostante il nome iniziale (`RequestFactory`), questa classe non pretende di essere un'implementazione di alcun design pattern creazionale, in quanto nessun suo metodo restituisce alcun oggetto appena creato.\n\nIl nome è stato quindi modificato in `RequestMaker` per indicare che non solo crea le gli oggetti di tipo `URLRequest` (come suggerisce il nome `RequestFactory`) ma che si occupa anche di eseguirle. Questo garantisce la possibilità di definire il tipo `URLRequest` interno al package e di utilizzare come interfaccia le sole classi `RequestMaker` e `URLRequestCallback`.",
+							"wordWrap": true
+						},
+						{
+							"_type": "UMLNoteLinkView",
+							"_id": "AAAAAAFVIXDyTg4ukRE=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ffffff",
+							"fontColor": "#000000",
+							"font": "Arial;13;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"head": {
+								"$ref": "AAAAAAFU7tUnSl05AjE="
+							},
+							"tail": {
+								"$ref": "AAAAAAFVIWywzgrshdM="
+							},
+							"lineStyle": 1,
+							"points": "1110:1047;1143:874"
 						}
 					]
 				},
@@ -15182,7 +15229,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "RequestFactory",
+					"name": "RequestMaker",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
