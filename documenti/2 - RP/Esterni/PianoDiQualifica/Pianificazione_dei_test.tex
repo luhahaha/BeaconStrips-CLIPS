@@ -35,6 +35,167 @@
 	\label{sec:5.3}
 		I test di validazione servono per accertarsi che il prodotto realizzato sia conforme alle attese di \PROPONENTE. \\
 		Per ognuno vengono indicati i passi necessari all'utente per testare i requisiti associati. Il tracciamento tra i test di validazione e i requisiti correlati viene riportato nel documento \ARdoc.
+		\subsubsection{TVF1}
+			L'utente verifica che possa creare un account. All'utente è richiesto di:
+			\begin{enumerate}
+				\item registrare un account;
+				\item autenticarsi con i dati del proprio account;
+			\end{enumerate}
+		\subsubsection{TVF1.1}
+			L'utente verifica che si possa autenticare. All'utente è richiesto di:
+			\begin{enumerate}
+				\item inserire un indirizzo email nel campo apposito;
+				\item inserire una password nel campo apposito;
+				\item confermare i dati inseriti;
+				\item verificare di essere autenticato se i dati inseriti sono corretti;
+				\item verificare se viene segnalato ogni eventuale errore durante la procedura di autenticazione. 
+			\end{enumerate}
+		\subsubsection{TVF1.1.5}
+			L'utente verifica che ogni eventuale errore riguardante la procedura di autenticazione interrompa la procedura stessa.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item verificare se la procedura viene interrotta quando l'indirizzo email inserito non è già stato registrato;
+				\item verificare se la procedura viene interrotta quando la password inserita non coincide con quella associata all'indirizzo email inserito;
+				\item verificare che ogni errore nell'inserimento dei dati venga segnalato;
+				\item verificare di poter cambiare la password qualora non se la ricordasse. 
+			\end{enumerate}
+		\subsubsection{TVF1.1.5.4}
+			L'utente verifica di poter cambiare la password nel caso non se la ricordasse.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item inserire l'indirizzo email con cui si è registrato;
+				\item verificare di aver ricevuto un'email all'indirizzo inserito con una nuova password casuale;
+				\item verificare che la vecchia password del proprio account venga sostituita con quella nuova inviata per email. 
+			\end{enumerate}
+		\subsubsection{TVF1.2}
+			L'utente verifica di poter registrare un nuovo account.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item inserire il proprio indirizzo email nell'apposito campo;
+				\item inserire uno username nell'apposito campo;
+				\item inserire una password nell'apposito campo;
+				\item reinserire la password nell'apposito campo;
+				\item confermare i dati inseriti;
+				\item verificare che l'account venga registrato con i dati inseriti se non ci sono stati errori, e che l'utente venga autenticato automaticamente;
+				\item verificare che vengano segnalati gli errori quando ce ne sono.
+			\end{enumerate}
+		\subsubsection{TVF1.2.7}
+			L'utente verifica che vengano segnalati gli errori quando ce ne sono, e di conseguenza venga interrotta la procedura di registrazione.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item verificare che venga segnalato un errore quando l'indirizzo email inserito non è corretto, in particolare deve contenere una `@', deve finire con un dominio valido e non deve essere già in uso da un altro utente;
+				\item verificare che venga segnalato un errore quando lo username inserito non è corretto, in particolare non deve contenere caratteri non alfanumerici e non deve essere già in uso da un altro utente;
+				\item verificare che venga segnalato un errore quando la password inserita non è corretta, in particolare deve essere composta da almeno 6 caratteri e da un massimo di 16;
+				\item verificare che venga segnalato un errore quando la password reinserita non concide con quella inserita precedentemente.
+			\end{enumerate}
+		\subsubsection{TVF2}
+			L'utente verifica di poter fare il logout.
+		\subsubsection{TVF3}
+			L'utente verifica di poter fare un percorso quando è disponibile.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item giocare il percorso fino a quando non è concluso;
+				\item verificare di poter visualizzare i risultati ottenuti durante l'esecuzione del percorso;
+				\item verificare di poter salvare i risultati ottenuti.
+			\end{enumerate}
+		\subsubsection{TVF3.1}
+			L'utente verifica di poter giocare il percorso fino alla sua conclusione.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item cercare il beacon corrispondente alla prima stazione, se lo trova verifica di poter cominciare la prova, mentre quando rileva altri beacon verifica se essi vengono ignorati dall'app;
+				\item giocare la prova relativa a quella stazione.
+			\end{enumerate}
+		\subsubsection{TVF3.1.2}
+			L'utente verifica di poter giocare la prova fino alla sua conclusione.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item verificare se la prova è una tra quelle previste dall'applicazione;
+				\item verificare se vengono visualizzate le istruzioni relative alla prova;
+				\item verificare di poter svolgere la prova;
+				\item verificare se vengono visualizzati i risultati della prova quando essa viene conclusa;
+				\item verificare di poter proseguire il percorso quando la prova giocata non è l'ultima o di poterlo terminare se invece è l'ultima, nel primo caso inoltre l'utente controlla se vengono visualizzate le istruzioni per trovare la stazione successiva.
+			\end{enumerate}
+		\subsubsection{TVF3.2}
+			L'utente verifica di poter visualizzare correttamente i risultati del percorso ottenuti.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item verificare se viene visualizzata la durata totale del percorso e se essa viene effettivamente calcolata da quando l'utente accetta di iniziare la prova fino a quando conferma la soluzione dell'ultima prova;
+				\item verificare se viene visualizzato il tempo totale impiegato per completare le prove, se esso viene effettivamente calcolato sommando i tempi di ogni prova e se questi ultimi vengono misurati da quando l'utente accetta di iniziare la prova fino alla conferma della sua soluzione;
+				\item verificare se viene visualizzato il punteggio totale ottenuto, se esso viene calcolato sommando il punteggio di ogni singola prova, se quest'ultimo viene a sua volta calcolato in base al tipo di prova effettuata e se il risultato ottenuto è il suo nuovo record di quel percorso;
+				\item verificare se viene visualizzata la classifica generale relativa a quel percorso e la posizione che l'utente ha raggiunto con quel risultato;
+				\item verificare se viene visualizzata la prova con il maggior numero di punti conseguiti;
+				\item verificare se viene visualizzata la prova con il minor numero di punti conseguiti.
+			\end{enumerate}
+		\subsubsection{TVF4}
+			L'utente verifica di poter visualizzare le informazioni relative all'app.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item verificare di poter visualizzare una schermata con le informazioni generali dell'app;
+				\item verificare di poter accedere alla pagina web dell'applicazione tramite un link presente nell'app;
+				\item verificare di poter inviare una segnalazione di eventuali errori presenti tramite email e di controllare se, quando il bottone apposito viene premuto, viene aperto il gestore predefinito delle email con l'indirizzo del destinatario già impostato.
+			\end{enumerate}
+		\subsubsection{TVF5}
+			L'utente verifica di poter visualizzare i risultati dei percorsi effettuati precedentemente.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item verificare se, nel caso in cui egli sia autenticato e abbia dei percorsi salvati, viene mostrato l'elenco dei percorsi svolti e se è possibile visualizzare ulteriori informazioni per ognuno di essi;
+				\item verificare se, nel caso in cui egli sia autenticato ma non abbia alcun percorso salvato, viene mostrato un invito a svolgere un percorso, oltre ad una spiegazione in cui si informa l'utente che in quella pagina sarà possibile vedere i dati dei percorsi svolti quando verranno salvati;
+				\item verificare se, nel caso in cui egli non sia autenticato, viene visualizzato un invito ad autenticarsi, oltre ad una spiegazione dove si informa l'utente che in quella pagina sarà possibile vedere i dati dei percorsi svolti quando verranno salvati.
+			\end{enumerate}
+		\subsubsection{TVF5.1.1}
+			L'utente verifica di poter visualizzare tutte le informazioni relative al percorso salvato scelto.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item verificare se viene mostrato il nome del percorso;
+				\item verificare se viene visualizzato il nome dell'edificio dove si è svolto il percorso;
+				\item verificare se viene mostrata la data in cui si è svolto il percorso;
+				\item verificare se viene visualizzato il punteggio totale ottenuto in quel percorso;
+				\item verificare se viene mostrato il tempo totale impiegato per poter svolgere il percorso;
+				\item verificare se viene visualizzata la posizione attuale nella classifica generale relativa al percorso salvato.
+			\end{enumerate}
+		\subsubsection{TVF6}
+			L'utente verifica di poter visualizzare gli edifici con dei percorsi disponibili più vicini alla sua posizione.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item verificare di poter cercare gli edifici inserendo un raggio massimo, oltre a controllare di poter effettivamente visualizzare tutti gli edifici con dei percorsi disponibili nell'area, calcolata in base al valore del raggio immesso, e di poter visualizzare informazioni più dettagliate per ognuno di essi;
+				\item verificare di poter cercare gli edifici decidendo quante strutture mostrare nell'elenco tra quelle più vicine, oltre a controllare che gli edifici elencati siano effettivamente i più vicini e se è possibile visualizzare informazioni più dettagliate per ognuno di essi;
+				\item verificare di poter visualizzare tutte le informazioni dell'edificio selezionato.
+			\end{enumerate}
+		\subsubsection{TVF6.3}
+			L'utente verifica di poter visualizzare tutte le informazioni relative all'edificio scelto.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item verificare se vengono mostrate le informazioni specifiche dell'edificio;
+				\item verificare se viene visualizzato il link alla pagina web dell'edificio;
+				\item verificare se vengono mostrati tutti i contatti disponibili per quell'edificio.
+			\end{enumerate}
+		\subsubsection{TVF6.3.1}
+			L'utente verifica di poter visualizzare tutte le informazioni specifiche dell'edificio.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item verificare se viene mostrato il nome dell'edificio;
+				\item verificare se viene visualizzata la destinazione d'uso della struttura, come ad esempio ``museo di storia egizia'';
+				\item verificare se viene mostrato l'indirizzo dell'edificio;
+				\item verificare se viene visualizzata una breve descrizione della struttura e del tipo di percorsi presenti.
+			\end{enumerate}
+		\subsubsection{TVF6.3.3} %DA COMPLETARE
+			L'utente verifica di poter visualizzare tutte le informazioni specifiche dell'edificio.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item verificare se viene mostrato il nome dell'edificio;
+				\item verificare se viene visualizzata la destinazione d'uso della struttura, come ad esempio ``museo di storia egizia'';
+				\item verificare se viene mostrato l'indirizzo dell'edificio;
+				\item verificare se viene visualizzata una breve descrizione della struttura e del tipo di percorsi presenti.
+			\end{enumerate}
+		\subsubsection{TVF7} %DA COMPLETARE
+			L'utente verifica di poter visualizzare tutte le informazioni specifiche dell'edificio.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item verificare se viene mostrato il nome dell'edificio;
+				\item verificare se viene visualizzata la destinazione d'uso della struttura, come ad esempio ``museo di storia egizia'';
+				\item verificare se viene mostrato l'indirizzo dell'edificio;
+				\item verificare se viene visualizzata una breve descrizione della struttura e del tipo di percorsi presenti.
+			\end{enumerate}
 	\subsection{Test di sistema}
 	\label{sec:5.4}
 		I test di sistema servono per accertarsi che il comportamento dinamico del sistema rispetti i requisiti software individuati e descritti nel documento \ARdoc.
