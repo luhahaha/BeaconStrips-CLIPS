@@ -102,8 +102,17 @@
 			L'utente verifica di poter giocare il percorso fino alla sua conclusione.
 			All'utente è richiesto di:
 			\begin{enumerate}
-				\item cercare il beacon corrispondente alla prima stazione, se lo trova verifica di poter cominciare la prova, mentre quando rileva altri beacon verifica se essi vengono ignorati dall'app;
+				\item cercare il beacon corrispondente alla prossima stazione;
 				\item giocare la prova relativa a quella stazione.
+			\end{enumerate}
+		\subsubsection{TVF3.1.1}
+			L'utente verifica di poter cercare e trovare il beacon della prossima stazione.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item verificare se può cominciare a giocare la prova quando trova il beacon;
+				\item verificare se i beacon rilevati ma inutili ai fini della ricerca vengono ignorati dal'app;
+				\item verificare di poter chiedere aiuto se non riesce a trovare il beacon o se pensa che ci siano degli errori;
+				\item verificare se vengono rilevati dei beacon, esterni al percorso, per segnalare la distanza tra lui e il beacon cercato, e se tale distanza è visualizzata dall'app usando dei valori approssimativi, come dele tacche.
 			\end{enumerate}
 		\subsubsection{TVF3.1.2}
 			L'utente verifica di poter giocare la prova fino alla sua conclusione.
@@ -132,7 +141,14 @@
 			\begin{enumerate}
 				\item verificare di poter visualizzare una schermata con le informazioni generali dell'app;
 				\item verificare di poter accedere alla pagina web dell'applicazione tramite un link presente nell'app;
-				\item verificare di poter inviare una segnalazione di eventuali errori presenti tramite email e di controllare se, quando il bottone apposito viene premuto, viene aperto il gestore predefinito delle email con l'indirizzo del destinatario già impostato.
+				\item verificare di poter inviare una segnalazione di eventuali errori presenti tramite email.
+			\end{enumerate}
+		\subsubsection{TVF4.3}
+			L'utente verifica di poter giocare la prova fino alla sua conclusione.
+			All'utente è richiesto di:
+			\begin{enumerate}
+				\item verificare se, dopo aver cliccato sul pulsante per le segnalazioni, si apre una nuova email da scrivere tramite il gestore predefinito del dispositivo, dove il destinatario viene impostato automaticamente;
+				\item verificare se, dopo aver cliccato il bottone apposito, si apre una schermata dove egli controlla se può selezionare il tipo di errore avuto, verifica se può scegliere la stazione dove pensa si sia presentato l'errore e controlla se, dopo aver confermato i dati, viene inviata un'email all'indirizzo email adibito alle segnalazioni, generata automaticamente in base alle opzioni scelte.
 			\end{enumerate}
 		\subsubsection{TVF5}
 			L'utente verifica di poter visualizzare i risultati dei percorsi effettuati precedentemente.
@@ -157,7 +173,7 @@
 			L'utente verifica di poter visualizzare gli edifici con dei percorsi disponibili più vicini alla sua posizione.
 			All'utente è richiesto di:
 			\begin{enumerate}
-				\item verificare di poter cercare gli edifici inserendo un raggio massimo, oltre a controllare di poter effettivamente visualizzare tutti gli edifici con dei percorsi disponibili nell'area, calcolata in base al valore del raggio immesso, e di poter visualizzare informazioni più dettagliate per ognuno di essi;
+				\item verificare di poter cercare gli edifici inserendo un raggio massimo, oltre a controllare di poter effettivamente visualizzare tutti gli edifici con dei percorsi disponibili nell'area, calcolata in base al valore del raggio immesso, di poter visualizzare informazioni più dettagliate per ognuno di essi e se viene suggerito di aumentare il raggio inserito qualora l'esito della ricerca fosse negativo;
 				\item verificare di poter cercare gli edifici decidendo quante strutture mostrare nell'elenco tra quelle più vicine, oltre a controllare che gli edifici elencati siano effettivamente i più vicini e se è possibile visualizzare informazioni più dettagliate per ognuno di essi;
 				\item verificare di poter visualizzare tutte le informazioni dell'edificio selezionato.
 			\end{enumerate}
@@ -178,27 +194,58 @@
 				\item verificare se viene mostrato l'indirizzo dell'edificio;
 				\item verificare se viene visualizzata una breve descrizione della struttura e del tipo di percorsi presenti.
 			\end{enumerate}
-		\subsubsection{TVF6.3.3} %DA COMPLETARE
-			L'utente verifica di poter visualizzare tutte le informazioni specifiche dell'edificio.
+		\subsubsection{TVF6.3.3}
+			L'utente verifica di poter visualizzare tutti i contatti disponibili dell'edificio.
 			All'utente è richiesto di:
 			\begin{enumerate}
-				\item verificare se viene mostrato il nome dell'edificio;
-				\item verificare se viene visualizzata la destinazione d'uso della struttura, come ad esempio ``museo di storia egizia'';
-				\item verificare se viene mostrato l'indirizzo dell'edificio;
-				\item verificare se viene visualizzata una breve descrizione della struttura e del tipo di percorsi presenti.
+				\item verificare se viene mostrato il numero di telefono dell'edificio;
+				\item verificare se viene visualizzato l'indirizzo email dell'edificio;
+				\item verificare se viene mostrato un link alla pagina Facebook dell'edificio nel caso in cui essa esista;
+				\item verificare se viene visualizzato un link alla pagina Twitter dell'edificio nel caso in cui essa esista;
+				\item verificare se viene mostrato un contatto pubblico di Whatsapp della struttura nel caso in cui esso esista;
+				\item verificare se viene visualizzato un contatto pubblico di Telegram della struttura nel caso in cui esso esista.
 			\end{enumerate}
-		\subsubsection{TVF7} %DA COMPLETARE
-			L'utente verifica di poter visualizzare tutte le informazioni specifiche dell'edificio.
+		\subsubsection{TVF7}
+			L'utente verifica di poter cambiare le proprie credenziali d'accesso.
 			All'utente è richiesto di:
 			\begin{enumerate}
-				\item verificare se viene mostrato il nome dell'edificio;
-				\item verificare se viene visualizzata la destinazione d'uso della struttura, come ad esempio ``museo di storia egizia'';
-				\item verificare se viene mostrato l'indirizzo dell'edificio;
-				\item verificare se viene visualizzata una breve descrizione della struttura e del tipo di percorsi presenti.
+				\item verificare di poter cambiare la propria password e controllare se essa può effettivamente avere un numero minimo di 6 caratteri e uno massimo di 16;
+				\item verificare di poter cambiare il proprio username, di controllare se viene rispettato il vincolo di non poter usare caratteri non alfanumerici per esso e di accertarsi se non è effettivamente possibile utilizzare uno username già in uso da un altro utente;
+				\item verificare se l'applicazione informa l'utente quando c'è un errore nei dati inseriti.
+			\end{enumerate}
+		\subsubsection{TVF8}
+			L'utente verifica se viene mostrato un tutorial introduttivo al primo utilizzo dell'app.
+		\subsubsection{TVQ1}
+			L'utente verifica se viene fornito il manuale per l'utente dell'applicazione.
+		\subsubsection{Test di validazione per i requisiti di vincolo} %Se questa sezione viene ritenuta inutile si può pure eliminare
+			I requisiti di vincolo rilevati non necessitano di test appositi per motivi diversi:
+			\begin{enumerate}
+				\item R0V1 è già incluso nella definizione dell'applicazione proposta, inoltre è già verificato nei test dove viene chiesto di controllare se i beacon sono implementati e rilevati correttamente;
+				\item R0V2 viene garantito dalla scelta del sistema operativo, visto che Android è specifico per dispositivi mobile.
 			\end{enumerate}
 	\subsection{Test di sistema}
 	\label{sec:5.4}
 		I test di sistema servono per accertarsi che il comportamento dinamico del sistema rispetti i requisiti software individuati e descritti nel documento \ARdoc.
+		\subsubsection{Descrizione dei test di sistema}
+			\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}}
+				\intestazionefourcol{Test}{Descrizione}{Stato}{Requisito}
+				TSF1 & Viene verificato che il sistema permetta la creazione e la gestione di un account & N.I. & R0F1 \\
+				TSF2 & Viene verificato che il sistema permetta la deautenticazione dell'utente & N.I. & R0F2 \\
+				TSF3 & Viene verificato che il sistema permetta all'utente di giocare un percorso tra quelli disponibili nel luogo in cui si trova & N.I. & R0F3 \\
+				TSF4 & Viene verificato che il sistema permetta all'utente di visualizzare le informazioni dell'app  & N.I. & R0F4 \\
+				TSF5 & Viene verificato che il sistema permetta all'utente di visualizzare i risultati dei percorsi effettuati precedentemente & N.I. & R0F5 \\
+				TSF6 & Viene verificato che il sistema permetta all'utente di cercare quali sono gli edifici con percorsi più vicini alla sua posizione & N.I. & R0F6 \\
+				TSF7 & Viene verificato che il sistema permetta all'utente di modificare le proprie credenziali d'accesso & N.I. & R0F7 \\
+				TSF8 & Viene verificato che il sistema permetta all'utente di visualizzare un tutorial introduttivo al primo utilizzo dell'app & N.I. & R2F8 \\
+				TSP1 & Viene verificato che in ogni schermata il tempo di latenza per ottenere una risposta dal server sia minore di 5 secondi, a meno che non vi siano problemi di connessione  & N.I. & R0P1 \\
+				TSP2 & Viene verificato che il tempo di latenza per cambiare la schermata nell'app sia minore di 0,5 secondi, a meno che non sia richiesta l'interazione con il server & N.I. & R0P2 \\
+				TSQ1 & Viene verificato che il codice rispetti le norme e le metriche delle \NPdoc\ e della \hyperref[sec:3.7.3]{Sezione 3.7.3} & N.I. & R0Q1 \\
+				TSQ2 & Viene verificato che i documenti rispettino le norme e le metriche delle \NPdoc\ e della \hyperref[sec:3.7.3]{Sezione 3.7.3} & N.I. & R0Q2 \\
+				TSQ3 & Viene verificato che venga fornito il manuale perl'utente & N.I. & R0Q3 \\
+				
+				\hiderowcolors
+				\caption{Descrizione dei test di sistema}
+			\end{tabella}
 	\subsection{Test di integrazione}
 	\label{sec:5.5}
 		I test di integrazione servono per verificare che tutti i diversi componenti del sistema comunichino correttamente tra loro, e che vi sia all'interno del software il flusso di dati atteso. \\
