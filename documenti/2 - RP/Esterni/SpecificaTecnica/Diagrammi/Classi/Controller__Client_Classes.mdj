@@ -107,7 +107,7 @@
 											"containerExtending": false,
 											"left": 1104,
 											"top": 16,
-											"width": 80,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -391,7 +391,7 @@
 											"containerExtending": false,
 											"left": 1104,
 											"top": 16,
-											"width": 80,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -791,7 +791,7 @@
 											"containerExtending": false,
 											"left": 1104,
 											"top": 16,
-											"width": 80,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -973,34 +973,6 @@
 										},
 										{
 											"_type": "UMLOperationView",
-											"_id": "AAAAAAFVED/fcWmGY64=",
-											"_parent": {
-												"$ref": "AAAAAAFVAgE0f23A8i0="
-											},
-											"model": {
-												"$ref": "AAAAAAFVED/fOmmDYy0="
-											},
-											"visible": true,
-											"enabled": true,
-											"lineColor": "#000000",
-											"fillColor": "#ffffff",
-											"fontColor": "#000000",
-											"font": "Arial;13;0",
-											"showShadow": true,
-											"containerChangeable": false,
-											"containerExtending": false,
-											"left": 741,
-											"top": 660,
-											"width": 344,
-											"height": 13,
-											"autoResize": false,
-											"underline": false,
-											"text": "+goAppInfoView()",
-											"horizontalAlignment": 0,
-											"verticalAlignment": 5
-										},
-										{
-											"_type": "UMLOperationView",
 											"_id": "AAAAAAFVEEAr4GmNFTI=",
 											"_parent": {
 												"$ref": "AAAAAAFVAgE0f23A8i0="
@@ -1018,7 +990,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 741,
-											"top": 675,
+											"top": 660,
 											"width": 344,
 											"height": 13,
 											"autoResize": false,
@@ -1046,12 +1018,12 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 741,
-											"top": 690,
+											"top": 675,
 											"width": 344,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+userDidLogin(user: String)",
+											"text": "-userDidLogin(user: String)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -1074,12 +1046,12 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 741,
-											"top": 705,
+											"top": 690,
 											"width": 344,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+userDidLogout()",
+											"text": "-userDidLogout()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -1102,7 +1074,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 741,
-											"top": 720,
+											"top": 705,
 											"width": 344,
 											"height": 13,
 											"autoResize": false,
@@ -1124,7 +1096,7 @@
 									"left": 736,
 									"top": 625,
 									"width": 354,
-									"height": 113,
+									"height": 98,
 									"autoResize": false
 								},
 								{
@@ -1303,7 +1275,7 @@
 											"containerExtending": false,
 											"left": 2304,
 											"top": 222,
-											"width": 80,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -1425,7 +1397,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "-building: Building",
+											"text": "-building: Building {readOnly}",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -1927,7 +1899,7 @@
 											"containerExtending": false,
 											"left": 2304,
 											"top": 384,
-											"width": 80,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -2302,7 +2274,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 676,
-											"width": 390,
+											"width": 409.60791015625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -2327,7 +2299,7 @@
 											"containerExtending": false,
 											"left": 2304,
 											"top": 384,
-											"width": 80,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -2371,7 +2343,7 @@
 									"containerExtending": false,
 									"left": 1766,
 									"top": 669,
-									"width": 400,
+									"width": 419.60791015625,
 									"height": 25,
 									"autoResize": false,
 									"stereotypeLabel": {
@@ -2417,7 +2389,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 699,
-											"width": 390,
+											"width": 409.60791015625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -2437,7 +2409,7 @@
 									"containerExtending": false,
 									"left": 1766,
 									"top": 694,
-									"width": 400,
+									"width": 419.60791015625,
 									"height": 23,
 									"autoResize": false
 								},
@@ -2471,7 +2443,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 722,
-											"width": 390,
+											"width": 409.60791015625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -2499,7 +2471,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 737,
-											"width": 390,
+											"width": 409.60791015625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -2527,7 +2499,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 752,
-											"width": 390,
+											"width": 409.60791015625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -2555,7 +2527,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 767,
-											"width": 390,
+											"width": 409.60791015625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -2575,7 +2547,7 @@
 									"containerExtending": false,
 									"left": 1766,
 									"top": 717,
-									"width": 400,
+									"width": 419.60791015625,
 									"height": 68,
 									"autoResize": false
 								},
@@ -2639,7 +2611,7 @@
 							"containerExtending": false,
 							"left": 1766,
 							"top": 669,
-							"width": 400,
+							"width": 419.60791015625,
 							"height": 128,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
@@ -2755,7 +2727,7 @@
 											"containerExtending": false,
 											"left": 2304,
 											"top": 384,
-											"width": 80,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -3155,7 +3127,7 @@
 											"containerExtending": false,
 											"left": -560,
 											"top": 1264,
-											"width": 80,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -3695,7 +3667,7 @@
 											"containerExtending": false,
 											"left": -560,
 											"top": 1312,
-											"width": 80,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -4067,7 +4039,7 @@
 											"containerExtending": false,
 											"left": -560,
 											"top": 1312,
-											"width": 80,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -4467,7 +4439,7 @@
 											"containerExtending": false,
 											"left": -560,
 											"top": 1632,
-											"width": 80,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -4846,9 +4818,9 @@
 							"left": 176,
 							"top": 576,
 							"width": 473,
-							"height": 143,
+							"height": 169,
 							"autoResize": false,
-							"text": "- Gestisce la View del menù.\n- Implementa i metodi dell'interfaccia MenuViewDelegate.\n- buildingsButtonPressed() crea e cede il focus a BuildingsSearchController.\n- authenticationButtonPressed() crea e cede il focus a AuthenticationController.\n- goAppInfoView() crea e cede il focus a .\n- appInfoButtonPressed() crea e cede il focus a AppInfoController.\n- userDidLogin() crea e cede il focus a LoginController.\n- userDidLogout() chiama il metodo statico del DataManager corrispondente.",
+							"text": "- Gestisce la View del menù.\n- Implementa i metodi dell'interfaccia MenuViewDelegate.\n- buildingsButtonPressed() crea e cede il focus a BuildingsSearchController.\n- authenticationButtonPressed() crea e cede il focus a RegistrationController.\n- appInfoButtonPressed() crea e cede il focus a AppInfoController.\n- userDidLogin() metodo con cui il MenuController nasconde il bottone di autenticazione e mostra quello di logout\n- userDidLogout() metodo con cui il MenuController nasconde il bottone di logout e mostra quello di autenticazione",
 							"wordWrap": true
 						},
 						{
@@ -4896,7 +4868,7 @@
 								"$ref": "AAAAAAFVAhCPVG9PGAk="
 							},
 							"lineStyle": 1,
-							"points": "649:652;735:653"
+							"points": "649:659;735:658"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -4984,9 +4956,9 @@
 							"containerChangeable": false,
 							"containerExtending": false,
 							"left": 2216,
-							"top": 680,
+							"top": 664,
 							"width": 545,
-							"height": 113,
+							"height": 139,
 							"autoResize": false,
 							"text": "- Gestisce la View dei risultati del percorso.\n- Implementa i metodi dell'interfaccia ResultViewDelegate.\n- Nota: se resultCanBeSaved è positivo nella View apparirà il pulsante per salvare i risultati, altrimenti no.\n- rankingButtonPressed() crea e passa il focus a RankingController.\n- saveResultButtonPressed() permette all'utente di salvare i propri dati se è autenticato.\n- proofsButtonPressed() mostra la schermata con l'elenco dei risultati delle prove affrontate.",
 							"wordWrap": true
@@ -5009,7 +4981,7 @@
 							"left": 2232,
 							"top": 824,
 							"width": 418,
-							"height": 137,
+							"height": 163,
 							"autoResize": false,
 							"text": "- Gestisce la View dell'elenco dei risultati salvati.\n- Implementa i metodi dell'interfaccia SavedResultViewDelegate.\nNota: il costruttore trova l'username tramite il DataManager e quindi sempre tramite esso richiede i dati dei percorsi salvati.\n- loginButtonPressed() permette di effettuare il login; il bottone che usa questa funzione sarà visibile solo se l'utente non è loggato.\n- resultRowDidPressed() crea e cede il focus al ResultController fornendo il risultato corrispondente al valore di atIndex e impondendo che il risultato non possa essere salvato.",
 							"wordWrap": true
@@ -5060,7 +5032,7 @@
 								"$ref": "AAAAAAFVAhH0vG9468A="
 							},
 							"lineStyle": 1,
-							"points": "2231:891;2120:891"
+							"points": "2231:899;2120:895"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -5084,7 +5056,7 @@
 								"$ref": "AAAAAAFVAhHoq291cuk="
 							},
 							"lineStyle": 1,
-							"points": "2215:734;2166:734"
+							"points": "2215:732;2186:732"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -5152,7 +5124,7 @@
 							"left": 120,
 							"top": 800,
 							"width": 424,
-							"height": 165,
+							"height": 178,
 							"autoResize": false,
 							"text": "- Gestisce le View dell'inizio e della fine della prova.\n- Implementa i metodi delle interfacce ProofView e ProofResultView.\n- Nota: il costruttore preleva la prova da pathProgress, crea e cede il focus a SearchNextStepController, quando esso ha finito mostra la schermata iniziale della prova.\n- startButtonPressed cede il focus al controller della prova tramite il campo dati proof, quando esso avrà finito il focus dovrà tornare a ProofController insieme al risultato della prova.\n- nextStepButtonPressed() crea e cede il focus al prossimo step tramite il PathProgress.\n- endProof() gestisce proofResultView.",
 							"wordWrap": true
@@ -5175,7 +5147,7 @@
 							"left": 160,
 							"top": 1000,
 							"width": 376,
-							"height": 111,
+							"height": 124,
 							"autoResize": false,
 							"text": "- Gestisce la View della classifica.\n- Implementa i metodi dell'interfaccia RankingViewDelegate.\n- Nota: il costruttore chiama il metodo statico del DataManager per avere la classifica dei giocatori di quel percorso.\n- highlightPlayer evidenzia il giocatore loggato all'interno della classifica.\n",
 							"wordWrap": true
@@ -5198,7 +5170,7 @@
 							"left": 144,
 							"top": 1184,
 							"width": 423,
-							"height": 111,
+							"height": 124,
 							"autoResize": false,
 							"text": "- Gestisce la View della visualizzazione dell'account dell'utente.\n- Implementa i metodi dell'interfaccia MyAccountViewDelegate.\n- Nota: il costruttore chiede al DataManager i dati dell'utente loggato.\n- updateUserButtonPressed() crea e cede il focus a UpdateUserInfoController.\n- savedResultsButtonPressed() crea e cede il focus a SavedResultsController.",
 							"wordWrap": true
@@ -5248,7 +5220,7 @@
 								"$ref": "AAAAAAFVAiVqo2+wVIc="
 							},
 							"lineStyle": 1,
-							"points": "544:881;639:880"
+							"points": "544:884;639:882"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -5272,7 +5244,7 @@
 								"$ref": "AAAAAAFVAiWxJ6kMNa8="
 							},
 							"lineStyle": 1,
-							"points": "536:1056;639:1056"
+							"points": "536:1059;639:1059"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -5296,7 +5268,7 @@
 								"$ref": "AAAAAAFVAiW9BakNLqg="
 							},
 							"lineStyle": 1,
-							"points": "567:1237;639:1237"
+							"points": "567:1240;639:1239"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -5431,7 +5403,7 @@
 											"containerExtending": false,
 											"left": 1360,
 											"top": 256,
-											"width": 79,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -5806,7 +5778,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 1150,
-											"width": 344,
+											"width": 365.27587890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -5831,7 +5803,7 @@
 											"containerExtending": false,
 											"left": 1302,
 											"top": 228,
-											"width": 79,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -5875,7 +5847,7 @@
 									"containerExtending": false,
 									"left": 1766,
 									"top": 1143,
-									"width": 354,
+									"width": 375.27587890625,
 									"height": 25,
 									"autoResize": false,
 									"stereotypeLabel": {
@@ -5921,7 +5893,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 1173,
-											"width": 344,
+											"width": 365.27587890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -5941,7 +5913,7 @@
 									"containerExtending": false,
 									"left": 1766,
 									"top": 1168,
-									"width": 354,
+									"width": 375.27587890625,
 									"height": 23,
 									"autoResize": false
 								},
@@ -5975,7 +5947,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 1196,
-											"width": 344,
+											"width": 365.27587890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -6003,7 +5975,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 1211,
-											"width": 344,
+											"width": 365.27587890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -6031,7 +6003,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 1226,
-											"width": 344,
+											"width": 365.27587890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -6059,7 +6031,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 1241,
-											"width": 344,
+											"width": 365.27587890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -6087,7 +6059,7 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 1256,
-											"width": 344,
+											"width": 365.27587890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -6115,11 +6087,39 @@
 											"containerExtending": false,
 											"left": 1771,
 											"top": 1271,
-											"width": 344,
+											"width": 365.27587890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
 											"text": "+RegistrationController()",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFVLIz3ufoZI2s=",
+											"_parent": {
+												"$ref": "AAAAAAFVDLfE089AuVw="
+											},
+											"model": {
+												"$ref": "AAAAAAFVLIz3d/oWHOI="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 1771,
+											"top": 1286,
+											"width": 365.27587890625,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+goToLoginPressed()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -6135,8 +6135,8 @@
 									"containerExtending": false,
 									"left": 1766,
 									"top": 1191,
-									"width": 354,
-									"height": 98,
+									"width": 375.27587890625,
+									"height": 113,
 									"autoResize": false
 								},
 								{
@@ -6199,8 +6199,8 @@
 							"containerExtending": false,
 							"left": 1766,
 							"top": 1143,
-							"width": 354,
-							"height": 146,
+							"width": 375.27587890625,
+							"height": 161,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
@@ -6297,7 +6297,7 @@
 								"$ref": "AAAAAAFVDLfE0s852Pg="
 							},
 							"lineStyle": 1,
-							"points": "2120:1214;2287:1214"
+							"points": "2141:1220;2287:1218"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -6409,7 +6409,7 @@
 											"containerExtending": false,
 											"left": 896,
 											"top": 272,
-											"width": 79,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -6741,7 +6741,7 @@
 							"left": 2288,
 							"top": 1344,
 							"width": 553,
-							"height": 94,
+							"height": 107,
 							"autoResize": false,
 							"text": "- Gestisce la View della password dimenticata.\n- Implementa i metodi dell'interfaccia ForgotPasswordDelegate().\n- forgotPassword() fa il check del formato dell'email con emailFormatCheck() chiamando il metodo statico del DataManager apposito, se l'esito è negativo ritorna l'errore, altrimenti cambia la password dell'account relativo a quell'indirizzo email con una generata automaticamente e invia un'email all'indirizzo email dove viene annotata la nuova password.",
 							"wordWrap": true
@@ -6768,7 +6768,7 @@
 								"$ref": "AAAAAAFVDNdd/s/deS4="
 							},
 							"lineStyle": 1,
-							"points": "2122:1385;2287:1387"
+							"points": "2122:1387;2287:1391"
 						},
 						{
 							"_type": "UMLClassView",
@@ -6831,7 +6831,7 @@
 											"containerExtending": false,
 											"left": 1773,
 											"top": 1511,
-											"width": 411,
+											"width": 435.87451171875,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -6856,7 +6856,7 @@
 											"containerExtending": false,
 											"left": 1232,
 											"top": 272,
-											"width": 79,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -6900,7 +6900,7 @@
 									"containerExtending": false,
 									"left": 1768,
 									"top": 1504,
-									"width": 421,
+									"width": 445.87451171875,
 									"height": 25,
 									"autoResize": false,
 									"stereotypeLabel": {
@@ -6946,7 +6946,7 @@
 											"containerExtending": false,
 											"left": 1773,
 											"top": 1534,
-											"width": 411,
+											"width": 435.87451171875,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -6966,7 +6966,7 @@
 									"containerExtending": false,
 									"left": 1768,
 									"top": 1529,
-									"width": 421,
+									"width": 445.87451171875,
 									"height": 23,
 									"autoResize": false
 								},
@@ -7000,11 +7000,11 @@
 											"containerExtending": false,
 											"left": 1773,
 											"top": 1557,
-											"width": 411,
+											"width": 435.87451171875,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+change(username: String, password: String, confirmPassword: String)",
+											"text": "+change(username: String, password: String)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -7028,7 +7028,7 @@
 											"containerExtending": false,
 											"left": 1773,
 											"top": 1572,
-											"width": 411,
+											"width": 435.87451171875,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -7056,7 +7056,7 @@
 											"containerExtending": false,
 											"left": 1773,
 											"top": 1587,
-											"width": 411,
+											"width": 435.87451171875,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -7084,7 +7084,7 @@
 											"containerExtending": false,
 											"left": 1773,
 											"top": 1602,
-											"width": 411,
+											"width": 435.87451171875,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -7112,7 +7112,7 @@
 											"containerExtending": false,
 											"left": 1773,
 											"top": 1617,
-											"width": 411,
+											"width": 435.87451171875,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -7132,7 +7132,7 @@
 									"containerExtending": false,
 									"left": 1768,
 									"top": 1552,
-									"width": 421,
+									"width": 445.87451171875,
 									"height": 83,
 									"autoResize": false
 								},
@@ -7196,7 +7196,7 @@
 							"containerExtending": false,
 							"left": 1768,
 							"top": 1504,
-							"width": 421,
+							"width": 445.87451171875,
 							"height": 131,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
@@ -7244,7 +7244,7 @@
 							"left": 2288,
 							"top": 1504,
 							"width": 529,
-							"height": 124,
+							"height": 150,
 							"autoResize": false,
 							"text": "- Gestisce la View della modifica credenziali.\n- Implementa i metodi dell'interfaccia UpdateUserInfoDelegate().\n- change() invia i dati da modificare al metodo statico del DataManager corrispondente.\n- usernameTextFieldCheck() e passwordTextFieldCheck() chiamano il metodo statico del DataManager per fare il check del dato relativo e riportano l'esito del metodo: se è negativo ritornano l'errore riscontrato, altrimenti informano del successo dell'operazione.\n- confirmPasswordTextFieldCheck() confronta le due password e ritorna l'esito corrispondente.",
 							"wordWrap": true
@@ -7271,7 +7271,7 @@
 								"$ref": "AAAAAAFVEDGZGmlb9+0="
 							},
 							"lineStyle": 1,
-							"points": "2287:1567;2189:1568"
+							"points": "2287:1574;2214:1573"
 						},
 						{
 							"_type": "UMLNoteView",
@@ -7291,9 +7291,9 @@
 							"left": 2904,
 							"top": 1512,
 							"width": 241,
-							"height": 66,
+							"height": 81,
 							"autoResize": false,
-							"text": "DUBBIO\nHa senso caricare la conferma della password nel change()? Qui c'è solo perché c'è nella UpdateUserInfoView.",
+							"text": "DUBBIO\nHa senso caricare la conferma della password nel change()? Qui c'è solo perché c'è nella UpdateUserInfoView.\nNo",
 							"wordWrap": true
 						},
 						{
@@ -7314,7 +7314,7 @@
 							"left": 1144,
 							"top": 176,
 							"width": 265,
-							"height": 66,
+							"height": 79,
 							"autoResize": false,
 							"text": "DUBBIO\nL'autenticazione non dovrebbe essere la Registrazione con l'aggiunta del bottone per passare al login? O non esiste?",
 							"wordWrap": true
@@ -7337,9 +7337,9 @@
 							"left": 1144,
 							"top": 568,
 							"width": 353,
-							"height": 148,
+							"height": 195,
 							"autoResize": false,
-							"text": "DUBBI\ngoAppInfo() non sarebbe in realtà il bottone per vedere l'account dell'utente (ovviamente con un nome diverso)?\nauthenticationButtonPressed() non dovrebbe creare e cedere il focus al RegistrationController da dove l'utente può comunque fare il login?\nuserDidLogin() permette creare e cedere il focus al LoginController (cioè la schermata passa a quella di login) o fa altro? Se la risposta corretta è la prima a che serve lo User?",
+							"text": "DUBBI\ngoAppInfo() non sarebbe in realtà il bottone per vedere l'account dell'utente (ovviamente con un nome diverso)?\nSì. Per questo lo tolgo\n\nauthenticationButtonPressed() non dovrebbe creare e cedere il focus al RegistrationController da dove l'utente può comunque fare il login?\nSì\n\nuserDidLogin() permette creare e cedere il focus al LoginController (cioè la schermata passa a quella di login) o fa altro? Se la risposta corretta è la prima a che serve lo User? Sono metodi privati che mostrano/nascondono i corretti buttons",
 							"wordWrap": true
 						},
 						{
@@ -7358,11 +7358,11 @@
 							"containerChangeable": false,
 							"containerExtending": false,
 							"left": 2968,
-							"top": 1184,
+							"top": 1160,
 							"width": 265,
-							"height": 79,
+							"height": 120,
 							"autoResize": false,
-							"text": "DUBBIO\nNon dovrebbe essere presente nella View, e quindi anche nel Controller, un pulsante che permetta di accedere alla pagin di login?",
+							"text": "DUBBIO\nNon dovrebbe essere presente nella View, e quindi anche nel Controller, un pulsante che permetta di accedere alla pagin di login? Aggiunto",
 							"wordWrap": true
 						},
 						{
@@ -7451,7 +7451,7 @@
 											"containerExtending": false,
 											"left": -64,
 											"top": 224,
-											"width": 79,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -7599,7 +7599,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+buildingRowDidPressed(atIndex)",
+											"text": "+buildingRowDidPressed(atIndex: Int)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -7627,7 +7627,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+searchWithRadius(range: int)",
+											"text": "+searchWithRadius(range: Int)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -7658,6 +7658,62 @@
 											"text": "+BuildingSearchController()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFVLJnGzPo2bGc=",
+											"_parent": {
+												"$ref": "AAAAAAFVEFHRNWnU/Bk="
+											},
+											"model": {
+												"$ref": "AAAAAAFVLJnGofozvZE="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 1773,
+											"top": 234,
+											"width": 344,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+searchButtonPressed()",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFVLJpCvfo9saI=",
+											"_parent": {
+												"$ref": "AAAAAAFVEFHRNWnU/Bk="
+											},
+											"model": {
+												"$ref": "AAAAAAFVLJpCjfo6A2Y="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 1773,
+											"top": 249,
+											"width": 344,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+radiusSelect()",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5
 										}
 									],
 									"visible": true,
@@ -7672,7 +7728,7 @@
 									"left": 1768,
 									"top": 184,
 									"width": 354,
-									"height": 53,
+									"height": 83,
 									"autoResize": false
 								},
 								{
@@ -7736,7 +7792,7 @@
 							"left": 1768,
 							"top": 136,
 							"width": 354,
-							"height": 128,
+							"height": 131,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
@@ -7785,7 +7841,7 @@
 							"width": 529,
 							"height": 150,
 							"autoResize": false,
-							"text": "- Gestisce la View della ricerca degli edifici.\n- Implementa i metodi dell'interfaccia BuildingSearchViewDelegate.\n- Nota: il costruttore chiama il metodo statico del DataManager per avere la lista degli edifici necessari per la View, questa lista contiene l'elenco completo dei dati degli edifici.\n- buildingRowDidPressed() si attiva quando uno degli edifici in lista viene premuto, crea e cede il focus a BuildingController, fornendogli il Building selezionato.\n- searchWithRadius() ricarica la BuildingSearchView con la lista degli edifici presenti nel raggio indicato da radius, per farlo chiama prima il metodo statico del DataManager apposito.",
+							"text": "- Gestisce la View della ricerca degli edifici.\n- Implementa i metodi dell'interfaccia BuildingSearchViewDelegate.\n- Nota: il costruttore chiama il metodo statico del DataManager per avere la lista degli edifici necessari per la View, questa lista contiene l'elenco completo dei dati degli edifici.\n- buildingRowDidPressed() si attiva quando uno degli edifici in lista viene premuto, crea e cede il focus a BuildingController, fornendogli il Building selezionato.\n- quando il bottone searchButton viene premuto (searchButtonPressed()) viene letto il valore della radiusSelect per sapere se e che filtro applicare ai risultati e viene chiamata searchWithRadius(range: Int) passando tale filtro come intero.",
 							"wordWrap": true
 						},
 						{
@@ -7806,9 +7862,9 @@
 							"left": 2760,
 							"top": 152,
 							"width": 377,
-							"height": 97,
+							"height": 107,
 							"autoResize": false,
-							"text": "DUBBI\natIndex non ha tipo nella View (e quindi neanche qui), è un intero?\nSe ho capito bene alla view bisogna passare la lista degli edifici come parametro per il costruttore, in particolare se searchWithRadius() è stato descritto correttamente.",
+							"text": "DUBBI\natIndex non ha tipo nella View (e quindi neanche qui), è un intero? Sì\nSe ho capito bene alla view bisogna passare la lista degli edifici come parametro per il costruttore, in particolare se searchWithRadius() è stato descritto correttamente. Ho modificato",
 							"wordWrap": true
 						},
 						{
@@ -7833,7 +7889,7 @@
 								"$ref": "AAAAAAFVEFHRM2nNqrM="
 							},
 							"lineStyle": 1,
-							"points": "2122:197;2207:197"
+							"points": "2122:199;2207:198"
 						},
 						{
 							"_type": "UMLNoteView",
@@ -7855,7 +7911,7 @@
 							"width": 465,
 							"height": 137,
 							"autoResize": false,
-							"text": "DUBBI\nLa descrizione dei bottoni sarebbe da controllare perché probabilmente non è corretta, in particolare per quanto riguarda il telefono e l'indirizzo. Ha senso mettere il telefono come pulsante o forse sarebbe meglio tenerlo come una semplice label?\nSe ho capito bene il costruttore della BuildingView deve avere come parametro building.\n",
+							"text": "DUBBI\nLa descrizione dei bottoni sarebbe da controllare perché probabilmente non è corretta, in particolare per quanto riguarda il telefono e l'indirizzo. Ha senso mettere il telefono come pulsante o forse sarebbe meglio tenerlo come una semplice label? bottoni\nSe ho capito bene il costruttore della BuildingView deve avere come parametro building. boh, in ogni caso lasciamo così, ma per com'è fatto Android bisognerà modificarlo\n",
 							"wordWrap": true
 						},
 						{
@@ -7876,9 +7932,9 @@
 							"left": 2896,
 							"top": 536,
 							"width": 473,
-							"height": 83,
+							"height": 100,
 							"autoResize": false,
-							"text": "DUBBI\nPathView dovrebbe avere come parametri del costruttore PathInfo e Path.\nIl PathProgress dovrà essere passato ad ogni controller delle prove man mano che si avanza.\nIn PathViewDelegate il metodo inserito ha il nome errato.",
+							"text": "DUBBI\nPathView dovrebbe avere come parametri del costruttore PathInfo e Path.\nIl PathProgress dovrà essere passato ad ogni controller delle prove man mano che si avanza.\nIn PathViewDelegate il metodo inserito ha il nome errato.\n\ntom: Non è ridondante con PathProgress?",
 							"wordWrap": true
 						},
 						{
@@ -7897,11 +7953,11 @@
 							"containerChangeable": false,
 							"containerExtending": false,
 							"left": 1128,
-							"top": 392,
+							"top": 360,
 							"width": 273,
-							"height": 53,
+							"height": 135,
 							"autoResize": false,
-							"text": "DUBBIO\nAl costruttore di AppInfoView bisognerà passare la descrizione immagino giusto?",
+							"text": "DUBBIO\nAl costruttore di AppInfoView bisognerà passare la descrizione immagino giusto?\n\nÈ più comodo se facciamo che sia lui a richiederla al DataManager. In linea di massima evitiamo di mettere parametri nei costruttori delle Activity perché vogliamo che si costruiscano in fretta, senza lasciare l'utente ad attendere.",
 							"wordWrap": true
 						},
 						{
@@ -7922,7 +7978,7 @@
 							"left": 1056,
 							"top": 792,
 							"width": 497,
-							"height": 180,
+							"height": 206,
 							"autoResize": false,
 							"text": "DUBBI\nQua si potrebbe effettivamente gestire sia ProofView sia ProofResultView, visto che la seconda non deve fare niente di particolare e in più entrambe hanno un unico metodo, dovrebbe essere possibile in Android senza grossi problemi.\nPer ora non li metto ma qui probabilmente saranno necessari metodi di supporto per semplificare il costruttore.\nnextStepButtonPressed() non c'è in ProofResultView, bisogna aggiungerlo.\nHo deciso che ProofController è il gestore centrale della prova, quindi sono responsabilità sua la ricerca della stazione, lo svolgimento del test e la schermata finale con i risultati, se ci sono motivi per fare diversamente esponeteli.\nProofView avrà come parametri del costruttore title e description.\nProofResultView avrà come parametro del costruttore il risultato della prova.",
 							"wordWrap": true
@@ -8036,7 +8092,7 @@
 											"containerExtending": false,
 											"left": -128,
 											"top": -64,
-											"width": 79,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -8455,7 +8511,7 @@
 											"containerExtending": false,
 											"left": -96,
 											"top": -96,
-											"width": 79,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -8603,7 +8659,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+buttonPressed(atIndex)",
+											"text": "+buttonPressed(atIndex: Int)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -8827,7 +8883,7 @@
 											"containerExtending": false,
 											"left": -48,
 											"top": -16,
-											"width": 79,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -9003,7 +9059,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+checkBoxSelected(atIndexStart, atIndexEnd)",
+											"text": "+checkBoxSelected(atIndexStart: Int, atIndexEnd: Int)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -9159,9 +9215,9 @@
 							"left": 2872,
 							"top": 696,
 							"width": 385,
-							"height": 94,
+							"height": 111,
 							"autoResize": false,
-							"text": "DUBBI\nCome si può notare dalle descrizioni per quanto riguarda rankingButtonPressed() e proofsButtonPressed() mancano delle view e dei relativi controller in cui soddisfare il loro scopo.\nAnche qui mi sa che servirebbe una classe del Model con i risultati del percorso, qui intanto l'ho chiamata PathResult.",
+							"text": "DUBBI\nCome si può notare dalle descrizioni per quanto riguarda rankingButtonPressed() e proofsButtonPressed() mancano delle view e dei relativi controller in cui soddisfare il loro scopo.\nAnche qui mi sa che servirebbe una classe del Model con i risultati del percorso, qui intanto l'ho chiamata PathResult.\n\nho aggiunto la classe nel modello",
 							"wordWrap": true
 						},
 						{
@@ -9181,7 +9237,7 @@
 							"containerExtending": false,
 							"left": 1072,
 							"top": 1024,
-							"width": 117,
+							"width": 125.93603515625,
 							"height": 92,
 							"autoResize": false,
 							"text": "DUBBIO\nNon so se ho interpretato correttamente highlightPlayer().",
@@ -9273,7 +9329,7 @@
 											"containerExtending": false,
 											"left": -240,
 											"top": -144,
-											"width": 79,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -9370,6 +9426,34 @@
 											"text": "-searchNewStepView: SearchNewStepView",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFVLI8p//on7O0=",
+											"_parent": {
+												"$ref": "AAAAAAFVFu39oMTOH+0="
+											},
+											"model": {
+												"$ref": "AAAAAAFVLI8pwvokJn4="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 1773,
+											"top": 1733,
+											"width": 411,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+pathProgress: PathProgress",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5
 										}
 									],
 									"visible": true,
@@ -9384,7 +9468,7 @@
 									"left": 1768,
 									"top": 1713,
 									"width": 421,
-									"height": 23,
+									"height": 38,
 									"autoResize": false
 								},
 								{
@@ -9416,7 +9500,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 1773,
-											"top": 1741,
+											"top": 1756,
 											"width": 411,
 											"height": 13,
 											"autoResize": false,
@@ -9444,7 +9528,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 1773,
-											"top": 1756,
+											"top": 1771,
 											"width": 411,
 											"height": 13,
 											"autoResize": false,
@@ -9472,12 +9556,12 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 1773,
-											"top": 1771,
+											"top": 1786,
 											"width": 411,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+SearchNewStepController(beacon: Beacon)",
+											"text": "+SearchNewStepController()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -9492,7 +9576,7 @@
 									"containerChangeable": false,
 									"containerExtending": false,
 									"left": 1768,
-									"top": 1736,
+									"top": 1751,
 									"width": 421,
 									"height": 53,
 									"autoResize": false
@@ -9605,9 +9689,9 @@
 							"left": 2304,
 							"top": 1704,
 							"width": 457,
-							"height": 98,
+							"height": 111,
 							"autoResize": false,
-							"text": "- Gestisce la View della ricerca del beacon per la prova.\n- Implementa i metodi dell'interfaccia SearchNewStepViewDelegate.\n- Nota: il costruttore controlla immediatamente se il beacon è già visibile e solo dopo, in caso negativo, mostra la schermata della ricerca del beacon\n- enableStartTestButton() attiva il bottone di inizio prova.\n- startButtonPressed() inizia la prova.",
+							"text": "- Gestisce la View della ricerca del beacon per la prova.\n- Implementa i metodi dell'interfaccia SearchNewStepViewDelegate.\n- Implementa i metodi dell'interfaccia LocationControllerDelegate.",
 							"wordWrap": true
 						},
 						{
@@ -9632,7 +9716,7 @@
 								"$ref": "AAAAAAFVFu39n8TIxLw="
 							},
 							"lineStyle": 1,
-							"points": "2189:1753;2303:1752"
+							"points": "2189:1755;2303:1757"
 						},
 						{
 							"_type": "UMLNoteView",
@@ -9652,7 +9736,7 @@
 							"left": 2824,
 							"top": 1704,
 							"width": 433,
-							"height": 196,
+							"height": 209,
 							"autoResize": false,
 							"text": "DUBBI\nQui c'è un problema di conflitto di intenti: Tommaso voleva gestire il percorso passando di ProofController in ProofController tramite il PathProgress, ovvero una classe del controller che viene usata dai ProofController ma non fa nulla direttamente. Invece chi ha fatto la View ha pensato di mettere SearchNewStepController in mezzo ai ProofController, quindi di fatto startButtonPressed() dovrebbe cedere il focus al ProofController corretto. Io sono partito subito implementando l'idea di Tommaso e mi sono accorto solo alla fine di questo conflitto, quindi bisogna capire quale strada seguire. Se vince Tommaso basta eliminare i due metodi di questa classe, ma manterrei la classe stessa facendola chiamare dal ProofController, così da poter aggiungerci eventualmente il Proximity, altrimenti se vince l'altra idea bisogna cambiare un po' di cose in ProofController.",
 							"wordWrap": true
@@ -10241,20 +10325,6 @@
 						},
 						{
 							"_type": "UMLOperation",
-							"_id": "AAAAAAFVED/fOmmDYy0=",
-							"_parent": {
-								"$ref": "AAAAAAFVAgE0fm23P5s="
-							},
-							"name": "goAppInfoView",
-							"visibility": "public",
-							"isStatic": false,
-							"isLeaf": false,
-							"concurrency": "sequential",
-							"isQuery": false,
-							"isAbstract": false
-						},
-						{
-							"_type": "UMLOperation",
 							"_id": "AAAAAAFVEEArqGmK1wM=",
 							"_parent": {
 								"$ref": "AAAAAAFVAgE0fm23P5s="
@@ -10274,7 +10344,7 @@
 								"$ref": "AAAAAAFVAgE0fm23P5s="
 							},
 							"name": "userDidLogin",
-							"visibility": "public",
+							"visibility": "private",
 							"isStatic": false,
 							"isLeaf": false,
 							"parameters": [
@@ -10306,7 +10376,7 @@
 								"$ref": "AAAAAAFVAgE0fm23P5s="
 							},
 							"name": "userDidLogout",
-							"visibility": "public",
+							"visibility": "private",
 							"isStatic": false,
 							"isLeaf": false,
 							"concurrency": "sequential",
@@ -10371,7 +10441,7 @@
 							"isStatic": false,
 							"isLeaf": false,
 							"type": "Building",
-							"isReadOnly": false,
+							"isReadOnly": true,
 							"isOrdered": false,
 							"isUnique": false,
 							"isDerived": false,
@@ -11606,6 +11676,20 @@
 							"concurrency": "sequential",
 							"isQuery": false,
 							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFVLIz3d/oWHOI=",
+							"_parent": {
+								"$ref": "AAAAAAFVDLfE0c83vNo="
+							},
+							"name": "goToLoginPressed",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
 						}
 					],
 					"isAbstract": false,
@@ -11797,22 +11881,6 @@
 									"isOrdered": false,
 									"isUnique": false,
 									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFVEB7RAe/RQC0=",
-									"_parent": {
-										"$ref": "AAAAAAFVEB5aHu/ISxA="
-									},
-									"name": "confirmPassword",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "String",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
 								}
 							],
 							"concurrency": "sequential",
@@ -11931,7 +11999,7 @@
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
-									"type": "",
+									"type": "Int",
 									"isReadOnly": false,
 									"isOrdered": false,
 									"isUnique": false,
@@ -11963,7 +12031,7 @@
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
-									"type": "int",
+									"type": "Int",
 									"isReadOnly": false,
 									"isOrdered": false,
 									"isUnique": false,
@@ -11981,6 +12049,34 @@
 								"$ref": "AAAAAAFVEFHRMmnLJGc="
 							},
 							"name": "BuildingSearchController",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFVLJnGofozvZE=",
+							"_parent": {
+								"$ref": "AAAAAAFVEFHRMmnLJGc="
+							},
+							"name": "searchButtonPressed",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFVLJpCjfo6A2Y=",
+							"_parent": {
+								"$ref": "AAAAAAFVEFHRMmnLJGc="
+							},
+							"name": "radiusSelect",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -12141,7 +12237,7 @@
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
-									"type": "",
+									"type": "Int",
 									"isReadOnly": false,
 									"isOrdered": false,
 									"isUnique": false,
@@ -12270,7 +12366,7 @@
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
-									"type": "",
+									"type": "Int",
 									"isReadOnly": false,
 									"isOrdered": false,
 									"isUnique": false,
@@ -12286,7 +12382,7 @@
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
-									"type": "",
+									"type": "Int",
 									"isReadOnly": false,
 									"isOrdered": false,
 									"isUnique": false,
@@ -12361,6 +12457,24 @@
 							"isDerived": false,
 							"aggregation": "none",
 							"isID": false
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFVLI8pwvokJn4=",
+							"_parent": {
+								"$ref": "AAAAAAFVFu39nsTG0/0="
+							},
+							"name": "pathProgress",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"type": "PathProgress",
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
 						}
 					],
 					"operations": [
@@ -12402,24 +12516,6 @@
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFVFwPtO8UxDKo=",
-									"_parent": {
-										"$ref": "AAAAAAFVFwOA0cUqnm8="
-									},
-									"name": "beacon",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "Beacon",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								}
-							],
 							"concurrency": "sequential",
 							"isQuery": false,
 							"isAbstract": false
