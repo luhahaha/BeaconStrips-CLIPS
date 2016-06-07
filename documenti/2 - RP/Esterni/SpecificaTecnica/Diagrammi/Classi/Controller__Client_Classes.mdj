@@ -4912,7 +4912,7 @@
 							"left": 2192,
 							"top": 280,
 							"width": 673,
-							"height": 229,
+							"height": 255,
 							"autoResize": false,
 							"text": "- Gestisce la View del singolo edficio.\n- Implementa i metodi dell'interfaccia BuildingViewDelegate().\n- Nota: non effettua chiamate per caricare il campo dati building. Il costruttore chiama il metodo statico del DataManager per avere la lista di PathInfo, cioè delle informazioni parziali degli edifici. Tutti i bottoni sottostanti, ad eccezione dell'ultimo, sono attivati solo se quel campo dati è presente.\n- addressButtonPressed() apre la pagina di Google Maps con il riferimento puntato all'indirizzo dell'edificio.\n- telephoneButtonPressed() apre la schermata di chiamata del dispositivo con il numero dell'edificio già inserito.\n- emailButtonPressed() apre la schermata dell'email inserendo nel destinatario l'indirizzo dell'edificio.\n- webSiteButtonPressed() apre il sito dell'edificio.\n- twitterButtonPressed() apre la pagina Twitter dell'edificio.\n- facebookButttonPressed() apre la pagina Facebook dell'edificio.\n- whatsappButtonPressed() apre una chat di WhatsApp tra l'utente e l'edificio.\n- telegramButtonPressed() apre una chat di Telegram tra l'utente e l'edificio.\n- pathRowDidPressed() si attiva quando uno dei percorsi dell'edificio viene premuto, crea e cede il focus a PathController, fornendogli il PathInfo selezionato.",
 							"wordWrap": true
@@ -5104,7 +5104,7 @@
 								"$ref": "AAAAAAFVAhHBQm9v+YY="
 							},
 							"lineStyle": 1,
-							"points": "2191:387;2120:386"
+							"points": "2191:393;2120:390"
 						},
 						{
 							"_type": "UMLNoteView",
@@ -7291,7 +7291,7 @@
 							"left": 2904,
 							"top": 1512,
 							"width": 241,
-							"height": 81,
+							"height": 94,
 							"autoResize": false,
 							"text": "DUBBIO\nHa senso caricare la conferma della password nel change()? Qui c'è solo perché c'è nella UpdateUserInfoView.\nNo",
 							"wordWrap": true
@@ -7337,7 +7337,7 @@
 							"left": 1144,
 							"top": 568,
 							"width": 353,
-							"height": 195,
+							"height": 208,
 							"autoResize": false,
 							"text": "DUBBI\ngoAppInfo() non sarebbe in realtà il bottone per vedere l'account dell'utente (ovviamente con un nome diverso)?\nSì. Per questo lo tolgo\n\nauthenticationButtonPressed() non dovrebbe creare e cedere il focus al RegistrationController da dove l'utente può comunque fare il login?\nSì\n\nuserDidLogin() permette creare e cedere il focus al LoginController (cioè la schermata passa a quella di login) o fa altro? Se la risposta corretta è la prima a che serve lo User? Sono metodi privati che mostrano/nascondono i corretti buttons",
 							"wordWrap": true
@@ -7839,7 +7839,7 @@
 							"left": 2208,
 							"top": 120,
 							"width": 529,
-							"height": 150,
+							"height": 163,
 							"autoResize": false,
 							"text": "- Gestisce la View della ricerca degli edifici.\n- Implementa i metodi dell'interfaccia BuildingSearchViewDelegate.\n- Nota: il costruttore chiama il metodo statico del DataManager per avere la lista degli edifici necessari per la View, questa lista contiene l'elenco completo dei dati degli edifici.\n- buildingRowDidPressed() si attiva quando uno degli edifici in lista viene premuto, crea e cede il focus a BuildingController, fornendogli il Building selezionato.\n- quando il bottone searchButton viene premuto (searchButtonPressed()) viene letto il valore della radiusSelect per sapere se e che filtro applicare ai risultati e viene chiamata searchWithRadius(range: Int) passando tale filtro come intero.",
 							"wordWrap": true
@@ -7889,7 +7889,7 @@
 								"$ref": "AAAAAAFVEFHRM2nNqrM="
 							},
 							"lineStyle": 1,
-							"points": "2122:199;2207:198"
+							"points": "2122:201;2207:201"
 						},
 						{
 							"_type": "UMLNoteView",
@@ -9215,7 +9215,7 @@
 							"left": 2872,
 							"top": 696,
 							"width": 385,
-							"height": 111,
+							"height": 124,
 							"autoResize": false,
 							"text": "DUBBI\nCome si può notare dalle descrizioni per quanto riguarda rankingButtonPressed() e proofsButtonPressed() mancano delle view e dei relativi controller in cui soddisfare il loro scopo.\nAnche qui mi sa che servirebbe una classe del Model con i risultati del percorso, qui intanto l'ho chiamata PathResult.\n\nho aggiunto la classe nel modello",
 							"wordWrap": true
@@ -9691,7 +9691,7 @@
 							"width": 457,
 							"height": 111,
 							"autoResize": false,
-							"text": "- Gestisce la View della ricerca del beacon per la prova.\n- Implementa i metodi dell'interfaccia SearchNewStepViewDelegate.\n- Implementa i metodi dell'interfaccia LocationControllerDelegate.",
+							"text": "- Gestisce la View della ricerca del beacon per la prova.\n- Implementa i metodi dell'interfaccia SearchNewStepViewDelegate.\n- Implementa i metodi dell'interfaccia PathLocationDelegate.",
 							"wordWrap": true
 						},
 						{
