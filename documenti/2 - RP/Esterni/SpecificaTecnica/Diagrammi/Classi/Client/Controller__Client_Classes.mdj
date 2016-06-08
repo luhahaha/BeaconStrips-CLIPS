@@ -9,7 +9,7 @@
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "Model1",
+			"name": "Activity",
 			"ownedElements": [
 				{
 					"_type": "UMLClassDiagram",
@@ -21,290 +21,6 @@
 					"visible": true,
 					"defaultDiagram": false,
 					"ownedViews": [
-						{
-							"_type": "UMLClassView",
-							"_id": "AAAAAAFVAf+8yG0jKU4=",
-							"_parent": {
-								"$ref": "AAAAAAFVAf+k9m0d8yk="
-							},
-							"model": {
-								"$ref": "AAAAAAFVAf+8x20h5do="
-							},
-							"subViews": [
-								{
-									"_type": "UMLNameCompartmentView",
-									"_id": "AAAAAAFVAf+8yW0kgX8=",
-									"_parent": {
-										"$ref": "AAAAAAFVAf+8yG0jKU4="
-									},
-									"model": {
-										"$ref": "AAAAAAFVAf+8x20h5do="
-									},
-									"subViews": [
-										{
-											"_type": "LabelView",
-											"_id": "AAAAAAFVAf+8yW0lVaM=",
-											"_parent": {
-												"$ref": "AAAAAAFVAf+8yW0kgX8="
-											},
-											"visible": false,
-											"enabled": true,
-											"lineColor": "#000000",
-											"fillColor": "#ffffff",
-											"fontColor": "#000000",
-											"font": "Arial;13;0",
-											"showShadow": true,
-											"containerChangeable": false,
-											"containerExtending": false,
-											"left": 1104,
-											"top": 16,
-											"width": 0,
-											"height": 13,
-											"autoResize": false,
-											"underline": false,
-											"horizontalAlignment": 2,
-											"verticalAlignment": 5
-										},
-										{
-											"_type": "LabelView",
-											"_id": "AAAAAAFVAf+8ym0my94=",
-											"_parent": {
-												"$ref": "AAAAAAFVAf+8yW0kgX8="
-											},
-											"visible": true,
-											"enabled": true,
-											"lineColor": "#000000",
-											"fillColor": "#ffffff",
-											"fontColor": "#000000",
-											"font": "Arial;13;1",
-											"showShadow": true,
-											"containerChangeable": false,
-											"containerExtending": false,
-											"left": 741,
-											"top": 150,
-											"width": 344,
-											"height": 13,
-											"autoResize": false,
-											"underline": false,
-											"text": "AuthenticationController",
-											"horizontalAlignment": 2,
-											"verticalAlignment": 5
-										},
-										{
-											"_type": "LabelView",
-											"_id": "AAAAAAFVAf+8ym0n6P4=",
-											"_parent": {
-												"$ref": "AAAAAAFVAf+8yW0kgX8="
-											},
-											"visible": false,
-											"enabled": true,
-											"lineColor": "#000000",
-											"fillColor": "#ffffff",
-											"fontColor": "#000000",
-											"font": "Arial;13;0",
-											"showShadow": true,
-											"containerChangeable": false,
-											"containerExtending": false,
-											"left": 1104,
-											"top": 16,
-											"width": 86.99462890625,
-											"height": 13,
-											"autoResize": false,
-											"underline": false,
-											"text": "(from Model1)",
-											"horizontalAlignment": 2,
-											"verticalAlignment": 5
-										},
-										{
-											"_type": "LabelView",
-											"_id": "AAAAAAFVAf+8ym0o8xU=",
-											"_parent": {
-												"$ref": "AAAAAAFVAf+8yW0kgX8="
-											},
-											"visible": false,
-											"enabled": true,
-											"lineColor": "#000000",
-											"fillColor": "#ffffff",
-											"fontColor": "#000000",
-											"font": "Arial;13;0",
-											"showShadow": true,
-											"containerChangeable": false,
-											"containerExtending": false,
-											"left": 1104,
-											"top": 16,
-											"width": 0,
-											"height": 13,
-											"autoResize": false,
-											"underline": false,
-											"horizontalAlignment": 1,
-											"verticalAlignment": 5
-										}
-									],
-									"visible": true,
-									"enabled": true,
-									"lineColor": "#000000",
-									"fillColor": "#ffffff",
-									"fontColor": "#000000",
-									"font": "Arial;13;0",
-									"showShadow": true,
-									"containerChangeable": false,
-									"containerExtending": false,
-									"left": 736,
-									"top": 143,
-									"width": 354,
-									"height": 25,
-									"autoResize": false,
-									"stereotypeLabel": {
-										"$ref": "AAAAAAFVAf+8yW0lVaM="
-									},
-									"nameLabel": {
-										"$ref": "AAAAAAFVAf+8ym0my94="
-									},
-									"namespaceLabel": {
-										"$ref": "AAAAAAFVAf+8ym0n6P4="
-									},
-									"propertyLabel": {
-										"$ref": "AAAAAAFVAf+8ym0o8xU="
-									}
-								},
-								{
-									"_type": "UMLAttributeCompartmentView",
-									"_id": "AAAAAAFVAf+8ym0pLus=",
-									"_parent": {
-										"$ref": "AAAAAAFVAf+8yG0jKU4="
-									},
-									"model": {
-										"$ref": "AAAAAAFVAf+8x20h5do="
-									},
-									"visible": true,
-									"enabled": true,
-									"lineColor": "#000000",
-									"fillColor": "#ffffff",
-									"fontColor": "#000000",
-									"font": "Arial;13;0",
-									"showShadow": true,
-									"containerChangeable": false,
-									"containerExtending": false,
-									"left": 736,
-									"top": 168,
-									"width": 354,
-									"height": 10,
-									"autoResize": false
-								},
-								{
-									"_type": "UMLOperationCompartmentView",
-									"_id": "AAAAAAFVAf+8ym0qN9I=",
-									"_parent": {
-										"$ref": "AAAAAAFVAf+8yG0jKU4="
-									},
-									"model": {
-										"$ref": "AAAAAAFVAf+8x20h5do="
-									},
-									"visible": true,
-									"enabled": true,
-									"lineColor": "#000000",
-									"fillColor": "#ffffff",
-									"fontColor": "#000000",
-									"font": "Arial;13;0",
-									"showShadow": true,
-									"containerChangeable": false,
-									"containerExtending": false,
-									"left": 736,
-									"top": 178,
-									"width": 354,
-									"height": 10,
-									"autoResize": false
-								},
-								{
-									"_type": "UMLReceptionCompartmentView",
-									"_id": "AAAAAAFVAf+8y20rcac=",
-									"_parent": {
-										"$ref": "AAAAAAFVAf+8yG0jKU4="
-									},
-									"model": {
-										"$ref": "AAAAAAFVAf+8x20h5do="
-									},
-									"visible": false,
-									"enabled": true,
-									"lineColor": "#000000",
-									"fillColor": "#ffffff",
-									"fontColor": "#000000",
-									"font": "Arial;13;0",
-									"showShadow": true,
-									"containerChangeable": false,
-									"containerExtending": false,
-									"left": 552,
-									"top": 8,
-									"width": 10,
-									"height": 10,
-									"autoResize": false
-								},
-								{
-									"_type": "UMLTemplateParameterCompartmentView",
-									"_id": "AAAAAAFVAf+8y20scNc=",
-									"_parent": {
-										"$ref": "AAAAAAFVAf+8yG0jKU4="
-									},
-									"model": {
-										"$ref": "AAAAAAFVAf+8x20h5do="
-									},
-									"visible": false,
-									"enabled": true,
-									"lineColor": "#000000",
-									"fillColor": "#ffffff",
-									"fontColor": "#000000",
-									"font": "Arial;13;0",
-									"showShadow": true,
-									"containerChangeable": false,
-									"containerExtending": false,
-									"left": 552,
-									"top": 8,
-									"width": 10,
-									"height": 10,
-									"autoResize": false
-								}
-							],
-							"visible": true,
-							"enabled": true,
-							"lineColor": "#000000",
-							"fillColor": "#ffffff",
-							"fontColor": "#000000",
-							"font": "Arial;13;0",
-							"showShadow": true,
-							"containerChangeable": true,
-							"containerExtending": false,
-							"left": 736,
-							"top": 143,
-							"width": 354,
-							"height": 128,
-							"autoResize": false,
-							"stereotypeDisplay": "label",
-							"showVisibility": true,
-							"showNamespace": false,
-							"showProperty": true,
-							"showType": true,
-							"nameCompartment": {
-								"$ref": "AAAAAAFVAf+8yW0kgX8="
-							},
-							"wordWrap": false,
-							"suppressAttributes": false,
-							"suppressOperations": false,
-							"suppressReceptions": true,
-							"showMultiplicity": true,
-							"showOperationSignature": true,
-							"attributeCompartment": {
-								"$ref": "AAAAAAFVAf+8ym0pLus="
-							},
-							"operationCompartment": {
-								"$ref": "AAAAAAFVAf+8ym0qN9I="
-							},
-							"receptionCompartment": {
-								"$ref": "AAAAAAFVAf+8y20rcac="
-							},
-							"templateParameterCompartment": {
-								"$ref": "AAAAAAFVAf+8y20scNc="
-							}
-						},
 						{
 							"_type": "UMLClassView",
 							"_id": "AAAAAAFVAgDmt21NCO0=",
@@ -370,7 +86,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "AppInfoController",
+											"text": "AppInfoActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -395,7 +111,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -595,7 +311,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+AppInfoController()",
+											"text": "+AppInfoActivity()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -770,7 +486,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "MenuController",
+											"text": "MenuActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -795,7 +511,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -1079,7 +795,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+MenuController()",
+											"text": "+MenuActivity()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -1254,7 +970,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "BuildingController",
+											"text": "BuildingActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -1279,7 +995,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -1703,7 +1419,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+BuildingController(building: Building)",
+											"text": "+BuildingActivity(building: Building)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -1878,7 +1594,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "PathController",
+											"text": "PathActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -1903,7 +1619,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -2103,7 +1819,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+PathController(pathInfo: PathInfo)",
+											"text": "+PathActivity(pathInfo: PathInfo)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -2278,7 +1994,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "ResultController",
+											"text": "ResultActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -2303,7 +2019,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -2531,7 +2247,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+ResultController(pathResult: PathResult, resultCanBeSaved: Bool)",
+											"text": "+ResultActivity(pathResult: PathResult, resultCanBeSaved: Bool)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -2706,7 +2422,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "SavedResultsController",
+											"text": "SavedResultsActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -2731,7 +2447,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -2931,7 +2647,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+SavedResultController()",
+											"text": "+SavedResultActivity()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -3106,7 +2822,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "ProofController",
+											"text": "ProofActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -3131,7 +2847,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -3277,7 +2993,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "-pathProgress: PathProgress",
+											"text": "-pathProgress: PathProgress {readOnly}",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -3305,7 +3021,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "-proof: Proof",
+											"text": "-proof: Proof {readOnly}",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -3333,7 +3049,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "-searchStep: SearchNewStepController",
+											"text": "-searchStep: SearchNewStepActivity",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -3443,7 +3159,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+ProofController(pathProgress: PathProgress)",
+											"text": "+ProofActivity(pathProgress: PathProgress)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -3646,7 +3362,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "RankingController",
+											"text": "RankingActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -3671,7 +3387,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -3843,7 +3559,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+RankingController()",
+											"text": "+RankingActivity()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -4018,7 +3734,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "AccountController",
+											"text": "AccountActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -4043,7 +3759,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -4243,7 +3959,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+AccountController()",
+											"text": "+AccountActivity()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -4418,7 +4134,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "TrueFalseQuizController",
+											"text": "TrueFalseQuizActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -4443,7 +4159,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -4643,7 +4359,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+TrueFalseQuizController(test: Test)",
+											"text": "+TrueFalseQuizActivity(test: Test)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -4755,53 +4471,6 @@
 						},
 						{
 							"_type": "UMLNoteView",
-							"_id": "AAAAAAFVAgtQw28/Ekg=",
-							"_parent": {
-								"$ref": "AAAAAAFVAf+k9m0d8yk="
-							},
-							"visible": true,
-							"enabled": true,
-							"lineColor": "#000000",
-							"fillColor": "#ffffff",
-							"fontColor": "#000000",
-							"font": "Arial;13;0",
-							"showShadow": true,
-							"containerChangeable": false,
-							"containerExtending": false,
-							"left": 255,
-							"top": 132,
-							"width": 361,
-							"height": 150,
-							"autoResize": false,
-							"text": "- Comunicazioni con il server:\n  - Check login\n  - Check registrazione\n  - Registrazione utente in DB\n  - Richidere una nuova password dopo reset\n- Inizializza classe Model::LoggedUser",
-							"wordWrap": true
-						},
-						{
-							"_type": "UMLNoteLinkView",
-							"_id": "AAAAAAFVAgyR7G9HJyw=",
-							"_parent": {
-								"$ref": "AAAAAAFVAf+k9m0d8yk="
-							},
-							"visible": true,
-							"enabled": true,
-							"lineColor": "#000000",
-							"fillColor": "#ffffff",
-							"fontColor": "#000000",
-							"font": "Arial;13;0",
-							"showShadow": true,
-							"containerChangeable": false,
-							"containerExtending": false,
-							"head": {
-								"$ref": "AAAAAAFVAf+8yG0jKU4="
-							},
-							"tail": {
-								"$ref": "AAAAAAFVAgtQw28/Ekg="
-							},
-							"lineStyle": 1,
-							"points": "616:206;735:206"
-						},
-						{
-							"_type": "UMLNoteView",
 							"_id": "AAAAAAFVAhCPVG9PGAk=",
 							"_parent": {
 								"$ref": "AAAAAAFVAf+k9m0d8yk="
@@ -4820,7 +4489,7 @@
 							"width": 473,
 							"height": 169,
 							"autoResize": false,
-							"text": "- Gestisce la View del menù.\n- Implementa i metodi dell'interfaccia MenuViewDelegate.\n- buildingsButtonPressed() crea e cede il focus a BuildingsSearchController.\n- authenticationButtonPressed() crea e cede il focus a RegistrationController.\n- appInfoButtonPressed() crea e cede il focus a AppInfoController.\n- userDidLogin() metodo con cui il MenuController nasconde il bottone di autenticazione e mostra quello di logout\n- userDidLogout() metodo con cui il MenuController nasconde il bottone di logout e mostra quello di autenticazione",
+							"text": "- Gestisce la View del menù.\n- Implementa i metodi dell'interfaccia MenuViewDelegate.\n- buildingsButtonPressed() crea e cede il focus a BuildingsSearchActivity.\n- authenticationButtonPressed() crea e cede il focus a RegistrationActivity.\n- appInfoButtonPressed() crea e cede il focus a AppInfoActivity.\n- userDidLogin() metodo con cui il MenuActivity nasconde il bottone di autenticazione e mostra quello di logout\n- userDidLogout() metodo con cui il MenuActivity nasconde il bottone di logout e mostra quello di autenticazione",
 							"wordWrap": true
 						},
 						{
@@ -4914,7 +4583,7 @@
 							"width": 673,
 							"height": 255,
 							"autoResize": false,
-							"text": "- Gestisce la View del singolo edficio.\n- Implementa i metodi dell'interfaccia BuildingViewDelegate().\n- Nota: non effettua chiamate per caricare il campo dati building. Il costruttore chiama il metodo statico del DataManager per avere la lista di PathInfo, cioè delle informazioni parziali degli edifici. Tutti i bottoni sottostanti, ad eccezione dell'ultimo, sono attivati solo se quel campo dati è presente.\n- addressButtonPressed() apre la pagina di Google Maps con il riferimento puntato all'indirizzo dell'edificio.\n- telephoneButtonPressed() apre la schermata di chiamata del dispositivo con il numero dell'edificio già inserito.\n- emailButtonPressed() apre la schermata dell'email inserendo nel destinatario l'indirizzo dell'edificio.\n- webSiteButtonPressed() apre il sito dell'edificio.\n- twitterButtonPressed() apre la pagina Twitter dell'edificio.\n- facebookButttonPressed() apre la pagina Facebook dell'edificio.\n- whatsappButtonPressed() apre una chat di WhatsApp tra l'utente e l'edificio.\n- telegramButtonPressed() apre una chat di Telegram tra l'utente e l'edificio.\n- pathRowDidPressed() si attiva quando uno dei percorsi dell'edificio viene premuto, crea e cede il focus a PathController, fornendogli il PathInfo selezionato.",
+							"text": "- Gestisce la View del singolo edficio.\n- Implementa i metodi dell'interfaccia BuildingViewDelegate().\n- Nota: non effettua chiamate per caricare il campo dati building. Il costruttore chiama il metodo statico del DataManager per avere la lista di PathInfo, cioè delle informazioni parziali degli edifici. Tutti i bottoni sottostanti, ad eccezione dell'ultimo, sono attivati solo se quel campo dati è presente.\n- addressButtonPressed() apre la pagina di Google Maps con il riferimento puntato all'indirizzo dell'edificio.\n- telephoneButtonPressed() apre la schermata di chiamata del dispositivo con il numero dell'edificio già inserito.\n- emailButtonPressed() apre la schermata dell'email inserendo nel destinatario l'indirizzo dell'edificio.\n- webSiteButtonPressed() apre il sito dell'edificio.\n- twitterButtonPressed() apre la pagina Twitter dell'edificio.\n- facebookButttonPressed() apre la pagina Facebook dell'edificio.\n- whatsappButtonPressed() apre una chat di WhatsApp tra l'utente e l'edificio.\n- telegramButtonPressed() apre una chat di Telegram tra l'utente e l'edificio.\n- pathRowDidPressed() si attiva quando uno dei percorsi dell'edificio viene premuto, crea e cede il focus a PathActivity, fornendogli il PathInfo selezionato.",
 							"wordWrap": true
 						},
 						{
@@ -4937,7 +4606,7 @@
 							"width": 673,
 							"height": 121,
 							"autoResize": false,
-							"text": "- Gestisce la View del singolo percorso.\n- Implementa i metodi dell'interfaccia PathViewDelegate.\n- Nota: il costruttore chiama il metodo statico del DataManager per caricare i dati completi del percorso. pathInfo non è necessario salvarlo in un attributo della classe perché la View non verrà mai aggiornata né ricaricata.\n- startButtonPressed() crea e cede il focus al ProofController relativo alla prima prova, inoltre inizializza il PathProgress per l'intera durata del percorso.",
+							"text": "- Gestisce la View del singolo percorso.\n- Implementa i metodi dell'interfaccia PathViewDelegate.\n- Nota: il costruttore chiama il metodo statico del DataManager per caricare i dati completi del percorso. pathInfo non è necessario salvarlo in un attributo della classe perché la View non verrà mai aggiornata né ricaricata.\n- startButtonPressed() crea e cede il focus al ProofActivity relativo alla prima prova, inoltre inizializza il PathProgress per l'intera durata del percorso.",
 							"wordWrap": true
 						},
 						{
@@ -4960,7 +4629,7 @@
 							"width": 545,
 							"height": 139,
 							"autoResize": false,
-							"text": "- Gestisce la View dei risultati del percorso.\n- Implementa i metodi dell'interfaccia ResultViewDelegate.\n- Nota: se resultCanBeSaved è positivo nella View apparirà il pulsante per salvare i risultati, altrimenti no.\n- rankingButtonPressed() crea e passa il focus a RankingController.\n- saveResultButtonPressed() permette all'utente di salvare i propri dati se è autenticato.\n- proofsButtonPressed() mostra la schermata con l'elenco dei risultati delle prove affrontate.",
+							"text": "- Gestisce la View dei risultati del percorso.\n- Implementa i metodi dell'interfaccia ResultViewDelegate.\n- Nota: se resultCanBeSaved è positivo nella View apparirà il pulsante per salvare i risultati, altrimenti no.\n- rankingButtonPressed() crea e passa il focus a RankingActivity.\n- saveResultButtonPressed() permette all'utente di salvare i propri dati se è autenticato.\n- proofsButtonPressed() mostra la schermata con l'elenco dei risultati delle prove affrontate.",
 							"wordWrap": true
 						},
 						{
@@ -4983,7 +4652,7 @@
 							"width": 418,
 							"height": 163,
 							"autoResize": false,
-							"text": "- Gestisce la View dell'elenco dei risultati salvati.\n- Implementa i metodi dell'interfaccia SavedResultViewDelegate.\nNota: il costruttore trova l'username tramite il DataManager e quindi sempre tramite esso richiede i dati dei percorsi salvati.\n- loginButtonPressed() permette di effettuare il login; il bottone che usa questa funzione sarà visibile solo se l'utente non è loggato.\n- resultRowDidPressed() crea e cede il focus al ResultController fornendo il risultato corrispondente al valore di atIndex e impondendo che il risultato non possa essere salvato.",
+							"text": "- Gestisce la View dell'elenco dei risultati salvati.\n- Implementa i metodi dell'interfaccia SavedResultViewDelegate.\nNota: il costruttore trova l'username tramite il DataManager e quindi sempre tramite esso richiede i dati dei percorsi salvati.\n- loginButtonPressed() permette di effettuare il login; il bottone che usa questa funzione sarà visibile solo se l'utente non è loggato.\n- resultRowDidPressed() crea e cede il focus al ResultActivity fornendo il risultato corrispondente al valore di atIndex e impondendo che il risultato non possa essere salvato.",
 							"wordWrap": true
 						},
 						{
@@ -5126,7 +4795,7 @@
 							"width": 424,
 							"height": 178,
 							"autoResize": false,
-							"text": "- Gestisce le View dell'inizio e della fine della prova.\n- Implementa i metodi delle interfacce ProofView e ProofResultView.\n- Nota: il costruttore preleva la prova da pathProgress, crea e cede il focus a SearchNextStepController, quando esso ha finito mostra la schermata iniziale della prova.\n- startButtonPressed cede il focus al controller della prova tramite il campo dati proof, quando esso avrà finito il focus dovrà tornare a ProofController insieme al risultato della prova.\n- nextStepButtonPressed() crea e cede il focus al prossimo step tramite il PathProgress.\n- endProof() gestisce proofResultView.",
+							"text": "- Gestisce le View dell'inizio e della fine della prova.\n- Implementa i metodi delle interfacce ProofView e ProofResultView.\n- Nota: il costruttore preleva la prova da pathProgress, crea e cede il focus a SearchNextStepActivity, quando esso ha finito mostra la schermata iniziale della prova.\n- startButtonPressed cede il focus al controller della prova tramite il campo dati proof, quando esso avrà finito il focus dovrà tornare a ProofActivity insieme al risultato della prova.\n- nextStepButtonPressed() crea e cede il focus all'activity per la ricerca del prossimo step (`SearchNewStepActivity`).\n- endProof() gestisce proofResultView.",
 							"wordWrap": true
 						},
 						{
@@ -5172,7 +4841,7 @@
 							"width": 423,
 							"height": 124,
 							"autoResize": false,
-							"text": "- Gestisce la View della visualizzazione dell'account dell'utente.\n- Implementa i metodi dell'interfaccia MyAccountViewDelegate.\n- Nota: il costruttore chiede al DataManager i dati dell'utente loggato.\n- updateUserButtonPressed() crea e cede il focus a UpdateUserInfoController.\n- savedResultsButtonPressed() crea e cede il focus a SavedResultsController.",
+							"text": "- Gestisce la View della visualizzazione dell'account dell'utente.\n- Implementa i metodi dell'interfaccia MyAccountViewDelegate.\n- Nota: il costruttore chiede al DataManager i dati dell'utente loggato.\n- updateUserButtonPressed() crea e cede il focus a UpdateUserInfoActivity.\n- savedResultsButtonPressed() crea e cede il focus a SavedResultsActivity.",
 							"wordWrap": true
 						},
 						{
@@ -5382,7 +5051,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "LoginController",
+											"text": "LoginActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -5407,7 +5076,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -5607,7 +5276,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+LoginController()",
+											"text": "+LoginActivity()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -5782,7 +5451,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "RegistrationController",
+											"text": "RegistrationActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -5807,7 +5476,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -6091,7 +5760,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+RegistrationController()",
+											"text": "+RegistrationActivity()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -6249,7 +5918,7 @@
 							"width": 490,
 							"height": 150,
 							"autoResize": false,
-							"text": "- Gestisce la View della login.\n- Implementa i metodi dell'interfaccia LoginViewDelegate.\n- login() chiama il metodo statico corrispondente del DataManager. Se il metodo del DataManager ha successo allora viene richiamato MenuController, altrimenti ritorna errore.\n-forgotPassword() richiama ForgotPasswordController.",
+							"text": "- Gestisce la View della login.\n- Implementa i metodi dell'interfaccia LoginViewDelegate.\n- login() chiama il metodo statico corrispondente del DataManager. Se il metodo del DataManager ha successo allora viene richiamato MenuActivity, altrimenti ritorna errore.\n-forgotPassword() richiama ForgotPasswordActivity.",
 							"wordWrap": true
 						},
 						{
@@ -6388,7 +6057,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "ForgotPasswordController",
+											"text": "ForgotPasswordActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -6413,7 +6082,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -6613,7 +6282,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+ForgotPasswordController()",
+											"text": "+ForgotPasswordActivity()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -6835,7 +6504,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "UpdateUserInfoController",
+											"text": "UpdateUserInfoActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -6860,7 +6529,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -7116,7 +6785,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+UpdateUserInfoController()",
+											"text": "+UpdateUserInfoActivity()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -7298,29 +6967,6 @@
 						},
 						{
 							"_type": "UMLNoteView",
-							"_id": "AAAAAAFVEEsgdWm1ay8=",
-							"_parent": {
-								"$ref": "AAAAAAFVAf+k9m0d8yk="
-							},
-							"visible": true,
-							"enabled": true,
-							"lineColor": "#000000",
-							"fillColor": "#ffffff",
-							"fontColor": "#000000",
-							"font": "Arial;13;0",
-							"showShadow": true,
-							"containerChangeable": false,
-							"containerExtending": false,
-							"left": 1144,
-							"top": 176,
-							"width": 265,
-							"height": 79,
-							"autoResize": false,
-							"text": "DUBBIO\nL'autenticazione non dovrebbe essere la Registrazione con l'aggiunta del bottone per passare al login? O non esiste?",
-							"wordWrap": true
-						},
-						{
-							"_type": "UMLNoteView",
 							"_id": "AAAAAAFVEEwWlmm7QDE=",
 							"_parent": {
 								"$ref": "AAAAAAFVAf+k9m0d8yk="
@@ -7339,7 +6985,7 @@
 							"width": 353,
 							"height": 208,
 							"autoResize": false,
-							"text": "DUBBI\ngoAppInfo() non sarebbe in realtà il bottone per vedere l'account dell'utente (ovviamente con un nome diverso)?\nSì. Per questo lo tolgo\n\nauthenticationButtonPressed() non dovrebbe creare e cedere il focus al RegistrationController da dove l'utente può comunque fare il login?\nSì\n\nuserDidLogin() permette creare e cedere il focus al LoginController (cioè la schermata passa a quella di login) o fa altro? Se la risposta corretta è la prima a che serve lo User? Sono metodi privati che mostrano/nascondono i corretti buttons",
+							"text": "DUBBI\ngoAppInfo() non sarebbe in realtà il bottone per vedere l'account dell'utente (ovviamente con un nome diverso)?\nSì. Per questo lo tolgo\n\nauthenticationButtonPressed() non dovrebbe creare e cedere il focus al RegistrationActivity da dove l'utente può comunque fare il login?\nSì\n\nuserDidLogin() permette creare e cedere il focus al LoginActivity (cioè la schermata passa a quella di login) o fa altro? Se la risposta corretta è la prima a che serve lo User? Sono metodi privati che mostrano/nascondono i corretti buttons",
 							"wordWrap": true
 						},
 						{
@@ -7430,7 +7076,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "BuildingSearchController",
+											"text": "BuildingSearchActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -7455,7 +7101,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -7655,7 +7301,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+BuildingSearchController()",
+											"text": "+BuildingSearchActivity()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -7841,7 +7487,7 @@
 							"width": 529,
 							"height": 163,
 							"autoResize": false,
-							"text": "- Gestisce la View della ricerca degli edifici.\n- Implementa i metodi dell'interfaccia BuildingSearchViewDelegate.\n- Nota: il costruttore chiama il metodo statico del DataManager per avere la lista degli edifici necessari per la View, questa lista contiene l'elenco completo dei dati degli edifici.\n- buildingRowDidPressed() si attiva quando uno degli edifici in lista viene premuto, crea e cede il focus a BuildingController, fornendogli il Building selezionato.\n- quando il bottone searchButton viene premuto (searchButtonPressed()) viene letto il valore della radiusSelect per sapere se e che filtro applicare ai risultati e viene chiamata searchWithRadius(range: Int) passando tale filtro come intero.",
+							"text": "- Gestisce la View della ricerca degli edifici.\n- Implementa i metodi dell'interfaccia BuildingSearchViewDelegate.\n- Nota: il costruttore chiama il metodo statico del DataManager per avere la lista degli edifici necessari per la View, questa lista contiene l'elenco completo dei dati degli edifici.\n- buildingRowDidPressed() si attiva quando uno degli edifici in lista viene premuto, crea e cede il focus a BuildingActivity, fornendogli il Building selezionato.\n- quando il bottone searchButton viene premuto (searchButtonPressed()) viene letto il valore della radiusSelect per sapere se e che filtro applicare ai risultati e viene chiamata searchWithRadius(range: Int) passando tale filtro come intero.",
 							"wordWrap": true
 						},
 						{
@@ -7980,7 +7626,7 @@
 							"width": 497,
 							"height": 206,
 							"autoResize": false,
-							"text": "DUBBI\nQua si potrebbe effettivamente gestire sia ProofView sia ProofResultView, visto che la seconda non deve fare niente di particolare e in più entrambe hanno un unico metodo, dovrebbe essere possibile in Android senza grossi problemi.\nPer ora non li metto ma qui probabilmente saranno necessari metodi di supporto per semplificare il costruttore.\nnextStepButtonPressed() non c'è in ProofResultView, bisogna aggiungerlo.\nHo deciso che ProofController è il gestore centrale della prova, quindi sono responsabilità sua la ricerca della stazione, lo svolgimento del test e la schermata finale con i risultati, se ci sono motivi per fare diversamente esponeteli.\nProofView avrà come parametri del costruttore title e description.\nProofResultView avrà come parametro del costruttore il risultato della prova.",
+							"text": "DUBBI\nQua si potrebbe effettivamente gestire sia ProofView sia ProofResultView, visto che la seconda non deve fare niente di particolare e in più entrambe hanno un unico metodo, dovrebbe essere possibile in Android senza grossi problemi.\nPer ora non li metto ma qui probabilmente saranno necessari metodi di supporto per semplificare il costruttore.\nnextStepButtonPressed() non c'è in ProofResultView, bisogna aggiungerlo.\nHo deciso che ProofActivity è il gestore centrale della prova, quindi sono responsabilità sua la ricerca della stazione, lo svolgimento del test e la schermata finale con i risultati, se ci sono motivi per fare diversamente esponeteli.\nProofView avrà come parametri del costruttore title e description.\nProofResultView avrà come parametro del costruttore il risultato della prova.",
 							"wordWrap": true
 						},
 						{
@@ -8003,7 +7649,7 @@
 							"width": 529,
 							"height": 353,
 							"autoResize": false,
-							"text": "DUBBIO GENERICO PER TUTTI I CONTROLLER DEI QUIZ\nIo farei un controller per tipo di test, inoltre creerei la classe astratta QuizController da cui far derivare tutti i singoli controller, in modo da fare il check dinamico in ProofController; probabilmente sarà praticamente vuoto ma dovrebbe evitare di dover modificare ProofController quando vengono aggiunti nuovi tipi di prova.\nDa come si intuisce sopra farei un controller dedicato per ogni quiz.\nNella View secondo me la classe TestView è inutile, il suo unico metodo di fatto è eseguito da questi controller e in più non mi pare che porti vantaggi, anche perchè le view dei test possono non essere legate tra loro visto che sono i controller a chiamare la specifica classe interessata (in poche parole il check dinamico non viene usato, quindi la gerarchia è utile solo per definire delle parti comuni per i figli). Quiz View invece serve perché viene definita la parte comune a tutti i quiz.\nPotrei fare delle castronerie con il costruttore delle prove, l'idea che ho adesso è di passare la classe Test del model dal ProofController al QuizController per farlo ricevere da ogni controller come la propria classe figlia del model, e quindi gestirla nel costruttore in tal senso.\nSu MultipleChoiceQuizController, StrangersQuizController e le relative View manca il tipo di atIndex. Su StrangersQuizView i due parametri del costruttori hanno nome identico e quindi bisogna rinominarli, ad esempio come ho fatto in StrangersQuizController.\nSul nome delle View delle singole prove manca la dicitura View.\nMi rimane solo il dubbio di come viene passato il focus al controller del quiz dal ProofController e come il focus ritorna indietro assieme ai risultati.",
+							"text": "DUBBIO GENERICO PER TUTTI I CONTROLLER DEI QUIZ\nIo farei un controller per tipo di test, inoltre creerei la classe astratta QuizActivity da cui far derivare tutti i singoli controller, in modo da fare il check dinamico in ProofActivity; probabilmente sarà praticamente vuoto ma dovrebbe evitare di dover modificare ProofActivity quando vengono aggiunti nuovi tipi di prova.\nDa come si intuisce sopra farei un controller dedicato per ogni quiz.\nNella View secondo me la classe TestView è inutile, il suo unico metodo di fatto è eseguito da questi controller e in più non mi pare che porti vantaggi, anche perchè le view dei test possono non essere legate tra loro visto che sono i controller a chiamare la specifica classe interessata (in poche parole il check dinamico non viene usato, quindi la gerarchia è utile solo per definire delle parti comuni per i figli). Quiz View invece serve perché viene definita la parte comune a tutti i quiz.\nPotrei fare delle castronerie con il costruttore delle prove, l'idea che ho adesso è di passare la classe Test del model dal ProofActivity al QuizActivity per farlo ricevere da ogni controller come la propria classe figlia del model, e quindi gestirla nel costruttore in tal senso.\nSu MultipleChoiceQuizActivity, StrangersQuizActivity e le relative View manca il tipo di atIndex. Su StrangersQuizView i due parametri del costruttori hanno nome identico e quindi bisogna rinominarli, ad esempio come ho fatto in StrangersQuizActivity.\nSul nome delle View delle singole prove manca la dicitura View.\nMi rimane solo il dubbio di come viene passato il focus al controller del quiz dal ProofActivity e come il focus ritorna indietro assieme ai risultati.",
 							"wordWrap": true
 						},
 						{
@@ -8071,7 +7717,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "QuizController",
+											"text": "QuizActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -8096,7 +7742,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -8240,7 +7886,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+QuizController(test: Test)",
+											"text": "+QuizActivity(test: Test)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -8490,7 +8136,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "MultipleChoiceQuizController",
+											"text": "MultipleChoiceQuizActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -8515,7 +8161,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -8687,7 +8333,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+MultipleChoiceQuizController(test: Test)",
+											"text": "+MultipleChoiceQuizActivity(test: Test)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -8862,7 +8508,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "StrangersQuizController",
+											"text": "StrangersQuizActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -8887,7 +8533,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -9087,7 +8733,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+StrangersQuizController(test: Test)",
+											"text": "+StrangersQuizActivity(test: Test)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -9308,7 +8954,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "SearchNewStepController",
+											"text": "SearchNewStepActivity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -9333,7 +8979,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -9561,7 +9207,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+SearchNewStepController()",
+											"text": "+SearchNewStepActivity()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -9794,7 +9440,7 @@
 							"width": 433,
 							"height": 209,
 							"autoResize": false,
-							"text": "DUBBI\nQui c'è un problema di conflitto di intenti: Tommaso voleva gestire il percorso passando di ProofController in ProofController tramite il PathProgress, ovvero una classe del controller che viene usata dai ProofController ma non fa nulla direttamente. Invece chi ha fatto la View ha pensato di mettere SearchNewStepController in mezzo ai ProofController, quindi di fatto startButtonPressed() dovrebbe cedere il focus al ProofController corretto. Io sono partito subito implementando l'idea di Tommaso e mi sono accorto solo alla fine di questo conflitto, quindi bisogna capire quale strada seguire. Se vince Tommaso basta eliminare i due metodi di questa classe, ma manterrei la classe stessa facendola chiamare dal ProofController, così da poter aggiungerci eventualmente il Proximity, altrimenti se vince l'altra idea bisogna cambiare un po' di cose in ProofController.",
+							"text": "DUBBI\nQui c'è un problema di conflitto di intenti: Tommaso voleva gestire il percorso passando di ProofActivity in ProofActivity tramite il PathProgress, ovvero una classe del controller che viene usata dai ProofActivity ma non fa nulla direttamente. Invece chi ha fatto la View ha pensato di mettere SearchNewStepActivity in mezzo ai ProofActivity, quindi di fatto startButtonPressed() dovrebbe cedere il focus al ProofActivity corretto. Io sono partito subito implementando l'idea di Tommaso e mi sono accorto solo alla fine di questo conflitto, quindi bisogna capire quale strada seguire. Se vince Tommaso basta eliminare i due metodi di questa classe, ma manterrei la classe stessa facendola chiamare dal ProofActivity, così da poter aggiungerci eventualmente il Proximity, altrimenti se vince l'altra idea bisogna cambiare un po' di cose in ProofActivity.",
 							"wordWrap": true
 						},
 						{
@@ -10254,7 +9900,7 @@
 											"containerExtending": false,
 											"left": 0,
 											"top": 0,
-											"width": 64,
+											"width": 68.732421875,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -10279,7 +9925,7 @@
 											"containerExtending": false,
 											"left": 1629,
 											"top": 1942,
-											"width": 241,
+											"width": 261.89794921875,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -10304,11 +9950,11 @@
 											"containerExtending": false,
 											"left": 0,
 											"top": 0,
-											"width": 80,
+											"width": 86.99462890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model1)",
+											"text": "(from Activity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -10348,7 +9994,7 @@
 									"containerExtending": false,
 									"left": 1624,
 									"top": 1935,
-									"width": 251,
+									"width": 271.89794921875,
 									"height": 25,
 									"autoResize": false,
 									"stereotypeLabel": {
@@ -10418,7 +10064,7 @@
 											"containerExtending": false,
 											"left": 1629,
 											"top": 1965,
-											"width": 241,
+											"width": 261.89794921875,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -10446,7 +10092,7 @@
 											"containerExtending": false,
 											"left": 1629,
 											"top": 1980,
-											"width": 241,
+											"width": 261.89794921875,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -10466,7 +10112,7 @@
 									"containerExtending": false,
 									"left": 1624,
 									"top": 1960,
-									"width": 251,
+									"width": 271.89794921875,
 									"height": 38,
 									"autoResize": false
 								},
@@ -10530,7 +10176,7 @@
 							"containerExtending": false,
 							"left": 1624,
 							"top": 1912,
-							"width": 251,
+							"width": 271.89794921875,
 							"height": 87,
 							"autoResize": false,
 							"stereotypeDisplay": "icon",
@@ -10588,7 +10234,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1833,
+									"left": 1840,
 									"top": 1883,
 									"width": 0,
 									"height": 13,
@@ -10621,7 +10267,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1841,
+									"left": 1849,
 									"top": 1895,
 									"width": 0,
 									"height": 13,
@@ -10654,7 +10300,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1816,
+									"left": 1823,
 									"top": 1858,
 									"width": 0,
 									"height": 13,
@@ -10686,7 +10332,7 @@
 								"$ref": "AAAAAAFVFu39n8TIxLw="
 							},
 							"lineStyle": 1,
-							"points": "1891:1834;1760.5:1920.3461538461538",
+							"points": "1895:1834;1770.948974609375:1920.0737205038265",
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
 							"showProperty": true,
@@ -10704,24 +10350,11 @@
 				},
 				{
 					"_type": "UMLClass",
-					"_id": "AAAAAAFVAf+8x20h5do=",
-					"_parent": {
-						"$ref": "AAAAAAFVAf+k9m0cMvM="
-					},
-					"name": "AuthenticationController",
-					"visibility": "public",
-					"isAbstract": false,
-					"isFinalSpecialization": false,
-					"isLeaf": false,
-					"isActive": false
-				},
-				{
-					"_type": "UMLClass",
 					"_id": "AAAAAAFVAgDmt21LVT8=",
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "AppInfoController",
+					"name": "AppInfoActivity",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -10778,7 +10411,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVAgDmt21LVT8="
 							},
-							"name": "AppInfoController",
+							"name": "AppInfoActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -10811,7 +10444,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "MenuController",
+					"name": "MenuActivity",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -10928,7 +10561,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVAgE0fm23P5s="
 							},
-							"name": "MenuController",
+							"name": "MenuActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -10948,7 +10581,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "BuildingController",
+					"name": "BuildingActivity",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -11139,7 +10772,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVAgFjpG3hM1g="
 							},
-							"name": "BuildingController",
+							"name": "BuildingActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -11177,7 +10810,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "PathController",
+					"name": "PathActivity",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -11238,7 +10871,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVAgGBrG4L/eA="
 							},
-							"name": "PathController",
+							"name": "PathActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -11276,7 +10909,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "ResultController",
+					"name": "ResultActivity",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -11347,7 +10980,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVAgGpeW41bOM="
 							},
-							"name": "ResultController",
+							"name": "ResultActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -11401,7 +11034,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "SavedResultsController",
+					"name": "SavedResultsActivity",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -11476,7 +11109,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVAgHtoG5f2ps="
 							},
-							"name": "SavedResultController",
+							"name": "SavedResultActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -11496,7 +11129,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "ProofController",
+					"name": "ProofActivity",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -11546,7 +11179,7 @@
 							"isStatic": false,
 							"isLeaf": false,
 							"type": "PathProgress",
-							"isReadOnly": false,
+							"isReadOnly": true,
 							"isOrdered": false,
 							"isUnique": false,
 							"isDerived": false,
@@ -11564,7 +11197,7 @@
 							"isStatic": false,
 							"isLeaf": false,
 							"type": "Proof",
-							"isReadOnly": false,
+							"isReadOnly": true,
 							"isOrdered": false,
 							"isUnique": false,
 							"isDerived": false,
@@ -11627,7 +11260,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVAgIcKG6JXs0="
 							},
-							"name": "ProofController",
+							"name": "ProofActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -11697,7 +11330,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "RankingController",
+					"name": "RankingActivity",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -11740,7 +11373,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVAgcs426zdtU="
 							},
-							"name": "RankingController",
+							"name": "RankingActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -11760,7 +11393,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "AccountController",
+					"name": "AccountActivity",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -11817,7 +11450,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVAgdMJW7dVfI="
 							},
-							"name": "AccountController",
+							"name": "AccountActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -11837,7 +11470,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "TrueFalseQuizController",
+					"name": "TrueFalseQuizActivity",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -11910,7 +11543,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVAgdqIW8HFnA="
 							},
-							"name": "TrueFalseQuizController",
+							"name": "TrueFalseQuizActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -11948,7 +11581,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "LoginController",
+					"name": "LoginActivity",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -12039,7 +11672,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVDLefdM8NRq0="
 							},
-							"name": "LoginController",
+							"name": "LoginActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -12059,7 +11692,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "RegistrationController",
+					"name": "RegistrationActivity",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -12208,7 +11841,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVDLfE0c83vNo="
 							},
-							"name": "RegistrationController",
+							"name": "RegistrationActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -12242,7 +11875,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "ForgotPasswordController",
+					"name": "ForgotPasswordActivity",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -12335,7 +11968,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVDNdd/M/bWAc="
 							},
-							"name": "ForgotPasswordController",
+							"name": "ForgotPasswordActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -12355,7 +11988,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "UpdateUserInfoController",
+					"name": "UpdateUserInfoActivity",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -12474,7 +12107,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVEB2bCu+ZuNo="
 							},
-							"name": "UpdateUserInfoController",
+							"name": "UpdateUserInfoActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -12494,7 +12127,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "BuildingSearchController",
+					"name": "BuildingSearchActivity",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -12587,7 +12220,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVEFHRMmnLJGc="
 							},
-							"name": "BuildingSearchController",
+							"name": "BuildingSearchActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -12635,7 +12268,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "QuizController",
+					"name": "QuizActivity",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -12664,7 +12297,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVFeuK2bTcvFc="
 							},
-							"name": "QuizController",
+							"name": "QuizActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -12716,7 +12349,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "MultipleChoiceQuizController",
+					"name": "MultipleChoiceQuizActivity",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -12793,7 +12426,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVFqACZrUfQks="
 							},
-							"name": "MultipleChoiceQuizController",
+							"name": "MultipleChoiceQuizActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -12831,7 +12464,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "StrangersQuizController",
+					"name": "StrangersQuizActivity",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -12938,7 +12571,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVFqCv87VLTjQ="
 							},
-							"name": "StrangersQuizController",
+							"name": "StrangersQuizActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -12976,7 +12609,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFVAf+k9m0cMvM="
 					},
-					"name": "SearchNewStepController",
+					"name": "SearchNewStepActivity",
 					"ownedElements": [
 						{
 							"_type": "UMLInterfaceRealization",
@@ -13067,7 +12700,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVFu39nsTG0/0="
 							},
-							"name": "SearchNewStepController",
+							"name": "SearchNewStepActivity",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
