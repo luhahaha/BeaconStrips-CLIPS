@@ -1,18 +1,27 @@
 \subsubsection{Attività}
+\label{sec:2.1.1}
 		\paragraph{Analisi dei requisiti}
-		Sarà compito degli analisti redigere l'analisi dei requisiti in seguito a riunioni interne col team e allo studio dei capitolati d'appalto.
+		\label{sec:2.1.1.1}
+			Sarà compito degli analisti redigere l'analisi dei requisiti in seguito a riunioni interne col team e allo studio dei capitolati d'appalto.
 			\subparagraph{Studio di Fattibilità e Analisi dei Rischi}
-			Lo studio di fattibilità sarà il primo documento dell'analisi dei requisiti che analizzerà i seguenti punti per ogni \gl{capitolato}, con maggior interesse per quello scelto dal team:
-			\begin{itemize}
-				\item \textbf{Scopo del \gl{progetto}}: analisi delle richieste del \gl{capitolato};
-				\item \textbf{Studio del dominio}: valutazione delle tecnologie e conoscenze richieste rispetto l'attuale livello del team;
-				\item \textbf{Analisi dei rischi}: ricerca dei rischi e delle criticità per ciascun \gl{capitolato}.
-			\end{itemize}
+			\label{sec:2.1.1.1.1}
+				Lo studio di fattibilità sarà il primo documento dell'analisi dei requisiti che analizzerà i seguenti punti per ogni \gl{capitolato}, con maggior interesse per quello scelto dal team:
+				\begin{itemize}
+					\item \textbf{Scopo del \gl{progetto}}: analisi delle richieste del \gl{capitolato};
+					\item \textbf{Studio del dominio}: valutazione delle tecnologie e conoscenze richieste rispetto l'attuale livello del team;
+					\item \textbf{Analisi dei rischi}: ricerca dei rischi e delle criticità per ciascun \gl{capitolato}.
+				\end{itemize}
 			\subparagraph{Analisi dei requisiti}
-			Il secondo documento che gli analisti andranno a redigere sarà l'analisi dei requisiti che produrrà dei requisiti semplici a partire dalle informazioni raccolte tramite lo studio del \gl{capitolato} e riunioni esterne con il \gl{proponente}.
-			Per rendere più precisa e veloce la stesura dei requisiti è stato utilizzato il \gl{software} \gl{Trender}.
-	\subsubsection{Norme}
-		\paragraph{Classificazione  dei requisiti}
+			\label{sec:2.1.1.1.2}
+				Il secondo documento che gli analisti andranno a redigere sarà l'analisi dei requisiti che produrrà dei requisiti semplici a partire dalle informazioni raccolte tramite lo studio del \gl{capitolato} e riunioni esterne con il \gl{proponente}.
+				Per rendere più precisa e veloce la stesura dei requisiti è stato utilizzato il \gl{software} \gl{Trender}.
+		\paragraph{Specifica tecnica}
+		\label{sec:2.1.1.2}
+		
+\subsubsection{Norme}
+\label{sec:2.1.2}
+	\paragraph{Classificazione  dei requisiti}
+	\label{sec:2.1.2.1}
 		I requisiti saranno rappresentati secondo la seguente codifica:
 		\begin{center}
 			R[importanza][tipo][identificativo]
@@ -35,7 +44,8 @@
 			\item \textbf{Descrizione}: una breve descrizione del requisito;
 			\item \textbf{Fonte}: la fonte da cui deriva il requisito.
 		\end{itemize}
-		\paragraph{Classificazione dei casi d'uso}
+	\paragraph{Classificazione dei casi d'uso}
+	\label{sec:2.1.2.2}
 		I casi d'uso saranno rappresentati secondo la seguente codifica:
 		\begin{center}
 			UC[identificativo]
@@ -60,5 +70,21 @@
 			\item \textbf{attori}: lista degli attori coinvolti;
 		\end{itemize}
 \subsubsection{Strumenti}
+\label{sec:2.1.3}
 	\paragraph{\gl{Trender}}
-	Per velocizzare e automatizzare la stesura dei requisiti e dei casi d'uso è stato utilizzato il \gl{software} \textbf{\gl{Trender}} sviluppato da Simone Campagna del gruppo InfiniTech dell'anno 2014/2015. Il \gl{software} permette di tracciare i requisiti e i casi d'uso assegnando automaticamente un codice univoco che rispetti la sintassi desiderata.
+	\label{sec:2.1.3.1}
+		Per velocizzare e automatizzare la stesura dei requisiti e dei casi d'uso è stato utilizzato il \gl{software} \textbf{\gl{Trender}} sviluppato da Simone Campagna del gruppo InfiniTech dell'anno 2014/2015. Il \gl{software} permette di tracciare i requisiti e i casi d'uso assegnando automaticamente un codice univoco che rispetti la sintassi desiderata.
+
+\subsubsection{Codifica}
+\label{sec:2.1.4}
+	I file contenenti codice o documentazione dovranno rispettare la codifica UTF-8 senza \gl{BOM} e verrà utilizzato il carattere LF (U+000A) per andare a capo.
+
+	\subsubsection{Norme di stile}
+	\label{sec:2.1.4.1}
+		Tutto il codice prodotto dovrà seguire le seguenti regole di stile:
+		\begin{itemize}
+			\item I nomi di variabili, metodi, funzioni e classi dovranno essere scritti in inglese.
+			\item I nomi delle classi dovranno rispettare le regole del \gl{CamelCase}.
+			\item I nomi di variabili, metodi e funzioni dovranno avere la prima lettera minuscola e l'iniziale di ogni altra parola contenuta nel nome in maiuscolo.
+			\item I commenti dovranno essere scritti in italiano.
+		\end{itemize}
