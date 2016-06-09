@@ -49,13 +49,13 @@
 } {
 	\end{itemize}
 }
-\newcommand{\classeDescrizione} [1] {
+\newcommand{\classeDescrizione} [1] { \\
 	\item \textbf{Descrizione}: {#1}
 }
-\newcommand{\classeUtilizzo} [1] {
+\newcommand{\classeUtilizzo} [1] { \\
 	\item \textbf{Utilizzo}: {#1}
 }
-\newenvironment{classeAttributi} [1] {
+\newenvironment{classeAttributi} [1] { \\
 	\item \textbf{Attributi}: {#1}
 	\begin{itemize}
 } {
@@ -78,7 +78,7 @@
 	\end{itemize}
 }
 \newcommand{\classeMetodoArgomento}[3]{\item \texttt{{#1} : {#2}} \\ {#3} }
-\newenvironment{classeRelazioni} {
+\newenvironment{classeRelazioni} { \\
 	\item \textbf{Relazioni con altre classi}:
 	\begin{itemize}
 } {
