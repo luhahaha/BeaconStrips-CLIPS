@@ -1,1 +1,17 @@
 \section{Descrizione architettura} 
+\label{architettura}
+	In questa sezione verrà descritta lo schema generale dell'architettura, nella sezione successiva % aggiungere label
+	verranno riportate tutti i packages e le classi dettagliatamente.
+	 Per i diagrammi delle classi e di attività è stato utilizzato il formalismo UML 2.0. \\
+	 L'architettura descritta in questo documento è ad alto livello. Classi, sottoclassi e attributi verranno descritti più dettagliatamente nel periodo in cui attueremo la Progettazione di dettaglio. \\
+	 Si procederà nella descrizione dell'architettura con un approccio top-down. Saranno descritte prima quindi le parti più generali per poi andare sempre più nello specifico. Si procederà quindi prima con la descizione dei packages e delle componenti, per poi passare alle singole classi. Successivamente verranno descritti i design pattern utilizzati.
+	
+	\subsection{Architettura generale}
+	L'architettura generale dell'applicazione segue il modello client - server. \\
+	In particolare si utilizzerà lo stile architetturale REST (representational state transfer) per coordinare compomenti, connettori e dati attraverso un sistema ipermediale distribuito dove l'attenzione è data al ruolo delle componenti.
+	
+	\begin{itemize}
+		\item \textbf{Vantaggi}: REST offre una interfaccia che separa il client dal server. Questa separazione 
+	\end{itemize}
+		
+		rest - A uniform interface separates clients from servers. This separation of concerns means that, for example, clients are not concerned with data storage, which remains internal to each server, so that the portability of client code is improved. Servers are not concerned with the user interface or user state, so that servers can be simpler and more scalable. Servers and clients may also be replaced and developed independently, as long as the interface between them is not altered.

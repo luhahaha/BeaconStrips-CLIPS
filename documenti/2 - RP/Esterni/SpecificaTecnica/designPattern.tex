@@ -18,13 +18,14 @@
 				\item \textbf{la vista} che contiene le classi che permettono all'utente di visualizzare i dati e di interagire con il modello;
 				\item \textbf{il controllore} che si occupa di fare da tramite tra vista e modello, ovvero riceve i comandi dell'utente attraverso la vista e va a cambiare lo stato del modello di conseguenza, successivamente aggiorna la vista.				
 			\end{itemize}
-			% immagine generale
 			
 			\item \textbf{Vantaggi} \\
 			Questo pattern architetturale permette il riuso del codice in quanto molte parti di lavoro sono indipendenti. Ad esempio il modello creato potrà essere utilizzato con diverse viste. \\ Grazie all'indipendenza di alcune parti è semplice dividere il lavoro tra più componenti di un team e sarà quindi più facile anche la manutenzione.
 			\utilizzo \\
 			Nel nostro progetto il pattern MVC è usato nella parte client dell'architettura. 
 		\end{itemize}
+		
+		\newpage
 		
 \subsection{Pattern creazionali}
 	\subsubsection{Abstract Factory}
@@ -45,6 +46,11 @@
 			\utilizzo \\ 
 			Nel nostro progetto abbiamo utilizzato questo design pattern per modellare i tipi di quiz che vengono proposti agli utenti. Abbiamo infatti deciso di utilizzare solo due famiglie di quiz, quindi vi è la necessità di avere modo in futuro di ampliare le tipologie di quiz disponibili in modo semplice ed efficace.
 			
-			% immagine diagramma nostro
+			\begin{figure}[!h]
+				\centering
+				\includegraphics[scale=0.4]{img/our_abstract_factory}  
+				\caption{Utilizzo di Abstract Factory nel progetto}
+			\end{figure}
+			
 		\end{itemize}
 		
