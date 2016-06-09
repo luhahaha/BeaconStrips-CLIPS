@@ -5,8 +5,8 @@
 \caption{Caso d'uso UC1 - Login}
  \end{figure}
 \desc{l'utente effettua il login con le proprie credenziali.}\\\\
-\pre{l'utente è registrato presso il database.}\\\\
-\post{l'utente è autenticato.}\\\\
+\pre{l'utente � registrato presso il database.}\\\\
+\post{l'utente � autenticato.}\\\\
 \scen{\begin{itemize}
 \item \UC{UC1.1} l'utente inserisce l'email;
 \item \UC{UC1.2} l'utente inserisce la password;
@@ -69,8 +69,7 @@
 \includegraphics[scale=0.2]{img/UC3_1.png}
 \caption{Caso d'uso UC3.1 - Gioca}
  \end{figure}
-\desc{l'utente si trova in un luogo abilitato, scarica un percorso e lo conclude
-.}\\\\
+\desc{l'utente si trova in un luogo abilitato, scarica un percorso e lo conclude.}\\\\
 \pre{l'utente ha scelto un percorso.}\\\\
 \post{l'utente completa tutte le prove.}\\\\
 \scen{\begin{itemize}
@@ -103,17 +102,17 @@
 \att{Utente.}
 
 \casoduso{UC3.1.2.1}{Visualizza istruzioni prova}
-\desc{l'utente visualizza le informazioni che deve sapere in preparazione alla prova, solitamente le istruzioni (questo punto il tempo per la prova non scorre ancora).}\\\\
+\desc{l'utente visualizza le informazioni che deve sapere in preparazione alla prova, solitamente le istruzioni (il tempo per la prova non scorre ancora).}\\\\
 \pre{l'utente è in procinto di iniziare la prova.}\\\\
 \post{l'utente ha ricevuto informazioni su come procedere per la prova.}\\\\
-\scen{l'utente visualizza le informazioni che deve sapere in preparazione alla prova, solitamente le istruzioni (questo punto il tempo per la prova non scorre ancora).}\\\\
+\scen{l'utente visualizza le informazioni che deve sapere in preparazione alla prova, solitamente le istruzioni (il tempo per la prova non scorre ancora).}\\\\
 \att{Utente.}
 
 \casoduso{UC3.1.2.2}{Svolgimento prova}
 \desc{l'utente svolge la prova prevista per la stazione.}\\\\
 \pre{l'utente ha visualizzato le informazioni necessarie allo svolgimento della prova.}\\\\
 \post{l'utente ha concluso la prova con successo.}\\\\
-\scen{l'utente svolge la prova prevista per la stazione}\\\\
+\scen{l'utente svolge la prova prevista per la stazione.}\\\\
 \att{Utente.}
 
 \casoduso{UC3.1.2.3}{Visualizza risultati prova}
@@ -340,25 +339,6 @@ percorso}
 \scen{l'utente inserisce il raggio di ricerca degli edifici abilitati.}\\\\
 \att{Utente.}
 
-\casoduso{UC8}{Cerca edifici per vicinanza}
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.2]{img/UC8.png}
-\caption{Caso d'uso UC8 - Cerca edifici per vicinanza}
- \end{figure}
-\desc{l'utente cerca gli edifici abilitati per vicinanza.}\\\\
-\pre{da aggiungere.}\\\\
-\post{da aggiungere.}\\\\
-\scen{l'utente cerca gli edifici abilitati per vicinanza.}\\\\
-\att{Utente.}
-
-\casoduso{UC8.1}{Inserisci numero di edifici vicini da visualizzare}
-\desc{l'utente inserisce il numero di edifici abilitati più vicini a lui che vuole visualizzare.}\\\\
-\pre{l'utente è alla ricerca degli edifici abilitati.}\\\\
-\post{l'utente ha inserito il numero di edifici abilitati più vicini che vuole visualizzare.}\\\\
-\scen{l'utente inserisce il numero di edifici abilitati più vicini a lui che vuole visualizzare.}\\\\
-\att{Utente.}
-
 \casoduso{UC9}{Visualizza lista edifici}
 \desc{l'utente visualizza la lista degli edifici abilitati.}\\\\
 \pre{l'utente ha cercato gli edifici.}\\\\
@@ -372,10 +352,10 @@ percorso}
 \includegraphics[scale=0.2]{img/UC10.png}
 \caption{Caso d'uso UC10 - Visualizza edificio}
  \end{figure}
-\desc{l'utente visuaizza i dettagli di un edificio abilitato.}\\\\
+\desc{l'utente visualizza i dettagli di un edificio abilitato.}\\\\
 \pre{l'utente ha visualizzato la lista degli edifici abilitati.}\\\\
 \post{l'utente ha visualizzato i dettagli di un edificio abilitato.}\\\\
-\scen{l'utente visuaizza i dettagli di un edificio abilitato. In particolare visualizza:
+\scen{l'utente visualizza i dettagli di un edificio abilitato. In particolare visualizza:
 \begin{itemize}
 \item l'indirizzo (\UC{UC10.1});
 \item l'indirizzo web dell' edificio (\UC{UC10.2});
@@ -469,7 +449,7 @@ percorso}
 \desc{l'utente inserisce l'indirizzo email con cui desidera registrarsi.}\\\\
 \pre{la connessione ad internet è attiva e l'App fornisce la pagina di registrazione.}\\\\
 \post{l'utente ha inserito la email.}\\\\
-\scen{L'utente inserisce il proprio indirizzo email per registrarsi.}\\\\
+\scen{l'utente inserisce il proprio indirizzo email per registrarsi.}\\\\
 \scensec{ESTENSIONE \begin{itemize}
 \item \UC{UC11.5} l'email inserita non è valida e viene visualizzato l'errore.
 \end{itemize}}\\\\
@@ -507,7 +487,7 @@ percorso}
 \desc{l'utente inserisce l'username con cui desidera registrarsi.}\\\\
 \pre{la connessione ad internet è attiva e l'App fornisce la pagina di registrazione.}\\\\
 \post{l'utente ha inserito l'username.}\\\\
-\scen{L'utente inserisce l'username con cui desidera registrarsi.}\\\\
+\scen{l'utente inserisce l'username con cui desidera registrarsi.}\\\\
 \scensec{ESTENSIONE \begin{itemize}
 \item \UC{UC11.6} l'username inserito è già in uso e viene visualizzato l'errore.
 \end{itemize}}\\\\
@@ -525,11 +505,11 @@ percorso}
 
 \casoduso{UC11.4}{Reinserimento nuova password}
 \desc{l'utente reinserisce la nuova password.}\\\\
-\pre{l'utente si trova nella pagine di registrazione.}\\\\
+\pre{l'utente si trova nella pagina di registrazione.}\\\\
 \post{l'utente ha reniserito la nuova password.}\\\\
 \scen{l'utente reinserisce la nuova password.}\\\\
 \scensec{ESTENSIONE \begin{itemize}
-\item \UC{UC11.12}la password reinserita non coincide con la nuova password e viene visualizzato l'errore.
+\item \UC{UC11.12}: la password reinserita non coincide con la nuova password e viene visualizzato l'errore.
 \end{itemize}}\\\\
 \att{Utente non autenticato.}
 
@@ -541,10 +521,10 @@ percorso}
 \att{Utente non autenticato.}
 
 \casoduso{UC11.6}{Visualizza errore inserimento email non valida}
-\desc{l'utente visualizza un messaggio d'errore perché ha inserito un'email  non valida che non soddisfa il \Req{1.2.7.1.1}.}\\\\
+\desc{l'utente visualizza un messaggio d'errore perché ha inserito un'email  non valida che non soddisfa il \Req{R0F1.2.7.1.1}.}\\\\
 \pre{l'utente ha inserito un'email non valida.}\\\\
 \post{l'utente viene notificato di aver inserito un'email non valida.}\\\\
-\scen{l'utente visualizza un messaggio d'errore perché ha inserito un'email  non valida che non soddisfa il \Req{1.2.7.1.1}.}\\\\
+\scen{l'utente visualizza un messaggio d'errore perché ha inserito un'email  non valida che non soddisfa il \Req{R0F1.2.7.1.1}.}\\\\
 \att{Utente non autenticato.}
 
 \casoduso{UC11.7}{Visualizza errore inserimento email già in uso}
@@ -595,9 +575,9 @@ percorso}
 \post{l'utente ha visualizzato i percorsi salvati.}\\\\
 \scen{l'utente visualizza la lista dei percorsi salvati.}\\\\
 \scensec{ESTENSIONE: \begin{itemize}
-\item UC{UC17} l'utente non è autenticato e visualizza l'invito ad autenticarsi per visualizzare la lista dei percorsi salvati;
-\item UC{UC18} l'utente visualizza l'invito a registrarsi per poi autenticarsi e visualizzare la lista dei percorsi salvati;
-\item UC{UC19} l'utente non ha alcun percorso salvato e visualizza l'invito a svolgerene almeno uno.
+\item \UC{UC17} l'utente non è autenticato e visualizza l'invito ad autenticarsi per visualizzare la lista dei percorsi salvati;
+\item \UC{UC18} l'utente visualizza l'invito a registrarsi per poi autenticarsi e visualizzare la lista dei percorsi salvati;
+\item \UC{UC19} l'utente non ha alcun percorso salvato e visualizza l'invito a svolgerene almeno uno.
 \end{itemize}}\\\\
 \att{Utente.}
 
@@ -658,3 +638,27 @@ percorso}
 \post{l'utente ha confermato l'inserimento della mail per il recupero delle credenziali.}\\\\
 \scen{l'utente conferma l'email che ha inserito per il recupero delle credenziali.}\\\\
 \att{Utente non autenticato.}
+
+\casoduso{UC21}{Visualizza percorsi disponibili}
+\desc{l'utente visualizza i percorsi disponibili nell'edificio in cui si trova.}\\\\
+\pre{l'utente ha attivato i servizi di localizzazione, bluetooth e la connessione ad Internet; l'utente è in un edificio abilitato; l'utente è in prossimità di un beacon.}\\\\
+\post{l'utente ha visualizzato la lista dei percorsi disponibili.}\\\\
+\scen{l'utente visualizza i percorsi disponibili nell'edificio in cui si trova}\\\\
+\att{Utente.}
+
+\casoduso{UC22}{Visualizza lista dei percorsi percorsi}
+\desc{l'utente visualizza la lista dei percorsi presenti nell'edificio.}\\\\
+\pre{l'utente ha i servizi di localizzazione, bluetooth e connessione a Internet attivi.}\\\\
+\post{l'utente ha visualizzato i percorsi presenti nell'edificio.}\\\\
+\scen{l'utente visualizza la lista dei percorsi presenti nell'edificio}\\\\
+\att{Utente.}
+
+\casoduso{UC23}{Visualizza percorso}
+\desc{l'utente visualizza i dettagli di un percorso.}\\\\
+\pre{l'utente ha visualizzato la lista degli edifici.}\\\\
+\post{l'utente ha visualizzato i dettagli di un percorso.}\\\\
+\scen{l'utente visualizza i dettagli di un percorso e se si trova nell'edificio del percorso può:
+\begin{itemize}
+\item UC{UC3} iniziare a svolgere il percorso.
+\end{itemize}}\\\\
+\att{Utente.}
