@@ -6,6 +6,11 @@
 \end{compPackageContenuti}
 \end{componente}
 \begin{componente}{CLIPS::client}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client.png}
+\caption{Schema package client}
+ \end{figure}
 \compDescrizione{componente globale per il front end del prodotto che utilizza il design pattern \gl{MVC}. Si occupa di fornire un'interfaccia grafica dell'applicazione e di interagire con il lato server.}
 \compPadre{CLIPS}
 \begin{compPackageContenuti}
@@ -17,6 +22,11 @@
 \end{compPackageContenuti}
 \end{componente}
 \begin{componente}{CLIPS::client::authentication}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication.png}
+\caption{Schema package client::viewcontroller::authentication}
+ \end{figure}
 \compDescrizione{componente che si occupa di gestire l'autenticazione dell'utente}
 \compPadre{client}
 \begin{compClassi} \\
@@ -43,9 +53,9 @@
 \end{classe}\begin{classe}{CLIPS::client::authentication::ForgotPasswordView}
 \classeDescrizione{classe che si occupa della visualizzazione della schermata per la richiesta di una nuova password}
 \classeUtilizzo{consente all'utente di inserire la mail per ricevere una nuova password}
-\begin{classeAttributi}
-\classeAttributo{emailTextField}{TextField}{text field dell'email}
-\end{classeAttributi}
+%\begin{classeAttributi}
+%\classeAttributo{emailTextField}{TextField}{text field dell'email}
+%\end{classeAttributi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::authentication}{ForgotPasswordViewDelegate}{interfaccia per segnalare gli eventi della classe ForgotPasswordView}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::authentication::ForgotPasswordViewDelegate}
@@ -61,13 +71,13 @@
 \end{classe}\begin{classe}{CLIPS::client::authentication::LoginView}
 \classeDescrizione{classe che si occupa della visualizzazione della schermata per il login}
 \classeUtilizzo{consente all'utente di inserire i propri dati per effettuare il login}
-\begin{classeAttributi}
-\classeAttributo{emailTextField}{string}{rappresenta l'email}
-\end{classeAttributi}
-\begin{classeMetodi}
-\classeMetodo{forgotPasswordPressed()}{}{void}{invia un evento il quale notifica che il bottone di password dimenticata è stato premuto}
-\classeMetodo{loginButtonPressed()}{}{void}{invia un evento di bottone del login premuto}
-\end{classeMetodi}
+%\begin{classeAttributi}
+%\classeAttributo{emailTextField}{string}{rappresenta l'email}
+%\end{classeAttributi}
+%\begin{classeMetodi}
+%\classeMetodo{forgotPasswordPressed()}{}{void}{invia un evento il quale notifica che il bottone di password dimenticata è stato premuto}
+%\classeMetodo{loginButtonPressed()}{}{void}{invia un evento di bottone del login premuto}
+%\end{classeMetodi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::authentication}{LoginViewDelegate}{interfaccia per segnalare gli eventi della classe LoginView}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::authentication::LoginViewDelegate}
@@ -108,142 +118,208 @@
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::data}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--data.png}
+\caption{Schema package client::data}
+ \end{figure}
 \compDescrizione{package per la gestione in locale dei dati}
 \compPadre{client}
 \begin{compPackageContenuti}
 \item CLIPS::client::data::datamanager: componente che gestisce i dati in locale
+\item CLIPS::client::data::urlrequest: componente che si occupa di effettuare le richieste al server
 \end{compPackageContenuti}
 \begin{compClassi} \\
-\begin{classe}{CLIPS::client::data::AppInfo}
+\begin{classe}{CLIPS::client::data::AbstractImageQuiz}
+\classeDescrizione{classe astratta per la creazione di quiz con immagine}
+\classeUtilizzo{consente di creare un quiz con immagine}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{AbstractQuiz}{interfaccia per la creazione delle classi astratte}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::data::AbstractQuiz}
+\classeDescrizione{interfaccia per la creazione delle classi astratte}
+\classeUtilizzo{permette di creare le classi astratte}
+\end{classe}\begin{classe}{CLIPS::client::data::AbstractTextQuiz}
+\classeDescrizione{classe astratta per la creazione di quiz con testo}
+\classeUtilizzo{consente di creare un quiz con testo}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{AbstractQuiz}{interfaccia per la creazione delle classi astratte}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::data::AppInfo}
 \classeDescrizione{classe per la rappresentazione delle informazioni dell'applicazione}
 \classeUtilizzo{permette di salvare le informazioni generali relative all'applicazione}
 \end{classe}\begin{classe}{CLIPS::client::data::Beacon}
 \classeDescrizione{classe che rappresenta un beacon in locale}
 \classeUtilizzo{permette di salvere in locale le informazioni di un beacon}
-\begin{classeAttributi}
-\classeAttributo{id}{int}{rappresenta il codice identificativo}
-\classeAttributo{major}{int}{rappresenta il parametro major di un beacon}
-\classeAttributo{minor}{int}{rappresenta il parametro minor di un beacon}
-\classeAttributo{UUID}{string}{rappresenta il codice UUID di un beacon}
-\end{classeAttributi}
-\begin{classeMetodi}
-\classeMetodo{Beacon(id:int,UUID:string,major:int,minor:int)}{id, major, minor, UUID}{void}{costruttore della classe beacon}
-\begin{classeMetodoArgomenti}
-\classeMetodoArgomento{id}{int}{codice identificativo}
-\classeMetodoArgomento{major}{int}{parametro major del beacon}
-\classeMetodoArgomento{minor}{int}{parametro minor del beacon}
-\classeMetodoArgomento{UUID}{string}{codice UUID}
-\end{classeMetodoArgomenti}
-\end{classeMetodi}
-\end{classe}\begin{classe}{CLIPS::client::data::BiggerShapeGame}
-\classeDescrizione{*da aggiungere*}
-\classeUtilizzo{*da aggiungere*}
+%\begin{classeAttributi}
+%\classeAttributo{id}{int}{rappresenta il codice identificativo}
+%\classeAttributo{major}{int}{rappresenta il parametro major di un beacon}
+%\classeAttributo{minor}{int}{rappresenta il parametro minor di un beacon}
+%\classeAttributo{UUID}{string}{rappresenta il codice UUID di un beacon}
+%\end{classeAttributi}
+%\begin{classeMetodi}
+%\classeMetodo{Beacon(id:int,UUID:string,major:int,minor:int)}{id, major, minor, UUID}{void}{costruttore della classe beacon}
+%\begin{classeMetodoArgomenti}
+%\classeMetodoArgomento{id}{int}{codice identificativo}
+%\classeMetodoArgomento{major}{int}{parametro major del beacon}
+%\classeMetodoArgomento{minor}{int}{parametro minor del beacon}
+%\classeMetodoArgomento{UUID}{string}{codice UUID}
+%\end{classeMetodoArgomenti}
+%\end{classeMetodi}
 \end{classe}\begin{classe}{CLIPS::client::data::Building}
 \classeDescrizione{classe che rappresenta un edificio}
 \classeUtilizzo{permette di memorizzare i dati di un edificio in locale}
-\begin{classeAttributi}
-\classeAttributo{address}{string}{indica l'indirizzo dell'edificio}
-\classeAttributo{description}{string}{rappresenta una breve descrizione dell'edificio}
-\classeAttributo{email}{string}{rappresenta l'indirizzo email dell'edificio}
-\classeAttributo{facebook}{string}{indica l'indirizzo facebook dell'edificio}
-\classeAttributo{id}{int}{identifica l'edificio univocamente}
-\classeAttributo{latitude}{double}{rappresenta la latitudine dell'edificio}
-\classeAttributo{longitude}{double}{rappresenta la longitudine dell'edificio}
-\classeAttributo{name}{string}{indica il nome dell'edificio}
-\classeAttributo{openingTime}{void}{rappresenta gli orari di apertura dell'edificio}
-\classeAttributo{otherInfos}{string}{contiene informazioni aggiuntive sull'edificio}
-\classeAttributo{pathsInfos}{void}{fornisce informazioni sui percorsi dell'edificio}
-\classeAttributo{telegram}{string}{rappresenta il contatto telegram dell'edificio}
-\classeAttributo{telephone}{string}{indica il numero di telefono dell'edificio}
-\classeAttributo{twitter}{string}{rappresenta l'indirizzo twitter dell'edificio}
-\classeAttributo{webSiteURL}{string}{indica l'indirizzo web dell'edificio}
-\classeAttributo{whatsapp}{string}{indica il contatto whatsapp dell'edificio}
-\end{classeAttributi}
-\end{classe}\begin{classe}{CLIPS::client::data::ImageQuestionAnswer}
-\classeDescrizione{classe che rappresenta una risposta tramite immagine}
-\classeUtilizzo{permette di creare una risposta con immagine da far visualizzare}
-\end{classe}\begin{classe}{CLIPS::client::data::ImageQuiz}
-\classeDescrizione{classe che rappresenta un quiz  visivo}
-\classeUtilizzo{permette di creare un quiz che utilizza immagini}
+%\begin{classeAttributi}
+%\classeAttributo{address}{string}{indica l'indirizzo dell'edificio}
+%\classeAttributo{description}{string}{rappresenta una breve descrizione dell'edificio}
+%\classeAttributo{email}{string}{rappresenta l'indirizzo email dell'edificio}
+%\classeAttributo{facebook}{string}{indica l'indirizzo facebook dell'edificio}
+%\classeAttributo{id}{int}{identifica l'edificio univocamente}
+%\classeAttributo{latitude}{double}{rappresenta la latitudine dell'edificio}
+%\classeAttributo{longitude}{double}{rappresenta la longitudine dell'edificio}
+%\classeAttributo{name}{string}{indica il nome dell'edificio}
+%\classeAttributo{openingTime}{void}{rappresenta gli orari di apertura dell'edificio}
+%\classeAttributo{otherInfos}{string}{contiene informazioni aggiuntive sull'edificio}
+%\classeAttributo{pathsInfos}{void}{fornisce informazioni sui percorsi dell'edificio}
+%\classeAttributo{telegram}{string}{rappresenta il contatto telegram dell'edificio}
+%\classeAttributo{telephone}{string}{indica il numero di telefono dell'edificio}
+%\classeAttributo{twitter}{string}{rappresenta l'indirizzo twitter dell'edificio}
+%\classeAttributo{webSiteURL}{string}{indica l'indirizzo web dell'edificio}
+%\classeAttributo{whatsapp}{string}{indica il contatto whatsapp dell'edificio}
+%\end{classeAttributi}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{PathInfo}{classe che si occupa di salvare in locale le informazioni generali di un percorso}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::data::ConcreteMultipleChoice}
+\classeDescrizione{classe che rappresenta un test a scelta multipla}
+\classeUtilizzo{permette di creare un test a scelta multipla}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{MultipleChoiceImage}{classe che rappresenta un test a scelta multipla con immagine}\classeRelazione{CLIPS::client::data}{MultipleChoiceText}{classe che rappresenta un test a scelta multipla con testo}\classeRelazione{CLIPS::client::data}{TestFactory}{interfaccia per costruire i test}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::data::ConcreteTrueFalse}
+\classeDescrizione{classe che rappresenta un test true false}
+\classeUtilizzo{permette di creare un test true false}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{MultipleChoiceImage}{classe che rappresenta un test a scelta multipla con immagine}\classeRelazione{CLIPS::client::data}{TestFactory}{interfaccia per costruire i test}\classeRelazione{CLIPS::client::data}{TestFactory}{interfaccia per costruire i test}\classeRelazione{CLIPS::client::data}{TrueFalseImage}{classe che rappresenta un test true false con immagine}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::LeaderBoard}
 \classeDescrizione{classe che rappresenta la classifica di un percorso}
 \classeUtilizzo{consente di salvare i dati della classifica in locale}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{Score}{classe che rappresenta il punteggio di un utente}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::LinearScoringAlgorithm}
 \classeDescrizione{classe per calcolare il punteggio di una prova}
 \classeUtilizzo{si occupa di calcolare il punteggio utilizzando un algoritmo lineare}
-\begin{classeAttributi}
-\classeAttributo{accuracyWeight}{double}{indica l'incidenza dell'accuratezza rispetto alla risposta}
-\classeAttributo{maxScore}{int}{indica il punteggio massimo}
-\classeAttributo{maxTime}{double}{indica il tempo massimo}
-\classeAttributo{minScore}{int}{indica il punteggio minimo}
-\classeAttributo{minTime}{double}{indica il tempo minimo}
-\classeAttributo{timeWeight}{double}{indica l'incidenza del tempo nel calcolo del punteggio}
-\end{classeAttributi}
-\begin{classeMetodi}
-\classeMetodo{getScore}{correct, total}{int}{fornisce il punteggio ottenuto nella prova}
-\begin{classeMetodoArgomenti}
-\classeMetodoArgomento{correct}{int}{indica il numero di risposte corrette}
-\classeMetodoArgomento{total}{int}{*da aggiungere*}
-\end{classeMetodoArgomenti}
-\end{classeMetodi}
+%\begin{classeAttributi}
+%\classeAttributo{accuracyWeight}{double}{indica l'incidenza dell'accuratezza rispetto alla risposta}
+%\classeAttributo{maxScore}{int}{indica il punteggio massimo}
+%\classeAttributo{maxTime}{double}{indica il tempo massimo}
+%\classeAttributo{minScore}{int}{indica il punteggio minimo}
+%\classeAttributo{minTime}{double}{indica il tempo minimo}
+%\classeAttributo{timeWeight}{double}{indica l'incidenza del tempo nel calcolo del punteggio}
+%\end{classeAttributi}
+%\begin{classeMetodi}
+%\classeMetodo{getScore}{correct, total}{int}{fornisce il punteggio ottenuto nella prova}
+%\begin{classeMetodoArgomenti}
+%\classeMetodoArgomento{correct}{int}{indica il numero di risposte corrette}
+%\classeMetodoArgomento{total}{int}{*da aggiungere*}
+%\end{classeMetodoArgomenti}
+%\end{classeMetodi}
 \end{classe}\begin{classe}{CLIPS::client::data::LoggedUser}
 \classeDescrizione{classe che si occupa di memorizzare in locale i dati dell'utente loggato}
 \classeUtilizzo{permette il salvataggio in locale dei dati di un utente loggato}
+\end{classe}\begin{classe}{CLIPS::client::data::MultipleChoiceImage}
+\classeDescrizione{classe che rappresenta un test a scelta multipla con immagine}
+\classeUtilizzo{permette di creare un test a scelta multipla con immagine}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{AbstractImageQuiz}{classe astratta per la creazione di quiz con immagine}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::data::MultipleChoiceText}
+\classeDescrizione{classe che rappresenta un test a scelta multipla con testo}
+\classeUtilizzo{permette di creare un test a scelta multipla con testo}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{AbstractTextQuiz}{classe astratta per la creazione di quiz con testo}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::Path}
 \classeDescrizione{classe che si occupa di salvare in locale i dati riguardanti un percorso}
 \classeUtilizzo{permette di salvare i dati di un percorso in locale}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{StepServer}{}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::PathInfo}
 \classeDescrizione{classe che si occupa di salvare in locale le informazioni generali di un percorso}
 \classeUtilizzo{consente di salvare in locale le informazioni generali di un percorso}
 \end{classe}\begin{classe}{CLIPS::client::data::PathProgress}
 \classeDescrizione{classe per il salvataggio in locale del progresso di un percorso}
 \classeUtilizzo{permette di salvare in locale i risultati delle prove durante lo svolgimento del percorso}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{Path}{classe che si occupa di salvare in locale i dati riguardanti un percorso}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::PathResult}
 \classeDescrizione{classe che rappresenta i risultati di un percorso}
 \classeUtilizzo{permette di salvare i dati di un percorso in locale}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{Path}{classe che si occupa di salvare in locale i dati riguardanti un percorso}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::Proof}
 \classeDescrizione{classe che rappresenta una prova del percorso}
 \classeUtilizzo{salva in locale i dati della prova da far visualizzare all'utente}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{LinearScoringAlgorithm}{classe per calcolare il punteggio di una prova}\classeRelazione{CLIPS::client::data}{ScoringAlgorithmFactory}{classe base per la creazione degli algoritmi}\classeRelazione{CLIPS::client::data}{TestFactory}{interfaccia per costruire i test}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::ProofResult}
 \classeDescrizione{classe che rappresenta il risultato di una prova}
 \classeUtilizzo{permette di salvare in locale il risultato di una prova}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{PathProgress}{classe per il salvataggio in locale del progresso di un percorso}\classeRelazione{CLIPS::client::data}{PathResult}{classe che rappresenta i risultati di un percorso}\classeRelazione{CLIPS::client::data}{Proof}{classe che rappresenta una prova del percorso}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::Proximity}
 \classeDescrizione{classe che rappresenta in locale un beacon indicato alla segnalazione della distanza dalla prossima prova}
-\classeUtilizzo{consente di salvare, un beacon e la sua distanza, dal beacon della prossima prova}
-\end{classe}\begin{classe}{CLIPS::client::data::QuestionAnswer}
-\classeDescrizione{classe che contiene la domanda e le risposte di un quiz}
-\classeUtilizzo{salva in locale la domanda e le risposte da mostrare all'utente}
+\classeUtilizzo{consente di salvare un beacon e la sua distanza dal beacon della prossima prova}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{Building}{classe che rappresenta un edificio}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::Quiz}
 \classeDescrizione{classe che rappresenta un quiz}
 \classeUtilizzo{viene utilizzata per salvare i dati del quiz}
-\begin{classeAttributi}
-\classeAttributo{playerHasOneAttempt}{bool}{indica se il giocatore ha un solo tentativo per il quiz}
-\classeAttributo{qas}{void}{*da aggiungere*}
-\end{classeAttributi}
+%\begin{classeAttributi}
+%\classeAttributo{playerHasOneAttempt}{bool}{indica se il giocatore ha un solo tentativo per il quiz}
+%\classeAttributo{qas}{void}{*da aggiungere*}
+%\end{classeAttributi}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{Test}{classe che rappresenta un test}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::Score}
 \classeDescrizione{classe che rappresenta il punteggio di un utente}
 \classeUtilizzo{permette di memorizzare i dati del punteggio di un utente}
 \end{classe}\begin{classe}{CLIPS::client::data::ScoringAlgorithmFactory}
 \classeDescrizione{classe base per la creazione degli algoritmi}
 \classeUtilizzo{fornisce il metodo per la creazione di algoritmi per il calcolo dei punteggi}
-\begin{classeMetodi}
-\classeMetodo{createScoringAlgorithm}{algorithmData}{void}{si occupa di creare l'algoritmo per calcolare il punteggio}
-\begin{classeMetodoArgomenti}
-\classeMetodoArgomento{algorithmData}{void}{*da aggiungere*}
-\end{classeMetodoArgomenti}
-\end{classeMetodi}
+%\begin{classeMetodi}
+%\classeMetodo{createScoringAlgorithm}{algorithmData}{void}{si occupa di creare l'algoritmo per calcolare il punteggio}
+%\begin{classeMetodoArgomenti}
+%\classeMetodoArgomento{algorithmData}{void}{*da aggiungere*}
+%\end{classeMetodoArgomenti}
+%\end{classeMetodi}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{LinearScoringAlgorithm}{classe per calcolare il punteggio di una prova}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::Step}
 \classeDescrizione{classe che rappresenta in locale lo spostamento da una prova a quella successiva}
 \classeUtilizzo{permette di salvare in locale le informazioni che rappresentano la ricerca della nuova prova}
 \end{classe}\begin{classe}{CLIPS::client::data::Test}
 \classeDescrizione{classe che rappresenta un test}
 \classeUtilizzo{vengono salvati in locale i dati del test}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{AbstractQuiz}{interfaccia per la creazione delle classi astratte}\classeRelazione{CLIPS::client::data}{Proof}{classe che rappresenta una prova del percorso}\classeRelazione{CLIPS::client::data}{TestFactory}{interfaccia per costruire i test}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::TestFactory}
-\classeDescrizione{classe per costruire i test}
-\classeUtilizzo{viene utilizzata per costruire i test dei percorsi}
+\classeDescrizione{interfaccia per costruire i test}
+\classeUtilizzo{viene utilizzata per costruire i test concreti}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{Test}{classe che rappresenta un test}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::data::TrueFalseImage}
+\classeDescrizione{classe che rappresenta un test true false con immagine}
+\classeUtilizzo{permette di creare un test true false con immagine}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{AbstractImageQuiz}{classe astratta per la creazione di quiz con immagine}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::data::TrueFalseText}
+\classeDescrizione{classe che rappresenta un test true false con testo}
+\classeUtilizzo{permette di creare un test true false con testo}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{AbstractTextQuiz}{classe astratta per la creazione di quiz con testo}\end{classeRelazioni}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::data::datamanager}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--datamanager.png}
+\caption{Schema package client::datamanager}
+ \end{figure}
 \compDescrizione{componente che gestisce i dati in locale}
 \compPadre{data}
 \begin{compClassi} \\
@@ -329,52 +405,116 @@
 \classeRelazione{CLIPS::client::data::datamanager}{SaveDataManager}{classe astratta per il salvataggio di dati nel server}\end{classeRelazioni}
 \end{classe}\end{compClassi}
 \end{componente}
+\begin{componente}{CLIPS::client::data::urlrequest}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--urlrequest.png}
+\caption{Schema package client::urlrequest}
+ \end{figure}
+\compDescrizione{componente che si occupa di effettuare le richieste al server}
+\compPadre{data}
+\begin{compClassi} \\
+\begin{classe}{CLIPS::client::data::urlrequest::AppInfoRequest}
+\classeDescrizione{classe per la richiesta di dati sulle info dell'app}
+\classeUtilizzo{permette di effettuare una richiesta al server di dati sulle info dell'app}
+\end{classe}\begin{classe}{CLIPS::client::data::urlrequest::BuildingRequest}
+\classeDescrizione{classe per la richiesta di dati sugli edifici}
+\classeUtilizzo{permette di effettuare una richiesta al server di dati sugli edifici}
+\end{classe}\begin{classe}{CLIPS::client::data::urlrequest::DiscoveryUUIDRequest}
+\classeDescrizione{classe per la richiesta di un ricerca di un beacon}
+\classeUtilizzo{permette di effettuare richieste di ricerca di un beacon}
+\end{classe}\begin{classe}{CLIPS::client::data::urlrequest::GetResultsRequest}
+\classeDescrizione{classe per la richiesta di risultati}
+\classeUtilizzo{permette di effettuare richiest di dati dei risultati}
+\end{classe}\begin{classe}{CLIPS::client::data::urlrequest::HTTPMethod}
+\classeDescrizione{classe che dichiara i metodi per le chiamate REST}
+\classeUtilizzo{dichiara i metodi per le chiamate REST}
+\end{classe}\begin{classe}{CLIPS::client::data::urlrequest::LoginRequest}
+\classeDescrizione{classe per la richiesta di login}
+\classeUtilizzo{permette di effettuare una richiesta di login}
+\end{classe}\begin{classe}{CLIPS::client::data::urlrequest::LogoutRequest}
+\classeDescrizione{classe per la richiesta di logout}
+\classeUtilizzo{permette di effettuare una richiesta di logout}
+\end{classe}\begin{classe}{CLIPS::client::data::urlrequest::PathRequest}
+\classeDescrizione{classe per la richiesta di dati sui percorsi}
+\classeUtilizzo{permette di richiedere dati sui percorsi}
+\end{classe}\begin{classe}{CLIPS::client::data::urlrequest::RegistrationRequest}
+\classeDescrizione{classe per la richiesta di registrazione}
+\classeUtilizzo{permette di effettuare una richiesta di registrazione}
+\end{classe}\begin{classe}{CLIPS::client::data::urlrequest::RequestMaker}
+\classeDescrizione{classe per la costruzione e l'invio di richieste al server}
+\classeUtilizzo{permette la costruzione e l'invio di richieste al server}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data::urlrequest}{AppInfoRequest}{classe per la richiesta di dati sulle info dell'app}\classeRelazione{CLIPS::client::data::urlrequest}{BuildingRequest}{classe per la richiesta di dati sugli edifici}\classeRelazione{CLIPS::client::data::urlrequest}{DiscoveryUUIDRequest}{classe per la richiesta di un ricerca di un beacon}\classeRelazione{CLIPS::client::data::urlrequest}{GetResultsRequest}{classe per la richiesta di risultati}\classeRelazione{CLIPS::client::data::urlrequest}{LoginRequest}{classe per la richiesta di login}\classeRelazione{CLIPS::client::data::urlrequest}{LogoutRequest}{classe per la richiesta di logout}\classeRelazione{CLIPS::client::data::urlrequest}{PathRequest}{classe per la richiesta di dati sui percorsi}\classeRelazione{CLIPS::client::data::urlrequest}{RegistrationRequest}{classe per la richiesta di registrazione}\classeRelazione{CLIPS::client::data::urlrequest}{SaveResultRequest}{classe per la richiesta di salvataggio di un risultato}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::data::urlrequest::SaveResultRequest}
+\classeDescrizione{classe per la richiesta di salvataggio di un risultato}
+\classeUtilizzo{permette di effettuare una richiesta di salvataggio di un risultato}
+\end{classe}\begin{classe}{CLIPS::client::data::urlrequest::URLRequest}
+\classeDescrizione{classe che si occupa delle richieste dell'URL al server}
+\classeUtilizzo{permette di richiedere l'URL interessato}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data::urlrequest}{HTTPMethod}{classe che dichiara i metodi per le chiamate REST}\classeRelazione{CLIPS::client::data::urlrequest}{URLRequestCallback}{classe che gestisce le callback per le richieste di URL}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::data::urlrequest::URLRequestCallback}
+\classeDescrizione{classe che gestisce le callback per le richieste di URL}
+\classeUtilizzo{permette di effettuare al URLRequest di effettuare delle callback}
+\end{classe}\end{compClassi}
+\end{componente}
 \begin{componente}{CLIPS::client::location}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--location.png}
+\caption{Schema package client::location}
+ \end{figure}
 \compDescrizione{componente che gestisce l'individuazione e la lettura dei beacon}
 \compPadre{client}
 \begin{compClassi} \\
 \begin{classe}{CLIPS::client::location::BeaconMonitor}
-\classeDescrizione{*da aggiungere*}
-\classeUtilizzo{*da aggiungere*}
+\classeDescrizione{classe che si occupa di monitorare la scoperta di nuovi beacon e l'allontanamento da beacon presenti}
+\classeUtilizzo{PathLocationManager ne crea un'istanza e imposta se stesso come il suo delegate per essere notificato quando nuovi beacon entrano nel raggio del dispositivo}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::location}{BeaconMonitorDelegate}{*da aggiungere*}\classeRelazione{CLIPS::client::location}{LocationMonitor<DelegateType,RegionType>}{*da aggiungere*}\classeRelazione{CLIPS::client::location}{RawRegion}{*da aggiungere*}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::location}{BeaconMonitorDelegate}{interfaccia che devono implementare le classi che desiderano essere notificate dal BeaconMonitor}\classeRelazione{CLIPS::client::location}{LocationMonitor<DelegateType,RegionType>}{gli oggetti della classe LocationMonitor si occupano di monitorare quando il dispositivo entra od esce da una regione di tipo RegionType e notificano di ci� un oggetto di tipo DelegateType}\classeRelazione{CLIPS::client::location}{RawRegion}{oggetto che rappresenta una regione geografica circolare}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::location::BeaconMonitorDelegate}
-\classeDescrizione{*da aggiungere*}
-\classeUtilizzo{*da aggiungere*}
+\classeDescrizione{interfaccia che devono implementare le classi che desiderano essere notificate dal BeaconMonitor}
+\classeUtilizzo{le classi che desiderano essere informate quando vengono scoperti nuovi beacon o quando un beacon noto esce dal raggio del dispositivo devono implementare questa interfaccia per permettere al BeaconMonitor di notificarle}
 \end{classe}\begin{classe}{CLIPS::client::location::GPSMonitor}
-\classeDescrizione{*da aggiungere*}
-\classeUtilizzo{*da aggiungere*}
+\classeDescrizione{classe che si occupa di monitorare l'ingresso o l'uscita in una regione geografica registrata}
+\classeUtilizzo{PathLocationManager ne può creare un'istanza e può impostare se stesso come il suo delegate per essere notificato quando l'utente entra od esce da una regione geografica registrata}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::location}{GPSMonitorDelegate}{interfaccia per segnalare gli eventi della classe GPSMonitor}\classeRelazione{CLIPS::client::location}{LocationMonitor<DelegateType,RegionType>}{*da aggiungere*}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::location}{GPSMonitorDelegate}{interfaccia per segnalare gli eventi della classe GPSMonitor}\classeRelazione{CLIPS::client::location}{LocationMonitor<DelegateType,RegionType>}{gli oggetti della classe LocationMonitor si occupano di monitorare quando il dispositivo entra od esce da una regione di tipo RegionType e notificano di ci� un oggetto di tipo DelegateType}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::location::GPSMonitorDelegate}
 \classeDescrizione{interfaccia per segnalare gli eventi della classe GPSMonitor}
 \classeUtilizzo{si occupa di fornire i metodi necessari alla classe GPSMonitor}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::location}{GPSMonitor}{*da aggiungere*}\classeRelazione{CLIPS::client::location}{PathLocationManager}{*da aggiungere*}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::location}{GPSMonitor}{classe che si occupa di monitorare l'ingresso o l'uscita in una regione geografica registrata}\classeRelazione{CLIPS::client::location}{PathLocationManager}{classe che si occupa di gestire gli eventi legati alla posizione di un determinato percorso}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::location::LocationMonitor<DelegateType,RegionType>}
-\classeDescrizione{*da aggiungere*}
-\classeUtilizzo{*da aggiungere*}
+\classeDescrizione{gli oggetti della classe LocationMonitor si occupano di monitorare quando il dispositivo entra od esce da una regione di tipo RegionType e notificano di ci� un oggetto di tipo DelegateType}
+\classeUtilizzo{le classi BeaconMonitor e GPSMonitor sono sottoclassi che monitorano rispettivamente delle regioni di tipo RawBeacon e RawRegion ed entrambe notificano un oggetto di tipo PathLocationManager}
 \end{classe}\begin{classe}{CLIPS::client::location::PathLocationDelegate}
-\classeDescrizione{*da aggiungere*}
-\classeUtilizzo{*da aggiungere*}
+\classeDescrizione{interfaccia che devono implementare le classi che desiderano essere notificate quando il PathLocationManager rileva un beacon}
+\classeUtilizzo{interfaccia implementata da PathProgress che desidera essere notificato quando PathLocationManager rileva un beacon di quelli appartenenti al percorso (Path) in corso}
 \end{classe}\begin{classe}{CLIPS::client::location::PathLocationManager}
-\classeDescrizione{*da aggiungere*}
-\classeUtilizzo{*da aggiungere*}
+\classeDescrizione{classe che si occupa di gestire gli eventi legati alla posizione di un determinato percorso}
+\classeUtilizzo{un oggetto di tipo PathLocationManager viene creato dal PathProgress che gli fornisce i dati sui beacon presenti nel percorso (che dovranno quindi essere monitorati) e imposta se stesso come delegate, per essere notificato di eventuali beacon che entrano/escono dal raggio del dispositivo}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::location}{BeaconMonitor}{*da aggiungere*}\classeRelazione{CLIPS::client::location}{BeaconMonitorDelegate}{*da aggiungere*}\classeRelazione{CLIPS::client::location}{GPSMonitor}{*da aggiungere*}\classeRelazione{CLIPS::client::location}{PathLocationDelegate}{*da aggiungere*}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::location}{BeaconMonitor}{classe che si occupa di monitorare la scoperta di nuovi beacon e l'allontanamento da beacon presenti}\classeRelazione{CLIPS::client::location}{BeaconMonitorDelegate}{interfaccia che devono implementare le classi che desiderano essere notificate dal BeaconMonitor}\classeRelazione{CLIPS::client::location}{GPSMonitor}{classe che si occupa di monitorare l'ingresso o l'uscita in una regione geografica registrata}\classeRelazione{CLIPS::client::location}{PathLocationDelegate}{interfaccia che devono implementare le classi che desiderano essere notificate quando il PathLocationManager rileva un beacon}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::location::RawBeacon}
-\classeDescrizione{*da aggiungere*}
-\classeUtilizzo{*da aggiungere*}
+\classeDescrizione{oggetto che rappresenta un Beacon: nonostante i campi siano simili alla classe \'Beacon\' il fatto che siano di tipi diversi enfatizza la differenza che c'è tra un Beacon (proveniente dal server e appartenente ad un percorso) e un RawBeacon (un oggetto monitorabile dalla classe BeaconMonitor)}
+\classeUtilizzo{quando il PathLocationManager riceve un path, a partire dai suoi Beacon crea i necessari oggetti RawBeacon e chiede al proprio BeaconManager di monitorarli}
 \end{classe}\begin{classe}{CLIPS::client::location::RawRegion}
-\classeDescrizione{*da aggiungere*}
-\classeUtilizzo{*da aggiungere*}
+\classeDescrizione{oggetto che rappresenta una regione geografica circolare}
+\classeUtilizzo{utilizzata dal LocationManager per descrivere una regione geografica circolare}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::pathprogress}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--pathprogress.png}
+\caption{Schema package client::pathprogress}
+ \end{figure}
 \compDescrizione{componente che gestisce i dati del percorso e salva i risultati ottenuti nelle prove mentre si sta giocando}
 \compPadre{client}
 \begin{compClassi} \\
-\begin{classe}{CLIPS::client::pathprogress::PathProgresController}
+\begin{classe}{CLIPS::client::pathprogress::PathProgressController}
 \classeDescrizione{classe che gestisce l'avanzamento di un percorso}
 \classeUtilizzo{permette di gestire i dati dell'avanzamento di un percorso}
 \begin{classeRelazioni}
@@ -383,21 +523,30 @@
 \classeDescrizione{interfaccia per le funzioni di ricerca di un beacon in un percorso}
 \classeUtilizzo{permette di gestire la ricerca di un beacon}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::pathprogress}{PathProgresController}{classe che gestisce l'avanzamento di un percorso}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::pathprogress}{PathProgressController}{classe che gestisce l'avanzamento di un percorso}\end{classeRelazioni}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller.png}
+\caption{Schema package client::viewcontroller}
+ \end{figure}
 \compDescrizione{componente che raggruppa tutte le view ed i controller relativi alle view}
 \compPadre{client}
 \begin{compPackageContenuti}
 \item CLIPS::client::viewcontroller::building: componente che gestisce le informazioni e le interazioni dell'utente con gli edifici abilitati
 \item CLIPS::client::viewcontroller::games: componente che gestisce le prove che l'utente deve completare all'interno di un percorso
 \item CLIPS::client::viewcontroller::savedresults: componente che raggruppa le le view e i controller dei risultati salvati e delle classifiche
-\item CLIPS::client::viewcontroller::urlrequest: componente che si occupa di effettuare le richieste al server
 \item CLIPS::client::viewcontroller::utility: componente che raggruppa le view generali dell'app
 \end{compPackageContenuti}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::building}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--building.png}
+\caption{Schema package client::viewcontroller::building}
+ \end{figure}
 \compDescrizione{componente che gestisce le informazioni e le interazioni dell'utente con gli edifici abilitati}
 \compPadre{viewcontroller}
 \begin{compClassi} \\
@@ -427,32 +576,32 @@
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::building::BuildingView}
 \classeDescrizione{classe per la visualizzazione di un edificio}
 \classeUtilizzo{permette all'utente di visualizzare le informazioni relative all'edificio selezionato}
-\begin{classeAttributi}
-\classeAttributo{addressButton}{void}{rappresenta l'indirizzo dell'edificio}
-\classeAttributo{descriptionLabel}{void}{indica la descrizione dell'edificio}
-\classeAttributo{emailButton}{void}{indica l'indirizzo email dell'edificio}
-\classeAttributo{facebookButton}{void}{indica l'indirizzo facebook dell'edificio}
-\classeAttributo{nameLabel}{void}{rappresenta il nome dell'edificio}
-\classeAttributo{openingTimeLabel}{void}{rappresenta gli orari di apertura dell'edificio}
-\classeAttributo{otherInfosLabel}{void}{rappresenta le altre informazioni sull'edificio}
-\classeAttributo{pathRows}{void}{rappresenta la lista dei percorsi dell'edificio}
-\classeAttributo{telegramButton}{void}{rappresenta il contatto Telegram dell'edificio}
-\classeAttributo{telephoneButton}{void}{rappresenta il numero telefonico dell'edificio}
-\classeAttributo{twitterButton}{void}{indica l'indirizzo twitter dell'edificio}
-\classeAttributo{webSiteButton}{void}{rappresenta l'indirizzo web dell'edificio}
-\classeAttributo{whatsappButton}{void}{indica il contatto WhatsApp dell'edificio}
-\end{classeAttributi}
-\begin{classeMetodi}
-\classeMetodo{addressButtonPressed}{}{void}{notifica al controller l'interazione con addressButton}
-\classeMetodo{emailButtonPressed}{}{void}{notifica al controller l'interazione con emailButton}
-\classeMetodo{facebookButtonPressed}{}{void}{notifica al controller l'interazione con facebookButton}
-\classeMetodo{pathRowDidPressed}{}{void}{notifica al controller l'interazione con pathRow}
-\classeMetodo{telegramButtonPressed}{}{void}{notifica al controller l'interazione con telegramButton}
-\classeMetodo{telephoneButtonPressed}{}{void}{notifica al controller l'interazione con telephoneButton}
-\classeMetodo{twitterButtonPressed}{}{void}{notifica al controller l'interazione con twitterButton}
-\classeMetodo{websiteButtonPressed}{}{void}{notifica al controller l'interazione con webSiteButton}
-\classeMetodo{whatstappButtonPressed}{}{void}{notifica al controller l'interazione con whatsappButton}
-\end{classeMetodi}
+%\begin{classeAttributi}
+%\classeAttributo{addressButton}{void}{rappresenta l'indirizzo dell'edificio}
+%\classeAttributo{descriptionLabel}{void}{indica la descrizione dell'edificio}
+%\classeAttributo{emailButton}{void}{indica l'indirizzo email dell'edificio}
+%\classeAttributo{facebookButton}{void}{indica l'indirizzo facebook dell'edificio}
+%\classeAttributo{nameLabel}{void}{rappresenta il nome dell'edificio}
+%\classeAttributo{openingTimeLabel}{void}{rappresenta gli orari di apertura dell'edificio}
+%\classeAttributo{otherInfosLabel}{void}{rappresenta le altre informazioni sull'edificio}
+%\classeAttributo{pathRows}{void}{rappresenta la lista dei percorsi dell'edificio}
+%\classeAttributo{telegramButton}{void}{rappresenta il contatto Telegram dell'edificio}
+%\classeAttributo{telephoneButton}{void}{rappresenta il numero telefonico dell'edificio}
+%\classeAttributo{twitterButton}{void}{indica l'indirizzo twitter dell'edificio}
+%\classeAttributo{webSiteButton}{void}{rappresenta l'indirizzo web dell'edificio}
+%\classeAttributo{whatsappButton}{void}{indica il contatto WhatsApp dell'edificio}
+%\end{classeAttributi}
+%\begin{classeMetodi}
+%\classeMetodo{addressButtonPressed}{}{void}{notifica al controller l'interazione con addressButton}
+%\classeMetodo{emailButtonPressed}{}{void}{notifica al controller l'interazione con emailButton}
+%\classeMetodo{facebookButtonPressed}{}{void}{notifica al controller l'interazione con facebookButton}
+%\classeMetodo{pathRowDidPressed}{}{void}{notifica al controller l'interazione con pathRow}
+%\classeMetodo{telegramButtonPressed}{}{void}{notifica al controller l'interazione con telegramButton}
+%\classeMetodo{telephoneButtonPressed}{}{void}{notifica al controller l'interazione con telephoneButton}
+%\classeMetodo{twitterButtonPressed}{}{void}{notifica al controller l'interazione con twitterButton}
+%\classeMetodo{websiteButtonPressed}{}{void}{notifica al controller l'interazione con webSiteButton}
+%\classeMetodo{whatstappButtonPressed}{}{void}{notifica al controller l'interazione con whatsappButton}
+%\end{classeMetodi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::viewcontroller::building}{BuildingViewDelegate}{interfaccia per segnalare gli eventi della classe BuildingView}\classeRelazione{CLIPS::client::viewcontroller::building}{PathRow}{classe per la rappresentazione di un percorso nella ricerca}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::building::BuildingViewDelegate}
@@ -489,6 +638,11 @@
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::games}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--games.png}
+\caption{Schema package client::viewcontroller::games}
+ \end{figure}
 \compDescrizione{componente che gestisce le prove che l'utente deve completare all'interno di un percorso}
 \compPadre{viewcontroller}
 \begin{compClassi} \\
@@ -500,15 +654,15 @@
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::games::MultipleChoiceQuizView}
 \classeDescrizione{classe per il quiz a risposta multipla}
 \classeUtilizzo{si occupa di fornire un'interfaccia per il quiz a risposta multipla}
-\begin{classeAttributi}
-\classeAttributo{answerButtons}{void}{una lista di buttons per visualizzare le possibili risposte}
-\end{classeAttributi}
-\begin{classeMetodi}
-\classeMetodo{buttonPressed}{atIndex}{void}{segnala al controller il button premuto}
-\begin{classeMetodoArgomenti}
-\classeMetodoArgomento{atIndex}{int}{indica l'indice della risposta selezionata}
-\end{classeMetodoArgomenti}
-\end{classeMetodi}
+%\begin{classeAttributi}
+%\classeAttributo{answerButtons}{void}{una lista di buttons per visualizzare le possibili risposte}
+%\end{classeAttributi}
+%\begin{classeMetodi}
+%\classeMetodo{buttonPressed}{atIndex}{void}{segnala al controller il button premuto}
+%\begin{classeMetodoArgomenti}
+%\classeMetodoArgomento{atIndex}{int}{indica l'indice della risposta selezionata}
+%\end{classeMetodoArgomenti}
+%\end{classeMetodi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::viewcontroller::games}{MultipleChoiceQuizViewDelegate}{interfaccia per segnalare gli eventi della classe MultipleChoiceView}\classeRelazione{CLIPS::client::viewcontroller::games}{QuizView}{classe base per i quiz}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::games::MultipleChoiceQuizViewDelegate}
@@ -545,27 +699,27 @@
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::games::QuizResultView}
 \classeDescrizione{classe per la visualizzazione del risultato di un quiz}
 \classeUtilizzo{fornisce all'utente un'interfaccia affinché visualizzi il risultato del quiz}
-\begin{classeAttributi}
-\classeAttributo{continueButton}{void}{button per chiudere la schermata e continuare il percorso}
-\classeAttributo{feedbackLabel}{string}{mostra la frase di successo/fallimento del quiz}
-\end{classeAttributi}
-\begin{classeMetodi}
-\classeMetodo{continueButtonPressed}{}{void}{notifica il controller che il button per continuare è stato premuto}
-\classeMetodo{showFailureResult}{correctAnswer}{void}{mostra la risposta corretta se il quiz è stato fallito}
-\begin{classeMetodoArgomenti}
-\classeMetodoArgomento{correctAnswer}{string}{indica la risposta corretta}
-\end{classeMetodoArgomenti}
-\classeMetodo{showSuccessfulResult}{score}{void}{mostra il risultato ottenuto se il quiz è stato superato}
-\begin{classeMetodoArgomenti}
-\classeMetodoArgomento{score}{int}{indica il punteggio ottenuto}
-\end{classeMetodoArgomenti}
-\end{classeMetodi}
+%\begin{classeAttributi}
+%\classeAttributo{continueButton}{void}{button per chiudere la schermata e continuare il percorso}
+%\classeAttributo{feedbackLabel}{string}{mostra la frase di successo/fallimento del quiz}
+%\end{classeAttributi}
+%\begin{classeMetodi}
+%\classeMetodo{continueButtonPressed}{}{void}{notifica il controller che il button per continuare è stato premuto}
+%\classeMetodo{showFailureResult}{correctAnswer}{void}{mostra la risposta corretta se il quiz è stato fallito}
+%\begin{classeMetodoArgomenti}
+%\classeMetodoArgomento{correctAnswer}{string}{indica la risposta corretta}
+%\end{classeMetodoArgomenti}
+%\classeMetodo{showSuccessfulResult}{score}{void}{mostra il risultato ottenuto se il quiz è stato superato}
+%\begin{classeMetodoArgomenti}
+%\classeMetodoArgomento{score}{int}{indica il punteggio ottenuto}
+%\end{classeMetodoArgomenti}
+%\end{classeMetodi}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::games::QuizView}
 \classeDescrizione{classe base per i quiz}
 \classeUtilizzo{fornisce una base per i vari tipi di test da istanziare}
-\begin{classeAttributi}
-\classeAttributo{questionLabel}{string}{rappresenta la domanda da porre nel quiz}
-\end{classeAttributi}
+%\begin{classeAttributi}
+%\classeAttributo{questionLabel}{string}{rappresenta la domanda da porre nel quiz}
+%\end{classeAttributi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::viewcontroller::games}{TestView}{classe che fornisce una base dalla quale è possibile creare vari tipi di giochi }\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::games::QuizViewDelegate}
@@ -586,43 +740,18 @@
 \classeUtilizzo{si occupa di fornire i metodi necessari alla classe SearchNewStepView per notificare gli eventi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::viewcontroller::games}{SearchNewStepActivity}{classe controller che si occupa di interagire con SearchNewStepView}\classeRelazione{CLIPS::client::viewcontroller::games}{SearchNewStepView}{classe che rappresenta la schermata per la ricerca della prossima prova del percorso}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::viewcontroller::games::ShapesGroup}
-\classeDescrizione{*da aggiungere*}
-\classeUtilizzo{*da aggiungere*}
-\end{classe}\begin{classe}{CLIPS::client::viewcontroller::games::StrangerQuizActivity}
-\classeDescrizione{classe controller che si occupa di interagire con StrangerQuizView}
-\classeUtilizzo{si occupa di gestire le interazioni dell'utente con StrangerQuizView}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::viewcontroller::games}{QuizActivity}{interfaccia per segnalare gli eventi della classe QuizView}\classeRelazione{CLIPS::client::viewcontroller::games}{StrangerQuizViewDelegate}{interfaccia per segnalare gli eventi della classe StrangerQuizView}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::viewcontroller::games::StrangerQuizViewDelegate}
-\classeDescrizione{interfaccia per segnalare gli eventi della classe StrangerQuizView}
-\classeUtilizzo{si occupa di fornire i metodi necessari alla classe StrangerQuizView per notificare gli eventi}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::viewcontroller::games}{StrangerQuizActivity}{classe controller che si occupa di interagire con StrangerQuizView}\classeRelazione{CLIPS::client::viewcontroller::games}{StrangersQuizView}{classe per il quiz strana coppia}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::viewcontroller::games::StrangersQuizView}
-\classeDescrizione{classe per il quiz strana coppia}
-\classeUtilizzo{si occupa di fornire un'interfaccia per la prova strana coppia}
-\begin{classeAttributi}
-\classeAttributo{answerCheckBox}{void}{fornisce una lista di risposte da selezionare tramite checkbox}
-\classeAttributo{confirmButton}{void}{button grafico per confermare la selezione delle risposte}
-\end{classeAttributi}
-\begin{classeMetodi}
-\classeMetodo{confirmButtonPressed}{}{void}{notifica il controller che è stato premuto il tasto conferma e quindi si può procedere alla valutazione delle risposte}
-\end{classeMetodi}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::viewcontroller::games}{QuizView}{classe base per i quiz}\classeRelazione{CLIPS::client::viewcontroller::games}{StrangerQuizViewDelegate}{interfaccia per segnalare gli eventi della classe StrangerQuizView}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::games::TestResultView}
 \classeDescrizione{classe che fornisce una base per la visualizzazione del risultato della prova}
 \classeUtilizzo{permette all'utente di visualizzare il risultato della prova}
-\begin{classeMetodi}
-\classeMetodo{showResult()}{}{void}{restituisce la view con il risultato}
-\end{classeMetodi}
+%\begin{classeMetodi}
+%\classeMetodo{showResult()}{}{void}{restituisce la view con il risultato}
+%\end{classeMetodi}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::games::TestView}
 \classeDescrizione{classe che fornisce una base dalla quale è possibile creare vari tipi di giochi }
 \classeUtilizzo{viene utilizzata per visualizzare un'interfaccia di gioco all'utente}
-\begin{classeMetodi}
-\classeMetodo{showTest}{}{TestView}{restituisce l'interfaccia grafica del test}
-\end{classeMetodi}
+%\begin{classeMetodi}
+%\classeMetodo{showTest}{}{TestView}{restituisce l'interfaccia grafica del test}
+%\end{classeMetodi}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::games::TrueFalseQuizActivity}
 \classeDescrizione{classe controller che si occupa di interagire con TrueFalseQuizView}
 \classeUtilizzo{si occupa di gestire le interazioni dell'utente con TrueFalseQuizView}
@@ -631,24 +760,29 @@
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::games::TrueFalseQuizView}
 \classeDescrizione{classe per il quiz vero/falso}
 \classeUtilizzo{si occupa di fornire un'interfaccia per la prova di tipo vero/falso}
-\begin{classeAttributi}
-\classeAttributo{falseButton}{void}{button grafico per rispondere falso al quiz}
-\classeAttributo{trueButton}{void}{button grafico per rispondere vero al quiz}
-\end{classeAttributi}
-\begin{classeMetodi}
-\classeMetodo{falseButtonPressed}{}{void}{questo metodo si occupa di notificare al controller che è stato premuto falseButton}
-\classeMetodo{trueButtonPressed}{}{void}{questo metodo si occupa di notificare al controller che è stato premuto trueButton}
-\end{classeMetodi}
+%\begin{classeAttributi}
+%\classeAttributo{falseButton}{void}{button grafico per rispondere falso al quiz}
+%\classeAttributo{trueButton}{void}{button grafico per rispondere vero al quiz}
+%\end{classeAttributi}
+%\begin{classeMetodi}
+%\classeMetodo{falseButtonPressed}{}{void}{questo metodo si occupa di notificare al controller che è stato premuto falseButton}
+%\classeMetodo{trueButtonPressed}{}{void}{questo metodo si occupa di notificare al controller che è stato premuto trueButton}
+%\end{classeMetodi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::viewcontroller::games}{QuizView}{classe base per i quiz}\classeRelazione{CLIPS::client::viewcontroller::games}{TrueFalseQuizViewDelegate}{interfaccia per segnalare gli eventi della classe TrueFalseQuizView}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::games::TrueFalseQuizViewDelegate}
 \classeDescrizione{interfaccia per segnalare gli eventi della classe TrueFalseQuizView}
 \classeUtilizzo{si occupa di fornire i metodi necessari alla classe TrueFalseQuizView per notificare gli eventi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::viewcontroller::games}{StrangerQuizActivity}{classe controller che si occupa di interagire con StrangerQuizView}\classeRelazione{CLIPS::client::viewcontroller::games}{TrueFalseQuizActivity}{classe controller che si occupa di interagire con TrueFalseQuizView}\classeRelazione{CLIPS::client::viewcontroller::games}{TrueFalseQuizView}{classe per il quiz vero/falso}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::viewcontroller::games}{TrueFalseQuizActivity}{classe controller che si occupa di interagire con TrueFalseQuizView}\classeRelazione{CLIPS::client::viewcontroller::games}{TrueFalseQuizView}{classe per il quiz vero/falso}\end{classeRelazioni}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::savedresults}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--savedresults.png}
+\caption{Schema package client::viewcontroller::savedresults}
+ \end{figure}
 \compDescrizione{componente che raggruppa le le view e i controller dei risultati salvati e delle classifiche}
 \compPadre{viewcontroller}
 \begin{compClassi} \\
@@ -696,11 +830,12 @@
 \classeRelazione{CLIPS::client::viewcontroller::savedresults}{ResultRow}{classe che rappresenta una riga di un risultato}\classeRelazione{CLIPS::client::viewcontroller::savedresults}{SavedResultsViewDelegate}{interfaccia per segnalare gli eventi della classe SavedResultsView}\end{classeRelazioni}
 \end{classe}\end{compClassi}
 \end{componente}
-\begin{componente}{CLIPS::client::viewcontroller::urlrequest}
-\compDescrizione{componente che si occupa di effettuare le richieste al server}
-\compPadre{viewcontroller}
-\end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::utility}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--utility.png}
+\caption{Schema package client::viewcontroller::utility}
+ \end{figure}
 \compDescrizione{componente che raggruppa le view generali dell'app}
 \compPadre{viewcontroller}
 \begin{compClassi} \\
@@ -737,30 +872,107 @@
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::server}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/server.png}
+\caption{Schema package server}
+ \end{figure}
 \compDescrizione{componente globale per il back end del prodotto}
 \compPadre{CLIPS}
 \begin{compPackageContenuti}
+\item CLIPS::server::dataserver: package per la gestione dei dati sul server
 \item CLIPS::server::urlrequesthandler: componente che gestisce le richieste inviate al server e le risposte da inviare al client
 \end{compPackageContenuti}
 \end{componente}
+\begin{componente}{CLIPS::server::dataserver}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/server--data.png}
+\caption{Schema package server::dataserver}
+ \end{figure}
+\compDescrizione{package per la gestione dei dati sul server}
+\compPadre{server}
+\begin{compClassi} \\
+\begin{classe}{CLIPS::server::dataserver::AppInfoServer}
+\classeDescrizione{classe che rappresenta le informazioni dell'app sul server}
+\classeUtilizzo{permette di salvare sul server le informazioni dell'app}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::AuthTokenServer}
+\classeDescrizione{Classe che rappresenta un token che si riferisce ad un utente loggato}
+\classeUtilizzo{permette utilizzare un token per riferirsi ad utente loggato}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::BeaconServer}
+\classeDescrizione{classe che rappresenta un beacon nel server}
+\classeUtilizzo{permette di salvare sul server un beacon}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::BuildingServer}
+\classeDescrizione{classe che rappresenta un edificio sul server}
+\classeUtilizzo{permette di salvare e modificare i dati di un edificio sul server}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::LeaderBoardServer}
+\classeDescrizione{classe che rappresenta la classifica sul server}
+\classeUtilizzo{permette di salvare i dati della classifica sul server}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::PathResultServer}
+\classeDescrizione{classe che rappresenta il risultato di un percorso sul server}
+\classeUtilizzo{consente di salvare i risultati di un percorso sul server}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::PathServer}
+\classeDescrizione{classe che rappresenta un percorso sul server}
+\classeUtilizzo{permette di creare, modificare ed eliminare un percorso sul server}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::ProofResultServer}
+\classeDescrizione{classe che rappresenta i risultati di una prova sul server}
+\classeUtilizzo{consente di salvare il risultato di una prova sul server}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::ProofServer}
+\classeDescrizione{classe che rappresenta una prova sul server}
+\classeUtilizzo{permette di creare, modificare ed eliminare una prova sul server}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::ProximityServer}
+\classeDescrizione{classe che rappresenta sul server un beacon indicato alla segnalazione della distanza dalla prossima prova}
+\classeUtilizzo{permette di salvare i beacon di segnalazione sul server}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::ScoreManager}
+\classeDescrizione{classe che rappresenta un risultato sul server}
+\classeUtilizzo{permette si salvare un risultato nel server}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::StepServer}
+\classeDescrizione{classe che rappresenta uno step di un percorso nel server}
+\classeUtilizzo{permette di salvare sul server uno step di un percorso}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::UserServer}
+\classeDescrizione{classe che rappresenta un utente nel server}
+\classeUtilizzo{permette di salvare sul server un utente}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::server::dataserver}{AuthTokenServer}{Classe che rappresenta un token che si riferisce ad un utente loggato}\end{classeRelazioni}
+\end{classe}\end{compClassi}
+\end{componente}
 \begin{componente}{CLIPS::server::urlrequesthandler}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/server--urlrequesthandler.png}
+\caption{Schema package server::urlrequesthandler}
+ \end{figure}
 \compDescrizione{componente che gestisce le richieste inviate al server e le risposte da inviare al client}
 \compPadre{server}
-\end{componente}
-\begin{componente}{gamelogic}
-\compDescrizione{componente che si occupa di tutte le componenti riguardanti il gioco.}
-\begin{compPackageContenuti}
-\item gamelogic::paths: componente che gestisce i dati dei percorsi giocabili dall'utente
-\end{compPackageContenuti}
-\end{componente}
-\begin{componente}{gamelogic::paths}
-\compDescrizione{componente che gestisce i dati dei percorsi giocabili dall'utente}
-\compPadre{gamelogic}
 \begin{compClassi} \\
-\begin{classe}{gamelogic::paths::RankingView}
-\classeDescrizione{classe che rappresenta la schermata della classifica di un percorso}
-\classeUtilizzo{permette all'utente di visualizzare la classifica di un percorso}
+\begin{classe}{CLIPS::server::urlrequesthandler::AppInfoProvider}
+\classeDescrizione{classe che gestisce la richiesta di informazioni dell'app}
+\classeUtilizzo{si occupa di restituire le informazioni dell'app richieste}
+\end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::BuildingsProvider}
+\classeDescrizione{classe che gestisce la richiesta degli edifici dal client}
+\classeUtilizzo{si occupa di restituire le informazioni sugli edifici richieste}
+\end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::LoginHandler}
+\classeDescrizione{classe che rappresenta le informazioni per il login}
+\classeUtilizzo{si occupa di gestire il login lato server}
+\end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::LogoutHandler}
+\classeDescrizione{classe che rappresenta il logout}
+\classeUtilizzo{si occupa di effettuare il logout}
+\end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::PathProvider}
+\classeDescrizione{classe che gestisce la richiesta del percorso dal client}
+\classeUtilizzo{si occupa di restituire le informazioni sul percorso richieste}
+\end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::PathResultsProvider}
+\classeDescrizione{classe che gestisce la richiesta del risultato del percorso dal client}
+\classeUtilizzo{si occupa di restituire le informazioni del risultato sul percorso richieste}
+\end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::URLRequestHandler}
+\classeDescrizione{classe che rappresenta il gestore delle richieste nel server}
+\classeUtilizzo{si occupa di gestire le richieste ricevute dal client}
+\end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::URLRequestRouter}
+\classeDescrizione{classe che si occupa di creare il corretto URLRequestHandler per gestire la richiesta HTTP rivolta al server}
+\classeUtilizzo{crea la classe URLRequestHandler appropriata}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::viewcontroller::savedresults}{PlayerRow}{classe che rappresenta una riga all'interno di una classifica}\classeRelazione{CLIPS::client::viewcontroller::savedresults}{RankingViewDelegate}{interfaccia per segnalare gli eventi della classe RankingView}\classeRelazione{CLIPS::client::viewcontroller::savedresults}{RankingViewDelegate}{interfaccia per segnalare gli eventi della classe RankingView}\end{classeRelazioni}
+\classeRelazione{CLIPS::server::urlrequesthandler}{AppInfoProvider}{classe che gestisce la richiesta di informazioni dell'app}\classeRelazione{CLIPS::server::urlrequesthandler}{AppInfoProvider}{classe che gestisce la richiesta di informazioni dell'app}\classeRelazione{CLIPS::server::urlrequesthandler}{BuildingsProvider}{classe che gestisce la richiesta degli edifici dal client}\classeRelazione{CLIPS::server::urlrequesthandler}{LoginHandler}{classe che rappresenta le informazioni per il login}\classeRelazione{CLIPS::server::urlrequesthandler}{LogoutHandler}{classe che rappresenta il logout}\classeRelazione{CLIPS::server::urlrequesthandler}{PathProvider}{classe che gestisce la richiesta del percorso dal client}\classeRelazione{CLIPS::server::urlrequesthandler}{PathResultsProvider}{classe che gestisce la richiesta del risultato del percorso dal client}\classeRelazione{CLIPS::server::urlrequesthandler}{UserResultProvider}{classe che gestisce la richiesta di un utente}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::UserResultProvider}
+\classeDescrizione{classe che gestisce la richiesta di un utente}
+\classeUtilizzo{si occupa di restituire gli utenti richiesti dal client}
 \end{classe}\end{compClassi}
 \end{componente}
