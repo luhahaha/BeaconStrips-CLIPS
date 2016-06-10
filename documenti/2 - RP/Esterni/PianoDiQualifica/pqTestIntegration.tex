@@ -1,1 +1,30 @@
-\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}}\intestazionefourcol{Test}{Descrizione}{Componente}{Stato}TIsavedresults & Verifica che il sistema gestisca correttamente la visualizzazione e il salvataggio dei risultati dei percorsi & TIdatamanager & Verifica che il sistema gestisca correttamente le richieste dei dati salvati in locale & TIpathprogress & Verifica che il sistema gestisca correttamente i dati del percorso selezionato e i risultati delle prove giocate. & 
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+\begin{document}
+	\begin{tabella}{!{\VRule}l!{\VRule}X[l,b,l]!{\VRule}l}
+		\intestazionetwocol{Test}{Descrizione}
+		TIsavedresults & Verifica che il sistema gestisca correttamente la visualizzazione e il salvataggio dei risultati dei percorsi\\
+		 TIdatamanager & Verifica che il sistema gestisca correttamente le richieste dei dati salvati in locale\\
+		 TIpathprogress & Verifica che il sistema gestisca correttamente i dati del percorso selezionato e i risultati delle prove giocate\\
+		  TIdataserver & Verifica che il sistema gestisca correttamente la modellazione dei dati locali del server \\
+		  TIgames & Verifica che il sistema gestisca correttamente il percorso e le prove mentre si sta affrontando un percorso \\
+		  TIserver & Verifica che il sistema gestisca correttamente la ricezione, l'elaborazione e la risposta alle richieste del client \\
+		   TIlocation & Verifica che il sistema gestisca correttamente l'individuazione e la lettura dei beacon \\
+		    TIclient & Verifica che il sistema gestisca ed integri correttamente tutte le parti del client, tra cui l'autenticazione, i percorsi e i servizi vari \\
+		     TICLIPS & Verifica che il client e il server comunichino correttamente tra loro \\
+		     TIauthentication & Verifica che il sistema gestisca correttamente la registrazione dell'account, il login e la modifica delle proprie credenziali\\ 
+		     TIurlrequest & Verifica che il sistema gestisca correttamente le richieste da inviare la server\\
+		     TIviewcontroller & Verifica che il sistema gestisca correttamente le pagine dell'applicazione e le risposte agli input dell'utente\\
+		      TIutility & Verifica che il sistema gestisca correttamente le view generali dell'app\\
+		       TIbuilding & Verifica che il sistema gestisca correttamente le view e le interazioni dell'utente riguardanti gli edifici abilitati e i relativi percorsi\\
+		       TIurlrequesthandler & Verifica che il sistema gestisca correttamente le richieste del client e le risposte da inviare\\
+		       TIdata & Verifica che il sistema gestisca correttamente la modellazione dei dati in locale\\
+		       \end{tabella}
+\end{document}
