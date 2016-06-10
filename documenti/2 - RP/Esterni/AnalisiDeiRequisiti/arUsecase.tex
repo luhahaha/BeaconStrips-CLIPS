@@ -26,10 +26,10 @@
 \att{Utente non autenticato.}
 
 \casoduso{UC1.2}{Inserimento password} 
-\desc{l'utente inserisce la password con cui si è registrato in precedenza rispettando il requisito \Req{R0F1.2.6.4}.}\\\\ 
+\desc{l'utente inserisce la password con cui si è registrato in precedenza rispettando il requisito \Req{R0F1.2.7.3}.}\\\\ 
 \pre{la connessione ad internet è attiva e l'app fornisce la pagina di login.}\\\\ 
 \post{l'utente ha inserito la password.}\\\\ 
-\scen{l'utente inserisce la password con cui si è registrato in precedenza rispettando il requisito \Req{R0F1.2.6.4}.}\\\\ 
+\scen{l'utente inserisce la password con cui si è registrato in precedenza rispettando il requisito \Req{R0F1.2.7.3}.}\\\\ 
 \att{Utente non autenticato.}
 
 \casoduso{UC1.3}{Conferma Login} 
@@ -59,7 +59,7 @@
 \item WhatsApp (\UC{UC10.5});
 \item Telegram (\UC{UC10.6});
 \item contatto telefonico (\UC{UC10.7});
-\item email (\UC{UC10.7}).
+\item email (\UC{UC10.8}).
 \end{itemize} 
 \end{itemize}}\\\\ 
 \att{Utente.}
@@ -144,36 +144,10 @@
 \post{l'utente ha inserito la email.}\\\\ 
 \scen{l'utente inserisce il proprio indirizzo email per registrarsi.}\\\\ 
 \scensec{ESTENSIONE \begin{itemize}
-\item \UC{UC11.5} l'email inserita non è valida e viene visualizzato l'errore.
+\item \UC{UC11.5} l'email inserita non è valida e viene visualizzato l'errore;
+\item \UC{UC11.6} l'email inserita non è corretta e viene visualizzato l'errore;
+\item \UC{UC11.7} l'email inserita è già in uso e viene visualizzato l'errore.
 \end{itemize}}\\\\ 
-\att{Utente non autenticato.}
-
-\casoduso{UC11.10}{Visualizza errore inserimento username già in uso} 
-\desc{l'utente viene informato di aver inserito un username già in uso nel sistema.}\\\\ 
-\pre{l'utente ha inserito un username già in uso nel sistema.}\\\\ 
-\post{l'utente è stato informato di aver inserito un username già in uso nel sistema.}\\\\ 
-\scen{l'utente viene informato di aver inserito un username già in uso nel sistema.}\\\\ 
-\att{Utente non autenticato.}
-
-\casoduso{UC11.11}{Visualizza errore password non sufficientemente sicura} 
-\desc{l'utente visualizza l'errore il quale segnala che la nuova password inserita non è sufficientemente sicura.}\\\\ 
-\pre{l'utente ha inserito una nuova password non sufficientemente sicura.}\\\\ 
-\post{l'utente ha visualizzato l'errore il quale segnala che la nuova password inserita non è sufficientemente sicura.}\\\\ 
-\scen{l'utente visualizza l'errore il quale segnala che la nuova password inserita non è sufficientemente sicura.}\\\\ 
-\att{Utente non autenticato.}
-
-\casoduso{UC11.12}{Visualizza errore password reinserita non coincidente con la nuova password} 
-\desc{l'utente visualizza l'errore il quale segnala che la password reinserita non coincide con la nuova password.}\\\\ 
-\pre{l'utente ha reinserito la password che non coincide con quella nuova precedentemente inserita.}\\\\ 
-\post{l'utente ha visualizzato l'errore il quale segnala che la password reinserita non coincide con la nuova password.}\\\\ 
-\scen{l'utente visualizza l'errore il quale segnala che la password reinserita non coincide con la nuova password.}\\\\ 
-\att{Utente non autenticato.}
-
-\casoduso{UC11.13}{Conferma dati registrazione} 
-\desc{l'utente conferma i dati di registrazione inseriti.}\\\\ 
-\pre{l'utente ha inserito i dati per la registrazione.}\\\\ 
-\post{l'utente ha confermato i dati inseriti per la registrazione.}\\\\ 
-\scen{l'utente conferma i dati di registrazione inseriti.}\\\\ 
 \att{Utente non autenticato.}
 
 \casoduso{UC11.2}{Inserimento nuovo username} 
@@ -182,7 +156,9 @@
 \post{l'utente ha inserito l'username.}\\\\ 
 \scen{l'utente inserisce l'username con cui desidera registrarsi.}\\\\ 
 \scensec{ESTENSIONE \begin{itemize}
-\item \UC{UC11.6} l'username inserito è già in uso e viene visualizzato l'errore.
+\item \UC{UC11.8} l'username inserito non è valido e viene visualizzato l'errore;
+\item \UC{UC11.9} l'username inserito non è corretto e viene visualizzato l'errore;
+\item \UC{UC11.10} l'username inserito è già in uso e viene visualizzato l'errore.
 \end{itemize}}\\\\ 
 \att{Utente non autenticato.}
 
@@ -214,10 +190,10 @@
 \att{Utente non autenticato.}
 
 \casoduso{UC11.6}{Visualizza errore inserimento email non valida} 
-\desc{l'utente visualizza un messaggio d'errore perché ha inserito un'email  non valida che non soddisfa il \Req{R0F1.2.7.1.1}.}\\\\ 
+\desc{l'utente visualizza un messaggio d'errore perché ha inserito un'email non valida che non soddisfa il \Req{R0F1.2.7.1.1}.}\\\\ 
 \pre{l'utente ha inserito un'email non valida.}\\\\ 
 \post{l'utente viene notificato di aver inserito un'email non valida.}\\\\ 
-\scen{l'utente visualizza un messaggio d'errore perché ha inserito un'email  non valida che non soddisfa il \Req{R0F1.2.7.1.1}.}\\\\ 
+\scen{l'utente visualizza un messaggio d'errore perché ha inserito un'email non valida che non soddisfa il \Req{R0F1.2.7.1.1}.}\\\\ 
 \att{Utente non autenticato.}
 
 \casoduso{UC11.7}{Visualizza errore inserimento email già in uso} 
@@ -239,6 +215,34 @@
 \pre{l'utente ha inserito un username non valido.}\\\\ 
 \post{l'utente viene notificato di aver inserito un username non valido.}\\\\ 
 \scen{l'utente ha inserito un username che non rispetta il requisito \Req{R0F1.2.7.2.1}.}\\\\ 
+\att{Utente non autenticato.}
+
+\casoduso{UC11.10}{Visualizza errore inserimento username già in uso} 
+\desc{l'utente viene informato di aver inserito un username già in uso nel sistema.}\\\\ 
+\pre{l'utente ha inserito un username già in uso nel sistema.}\\\\ 
+\post{l'utente è stato informato di aver inserito un username già in uso nel sistema.}\\\\ 
+\scen{l'utente viene informato di aver inserito un username già in uso nel sistema.}\\\\ 
+\att{Utente non autenticato.}
+
+\casoduso{UC11.11}{Visualizza errore password non sufficientemente sicura} 
+\desc{l'utente visualizza l'errore il quale segnala che la nuova password inserita non è sufficientemente sicura.}\\\\ 
+\pre{l'utente ha inserito una nuova password non sufficientemente sicura.}\\\\ 
+\post{l'utente ha visualizzato l'errore il quale segnala che la nuova password inserita non è sufficientemente sicura.}\\\\ 
+\scen{l'utente visualizza l'errore il quale segnala che la nuova password inserita non è sufficientemente sicura.}\\\\ 
+\att{Utente non autenticato.}
+
+\casoduso{UC11.12}{Visualizza errore password reinserita non coincidente con la nuova password} 
+\desc{l'utente visualizza l'errore il quale segnala che la password reinserita non coincide con la nuova password.}\\\\ 
+\pre{l'utente ha reinserito la password che non coincide con quella nuova precedentemente inserita.}\\\\ 
+\post{l'utente ha visualizzato l'errore il quale segnala che la password reinserita non coincide con la nuova password.}\\\\ 
+\scen{l'utente visualizza l'errore il quale segnala che la password reinserita non coincide con la nuova password.}\\\\ 
+\att{Utente non autenticato.}
+
+\casoduso{UC11.13}{Conferma dati registrazione} 
+\desc{l'utente conferma i dati di registrazione inseriti.}\\\\ 
+\pre{l'utente ha inserito i dati per la registrazione.}\\\\ 
+\post{l'utente ha confermato i dati inseriti per la registrazione.}\\\\ 
+\scen{l'utente conferma i dati di registrazione inseriti.}\\\\ 
 \att{Utente non autenticato.}
 
 \casoduso{UC12}{Visualizza avviso di attivazione GPS} 
@@ -464,7 +468,7 @@ percorso}
 \desc{l'utente visualizza il tempo totale impiegato per il percorso, ovvero il tempo intercorso tra l'orario di inizio e quello di fine.}\\\\ 
 \pre{l'utente ha concluso il percorso.}\\\\ 
 \post{l'app mostra i dettagli sul tempo di inizio, fine e durata.}\\\\ 
-\scen{l'utente visualizza il tempo totale impiegato per il percorso, ovvero il tempo intercorso tra l'orario di inizio e quello di fine}\\\\ 
+\scen{l'utente visualizza il tempo totale impiegato per il percorso, ovvero il tempo intercorso tra l'orario di inizio e quello di fine.}\\\\ 
 \att{Utente.}
 
 \casoduso{UC3.2.2}{Visualizza durata totale delle prove} 
@@ -508,8 +512,8 @@ percorso}
 \post{i dati del percorso vengono salvati nel database per una futura consultazione.}\\\\ 
 \scen{l'utente autenticato può salvare i dati relativi al percorso appena conclusosi.}\\\\ 
 \scensec{ESTENSIONE: \begin{itemize}
-\item UC{UC16} l'utente non è autenticato e visualizza l'invito ad autenticarsi per salvare i dati del percorso;
-\item UC{UC17} l'utente visualizza l'invito a registrarsi per poi autenticarsi e salvare i dati del percorso.
+\item \UC{UC16} l'utente non è autenticato e visualizza l'invito ad autenticarsi per salvare i dati del percorso;
+\item \UC{UC17} l'utente visualizza l'invito a registrarsi per poi autenticarsi e salvare i dati del percorso.
 \end{itemize}}\\\\ 
 \att{Utente.}
 
@@ -562,7 +566,8 @@ percorso}
 \scen{\begin{itemize}
 \item \UC{UC5.1} inserisci nuovo username;
 \item \UC{UC5.2} inserisci nuova password;
-\item \UC{UC5.3} reinserisci nuova password.
+\item \UC{UC5.3} reinserisci nuova password;
+\item \UC{UC5.7} conferma nuove credenziali.
 \end{itemize}}\\\\ 
 \att{Utente autenticato.}
 
@@ -582,7 +587,7 @@ percorso}
 \post{l'utente ha inserito una nuova password.}\\\\ 
 \scen{l'utente autenticato inserisce una nuova password.}\\\\ 
 \scensec{ESTENSIONE \begin{itemize}
-\item \UC{UC5.5}la password inserita non è sufficientemente sicura e viene visualizzato l'errore.
+\item \UC{UC5.5} la password inserita non è sufficientemente sicura e viene visualizzato l'errore.
 \end{itemize}}\\\\ 
 \att{Utente autenticato.}
 
@@ -592,7 +597,7 @@ percorso}
 \post{l'utente ha reinserito la nuova password.}\\\\ 
 \scen{l'utente autenticato reinserisce la nuova password.}\\\\ 
 \scensec{ESTENSIONE \begin{itemize}
-\item \UC{UC5.6}la password reinserita non coincide con la nuova password e viene visualizzato l'errore.
+\item \UC{UC5.6} la password reinserita non coincide con la nuova password e viene visualizzato l'errore.
 \end{itemize}}\\\\ 
 \att{Utente autenticato.}
 
