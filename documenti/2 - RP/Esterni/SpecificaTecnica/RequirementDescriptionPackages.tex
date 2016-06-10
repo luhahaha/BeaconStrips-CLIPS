@@ -1,0 +1,94 @@
+\section{Tabella tracciamento Requisiti-Componenti}
+
+\begin{tabella}{!{\VRule}c!{\VRule}X[c,b,c]!{\VRule}c!{\VRule}}
+	\intestazionethreecol{Requisiti}{Descrizione}{Componenti}
+	
+	R0F1  & L'utente deve poter possedere un account registrato nel database &    \cellacaporiga{dataserver \\ server \\} \\
+	
+	R0F1.1 & Il sistema deve permettere all'utente di autenticarsi  & \cellacaporiga{authentication \\
+	client \\
+	data \\
+	datamanager \\
+	server \\
+	urlrequest \\
+	urlrequesthandler \\} \\
+
+	R0F1.1.1  &  Il sistema deve chiedere all'utente l'email per la procedura di autenticazione & \cellacaporiga{authentication \\
+	client \\ } \\
+	
+	R0F1.1.2  &  Il sistema deve chiedere all'utente la password per la procedura di autenticazione & \cellacaporiga{authentication \\
+		client \\ } \\
+	
+	R0F1.1.3  &  Il sistema deve permettere all'utente di confermare i dati inseriti per la procedura di autenticazione & \cellacaporiga{authentication \\
+		client \\ } \\
+	
+	R0F1.1.4  &  Se i dati confermati dall'utente sono validi, egli viene autenticato  &  \cellacaporiga{authentication \\
+		client \\ data \\ datamanager \\ server \\ urlrequest \\ urlrequesthandler } \\
+	
+	R0F1.1.5  &  Il sistema deve segnalare all'utente ogni eventuale errore durante la procedura di autenticazione  & \cellacaporiga{authentication \\
+		client \\ data \\ datamanager \\ server \\ urlrequest \\ urlrequesthandler } \\
+	
+	R0F1.1.5.1 & Il sistema interrompe la procedura di autenticazione se l'email non corrisponde a nessuna di quelle registrate & \cellacaporiga{authentication \\
+		client \\ data \\ datamanager \\ server \\ urlrequest \\ urlrequesthandler } \\
+	
+	R0F1.1.5.2 & Il sistema interrompe la procedura di autenticazione se la password non corrisponde a quella associata all'email  &  \cellacaporiga{authentication \\
+		client \\ data \\ datamanager \\ server \\ urlrequest \\ urlrequesthandler } \\
+	
+	R0F1.1.5.3 & L'applicazione informa l'utente dell'errore nell'inserimento dei dati & \cellacaporiga{authentication \\
+		client \\} \\
+	
+	R0F1.1.5.4  & L'utente può chiedere una nuova password inserendo l'email & authentication \\
+	
+	R0F1.1.5.4.1 & L'utente deve inserire l'email del proprio account per proseguire al recupero delle credenziali & \cellacaporiga{authentication \\
+		client \\} \\
+	
+	R0F1.1.5.4.2  &  L'utente riceve un'email all'indirizzo inserito con una password casuale. &  \cellacaporiga{authentication \\
+		client \\} \\
+	
+	R0F1.1.5.4.3 & La password dell'utente viene sostituita con la password inviata  & \cellacaporiga{dataserver \\
+	server \\ } \\
+
+	R0F1.2 & L'utente deve poter creare un proprio account & 
+	\cellacaporiga{authentication \\
+	client \\
+	data \\
+	dataserver \\
+	server \\
+	urlrequest \\
+	urlrequesthandler \\} \\
+
+	R0F1.2.1  &  La registrazione richiede l'email all'utente  &  \cellacaporiga{authentication \\
+		client \\} \\
+	R0F1.2.2  &  La registrazione richiede l'username all'utente & \cellacaporiga{authentication \\
+		client \\} \\
+	R0F1.2.3  &  La registrazione richiede la password all'utente   & \cellacaporiga{authentication \\
+		client \\} \\
+	R0F1.2.4  &  L'utente reinserisce la nuova password & \cellacaporiga{authentication \\
+		client \\} \\
+	R0F1.2.5  &  Il sistema chiede all'utente di confermare i dati della propria registrazione  & \cellacaporiga{authentication \\
+		client \\} \\
+	R0F1.2.6  &  Se i dati confermati dall'utente sono validi, il suo account viene registrato  & \cellacaporiga{authentication \\
+		client \\ data \\ dataserver \\ server \\ urlrequest \\ urlrequesthandler} \\
+	
+	R0F1.2.6.1 & L'utente viene automaticamente autenticato & \cellacaporiga{authentication \\
+		client \\ data \\ dataserver \\ server \\ urlrequest \\ urlrequesthandler} \\
+	
+	R0F1.2.7 & Il sistema deve segnalare all'utente i vari problemi di registrazione  & \cellacaporiga{authentication \\
+		client \\ data \\ dataserver \\ server \\ urlrequest \\ urlrequesthandler} \\
+	
+	R0F1.2.7.1 & L'utente ha inserito un'email non valida   & \cellacaporiga{authentication \\
+		client \\ dataserver \\ server \\ urlrequest \\ urlrequesthandler} \\
+	
+	R0F1.2.7.1.1  &  L'email deve avere un formato valido: deve contenere una @ preceduto da altri caratteri seguito da un dominio valido & \cellacaporiga{dataserver \\
+	server \\ } \\
+
+	R0F1.2.7.1.2   & L'email non deve essere già  in uso  & \cellacaporiga{dataserver \\
+		server \\ } \\
+	
+	R0F1.2.7.2 & L'utente ha inserito un username non valido & \cellacaporiga{authentication \\
+		client \\ data \\ dataserver \\ server \\ urlrequest \\ urlrequesthandler} \\
+	
+	
+	\rowcolor{white}
+	\caption{Tracciamento requisiti-componenti}
+\end{longtable}
