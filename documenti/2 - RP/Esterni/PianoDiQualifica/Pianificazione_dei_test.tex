@@ -33,16 +33,17 @@
 			\end{figure}
 	\subsection{Test di validazione}
 	\label{sec:5.3}
+	
 		I test di validazione servono per accertarsi che il prodotto realizzato sia conforme alle attese di \PROPONENTE. \\
 		Per ognuno vengono indicati i passi necessari all'utente per testare i requisiti associati. Il tracciamento tra i test di validazione e i requisiti correlati viene riportato nel documento \ARdoc.
 		\subsubsection{TVF1}
-			L'utente verifica che possa creare un account. All'utente è richiesto di:
+			L'utente verifica di poter creare un account. All'utente è richiesto di:
 			\begin{enumerate}
 				\item registrare un account;
 				\item autenticarsi con i dati del proprio account;
 			\end{enumerate}
 		\subsubsection{TVF1.1}
-			L'utente verifica che si possa autenticare. All'utente è richiesto di:
+			L'utente verifica di potersi autenticare. All'utente è richiesto di:
 			\begin{enumerate}
 				\item inserire un indirizzo email nel campo apposito;
 				\item inserire una password nel campo apposito;
@@ -80,7 +81,7 @@
 				\item verificare che vengano segnalati gli errori quando ce ne sono.
 			\end{enumerate}
 		\subsubsection{TVF1.2.7}
-			L'utente verifica che vengano segnalati gli errori quando ce ne sono, e di conseguenza venga interrotta la procedura di registrazione.
+			L'utente verifica che vengano segnalati gli errori quando ce ne sono e, di conseguenza, venga interrotta la procedura di registrazione.
 			All'utente è richiesto di:
 			\begin{enumerate}
 				\item verificare che venga segnalato un errore quando l'indirizzo email inserito non è corretto, in particolare deve contenere una `@', deve finire con un dominio valido e non deve essere già in uso da un altro utente;
@@ -110,9 +111,9 @@
 			All'utente è richiesto di:
 			\begin{enumerate}
 				\item verificare se può cominciare a giocare la prova quando trova il beacon;
-				\item verificare se i beacon rilevati ma inutili ai fini della ricerca vengono ignorati dal'app;
+				\item verificare se i beacon rilevati, ma inutili ai fini della ricerca vengono ignorati dal'app;
 				\item verificare di poter chiedere aiuto se non riesce a trovare il beacon o se pensa che ci siano degli errori;
-				\item verificare se vengono rilevati dei beacon, esterni al percorso, per segnalare la distanza tra lui e il beacon cercato, e se tale distanza è visualizzata dall'app usando dei valori approssimativi, come dele tacche.
+				\item verificare se vengono rilevati dei beacon, esterni al percorso, per segnalare la distanza tra lui e il beacon cercato, e se tale distanza è visualizzata dall'app usando dei valori approssimativi, come delle tacche.
 			\end{enumerate}
 		\subsubsection{TVF3.1.2}
 			L'utente verifica di poter giocare la prova fino alla sua conclusione.
@@ -174,7 +175,6 @@
 			All'utente è richiesto di:
 			\begin{enumerate}
 				\item verificare di poter cercare gli edifici inserendo un raggio massimo, oltre a controllare di poter effettivamente visualizzare tutti gli edifici con dei percorsi disponibili nell'area, calcolata in base al valore del raggio immesso, di poter visualizzare informazioni più dettagliate per ognuno di essi e se viene suggerito di aumentare il raggio inserito qualora l'esito della ricerca fosse negativo;
-				\item verificare di poter cercare gli edifici decidendo quante strutture mostrare nell'elenco tra quelle più vicine, oltre a controllare che gli edifici elencati siano effettivamente i più vicini e se è possibile visualizzare informazioni più dettagliate per ognuno di essi;
 				\item verificare di poter visualizzare tutte le informazioni dell'edificio selezionato.
 			\end{enumerate}
 		\subsubsection{TVF6.3}
@@ -223,13 +223,22 @@
 				\item R0V1 è già incluso nella definizione dell'applicazione proposta, inoltre è già verificato nei test dove viene chiesto di controllare se i beacon sono implementati e rilevati correttamente;
 				\item R0V2 viene garantito dalla scelta del sistema operativo, visto che Android è specifico per dispositivi mobile.
 			\end{enumerate}
+		
 	\subsection{Test di sistema}
 	\label{sec:5.4}
 		I test di sistema servono per accertarsi che il comportamento dinamico del sistema rispetti i requisiti software individuati e descritti nel documento \ARdoc.
 		\subsubsection{Descrizione dei test di sistema}
+			% tabella test di sistema esportati da trender
+			\input{pqTestSystem}
+			
+			
 	\subsection{Test di integrazione}
 	\label{sec:5.5}
 		I test di integrazione servono per verificare che tutti i diversi componenti del sistema comunichino correttamente tra loro, e che vi sia all'interno del software il flusso di dati atteso. \\
 		Verrà utilizzata una strategia di integrazione incrementale per poter sviluppare e verificare più componenti in parallelo. Questo metodo permette di dare priorità ai test relativi alle componenti che vengono ritenute più importanti e quindi sarà possibile partire dalle componenti che soddisfano i requisiti obbligatori fino ad integrarle con quelle che soddisfano i requisiti opzionali. Inoltre permette di restringere la ricerca dell'errore in caso di test fallito, perché molto probabilmente l'errore si trova nel nuovo componente o dalla sua interazione con il sistema corrente. Non si dovrà escludere il caso in cui il test fallisca perché la nuova istanza di test utilizza un campione di input non trattato in precedenza, portando così il sistema a generare l'errore. \\
 		L'integrazione delle parti è bottom-up: innanzitutto verranno inserite le componenti con meno dipendenze funzionali e più funzionalità, cioè che corrispondono ai requisiti obbligatori. Di conseguenza queste componenti saranno testate molte volte in modo da ridurre la possibilità che il prodotto finale contenga difetti, e così si otterrà una versione funzionante nel minor tempo possibile. In seguito si risalirà l'albero delle dipendenze fino all'inserimento delle componenti di alto livello. \\
 		Questo metodo è più oneroso rispetto ad altri in quanto richiede che venga generato del codice di supporto, sotto forma di driver e stub, che simuli le componenti mancanti, però permette una maggiore copertura perché testa ripetutamente le componenti più importanti.
+		
+		\input{pqTestIntegration}
+		
+		
