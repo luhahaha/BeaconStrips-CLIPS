@@ -1,7 +1,7 @@
 <?php
 
 /*
-	modifiche script: Viviana Alessio - Beacon Strips - 2016: 
+	modifiche script: Viviana Alessio - Beacon Strips - 2016:
 	lo script è ora compatibile con la struttura del repository del team Beacon strips.
 
 	creazione script: Enrico Ceron - Infinitech - 2015
@@ -9,8 +9,8 @@
 
 
 // eseguire lo script direttamente all'interno della cartella "script"
-$rev = ('../1 - RR/'); //al cambio di revisione modificare questa variabile
-$revisione = 'Revisione dei Requisiti';//e questa
+$rev = ('../2 - RP/'); //al cambio di revisione modificare questa variabile
+$revisione = 'Revisione di Progettazione';//e questa
 
 $rootE = 'Esterni/';
 $rootI = 'Interni/';
@@ -23,13 +23,14 @@ $docs = array(
   'PP' => 'PianoDiProgetto/',
   'PQ' => 'PianoDiQualifica/',
   'NP' => 'NormeDiProgetto/',
-  'SF' => 'StudioDiFattibilita/'
+  //'SF' => 'StudioDiFattibilita/'
+  'ST' => 'SpecificaTecnica/'
 );
 
 
 echo <<< EOF
 +-----------+--------+----------+
-    $revisione     
+    $revisione
 +-----------+--------+----------+
 | Documento | Valore | Esito    |
 +-----------+--------+----------+
@@ -67,7 +68,7 @@ foreach ($docs as $doc => $dir) {
   if (file_exists($rev . $rootE . $dir)) $root = $rootE;
   else
   	if (file_exists($rev . $rootI . $dir)) $root = $rootI;
-  
+
     // Se la cartella $dir esiste inizializza $gulpease e salva il nome di tutti
     // i file al suo interno in $files
     $gulpease = array();
@@ -95,13 +96,13 @@ foreach ($docs as $doc => $dir) {
         $esito = 'Negativo';
       echo "| $doc        | $gulp     | $esito |\n";
       echo "+-----------+--------+----------+\n";
-    } 
+    }
     else {
       echo "| $doc        | Nessun file o directory |\n";
       echo "+-----------+--------+------------------+\n";
     }
 }
-  
+
 echo "\n";
 
 ?>
