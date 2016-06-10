@@ -8,10 +8,13 @@
 	
 	\subsection{Architettura generale}
 	L'architettura generale dell'applicazione segue il modello client - server. \\
-	In particolare si utilizzerà lo stile architetturale REST (representational state transfer) per coordinare compomenti, connettori e dati attraverso un sistema ipermediale distribuito dove l'attenzione è data al ruolo delle componenti.
-	
+	In particolare si utilizzerà lo stile architetturale REST (representational state transfer) per coordinare compomenti, connettori e dati attraverso un sistema ipermediale distribuito dove l'attenzione è data al ruolo delle componenti ed ai vincoli imposti dalle loro interazioni tra di essi. \\
+	Alcune caratteristiche e vincoli di REST sono i seguenti:	
 	\begin{itemize}
-		\item \textbf{Vantaggi}: REST offre una interfaccia che separa il client dal server. Questa separazione 
+		\item REST offre una interfaccia che separa il client dal server. Questa separazione permette di avere ben chiaro quali siano i ruoli delle due componenti in modo che non ci siano conflitti tra le due. Questo porta beneficio anche alla portabilità e alla scalabilità del prodotto;
+		\item la comunicazione tra client e server è stateless, il che significa che ogni richiesta del client sarà interpretabile dal server senza che esso utilizzi alcun contesto presente nel server;
+		\item i risultati ottenuti da una richiesta client-server possono essere salvati in cache così che se il client avesse la necessità di riutilizzare dati già richiesti lo possa fare senza effettuare nuove richieste.
+		
 	\end{itemize}
 		
-		rest - A uniform interface separates clients from servers. This separation of concerns means that, for example, clients are not concerned with data storage, which remains internal to each server, so that the portability of client code is improved. Servers are not concerned with the user interface or user state, so that servers can be simpler and more scalable. Servers and clients may also be replaced and developed independently, as long as the interface between them is not altered.
+		
