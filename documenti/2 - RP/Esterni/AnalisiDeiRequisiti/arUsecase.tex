@@ -438,10 +438,10 @@ percorso}
 \post{l'utente è registrato nel database.}\\\\
 \scen{\begin{itemize}
 \item \UC{UC11.1} l'utente inserisce un indirizzo email valido;
-\item \UC{UC1.2} l'utente inserisce un username univoco;
-\item \UC{UC1.3} l'utente inserisce una password sufficientemente sicura;
-\item \UC{UC1.4} l'utente reinserisce la password precedentemente scelta;
-\item \UC{UC1.13} l'utente conferma i dati inseriti.
+\item \UC{UC11.2} l'utente inserisce un username univoco;
+\item \UC{UC11.3} l'utente inserisce una password sufficientemente sicura;
+\item \UC{UC11.4} l'utente reinserisce la password precedentemente scelta;
+\item \UC{UC11.13} l'utente conferma i dati inseriti.
 \end{itemize}}\\\\
 \att{Utente non autenticato.}
 
@@ -455,33 +455,6 @@ percorso}
 \end{itemize}}\\\\
 \att{Utente non autenticato.}
 
-\casoduso{UC11.10}{Visualizza errore inserimento username già in uso}
-\desc{l'utente viene informato di aver inserito un username già in uso nel sistema.}\\\\
-\pre{l'utente ha inserito un username già in uso nel sistema.}\\\\
-\post{l'utente è stato informato di aver inserito un username già in uso nel sistema.}\\\\
-\scen{l'utente viene informato di aver inserito un username già in uso nel sistema.}\\\\
-\att{Utente non autenticato.}
-
-\casoduso{UC11.11}{Visualizza errore password non sufficientemente sicura}
-\desc{l'utente visualizza l'errore il quale segnala che la nuova password inserita non è sufficientemente sicura.}\\\\
-\pre{l'utente ha inserito una nuova password non sufficientemente sicura.}\\\\
-\post{l'utente ha visualizzato l'errore il quale segnala che la nuova password inserita non è sufficientemente sicura.}\\\\
-\scen{l'utente visualizza l'errore il quale segnala che la nuova password inserita non è sufficientemente sicura.}\\\\
-\att{Utente non autenticato.}
-
-\casoduso{UC11.12}{Visualizza errore password reinserita non coincidente con la nuova password}
-\desc{l'utente visualizza l'errore il quale segnala che la password reinserita non coincide con la nuova password.}\\\\
-\pre{l'utente ha reinserito la password che non coincide con quella nuova precedentemente inserita.}\\\\
-\post{l'utente ha visualizzato l'errore il quale segnala che la password reinserita non coincide con la nuova password.}\\\\
-\scen{l'utente visualizza l'errore il quale segnala che la password reinserita non coincide con la nuova password.}\\\\
-\att{Utente non autenticato.}
-
-\casoduso{UC11.13}{Conferma dati registrazione}
-\desc{l'utente conferma i dati di registrazione inseriti.}\\\\
-\pre{l'utente ha inserito i dati per la registrazione.}\\\\
-\post{l'utente ha confermato i dati inseriti per la registrazione.}\\\\
-\scen{l'utente conferma i dati di registrazione inseriti.}\\\\
-\att{Utente non autenticato.}
 
 \casoduso{UC11.2}{Inserimento nuovo username}
 \desc{l'utente inserisce l'username con cui desidera registrarsi.}\\\\
@@ -546,6 +519,33 @@ percorso}
 \pre{l'utente ha inserito un username non valido.}\\\\
 \post{l'utente viene notificato di aver inserito un username non valido.}\\\\
 \scen{l'utente ha inserito un username che non rispetta il requisito \Req{R0F1.2.7.2.1}.}\\\\
+\att{Utente non autenticato.}
+\casoduso{UC11.10}{Visualizza errore inserimento username già in uso}
+\desc{l'utente viene informato di aver inserito un username già in uso nel sistema.}\\\\
+\pre{l'utente ha inserito un username già in uso nel sistema.}\\\\
+\post{l'utente è stato informato di aver inserito un username già in uso nel sistema.}\\\\
+\scen{l'utente viene informato di aver inserito un username già in uso nel sistema.}\\\\
+\att{Utente non autenticato.}
+
+\casoduso{UC11.11}{Visualizza errore password non sufficientemente sicura}
+\desc{l'utente visualizza l'errore il quale segnala che la nuova password inserita non è sufficientemente sicura.}\\\\
+\pre{l'utente ha inserito una nuova password non sufficientemente sicura.}\\\\
+\post{l'utente ha visualizzato l'errore il quale segnala che la nuova password inserita non è sufficientemente sicura.}\\\\
+\scen{l'utente visualizza l'errore il quale segnala che la nuova password inserita non è sufficientemente sicura.}\\\\
+\att{Utente non autenticato.}
+
+\casoduso{UC11.12}{Visualizza errore password reinserita non coincidente con la nuova password}
+\desc{l'utente visualizza l'errore il quale segnala che la password reinserita non coincide con la nuova password.}\\\\
+\pre{l'utente ha reinserito la password che non coincide con quella nuova precedentemente inserita.}\\\\
+\post{l'utente ha visualizzato l'errore il quale segnala che la password reinserita non coincide con la nuova password.}\\\\
+\scen{l'utente visualizza l'errore il quale segnala che la password reinserita non coincide con la nuova password.}\\\\
+\att{Utente non autenticato.}
+
+\casoduso{UC11.13}{Conferma dati registrazione}
+\desc{l'utente conferma i dati di registrazione inseriti.}\\\\
+\pre{l'utente ha inserito i dati per la registrazione.}\\\\
+\post{l'utente ha confermato i dati inseriti per la registrazione.}\\\\
+\scen{l'utente conferma i dati di registrazione inseriti.}\\\\
 \att{Utente non autenticato.}
 
 \casoduso{UC12}{Visualizza avviso di attivazione GPS}
