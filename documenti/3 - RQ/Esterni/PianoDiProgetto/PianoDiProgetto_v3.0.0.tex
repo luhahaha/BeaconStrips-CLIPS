@@ -1,0 +1,120 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\usepackage{eurosym}
+\usepackage{comment}
+\usepackage{hyperref}
+
+% mi serve nella sezione Pianificazione. Mette "Attività" centrato sotto al processo
+\newcommand{\att}{
+	\begin{center}
+	\textbf{Attività}
+	\end{center}
+	}
+
+% mi serve nella sezione preventivo per mettere i grafici a torta. #1=path immagine, #2=caption
+\newcommand{\torta}[2]{
+	\begin{figure}[!h]
+	\centering
+		\includegraphics[height=5.5cm, width=11cm]{#1} 
+		\caption{#2}
+	\end{figure}		
+}
+
+% comando per inserire gli istogrammi
+\newcommand{\ist}[2]{
+	\begin{figure}[!h]
+	\centering
+	\includegraphics[height=7cm, width=12cm]{#1} 
+	\caption{#2}
+	\end{figure}		
+}
+
+% comando per inserire i gantt
+\newcommand{\gantt}[2]{
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[height=10cm, width=15cm]{#1}
+		\caption{#2}
+	\end{figure}		
+}
+
+
+
+
+\def\NOME{Piano di Progetto}
+\def\VERSIONE{2.0.0}
+\def\DATA{2016-06-09} %controllo data
+\def\REDATTORE{Matteo Franco}
+\def\VERIFICATORE{Viviana Alessio \\ & Luca Soldera}
+\def\RESPONSABILE{Matteo Franco}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Piano per la gestione dei rischi, dei costi e dei tempi nella realizzazione del \gl{progetto} del gruppo \AUTORE.}
+
+
+\begin{document}
+
+
+\maketitle
+
+\begin{diario}
+	\modifica{Matteo Franco}{\RES}{Approvazione del documento}{2016-06-09}{2.0.0}
+	\modifica{Luca Soldera}{\VER}{Verificato \hyperref[consuntivo]{consuntivo e preventivo a finire} periodo di Progettazione Architetturale}{2016-06-08}{1.5.0}
+	\modifica{Matteo Franco}{\RES}{Aggiunto \hyperref[consuntivo]{consuntivo e preventivo a finire} periodo di Progettazione Architetturale}{2016-06-08}{1.4.4}
+	\modifica{Matteo Franco}{\RES}{Spostata sezione di \hyperref[consuntivo]{preventivo a finire} del periodo di Analisi di Dettaglio nelle conclusioni del consuntivo dello stesso periodo}{2016-06-08}{1.4.3}
+	\modifica{Matteo Franco}{\RES}{Aggiunta delle attività svolte nella sezione \hyperref[pianificazione]{Pianificazione} nel periodo AM e PA}{2016-06-07}{1.4.1} 
+	\modifica{Matteo Franco}{\RES}{Aggiunta dei rischi del periodo PA nella sezione \hyperref[analisiRischi]{Analisi dei rischi}}{2016-06-07}{1.4.0} 
+	\modifica{Matteo Franco}{\RES}{Aggiunte attività di sviluppo per periodi AM, CR, PA}{2016-05-29}{1.3.0}
+	\modifica{Viviana Alessio}{\VER}{Verifica delle modifiche e della sezione aggiunta}{2016-05-07}{1.2.0}
+	\modifica{Luca Soldera}{\RES}{Modifica ore di preventivo e relative immagini}{2016-05-06}{1.1.2}
+	\modifica{Luca Soldera}{\RES}{Aggiunta sezione "\hyperref[consuntivo]{Consuntivo e preventivo a finire}" e modificate segnalazioni verifica }{2016-05-05}{1.1.1}
+	\modifica{Enrico Bellio}{\VER}{Verifica generale}{2016-05-05}{1.1.0}
+	\modifica{Luca Soldera}{\RES}{Aggiunti punti "Riscontro effettivo" nell'analisi dei rischi}{2016-04-21}{1.0.1}
+	\modifica{Luca Soldera}{\RES}{Modifica tabelle suddivisione lavoro: Aggiunte ore totali alle tabelle}{2016-04-21}{1.0.1}
+	\modifica{Viviana Alessio}{\RES}{Approvazione documento}{2016-04-06}{1.0.0}
+	\modifica{Andrea Grendene}{\VER}{Verifica finale}{2016-04-06}{0.7.0}
+	\modifica{Viviana Alessio}{\RES}{Correzione errori}{2016-04-05}{0.6.0}
+	\modifica{Matteo Franco}{\VER}{Verifica tabelle documento}{2016-04-05}{0.5.1}
+	\modifica{Viviana Alessio}{\RES}{Correzione errori}{2016-04-02}{0.5.0}
+	\modifica{Andrea Grendene}{\VER}{Verifica parti discorsive documento}{2016-04-01}{0.4.2}
+	\modifica{Viviana Alessio}{\RES}{Sezione Preventivo: riorganizzazione immagini}{2016-03-30}{0.4.1}
+	\modifica{Viviana Alessio}{\RES}{Sezione Preventivo: inserimento grafici}{2016-03-30}{0.4.0}
+	\modifica{Viviana Alessio}{\RES}{Sezione Pianificazione: stesura periodi da PA a V}{2016-03-26}{0.3.3}
+	\modifica{Viviana Alessio}{\RES}{Sezione Pianificazione: miglioramento organizzazione, Stesura fase AD}{2016-03-25}{0.3.2}
+	\modifica{Viviana Alessio}{\RES}{Sezione Pianificazione: stesura introduzione, periodo di Analisi e Management}{2016-03-23}{0.3.1}
+	\modifica{Viviana Alessio}{\RES}{Sezione Analisi dei rischi: stesura livello personale e organizzativo}{2016-03-23}{0.3.0}
+	\modifica{Viviana Alessio}{\RES}{Sezione Analisi dei rischi: stesura livello tecnologico}{2016-03-22}{0.2.1}
+	\modifica{Viviana Alessio}{\RES}{Stesura Introduzione}{2016-03-16}{0.2.0}
+	\modifica{Viviana Alessio}{\RES}{Stesura intestazione e indice documento}{2016-03-16}{0.1.0}
+\end{diario}
+
+\newpage
+\tableofcontents
+\newpage
+\listoftables
+\newpage
+\listoffigures
+\newpage
+
+\include{introduzione}
+
+\include{analisiRischi}
+
+\include{pianificazione}
+
+\include{preventivo}
+
+\include{consuntivo}
+
+\appendix
+\include{organigramma}
+
+\end{document}

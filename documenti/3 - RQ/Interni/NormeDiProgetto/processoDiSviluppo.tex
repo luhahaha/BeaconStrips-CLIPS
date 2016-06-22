@@ -1,0 +1,114 @@
+\subsubsection{Attività}
+\label{sec:2.1.1}
+		\paragraph{Analisi dei requisiti}
+		\label{sec:2.1.1.1}
+			Sarà compito degli analisti redigere l'analisi dei requisiti in seguito a riunioni interne col team e allo studio dei capitolati d'appalto.
+			\subparagraph{Studio di Fattibilità e Analisi dei Rischi}
+			\label{sec:2.1.1.1.1}
+				Lo studio di fattibilità sarà il primo documento dell'analisi dei requisiti che analizzerà i seguenti punti per ogni \gl{capitolato}, con maggior interesse per quello scelto dal team:
+				\begin{itemize}
+					\item \textbf{Scopo del \gl{progetto}}: analisi delle richieste del \gl{capitolato};
+					\item \textbf{Studio del dominio}: valutazione delle tecnologie e conoscenze richieste rispetto l'attuale livello del team;
+					\item \textbf{Analisi dei rischi}: ricerca dei rischi e delle criticità per ciascun \gl{capitolato}.
+				\end{itemize}
+			\subparagraph{Analisi dei requisiti}
+			\label{sec:2.1.1.1.2}
+				Il secondo documento che gli analisti andranno a redigere sarà l'analisi dei requisiti che produrrà dei requisiti semplici a partire dalle informazioni raccolte tramite lo studio del \gl{capitolato} e riunioni esterne con il \gl{proponente}.
+				Per rendere più precisa e veloce la stesura dei requisiti è stato utilizzato il \gl{software} \gl{Trender}.
+		\paragraph{Specifica tecnica}
+		\label{sec:2.1.1.2}
+			Sarà compito dei progettisti descrivere l'architettura ad alto livello dell'applicazione nella \STdoc, inoltre dovranno essere progettati  opportuni test d'integrazione.
+			
+			\subparagraph{Diagrammi UML}
+			\label{sec:2.1.1.2.1}
+				Dovranno essere forniti i seguenti diagrammi UML:
+				\begin{itemize}
+					\item Diagrammi di classe.
+					\item Diagrammi dei package.
+					\item Diagrammi di attività.
+					\item Diagrammi di sequenza.
+				\end{itemize}
+				
+			\subparagraph{Design Pattern}
+			\label{sec:2.1.1.2.2}
+				I progettisti dovranno inoltre fornire una descrizione e un'immagine esplicativa dei design pattern utilizzati per realizzare l'applicazione.
+				
+			\subparagraph{Tracciamento componenti}
+			\label{sec:2.1.1.2.3}
+				Affinchè tutti i requisiti vengano soddisfatti, verrà utilizzata l'applicazione Trender per tenere traccia delle varie componenti e dei requisiti che soddisfano.
+				
+			\subparagraph{Test di integrazione}
+			\label{sec:2.1.1.2.4}
+				Verranno progettate delle classi il cui scopo sarà quello di testare la correttezza dei componenti dell'applicazione.
+			
+		
+\subsubsection{Norme}
+\label{sec:2.1.2}
+	\paragraph{Classificazione  dei requisiti}
+	\label{sec:2.1.2.1}
+		I requisiti saranno rappresentati secondo la seguente codifica:
+		\begin{center}
+			R[importanza][tipo][identificativo]
+		\end{center}
+		\begin{itemize}
+			\item \textbf{Importanza}:indica se il requisito è:
+			\begin{enumerate}
+				\item \textbf{0}: obbligatorio;
+				\item \textbf{1}: desiderabile;
+				\item \textbf{2}: opzionale.
+			\end{enumerate}
+			\item \textbf{Tipo}: indica se è di tipo:
+			\begin{enumerate}
+				\item \textbf{F}: funzionale;
+				\item \textbf{Q}: di qualità;
+				\item \textbf{P}: prestazionale;
+				\item \textbf{V}: di vincolo.
+			\end{enumerate}
+			\item \textbf{Identificativo}: è il codice univoco e gerarchico che automaticamente il \gl{software} assegna al requisito (esempio: 4.2.1);
+			\item \textbf{Descrizione}: una breve descrizione del requisito;
+			\item \textbf{Fonte}: la fonte da cui deriva il requisito.
+		\end{itemize}
+	\paragraph{Classificazione dei casi d'uso}
+	\label{sec:2.1.2.2}
+		I casi d'uso saranno rappresentati secondo la seguente codifica:
+		\begin{center}
+			UC[identificativo]
+		\end{center}
+		\begin{itemize}
+			\item \textbf{Identificativo}: codice univoco e gerarchico che automaticamente il \gl{software} assegna al caso d'uso (esempio: 3.4.1);
+		\end{itemize}
+		inoltre i casi d'uso saranno caratterizzati da:
+		\begin{itemize}
+			\item \textbf{Tipo}: se non specificato è di tipo standard altrimenti viene scelto fra:
+			\begin{enumerate}
+				\item \textbf{estensione};
+				\item \textbf{inclusione};
+				\item \textbf{generalizzazione}.
+			\end{enumerate}
+			\item \textbf{titolo} breve del caso d'uso;
+			\item \textbf{descrizione} del caso d'uso;
+			\item \textbf{precondizione} del caso d'uso;
+			\item \textbf{postcondizione} del caso d'uso 
+			\item \textbf{scenario principale} degli eventi;
+			\item \textbf{scenario secondario} eventuale;
+			\item \textbf{attori}: lista degli attori coinvolti;
+		\end{itemize}
+\subsubsection{Strumenti}
+\label{sec:2.1.3}
+	\paragraph{\gl{Trender}}
+	\label{sec:2.1.3.1}
+		Per velocizzare e automatizzare la stesura dei requisiti e dei casi d'uso è stato utilizzato il \gl{software} \textbf{\gl{Trender}} sviluppato da Simone Campagna del gruppo InfiniTech dell'anno 2014/2015. Il \gl{software} permette di tracciare i requisiti e i casi d'uso assegnando automaticamente un codice univoco che rispetti la sintassi desiderata.
+
+\subsubsection{Codifica}
+\label{sec:2.1.4}
+	I file contenenti codice o documentazione dovranno rispettare la codifica UTF-8 senza \gl{BOM} e verrà utilizzato il carattere LF (U+000A) per andare a capo.
+
+	\subsubsection{Norme di stile}
+	\label{sec:2.1.4.1}
+		Tutto il codice prodotto dovrà seguire le seguenti regole di stile:
+		\begin{itemize}
+			\item I nomi di variabili, metodi, funzioni e classi dovranno essere scritti in inglese.
+			\item I nomi delle classi dovranno rispettare le regole del \gl{CamelCase}.
+			\item I nomi di variabili, metodi e funzioni dovranno avere la prima lettera minuscola e l'iniziale di ogni altra parola contenuta nel nome in maiuscolo.
+			\item I commenti dovranno essere scritti in italiano.
+		\end{itemize}

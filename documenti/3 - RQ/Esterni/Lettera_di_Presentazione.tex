@@ -1,0 +1,102 @@
+\documentclass[a4paper]{article}
+
+\makeatletter
+\def\input@path{{../../template/}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\usepackage{eurosym}
+
+\newcommand{\spazio}{\vspace{1.5cm}}
+%per far compilare il LaTeX mi servivano questi dati con il template esistente, vanno tolti
+ \def\NOME{Lettera di Presentazione}
+ \def\VERSIONE{1}
+ \def\DATA{2016-06-10}
+ \def\REDATTORE{Matteo Franco}
+ \def\VERIFICATORE{Luca Soldera}
+ \def\RESPONSABILE{Matteo Franco}
+ \def\USO{Esterno}
+ \def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+ \def\SOMMARIO{Sommario}
+
+\begin{document}
+
+\spazio
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.3]{img/logo_full.png} \\
+	beaconstrips.swe@gmail.com
+\end{figure}
+
+\spazio
+
+\begin{flushright}
+\date{2016-06-10}
+Egregi \\
+\COMMITTENTE \\
+\CARDIN \\
+c/o Università degli Studi di Padova  \\
+Dipartimento di Matematica \\
+via Trieste, 63 \\
+35121 Padova (PD)
+\end{flushright}
+\spazio
+
+Oggetto: \textbf{partecipazione alla Revisione di Progettazione} \\ \\
+Egregio \COMMITTENTE,\\
+con la presente il gruppo \AUTORE \ intende comunicarLe ufficialmente la partecipazione alla Revisione di Progettazione per la realizzazione del prodotto da Lei commissionato: \\
+\highlight{\textbf{CLIPS: Communication \& Localization with Indoor Positioning Systems}}
+
+Si allegano i seguenti documenti:
+\begin{itemize}
+	\item \textbf{\ARdocRP}: \textit{Esterni/AnalisiDeiRequisiti\_v2.0.0.pdf}
+	\item \textbf{\GldocRP}: \textit{Esterni/Glossario\_v2.0.0.pdf}
+	\item \textbf{\NPdocRP}: \textit{Interni/NormeDiProgetto\_v2.0.0.pdf}
+	\item \textbf{\PPdocRP}: \textit{Esterni/PianoDiProgetto\_v2.0.0.pdf}
+	\item \textbf{\PQdocRP}: \textit{Esterni/PianoDiQualifica\_v2.0.0.pdf}
+	\item \textbf{\SFdocRP}: \textit{Interni/SpecificaTecnica\_v1.0.0.pdf}
+	\item \textbf{Verbali}:
+		\begin{itemize}
+			\item \textbf{Interni}:
+				\begin{itemize}
+					\item \textit{Interni/Verbali/Verbale\_2016\_05\_11\_v1.0.0.pdf}
+				\end{itemize}
+			\item \textbf{Esterni}:
+				\begin{itemize}
+					\item \textit{Interni/Verbali/Verbale\_2016\_05\_03\_v1.0.0.pdf}
+				\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\spazio
+
+Il preventivo comunicato rimane invariato e corrisponde a \euro\textbf{11.581,00}. \\ \\
+Data di prevista consegna: \textbf{2016/09/12}. \\
+\spazio
+
+
+Di seguito l'organigramma del team:
+
+\begin{tabella}{c!{\VRule}c!{\VRule}c!}
+	\intestazionethreecol{Nominativo}{Matricola}{Indirizzo e-mail}{}
+	Viviana Alessio & 1029720 & viviana.alessio@studenti.unipd.it  \\
+	Enrico Bellio & 1070872 & enrico.bellio@studenti.unipd.it  \\
+	Matteo Franco & 1027207 & matteo.franco.2@studenti.unipd.it  \\
+	Andrea Grendene & 1071863 & andrea.grendene@studenti.unipd.it  \\
+	Tommaso Panozzo & 1029174 & tommaso.panozzo@studenti.unipd.it  \\
+	Luca Soldera & 1028464 & luca.soldera@studenti.unipd.it  \\
+\end{tabella}
+
+\spazio
+Distinti saluti, \\
+
+%allineato a dx
+\begin{flushright}
+	Il \RES \\ 
+	Matteo Franco \\ 
+	\includegraphics[scale=0.2]{PianoDiProgetto/img/firme/matteo}
+	%firma
+\end{flushright}
+\end{document}

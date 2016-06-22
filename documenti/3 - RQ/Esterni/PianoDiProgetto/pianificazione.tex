@@ -1,0 +1,223 @@
+\section{Pianificazione} 
+\label{pianificazione}
+	\subsection{Introduzione}
+	A fronte dell'analisi dei rischi e della scadenza delle revisioni di avanzamento vi saranno tre periodi durante lo svolgimento del \gl{progetto}: uno di \textbf{analisi}, uno di \textbf{progettazione e codifica} ed uno di \textbf{incremento e validazione}.
+	Per rendere più controllabile lo sviluppo del \gl{progetto} si è deciso di dividere il lavoro in sei periodi specifici, i quali vengono riportati nella seguente tabella con le relative date di inizio e di fine.
+		
+		\begin{tabella}{!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}} %date non standard \gl{ISO}
+				
+			\intestazionethreecol{Periodo}{Data di inizio}{Data di fine}
+			
+			Periodo di Analisi e Management & 2016-03-01 & 2016-04-18  \\
+			Periodo di Analisi di Dettaglio & 2016-04-19 & 2016-05-06  \\
+			Periodo di Progettazione Architetturale & 2016-05-07 & 2016-06-17 \\
+			Periodo di Progettazione di Dettaglio e Codifica & 2016-06-18 & 2016-08-24 \\
+			Periodo di Codifica dei Requisiti Desiderabili e Opzionali & 2016-08-25 & 2016-08-30 \\
+			Periodo di Validazione e Collaudo & 2016-08-31 & 2016-09-12 \\ 
+			
+			\hiderowcolors
+			\caption{Periodi di sviluppo con relative abbreviazioni e date di inizio e fine.}
+			
+		\end{tabella}
+		
+	Ogni periodo contiene diverse attività che verranno riportate e descritte in un elenco puntato. \\ Successivamente nei diagrammi di \gl{Gantt} si potrà notare come le attività siano state suddivise temporalmente. In questi saranno inoltre presenti delle \gl{milestones} che indicheranno i giorni in cui dovranno essere consegnati i documenti in entrata alle revisioni, quelli in cui si svolgeranno le revisioni di avanzamento ed, eventualmente, quelli in cui vi saranno incontri con il Proponente. 
+	
+	\subsection{Periodo di Analisi e Management (AM)}
+	\begin{center}
+		\textbf{Data di inizio}: 2016-03-01 \\
+		\textbf{Data di fine}: 2016-04-18 \\
+	\end{center}
+
+	Questo periodo inizia con la formazione del gruppo e termina il giorno della Revisione dei Requisiti. \\
+	I processi principali di questo periodo sono: 
+	\begin{itemize}
+		\item \textbf{Management}
+			\att
+			\begin{itemize} 
+				\item \textbf{Individuazione strumenti da utilizzare}: il gruppo deve trovare degli strumenti che aiutino ad automatizzare e rendere più facile lo sviluppo del \gl{progetto}.
+			\end{itemize}
+		\item \textbf{Documentazione}: viene creata la documentazione da consegnare in ingresso alla RR.
+		\att
+		\begin{itemize}
+			\item \textbf{Norme di Progetto}: viene steso il documento \NPdocRR{} in cui saranno elencate e descritte le norme da seguire durante tutto lo svolgimento del \gl{progetto} indipendentemente dal \gl{capitolato} scelto; 
+			\item \textbf{Piano di Progetto}: viene steso il documento \PPdocRR{} per pianificare dettagliatamente i tempi e i costi del \gl{progetto};
+			\item \textbf{Studio di Fattibilità}: viene steso il documento \SFdocRR{} che riporta l'analisi che ha portato il gruppo a scegliere il \gl{capitolato} C2;
+			\item \textbf{Analisi dei Requisiti}: viene steso il documento \ARdocRR{} in cui viene svolta un'analisi molto più approfondita di quella svolta in \SFdocRR. Vengono elencati e descritti i casi d'uso e i requisiti del \gl{prodotto} che si andrà a sviluppare;
+			\item \textbf{Piano di Qualifica}: viene steso il documento \PQdocRR{} che riporta quali obiettivi di qualità si è prefissato il gruppo;
+			\item \textbf{Glossario}: viene steso il \GldocRR{} il quale riporta la descrizione dei termini presenti nei vari documenti che potrebbero causare ambiguità nel lettore.
+		\end{itemize}
+		\item \textbf{Sviluppo}
+		\att
+			\begin{itemize}
+				\item \textbf{Analisi}: vengono identificati i requisiti ed i casi d'uso necessari per il successivo sviluppo dell'applicazione.
+			\end{itemize}
+		\item \textbf{Infrastruttura}
+		\att 
+		\begin{itemize}
+			\item \textbf{Trender}: gli amministratori si occupano di configurare \gl{Trender} e renderlo funzionante.
+		\end{itemize}
+	\end{itemize}
+	
+		
+		\subsubsection{Diagramma di \gl{Gantt} delle attività}
+		% \gantt{img/gantt/A}{Diagramma di \gl{Gantt} delle attività - Periodo A}
+		
+		\begin{figure}[!h]
+			\centering
+			\includegraphics[height=12cm, width=15cm]{img/gantt/A} 
+			\caption{Diagramma di \gl{Gantt} delle attività - Periodo di Analisi e Management}
+		\end{figure}
+		
+	\subsection{Periodo di Analisi di Dettaglio (CR)}
+	\begin{center}
+		\textbf{Data di inizio}: 2016-04-19 \\
+		\textbf{Data di fine}: 2016-05-06 \\
+	\end{center}
+	Questo periodo inizia al termine del periodo di Analisi e Management, ovvero dopo la Revisione dei Requisiti, e termina con un incontro con il \gl{proponente}. \\ 
+	Il processo principale di questo periodo è:
+	\begin{itemize}
+		\item \textbf{Documentazione}
+		\att
+		\begin{itemize}
+			\item \textbf{Miglioramento di tutti i documenti}: seguendo le indicazioni del Committente verranno attuate le modifiche necessarie a migliorare tutti i documenti stesi nel periodo di Analisi e Management;
+			\item \textbf{Analisi dei Requisiti}: Questo documento oltre ad essere corretto verrà anche arricchito con nuovi requisiti.
+		\end{itemize}
+		\item \textbf{Sviluppo}
+		\att
+		\begin{itemize}
+			\item \textbf{Analisi}: verranno corretti gli errori riguardo l'analisi effettuati nel periodo precedente. Successivamente, se necessario, ci si occuperà di proseguire con l'analisi aggiungendo nuovi requisiti e casi d'uso.
+		\end{itemize}
+	\end{itemize}
+		
+		
+		\subsubsection{Diagramma di \gl{Gantt} delle attività}
+		\gantt{img/gantt/AD}{Diagramma di \gl{Gantt} delle attività - Periodo di Analisi di Dettaglio}
+		
+	\subsection{Periodo di Progettazione Architetturale (PA)}
+	\begin{center}
+		\textbf{Data di inizio}: 2016-05-07 \\
+		\textbf{Data di fine}: 2016-06-17 \\
+	\end{center}
+	Questo periodo inizia subito dopo il termine del periodo di Analisi di Dettaglio e termina con la data della Revisione di Progettazione. \\
+	Il processo principale di questo periodo è:
+		\begin{itemize}
+			\item \textbf{Documentazione}
+			\att
+			\begin{itemize}
+				\item \textbf{Specifica Tecnica}: viene creato il documento \STdocRP{} che conterrà le scelte progettuali decise dai progettisti; 
+				\item \textbf{Norme di Progetto}: viene incrementato questo documento in modo da normare anche la stesura del documento \STdocRP;
+				\item \textbf{Piano di Progetto}: viene aggiunto il consuntivo del periodo contenente i periodi di Analisi di Dettaglio e di Progettazione Architetturale ed il preventivo a finire. Vengono inoltre riportati i rischi che si sono verificati nei periodi precedenti;
+				\item \textbf{Piano di Qualifica}: viene aggiunta la parte di pianificazione dei test;
+				\item \textbf{Glossario}: viene incrementato con i nuovi termini presenti nella \STdocRP, nel \PQdocRP{} e nelle \NPdocRP.
+			\end{itemize}
+			\item \textbf{Sviluppo}
+			\att
+			\begin{itemize}
+				\item \textbf{Progettazione}: verranno identificate ad alto livello le classi da utilizzare per la realizzazione dell'applicazione.
+			\end{itemize}
+			\item \textbf{\gl{Training}}
+			\att
+			\begin{itemize}
+				\item \textbf{\gl{Android Studio}}: ogni componente del gruppo si occuperà di imparare ad utilizzare \gl{Android Studio}, in quanto questo strumento verrà utilizzato nella fase seguente per la codifica.
+			\end{itemize}
+		
+		\end{itemize}
+		\subsubsection{Diagramma di \gl{Gantt} delle attività}
+		\gantt{img/gantt/PA}{Diagramma di \gl{Gantt} delle attività - Periodo di Progettazione Architetturale}
+		
+		
+		
+	\subsection{Periodo di Progettazione di Dettaglio e Codifica (PDC)}
+	\begin{center}
+		\textbf{Data di inizio}: 2016-06-18 \\
+		\textbf{Data di fine}: 2016-08-24 \\
+	\end{center}
+	Questo periodo inizia subito dopo la fine del periodo di Progettazione Architetturale, ovvero dopo la Revisione di Progettazione, e termina con la data della Revisione di Qualifica. \\
+	I processi principali di questo periodo sono: 
+		\begin{itemize}
+			\item \textbf{Documentazione} 
+			\att
+			\begin{itemize} 
+				\item \textbf{Definizione di \gl{Prodotto}}: viene steso il documento \DPdocRQ{} il quale definisce la struttura e la relazione tra le componenti del \gl{prodotto}. È basato sul documento \STdocRQ;
+				\item \textbf{Manuale utente}: viene redatta la versione preliminare del \MUdocRQ{} il quale fornirà agli utenti le indicazioni per l'utilizzo del \gl{prodotto};
+				\item \textbf{Incremento altri documenti}: come nel periodo precedente anche in questa vi sarà il miglioramento dei documenti che necessitano tale trattamento.
+			\end{itemize}
+			\item \textbf{Sviluppo}
+			\att
+			\begin{itemize}
+				\item \textbf{Codifica}: avviene la scrittura del codice dei requisiti obbligatori del \gl{prodotto};
+				\item \textbf{Verifica}: per verificare l'efficacia del codice \gl{prodotto} nell'attività di codifica vengono eseguiti i test di unità e di integrazione e ne vengono osservati i risultati. 
+			\end{itemize}
+		\end{itemize}
+		\subsubsection{Diagramma di \gl{Gantt} delle attività}
+		% \gantt{img/gantt/PDC}{Diagramma di \gl{Gantt} delle attività - Periodo PDC}
+		
+		\begin{figure}[!h]
+			\centering
+			\includegraphics[height=12cm, width=15cm]{img/gantt/PDC} 
+			\caption{Diagramma di \gl{Gantt} delle attività - Periodo di Progettazione di Dettaglio e Codifica}
+		\end{figure}
+		
+	\subsection{Periodo di Codifica dei Requisiti Desiderabili e Opzionali (CDO)}
+	\begin{center}
+		\textbf{Data di inizio}: 2016-08-25 \\
+		\textbf{Data di fine}: 2016-08-30 \\
+	\end{center}
+	Questo periodo inizia subito dopo la fine del periodo di Progettazione di Dettaglio e Codifica, ovvero dopo la Revisione di Qualifica, e termina sei giorni dopo. \\
+	I processi principali di questo periodo sono: 
+		\begin{itemize}
+			\item \textbf{Documentazione}:
+			\att
+			\begin{itemize}
+				\item \textbf{Correzioni e aggiornamenti}: Verranno corretti e aggiornati tutti i documenti che lo necessitano. 
+			\end{itemize}
+			\item \textbf{Sviluppo}:
+			\att
+			\begin{itemize}
+				\item \textbf{Codifica}: avviene la scrittura del codice dei requisiti desiderabili e opzionali del \gl{prodotto};
+				\item \textbf{Verifica}: per verificare l'efficacia del codice \gl{prodotto} nell'attività di codifica vengono eseguiti i test di unità e di integrazione e ne vengono osservati i risultati. 
+			\end{itemize}
+		\end{itemize}
+		\subsubsection{Diagramma di \gl{Gantt} delle attività}
+		% \gantt{img/gantt/RD}{Diagramma di \gl{Gantt} delle attività - Periodo RD}
+		
+		\begin{figure}[!h]
+			\centering
+			\includegraphics[height=12cm, width=15cm]{img/gantt/RD} 
+			\caption{Diagramma di \gl{Gantt} delle attività - Periodo di Codifica dei Requisiti Desiderabili e Opzionali}
+		\end{figure}
+		
+	\subsection{Periodo di Validazione e Collaudo (VC)}
+	\begin{center}
+		\textbf{Data di inizio}: 2016-08-31 \\
+		\textbf{Data di fine}: 2016-09-12 \\
+	\end{center}
+	Questo periodo inizia subito dopo la fine del periodo di Codifica dei Requisiti Desiderabili e Opzionali e termina con la data della Revisione di Accettazione. \\
+	I processi principali di questo periodo sono:
+		\begin{itemize}
+			\item \textbf{Documentazione}
+			\att
+			\begin{itemize}
+				\item \textbf{Correzioni e aggiornamenti}: Verranno corretti e aggiornati tutti i documenti che lo necessitano. Si otterrà la versione finale della documentazione. 
+			\end{itemize}
+			\item \textbf{Sviluppo}
+			\att
+				\begin{itemize}
+					\item \textbf{Test}: vengono eseguiti i test di sistema previsti e ne vengono osservati e monitorati i risultati. 
+				\end{itemize}
+			\item \textbf{Verifica e validazione}
+			\att
+			\begin{itemize}
+				\item \textbf{Collaudo}: il \gl{prodotto} viene collaudato sulle funzionalità previste;
+				\item \textbf{Verifica}: tramite tracciamento si verifica di aver soddisfatto i requisiti presenti nel documento \ARdocRA. Si verificheranno inoltre i canoni di qualità previsti nel \PQdocRA;
+				\item \textbf{Validazione}: una volta svolte tutte le verifiche il \gl{prodotto} può considerarsi validato.
+			\end{itemize}
+		\end{itemize}
+		\subsubsection{Diagramma di \gl{Gantt} delle attività}
+		% \gantt{img/gantt/V}{Diagramma di \gl{Gantt} delle attività - Periodo V}
+		
+		\begin{figure}[!h]
+			\centering
+			\includegraphics[height=11cm, width=15cm]{img/gantt/V} 
+			\caption{Diagramma di \gl{Gantt} delle attività - Periodo di Validazione e Collaudo}
+		\end{figure}

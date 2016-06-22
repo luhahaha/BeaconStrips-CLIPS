@@ -1,0 +1,200 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\usepackage{eurosym}
+\usepackage{comment}
+\usepackage{hyperref}
+
+% -- COMANDI PER LE COMPONENTI -- %
+\newenvironment{componente}[1]
+{
+	\subsubsection{Componente \texttt{#1}}
+	\label{#1}
+	Informazioni sul package
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+\newcommand{\compDescrizione}[1] {
+	\item \textbf{Descrizione}: {#1}
+}
+\newcommand{\compPadre}[1] {
+	\item \textbf{Padre}: {#1}
+}
+\newcommand{\compUtilizzo}[1] {
+	\item \textbf{Utilizzo}: {#1}
+}
+\newenvironment{compPackageContenuti}[1] {
+	\item \textbf{Package contenuti}: {#1}
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newenvironment{compClassi} [1] {
+	\item \textbf{Classi}: {#1}
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newenvironment{classe} [1] {
+	\item[] \texttt{#1} \\
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newcommand{\classeDescrizione} [1] { \\
+	\item \textbf{Descrizione}: {#1}
+}
+\newcommand{\classeUtilizzo} [1] { \\
+	\item \textbf{Utilizzo}: {#1}
+}
+\newenvironment{classeAttributi} [1] { \\
+	\item \textbf{Attributi}: {#1}
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newcommand{\classeAttributo}[3] { \item \texttt{{#1}: {#2}} {#3}}
+\newenvironment{classeMetodi} [1] {
+	\item \textbf{Metodi}: {#1}
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newcommand{\classeMetodo}[4]{
+	\item \texttt{{#1}}%({#2}) : {#3}} \\ {#4}
+}
+\newenvironment{classeMetodoArgomenti} {
+	\item \textbf{Argomenti}:
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+\newcommand{\classeMetodoArgomento}[3]{\item \texttt{{#1} : {#2}} \\ {#3} }
+\newenvironment{classeRelazioni} { \\
+	\item \textbf{Relazioni con altre classi}:
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newcommand{\classeRelazione}[3]{\item \textt{#1::#2}: {#3}}
+
+
+\def\NOME{Specifica Tecnica}
+\def\VERSIONE{1.0.0}
+\def\DATA{2016-06-10}
+\def\REDATTORE{Viviana Alessio \\ & Matteo Franco \\ & Andrea Grandene \\ & Luca Soldera}
+\def\VERIFICATORE{Enrico Bellio \\ & Tommaso Panozzo}
+\def\RESPONSABILE{Matteo Franco}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Descrizione dell'architettura ad alto livello per il \gl{progetto} \PROGETTO.}
+
+\begin{document}
+
+
+\maketitle
+
+\begin{diario}
+
+	\modifica{Matteo Franco}{\RES}{Approvazione documento}{2016-06-10}{1.0.0}
+
+		\modifica{Viviana Alessio}{\PRJ}{Correzione errori classi}{2016-06-09}{0.2.0}
+		\modifica{Tommaso Panozzo}{\VER}{Verifica classi inserite}{2016-06-09}{0.1.9}
+
+	\modifica{Andrea Grendene}{\PRJ}{Inserimento classi package server}{2016-06-07}{0.1.9}
+	\modifica{Andrea Grendene}{\PRJ}{Inserimento classi package server--urlrequesthandler}{2016-06-07}{0.1.9}
+	\modifica{Andrea Grendene}{\PRJ}{Inserimento classi package server--data}{2016-06-07}{0.1.9}
+
+		\modifica{Viviana Alessio}{\PRJ}{Correzione errori ortografici e sintattici}{2016-06-05}{0.1.9}
+		\modifica{Enrico Bellio}{\VER}{Verifica classi inserite}{2016-06-05}{0.1.8}
+
+	\modifica{Luca Soldera}{\PRJ}{Inserimento classi package client--data}{2016-06-04}{0.1.8}
+	\modifica{Luca Soldera}{\PRJ}{Inserimento classi package client--datamanager}{2016-06-04}{0.1.8}
+	\modifica{Luca Soldera}{\PRJ}{Inserimento classi package client--location}{2016-06-04}{0.1.8}
+	\modifica{Luca Soldera}{\PRJ}{Inserimento classi package client--pathprogress}{2016-06-04}{0.1.8}
+	\modifica{Luca Soldera}{\PRJ}{Inserimento classi package client--urlrequest}{2016-06-04}{0.1.8}
+	\modifica{Luca Soldera}{\PRJ}{Inserimento classi package client}{2016-06-04}{0.1.8}
+
+		\modifica{Viviana Alessio}{\PRJ}{Correzione errori classi}{2016-06-04}{0.1.8}
+		\modifica{Enrico Bellio}{\VER}{Verifica classi inserite}{2016-06-04}{0.1.7}
+
+	\modifica{Matteo Franco}{\PRJ}{Inserimento classi package client--viewcontroller}{2016-05-30}{0.1.7}
+	\modifica{Matteo Franco}{\PRJ}{Inserimento classi package client--viewcontroller--utility}{2016-05-30}{0.1.7}
+	\modifica{Matteo Franco}{\PRJ}{Inserimento classi package client--viewcontroller--savedresults}{2016-05-30}{0.1.7}
+	\modifica{Matteo Franco}{\PRJ}{Inserimento classi package client--viewcontroller--games}{2016-05-30}{0.1.7}
+	\modifica{Matteo Franco}{\PRJ}{Inserimento classi package client--viewcontroller--building}{2016-05-30}{0.1.7}
+	\modifica{Matteo Franco}{\PRJ}{Inserimento classi package client--viewcontroller--authentication}{2016-05-30}{0.1.7}
+
+	\modifica{Viviana Alessio}{\PRJ}{Correzione errori ortografici e sintattici}{2016-05-28}{0.1.7}
+	\modifica{Tommaso Panozzo}{\VER}{Verifica packages inseriti}{2016-05-27}{0.1.6}
+
+	\modifica{Andrea Grendene}{\PRJ}{Inserimento package server}{2016-05-26}{0.1.6}
+	\modifica{Andrea Grendene}{\PRJ}{Inserimento package server--urlrequesthandler}{2016-05-26}{0.1.6}
+	\modifica{Andrea Grendene}{\PRJ}{Inserimento package server--data}{2016-05-26}{0.1.6}
+	\modifica{Luca Soldera}{\PRJ}{Inserimento package client--data}{2016-05-26}{0.1.6}
+	\modifica{Luca Soldera}{\PRJ}{Inserimento package client--datamanager}{2016-05-26}{0.1.5}
+	\modifica{Luca Soldera}{\PRJ}{Inserimento package client--location}{2016-05-26}{0.1.5}
+	\modifica{Luca Soldera}{\PRJ}{Inserimento package client--pathprogress}{2016-05-26}{0.1.5}
+	\modifica{Luca Soldera}{\PRJ}{Inserimento package client--urlrequest}{2016-05-26}{0.1.5}
+	\modifica{Luca Soldera}{\PRJ}{Inserimento package client}{2016-05-26}{0.1.5}
+	\modifica{Matteo Franco}{\PRJ}{Inserimento package client--viewcontroller}{2016-05-26}{0.1.5}
+	\modifica{Matteo Franco}{\PRJ}{Inserimento package client--viewcontroller--utility}{2016-05-26}{0.1.5}
+	\modifica{Matteo Franco}{\PRJ}{Inserimento package client--viewcontroller--savedresults}{2016-05-26}{0.1.4}
+	\modifica{Matteo Franco}{\PRJ}{Inserimento package client--viewcontroller--games}{2016-05-26}{0.1.4}
+	\modifica{Matteo Franco}{\PRJ}{Inserimento package client--viewcontroller--building}{2016-05-26}{0.1.4}
+	\modifica{Matteo Franco}{\PRJ}{Inserimento package client--viewcontroller--authentication}{2016-05-26}{0.1.4}
+
+	\modifica{Viviana Alessio}{\PRJ}{Correzione errori ortografici e sintattici}{2016-05-25}{0.1.4}
+	\modifica{Tommaso Panozzo}{\VER}{Verifica sezioni concluse}{2016-05-24}{0.1.3}
+
+	\modifica{Viviana Alessio}{\PRJ}{Stesura sezione \hyperref[architettura]{Descrizione architettura}}{2016-05-23}{0.1.3}
+	\modifica{Viviana Alessio}{\PRJ}{Stesura sezione \hyperref[attivita]{Diagrammi delle attività}}{2016-05-22}{0.1.3}
+	\modifica{Viviana Alessio}{\PRJ}{Stesura appendice \hyperref[pattern]{Design pattern utilizzati}}{2016-05-21}{0.1.2}
+	\modifica{Viviana Alessio}{\PRJ}{Stesura sezione \hyperref[tecnologie]{Tecnologie}}{2016-05-13}{0.1.1}
+	\modifica{Viviana Alessio}{\PRJ}{Stesura sezione \hyperref[introduzione]{Introduzione}}{2016-05-12}{0.1.0}
+	\modifica{Viviana Alessio}{\PRJ}{Stesura indice}{2016-05-10}{0.0.2}
+	\modifica{Matteo Franco}{\PRJ}{Creazione documento}{2016-05-09}{0.0.1}
+\end{diario}
+
+\newpage
+\tableofcontents
+\newpage
+\listoftables
+\newpage
+\listoffigures
+\newpage
+
+\include{introduzione}
+
+\include{tecnologie}
+
+\include{architettura}
+
+\include{dpPackage}
+
+
+% package
+% \include{package}
+
+% classi
+% \include{classi}
+
+\include{attivita}
+
+% tracciamento
+%\include{tracciamento}
+\include{PackagesRequirements}
+\include{RequirementDescriptionPackages}
+
+\appendix
+\include{designPattern}
+
+\end{document}
