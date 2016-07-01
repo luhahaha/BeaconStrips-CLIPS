@@ -1,12 +1,10 @@
 package urlrequest;
 
-import android.content.Context;
-import android.widget.TextView;
-
 import com.android.volley.*;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 //Questa classe è la superclasse che permette di comunicare con il server, il metodo execute() imposta la chiamata al server basandosi sulle variabili istanziate dal costruttore. Le sue sottoclassi semplicemente creano il body e impostano le variabili a seconda delle necessità tramite il costruttore di URLRequest. Il metodo execute() sarà usato da RequestMaker all'interno delle chiamate effettuate (o nelle sottoclassi).
@@ -41,38 +39,32 @@ class URLRequest {
 			@Override
 			public void onErrorResponse(VolleyError error) { //come in onResponse la riga sotto quasi sicuramente sara' eliminata
 				System.out.println("Niente da fare, qualcosa non va.");
-				listener(error);
+				listener.onError(error);
 			}
 		});
 		queue.add(request); //qui viene aggiunta la richiesta appena creata
 	}
 
-	void addHeader() {
-		body.put("Authentication", Data.datamanager.LoginManager.sharedManager().getToken()); //qui viene aggiunto agli headers il token
-	}
+	//DA AGGIUNGERE NON APPENA LoginManager VIENE IMPLEMENTATA
+	//void addHeader() {
+	//	body.put("Authentication", Data.datamanager.LoginManager.sharedManager().getToken()); //qui viene aggiunto agli headers il token
+	//}
 
-	URLRequest(Request.method httpMethod, String url, JSONObject body, boolean authentication, AbstractListener listener) { //il costruttore inizializza i campi dati. La callback è standard per tutti, quindi non e' richiesta come input per il costruttore. authentication è vera quando viene richiesta l'autenticazione, e quindi viene aggiunto l'header con il token dell'utente, falso altrimenti
+	URLRequest(int httpMethod, String url, JSONObject body, boolean authentication, AbstractListener listener) { //il costruttore inizializza i campi dati. La callback è standard per tutti, quindi non e' richiesta come input per il costruttore. authentication è vera quando viene richiesta l'autenticazione, e quindi viene aggiunto l'header con il token dell'utente, falso altrimenti
 		this.httpMethod = httpMethod; //vengono inizializzati tutti i dati in base a quelli immessi nel costruttore
 		this.url = url;
-		this.headers = headers;
 		this.body = body;
-		if(authentication == true) { //se è richiesta l'autenticazione allora il token viene caricato nell'header del JSONObject body
-			addHeader();
-		}
+		//DA AGGIUNGERE NON APPENA LoginManager VIENE IMPLEMENTATA
+		//if(authentication == true) { //se è richiesta l'autenticazione allora il token viene caricato nell'header del JSONObject body
+		//	addHeader();
+		//}
 		this.listener = listener;
 	}
 }
 
 class AppInfoRequest extends URLRequest { //classe che inizializza l'URLRequest in modo da poter effettuare la richiesta per ottenere sia l'UUID dei beacon sia le stringhe delle ingo generali dell'app
 	AppInfoRequest(AbstractListener listener){ //nel costruttore vengono creati il JSON (che in questo caso non c'è) e tutti gli altri dati, infine inizializzo con super() l'URLRequest
-		String url=URLDataConstants.baseURL + ""; //NOTA: l'url e' da finire
-		super(Request.method.GET, url, null, false, listener);
+		super(Request.Method.GET, URLDataConstants.baseURL + "", null, false, listener); //NOTA: l'url e' da finire
 		execute(); //effettuo la richiesta, lo inserisco qui visto che viene sempre chiamato dai metodi di RequestMaker (senno' basta inserirlo nei metodi stessi)
-	}
-}
-
-public class RequestMaker { //questa classe contiene i metodi per effettuare tutti i tipi di richieste al server richiesti all'interno dell'app
-	public static void getAppInfo(AbstractListener listener) { //effettua la chiamata per ottenere l'UUID dei beacon e le stringhe con le info dell'app
-		AppInfoRequest request = new AppInfoRequest(listener); //ULRequest viene automaticamente inizializzato
 	}
 }
