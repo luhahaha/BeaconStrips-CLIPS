@@ -14,14 +14,15 @@ import org.json.JSONObject;
 //ALTRA NOTA: per semplicita' ho inserito per ora l'URLRequest, l'AppInfoRequest e il RequestMaker in un unico file, successivamente bisognera' dividerli nei vari file necessari
 
 class URLRequest {
-	private Request.Method httpMethod; //da verificare se cosi' funziona, altrimenti bisogna capire se puo' funzionare in un altro modo, male che vada si fa un enum usando uno switch nell'execute()
+	private int httpMethod; //da verificare se cosi' funziona, altrimenti bisogna capire se puo' funzionare in un altro modo, male che vada si fa un enum usando uno switch nell'execute()
 	private String url; //contiene l'url per la chiamata al server
 	private JSONObject body; //da verificare se effettivamente useremo questo tipo di oggetto
 	//qui va eventualmente inserita la callback
 	private AbstractListener listener;
 
-	void execute() { //effettua la chiamata al server, sarà chiamato da RequestMaker, il tipo di ritorno sara' poi la callback (Listener o del tipo che definiamo noi)
-		RequestQueue queue = Volley.newRequestQueue(this);
+	//effettua la chiamata al server, sarà chiamato da RequestMaker, il tipo di ritorno sara' poi la callback (Listener o del tipo che definiamo noi)
+	void execute() {
+		RequestQueue queue = Volley.newRequestQueue(null);
 		//ora viene creata la richiesta da fare
 		JsonObjectRequest request = new JsonObjectRequest(httpMethod, url, body,
 			new Response.Listener<JSONObject>() {
@@ -30,8 +31,12 @@ class URLRequest {
 				try {
 				//Mostra la stringa response, sfrutto lo standard output generale per evitare di dover definire altre strutture, questa istruzione sarà sicuramente sostituita con qualcos'altro (piu' probabilmente sara' eliminata)
 					System.out.println("La risposta è: "+ response.toString());
-				} catch (JSONException e) {
-					e.printStackTrace();
+				}
+				catch(Exception e) {
+					if(e instanceof JSONException)
+					{
+						e.printStackTrace();
+					}
 				}
 				listener.onResponse(response);
 			}
@@ -54,17 +59,10 @@ class URLRequest {
 		this.httpMethod = httpMethod; //vengono inizializzati tutti i dati in base a quelli immessi nel costruttore
 		this.url = url;
 		this.body = body;
-		//DA AGGIUNGERE NON APPENA LoginManager VIENE IMPLEMENTATA
+		//TODO DA AGGIUNGERE NON APPENA LoginManager VIENE IMPLEMENTATA
 		//if(authentication == true) { //se è richiesta l'autenticazione allora il token viene caricato nell'header del JSONObject body
 		//	addHeader();
 		//}
 		this.listener = listener;
-	}
-}
-
-class AppInfoRequest extends URLRequest { //classe che inizializza l'URLRequest in modo da poter effettuare la richiesta per ottenere sia l'UUID dei beacon sia le stringhe delle ingo generali dell'app
-	AppInfoRequest(AbstractListener listener){ //nel costruttore vengono creati il JSON (che in questo caso non c'è) e tutti gli altri dati, infine inizializzo con super() l'URLRequest
-		super(Request.Method.GET, URLDataConstants.baseURL + "", null, false, listener); //NOTA: l'url e' da finire
-		execute(); //effettuo la richiesta, lo inserisco qui visto che viene sempre chiamato dai metodi di RequestMaker (senno' basta inserirlo nei metodi stessi)
 	}
 }
