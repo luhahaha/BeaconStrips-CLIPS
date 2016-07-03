@@ -24,7 +24,7 @@
 **body**:
 ```
 {
-	"email"    : String,
+  "email"    : String,
   "password" : String
 }
 ```
