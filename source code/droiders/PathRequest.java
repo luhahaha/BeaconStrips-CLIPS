@@ -1,7 +1,9 @@
 package urlrequest;
 
 import com.android.volley.Request;
+import com.android.volley.VolleyError;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -10,13 +12,35 @@ import org.json.JSONObject;
 
 //inizializza l'URLRequest per richiedere i dati del percorso selezionato, comprese tutte le prove da giocare
 public class PathRequest extends URLRequest { //pathID per me dovrebbe essere String e non int
-    PathRequest(int pathID, AbstractListener listener){
-        super(Request.Method.POST, URLDataConstants.baseURL + "", getBody(pathID), false, listener); //l'url è da finire
+    PathRequest(int pathID){
+        super(Request.Method.POST, URLDataConstants.baseURL + "", setBody(pathID), false, new PathRequestListener()); //l'url è da finire
         execute();
     }
-    static JSONObject getBody(int pathID) {
+
+
+    private static JSONObject setBody(int pathID) {
         JSONObject body = new JSONObject();
-        body.put("pathID", pathID); //per qualche oscuro motivo mi da errore, il metodo JSONObject.put(String, int) esiste nella documentazione ufficiale, cercando su Internet parrebbe che sia obbligatorio mettere l'istruzione in un blocco try/catch e lanciare una specifica eccezione
+        try{
+            body.put("pathID", pathID);
+        }
+        catch(JSONException e){
+
+        }
         return body;
+    }
+}
+
+
+
+class PathRequestListener extends URLRequestListener{
+
+    @Override
+    public void onResponse(JSONObject response) {
+
+    }
+
+    @Override
+    public void onError(VolleyError error) {
+
     }
 }

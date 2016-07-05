@@ -8,10 +8,10 @@ import org.json.JSONObject;
  * Created by andrea on 02/07/16.
  */
 
+/**classe che inizializza l'URLRequest per inviare i risultati salvati del percorso appena giocato*/
 /* PathResult non è ancora stato definito
-//classe che inizializza l'URLRequest per inviare i risultati salvati del percorso appena giocato
 public class SaveResultRequest extends URLRequest {
-    SaveResultRequest(PathResult result, AbstractListener listener){
+    SaveResultRequest(PathResult result, URLRequestListener listener){
         super(Request.Method.POST, URLDataConstants.baseURL + "", getBody(result), true, listener); //l'url è da finire
         execute();
     }
