@@ -16,6 +16,7 @@ ALTRA NOTA: per semplicita' ho inserito per ora l'URLRequest, l'AppInfoRequest e
 */
 
 class URLRequest {
+	private Context cx;
 	private int httpMethod; //da verificare se cosi' funziona, altrimenti bisogna capire se puo' funzionare in un altro modo, male che vada si fa un enum usando uno switch nell'execute()
 	private String url; //contiene l'url per la chiamata al server
 	private JSONObject body; //da verificare se effettivamente useremo questo tipo di oggetto
@@ -24,22 +25,17 @@ class URLRequest {
 
 	//effettua la chiamata al server, sarà chiamato da RequestMaker, il tipo di ritorno sara' poi la callback (Listener o del tipo che definiamo noi)
 	void execute() {
-		RequestQueue queue = Volley.newRequestQueue(null);
+		RequestQueue queue = Volley.newRequestQueue(cx);
 		//ora viene creata la richiesta da fare
 		JsonObjectRequest request = new JsonObjectRequest(httpMethod, url, body,
 			new Response.Listener<JSONObject>() {
 			@Override
 			public void onResponse(JSONObject response) {
-
-				//Mostra la stringa response, sfrutto lo standard output generale per evitare di dover definire altre strutture, questa istruzione sarà sicuramente sostituita con qualcos'altro (piu' probabilmente sara' eliminata)
-				System.out.println("La risposta è: "+ response.toString());
-
 				listener.onResponse(response);
 			}
 		}, new Response.ErrorListener() {
 			@Override
-			public void onErrorResponse(VolleyError error) { //come in onResponse la riga sotto quasi sicuramente sara' eliminata
-				System.out.println("Niente da fare, qualcosa non va.");
+			public void onErrorResponse(VolleyError error) {
 				listener.onError(error);
 			}
 		});
@@ -48,12 +44,13 @@ class URLRequest {
 
 	//DA AGGIUNGERE NON APPENA LoginManager VIENE IMPLEMENTATA
 	//void addHeader() {
-	//	body.put("Authentication", Data.datamanager.LoginManager.sharedManager().getToken()); //qui viene aggiunto agli headers il token
+	//	body.put("Authorization", Data.datamanager.LoginManager.sharedManager().getToken()); //qui viene aggiunto agli headers il token
 	//}
 
 	//il costruttore inizializza i campi dati. La callback è standard per tutti, quindi non e' richiesta come input per il costruttore.
 	//authentication è vera quando viene richiesta l'autenticazione, e quindi viene aggiunto l'header con il token dell'utente, falso altrimenti
-	URLRequest(int httpMethod, String url, JSONObject body, boolean authentication, URLRequestListener listener) {
+	URLRequest(Context cx, int httpMethod, String url, JSONObject body, boolean authentication, URLRequestListener listener) {
+		this.cx=cx;
 		this.httpMethod = httpMethod; //vengono inizializzati tutti i dati in base a quelli immessi nel costruttore
 		this.url = url;
 		this.body = body;
