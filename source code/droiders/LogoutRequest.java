@@ -10,8 +10,8 @@ import org.json.JSONObject;
  * Created by Enrico on 05/07/2016.
  */
 public class LogoutRequest extends URLRequest {
-   LogoutRequest() {
-      super(Request.Method.POST, URLDataConstants.baseURL + "", setBody(), true, new LogoutRequestListener()); //l'url è da finire
+   LogoutRequest(Context cx) {
+      super(cx, Request.Method.POST, URLDataConstants.baseURL + "", setBody(), true, new LogoutRequestListener()); //l'url è da finire
    }
 
    private static JSONObject setBody() {
