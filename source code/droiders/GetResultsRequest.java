@@ -12,8 +12,8 @@ import org.json.JSONObject;
 
 //inizializza l'URLRequest per richiedere l'elenco dei percorsi effettuati dall'utente
 public class GetResultsRequest extends URLRequest {
-    GetResultsRequest() {
-        super(Request.Method.POST, URLDataConstants.baseURL + "", setBody(), true, new GetResultsListener()); //NOTA: l'url è da finire
+    GetResultsRequest(Context cx) {
+        super(cx, Request.Method.POST, URLDataConstants.baseURL + "", setBody(), true, new GetResultsListener()); //NOTA: l'url è da finire
         execute();
     }
 
