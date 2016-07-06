@@ -10,8 +10,8 @@ import org.json.JSONObject;
  * Created by Enrico on 05/07/2016.
  */
 public class RegistrationRequest extends URLRequest {
-   RegistrationRequest(String email, String username, String password) {
-      super(Request.Method.POST, URLDataConstants.baseURL + "", setBody(email,username,password), false, new RegistrationRequestListener()); //l'url è da finire
+   RegistrationRequest(Context cx, String email, String username, String password) {
+      super(cx, Request.Method.POST, URLDataConstants.baseURL + "", setBody(email,username,password), false, new RegistrationRequestListener()); //l'url è da finire
    }
 
    private static JSONObject setBody(String email, String username, String password){
