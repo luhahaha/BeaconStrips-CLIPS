@@ -14,8 +14,8 @@ import org.json.JSONObject;
 public class BuildingsRequest extends URLRequest {
 
     //c'è discordanza nei diagrammi per quanto riguarda la presenza del numero massimo di edifici
-    BuildingsRequest(double latitude, double longitude) {
-        super(Request.Method.POST, URLDataConstants.baseURL + "", setBody(latitude, longitude), false, new BuildingsRequestListener()); //l'url è da finire, ho messo POST perchè col tempo l'invio di queste informazioni potrebbe diventare pesante
+    BuildingsRequest(Context cx, double latitude, double longitude) {
+        super(cx, Request.Method.POST, URLDataConstants.baseURL + "", setBody(latitude, longitude), false, new BuildingsRequestListener()); //l'url è da finire, ho messo POST perchè col tempo l'invio di queste informazioni potrebbe diventare pesante
         execute();
     }
 
