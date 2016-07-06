@@ -12,8 +12,8 @@ import org.json.JSONObject;
 
 //inizializza l'URLRequest per richiedere i dati del percorso selezionato, comprese tutte le prove da giocare
 public class PathRequest extends URLRequest { //pathID per me dovrebbe essere String e non int
-    PathRequest(int pathID){
-        super(Request.Method.POST, URLDataConstants.baseURL + "", setBody(pathID), false, new PathRequestListener()); //l'url è da finire
+    PathRequest(Context cx, int pathID){
+        super(cx, Request.Method.POST, URLDataConstants.baseURL + "", setBody(pathID), false, new PathRequestListener()); //l'url è da finire
         execute();
     }
 
