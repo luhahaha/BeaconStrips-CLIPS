@@ -1,5 +1,7 @@
 package urlrequest;
 
+import android.content.Context;
+
 /**
  * Created by andrea on 01/07/16.
  */
@@ -20,26 +22,26 @@ public class RequestMaker {
     }
 
 
-    //public static void saveResult(PathResult result, URLRequestListener listener) { //PathResult non è ancora definito
-    //  SaveResultRequest request = new SaveResultRequest(result, listener);
-    //}
+    public static void saveResult(Context cx, Data.PathResult result, URLRequestListener listener) { //PathResult non è ancora definito
+      SaveResultRequest request = new SaveResultRequest(cx, result, listener);
+    }
 
     //pathID non sarebbe meglio se fosse una String visto che altrimenti non può cominciare con 0?
     public static void getPath(Context cx, int pathID) {
         PathRequest request = new PathRequest(cx, pathID);
     }
     public static void getBuildings(Context cx, double latitude, double longitude) {
-        BuildingsRequest request = new BuildingsRequest(latitude, longitude); //nei diagrammi c'è discordanza sulla presenza o meno del numero massimo di edifici
+        BuildingsRequest request = new BuildingsRequest(cx, latitude, longitude); //nei diagrammi c'è discordanza sulla presenza o meno del numero massimo di edifici
     }
 
     public static void register(Context cx, String email, String username, String password) {
-        RegistrationRequest request = new RegistrationRequest(email,username,password);
+        RegistrationRequest request = new RegistrationRequest(cx, email,username,password);
     }
     public static void login(Context cx, String email, String password) {
-        LoginRequest request = new LoginRequest(email,password);
+        LoginRequest request = new LoginRequest(cx, email,password);
     }
 
-    //secondo il nostro diagramma dovrebbe esserci una classe User al posto di email, che però non esiste, da chiedere se per caso è meglio usare un altro dato
+    //secondo il nostro diagramma dovrebbe esserci una classe User al posto di email, in realtà non è richiesto alcun dato aggiuntivo perché viene tutto ricavato dal token
     public static void logout(Context cx) {
         LogoutRequest request = new LogoutRequest(cx);
     }

@@ -1,5 +1,7 @@
 package urlrequest;
 
+import android.content.Context;
+
 import com.android.volley.Request;
 import com.android.volley.VolleyError;
 
@@ -13,21 +15,8 @@ import org.json.JSONObject;
 //inizializza l'URLRequest per richiedere l'elenco dei percorsi effettuati dall'utente
 public class GetResultsRequest extends URLRequest {
     GetResultsRequest(Context cx) {
-        super(cx, Request.Method.POST, URLDataConstants.baseURL + "", setBody(), true, new GetResultsListener()); //NOTA: l'url è da finire
+        super(cx, Request.Method.GET, URLDataConstants.baseURL + "", null, true, new GetResultsListener()); //NOTA: l'url è da finire
         execute();
-    }
-
-    private static JSONObject setBody(){
-        JSONObject body = new JSONObject();
-
-        //TODO metodo che ritorna l'email dell'utente loggato
-      /*try{
-         body.put("email", getLoggedEmail());
-      }
-      catch(JSONException e){
-
-      }*/
-        return body;
     }
 }
 

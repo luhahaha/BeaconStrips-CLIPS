@@ -1,5 +1,7 @@
 package urlrequest;
 
+import android.content.Context;
+
 import com.android.volley.*;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -43,9 +45,14 @@ class URLRequest {
 	}
 
 	//DA AGGIUNGERE NON APPENA LoginManager VIENE IMPLEMENTATA
-	//void addHeader() {
-	//	body.put("Authorization", Data.datamanager.LoginManager.sharedManager().getToken()); //qui viene aggiunto agli headers il token
-	//}
+	void addHeader() {
+		try {
+			body.put("Authorization", Data.datamanager.LoginManager.sharedManager().getToken()); //qui viene aggiunto agli headers il token
+		}
+		catch(JSONException e) {
+
+		}
+	}
 
 	//il costruttore inizializza i campi dati. La callback è standard per tutti, quindi non e' richiesta come input per il costruttore.
 	//authentication è vera quando viene richiesta l'autenticazione, e quindi viene aggiunto l'header con il token dell'utente, falso altrimenti
@@ -55,9 +62,9 @@ class URLRequest {
 		this.url = url;
 		this.body = body;
 		//TODO DA AGGIUNGERE NON APPENA LoginManager VIENE IMPLEMENTATA
-		//if(authentication == true) { //se è richiesta l'autenticazione allora il token viene caricato nell'header del JSONObject body
-		//	addHeader();
-		//}
+		if(authentication == true) { //se è richiesta l'autenticazione allora il token viene caricato nell'header del JSONObject body
+			addHeader();
+		}
 		this.listener = listener;
 	}
 
