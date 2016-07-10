@@ -98,12 +98,50 @@
 \label{sec:2.1.4}
 	I file contenenti codice o documentazione dovranno rispettare la codifica UTF-8 senza \gl{BOM} e verrà utilizzato il carattere LF (U+000A) per andare a capo.
 
-	\subsubsection{Norme di stile}
+	\subsubsection{Norme tipografiche}
 	\label{sec:2.1.4.1}
-		Tutto il codice prodotto dovrà seguire le seguenti regole di stile:
-		\begin{itemize}
-			\item I nomi di variabili, metodi, funzioni e classi dovranno essere scritti in inglese.
-			\item I nomi delle classi dovranno rispettare le regole del \gl{CamelCase}.
-			\item I nomi di variabili, metodi e funzioni dovranno avere la prima lettera minuscola e l'iniziale di ogni altra parola contenuta nel nome in maiuscolo.
-			\item I commenti dovranno essere scritti in italiano.
+			Tutto il codice prodotto dovrà seguire le seguenti regole:
+			\begin{itemize}
+				\item i nomi di variabili, metodi, funzioni e classi dovranno essere scritti in inglese;
+				\item i nomi delle classi dovranno rispettare le regole del \gl{CamelCase};
+				\item i nomi di variabili, metodi e funzioni dovranno avere la prima lettera minuscola e l'iniziale di ogni altra parola contenuta nel nome in maiuscolo;
+				\item i commenti dovranno essere scritti in italiano;
+				\item non vanno usate lettere accentate.
 		\end{itemize}
+	\subsubsection{Norme stilistiche}
+		\paragraph{Intestazione}
+		Ogni file di codice dovrà contenere la seguente intestazione:
+		\begin{lstlisting}[language=Java, commentstyle=\color{green}, keywordstyle=\color{blue}]
+	/**
+	* @file [nome del file]
+	* @date [data di creazione (gg/mm/aaaa)]
+	* @version [versione]
+	* @author [autore]
+	*
+	* Descrizione del file.
+	*/
+	package nomePackage;
+	public class NomeClasse {
+		...
+	}
+}
+	\end{lstlisting}
+	I costrutti e le classi devono essere scritti nel seguente formato:
+	\begin{lstlisting}[language=Java, commentstyle=\color{green}, keywordstyle=\color{blue}]
+	costrutto(condizione) {
+	
+	}
+	
+	tipoRitorno getVariable () const { 
+		istruzioni
+	}	
+	\end{lstlisting}
+	\begin{lstlisting}[language=Java, commentstyle=\color{green}, keywordstyle=\color{blue}]
+	Nel caso il metodo sia get/set si utilizzerà invece il seguente formato:
+	\
+	tipoRitorno getVariable () const { return tssa; }
+	\end{lstlisting}
+	Le parentesi graffe vanno usate sempre, anche nel caso sia presente una sola istruzione nel costrutto.
+		\paragraph{Stile generale}
+		Le seguenti regole vanno rispettati in tutti i file di codice:
+			\item la tabulazione dev'essere di 3 spazi.
