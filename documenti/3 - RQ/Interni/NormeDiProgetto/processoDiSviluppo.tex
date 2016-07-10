@@ -2,9 +2,9 @@
 \label{sec:2.1.1}
 		\paragraph{Analisi dei requisiti}
 		\label{sec:2.1.1.1}
-			Sarà compito degli analisti redigere l'analisi dei requisiti in seguito a riunioni interne col team e allo studio dei capitolati d'appalto.
 			\subparagraph{Studio di Fattibilità e Analisi dei Rischi}
 			\label{sec:2.1.1.1.1}
+				Prima dell'attività di analisi, sarà necessario effettuare uno studio di fattibilità per analizzare i vari capitolati, evidenziando di ciascuno gli aspetti positivi e negativi, in maniera particolare per il capitolato scelto. Questa attività porterà alla produzione del documento \SFdoc.
 				Lo studio di fattibilità sarà il primo documento dell'analisi dei requisiti che analizzerà i seguenti punti per ogni \gl{capitolato}, con maggior interesse per quello scelto dal team:
 				\begin{itemize}
 					\item \textbf{Scopo del \gl{progetto}}: analisi delle richieste del \gl{capitolato};
@@ -13,35 +13,30 @@
 				\end{itemize}
 			\subparagraph{Analisi dei requisiti}
 			\label{sec:2.1.1.1.2}
-				Il secondo documento che gli analisti andranno a redigere sarà l'analisi dei requisiti che produrrà dei requisiti semplici a partire dalle informazioni raccolte tramite lo studio del \gl{capitolato} e riunioni esterne con il \gl{proponente}.
-				Per rendere più precisa e veloce la stesura dei requisiti è stato utilizzato il \gl{software} \gl{Trender}.
-		\paragraph{Specifica tecnica}
+				Una volta terminato lo studio di fattibilità si procederà all'analisi dei requisiti. \\
+				Questa attività consiste nell'identificare i requisiti e i casi d'uso a partire dalle informazioni raccolte tramite lo studio del \gl{capitolato} e riunioni esterne con il \gl{proponente}. I requisiti prodotti dovranno essere atomici e tracciabili; i casi d'uso dovranno coprire tutte le possibile interazioni dell'utente. \\
+				Per rendere più precisa e veloce la stesura dei requisiti e fornire un tracciamento di essi verrà utilizzato il \gl{software} \gl{Trender}. \\
+				L'attività di analisi concluderà con la redazione del documento \ARdoc.
+		\paragraph{Progettazione}
 		\label{sec:2.1.1.2}
-			Sarà compito dei progettisti descrivere l'architettura ad alto livello dell'applicazione nella \STdoc, inoltre dovranno essere progettati  opportuni test d'integrazione.
-			
-			\subparagraph{Diagrammi UML}
-			\label{sec:2.1.1.2.1}
-				Dovranno essere forniti i seguenti diagrammi UML:
-				\begin{itemize}
-					\item Diagrammi di classe.
-					\item Diagrammi dei package.
-					\item Diagrammi di attività.
-					\item Diagrammi di sequenza.
-				\end{itemize}
-				
-			\subparagraph{Design Pattern}
-			\label{sec:2.1.1.2.2}
-				I progettisti dovranno inoltre fornire una descrizione e un'immagine esplicativa dei design pattern utilizzati per realizzare l'applicazione.
-				
+			L'attività di progettazione sarà caratterizzata dal descrivere l'architettura ad alto livello dell'applicazione e progettare opportuni test d'integrazione. Questi compiti saranno svolti dai Progettisti. \\
+			Nello specifico si dovranno identificare:
+			\begin{itemize}
+				\item l'architettura da realizzare;
+				\item eventuali \gl{design pattern} da utilizzare: i progettisti dovranno inoltre fornire una descrizione e un'immagine esplicativa dei design pattern utilizzati per realizzare l'applicazione;
+				\item i package, per i quali sarà necessario realizzare i corrispondenti diagrammi;
+				\item le classi, per le quali sarà necessario realizzare i corrispondenti diagrammi;
+				\item le attività svolte dall'utente; per meglio identificare le attività i progettisti dovranno analizzare i casi d'uso precedentemente identificati.
+			\end{itemize}
+			Una volta identificati tutti i componenti necessari, si procederà alla produzione del documento \STdoc.
 			\subparagraph{Tracciamento componenti}
 			\label{sec:2.1.1.2.3}
-				Affinchè tutti i requisiti vengano soddisfatti, verrà utilizzata l'applicazione Trender per tenere traccia delle varie componenti e dei requisiti che soddisfano.
-				
+				Affinchè tutti i requisiti vengano soddisfatti, verrà utilizzata l'applicazione \gl{Trender} per tenere traccia delle varie componenti e dei requisiti che soddisfano.
 			\subparagraph{Test di integrazione}
 			\label{sec:2.1.1.2.4}
 				Verranno progettate delle classi il cui scopo sarà quello di testare la correttezza dei componenti dell'applicazione.
+				%chiedo ad Andrea
 			
-		
 \subsubsection{Norme}
 \label{sec:2.1.2}
 	\paragraph{Classificazione  dei requisiti}
