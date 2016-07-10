@@ -1,38 +1,32 @@
+'use strict';
+
 var express = require('express');
-var app = express()
 var bodyParser = require('body-parser');
+var app = express();
 
-app.use(bodyParser.json())
+const AppInfo = require('./AppInfoHandler.js');
+const Beacons = require('./BeaconRequestHandler.js');
 
-app.get('/ciao', function (req, res) {
-	res.status(200).end()
+// indica di fare il parse del body di tutte le richieste
+// in entrata come JSON object
+app.use(bodyParser.json());
+
+app.get('/appinfo', function(req, res) {
+   console.log('handle appinfo');
+   var handler = new AppInfo;
+   handler.request  = req;
+   handler.response = res;
+   handler.execute();
 })
 
-// AppInfoProvider
-
-app.get('/appInfo', function (req, res) {
-	var email       = 'beaconstrips.swe@gmail.com'
-	var site        = '52.58.6.246'
-	var description = 'Quest\'app ti permette di giocare una serie di percorsi in una serie di edifici abilitati, se sei interessato a creare il tuo percorso contattaci su ' + site + ' oppure scrivici a ' + email
-	res.send({description: description, supportEmail : email, websiteURL : site})
+app.get('/beacons', function(req, res) {
+   console.log('handle beacons');
+   var handler = new Beacons;
+   handler.request  = req;
+   handler.response = res;
+   handler.execute();
 })
 
-// LoginHandler
+app.listen(1234);
 
-app.post('/login', function (req, res) {
-	console.log(req.body);
-	// var json  = JSON.parse(req.body)
-	var email = req.body.email
-	var pass  = req.body.password
-	console.log('email:    ' + email);
-	console.log('password: ' + pass );
-	if (email == '' || pass == '') {
-		res.status(400).send({message : 'invalid email or password'})
-	} else {
-		res.status(200).send({user : email})
-	}
-})
-
-app.listen(1234)
-
-console.log('started');
+console.log('listening on port 1234');
