@@ -68,8 +68,16 @@
 
 #Buildings
 **url**: `/buildings`
-**chiamata**: `GET`
+**chiamata**: `POST`
 **autenticazione**: `NO`
+**body**:
+```
+{
+	"latitude"  : Double,
+	"longitude" : Double,
+	"maxResults": Int,
+}
+```
 **restituisce**:
 ```
 {
