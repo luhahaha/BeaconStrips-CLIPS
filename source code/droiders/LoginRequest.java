@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class LoginRequest extends URLRequest{
 
    LoginRequest(Context cx, String email, String password) {
-      super(cx, Request.Method.POST, URLDataConstants.baseURL + "", setBody(email,password), false, new LoginRequestListener()); //l'url è da finire
+      super(cx, Request.Method.POST, URLDataConstants.baseURL + "login", setBody(email,password), false, new LoginRequestListener()); //l'url è da finire
    }
 
    private static JSONObject setBody(String email, String password){
