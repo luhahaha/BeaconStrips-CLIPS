@@ -13,7 +13,7 @@ import org.json.JSONObject;
  */
 public class LogoutRequest extends URLRequest {
    LogoutRequest(Context cx) {
-      super(cx, Request.Method.POST, URLDataConstants.baseURL + "", null, true, new LogoutRequestListener()); //l'url è da finire
+      super(cx, Request.Method.GET, URLDataConstants.baseURL + "logout", null, true, new LogoutRequestListener()); //l'url è da finire
    }
 }
 
