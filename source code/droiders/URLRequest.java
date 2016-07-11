@@ -6,8 +6,10 @@ import com.android.volley.*;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
 Questa classe è la superclasse che permette di comunicare con il server, il metodo execute() imposta la chiamata al server basandosi sulle variabili istanziate dal costruttore. Le sue sottoclassi semplicemente creano il body e impostano le variabili a seconda delle necessità tramite il costruttore di URLRequest. Il metodo execute() sarà usato da RequestMaker all'interno delle chiamate effettuate (o nelle sottoclassi).
@@ -23,6 +25,7 @@ class URLRequest {
 	private String url; //contiene l'url per la chiamata al server
 	private JSONObject body; //da verificare se effettivamente useremo questo tipo di oggetto
 	//qui va eventualmente inserita la callback
+	private boolean requiresAuthentication;
 	private URLRequestListener listener;
 
 	//effettua la chiamata al server, sarà chiamato da RequestMaker, il tipo di ritorno sara' poi la callback (Listener o del tipo che definiamo noi)
@@ -40,18 +43,16 @@ class URLRequest {
 			public void onErrorResponse(VolleyError error) {
 				listener.onError(error);
 			}
-		});
+		}) {
+			@Override
+			public Map<String, String> getHeaders() throws AuthFailureError { //l'errore è di volley
+				HashMap<String, String> headers = new HashMap<>();
+				if(requiresAuthentication==true)
+					headers.put("Authorization", Data.datamanager.LoginManager.sharedManager().getToken()); //qui viene aggiunto agli headers il token
+				return headers;
+			}
+		};
 		queue.add(request); //qui viene aggiunta la richiesta appena creata
-	}
-
-	//DA AGGIUNGERE NON APPENA LoginManager VIENE IMPLEMENTATA
-	void addHeader() {
-		try {
-			body.put("Authorization", Data.datamanager.LoginManager.sharedManager().getToken()); //qui viene aggiunto agli headers il token
-		}
-		catch(JSONException e) {
-
-		}
 	}
 
 	//il costruttore inizializza i campi dati. La callback è standard per tutti, quindi non e' richiesta come input per il costruttore.
@@ -61,10 +62,7 @@ class URLRequest {
 		this.httpMethod = httpMethod; //vengono inizializzati tutti i dati in base a quelli immessi nel costruttore
 		this.url = url;
 		this.body = body;
-		//TODO DA AGGIUNGERE NON APPENA LoginManager VIENE IMPLEMENTATA
-		if(authentication == true) { //se è richiesta l'autenticazione allora il token viene caricato nell'header del JSONObject body
-			addHeader();
-		}
+		requiresAuthentication=authentication;
 		this.listener = listener;
 	}
 
