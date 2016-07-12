@@ -3,18 +3,20 @@
 % !TEX spellcheck = it-IT
 
 \section{Definizione obiettivi di qualità}
-\label{sec:2}
+\label{definizione obbiettivi di qualità}
+  \subsection{Qualita` di prodotto}
+  \label{qualita` di prodotto}
 	Basandosi sullo standard \iso{\gl{ISO}/IEC 9126} il \gl{team} si impegna a garantire al \gl{prodotto} \PROGETTO\ le seguenti qualità:
-	\subsection{Funzionalità}
-	\label{sec:2.1}
+	\subsubsection{Funzionalità}
+	\label{funzionalita`}
 		Il \gl{prodotto} deve garantire tutti i requisiti stabiliti nel documento \ARdoc\ e implementarli nel modo più completo ed economico possibile.
 		\begin{itemize}
 			\item \textbf{Misura:}\ l'unità di misura adottata sarà la quantità di requisiti presenti e funzionanti nel \gl{prodotto}.
 			\item \textbf{Metrica:}\ la sufficienza è stabilita nel soddisfacimento dei requisiti obbligatori.
 			\item \textbf{Strumenti:}\ ogni requisito dovrà superare tutti i test previsti in modo da garantire il loro funzionamento. Per avere informazioni dettagliate sugli strumenti si veda il documento \NPdoc. 
 		\end{itemize}
-	\subsection{Affidabilità}
-	\label{sec:2.2}
+	\subsubsection{Affidabilità}
+	\label{affidabilita`}
 		Il \gl{prodotto} deve essere il più robusto possibile e facilmente ripristinabile in caso di errori.
 		\begin{itemize}
 			\item \textbf{Misura:}\ l'unità di misura adottata sarà il numero di esecuzioni che hanno successo.
@@ -22,7 +24,7 @@
 			\item \textbf{Strumenti:}\ da definire.
 		\end{itemize}
 	\subsection{Usabilità}
-	\label{sec:2.3}
+	\label{usabilita`}
 		Il \gl{prodotto} deve essere di facile utilizzo per la classe di utenti designata. Inoltre deve soddisfare ogni necessità dell'utilizzatore.
 		\begin{itemize}
 			\item \textbf{Misura:}\ verrà usata come unità di misura la valutazione soggettiva del \gl{prodotto}. Questo perché non esiste uno strumento adatto ad eseguire una misurazione oggettiva dell'usabilità.
@@ -30,7 +32,7 @@
 			\item \textbf{Strumenti:}\ si vedano le \NPdoc.
 		\end{itemize}
 	\subsection{Efficienza}
-	\label{sec:2.4}
+	\label{efficienza}
 		Il \gl{prodotto} deve fornire tutte le funzionalità nel minore tempo possibile e minimizzando l'utilizzo di risorse.
 		\begin{itemize}
 			\item \textbf{Misura:}\ il tempo di latenza per ottenere una risposta in ogni pagina del \gl{prodotto} e quello per ottenere una risposta dal server.
@@ -38,24 +40,23 @@
 			\item \textbf{Strumenti:}\ si vedano le \NPdoc.
 		\end{itemize}
 	\subsection{Manutenibilità}
-	\label{sec:2.5}
+	\label{manutenibilita`}
 		Il \gl{prodotto} dev'essere comprensibile ed estensibile in modo facile e verificabile.
 		\begin{itemize}
-			\item \textbf{Misura:}\ l'unità di misura utilizzata saranno le metriche sul codice stabilite nella sezione \hyperref[sec:3.7.3]{3.7.3}.
-			\item \textbf{Metrica:}\ il \gl{prodotto} deve raggiungere la sufficienza in tutte le metriche descritte nella sezione \hyperref[sec:3.7.3]{3.7.3}.
+			\item \textbf{Misura:}\ l'unità di misura utilizzata saranno le metriche sul codice stabilite nella sezione \hyperref[metriche per il codice]{Metriche per il codice}.
+			\item \textbf{Metrica:}\ il \gl{prodotto} deve raggiungere la sufficienza in tutte le metriche descritte nella sezione \hyperref[metriche per il codice]{Metriche per il codice}.
 			\item \textbf{Strumenti:}\ si vedano le \NPdoc.
 		\end{itemize}
-%La sezione 2.6 è stata un po' personalizzata rispetto al documento di riferimento (quello dei ProTech), di conseguenza è più probabile che ci siano errori, questa nota è destinata soprattutto al verificatore.
 	\subsection{Portabilità}
-	\label{sec:2.6}
+	\label{portabilita`}
 		Il \gl{prodotto} deve essere il più portabile possibile. Il gruppo \AUTORE\ dovrà scegliere un sistema operativo su cui creare l'app tra \gl{Android} e \gl{iOS}, mentre il supporto per l'altro sarà opzionale. Il \gl{front end} dev'essere utilizzabile da più dispositivi possibili. Il \gl{back end} deve poter girare su ogni versione dei sistemi operativi supportati che permette la lettura affidabile dei \gl{beacon}, ovvero dalla 5.0 in poi per \gl{Android} e opzionalmente dalla 9.0 in poi per \gl{iOS}.
 		\begin{itemize}
 			\item \textbf{Misura:}\ il \gl{back end} dev'essere affidabile per ogni versione di Android ed eventualmente di iOS che supporta la lettura dei \gl{beacon}. Ogni dispositivo con una versione dei sistemi operativi supportati uguale o maggiore deve avere un \gl{front end} usabile, a prescindere dalle specifiche \gl{hardware} o dalla risoluzione dello schermo.
-			\item \textbf{Metrica:}\ il \gl{prodotto} dovrà raggiungere la sufficienza in tutte le metriche della sezione \hyperref[sec:3.7.3]{3.7.3}. Il \gl{back end} dovrà raggiungere la sufficienza in affidabilità ed efficienza in ogni dispositivo testato. Il \gl{front end} dovrà raggiungere la sufficienza in usabilità in ogni dispositivo testato.
+			\item \textbf{Metrica:}\ il \gl{prodotto} dovrà raggiungere la sufficienza in tutte le metriche della sezione \hyperref[metriche per il codice]{Metriche per il codice}. Il \gl{back end} dovrà raggiungere la sufficienza in affidabilità ed efficienza in ogni dispositivo testato. Il \gl{front end} dovrà raggiungere la sufficienza in usabilità in ogni dispositivo testato.
 			\item \textbf{Strumenti:}\ si vedano le \NPdoc.
 		\end{itemize}
 	\subsection{Altre qualità}
-	\label{sec:2.7}
+	\label{altre qualita`}
 		Saranno inoltre garantite le seguenti caratteristiche:
 		\begin{itemize}
 			\item \textbf{incapsulamento:}\ per aumentare la manutenibilità e il riuso di codice verrà applicata la tecnica dell'incapsulamento. Questo implica che dove sarà possibile verrà favorito l'uso delle interfacce.
