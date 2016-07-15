@@ -22,7 +22,6 @@ public class LinearScoringAlgorithm{
       double deltaScore = this.maxScore - this.minScore;
       double deltaTime  = this.maxTime - this.minTime;
 
-      double totalScore = deltaScore * ((1-(Math.min(Math.max(time, this.minTime), this.maxTime))/deltaTime)*this.timeWeight + (double)correct/(double)total*this.accuracyWeight)/(weightSum) + this.minScore;
-		return totalScore;
+      return deltaScore * ((1-(Math.min(Math.max(time, this.minTime), this.maxTime))/deltaTime)*this.timeWeight + (double)correct/(double)total*this.accuracyWeight)/(weightSum) + this.minScore;
    }
 }
