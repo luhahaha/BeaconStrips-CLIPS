@@ -1,4 +1,6 @@
-﻿public class Score{
+﻿package Data;
+
+public class Score{
 	public final String username;
 	public final int position;
 	public final int score;

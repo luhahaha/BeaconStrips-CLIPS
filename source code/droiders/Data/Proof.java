@@ -1,7 +1,11 @@
+package Data;
+
+import org.json.JSONObject;
+
 public class Proof {
    public final String instructions;
    public final String title;
-   private final String LinearScoringAlgorithm scoringAlghorithm;
+   private final LinearScoringAlgorithm scoringAlgorithm;
    private final String testData; //descrizione inizale del tipo di test
    public final int id;
 

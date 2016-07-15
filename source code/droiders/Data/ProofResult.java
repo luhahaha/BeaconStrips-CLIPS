@@ -1,4 +1,8 @@
-﻿public class ProofResult{
+﻿package Data;
+
+import java.util.Date;
+
+public class ProofResult{
 	public final Proof proof;
 	public final Date startTime;
 	public final Date endTime;

@@ -1,4 +1,9 @@
-﻿public class PathProgress{
+﻿package Data;
+
+import java.util.Date;
+import java.util.List;
+
+public class PathProgress{
 	private final Path path;
 	private final Date startTime;
 	private Date endTime;
@@ -42,7 +47,7 @@
 	public int getTotalScore(){
 		int score = 0;
 		for(int i=0; i < proofResults.size(); ++i){
-			totalScore += proofResults.get(i).score;
+			score += proofResults.get(i).score;
 		}
 		return score;
 	}

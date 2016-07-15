@@ -1,4 +1,6 @@
-﻿public class Proximity{
+﻿package Data;
+
+public class Proximity{
 	public final Beacon beacon;
 	public final float percentage;
 	public final String textToDisplay;

@@ -1,3 +1,5 @@
+package Data;
+
 public class PathInfo {
    public final int id;
    public final String title;
@@ -10,6 +12,6 @@ public class PathInfo {
       this.title=title;
       this.description=description;
       this.target=target;
-      this.estimatedDuration;
+      this.estimatedDuration=estimatedDuration;
    }
 }

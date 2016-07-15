@@ -1,4 +1,6 @@
-﻿public class LoggedUser{
+﻿package Data;
+
+public class LoggedUser{
 	public final int id;
 	public final String username;
 	public final String email;

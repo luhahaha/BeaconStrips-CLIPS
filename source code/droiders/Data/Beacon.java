@@ -1,4 +1,6 @@
-﻿public class Beacon{
+﻿package Data;
+
+public class Beacon{
 	public final int id;
 	public final String UUID;
 	public final int major;
@@ -8,6 +10,6 @@
 		this.id = id;
 		this.UUID = UUID;
 		this.major = major;
-		this.minor;
+		this.minor = minor;
 	}
 }
