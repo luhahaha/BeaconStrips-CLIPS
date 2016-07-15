@@ -2,7 +2,10 @@ package urlrequest;
 
 import android.content.Context;
 
-import com.android.volley.*;
+import com.android.volley.AuthFailureError;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -26,7 +29,7 @@ class URLRequest {
 	private JSONObject body; //da verificare se effettivamente useremo questo tipo di oggetto
 	//qui va eventualmente inserita la callback
 	private boolean requiresAuthentication;
-	private URLRequestListener listener;
+	private AbstractListener listener;
 
 	//effettua la chiamata al server, sarà chiamato da RequestMaker, il tipo di ritorno sara' poi la callback (Listener o del tipo che definiamo noi)
 	void execute() {
@@ -48,7 +51,7 @@ class URLRequest {
 			public Map<String, String> getHeaders() throws AuthFailureError { //l'errore è di volley
 				HashMap<String, String> headers = new HashMap<>();
 				if(requiresAuthentication==true)
-					headers.put("Authorization", Data.datamanager.LoginManager.sharedManager().getToken()); //qui viene aggiunto agli headers il token
+					headers.put("Authorization", Data.datamanager.LoginManager.sharedManager(cx).getToken()); //qui viene aggiunto agli headers il token
 				return headers;
 			}
 		};
@@ -57,7 +60,7 @@ class URLRequest {
 
 	//il costruttore inizializza i campi dati. La callback è standard per tutti, quindi non e' richiesta come input per il costruttore.
 	//authentication è vera quando viene richiesta l'autenticazione, e quindi viene aggiunto l'header con il token dell'utente, falso altrimenti
-	URLRequest(Context cx, int httpMethod, String url, JSONObject body, boolean authentication, URLRequestListener listener) {
+	URLRequest(Context cx, int httpMethod, String url, JSONObject body, boolean authentication, AbstractListener listener) {
 		this.cx=cx;
 		this.httpMethod = httpMethod; //vengono inizializzati tutti i dati in base a quelli immessi nel costruttore
 		this.url = url;
@@ -68,9 +71,6 @@ class URLRequest {
 
 
 }
-
-
-
 
 
 //la classe astratta da cui derivano i listener, onResponse e onError gestiscono le risposte rispettivamente quando viene ottenuta la risposta e quando viene ricevuto un errore
