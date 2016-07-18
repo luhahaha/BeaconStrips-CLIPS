@@ -12,6 +12,7 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+        completions."</string>
+    <string name="forgot_password">Hai dimenticato la password?</string>
+    <string name="recover_password">Inserisci la tua email per recuperare la password</string>
 </resources>

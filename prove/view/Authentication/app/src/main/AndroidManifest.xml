@@ -23,7 +23,11 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".ConfirmRegistration"></activity>
+        <activity android:name=".ConfirmRegistration" />
+        <activity android:name=".RecoverPassword" />
+        <activity android:name=".ForgotPassword" />
+        <activity android:name=".BuildingSearch" />
+        <activity android:name=".BuildingActivity"></activity>
     </application>
 
 </manifest>
