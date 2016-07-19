@@ -11,22 +11,23 @@ import org.json.JSONObject;
  * Created by andrea on 02/07/16.
  */
 
-/**classe che inizializza l'URLRequest per inviare i risultati salvati del percorso appena giocato*/
-//PathResult non è ancora stato definito
+/**
+ * classe che inizializza l'URLRequest per inviare i risultati salvati del percorso appena giocato
+ */
 public class SaveResultRequest extends URLRequest {
-    SaveResultRequest(Context cx, Data.PathResult result, URLRequestListener listener){
-        super(cx, Request.Method.POST, URLDataConstants.baseURL + "", getBody(result), true, listener); //l'url è da finire
-        execute();
-    }
-    //dato che la chiamata super() deve precedere qualunque altra istruzione costruisco il body in questo metodo, è statico perché altrimenti non può essere usato nel super()
-    static JSONObject getBody(Data.PathResult result) {
-        JSONObject body = new JSONObject();
-        try{
-            body.put("Result", result);
-        }
-        catch(JSONException e) {
+   SaveResultRequest(Context cx, Data.PathResult result, AbstractUrlRequestListener listener) {
+      super(cx, Request.Method.POST, URLDataConstants.baseURL + "", getBody(result), true, listener);
+      execute();
+   }
 
-        }
-        return body;
-    }
+   //dato che la chiamata super() deve precedere qualunque altra istruzione costruisco il body in questo metodo, è statico perché altrimenti non può essere usato nel super()
+   static JSONObject getBody(Data.PathResult result) {
+      JSONObject body = new JSONObject();
+      try {
+         body.put("Result", result);
+      } catch (JSONException e) {
+
+      }
+      return body;
+   }
 }
