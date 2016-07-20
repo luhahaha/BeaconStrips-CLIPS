@@ -5,43 +5,42 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 
 \subsection{Java}
 	
-	Java è virtualmente alla base di qualsiasi tipo di applicazione in rete ed è lo standard globale per lo sviluppo e la distribuzione di applicazioni incorporate e per sistemi portatili, giochi, contenuto basato su Web e software aziendale. Con oltre 9 milioni di sviluppatori in tutto il mondo, Java consente di sviluppare, distribuire e utilizzare applicazioni e servizi entusiasmanti in modo efficiente. \\ 
+	Java è virtualmente alla base di qualsiasi tipo di applicazione in rete ed è lo standard globale per lo sviluppo e la distribuzione di applicazioni incorporate e per sistemi portatili, giochi, contenuto basato su Web e software aziendale. Con oltre 9 milioni di sviluppatori in tutto il mondo, Java consente di sviluppare, distribuire e utilizzare applicazioni e servizi in modo efficiente. \\ 
 	In particolare Java viene utilizzato come linguaggio di programmazione per creare applicazioni mobile per il sistema operativo Android.
 	
 	\begin{itemize}
 		\item \textbf{Vantaggi:}
 			\begin{itemize}
 				\item è un linguaggio molto diffuso;
-				\item è un linguaggio libero e gratuito;
+				\item è un linguaggio libero e gratuito; %la licenza è GNU GPL ma penso di non specificarla perché altrimenti dovrei definirne le caratteristiche
 				\item è un linguaggio multipiattaforma, ovvero dallo stesso codice si ottiene lo stesso programma, a prescindere dal sistema operativo usato e dalle caratteristiche specifiche dell'elaboratore;
 				\item contiene già di base molti design pattern e strutture varie, semplificando la loro implementazione;
-				\item sono disponibili numerose librerie utilizzabili con questo linguaggio, di conseguenza sono presenti molte funzioni già definite e verificate;
+				\item sono disponibili numerose librerie utilizzabili con questo linguaggio, di conseguenza sono presenti molte funzioni già definite e validate;
 				\item è disponibile online una documentazione molto dettagliata;
 				\item utilizza una sintassi molto simile al C++, un linguaggio che tutti i componenti del \gl{team}\ conoscono;
 				\item rispetto al C++ è più semplice perché gestisce automaticamente molte funzionalità, come ad esempio la memoria e quindi l'allocazione e la deallocazione degli oggetti;
-				\item è un linguaggio libero e gratuito. %la licenza è GNU GPL ma penso di non specificarla perché altrimenti dovrei definirne le caratteristiche
 			\end{itemize}
 		\item \textbf{Svantaggi:}
 			\begin{itemize}
-				\item essendo un linguaggio interpretato è più lento in fase di esecuzione rispetto ad uno nativo, sebbene questo svantaggio fosse più importante in passato perché ormai la potenza che hanno raggiunto gli elaboratori è di gran lunga maggiore di quella necessaria per superare questo problema, di fatto al giorno d'oggi questo svantaggio si presenta solo con applicazioni molto pesanti, come i programmi grafici;
+				\item essendo un linguaggio interpretato è più lento in fase di esecuzione rispetto ad uno nativo, sebbene questo svantaggio fosse più importante in passato, perché ormai la potenza che hanno raggiunto gli elaboratori è di gran lunga maggiore di quella necessaria per superare questo problema, di fatto al giorno d'oggi questo svantaggio si presenta solo con applicazioni molto pesanti, come i programmi grafici, o in supporti hardware più limitati, come ad esempio gli smartphone e i tablet;
 				\item richiede un interprete, e quindi un'ulteriore applicazione, comunque già presente in Android visto che tutte le sue applicazioni sono scritte in Java.
 			\end{itemize}
 	\end{itemize}
 	
 \subsection{Android} %forse sono stato un po' troppo lungo qui nella descrizione
 
-	Android è il sistema operativo più diffuso al mondo, usato per smartphone, tablet e altri dispositivi sviluppati da Google, la proprietaria del sistema operativo, come Android TV e Google Glass. Strutturalmente deriva da Linux, ma usa Java per le applicazioni che interagiscono con l'utente. In pratica il linguaggio di programmazione principale usato è Java, mentre si usano C e C++ solo per agire ad un livello più basso dell'architettura di Android, ad esempio per ottenere prestazioni migliori in applicazioni pesanti. Il \gl{team} userà solo Java, dato che il programma sviluppato dovrebbe essere abbastanza leggero da eseguire. //
+	Android è il sistema operativo più diffuso al mondo, usato per smartphone, tablet e altri dispositivi, come Android TV e Google Glass, sviluppati da Google, la proprietaria del sistema operativo. Strutturalmente deriva da Linux, ma usa Java per le applicazioni che interagiscono con l'utente. In pratica il linguaggio di programmazione principale previsto è Java, più supportato e ricco di funzionalità già fornite di base, mentre in genere si usano C e C++ per ottenere prestazioni migliori, sebbene siano presenti meno librerie rispetto al primo linguaggio. Esiste comunque la possibilità di usare entrambi per la stessa applicazione, ad esempio utilizzando Java per la struttura principale e C++ per le parti più pesanti da eseguire. Il \gl{team} userà solo Java, dato che il programma sviluppato dovrebbe essere abbastanza leggero da eseguire. //
 	Android inoltre fornisce delle proprie librerie, che, insieme alla struttura del sistema operativo, caratterizzano la stesura del codice dell'applicazione. Ad esempio ogni programma viene eseguito in una macchina virtuale propria, così la sua esecuzione non può modificare né il sistema operativo né le altre applicazioni, mentre la comunicazione con gli altri programmi può avvenire soltanto tramite dei pattern specifici. La struttura del programma sfrutta altri pattern già definiti, come le Activity, che caratterizzano lo sviluppo dell'applicazione. Android quindi presenta vantaggi e svantaggi differenti rispetto a Java.
 	
 	\begin{itemize}
 		\item \textbf{Vantaggi:}
 			\begin{itemize}
-				\item è un linguaggio molto usato, visto che Android è il sistema operativo più diffuso al mondo;
-				\item è un linguaggio libero e gratuito;
-				\item è disponibile online una documentazione molto dettagliata;
+				\item è il sistema operativo più usato al mondo;
+				\item è libero e gratuito;
+				\item è disponibile online una documentazione molto dettagliata sulle librerie di Android;
 				\item per sviluppare un'applicazione Android bisogna usare dei pattern già definiti, semplificando il codice da scrivere e lo studio della loro applicazione;
-				\item dato che Android è stato pensato per i dispositivi mobile la connessione ad Internet, il GPS e le altre interazioni con sistemi di comunicazione esterni all'applicazione sono automatici, quindi il programmatore non deve conoscere come si implementato ma soltanto come interagirci tramite il codice;
-				\item l'utilizzo di altri linguaggi come complemento a Java, come l'XML per le GUI, semplifica il lavoro da svolgere e lo rende più intuitivo;
+				\item dato che Android è stato pensato per i dispositivi mobile la connessione ad Internet, il GPS e le altre interazioni con sistemi di comunicazione esterni all'applicazione sono automatici, quindi il programmatore non deve conoscere come siano implementatoi ma soltanto come interagirci tramite il codice;
+				\item l'utilizzo di altri linguaggi come complemento a Java, ad esempio l'XML per le GUI, semplifica il lavoro da svolgere e lo rende più intuitivo;
 				\item dato che il programma viene eseguito in una macchina virtuale non può in alcun modo danneggiare né il sistema operativo né le altre applicazioni;
 				\item Android non viene usato solo per dispositivi mobile, di conseguenza è possibile adattare o creare un programma per gli altri prodotti Google che usano questo sistema operativo;
 				\item sono presenti numerose librerie, di cui molte sono ufficiali di Android.
@@ -49,7 +48,7 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 		\item \textbf{Svantaggi:}
 			\begin{itemize}
 				\item dato che Android è open source ogni azienda che lo usa tende a personalizzarlo, quindi la stessa applicazione può dare risultati leggermente diversi cambiando dispositivo, di conseguenza la programmazione potrebbe dover variare per rispondere a queste differenze;
-				\item l'utilizzo di linguaggi complementari, come l'XML e il C/C++, può richiedere una maggiore conoscenza per poterli sfruttare, aumentando le conoscenze richieste per poter scrivere l'applicazione.
+				\item l'utilizzo di linguaggi complementari, come l'XML e il C/C++, può richiedere una maggiore conoscenza per poterli sfruttare, aumentando quindi il carico di lavoro necessario per poter scrivere l'applicazione.
 			\end{itemize}
 	\end{itemize}
 	
@@ -65,13 +64,13 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 				\item è un linguaggio libero e gratuito;
 				\item è disponibile online una documentazione molto dettagliata;
 				\item permette di definire dei propri tag e di fissare il loro contenuto, evitando così problemi di interpretazione dei termini, anche se nel caso della nostra applicazione questo vantaggio è irrilevante, visto che siamo noi ad usare dei tag già definiti da Google;
-				\item i file XML vengono gestiti da quasi tutti i linguaggi di programmazione, permettendo così la loro integrazione con i programmi.
+				\item i file XML vengono gestiti da quasi tutti i linguaggi di programmazione, permettendo così una completa integrazione con le applicazioni.
 			\end{itemize}
 		\item \textbf{Svantaggi:}
 			\begin{itemize}
 				\item l'utilizzo degli schemi per fissare il tipo di contenuto dei tag può rendere il controllo dei contenuti molto pesante;
-				\item anche il file XML stesso può aumentare parecchio le dimensioni, arrivando addirittura ad aumentare esponenzialmente, sebbene esistano delle tecniche di compressione che permettono di comprimere notevolmente il file;
-				\item il file XML è poco significativo finché non viene usato un programma per interpretare i tag previsti e di conseguenza eseguire delle azioni ben precise;.
+				\item anche il file XML stesso può aumentare parecchio le dimensioni, arrivando addirittura ad un incremento esponenziale, sebbene esistano delle tecniche di compressione che permettono di ridurre notevolmente la grandezza del file;
+				\item il file XML è poco significativo finché non viene usato un programma per interpretare i tag previsti e di conseguenza eseguire delle azioni ben precise.
 			\end{itemize}
 	\end{itemize}
 	
@@ -129,6 +128,7 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 		\item 	interrogare i dati memorizzati;
 		\item 	creare e gestire strumenti di controllo ed accesso ai dati.
 	\end{itemize}
+	È costruito per essere semplice, sia in scrittura sia in lettura, e poco verboso, e per permettere automaticamente una gestione ottimale dei dati. //
 	Useremo SQL per gestire i dati dell'applicazione.
 	
 	\begin{itemize}
@@ -152,8 +152,8 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 \subsection{GraphQL} 
 	GraphQL è un query language progettato per creare applicazioni client fornendo una sintassi intuitiva e flessibile per descrivere le loro interazioni con i dati. Rappresenta quindi un'interfaccia tra il database SQL e il resto dell'applicazione, molto utile quando sono richieste tante query diverse tra loro.
 	Una query scritta in GraphQL è una stringa interpretata da un server che ritorna dati in un formato specificato. 
-	Questo linguaggio ci permetterebbe di interrogare i database, quello locale del client e quello in remoto del server, che scriveremo in SQL. \\
-	Alla fine non useremo questa tecnologia perché le query da scrivere sono poche e semplici, quindi risulta più semplice e veloce usare il linguaggio SQL rispetto a GraphQL. %Secondo me a questo punto tanto vale togliere questa tecnologia dall'elenco, ma Tommaso mi ha invece detto di lasciarla nonostante non venga usata.
+	Questo linguaggio ci permetterebbe di interrogare i database, quello locale del client e quello in remoto del server, scritti in SQL. \\
+	Alla fine non useremo questa tecnologia perché le query da scrivere sono poche e semplici, quindi risulta più facile e veloce usare il linguaggio SQL rispetto a GraphQL. %Secondo me a questo punto tanto vale togliere questa tecnologia dall'elenco, ma Tommaso mi ha invece detto di lasciarla nonostante non venga usata.
 	
 	\begin{itemize}
 		\item \textbf{Vantaggi:}
@@ -171,15 +171,15 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 
 %ho unito la libreria e la specifica, visto che parlare di una vuol dire praticamente parlare anche dell'altra
 \subsection{Android Beacon Library e AltBeacon}
-	Android Beacon Library è una libreria Android che fornisce delle API per interagire con i beacon. Permette ai dispositivi Android di usare i beacon similmente a quanto viene fatto dai dispositivi iOS. Un'applicazione può richiedere di ricevere notifiche quanto uno o più beacon appaiono o spariscono. Può richiedere inoltre di ricevere degli aggiornamenti da uno o più beacon alla frequenza di 1Hz. //
-	Android Beacon Library usa di default la specifica AltBeacon. Essa definisce il formato dei messaggi che i dispositivi BLE trasmettono. Permette di gestire l'interazione con i beacon come funziona per iBeacon: trasmettono un UUID dal beacon stesso e usano un database esterno per dare un significato ai beacon.
+	Android Beacon Library è una libreria Android che fornisce delle API per interagire con i beacon, e permette ai dispositivi Android di usarli similmente a quanto viene fatto dai dispositivi iOS. Un'applicazione può richiedere di ricevere notifiche quando uno o più beacon appaiono o spariscono. Può richiedere inoltre di ricevere degli aggiornamenti da uno o più beacon alla frequenza di 1Hz. //
+	Android Beacon Library usa di default la specifica AltBeacon. Essa definisce il formato dei messaggi che i dispositivi BLE trasmettono. Permette di gestire l'interazione con i beacon come funziona per iBeacon: essi trasmettono un UUID e l'applicazione che implementa AltBeacon usa un database esterno per dare un significato ai beacon.
 	Al contrario di iBeacon, AltBeacon è open source e offre una quantità di dati più grande da utilizzare.
 	
 	\begin{itemize} %TODO: rilevare eventuali svantaggi, in rete si trova gran poco a riguardo
 		\item \textbf{Vantaggi:}
 			\begin{itemize}
 				\item la libreria e la specifica sono libere e gratuite;
-				\item Android Beacon Library è una delle librerie più usate per l'interazioni con i beacon;
+				\item Android Beacon Library è una delle librerie più usate per l'interazione con i beacon;
 				\item Android Beacon Library è una libreria ufficiale di Android, mentre AltBeacon è sviluppata da Radius Networks, quindi il loro funzionamento e il loro mantenimento sono garantiti;
 				\item sono disponibili online varie spiegazioni sul loro funzionamento e uso;
 				\item i beacon supportati sono numerosi e di varie marche;
