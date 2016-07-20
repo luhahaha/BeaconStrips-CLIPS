@@ -94,7 +94,8 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 		\item \textbf{Svantaggi:}
 			\begin{itemize}
 				\item è un linguaggio efficiente solo per lo scambio di dati tra client e server, quando serve in locale esistono sistemi più efficienti;
-				\item rispetto a XML ha funzionalità più limitate, anche se generalmente le caratteristiche mancanti non sono necessarie per svolgere il lavoro previsto.
+				\item rispetto a XML ha funzionalità più limitate, anche se generalmente le caratteristiche mancanti non sono necessarie per svolgere il lavoro previsto;
+				\item non è validato, quindi se il mittente omette campi o sbaglia il formato dei dati, client diversi potrebbero interpretare diversamente il JSON.
 			\end{itemize}
 	\end{itemize}
 
@@ -162,7 +163,7 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 			\end{itemize}
 		\item \textbf{Svantaggi:}
 			\begin{itemize}
-				\item
+				\item quando il set di query che vengono effettuate sul database è limitato o non è previsto che vari, la scrittura di una interfaccia GraphQL per interrogare il database può richiedere più tempo e risorse di quante non ne servano per implementare il set di query direttamente e portare pochi vantaggi.
 			\end{itemize}
 	\end{itemize}
 
