@@ -49,4 +49,22 @@ public class RequestMaker {
    public static void logout(Context cx, AbstractUrlRequestListener listener) {
       LogoutRequest request = new LogoutRequest(cx, listener);
    }
+
+   //effettua la chiamata per cambiare lo username e/o la password del profilo dell'utente
+   public static void changeProfileData(Context cx, String username, String password, AbstractUrlRequestListener listener) {
+      ChangeProfileDataRequest request=new ChangeProfileDataRequest(cx, username, password, listener);
+   }
+
+   //i prossimi 3 metodi effettuano la chiamata per controllare se il rispettivo dato del profilo è corretto o meno, in modo poter avvisare l'utente durante la compilazione dei dati per la registrazione
+   public static void checkEmail(Context cx, String email, AbstractUrlRequestListener listener) {
+      CheckEmailRequest request=new CheckEmailRequest(cx, email, listener);
+   }
+
+   public static void checkUsername(Context cx, String username, AbstractUrlRequestListener listener) {
+      CheckUsernameRequest request=new CheckUsernameRequest(cx, username, listener);
+   }
+
+   public static void checkPassword(Context cx, String password, AbstractUrlRequestListener listener) {
+      CheckPasswordRequest request=new CheckPasswordRequest(cx, password, listener);
+   }
 }
