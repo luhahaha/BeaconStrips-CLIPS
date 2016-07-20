@@ -9,7 +9,8 @@ public class MultipleChoiceImage extends AbstractImageQuiz {
 
    MultipleChoiceImage(String instructions, String pathImage, String trueResponse, String falseResponse[]) {
       super(instructions, pathImage);
-      this.trueResponse=trueResponse;
+      this.trueResponse = trueResponse;
+      this.falseResponse = falseResponse;
    }
 
    boolean check(String userResponse) {
