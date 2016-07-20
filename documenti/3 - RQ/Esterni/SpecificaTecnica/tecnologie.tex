@@ -150,16 +150,18 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 	\end{itemize}
 	
 \subsection{GraphQL} 
-	GraphQL è un query language progettato per creare applicazioni client fornendo una sintassi intuitiva e flessibile per descrivere le loro interazioni con i dati.
+	GraphQL è un query language progettato per creare applicazioni client fornendo una sintassi intuitiva e flessibile per descrivere le loro interazioni con i dati. Rappresenta quindi un'interfaccia tra il database SQL e il resto dell'applicazione, molto utile quando sono richieste tante query diverse tra loro.
 	Una query scritta in GraphQL è una stringa interpretata da un server che ritorna dati in un formato specificato. 
-	Questo linguaggio ci permetterà di interrogare il database che scriveremo in SQL.
+	Questo linguaggio ci permetterebbe di interrogare i database, quello locale del client e quello in remoto del server, che scriveremo in SQL. \\
+	Alla fine non useremo questa tecnologia perché le query da scrivere sono poche e semplici, quindi risulta più semplice e veloce usare il linguaggio SQL rispetto a GraphQL. %Secondo me a questo punto tanto vale togliere questa tecnologia dall'elenco, ma Tommaso mi ha invece detto di lasciarla nonostante non venga usata.
 	
-	\begin{itemize} %TODO: finire i vantaggi e gli svantaggi, specialmente questi ultimi
+	\begin{itemize}
 		\item \textbf{Vantaggi:}
 			\begin{itemize}
 				\item è un linguaggio libero e gratuito;
-				\item semplifica l'interazione con il database SQL;
-				\item \item è disponibile online una spiegazione di come funziona e di come usarlo; %volevo evitare di dire che possiede una documentazione molto dettagliata perché mi da l'idea che non sia vero, probabilmente perché non c'è bisogno di scrivere più di tanto
+				\item semplifica l'interazione con il database SQL, in particolare quando è necessario usare query molto complesse;
+				\item è disponibile online una spiegazione abbastanza dettagliata di come funziona e di come usarlo;
+				\item è un linguaggio abbastanza veloce da scrivere, in particolare quando le query sono tante e differenti tra loro.
 			\end{itemize}
 		\item \textbf{Svantaggi:}
 			\begin{itemize}
