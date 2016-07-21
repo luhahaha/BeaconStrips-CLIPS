@@ -55,16 +55,8 @@ public class RequestMaker {
       ChangeProfileDataRequest request=new ChangeProfileDataRequest(cx, username, password, listener);
    }
 
-   //i prossimi 3 metodi effettuano la chiamata per controllare se il rispettivo dato del profilo è corretto o meno, in modo poter avvisare l'utente durante la compilazione dei dati per la registrazione
-   public static void checkEmail(Context cx, String email, AbstractUrlRequestListener listener) {
-      CheckEmailRequest request=new CheckEmailRequest(cx, email, listener);
-   }
-
-   public static void checkUsername(Context cx, String username, AbstractUrlRequestListener listener) {
-      CheckUsernameRequest request=new CheckUsernameRequest(cx, username, listener);
-   }
-
-   public static void checkPassword(Context cx, String password, AbstractUrlRequestListener listener) {
-      CheckPasswordRequest request=new CheckPasswordRequest(cx, password, listener);
+   //effettua la chiamata per controllare se i dati del profilo sono corretti, in modo da poter avvisare l'utente durante la compilazione dei dati per la registrazione
+   public static void check(Context cx, String email, String username, String password, AbstractUrlRequestListener listener) {
+      CheckRequest request = new CheckRequest(cx, email, username, password, listener);
    }
 }

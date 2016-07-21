@@ -61,16 +61,8 @@ public class LoginManager2 {
 
    }
 
-   void checkEmail(String email, AbstractDataManagerListener<Integer> listener) {
+   void check(String email, String username, String password, AbstractDataManagerListener<Integer> listener) {
       
-   }
-
-   void checkUsername(String username, AbstractDataManagerListener<Integer> listener) {
-
-   }
-
-   void checkPassword(String password, AbstractDataManagerListener<Integer> listener) {
-
    }
 }
 

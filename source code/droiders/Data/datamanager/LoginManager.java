@@ -13,7 +13,7 @@ public class LoginManager {
    private Context cx; //non servirebbe ma così non ci da fastidio quando implementiamo la classe vera
 
    private LoginManager(Context cx) {
-      this.cx=cx;
+      this.cx = cx;
       token = "";
    }
 
