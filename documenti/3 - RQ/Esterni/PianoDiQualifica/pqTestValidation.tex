@@ -1,146 +1,462 @@
-\begin{tabella}{!{\VRule}!{\VRule}X[l,b,l]!{\VRule}l!{\VRule}}\intestazionethreecol{Test}{Descrizione}{Operazioni}TV0F1 & L'utente verifica che possa creare un account.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item registrare un account;; 
-\item autenticarsi con i dati del proprio account.. 
+\begin{tabella}{p{3cm}|p{5cm}|p{5cm}}\intestazionethreecol{Test}{Descrizione}{Operazioni}TV0F1 & L'utente vuole verificare di poter possedere un account.
+ & Viene richiesto di: \begin{enumerate} 
+\item registrare un account; 
+\item autenticarsi con i dati del proprio account. 
 \end{enumerate} \\ 
-TV0F1.1 & L'utente verifica che si possa autenticare.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item inserire un indirizzo email nel campo apposito;; 
-\item inserire una password nel campo apposito;; 
-\item confermare i dati inseriti;; 
-\item verificare di essere autenticato se i dati inseriti sono corretti;; 
-\item verificare se viene segnalato ogni eventuale errore durante la procedura di autenticazione.. 
+TV0F1.1 & L'utente vuole verificare che si possa autenticare. & Viene richiesto di: \begin{enumerate} 
+\item inserire un indirizzo email nel campo apposito; 
+\item inserire una password nel campo apposito; 
+\item confermare i dati inseriti; 
+\item verificare di essere autenticato se i dati inseriti sono corretti; 
+\item verificare se viene segnalato ogni eventuale errore durante la procedura di autenticazione. 
 \end{enumerate} \\ 
-TV0F1.1.5 & L'utente verifica che ogni eventuale errore riguardante la procedura di autenticazione interrompa la procedura stessa.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item verificare se la procedura viene interrotta quando l'indirizzo email inserito non è già stato registrato;; 
-\item verificare se la procedura viene interrotta quando la password inserita non coincide con quella associata all'indirizzo email inserito;; 
-\item verificare che ogni errore nell'inserimento dei dati venga segnalato;; 
-\item verificare di poter cambiare la password qualora non se la ricordasse.. 
+TV0F1.1.1 & L'utente vuole verificare che l'autenticazione richieda l'inserimento di una mail. & Viene richiesto di: \begin{enumerate} 
+\item non inserire alcuna mail; 
+\item verificare che il sistema faccia visualizzare l'errore relativo. 
 \end{enumerate} \\ 
-TV0F1.1.5.4 & L'utente verifica di poter cambiare la password nel caso non se la ricordasse.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item inserire l'indirizzo email con cui si è registrato;; 
-\item verificare di aver ricevuto un'email all'indirizzo inserito con una nuova password casuale;; 
-\item verificare che la vecchia password del proprio account venga sostituita con quella nuova inviata per email.. 
+TV0F1.1.2 & L'utente vuole verificare che l'autenticazione richieda una password. & Viene richiesto di: \begin{enumerate} 
+\item non inserire alcuna password; 
+\item verificare che il sistema faccia visualizzare l'errore relativo. 
 \end{enumerate} \\ 
-TV0F1.2 & L'utente verifica di poter registrare un nuovo account.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item inserire il proprio indirizzo email nell'apposito campo;; 
-\item inserire uno username nell'apposito campo;; 
-\item inserire una password nell'apposito campo;; 
-\item reinserire la password nell'apposito campo;; 
-\item confermare i dati inseriti;; 
-\item verificare che l'account venga registrato con i dati inseriti se non ci sono stati errori, e che l'utente venga autenticato automaticamente;; 
-\item verificare che vengano segnalati gli errori quando ce ne sono.. 
+TV0F1.1.3 & L'utente vuole verificare che si possa confermare l'autenticazione. & Viene richiesto di: \begin{enumerate} 
+\item cliccare sul pulsante di conferma; 
+\item verificare che l'autenticazione avvenga correttamente se i dati sono corretti, altrimenti vengano mostrati gli errori. 
 \end{enumerate} \\ 
-TV0F1.2.7 & L'utente verifica che vengano segnalati gli errori quando ce ne sono, e di conseguenza venga interrotta la procedura di registrazione.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item verificare che venga segnalato un errore quando l'indirizzo email inserito non è corretto, in particolare deve contenere una `@', deve finire con un dominio valido e non deve essere già in uso da un altro utente;; 
-\item verificare che venga segnalato un errore quando lo username inserito non è corretto, in particolare non deve contenere caratteri non alfanumerici e non deve essere già in uso da un altro utente;; 
-\item verificare che venga segnalato un errore quando la password inserita non è corretta, in particolare deve essere composta da almeno 6 caratteri e da un massimo di 16;; 
-\item verificare che venga segnalato un errore quando la password reinserita non concide con quella inserita precedentemente.. 
+TV0F1.1.4 & L'utente vuole verificare che se i dati sono corretti egli viene autenticato. & Viene richiesto di: \begin{enumerate} 
+\item inserire i dati corretti richiesti dall'autenticazione; 
+\item confermare i dati cliccando l'apposito pulsante; 
+\item verificare di essere autenticato. 
 \end{enumerate} \\ 
-TV0F2 & L'utente verifica di poter fare il logout. & Viene richiesto di: \begin{enumerate} 
+TV0F1.1.5 & L'utente vuole verificare che, ogni eventuale errore riguardante la procedura di autenticazione, interrompa la procedura stessa. & Viene richiesto di: \begin{enumerate} 
+\item inserire i dati non corretti richiesti dall'autenticazione; 
+\item confermare l'autenticazione cliccando l'apposito bottone; 
+\item verificare che venga visualizzato il messaggio di errore di autenticazione. 
 \end{enumerate} \\ 
-TV0F3 & L'utente verifica di poter fare un percorso quando è disponibile.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item giocare il percorso fino a quando non è concluso;; 
-\item verificare di poter visualizzare i risultati ottenuti durante l'esecuzione del percorso;; 
-\item verificare di poter salvare i risultati ottenuti.. 
+TV0F1.1.5.1 & L'utente vuole verificare che il sistema interrompa l'autenticazione se la mail inserita non è presente nel sistema. & Viene richiesto di: \begin{enumerate} 
+\item inserire una mail non presente nel database dell'applicazione; 
+\item confermare l'autenticazione cliccando l'apposito bottone; 
+\item verificare che venga mostrato l'errore di autenticazione. 
 \end{enumerate} \\ 
-TV0F3.1 & L'utente verifica di poter giocare il percorso fino alla sua conclusione.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item cercare il beacon corrispondente alla prossima stazione;; 
-\item giocare la prova relativa a quella stazione.. 
+TV0F1.1.5.2 & L'utente vuole verificare che il sistema interrompa l'autenticazione se la password inserita non coincide con quella associata alla mail. & Viene richiesto di: \begin{enumerate} 
+\item inserire una mail valida; 
+\item inserire una password errata; 
+\item confermare l'autenticazione cliccando l'apposito tasto; 
+\item verificare che venga mostrato l'errore di autenticazione. 
 \end{enumerate} \\ 
-TV0F3.1.1 & L'utente verifica di poter cercare e trovare il beacon della prossima stazione.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item verificare se può cominciare a giocare la prova quando trova il beacon;; 
-\item verificare se i beacon rilevati ma inutili ai fini della ricerca vengono ignorati dal'app;; 
-\item verificare di poter chiedere aiuto se non riesce a trovare il beacon o se pensa che ci siano degli errori;; 
-\item verificare se vengono rilevati dei beacon, esterni al percorso, per segnalare la distanza tra lui e il beacon cercato, e se tale distanza è visualizzata dall'app usando dei valori approssimativi, come delle tacche.. 
+TV0F1.1.5.3 & L'utente vuole verificare che il sistema mostri l'errore di autenticazione. & Viene richiesto di: \begin{enumerate} 
+\item inserire i dati errati richiesti dall'autenticazione; 
+\item confermare cliccando l'apposito bottone; 
+\item verificare che venga visualizzato l'errore di autenticazione. 
 \end{enumerate} \\ 
-TV0F3.1.2 & L'utente verifica di poter giocare la prova fino alla sua conclusione.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item verificare se la prova è una tra quelle previste dall'applicazione;; 
-\item verificare se vengono visualizzate le istruzioni relative alla prova;; 
-\item verificare di poter svolgere la prova;; 
-\item verificare se vengono visualizzati i risultati della prova quando essa viene conclusa;; 
-\item verificare di poter proseguire il percorso quando la prova giocata non è l'ultima o di poterlo terminare se invece è l'ultima, nel primo caso inoltre l'utente controlla se vengono visualizzate le istruzioni per trovare la stazione successiva.. 
+TV0F1.1.5.4 & L'utente vuole verificare di poter cambiare la password nel caso non se la ricordasse. & Viene richiesto di: \begin{enumerate} 
+\item inserire l'indirizzo email con cui si è registrato; 
+\item verificare di aver ricevuto un'email all'indirizzo inserito con una nuova password casuale; 
+\item verificare che la vecchia password del proprio account venga sostituita con quella nuova inviata per email. 
 \end{enumerate} \\ 
-TV0F3.2 & L'utente verifica di poter visualizzare correttamente i risultati del percorso ottenuti.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item verificare se viene visualizzata la durata totale del percorso e se essa viene effettivamente calcolata da quando l'utente accetta di iniziare la prova fino a quando conferma la soluzione dell'ultima prova;; 
-\item verificare se viene visualizzato il tempo totale impiegato per completare le prove, se esso viene effettivamente calcolato sommando i tempi di ogni prova e se questi ultimi vengono misurati da quando l'utente accetta di iniziare la prova fino alla conferma della sua soluzione;; 
-\item verificare se viene visualizzato il punteggio totale ottenuto, se esso viene calcolato sommando il punteggio di ogni singola prova, se quest'ultimo viene a sua volta calcolato in base al tipo di prova effettuata e se il risultato ottenuto è il suo nuovo record di quel percorso;; 
-\item verificare se viene visualizzata la classifica generale relativa a quel percorso e la posizione che l'utente ha raggiunto con quel risultato;; 
-\item verificare se viene visualizzata la prova con il maggior numero di punti conseguiti;; 
-\item verificare se viene visualizzata la prova con il minor numero di punti conseguiti.. 
+TV0F1.1.5.4.1 & L'utente vuole verificare che la richiesta di una nuova password richieda una mail. & Viene richiesto di: \begin{enumerate} 
+\item non inserire una mail; 
+\item confermare la richiesta di una nuova password cliccando l'apposito bottone; 
+\item verificare che il sistema mostri l'errore di inserimento del dato. 
 \end{enumerate} \\ 
-TV0F4 & L'utente verifica di poter visualizzare le informazioni relative all'app.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item verificare di poter visualizzare una schermata con le informazioni generali dell'app;; 
-\item verificare di poter accedere alla pagina web dell'applicazione tramite un link presente nell'app;; 
-\item verificare di poter inviare una segnalazione di eventuali errori presenti tramite email.. 
+TV0F1.1.5.4.2 & L'utente vuole verificare che la richiesta di una nuova password invii la nuova password al suo contatto mail. & Viene richiesto di: \begin{enumerate} 
+\item completare la richiesta di una nuova password; 
+\item verificare sulla propria casella di posta che sia stata inviata la nuova password. 
 \end{enumerate} \\ 
-TV0F4.3 & L'utente verifica di poter inviare una segnalazione di errore.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item verificare se, dopo aver cliccato sul pulsante per le segnalazioni, si apre una nuova email da scrivere tramite il gestore predefinito del dispositivo, dove il destinatario viene impostato automaticamente;; 
-\item verificare se, dopo aver cliccato il bottone apposito, si apre una schermata dove egli controlla se può selezionare il tipo di errore avuto, verifica se può scegliere la stazione dove pensa si sia presentato l'errore e controlla se, dopo aver confermato i dati, viene inviata un'email all'indirizzo email adibito alle segnalazioni, generata automaticamente in base alle opzioni scelte.. 
+TV0F1.1.5.4.3 & L'utente vuole verificare che il sistema abbia cambiato la password con la nuova password inviata. & Viene richiesto di: \begin{enumerate} 
+\item effettuare l'autenticazione utilizzando la nuova password; 
+\item verificare che l'autenticazione vada a buon fine. 
 \end{enumerate} \\ 
-TV0F5 & L'utente verifica di poter visualizzare i risultati dei percorsi effettuati precedentemente.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item verificare se, nel caso in cui egli sia autenticato e abbia dei percorsi salvati, viene mostrato l'elenco dei percorsi svolti e se è possibile visualizzare ulteriori informazioni per ognuno di essi;; 
-\item verificare se, nel caso in cui egli sia autenticato ma non abbia alcun percorso salvato, viene mostrato un invito a svolgere un percorso, oltre ad una spiegazione in cui si informa l'utente che in quella pagina sarà possibile vedere i dati dei percorsi svolti quando verranno salvati;; 
-\item verificare se, nel caso in cui egli non sia autenticato, viene visualizzato un invito ad autenticarsi, oltre ad una spiegazione dove si informa l'utente che in quella pagina sarà possibile vedere i dati dei percorsi svolti quando verranno salvati.. 
+TV0F1.1.5.4.4 & L'utente vuole verificare che il sistema interrompa la richiesta di nuova password se la mail inserita non è è presente nel database. & Viene richiesto di: \begin{enumerate} 
+\item non inserire la mail corretta; 
+\item confermare la richiesta di nuova password cliccando l'apposito bottone; 
+\item verificare che il sistema interrompa la procedura mostrando l'errore apposito. 
 \end{enumerate} \\ 
-TV0F5.1.1 & L'utente verifica di poter visualizzare tutte le informazioni relative al percorso salvato scelto.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item verificare se viene mostrato il nome del percorso;; 
-\item verificare se viene visualizzato il nome dell'edificio dove si è svolto il percorso;; 
-\item verificare se viene mostrata la data in cui si è svolto il percorso;; 
-\item se viene visualizzato il punteggio totale ottenuto in quel percorso;; 
-\item se viene mostrato il tempo totale impiegato per poter svolgere il percorso;; 
-\item verificare se viene visualizzata la posizione attuale nella classifica generale relativa al percorso salvato.. 
+TV0F1.1.5.4.5 & L'utente vuole verificare che il sistema segnali l'errore di mail non presente nel database. & Viene richiesto di: \begin{enumerate} 
+\item inserire una mail non presente nel database; 
+\item confermare la richiesta di nuova password cliccando l'apposito bottone; 
+\item verificare che venga visualizzato l'errore di mail non presente. 
 \end{enumerate} \\ 
-TV0F6 & L'utente verifica di poter visualizzare gli edifici con dei percorsi disponibili più vicini alla sua posizione.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item verificare di poter cercare gli edifici inserendo un raggio massimo, oltre a controllare di poter effettivamente visualizzare tutti gli edifici con dei percorsi disponibili nell'area, calcolata in base al valore del raggio immesso, e se viene suggerito di aumentare il raggio inserito, qualora l'esito della ricerca fosse negativo;; 
-\item verificare di poter visualizzare tutte le informazioni dell'edificio selezionato.. 
+TV0F1.2 & L'utente vuole verificare di poter registrare un nuovo account. & Viene richiesto di: \begin{enumerate} 
+\item inserire il proprio indirizzo email nell'apposito campo; 
+\item inserire uno username nell'apposito campo; 
+\item inserire una password nell'apposito campo; 
+\item reinserire la password nell'apposito campo; 
+\item confermare i dati inseriti cliccando l'apposito bottone; 
+\item verificare che l'account venga registrato con i dati inseriti, se non ci sono stati errori, e che venga autenticato automaticamente. 
 \end{enumerate} \\ 
-TV0F6.2 & L'utente verifica di poter visualizzare tutte le informazioni relative all'edificio scelto.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item verificare se vengono mostrate le informazioni specifiche dell'edificio;; 
-\item verificare se viene visualizzato il link alla pagina web dell'edificio;; 
-\item verificare se vengono mostrati tutti i contatti disponibili per quell'edificio.. 
+TV0F1.2.1 & L'utente vuole verificare che la registrazione richieda la mail. & Viene richiesto di: \begin{enumerate} 
+\item non inserire alcuna mail; 
+\item confermare la registrazione cliccando l'apposito bottone; 
+\item verificare che la registrazione mostri l'errore di mail mancante. 
 \end{enumerate} \\ 
-TV0F6.2.1 & L'utente verifica di poter visualizzare tutte le informazioni specifiche dell'edificio.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item verificare se viene mostrato il nome dell'edificio;; 
-\item verificare se viene visualizzata la destinazione d'uso della struttura, come ad esempio ``museo di storia egizia'';; 
-\item verificare se viene mostrato l'indirizzo dell'edificio;; 
-\item verificare se viene visualizzata una breve descrizione della struttura e del tipo di percorsi presenti.. 
+TV0F1.2.2 & L'utente vuole verificare che la registrazione richieda un username. & Viene richiesto di: \begin{enumerate} 
+\item non inserire alcun username; 
+\item confermare la registrazione cliccando l'apposito bottone; 
+\item verificare che la registrazione mostri l'errore di username mancante. 
 \end{enumerate} \\ 
-TV0F6.2.3 & L'utente verifica di poter visualizzare tutti i contatti disponibili dell'edificio.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item verificare se viene mostrato il numero di telefono dell'edificio;; 
-\item verificare se viene visualizzato l'indirizzo email dell'edificio;; 
-\item verificare se viene mostrato un link alla pagina Facebook dell'edificio nel caso in cui essa esista;; 
-\item verificare se viene visualizzato un link alla pagina Twitter dell'edificio nel caso in cui essa esista;; 
-\item verificare se viene mostrato un contatto pubblico di WhatsApp della struttura nel caso in cui esso esista;; 
-\item verificare se viene visualizzato un contatto pubblico di Telegram della struttura nel caso in cui esso esista.. 
+TV0F1.2.3 & L'utente vuole verificare che la registrazione richieda la password. & Viene richiesto di: \begin{enumerate} 
+\item non inserire alcuna password; 
+\item confermare la registrazione cliccando l'apposito bottone; 
+\item verificare che la registrazione mostri l'errore di password mancante. 
 \end{enumerate} \\ 
-TV0F7 & L'utente verifica di poter cambiare le proprie credenziali d'accesso.
-All'utente è richiesto di: & Viene richiesto di: \begin{enumerate} 
-\item verificare di poter cambiare la propria password e controllare se essa può effettivamente avere un numero minimo di 6 caratteri e uno massimo di 16;; 
-\item verificare di poter cambiare il proprio username, di controllare se viene rispettato il vincolo di non poter usare caratteri non alfanumerici per esso e di accertarsi se non è effettivamente possibile utilizzare uno username già in uso da un altro utente;; 
-\item verificare se l'applicazione informa l'utente quando c'è un errore nei dati inseriti.. 
+TV0F1.2.4 & L'utente vuole verificare che la registrazione richieda di reinserire la password. & Viene richiesto di: \begin{enumerate} 
+\item non reinserire la password; 
+\item confermare la registrazione cliccando l'apposito bottone; 
+\item verificare che la registrazione mostri l'errore di reinserimento della password errato. 
+\end{enumerate} \\ 
+TV0F1.2.5 & L'utente vuole verificare che la registrazione debba essere confermata tramite l'apposito bottone. & Viene richiesto di: \begin{enumerate} 
+\item completare i campi richiesti dalla registrazione; 
+\item confermare la registrazione cliccando l'apposito bottone; 
+\item verificare che, se i dati sono corretti, si venga registrati, altrimenti vengano mostrati gli errori relativi ai dati. 
+\end{enumerate} \\ 
+TV0F1.2.6 & L'utente vuole verificare che se i dati inseriti sono corretti e si conferma la registrazione, egli viene registrato. & Viene richiesto di: \begin{enumerate} 
+\item inserire tutti i dati richiesti dalla registrazione in modo corretto; 
+\item confermare la registrazione cliccando l'apposito bottone; 
+\item verificare che la registrazione vada a buon fine. 
+\end{enumerate} \\ 
+TV0F1.2.6.1 & L'utente vuole verificare che se la registrazione va a buon fine, egli viene automaticamente autenticato. & Viene richiesto di: \begin{enumerate} 
+\item inserire i dati richiesti in modo corretto; 
+\item confermare la registrazione cliccando l'apposito bottone; 
+\item verificare di essere autenticati non appena la registrazione conclude con esito positivo. 
+\end{enumerate} \\ 
+TV0F1.2.7 & L’utente vuole verificare che il sistema avvisi l’utente che si sta registrando, che durante la procedura di registrazione è avvenuto un errore. & Viene richiesto di: \begin{enumerate} 
+\item completare i campi richiesti dalla registrazione; 
+\item confermare la registrazione cliccando l'apposito bottone; 
+\item verificare che sia mostrato un avviso qualora ci siano stati errori. 
+\end{enumerate} \\ 
+TV0F1.2.7.1.1 & L'utente vuole verificare che una mail valida sia formata dal simbolo '@' preceduto da caratteri e seguita da un dominio valido. & Viene richiesto di: \begin{enumerate} 
+\item inserire una mail che non rispetti i criteri per essere valida; 
+\item confermare la registrazione cliccando l'apposito bottone; 
+\item verificare che la registrazione venga interrotta e venga mostrato l'errore di mail non valida. 
+\end{enumerate} \\ 
+TV0F1.2.7.1.2 & L'utente vuole verificare che la mail inserita non debba essere già in uso. & Viene richiesto di: \begin{enumerate} 
+\item inserire una mail già in uso; 
+\item confermare la registrazione cliccando l'apposito bottone; 
+\item verificare che la registrazione venga interrotta e venga mostrato l'errore di mail già in uso. 
+\end{enumerate} \\ 
+TV0F1.2.7.2 & L'utente vuole verificare che l'username richiesto debba essere valido. & Viene richiesto di: \begin{enumerate} 
+\item inserire una un username non valido; 
+\item confermare la registrazione cliccando l'apposito bottone; 
+\item verificare che la registrazione venga interrotta e sia mostrato l'avviso di username non valido. 
+\end{enumerate} \\ 
+TV0F1.2.7.2.1 & L'utente vuole verificare che un username valido sia formato da solo caratteri alfanumerici. & Viene richiesto di: \begin{enumerate} 
+\item inserire un username che non rispetti i criteri per essere valido; 
+\item confermare la registrazione cliccando l'apposito bottone; 
+\item verificare che la registrazione venga interrotta e venga mostrato l'errore di username non valido. 
+\end{enumerate} \\ 
+TV0F1.2.7.2.2 & L'utente vuole verificare che l'username inserito non debba essere già in uso. & Viene richiesto di: \begin{enumerate} 
+\item inserire un'username già in uso; 
+\item confermare la registrazione cliccando l'apposito bottone; 
+\item verificare che la registrazione venga interrotta e venga mostrato l'errore di username già in uso. 
+\end{enumerate} \\ 
+TV0F1.2.7.3 & L'utente vuole verificare che la password deve avere un minimo di 6 caratteri e un massimo di 16. & Viene richiesto di: \begin{enumerate} 
+\item inserire una password più corta o più lunga di quello stabilito; 
+\item confermare la registrazione cliccando l'apposito bottone; 
+\item verificare che la registrazione venga interrotta e venga mostrato l'errore di password non valida. 
+\end{enumerate} \\ 
+TV0F1.2.7.4 & L'utente vuole verificare che la password reinserita debba essere uguale a quella precedentemente inserita. & Viene richiesto di: \begin{enumerate} 
+\item reinserire una password diversa da quella precedentemente inserita; 
+\item confermare la registrazione cliccando l'apposito bottone; 
+\item verificare che la registrazione venga interrotta e venga mostrato l'errore di password reinserita non coincidente. 
+\end{enumerate} \\ 
+TV0F2 & L'utente vuole verificare di poter fare il logout. & Viene richiesto di: \begin{enumerate} 
+\item cliccare il bottone per effettuare il logout; 
+\item verificare che sia stato effettuato il logout. 
+\end{enumerate} \\ 
+TV0F3 & L'utente vuole verificare di poter effettuare un percorso se si trova in un luogo con dei percorsi disponibili. & Viene richiesto di: \begin{enumerate} 
+\item trovarsi in un luogo con dei percorsi disponibili; 
+\item cliccare sul bottone per iniziare il percorso; 
+\item verificare di poter svolgere il percorso seguendo le indicazioni. 
+\end{enumerate} \\ 
+TV0F3.1 & L'utente vuole verificare di poter giocare il percorso fino alla sua conclusione. & Viene richiesto di: \begin{enumerate} 
+\item iniziare il percorso cliccando sul bottone di inizio percorso; 
+\item svolgere il percorso seguendo le indicazioni; 
+\item verificare di poter svolgere il percorso fino alla sua conclusione. 
+\end{enumerate} \\ 
+TV0F3.1.1 & L'utente vuole verificare di poter cercare e trovare il beacon della prima stazione. & Viene richiesto di: \begin{enumerate} 
+\item muoversi all'interno dell'edificio per cercare il beacon della prima stazione; 
+\item verificare che sia possibile cercare il beacon della prima stazione; 
+\item verificare che, se si è nei paraggi del beacon della prima stazione, si possa trovarlo. 
+\end{enumerate} \\ 
+TV0F3.1.1.1 & L'utente vuole verificare che se il dispositivo trova il beacon della stazione ricercata egli può iniziare agiocare la prova. & Viene richiesto di: \begin{enumerate} 
+\item recarsi al beacon della stazione che sta cercando; 
+\item verificare di poter iniziare a giocare la prova della stazione cliccando l'apposito bottone di inizio prova. 
+\end{enumerate} \\ 
+TV0F3.1.1.2 & L'utente vuole verificare che il dispositivo ignori i beacon che non sono quello che si sta cercando. & Viene richiesto di: \begin{enumerate} 
+\item recarsi presso un beacon che non sia quello che si sta cercando; 
+\item verificare che il dispositivo ignori il beacon. 
+\end{enumerate} \\ 
+TV0F3.1.2 & L'utente vuole verificare di poter svolgere la prova della stazione in cui si trova. & Viene richiesto di: \begin{enumerate} 
+\item trovarsi nella stazione giusta; 
+\item verificare di poter iniziare  e concludere di giocare la prova della stazione in cui si trova. 
+\end{enumerate} \\ 
+TV0F3.1.2.1 & L'utente vuole verificare che la prova che viene proposta sia una di quelle previste. & Viene richiesto di: \begin{enumerate} 
+\item trovarsi nella stazione esatta; 
+\item iniziare la prova della stazione cliccando il bottone di inizio prova; 
+\item verificare che il sistema somministri una prova corretta. 
+\end{enumerate} \\ 
+TV0F3.1.2.2 & L'utente vuole verificare che gli vengano mostrate le istruzioni per lo svolgimento della prova. & Viene richiesto di: \begin{enumerate} 
+\item trovarsi nella stazione corretta; 
+\item verificare che vengano mostrate le istruzioni per lo svolgimento della prova. 
+\end{enumerate} \\ 
+TV0F3.1.2.3 & L'utente vuole verificare di poter giocare la prova. & Viene richiesto di: \begin{enumerate} 
+\item iniziare la prova cliccando sul bottone di inizio prova; 
+\item verificare di poter giocare la prova fino alla sua conclusione. 
+\end{enumerate} \\ 
+TV0F3.1.2.4 & L'utente vuole verificare che al termine della prova venga mostrato il risultato ottenuto. & Viene richiesto di: \begin{enumerate} 
+\item giocare la prova fino alla sua conclusione; 
+\item verificare che una volta conclusa la prova venga mostrato il risultato ottenuto. 
+\end{enumerate} \\ 
+TV0F3.1.2.5 & L'utente vuole verificare che una volta conclusa la prova sia possibile continuare con lo svolgimento del percorso. & Viene richiesto di: \begin{enumerate} 
+\item giocare la prova fino alla sua conclusione; 
+\item verificare di poter continuare lo svolgimento del percorso una volta conclusa la prova. 
+\end{enumerate} \\ 
+TV0F3.1.2.5.1 & l'utente vuole verificare che, se la prova non è l'ultima del percorso, vengono mostrate le istruzioni per trovare la prossima stazione. & Viene richiesto di: \begin{enumerate} 
+\item concludere una prova che non sia l'ultima del percorso; 
+\item verificare che vengano mostrate le istruzioni per trovare la prossima stazione. 
+\end{enumerate} \\ 
+TV0F3.1.2.5.1.1 & L'utente vuole verificare che una volta conclusa la prova della stazione in cui si trova, vengano mostrate le istruzioni per trovare la stazione seguente. & Viene richiesto di: \begin{enumerate} 
+\item giocare la prova fino alla sua conclusione; 
+\item verificare che vengano mostrate le istruzioni per la ricerca della nuova stazione. 
+\end{enumerate} \\ 
+TV0F3.1.2.5.2 & L'utente vuole verificare che se la prova è l'ultima del percorso egli ha concluso il percorso. & Viene richiesto di: \begin{enumerate} 
+\item completare tutte le prove; 
+\item verificare che una volta finita l'ultima prova sia abbia concluso anche il percorso. 
+\end{enumerate} \\ 
+TV0F3.2 & L'utente vuole verificare di poter visualizzare correttamente i risultati del percorso ottenuti una volta che ha concluso tutte le prove. & Viene richiesto di: \begin{enumerate} 
+\item concludere tutte le prove; 
+\item verificare che vengano mostrati i risultati ottenuti nel percorso. 
+\end{enumerate} \\ 
+TV0F3.2.1 & L'utente vuole verificare che, una volta concluso il percorso, venga mostrato il tempo totale che egli ci ha messo a   completarlo. & Viene richiesto di: \begin{enumerate} 
+\item concludere tutte le prove; 
+\item verificare che venga mostrato il tempo totale per completare il percorso. 
+\end{enumerate} \\ 
+TV0F3.2.1.1 & L'utente vuole verificare che il tempo totale venga calcolato dal momento in cui si accetta di giocare il percorso a quando si conclude l'ultima prova.
+ & Viene richiesto di: \begin{enumerate} 
+\item annotarsi l'ora di inizio dello svolgimento del percorso; 
+\item concludere tutte le prove del percorso; 
+\item annotarsi l'ora di conclusione del percorso; 
+\item verificare che il tempo mostrato dall'applicazione sia uguale al tempo calcolato con le rilevazioni fatte.
+\end{enumerate} \\ 
+TV0F3.2.2 & L'utente vuole verificare che, una volta concluso il percorso, venga mostrato il tempo totale che egli ha impiegato per completare tutte le prove.
+ & Viene richiesto di: \begin{enumerate} 
+\item completare tutte le prove; 
+\item verificare che venga mostrato il tempo totale per completare tutte le prove.
+\end{enumerate} \\ 
+TV0F3.2.2.1 & L'utente vuole verificare che il tempo totale per svolgere tutte le prove sia calcolato sommando i tempi per concludere le varie prove (senza quindi contare il tempo per gli spostamenti da stazione a stazione).
+ & Viene richiesto di: \begin{enumerate} 
+\item completare le varie prove annotandosi i tempi per svolgerle; 
+\item verificare che il tempo mostrato sia la somma dei tempi per svolgere le varie prove.
+\end{enumerate} \\ 
+TV0F3.2.2.1.1 & L'utente vuole verificare che il tempo per svolgere una prova sia calcolato dal momento in cui si accetta di affrontarla a quando la si conclude.
+All'utente viene richiesto di: & Viene richiesto di: \begin{enumerate} 
+\item annotare il tempo di inizio della prova; 
+\item annotare il tempo di conclusione della prova; 
+\item verificare che il tempo venga calcolato dal tempo trascorso dall'inizio alla fine della prova.
+\end{enumerate} \\ 
+TV0F3.2.3 & L'utente vuole verificare che venga mostrato il punteggio totale una volta concluso il percorso. & Viene richiesto di: \begin{enumerate} 
+\item concludere tutte le prove; 
+\item verificare che venga mostrato il punteggio totale del percorso. 
+\end{enumerate} \\ 
+TV0F3.2.3.1 & L'utente vuole verificare che il punteggio totale venga calcolato sommando i punteggi delle prove. & Viene richiesto di: \begin{enumerate} 
+\item concludere tutte le prove e annotare i punteggi delle prove; 
+\item verificare che il punteggio totale sia dato dalla somma dei punteggi di tutte le prove. 
+\end{enumerate} \\ 
+TV0F3.2.4 & L'utente vuole verificare che venga mostrata la posizione in classifica con il relativo punteggio. & Viene richiesto di: \begin{enumerate} 
+\end{enumerate} \\ 
+TV0F3.2.4.1 & L'utente vuole verificare di poter visualizzare la classifica generale. & Viene richiesto di: \begin{enumerate} 
+\item concludere tutte le prove del percorso; 
+\item verificare di poter visualizzare la classifica generale. 
+\end{enumerate} \\ 
+TV0F3.2.5 & L'utente vuole verificare che venga mostrata la prova in cui ha ottenuto il punteggio più alto. & Viene richiesto di: \begin{enumerate} 
+\item concludere tutte le prove del percorso; 
+\item verificare che venga mostrata la prova in cui ha ottenuto il miglior punteggio. 
+\end{enumerate} \\ 
+TV0F3.2.6 & L'utente vuole verificare che venga mostrata la prova in cui ha ottenuto il punteggio più basso. & Viene richiesto di: \begin{enumerate} 
+\item concludere tutte le prove del percorso; 
+\item verificare che venga mostrata la prova in cui ha ottenuto il peggior punteggio. 
+\end{enumerate} \\ 
+TV0F3.3 & L'utente vuole verificare che, se è autenticato, può salvare i risultati del percorso. & Viene richiesto di: \begin{enumerate} 
+\item concludere tutte le prove del percorso; 
+\item verificare di poter salvare i risultati del percorso, cliccando sull'apposito bottone, se già autenticato. 
+\end{enumerate} \\ 
+TV0F4 & L'utente vuole verificare di poter visualizzare le informazioni relative all'app. & Viene richiesto di: \begin{enumerate} 
+\item cliccare sulla sezione riguardante le informazioni relative all'app tramite l'apposito bottone; 
+\item verificare di poter visualizzare le informazioni. 
+\end{enumerate} \\ 
+TV0F4.1 & L'utente vuole verificare che venga mostrata una descrizione generale dell'app. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante le informazioni relative all'app tramite l'apposito bottone; 
+\item verificare che venga visualizzata una descrizione generale dell'app. 
+\end{enumerate} \\ 
+TV0F4.2 & L'utente vuole verificare di poter accedere alla pagina web relativa all'app tramite un link. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante le informazioni relative all'app tramite l'apposito bottone; 
+\item verificare che sia presente un link alla pagina web relativa all'app e questa si apra tramite il browser predefinito del dispositivo. 
+\end{enumerate} \\ 
+TV0F4.3 & L'utente vuole verificare di poter inviare una segnalazione di errore tramite mail. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante le informazioni relative all'app tramite l'apposito bottone; 
+\item verificare che sia presente l'indirizzo mail per la segnalazione di errori. 
+\end{enumerate} \\ 
+TV0F4.3.1 & L'utente vuole verificare che, cliccando sull'indirizzo mail per la segnalazione di errori, venga aperto il gestore delle mail predefinito del dispositivo e che il destinatario sia quello su cui a cliccato. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante le informazioni relative all'app tramite l'apposito bottone; 
+\item cliccare sull'indirizzo mail per la segnalazione degli errori; 
+\item verificare che si apra il gestore delle mail predefinito nel dispositivo e che il destinatario sia effettivamente quello per le segnalazioni d'errore. 
+\end{enumerate} \\ 
+TV0F5 & L'utente vuole verificare di poter visualizzare i risultati dei percorsi effettuati precedentemente. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante i risultati dei percorsi tramite l'apposito bottone; 
+\item verificare di poter visualizzare i risultati salvati qualora sia autenticato. 
+\end{enumerate} \\ 
+TV0F5.1 & L'utente vuole verificare di poter visualizzare la lista dei percorsi salvati qualora sia autenticato.
+ & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante i risultati dei percorsi tramite l'apposito bottone; 
+\item verificare che venga mostrata la lista dei suoi risultati salvati.
+\end{enumerate} \\ 
+TV0F5.1.1 & L'utente vuole verificare di poter visualizzare tutte le informazioni relative al percorso salvato scelto. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante i risultati dei percorsi tramite l'apposito bottone; 
+\item selezionare un risultato tra quelli salvati; 
+\item verificare che vengano mostrate tutte le informazioni relative al percorso selezionato. 
+\end{enumerate} \\ 
+TV0F5.1.1.1 & L'utente vuole verificare che venga visualizzato il nome del percorso selezionato. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante i risultati dei percorsi tramite l'apposito bottone; 
+\item selezionare un risultato tra quelli salvati; 
+\item verificare che venga visualizzato il nome del percorso. 
+\end{enumerate} \\ 
+TV0F5.1.1.2 & L'utente vuole verificare che venga visualizzato il nome del luogo dove è stato svolto il percorso selezionato. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante i risultati dei percorsi tramite l'apposito bottone; 
+\item selezionare un risultato tra quelli salvati; 
+\item verificare che venga visualizzato il nome del luogo in cui è stato svolto il percorso. 
+\end{enumerate} \\ 
+TV0F5.1.1.3 & L'utente vuole verificare che venga visualizzata la data in cui si è svolto il percorso selezionato. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante i risultati dei percorsi tramite l'apposito bottone; 
+\item selezionare un risultato tra quelli salvati; 
+\item verificare che venga visualizzata la data in cui è stato svolto il percorso. 
+\end{enumerate} \\ 
+TV0F5.1.1.4 & L'utente vuole verificare che venga visualizzato il punteggio totale ottenuto nel percorso selezionato. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante i risultati dei percorsi tramite l'apposito bottone; 
+\item selezionare un risultato tra quelli salvati; 
+\item verificare che venga visualizzato il punteggio totale ottenuto nel percorso. 
+\end{enumerate} \\ 
+TV0F5.1.1.5 & L'utente vuole verificare che venga visualizzato il tempo totale impiegato per svolgere il percorso selezionato. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante i risultati dei percorsi tramite l'apposito bottone; 
+\item selezionare un risultato tra quelli salvati; 
+\item verificare che venga visualizzato il tempo totale impiegato per svolgere il percorso. 
+\end{enumerate} \\ 
+TV0F5.1.1.6 & L'utente vuole verificare che venga visualizzato la posizione in classifica del percorso selezionato. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante i risultati dei percorsi tramite l'apposito bottone; 
+\item selezionare un risultato tra quelli salvati; 
+\item  verificare che venga visualizzato la posizione in classifica del percorso. 
+\end{enumerate} \\ 
+TV0F5.2 & L'utente vuole verificare che se è autenticato ma non ha ancora salvato percorsi venga visualizzato un avviso che inviti a svolgerne almeno uno. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante i risultati dei percorsi tramite l'apposito bottone; 
+\item verificare che venga visualizzato un avviso che solleciti a svolgere e salvare almeno un percorso. 
+\end{enumerate} \\ 
+TV0F5.3 & L'utente vuole verificare che se non è autenticato viene visualizzato un messaggio che invita ad autenticarsi. & Viene richiesto di: \begin{enumerate} 
+\item non effettuare il login; 
+\item accedere alla sezione riguardante i risultati dei percorsi tramite l'apposito bottone; 
+\item verificare che venga visualizzato un avviso che inviti ad autenticarsi. 
+\end{enumerate} \\ 
+TV0F6 & L'utente vuole verificare di poter visualizzare gli edifici con dei percorsi disponibili più vicini alla sua posizione. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante la ricerca degli edifici tramite l'apposito bottone; 
+\item verificare di poter visualizzare gli edifici con percorsi più vicini. 
+\end{enumerate} \\ 
+TV0F6.1.1 & L'utente vuole verificare di poter inserire un raggio in chilometri per la ricerca degli edifici. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante la ricerca degli edifici tramite l'apposito bottone; 
+\item verificare di poter inserire un raggio per la ricerca in chilometri. 
+\end{enumerate} \\ 
+TV0F6.1.1.1 & L'utente vuole verificare che se la ricerca tramite raggio va a buon fine vengano visualizzati gli edifici entro quel raggio. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante la ricerca degli edifici tramite l'apposito bottone; 
+\item inserire un raggio nel quale sia presente un edificio con percorsi; 
+\item verificare che venga visualizzato l'edificio. 
+\end{enumerate} \\ 
+TV0F6.2 & L'utente vuole verificare di poter visualizzare tutte le informazioni relative all'edificio scelto tra la lista di ricerca degli edifici. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante la ricerca degli edifici tramite l'apposito bottone; 
+\item selezionare un edificio tra quelli nella lista; 
+\item verificare che vengano visualizzate le informazioni relative a quell'edificio. 
+\end{enumerate} \\ 
+TV0F6.2.1 & L'utente vuole verificare di poter visualizzare tutte le informazioni specifiche dell'edificio.
+ & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante la ricerca degli edifici tramite l'apposito bottone; 
+\item selezionare un edificio tra quelli nella lista; 
+\item verificare di poter visualizzare delle informazioni specifiche dell'edificio. 
+\end{enumerate} \\ 
+TV0F6.2.1.1 & L'utente vuole verificare che venga visualizzato il nome dell'edificio. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante la ricerca degli edifici tramite l'apposito bottone; 
+\item selezionare un edificio tra quelli della lista; 
+\item verificare che venga visualizzato il nome dell'edificio. 
+\end{enumerate} \\ 
+TV0F6.2.1.2 & L'utente vuole verificare che venga visualizzata la destinazione d'uso dell'edificio. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante la ricerca degli edifici tramite l'apposito bottone; 
+\item selezionare un edificio tra quelli della lista; 
+\item verificare che venga visualizzata la destinazione d'uso dell'edificio. 
+\end{enumerate} \\ 
+TV0F6.2.1.3 & L'utente vuole verificare che venga visualizzato l'indirizzo dell'edificio. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante la ricerca degli edifici tramite l'apposito bottone; 
+\item selezionare un edificio tra quelli della lista; 
+\item verificare che venga visualizzato l'indirizzo dell'edificio. 
+\end{enumerate} \\ 
+TV0F6.2.2 & L'utente vuole verificare che venga visualizzato il link al sito web dell'edificio. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante la ricerca degli edifici tramite l'apposito bottone; 
+\item selezionare un edificio tra quelli della lista; 
+\item verificare che venga visualizzato il link al sito web dell'edificio. 
+\end{enumerate} \\ 
+TV0F6.2.3 & L'utente vuole verificare di poter visualizzare tutti i contatti disponibili dell'edificio. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante la ricerca degli edifici tramite l'apposito bottone; 
+\item selezionare un edificio tra quelli della lista; 
+\item verificare di poter visualizzare i contatti disponibili dell'edificio. 
+\end{enumerate} \\ 
+TV0F6.2.3.1 & L'utente vuole verificare di poter visualizzare il contatto telefonico dell'edificio. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante la ricerca degli edifici tramite l'apposito bottone; 
+\item selezionare un edificio tra quelli della lista; 
+\item verificare di poter visualizzare il contatto telefonico dell'edificio. 
+\end{enumerate} \\ 
+TV0F6.2.3.2 & L'utente vuole verificare di poter visualizzare il contatto mail dell'edificio. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante la ricerca degli edifici tramite l'apposito bottone; 
+\item selezionare un edificio tra quelli della lista; 
+\item verificare di poter visualizzare il contatto mail dell'edificio. 
+\end{enumerate} \\ 
+TV0F6.2.3.3 & L'utente vuole verificare di poter contattare contattare, tramite la pagina Facebook,  l'edificio, qualora sia disponibile. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante la ricerca degli edifici tramite l'apposito bottone; 
+\item selezionare un edificio tra quelli della lista; 
+\item verificare, qualora sia disponibile, di poter contattare l'edificio tramite la pagina Facebook. 
+\end{enumerate} \\ 
+TV0F6.2.3.4 & L'utente vuole verificare di poter contattare contattare, tramite Twitter, l'edificio, qualora sia disponibile. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante la ricerca degli edifici tramite l'apposito bottone; 
+\item selezionare un edificio tra quelli della lista; 
+\item verificare, qualora sia disponibile, di poter contattare l'edificio tramite Twitter. 
+\end{enumerate} \\ 
+TV0F6.2.3.5 & L'utente vuole verificare di poter contattare contattare, tramite contatto di WhatsApp, l'edificio, qualora sia disponibile. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante la ricerca degli edifici tramite l'apposito bottone; 
+\item selezionare un edificio tra quelli della lista; 
+\item verificare, qualora sia disponibile, di poter contattare l'edificio tramite il contatto di WhatsApp. 
+\end{enumerate} \\ 
+TV0F6.2.3.6 & L'utente vuole verificare di poter contattare contattare, tramite contatto Telegram, l'edificio, qualora sia disponibile. & Viene richiesto di: \begin{enumerate} 
+\item accedere alla sezione riguardante la ricerca degli edifici tramite l'apposito bottone; 
+\item selezionare un edificio tra quelli della lista; 
+\item verificare, qualora sia disponibile, di poter contattare l'edificio tramite il contatto di Telegram. 
+\end{enumerate} \\ 
+TV0F7 & L'utente verifica di poter cambiare le proprie credenziali d'accesso. & Viene richiesto di: \begin{enumerate} 
+\item accedere al proprio profilo tramite l'apposito bottone; 
+\item verificare di poter cambiare le proprie credenziali. 
+\end{enumerate} \\ 
+TV0F7.1 & L'utente vuole verificare di poter modificare il proprio username. & Viene richiesto di: \begin{enumerate} 
+\item accedere al proprio profilo tramite l'apposito bottone; 
+\item modificare il proprio username rispettando i requisiti R0F1.2.7.2.1 e R0F1.2.7.2.2; 
+\item confermare il cambio delle credenziali cliccando l'apposito bottone; 
+\item verificare di aver modificato il proprio username. 
+\end{enumerate} \\ 
+TV0F7.2 & L'utente vuole verificare di poter modificare la propria password. & Viene richiesto di: \begin{enumerate} 
+\item accedere al proprio profilo tramite l'apposito bottone; 
+\item modificare la propria password rispettando il requisito R0F1.2.7.3; 
+\item confermare il cambio delle credenziali cliccando l'apposito bottone; 
+\item verificare di aver modificato la propria password. 
+\end{enumerate} \\ 
+TV0F7.3 & L'utente vuole verificare che se i dati inseriti non sono corretti vengono visualizzati gli errori relativi. & Viene richiesto di: \begin{enumerate} 
+\item accedere al proprio profilo tramite l'apposito bottone; 
+\item modificare i propri dati con dati che non rispettano i requisiti R0F1.2.7.3, R0F1.2.7.2.1 e R0F1.2.7.2.2; 
+\item confermare il cambio delle credenziali cliccando l'apposito bottone; 
+\item verificare che venga interrotta la procedura di cambio credenziali e che vengano visualizzati gli errori relativi ai dati. 
 \end{enumerate} \\ 
 TV0Q1 & L'utente verifica se viene fornito il manuale per l'utente dell'applicazione. & Viene richiesto di: \begin{enumerate} 
-\end{enumerate} \\ 
-TV2F8 & L'utente verifica se viene mostrato un tutorial introduttivo al primo utilizzo dell'app. & Viene richiesto di: \begin{enumerate} 
-\end{enumerate} \\ 
+\end{enumerate} \\
 \hiderowcolors
 \caption{Riepilogo test di validazione}
-\end{table}
+\end{tabella}
