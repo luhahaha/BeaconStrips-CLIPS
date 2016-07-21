@@ -53,6 +53,33 @@
 }
 ```
 
+**url**: `/pathsresults`
+**chiamata**: `POST`
+**autenticazione**: `SI`
+**body:**
+```
+{
+	"pathId" : Int,
+	"startTime" : String,
+	"endTime" : String,
+	"proofResults" : [
+		{
+			"proofId" : Int,
+			"startTime" : String,
+			"endTime" : String,
+			"score" : Int
+		}, { ... }, { ... } ]
+}
+```
+
+
+**restituisce**:
+```
+{
+	"da definire"
+}
+```
+
 
 #Path
 
@@ -84,3 +111,82 @@
 	"da definire"
 }
 ```
+
+# Registration Data Check
+**url**: `/registrationFieldCheck`
+**chiamata**: `POST`
+**autenticazione**: `NO`
+**body**:
+```
+{
+	"username" : String,
+	"email"    : String,
+	"password" : String
+}
+```
+**restituisce**:
+```
+{
+	"username": {
+		"isValid" : Bool,
+		"userMessage": String?
+	},
+	"password": {
+	},
+	"email": {
+	}
+}
+```
+
+# User Data
+**url**: `/userData`
+**chiamata**: `POST`
+**autenticazione**: `SI`
+**body**:
+```
+{
+	"username": String?
+	"password": String?
+}
+```
+**restituisce**:
+```
+{
+	"saved": Bool
+	"userMessage": String?
+}
+```
+
+**url**: `/userData`
+**chiamata**: `GET`
+**autenticazione**: `SI`
+**restituisce**:
+```
+{
+	"email": String
+	"username": String
+}
+```
+
+#Registration
+**url**: `/newUser`
+**chiamata**: `POST`
+**autenticazione**: `SI`
+**body**:
+```
+{
+	"username" : String,
+	"email"    : String,
+	"password" : String
+}
+```
+**restituisce**:
+```
+{
+	"userID" : String?,
+	"token"  : String?,
+	"errorCode": Int?,
+	"userMessage": String?
+}
+```
+
