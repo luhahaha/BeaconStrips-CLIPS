@@ -9,8 +9,8 @@ public class DataRequestMaker {
    /*Questo codice sarà sotto commento finché non verranno implementate le classi chiamate
 
 
-   public static void getBuildings(Context cx, double latitude, double longitude, AbstractDataManagerListener<Building[]> listener) {
-      BuildingsDataRequest request = new BuildingsDataRequest(cx, latitude, longitude, listener);
+   public static void getBuildings(Context cx, double latitude, double longitude, int maxBuildings, AbstractDataManagerListener<Building[]> listener) {
+      BuildingsDataRequest request = new BuildingsDataRequest(cx, latitude, longitude, maxBuildings, listener);
    }
 
    public static void getPath(Context cx, int pathID, AbstractDataManagerListener<Path> listener) {
@@ -33,12 +33,16 @@ public class DataRequestMaker {
       AppInfoDataRequest request = new AppInfoDataRequest(cx, listener);
    }
 
-   public static void changeProfileData(Context cx, AbstractDataManagerListener<boolean> listener) {
+   public static void changeProfileData(Context cx, AbstractDataManagerListener<integer> listener) {
       ChangeProfileDataRequest = new ChangeProfileDataRequest(cx, username, password, listener);
    }
 
    public static void check(Context cx, String email, String username, String password, AbstractDataManagerListener<boolean> listener) {
       CheckDataRequest request = new CheckDataRequest(cx, email, username, password, listener);
+   }
+
+   public static void getProfileData(Context cx, AbstractDataManagerListener<String[]> listener) {
+      GetProfileDataRequest request = new GetProfileDataRequest(cx, listener);
    }
     */
 }

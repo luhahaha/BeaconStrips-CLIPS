@@ -2,6 +2,8 @@ package urlrequest;
 
 import android.content.Context;
 
+import Data.PathResult;
+
 /**
  * Created by andrea on 01/07/16.
  */
@@ -21,7 +23,7 @@ public class RequestMaker {
    }
 
    //effettua la chiamata per salvare il risultato appena ottenuto dall'utente
-   public static void saveResult(Context cx, Data.PathResult result, AbstractUrlRequestListener listener) {
+   public static void saveResult(Context cx, PathResult result, AbstractUrlRequestListener listener) {
       SaveResultRequest request = new SaveResultRequest(cx, result, listener);
    }
 
@@ -31,8 +33,8 @@ public class RequestMaker {
    }
 
    //effettua la chiamata per ottenere i dati degli edifici nei dintorni
-   public static void getBuildings(Context cx, double latitude, double longitude, AbstractUrlRequestListener listener) {
-      BuildingsRequest request = new BuildingsRequest(cx, latitude, longitude, listener);
+   public static void getBuildings(Context cx, double latitude, double longitude, int maxBuildings, AbstractUrlRequestListener listener) {
+      BuildingsRequest request = new BuildingsRequest(cx, latitude, longitude, maxBuildings, listener);
    }
 
    //effettua la chiamata per verificare se i dati inseriti nella registrazione sono validi
@@ -58,5 +60,9 @@ public class RequestMaker {
    //effettua la chiamata per controllare se i dati del profilo sono corretti, in modo da poter avvisare l'utente durante la compilazione dei dati per la registrazione
    public static void check(Context cx, String email, String username, String password, AbstractUrlRequestListener listener) {
       CheckRequest request = new CheckRequest(cx, email, username, password, listener);
+   }
+
+   public static void getProfileData(Context cx, AbstractUrlRequestListener listener) {
+      GetProfileDataRequest request = new GetProfileDataRequest(cx, listener);
    }
 }

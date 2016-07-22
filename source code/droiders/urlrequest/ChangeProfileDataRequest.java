@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class ChangeProfileDataRequest extends URLRequest {
 
    ChangeProfileDataRequest(Context cx, String username, String password, AbstractUrlRequestListener listener) {
-      super(cx, Request.Method.POST, URLDataConstants.baseURL + "", setBody(username, password), false, listener); //Nota: username e password vengono modificati solo se non sono vuoti, in caso contrario viene fatta comunque la chiamata ma il server non cambia il rispettivo dato
+      super(cx, Request.Method.POST, URLDataConstants.baseURL + "userData", setBody(username, password), true, listener); //Nota: username e password vengono modificati solo se non sono vuoti, in caso contrario viene fatta comunque la chiamata ma il server non cambia il rispettivo dato
    }
 
    private static JSONObject setBody(String username, String password) {
