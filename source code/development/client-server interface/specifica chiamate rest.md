@@ -171,7 +171,7 @@
 #Registration
 **url**: `/newUser`
 **chiamata**: `POST`
-**autenticazione**: `SI`
+**autenticazione**: `NO`
 **body**:
 ```
 {
