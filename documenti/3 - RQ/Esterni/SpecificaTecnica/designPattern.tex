@@ -39,7 +39,7 @@
 		\begin{itemize}
 			\item \textbf{Descrizione}\\ 
 			Il design pattern Abstract Factory fornisce un'interfaccia per creare famiglie di prodotti senza specificare classi concrete. Ogni famiglia di prodotti ha una classe base astratta da cui derivano delle classi concrete. Queste classi concrete sono istanziate dalle classi concrete della factory corrispondenti.
-			% immagine d esempio
+			% immagine di esempio
 			
 			\item \textbf{Vantaggi}\\ 
 			Questo design pattern offre vantaggi quando si vogliono modellare famiglie di prodotti che potranno essere ampliate nel futuro. Le modifiche necessarie ad aggiungere nuovi elementi alle famiglie saranno essenzialmente due, aggiungere una classe in ogni famiglia di prodotti ed un solo metodo nella factory.
@@ -53,4 +53,32 @@
 			\end{figure}
 			
 		\end{itemize}
+	 \newpage
+	 
+	\subsubsection{Singleton}
+		\begin{figure}[!h]
+			\centering
+			\includegraphics[scale=0.4]{img/singleton}  
+			\caption{Struttura del pattern Singleton}
+		\end{figure}
+		
+		\begin{itemize}
+			\item \textbf{Descrizione}\\ 
+			 Assicura l'esistenza di un'unica istanza di una classe e permette di avere un punto di accesso globale a questa.
+			 Per rendere possibile ciò si mette il costruttore protetto o privato e si crea un metodo statico, chiamato factory, che fornisce l’accesso all'unica copia dell’oggetto (contiene un puntatore all’unica istanza).			 
+			 \item \textbf{Vantaggi}\\ 
+			 Se, al contrario di quanto avviene utilizzando Singleton, venisse reso visibile il costruttore della classe non si potrebbe garantire che esista un solo esemplare della classe. Un altro modo di procedere potrebbe essere quello di dichiarare una variabile globale, ma in questo modo si ``ruberebbe'' un nome al namespace globale.
+			 Sigleton permette inoltre di dichiarare sottoclassi.			 
+			 \utilizzo \\ 
+			 Nel nostro progetto abbiamo creato un singleton per ``LoginManager'' che contiene i dati relativi a i dati di login dell'utente che sta utilizzando l'applicazione.
+			 
+			 	\begin{figure}[!h]
+			 		\centering
+			 		\includegraphics[scale=0.4]{img/package/png/client--loginmanager}  
+			 		\caption{Utilizzo di Abstract Factory nel progetto}
+			 	\end{figure}
+			 
+		\end{itemize}
+		
+		
 		
