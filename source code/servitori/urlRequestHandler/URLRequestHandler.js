@@ -3,6 +3,11 @@
 /// super classe che rappresenta l'handler di una richiesta URL
 function RequestHandler() {
 
+   /// funzione che cerca i token nell'header
+   this.token = function() {
+      return this.request.get('Authorization');
+   }
+
    /// funzione che ottiene i dati cercati e li invia
    /// in risposta
    this.execute = function() {
