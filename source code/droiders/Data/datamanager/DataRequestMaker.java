@@ -25,24 +25,12 @@ public class DataRequestMaker {
       GetResultsDataRequest request = new GetResultsDataRequest(cx, listener);
    }
 
-   public static void saveResult(Context cx, result pathResult, AbstractDataManagerListener<boolean> listener) {
+   public static void saveResult(Context cx, result pathResult, AbstractDataManagerListener<Data.ResponseStatus> listener) {
       SaveResultDataRequest request = new SaveResultDataRequest(cx, pathResult, listener);
    }
 
    public static void getAppInfo(Context cx, AbstractDataManagerListener<String[]> listener) {
       AppInfoDataRequest request = new AppInfoDataRequest(cx, listener);
-   }
-
-   public static void changeProfileData(Context cx, AbstractDataManagerListener<integer> listener) {
-      ChangeProfileDataRequest = new ChangeProfileDataRequest(cx, username, password, listener);
-   }
-
-   public static void check(Context cx, String email, String username, String password, AbstractDataManagerListener<boolean> listener) {
-      CheckDataRequest request = new CheckDataRequest(cx, email, username, password, listener);
-   }
-
-   public static void getProfileData(Context cx, AbstractDataManagerListener<String[]> listener) {
-      GetProfileDataRequest request = new GetProfileDataRequest(cx, listener);
    }
     */
 }

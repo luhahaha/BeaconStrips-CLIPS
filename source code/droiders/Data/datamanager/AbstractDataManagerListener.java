@@ -1,7 +1,5 @@
 package Data.datamanager;
 
-import com.android.volley.VolleyError;
-
 /**
  * Created by andrea on 19/07/16.
  */
@@ -10,5 +8,5 @@ import com.android.volley.VolleyError;
 public abstract class AbstractDataManagerListener<ModelObject> {
    public abstract void onResponse(ModelObject response);
 
-   public abstract void onError(VolleyError error); //Probabilmente anche questo tipo sarà da cambiare (ad esempio con una string o un numero) perché l'errore di volley forse dev'essere già interpretato dal datamanager
+   public abstract void onError(Data.ServerError error);
 }
