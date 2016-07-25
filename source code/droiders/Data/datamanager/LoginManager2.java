@@ -14,13 +14,17 @@ public class LoginManager2 {
    private static LoginManager2 singleInstance;
    private LoggedUser loggedUser;
    private Context cx; //serve per poter usare SharedPreferences, la classe che permette di usare il "dizionario" con i valori di base che ci interessano
-   private AbstractDataManagerListener<Data.ResponseStatus> listener;
+   private AbstractDataManagerListener<Boolean> listener;
 
    private LoginManager2(Context cx) {
       this.cx = cx;
+      SharedPreferences sp = cx.getSharedPreferences("LogData", Context.MODE_PRIVATE);
+      if(isLogged()) { //se esiste un token già salvato
+         loggedUser = new LoggedUser(sp.getString("token", ""), sp.getString("email", ""), sp.getString("username", "")); //do per scontato che ci siano tutti i campi se c'è token
+      }
    }
 
-   private void sendResponse(Data.ResponseStatus response) {
+   private void sendResponse(Boolean response) {
       listener.onResponse(response);
    }
 
@@ -39,48 +43,45 @@ public class LoginManager2 {
    }
 
    boolean isLogged() {
-      return getToken().equals(""); //Nota: il metodo chiamato in getToken() ritorna la stringa vuota se non è stato salvato alcun token
+      return loggedUser.token.equals("");
    }
 
-   public String getToken() {
-      return cx.getSharedPreferences("LogData", Context.MODE_PRIVATE).getString("token", ""); //prelevo token dal file, la stringa vuota indica cose ritornare se il token non c'è. MODE_PRIVATE è il modo standard con cui si lavora sui fogli tramite il codice, in alternativa si può usare MODE_APPEND
-   }
-
-   public void login(String email, String password, AbstractDataManagerListener<Data.ResponseStatus> listener) { //Nota: Integer è una classe wrapper
+   public void login(String email, String password, AbstractDataManagerListener<Boolean> listener) {
+      if(loggedUser!=null) {
+         logout(new AbstractDataManagerListener<Boolean>() { //serve per eliminare eventuali token ancora salvati
+            public void onResponse(Boolean response) {}
+            public void onError(Data.ServerError error) {}
+         });
+      }
       this.listener = listener;
       urlrequest.RequestMaker.login(cx, email, password, new urlrequest.AbstractUrlRequestListener() {
-         public void onResponse(JSONObject response) {
-
+         public void onResponse(JSONObject response) { //dentro response ci sono token, email e username
+            try {
+               SharedPreferences sp = cx.getSharedPreferences("LogData", Context.MODE_PRIVATE);
+               sp.edit().putString("token", response.getString("token"));
+               sp.edit().putString("email", response.getString("email"));
+               sp.edit().putString("username", response.getString("username"));
+               sp.edit().apply();
+               sendResponse(true);
+            } catch (JSONException e) {
+               e.printStackTrace();
+            }
          }
 
          public void onError(VolleyError error) {
 
          }
       });
-
-      String token = new String(), username = new String(); //per ora do per scontato di averli già ricevuto in input
-      SharedPreferences sp = cx.getSharedPreferences("LogData", Context.MODE_PRIVATE);
-      sp.edit().putString("token", token);
-      sp.edit().putString("email", email);
-      sp.edit().putString("username", username);
-      sp.edit().apply();
    }
 
-   public void logout(AbstractDataManagerListener<Data.ResponseStatus> listener) {
+   public void logout(AbstractDataManagerListener<Boolean> listener) {
       this.listener = listener;
       urlrequest.RequestMaker.logout(cx, new urlrequest.AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
-            try {
-               int errorCode = response.getInt("errorCode");
-               if(errorCode==200) {
-                  SharedPreferences sp = cx.getSharedPreferences("LogData", Context.MODE_PRIVATE);
-                  sp.edit().remove("token");
-                  sp.edit().apply();
-               }
-               sendResponse(new Data.ResponseStatus(errorCode, response.getString("userMessage"), response.getString("debugMessage")));
-            } catch (JSONException e) {
-               e.printStackTrace();
-            }
+            SharedPreferences sp = cx.getSharedPreferences("LogData", Context.MODE_PRIVATE);
+            sp.edit().remove("token");
+            sp.edit().apply();
+            sendResponse(true);
          }
 
          public void onError(VolleyError error) {
@@ -90,23 +91,62 @@ public class LoginManager2 {
       }); //esegue la chiamata al server, qui non mi interessa se riesce o no
    }
 
-   public void register(String email, String username, String password, AbstractDataManagerListener<Data.ResponseStatus> listener) {
-
-   }
-
-   public void change(String username, String password, AbstractDataManagerListener<Data.ResponseStatus> listener) {
-
-   }
-
-   public void check(String email, String username, String password, AbstractDataManagerListener<Data.ResponseStatus> listener) {
+   public void register(String email, String username, String password, AbstractDataManagerListener<Boolean> listener) { //questo metodo è uguale a login, cambia solo il metodo chiamato in urlrequest.RequestMaker
+      if(loggedUser!=null) {
+         logout(new AbstractDataManagerListener<Boolean>() { //serve per eliminare eventuali token ancora salvati
+            public void onResponse(Boolean response) {}
+            public void onError(Data.ServerError error) {}
+         });
+      }
       this.listener = listener;
-      urlrequest.RequestMaker.check(cx, email, username, password, new urlrequest.AbstractUrlRequestListener() {
-         public void onResponse(JSONObject response) {
+      urlrequest.RequestMaker.registration(cx, email, username, password, new urlrequest.AbstractUrlRequestListener() {
+         public void onResponse(JSONObject response) { //dentro response ci sono token, email e username
             try {
-               sendResponse(new Data.ResponseStatus(response.getInt("errorCode"), response.getString("userMessage"), response.getString("debugMessage")));
+               SharedPreferences sp = cx.getSharedPreferences("LogData", Context.MODE_PRIVATE);
+               sp.edit().putString("token", response.getString("token"));
+               sp.edit().putString("email", response.getString("email"));
+               sp.edit().putString("username", response.getString("username"));
+               sp.edit().apply();
+               sendResponse(true);
             } catch (JSONException e) {
                e.printStackTrace();
             }
+         }
+
+         public void onError(VolleyError error) {
+
+         }
+      });
+   }
+
+   public void change(String username, String oldPassword, String password, AbstractDataManagerListener<Boolean> listener) {
+      this.listener = listener;
+      urlrequest.RequestMaker.changeProfileData(cx, username, oldPassword, password, new urlrequest.AbstractUrlRequestListener() {
+         public void onResponse(JSONObject response) { //dentro response ci sono token, email e username
+            try {
+               SharedPreferences sp = cx.getSharedPreferences("LogData", Context.MODE_PRIVATE);
+               sp.edit().remove("email");
+               sp.edit().putString("email", response.getString("email"));
+               sp.edit().remove("username");
+               sp.edit().putString("username", response.getString("username"));
+               sp.edit().apply();
+               sendResponse(true);
+            } catch (JSONException e) {
+               e.printStackTrace();
+            }
+         }
+
+         public void onError(VolleyError error) {
+
+         }
+      });
+   }
+
+   public void check(String email, String username, String password, AbstractDataManagerListener<Boolean> listener) {
+      this.listener = listener;
+      urlrequest.RequestMaker.check(cx, email, username, password, new urlrequest.AbstractUrlRequestListener() {
+         public void onResponse(JSONObject response) {
+               sendResponse(true);
          }
 
          public void onError(VolleyError error) {

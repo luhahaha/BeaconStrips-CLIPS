@@ -13,10 +13,10 @@ import java.io.UnsupportedEncodingException;
  * Created by andrea on 20/07/16.
  */
 public abstract class SaveDataManager {
-   protected final AbstractDataManagerListener<Data.ResponseStatus> listener;
+   protected final AbstractDataManagerListener<Boolean> listener;
    protected final Context cx;
 
-   public SaveDataManager(Context cx, AbstractDataManagerListener<Data.ResponseStatus> listener) {
+   public SaveDataManager(Context cx, AbstractDataManagerListener<Boolean> listener) {
       this.cx = cx;
       this.listener = listener;
    }
@@ -24,11 +24,7 @@ public abstract class SaveDataManager {
    abstract void execute();
 
    void returnResponse(JSONObject response) {
-      try {
-         listener.onResponse(new Data.ResponseStatus(response.getInt("errorCode"), response.getString("userMessage"), response.getString("debugMessage")));
-      } catch (JSONException e) {
-         e.printStackTrace();
-      }
+         listener.onResponse(true);
    }
 
    void returnError(VolleyError error) {

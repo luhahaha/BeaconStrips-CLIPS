@@ -38,7 +38,7 @@ public class RequestMaker {
    }
 
    //effettua la chiamata per verificare se i dati inseriti nella registrazione sono validi
-   public static void register(Context cx, String email, String username, String password, AbstractUrlRequestListener listener) {
+   public static void registration(Context cx, String email, String username, String password, AbstractUrlRequestListener listener) {
       RegistrationRequest request = new RegistrationRequest(cx, email, username, password, listener);
    }
 
@@ -53,8 +53,8 @@ public class RequestMaker {
    }
 
    //effettua la chiamata per cambiare lo username e/o la password del profilo dell'utente
-   public static void changeProfileData(Context cx, String username, String password, AbstractUrlRequestListener listener) {
-      ChangeProfileDataRequest request=new ChangeProfileDataRequest(cx, username, password, listener);
+   public static void changeProfileData(Context cx, String username, String oldPassword, String password, AbstractUrlRequestListener listener) {
+      ChangeProfileDataRequest request=new ChangeProfileDataRequest(cx, username, oldPassword, password, listener);
    }
 
    //effettua la chiamata per controllare se i dati del profilo sono corretti, in modo da poter avvisare l'utente durante la compilazione dei dati per la registrazione

@@ -5,10 +5,12 @@ package Data;
  */
 public class ServerError {
    public int errorCode;
-   public String message;
+   public String userMessage;
+   public String debugMessage;
 
-   public ServerError(int errorCode, String message) {
+   public ServerError(int errorCode, String userMessage, String debugMessage) {
       this.errorCode = errorCode;
-      this.message = message;
+      this.userMessage = userMessage;
+      this.debugMessage = debugMessage;
    }
 }

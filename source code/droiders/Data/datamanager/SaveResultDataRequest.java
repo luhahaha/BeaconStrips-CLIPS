@@ -14,7 +14,7 @@ import Data.PathResult;
 public class SaveResultDataRequest extends SaveDataManager { //andrà sicuramente modificata o questa classe o SaveDataManager, altrimenti in execute non finirà mai result
    private PathResult result;
 
-   public SaveResultDataRequest(Context cx, PathResult result, AbstractDataManagerListener<Data.ResponseStatus> listener) {
+   public SaveResultDataRequest(Context cx, PathResult result, AbstractDataManagerListener<Boolean> listener) {
       super(cx, listener);
       this.result = result;
       execute();

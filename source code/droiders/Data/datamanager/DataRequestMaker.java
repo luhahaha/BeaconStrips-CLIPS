@@ -25,7 +25,7 @@ public class DataRequestMaker {
       GetResultsDataRequest request = new GetResultsDataRequest(cx, listener);
    }
 
-   public static void saveResult(Context cx, result pathResult, AbstractDataManagerListener<Data.ResponseStatus> listener) {
+   public static void saveResult(Context cx, result pathResult, AbstractDataManagerListener<Boolean> listener) {
       SaveResultDataRequest request = new SaveResultDataRequest(cx, pathResult, listener);
    }
 
