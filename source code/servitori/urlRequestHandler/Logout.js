@@ -24,7 +24,7 @@ function LogoutHandler() {
       } else {
          this.response.status(461).send({
             errorCode: 461,
-            debugMessage: 'no token provided for logout. If you no longer have the token, don\'t worry: it will expire someday, otherwise you should call this method with the authentication header set'
+            debugMessage: 'no token provided for logout. If you no longer have the token, don\'t worry: it will expire someday, otherwise you should call this method with the authorization header set'
          });
       }
    }
