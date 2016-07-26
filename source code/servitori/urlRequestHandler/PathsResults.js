@@ -26,6 +26,10 @@ function PathsResultsHandler() {
          });
       } else {
          console.log('no token');
+         this.response.status(405).send({
+            errorCode: 405,
+            debugMessage: "non è stato fornito alcun token"
+         });
       }
    }
 }
