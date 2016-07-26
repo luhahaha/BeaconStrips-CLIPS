@@ -8,10 +8,10 @@ public class Path {
    public final String rewardMessage;
    public final List<Step> steps;
 
-   Path(int id, String startingMessage, String rewardMessage, List<Step> steps) {
-      this.id=id;
-      this.startingMessage=startingMessage;
-      this.rewardMessage=rewardMessage;
-      this.steps=steps;
+   public Path(int id, String startingMessage, String rewardMessage, List<Step> steps) {
+      this.id = id;
+      this.startingMessage = startingMessage;
+      this.rewardMessage = rewardMessage;
+      this.steps = steps;
    }
 }

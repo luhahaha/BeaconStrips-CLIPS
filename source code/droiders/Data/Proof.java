@@ -8,7 +8,7 @@ public class Proof {
    public final int id;
    private final LinearScoringAlgorithm scoringAlgorithm;
 
-   Proof(String title, String instructions, JSONObject algorithmData, int id) { //da verificare se poi viene effettivamente usato un JSONObject
+   public Proof(String title, String instructions, JSONObject algorithmData, int id) { //da verificare se poi viene effettivamente usato un JSONObject
       this.title = title;
       this.instructions = instructions;
       this.scoringAlgorithm = ScoringAlgorithmFactory.createScoringAlgorithm(algorithmData); //da verificare se risulta tutto corretto

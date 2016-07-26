@@ -6,7 +6,7 @@ package Data;
 public abstract class AbstractImageQuiz implements AbstractQuiz {
    public final String pathImage, instructions;
 
-   AbstractImageQuiz(String instructions, String pathImage) {
+   public AbstractImageQuiz(String instructions, String pathImage) {
       this.instructions = instructions;
       this.pathImage = pathImage;
    }

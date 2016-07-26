@@ -7,6 +7,6 @@ public abstract class Test {
    public String helpText;
 
    public Test(String helpText) {
-      this.helpText=helpText;
+      this.helpText = helpText;
    }
 }
