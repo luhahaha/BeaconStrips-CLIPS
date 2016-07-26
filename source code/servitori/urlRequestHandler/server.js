@@ -10,6 +10,7 @@ const Login   = require('./LoginHandler.js');
 const Logout  = require('./Logout.js');
 const PathsResults = require('./PathsResults.js');
 const Buildings  = require('./Buildings.js');
+const Registration = require('./RegistrationHandler.js');
 
 // indica di fare il parse del body di tutte le richieste
 // in entrata come JSON object
@@ -56,7 +57,12 @@ app.get('/pathsresults', function(req, res) {
 app.post('/buildings', function(req, res) {
    console.log('handle buildings');
    prepareAndExecute(Buildings, req, res);
-})
+});
+
+app.post('/newuser', function(req, res) {
+   console.log('handle new user');
+   prepareAndExecute(Registration, req, res);
+});
 
 app.listen(1234);
 
