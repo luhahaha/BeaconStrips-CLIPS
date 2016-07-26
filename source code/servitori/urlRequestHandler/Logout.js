@@ -8,27 +8,27 @@ function LogoutHandler() {
    this.execute = function() {
       var token = this.token();
       if (token) {
-         var id = userID(token);
-         var handler = this;
-         id.then(function(id) {
-            if (id) {
-               handler.response.status(200).send({
-                  message: id + ' ha fatto il logout'
-               });
-            } else {
-               handler.response.status(401).send({
-                  message: 'il token ' + token + ' non esiste'
-               });
-            }
-         }, function(error) {
-            console.log('error finding userId = ', error);
-            handler.response.status(500).send();
-         });
+         var deleteQuery = db()('AuthToken').where({
+            token: token
+         }).del()
+         var response = this.response;
+         deleteQuery.then(function (result) {
+            response.status(200).send();
+         }.bind(response), function (error) {
+            console.error('error deleting the token ', token, ' from AuthToken: ', error);
+            response.status(460).send({
+               errorCode: 460,
+               debugMessage: error
+            });
+         }.bind(response));
       } else {
-         console.log('no token');
+         this.response.status(461).send({
+            errorCode: 461,
+            debugMessage: 'no token provided for logout. If you no longer have the token, don\'t worry: it will expire someday, otherwise you should call this method with the authentication header set'
+         });
       }
    }
-}
+};
 
 LogoutHandler.prototype = new SQLRequestHandler;
 
