@@ -2,8 +2,6 @@ package Data.datamanager;
 
 import android.content.Context;
 
-import com.android.volley.VolleyError;
-
 import org.json.JSONObject;
 
 import Data.PathResult;
@@ -23,10 +21,10 @@ public class SaveResultDataRequest extends SaveDataManager { //andrà sicurament
    void execute() {
       urlrequest.RequestMaker.saveResult(cx, result, new urlrequest.AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) { //se bisogna salvare in locale le operazioni si possono fare qui
-            returnResponse(response);
+            returnResponse();
          }
 
-         public void onError(VolleyError error) {
+         public void onError(Data.ServerError error) {
             returnError(error);
          }
       });

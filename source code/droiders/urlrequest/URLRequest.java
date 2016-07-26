@@ -9,10 +9,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
+
+import Data.datamanager.LoginManager;
 
 /**
  * Questa classe è la superclasse che permette di comunicare con il server, il metodo execute() imposta la chiamata al server basandosi sulle variabili istanziate dal costruttore. Le sue sottoclassi semplicemente creano il body e impostano le variabili a seconda delle necessità tramite il costruttore di URLRequest. Il metodo execute() sarà usato da RequestMaker all'interno delle chiamate effettuate (o nelle sottoclassi).
@@ -45,19 +49,30 @@ class URLRequest {
             new Response.Listener<JSONObject>() {
                @Override
                public void onResponse(JSONObject response) {
+                  System.out.println("Ciao");
                   listener.onResponse(response);
                }
             }, new Response.ErrorListener() {
          @Override
          public void onErrorResponse(VolleyError error) {
-            listener.onError(error);
+            Data.ServerError errorData;
+            try {
+               String errorBody = new String(error.networkResponse.data, "utf-8");
+               JSONObject body = new JSONObject(errorBody);
+               errorData = new Data.ServerError(error.networkResponse.statusCode, body.optString("userMessage"), body.optString("debugMessage"));
+            } catch (JSONException e) {
+               errorData = new Data.ServerError(1000, "", ""); //per sicurezza, per evitare inconsistenze, anche se non dovrebbero esserci problemi, si potrebbero implementare i due messaggi successivamente o anche solo quello per l'utente. L'errore 1000 indica un errore in fase di parsing dell'errore del server
+            } catch (UnsupportedEncodingException encError) {
+               errorData = new Data.ServerError(1000, "", ""); //per sicurezza, per evitare inconsistenze, anche se non dovrebbero esserci problemi, si potrebbero implementare i due messaggi successivamente o anche solo quello per l'utente. L'errore 1000 indica un errore in fase di parsing dell'errore del server
+            }
+            listener.onError(errorData);
          }
       }) {
          @Override
          public Map<String, String> getHeaders() throws AuthFailureError { //l'errore è di volley
             HashMap<String, String> headers = new HashMap<>();
             if (requiresAuthentication == true)
-               headers.put("Authorization", Data.datamanager.LoginManager.sharedManager(cx).getToken()); //qui viene aggiunto agli headers il token
+               headers.put("Authorization", LoginManager.sharedManager(cx).getToken()); //qui viene aggiunto agli headers il token
             return headers;
          }
       };

@@ -2,12 +2,7 @@ package Data.datamanager;
 
 import android.content.Context;
 
-import com.android.volley.VolleyError;
-
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.UnsupportedEncodingException;
 
 /**
  * Created by andrea on 20/07/16.
@@ -23,21 +18,11 @@ public abstract class SaveDataManager {
 
    abstract void execute();
 
-   void returnResponse(JSONObject response) {
+   void returnResponse() {
          listener.onResponse(true);
-   }
+   } //non viene passato niente perché già la risposta ricevuta indica che l'operazione ha avuto esito positivo
 
-   void returnError(VolleyError error) {
-      //try {
-         //Se occorre si può trasformare il contenuto dell'error in un JSONObject usando i comandi in commento
-         //String responseBody = new String(error.networkResponse.data, "utf-8");
-         //JSONObject body = new JSONObject(responseBody);
-         Data.ServerError errorData = new Data.ServerError(error.networkResponse.statusCode, error.getMessage()); //in alternativa ci sono i comandi error.networkResponse.statusCode per l'errore, error.networkResponse.toString() e error.getMessage() per le stringhe
-         listener.onError(errorData);
-      /*} catch (JSONException e) {
-         e.printStackTrace();
-      } catch (UnsupportedEncodingException encError) {
-        encError.printStackTrace();
-      }*/
+   void returnError(Data.ServerError error) {
+      listener.onError(error);
    }
 }
