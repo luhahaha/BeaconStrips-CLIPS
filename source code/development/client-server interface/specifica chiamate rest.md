@@ -50,6 +50,7 @@
 ```
 [{
 	"pathId" : Int,
+	"buildingName": String,
 	"startTime" : String,
 	"endTime" : String,
 	"proofResults" : [
