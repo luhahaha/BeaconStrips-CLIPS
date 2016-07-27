@@ -23,7 +23,7 @@ public class RegistrationRequest extends URLRequest {
          body.put("username", username);
          body.put("password", password);
       } catch (JSONException e) {
-
+         signalError();
       }
       return body;
    }

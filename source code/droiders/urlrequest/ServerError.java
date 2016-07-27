@@ -1,4 +1,4 @@
-package Data;
+package urlrequest;
 
 /**
  * Created by andrea on 24/07/16.

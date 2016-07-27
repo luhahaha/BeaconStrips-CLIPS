@@ -23,7 +23,7 @@ public class LoginRequest extends URLRequest {
          body.put("email", email);
          body.put("password", password);
       } catch (JSONException e) {
-
+         signalError();
       }
       return body;
    }

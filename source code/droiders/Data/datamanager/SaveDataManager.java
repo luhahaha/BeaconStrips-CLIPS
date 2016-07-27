@@ -2,7 +2,7 @@ package Data.datamanager;
 
 import android.content.Context;
 
-import org.json.JSONObject;
+import urlrequest.ServerError;
 
 /**
  * Created by andrea on 20/07/16.
@@ -22,7 +22,7 @@ public abstract class SaveDataManager {
          listener.onResponse(true);
    } //non viene passato niente perché già la risposta ricevuta indica che l'operazione ha avuto esito positivo
 
-   void returnError(Data.ServerError error) {
+   void returnError(ServerError error) {
       listener.onError(error);
    }
 }

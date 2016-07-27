@@ -5,6 +5,7 @@ import android.content.Context;
 import org.json.JSONObject;
 
 import Data.PathResult;
+import urlrequest.ServerError;
 
 /**
  * Created by andrea on 20/07/16.
@@ -24,7 +25,7 @@ public class SaveResultDataRequest extends SaveDataManager { //andrà sicurament
             returnResponse();
          }
 
-         public void onError(Data.ServerError error) {
+         public void onError(ServerError error) {
             returnError(error);
          }
       });

@@ -37,7 +37,7 @@ public class SaveResultRequest extends URLRequest {
             item.put("endTime", element.endTime);
             item.put("score", element.score);
          } catch (JSONException e) {
-            e.printStackTrace();
+            signalError();
          }
          array.put(item);
       }
@@ -48,7 +48,7 @@ public class SaveResultRequest extends URLRequest {
          body.put("endTime", result.endTime);
          body.put("proofResults", array);
       } catch (JSONException e) {
-         e.printStackTrace();
+         signalError();
       }
       return body;
    }

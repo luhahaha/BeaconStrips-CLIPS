@@ -26,7 +26,7 @@ public class BuildingsRequest extends URLRequest {
          body.put("longitude", longitude);
          body.put("maxResults", maxBuildings);
       } catch (JSONException e) {
-
+         signalError();
       }
 
       return body;

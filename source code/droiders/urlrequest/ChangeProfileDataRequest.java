@@ -24,7 +24,7 @@ public class ChangeProfileDataRequest extends URLRequest {
          body.put("oldpassword", oldPassword);
          body.put("password", password);
       } catch(JSONException e) {
-
+         signalError();
       }
       return body;
    }

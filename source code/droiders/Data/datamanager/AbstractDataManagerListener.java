@@ -1,5 +1,7 @@
 package Data.datamanager;
 
+import urlrequest.ServerError;
+
 /**
  * Created by andrea on 19/07/16.
  */
@@ -8,5 +10,5 @@ package Data.datamanager;
 public abstract class AbstractDataManagerListener<ModelObject> {
    public abstract void onResponse(ModelObject response);
 
-   public abstract void onError(Data.ServerError error);
+   public abstract void onError(ServerError error);
 }

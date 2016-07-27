@@ -8,6 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import Data.LoggedUser;
+import urlrequest.ServerError;
 
 public class LoginManager {
    private static LoginManager singleInstance;
@@ -33,7 +34,7 @@ public class LoginManager {
       listener.onResponse(response);
    }
 
-   private void sendError(Data.ServerError error) {
+   private void sendError(ServerError error) {
       listener.onError(error);
    }
 
@@ -43,7 +44,20 @@ public class LoginManager {
       return singleInstance;
    }
 
-   LoggedUser getLoggedUser() {
+   void updateLoggedUser(String token, String email, String username) {
+      if(token.equals("")) { //serve per il change, così mi basta un unico metodo per tutti i casi in cui serve reinizializzare loggedUser, se i dati non sono forniti vengono utilizzati quelli vecchi
+         token = loggedUser.token;
+      }
+      if(email.equals("")) {
+         email = loggedUser.email;
+      }
+      if(username.equals("")) {
+         username = loggedUser.username;
+      }
+      loggedUser = new Data.LoggedUser(token, email, username);
+   }
+
+   public LoggedUser getLoggedUser() {
       return loggedUser;
    }
 
@@ -59,7 +73,7 @@ public class LoginManager {
       if(loggedUser!=null) {
          logout(new AbstractDataManagerListener<Boolean>() { //serve per eliminare eventuali token ancora salvati, non mi interessa se ha successo o meno perché in locale il token viene riscritto nel caso, invece nel server dopo un tot di tempo che non viene usato il token viene eliminato
             public void onResponse(Boolean response) {}
-            public void onError(Data.ServerError error) {}
+            public void onError(ServerError error) {}
          });
       }
       this.listener = listener;
@@ -72,13 +86,14 @@ public class LoginManager {
                editor.putString("email", response.getString("email"));
                editor.putString("username", response.getString("username"));
                editor.apply();
+               updateLoggedUser(response.getString("token"), response.getString("email"), response.getString("username"));
                sendResponse(true, true);
             } catch (JSONException e) {
-               sendError(new Data.ServerError(1001, "", "")); //per sicurezza, per evitare inconsistenze, anche se non dovrebbero esserci problemi, si potrebbero implementare i due messaggi successivamente o anche solo quello per l'utente. L'errore 1001 indica un errore in fase di parsing della risposta
+               sendError(new ServerError(1002, "Error on parsing the response JSON after the execution of login request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
             }
          }
 
-         public void onError(Data.ServerError error) {
+         public void onError(ServerError error) {
             sendError(error);
          }
       });
@@ -92,21 +107,22 @@ public class LoginManager {
             SharedPreferences.Editor editor = preferences.edit();
             editor.remove("token");
             editor.apply();
+            loggedUser = null; //se viene eseguito il logout allora questi dati non sono più validi
             sendResponse(true, false);
          }
 
-         public void onError(Data.ServerError error) {
+         public void onError(ServerError error) {
             sendError(error);
          }
 
-      }); //esegue la chiamata al server, qui non mi interessa se riesce o no
+      });
    }
 
    public void register(String email, String username, String password, AbstractDataManagerListener<Boolean> listener) { //questo metodo è uguale a login, cambia solo il metodo chiamato in urlrequest.RequestMaker
       if(loggedUser!=null) {
          logout(new AbstractDataManagerListener<Boolean>() { //serve per eliminare eventuali token ancora salvati, non mi interessa se ha successo o meno perché in locale il token viene riscritto nel caso, invece nel server dopo un tot di tempo che non viene usato il token viene eliminato
             public void onResponse(Boolean response) {}
-            public void onError(Data.ServerError error) {}
+            public void onError(ServerError error) {}
          });
       }
       this.listener = listener;
@@ -119,13 +135,14 @@ public class LoginManager {
                editor.putString("email", response.getString("email"));
                editor.putString("username", response.getString("username"));
                editor.apply();
+               updateLoggedUser(response.getString("token"), response.getString("email"), response.getString("username"));
                sendResponse(true, true);
             } catch (JSONException e) {
-               sendError(new Data.ServerError(1001, "", "")); //per sicurezza, per evitare inconsistenze, anche se non dovrebbero esserci problemi, si potrebbero implementare i due messaggi successivamente o anche solo quello per l'utente. L'errore 1001 indica un errore in fase di parsing della risposta
+               sendError(new ServerError(1002, "Error on parsing the response JSON after the execution of registration request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
             }
          }
 
-         public void onError(Data.ServerError error) {
+         public void onError(ServerError error) {
             sendError(error);
          }
       });
@@ -146,18 +163,20 @@ public class LoginManager {
                   editor.putString("email", response.getString("email"));
                   editor.remove("username");
                   editor.putString("username", response.getString("username"));
+                  updateLoggedUser(response.getString("token"), response.getString("email"), response.getString("username"));
                } else {
                   editor.remove("username");
                   editor.putString("username", response.getString("username"));
+                  updateLoggedUser("", "", response.getString("username"));
                }
                editor.apply();
                sendResponse(true, true);
             } catch (JSONException e) {
-               sendError(new Data.ServerError(1001, "", "")); //per sicurezza, per evitare inconsistenze, anche se non dovrebbero esserci problemi, si potrebbero implementare i due messaggi successivamente o anche solo quello per l'utente. L'errore 1001 indica un errore in fase di parsing della risposta
+               sendError(new ServerError(1002, "Error on parsing the response JSON after the execution of change request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
             }
          }
 
-         public void onError(Data.ServerError error) {
+         public void onError(ServerError error) {
             sendError(error);
          }
       });
@@ -170,7 +189,7 @@ public class LoginManager {
                sendResponse(true, false);
          }
 
-         public void onError(Data.ServerError error) {
+         public void onError(ServerError error) {
             sendError(error);
          }
       });

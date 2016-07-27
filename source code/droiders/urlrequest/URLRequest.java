@@ -31,6 +31,7 @@ class URLRequest {
    private JSONObject body;
    private boolean requiresAuthentication; //authentication è vera quando viene richiesta l'autenticazione, e quindi viene aggiunto l'header con il token dell'utente, falso altrimenti
    private AbstractUrlRequestListener listener;
+   private static boolean buildingJSONError = false;
 
    URLRequest(Context cx, int httpMethod, String url, JSONObject body, boolean authentication, AbstractUrlRequestListener listener) {
       this.cx = cx; //vengono inizializzati tutti i dati in base a quelli immessi nel costruttore
@@ -39,7 +40,12 @@ class URLRequest {
       this.body = body;
       requiresAuthentication = authentication;
       this.listener = listener;
+      if(buildingJSONError==true) {
+         listener.onError(new ServerError(1004, "Error on building JSONObject", "")); //per sicurezza, per evitare inconsistenze. L'errore 1004 indica un errore in fase di costruzione del JSONObject
+      }
    }
+
+   protected static void signalError() {buildingJSONError = true;} //chiamato quando c'è necessità di segnalare un errore in fase di costruzione
 
    //effettua la chiamata al server
    void execute() {
@@ -55,15 +61,15 @@ class URLRequest {
             }, new Response.ErrorListener() {
          @Override
          public void onErrorResponse(VolleyError error) {
-            Data.ServerError errorData;
+            ServerError errorData;
             try {
                String errorBody = new String(error.networkResponse.data, "utf-8");
                JSONObject body = new JSONObject(errorBody);
-               errorData = new Data.ServerError(error.networkResponse.statusCode, body.optString("userMessage"), body.optString("debugMessage"));
+               errorData = new ServerError(error.networkResponse.statusCode, body.optString("userMessage"), body.optString("debugMessage"));
             } catch (JSONException e) {
-               errorData = new Data.ServerError(1000, "", ""); //per sicurezza, per evitare inconsistenze, anche se non dovrebbero esserci problemi, si potrebbero implementare i due messaggi successivamente o anche solo quello per l'utente. L'errore 1000 indica un errore in fase di parsing dell'errore del server
+               errorData = new ServerError(1000, "Error server isn't a JSON, the error code is " + error.networkResponse.statusCode, ""); //per sicurezza, per evitare inconsistenze. L'errore 1000 indica un errore in fase di parsing dell'errore del server causato dal formato errato dei dati ricevuti.
             } catch (UnsupportedEncodingException encError) {
-               errorData = new Data.ServerError(1000, "", ""); //per sicurezza, per evitare inconsistenze, anche se non dovrebbero esserci problemi, si potrebbero implementare i due messaggi successivamente o anche solo quello per l'utente. L'errore 1000 indica un errore in fase di parsing dell'errore del server
+               errorData = new ServerError(1001, "utf-8 encoding isn't supported", ""); //per sicurezza, per evitare inconsistenze. L'errore 1001 indica un errore in fase di parsing dell'errore del server causato da un difetto dell'applicazione o del dispositivo.
             }
             listener.onError(errorData);
          }

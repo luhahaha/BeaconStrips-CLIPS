@@ -6,5 +6,5 @@ import org.json.JSONObject;
 public abstract class AbstractUrlRequestListener {
    public abstract void onResponse(JSONObject response);
 
-   public abstract void onError(Data.ServerError error);
+   public abstract void onError(ServerError error);
 }
