@@ -108,7 +108,10 @@
 **restituisce**:
 ```
 {
-	"da definire"
+	"name" : String,
+	"description" : String,
+	"otherInfo" : String,
+	"address" : String,
 }
 ```
 
@@ -189,4 +192,3 @@
 	"userMessage": String?
 }
 ```
-
