@@ -23,7 +23,30 @@ public abstract class DataManager<Data> {
    }
 
    void execute() {
-
+      if(cachePolicy==CachePolicy.NoCache) {
+         remoteData = parseFromUrlRequest();
+         listener.onResponse(remoteData);
+      }
+      else if(cachePolicy==CachePolicy.AlwaysReplaceLocal) {
+         remoteData = parseFromUrlRequest();
+         if(remoteData==null) {
+            cachedData=parseFromLocal();
+            listener.onResponse(cachedData);
+         }
+         else {
+            listener.onResponse(remoteData);
+         }
+      }
+      else { //cachePolicy==CachePolicy.LocalElseRemote
+         cachedData=parseFromLocal();
+         if(cachedData==null) {
+            remoteData=parseFromUrlRequest();
+            listener.onResponse(remoteData);
+         }
+         else {
+            listener.onResponse(cachedData);
+         }
+      }
    }
 
    protected void getLocalData() { //non serve caricare listener perché è già accessibile da questa classe
