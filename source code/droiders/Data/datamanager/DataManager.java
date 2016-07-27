@@ -2,6 +2,8 @@ package Data.datamanager;
 
 import android.content.Context;
 
+import org.json.JSONObject;
+
 /**
  * Created by andrea on 20/07/16.
  */
@@ -24,24 +26,41 @@ public abstract class DataManager<Data> {
 
    void execute() {
       if(cachePolicy==CachePolicy.NoCache) {
-         remoteData = parseFromUrlRequest();
-         listener.onResponse(remoteData);
+         getRemoteData(new urlrequest.AbstractUrlRequestListener() { //con il LoginManager l'inizializzazione di variabili mi dava errore, qui no ma comunque è bene controllare per bene che vada tutto a buon fine
+            public void onResponse(JSONObject response) {
+               remoteData = parseFromUrlRequest(response);
+               listener.onResponse(remoteData);
+            }
+            public void onError(urlrequest.ServerError error) {listener.onError(error);}
+         });
       }
       else if(cachePolicy==CachePolicy.AlwaysReplaceLocal) {
-         remoteData = parseFromUrlRequest();
-         if(remoteData==null) {
-            cachedData=parseFromLocal();
-            listener.onResponse(cachedData);
-         }
-         else {
-            listener.onResponse(remoteData);
-         }
+         getRemoteData(new urlrequest.AbstractUrlRequestListener() {
+            public void onResponse(JSONObject response) {
+               remoteData = parseFromUrlRequest(response);
+               if(remoteData==null) {
+                  cachedData=parseFromLocal();
+                  listener.onResponse(cachedData);
+               }
+               else {
+                  updateLocalData(remoteData);
+                  listener.onResponse(remoteData);
+               }
+            }
+            public void onError(urlrequest.ServerError error) {listener.onError(error);}
+         });
       }
       else { //cachePolicy==CachePolicy.LocalElseRemote
          cachedData=parseFromLocal();
          if(cachedData==null) {
-            remoteData=parseFromUrlRequest();
-            listener.onResponse(remoteData);
+            getRemoteData(new urlrequest.AbstractUrlRequestListener() {
+               public void onResponse(JSONObject response) {
+                  remoteData = parseFromUrlRequest(response);
+                  updateLocalData(remoteData);
+                  listener.onResponse(remoteData);
+               }
+               public void onError(urlrequest.ServerError error) {listener.onError(error);}
+            });
          }
          else {
             listener.onResponse(cachedData);
@@ -49,15 +68,10 @@ public abstract class DataManager<Data> {
       }
    }
 
-   protected void getLocalData() { //non serve caricare listener perché è già accessibile da questa classe
-
-   }
-
-   protected abstract String queryForLocalData();
+   protected abstract String queryForLocalData(); //
    protected abstract Data parseFromLocal();
-   protected abstract void getRemoteData(); //non serve caricare listener perché è già accessibile da questa classe, il tipo di ritorno non so quale sia ma sicuramente non sarà void
-   protected abstract void urlRequest(); //secondo me il tipo di ritorno URLRequest del diagramma è sbagliato, ha più senso piuttosto chiamare il metodo corretto di RequestMaker
-   protected abstract Data parseFromUrlRequest();
-   protected abstract void updateLocalData();
+   protected abstract void getRemoteData(urlrequest.AbstractUrlRequestListener listener);
+   protected abstract Data parseFromUrlRequest(JSONObject response);
+   protected abstract void updateLocalData(Data dataToReplace); //Deve fare il controllo
    protected abstract String getUpdateLocalDataQuery();
 }
