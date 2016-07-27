@@ -48,9 +48,20 @@
 **autenticazione**: `SI`
 **restituisce**:
 ```
-{
-	"da definire"
-}
+[{
+	"pathId" : Int,
+	"startTime" : String,
+	"endTime" : String,
+	"proofResults" : [
+		{
+			"proofId" : Int,
+			"startTime" : String,
+			"endTime" : String,
+			"score" : Int
+		}, { ... }, { ... } ]
+},
+{...},
+{...}]
 ```
 
 **url**: `/pathsresults`
