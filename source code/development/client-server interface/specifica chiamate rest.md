@@ -115,7 +115,7 @@
 {
 	"latitude"  : Double,
 	"longitude" : Double,
-	"maxResults": Int,
+	"maxDistance": Double,
 }
 ```
 **restituisce**:
@@ -125,6 +125,17 @@
 	"description" : String,
 	"otherInfo" : String,
 	"address" : String,
+   "paths": [
+      {
+         "id": Int,
+         "title" : String,
+         "description": String,
+         "target" : String,
+         "address" : String,
+         "position" : Int
+      },
+      {...}
+   ]
 }
 ```
 
