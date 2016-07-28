@@ -40,19 +40,19 @@ function BuildingsHandler() {
       if (!data.hasOwnProperty('latitude')) {
          this.response.status(461).send({
             errorCode: 461,
-            debugError: 'missing field: latitude',
+            debugMessage: 'missing field: latitude',
          });
       }
       if (!data.hasOwnProperty('longitude')) {
          this.response.status(461).send({
             errorCode: 461,
-            debugError: 'missing field: longitude',
+            debugMessage: 'missing field: longitude',
          });
       }
       if (!data.hasOwnProperty('maxDistance') && !data.hasOwnProperty('maxResults')) {
          this.response.status(461).send({
             errorCode: 461,
-            debugError: 'missing field: maxDistance OR maxResults MUST be set',
+            debugMessage: 'missing field: maxDistance OR maxResults MUST be set',
          });
       }
 
