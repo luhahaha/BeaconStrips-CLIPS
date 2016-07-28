@@ -14,7 +14,7 @@ public class LoginRequest extends URLRequest {
 
    LoginRequest(Context cx, String email, String password, AbstractUrlRequestListener listener) {
       super(cx, Request.Method.POST, URLDataConstants.baseURL + "login", setBody(email, password), false, listener);
-      execute();
+      execute(ResponseExpected.Object);
    }
 
    private static JSONObject setBody(String email, String password) {

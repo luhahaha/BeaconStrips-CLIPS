@@ -18,9 +18,9 @@ public class Building {
    public final String twitter;
    public final String facebook;
    public final List<PathInfo> pathsInfos;
-   public final String webSiteURL;
+   public final String websiteURL;
 
-   public Building(int id, String name, String description, String otherInfos, String openingTime, String address, double latitude, double longitude, String telephone, String email, String whatsapp, String telegram, String twitter, String facebook, List<PathInfo> pathsInfos, String webSiteURL) {
+   public Building(int id, String name, String description, String otherInfos, String openingTime, String address, double latitude, double longitude, String telephone, String email, String whatsapp, String telegram, String twitter, String facebook, String websiteURL, List<PathInfo> pathsInfos) {
       this.id = id;
       this.name = name;
       this.description = description;
@@ -36,6 +36,6 @@ public class Building {
       this.twitter = twitter;
       this.facebook = facebook;
       this.pathsInfos = pathsInfos;
-      this.webSiteURL = webSiteURL;
+      this.websiteURL = websiteURL;
    }
 }

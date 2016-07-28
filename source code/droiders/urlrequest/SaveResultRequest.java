@@ -23,7 +23,7 @@ import Data.ProofResult;
 public class SaveResultRequest extends URLRequest {
    SaveResultRequest(Context cx, PathResult result, AbstractUrlRequestListener listener) {
       super(cx, Request.Method.POST, URLDataConstants.baseURL + "", getBody(result), true, listener);
-      execute();
+      execute(ResponseExpected.Object);
    }
 
    //dato che la chiamata super() deve precedere qualunque altra istruzione costruisco il body in questo metodo, è statico perché altrimenti non può essere usato nel super()

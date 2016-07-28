@@ -16,7 +16,7 @@ public class BuildingsRequest extends URLRequest {
 
    BuildingsRequest(Context cx, double latitude, double longitude, int maxBuildings, AbstractUrlRequestListener listener) {
       super(cx, Request.Method.POST, URLDataConstants.baseURL + "buildings", setBody(latitude, longitude, maxBuildings), false, listener);
-      execute();
+      execute(ResponseExpected.Array);
    }
 
    private static JSONObject setBody(double latitude, double longitude, int maxBuildings) {

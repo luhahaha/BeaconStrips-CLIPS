@@ -12,6 +12,6 @@ import com.android.volley.Request;
 public class PathRequest extends URLRequest {
    PathRequest(Context cx, int pathID, AbstractUrlRequestListener listener) {
       super(cx, Request.Method.GET, URLDataConstants.baseURL + "path/" + pathID, null, false, listener);
-      execute();
+      execute(ResponseExpected.Object);
    }
 }

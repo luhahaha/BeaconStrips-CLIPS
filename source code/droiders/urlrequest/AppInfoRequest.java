@@ -15,7 +15,7 @@ class AppInfoRequest extends URLRequest {
    //nel costruttore vengono creati il JSON (che in questo caso non c'è) e tutti gli altri dati, infine inizializzo con super() l'URLRequest
    AppInfoRequest(Context cx, AbstractUrlRequestListener listener) {
       super(cx, Request.Method.GET, URLDataConstants.baseURL + "appinfo", null, false, listener);
-      execute();
+      execute(ResponseExpected.Object);
    }
 }
 

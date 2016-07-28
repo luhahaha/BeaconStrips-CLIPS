@@ -15,6 +15,7 @@ public class PathDataRequest extends DataManager<Data.Path> {
    public PathDataRequest(Context cx, int pathID, AbstractDataManagerListener<Data.Path> listener) {
       super(cx, DataManager.CachePolicy.AlwaysReplaceLocal, listener);
       this.pathID = pathID;
+      execute();
    }
 
    protected String queryForLocalData() {return "SELECT * FROM PATH";}

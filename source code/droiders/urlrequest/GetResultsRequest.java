@@ -12,6 +12,6 @@ import com.android.volley.Request;
 public class GetResultsRequest extends URLRequest {
    GetResultsRequest(Context cx, AbstractUrlRequestListener listener) {
       super(cx, Request.Method.GET, URLDataConstants.baseURL + "pathsresults", null, true, listener);
-      execute();
+      execute(ResponseExpected.Array);
    }
 }

@@ -14,7 +14,7 @@ public class CheckRequest extends URLRequest{
 
    CheckRequest(Context cx, String email, String username, String password, AbstractUrlRequestListener listener) {
       super(cx, Request.Method.POST, URLDataConstants.baseURL + "registrationFieldCheck", setBody(email, username, password), false, listener);
-      execute();
+      execute(ResponseExpected.Object);
    }
 
    private static JSONObject setBody(String email, String username, String password) {
