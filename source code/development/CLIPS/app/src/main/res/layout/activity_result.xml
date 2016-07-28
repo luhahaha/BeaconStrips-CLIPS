@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView"
+        tools:context="beaconstrips.clips.client.viewcontroller.savedresults.ResultActivity">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Percorso"
+        android:id="@+id/namePathLabel"
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:id="@+id/pathDate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/nameLabel">
+
+        <TextView
+            android:id="@+id/dateLabel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/path_date_label"
+            android:layout_gravity="left"
+            android:paddingBottom="20dp" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pathBuilding"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/nameLabel" >
+
+        <TextView
+            android:id="@+id/buildingLabel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/path_building_label"
+            android:layout_gravity="left"
+            android:paddingBottom="20dp" />
+
+        <TextView
+            android:id="@+id/building"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pathTotalTime"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/nameLabel" >
+
+        <TextView
+            android:id="@+id/totalPathTimeLabel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/path_total_time_label"
+            android:layout_gravity="left"
+            android:paddingBottom="20dp" />
+
+        <TextView
+            android:id="@+id/totalPathTime"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pathTotalTimeProofs"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/nameLabel" >
+
+        <TextView
+            android:id="@+id/totalTimeProofsLabel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/path_total_time_proofs_label"
+            android:layout_gravity="left"
+            android:paddingBottom="20dp" />
+
+        <TextView
+            android:id="@+id/totalTimeProofs"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pathTotalScore"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/nameLabel" >
+
+        <TextView
+            android:id="@+id/totalScoreLabel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/path_total_score_label"
+            android:layout_gravity="left"
+            android:paddingBottom="20dp" />
+
+        <TextView
+            android:id="@+id/totalScore"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pathMinScoreProof"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/nameLabel" >
+
+        <TextView
+            android:id="@+id/minScoreProofLabel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/path_min_score_proof_label"
+            android:layout_gravity="left"
+            android:paddingBottom="20dp" />
+
+        <TextView
+            android:id="@+id/minScoreProof"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pathMaxScoreProof"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/nameLabel" >
+
+        <TextView
+            android:id="@+id/maxScoreProofLabel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/path_max_score_proof_label"
+            android:layout_gravity="left"
+            android:paddingBottom="20dp" />
+
+        <TextView
+            android:id="@+id/maxScoreProof"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pathRankingPosition"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/nameLabel" >
+
+        <TextView
+            android:id="@+id/rankingPositionLabel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/path_ranking_position_label"
+            android:layout_gravity="left"
+            android:paddingBottom="20dp" />
+
+        <TextView
+            android:id="@+id/rankingPosition"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ranking_button"
+        android:id="@+id/rankingButton"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/proofs_button"
+        android:id="@+id/proofsButton"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save_result_button"
+        android:id="@+id/saveResult"
+        android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+</ScrollView>
+

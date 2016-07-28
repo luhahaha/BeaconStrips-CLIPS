@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="beaconstrips.clips">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".client.viewcontroller.authentication.LoginActivity" />
+        <activity android:name=".client.viewcontroller.building.BuildingActivity" />
+        <activity android:name=".client.viewcontroller.games.SearchNewStepActivity" />
+        <activity android:name=".client.viewcontroller.savedresults.ResultActivity" />
+        <activity android:name=".client.viewcontroller.utility.AppInfoActivity" />
+        <activity android:name=".client.viewcontroller.building.BuildingSearchActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".client.viewcontroller.authentication.RecoverPassword" />
+        <activity android:name=".client.viewcontroller.authentication.ForgotPassword" />
+        <activity android:name=".client.viewcontroller.authentication.RegistrationActivity" />
+        <activity android:name=".client.viewcontroller.authentication.ConfirmRegistration" />
+        <activity android:name=".client.viewcontroller.authentication.AccountActivity" />
+        <activity android:name=".client.viewcontroller.building.PathActivity" />
+        <activity android:name=".client.viewcontroller.savedresults.RankingActivity" />
+        <activity android:name=".client.viewcontroller.savedresults.SavedResultsActivity" />
+        <activity android:name=".client.viewcontroller.games.TrueFalseQuiz" />
+        <activity android:name=".client.viewcontroller.games.MultipleChoiceQuizActivity" />
+        <activity android:name=".client.viewcontroller.games.ProofResultActivity" />
+        <activity android:name=".client.viewcontroller.games.ProofActivity"></activity>
+    </application>
+
+</manifest>
