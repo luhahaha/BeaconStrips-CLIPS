@@ -29,6 +29,10 @@ function BuildingsHandler() {
    //    //@TODO implementare la chiamata per verificare latitudine e longitudine
    // };
 
+   this.addDistance = function(client, building) {
+      building.distanceFromClient = distance(client, building);
+   }
+
    this.execute = function() {
 
       var data = this.request.body;
@@ -45,40 +49,60 @@ function BuildingsHandler() {
             debugError: 'missing field: longitude',
          });
       }
-      if (!data.hasOwnProperty('maxDistance')) {
+      if (!data.hasOwnProperty('maxDistance') && !data.hasOwnProperty('maxResults')) {
          this.response.status(461).send({
             errorCode: 461,
-            debugError: 'missing field: maxDistance',
+            debugError: 'missing field: maxDistance OR maxResults MUST be set',
          });
       }
 
       var latitude = data.latitude;
       var longitude = data.longitude;
       var maxDistance = data.maxDistance;
+      var maxResults = data.maxResults;
 
       var client = {
          latitude: latitude,
          longitude: longitude
       };
 
-      var distanceFilter = function(building) {
-         return distance(client, building) < maxDistance;
+      var distanceFilter = maxDistance ? function(building) {
+         return building.distanceFromClient <= maxDistance;
+      } : function(building) { return true; } ;
+
+      var resultsCutter = function(buildings) {
+         if (maxResults) {
+            buildings.splice(maxResults, buildings.length);
+         }
+      };
+
+      var addDistance = function(building) {
+         this.addDistance(client, building);
+      };
+
+      var distanceSorter = function(a,b) {
+         return a.distanceFromClient - b.distanceFromClient;
       };
 
       var context = {
          filter: distanceFilter,
+         sort: distanceSorter,
+         cutter: resultsCutter,
          response: this.response,
+         addDistance: this.addDistance,
+         client: client,
          addPathToBuildings: this.addPathToBuildings
       };
 
       var query = db().from('Building');
       query.then(function(result) {
-         console.log('got buildings: ', result);
-         var selected = result.filter(context.filter);
-         console.log('selected: ', selected);
-         var fillWithPaths = context.addPathToBuildings(selected);
+         for (var building of result) {
+            context.addDistance(client, building);
+         }
+         var buildings = result.filter(context.filter).sort(context.sort);
+         context.cutter(buildings);
+         var fillWithPaths = context.addPathToBuildings(buildings);
          fillWithPaths.then(function(buildings) {
-            console.log('got buildings with paths: ', buildings);
             context.response.status(200).send(buildings);
          }.bind(context), function(error) {
             console.error('got error fulfilling buildings: ', error);
@@ -100,7 +124,6 @@ function BuildingsHandler() {
 
    this.addPathToBuildings = function (buildings) {
       var promises = [];
-      console.log('this: ', this);
       for (let building of buildings) {
          // promises.push(this.buildingWithPaths(building));
 
@@ -117,20 +140,6 @@ function BuildingsHandler() {
          promises.push(promise);
       }
       return Promise.all(promises);
-   };
-
-   this.buildingWithPaths = function(building) {
-      var promise = new Promise(function(resolve, reject) {
-         var query = db().from('Path').where({buildingID : building.id});
-         query.then(function(result) {
-            building.paths = result;
-            resolve(building);
-         }.bind(building), function(error) {
-            console.error('error getting paths for building: ', building, '\nERROR: ', error);
-            reject(building);
-         });
-      });
-      return promise;
    };
 };
 

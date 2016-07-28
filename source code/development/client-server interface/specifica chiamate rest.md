@@ -116,8 +116,10 @@
 	"latitude"  : Double,
 	"longitude" : Double,
 	"maxDistance": Double,
+   "maxResults": Int
 }
 ```
+**NOTA: è sufficiente impostare un solo valore tra `maxResults` e `maxDistance`**
 **restituisce**:
 ```
 {
