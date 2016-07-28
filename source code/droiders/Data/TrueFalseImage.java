@@ -6,12 +6,12 @@ package Data;
 public class TrueFalseImage extends AbstractImageQuiz {
    Boolean response; //Dato che la domanda è booleana basta un dato boolean per rappresentare la risposta
 
-   TrueFalseImage(String instructions, String pathImage, boolean response) {
+   public TrueFalseImage(String instructions, String pathImage, boolean response) {
       super(instructions, pathImage);
-      this.response=response;
+      this.response = response;
    }
 
-   boolean check(boolean userResponse) {
-      return response==userResponse;
+   public boolean check(boolean userResponse) {
+      return response == userResponse;
    }
 }

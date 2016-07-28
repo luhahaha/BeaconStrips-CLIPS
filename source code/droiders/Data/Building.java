@@ -20,22 +20,22 @@ public class Building {
    public final List<PathInfo> pathsInfos;
    public final String webSiteURL;
 
-   Building(int id, String name, String description, String otherInfos, String openingTime, String address, double latitude, double longitude, String telephone, String email, String whatsapp, String telegram, String twitter, String facebook, List<PathInfo> pathsInfos, String webSiteURL) {
-      this.id=id;
-      this.name=name;
-      this.description=description;
-      this.otherInfos=otherInfos;
-      this.openingTime=openingTime;
-      this.address=address;
-      this.latitude=latitude;
-      this.longitude=longitude;
-      this.telephone=telephone;
-      this.email=email;
-      this.whatsapp=whatsapp;
-      this.telegram=telegram;
-      this.twitter=twitter;
-      this.facebook=facebook;
-      this.pathsInfos=pathsInfos;
-      this.webSiteURL=webSiteURL;
+   public Building(int id, String name, String description, String otherInfos, String openingTime, String address, double latitude, double longitude, String telephone, String email, String whatsapp, String telegram, String twitter, String facebook, List<PathInfo> pathsInfos, String webSiteURL) {
+      this.id = id;
+      this.name = name;
+      this.description = description;
+      this.otherInfos = otherInfos;
+      this.openingTime = openingTime;
+      this.address = address;
+      this.latitude = latitude;
+      this.longitude = longitude;
+      this.telephone = telephone;
+      this.email = email;
+      this.whatsapp = whatsapp;
+      this.telegram = telegram;
+      this.twitter = twitter;
+      this.facebook = facebook;
+      this.pathsInfos = pathsInfos;
+      this.webSiteURL = webSiteURL;
    }
 }

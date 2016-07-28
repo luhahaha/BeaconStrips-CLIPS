@@ -8,10 +8,10 @@ public class Step {
    public final Proof proof;
    public final int id;
 
-   Step(Beacon stopBeacon, List<Proximity> proximities, Proof proof, int id) {
-      this.stopBeacon=stopBeacon;
-      this.proximities=proximities;
-      this.proof=proof;
-      this.id=id;
+   public Step(Beacon stopBeacon, List<Proximity> proximities, Proof proof, int id) {
+      this.stopBeacon = stopBeacon;
+      this.proximities = proximities;
+      this.proof = proof;
+      this.id = id;
    }
 }
