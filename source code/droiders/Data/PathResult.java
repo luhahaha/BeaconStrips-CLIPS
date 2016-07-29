@@ -1,18 +1,20 @@
 package Data;
 
-import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class PathResult {
-   public final int userID;
-   public final Path path;
-   public final Date startTime;
-   public final Date endTime;
+   public final int pathID;
+   public final String pathName;
+   public final String buildingName;
+   public final GregorianCalendar startTime;
+   public final GregorianCalendar endTime;
    public final List<ProofResult> proofResults;
 
-   public PathResult(int user, Path path, Date startTime, Date endTime, List<ProofResult> proofResults) {
-      this.userID = user;
-      this.path = path;
+   public PathResult(int pathID, String pathName, String buildingName, GregorianCalendar startTime, GregorianCalendar endTime, List<ProofResult> proofResults) {
+      this.pathID = pathID;
+      this.pathName = pathName;
+      this.buildingName = buildingName;
       this.startTime = startTime;
       this.endTime = endTime;
       this.proofResults = proofResults;

@@ -8,8 +8,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import Data.PathInfo;
-
 /**
  * Created by andrea on 26/07/16.
  */
@@ -45,10 +43,10 @@ public class BuildingsDataRequest extends DataManager<Data.Building[]> {
          for(int i=0; i<array.length(); i++) {
             JSONObject building = array.getJSONObject(i);
             JSONArray pathArray = building.getJSONArray("paths");
-            ArrayList<PathInfo> paths = new ArrayList<Data.PathInfo>();
+            ArrayList<Data.PathInfo> paths = new ArrayList<Data.PathInfo>();
             for(int j=0; j<pathArray.length(); j++) {
                JSONObject path = pathArray.getJSONObject(i);
-               paths.add(new Data.PathInfo(path.getInt("id"), path.getString("title"), path.getString("description"), path.getString("target"), path.getString("estimatedDuration")));
+               paths.add(new Data.PathInfo(path.getInt("id"), path.getString("title"), path.getString("description"), path.getString("target"), path.getString("estimatedDuration"), path.getInt("position")));
             }
             buildings[i] = new Data.Building(building.getInt("id"), building.getString("name"), building.getString("description"), building.getString("otherinfo"), building.getString("openingTime"), building.getString("address"), building.getDouble("latitude"), building.getDouble("longitude"), building.getString("telephone"), building.getString("email"), building.getString("whatsapp"), building.getString("telegram"), building.getString("twitter"), building.getString("facebook"), building.getString("websiteURL"), paths);
          }

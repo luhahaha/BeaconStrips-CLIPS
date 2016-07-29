@@ -1,15 +1,15 @@
 package Data;
 
-import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class PathProgress {
    private final Path path;
-   private final Date startTime;
-   private Date endTime;
+   private final GregorianCalendar startTime;
+   private GregorianCalendar endTime;
    private List<ProofResult> proofResults;
 
-   public PathProgress(Path path, Date startTime) {
+   public PathProgress(Path path, GregorianCalendar startTime) {
       this.path = path;
       this.startTime = startTime;
    }
@@ -18,21 +18,21 @@ public class PathProgress {
       return path;
    }
 
-   public Date getStartTime() {
+   public GregorianCalendar getStartTime() {
       return startTime;
    }
 
-   public Date getEndTime() {
+   public GregorianCalendar getEndTime() {
       return endTime;
    }
 
-   public void setEndTime(Date endTime) {
+   public void setEndTime(GregorianCalendar endTime) {
       this.endTime = endTime;
    }
 
    //TODO correggere calcolo durata
    public long getDuration() {
-      return endTime.getTime() - startTime.getTime();
+      return endTime.getTime().getTime() - startTime.getTime().getTime();
    }
 
    public void addProofResult(ProofResult proofResult) {
