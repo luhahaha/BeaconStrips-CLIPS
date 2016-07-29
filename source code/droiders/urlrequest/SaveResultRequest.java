@@ -33,7 +33,7 @@ public class SaveResultRequest extends URLRequest {
       for(ProofResult element : result.proofResults) {
          JSONObject item = new JSONObject();
          try {
-            item.put("proofId", element.id);
+            item.put("proofID", element.id);
             item.put("startTime", DateFormat.getDateInstance(DateFormat.SHORT).format(element.startTime.getTime()));
             item.put("endTime", DateFormat.getDateInstance(DateFormat.SHORT).format(element.endTime.getTime()));
             item.put("score", element.score);
@@ -44,9 +44,10 @@ public class SaveResultRequest extends URLRequest {
       }
       JSONObject body = new JSONObject();
       try {
-         body.put("pathId", result.pathID);
+         body.put("pathID", result.pathID);
          body.put("pathName", result.pathName);
          body.put("buildingName", result.buildingName);
+         body.put("totalScore", result.totalScore);
          body.put("startTime", DateFormat.getDateInstance(DateFormat.SHORT).format(result.startTime.getTime()));
          body.put("endTime", DateFormat.getDateInstance(DateFormat.SHORT).format(result.endTime.getTime()));
          body.put("proofResults", array);

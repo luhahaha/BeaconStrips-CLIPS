@@ -48,18 +48,18 @@ public class GetResultsDataRequest extends DataManager<Data.PathResult[]> {
                try {
                   startCalendar.setTime(new SimpleDateFormat().parse(proof.getString("startTime")));
                   endCalendar.setTime(new SimpleDateFormat().parse(proof.getString("endTime")));
-                  proofs.add(new Data.ProofResult(proof.getInt("proofId"), startCalendar, endCalendar, proof.getInt("score")));
+                  proofs.add(new Data.ProofResult(proof.getInt("proofID"), startCalendar, endCalendar, proof.getInt("score")));
                } catch(ParseException e) { //non segnalo l'errore con il listener perché non vale la pena compromettere l'operazione per una data che non viene creata correttamente
-                  proofs.add(new Data.ProofResult(proof.getInt("proofId"), new GregorianCalendar(2000, 1, 1, 0, 0, 0), new GregorianCalendar(2000, 1, 1, 0, 0, 0), proof.getInt("score")));
+                  proofs.add(new Data.ProofResult(proof.getInt("proofID"), new GregorianCalendar(2000, 1, 1, 0, 0, 0), new GregorianCalendar(2000, 1, 1, 0, 0, 0), proof.getInt("score")));
                }
             }
             GregorianCalendar startCalendar = new GregorianCalendar(), endCalendar = new GregorianCalendar();
             try {
                startCalendar.setTime(new SimpleDateFormat().parse(result.getString("startTime")));
                endCalendar.setTime(new SimpleDateFormat().parse(result.getString("endTime")));
-               results[i] = new Data.PathResult(result.getInt("pathId"), result.getString("pathName"), result.getString("buildingName"), startCalendar, endCalendar, proofs);
+               results[i] = new Data.PathResult(result.getInt("pathID"), result.getString("pathName"), result.getString("buildingName"), startCalendar, endCalendar, result.getInt("totalScore"), proofs);
             } catch(ParseException e) { //non segnalo l'errore con il listener perché non vale la pena compromettere l'operazione per una data che non viene creata correttamente
-               results[i] = new Data.PathResult(result.getInt("proofId"), result.getString("pathName"), result.getString("buildingName"), new GregorianCalendar(2000, 1, 1, 0, 0, 0), new GregorianCalendar(2000, 1, 1, 0, 0, 0), proofs);
+               results[i] = new Data.PathResult(result.getInt("proofID"), result.getString("pathName"), result.getString("buildingName"), new GregorianCalendar(2000, 1, 1, 0, 0, 0), new GregorianCalendar(2000, 1, 1, 0, 0, 0), result.getInt("totalScore"), proofs);
             }
          }
          return results;
