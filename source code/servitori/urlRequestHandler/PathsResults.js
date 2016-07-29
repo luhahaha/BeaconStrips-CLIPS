@@ -2,6 +2,7 @@
 
 var userID = require('./UserIDRetriever.js');
 var db = require('./db.js');
+var UserID = require('./utility/UserID.js').userID;
 var SQLRequestHandler = require('./SQLRequestHandler.js');
 
 function PathsResultsHandler() {
@@ -72,4 +73,184 @@ function PathsResultsHandler() {
 
 PathsResultsHandler.prototype = new SQLRequestHandler;
 
-module.exports = PathsResultsHandler;
+function SavePathsResultsHandler() {
+   this.execute = function() {
+      var token = this.token()
+      if (!token) {
+         this.request.status(401).send({
+            errorCode: 401,
+            debugMessage: 'You must provide a valid token',
+         });
+         return
+      }
+
+      var userID = UserID(token);
+      var fields = this.checkInputFields();
+
+      Promise.all([userID, fields]).then(function([userID, fields]) {
+         if (fields && userID) {
+            fields.path.userID = userID;
+            var context = {
+               this: this,
+               fields: fields
+            };
+            var save = new Promise(function(resolve, reject) {
+               console.log('path to save = ', fields.path);
+               var query = db()('PathResult').insert(fields.path)
+               query.then(function(result) {
+                  console.log('pathresult insert result = ', result);
+                  var pathResultID = result[0];
+                  var promises = [];
+                  for (var proof of context.fields.proofs) {
+                     proof.pathResultID = pathResultID;
+                     var proofPromise = new Promise(function(resolve, reject) {
+                        console.log('will insert proof = ', proof);
+                        var q = db()('ProofResult').insert(proof);
+                        q.then(resolve, reject);
+                     });
+                     promises.push(proofPromise);
+                  }
+                  Promise.all(promises).then(function(result) {
+                     console.log('did insert new proofsresult with result: ', result);
+                     context.this.response.status(200).send();
+                     resolve();
+                  }.bind(context), function(error) {
+                     console.error('error saving new ProofResult: ', error);
+                     context.this.response.status(505).send({
+                        errorCode: 505,
+                        debugMessage: 'Error saving new ProofResult',
+                        debugInfo: error
+                     });
+                     reject();
+                  }.bind(context))
+               }.bind(context), function(error) {
+                  console.error('error saving new PathResult: ', error);
+                  context.this.response.status(505).send({
+                     errorCode: 505,
+                     debugMessage: 'Error saving new PathResult',
+                     debugInfo: error
+                  });
+                  reject();
+               }.bind(context));
+            });
+            save.then(function(){
+               console.log('did save everything');
+            });
+         } else if (!userID) {
+            console.error('given token is invalid');
+         } else {
+            console.error('fields invalid');
+         }
+      }.bind(this), function(error) {
+         if (error.hasOwnProperty('requestError')) {
+            var reqError = error.requestError
+            this.response.status(reqError.errorCode).send(reqError);
+            console.error('sending error: ', reqError);
+         } else {
+            console.error('unhandled error: ', error);
+         }
+      }.bind(this));
+   };
+
+   this.checkInputFields = function() {
+      return new Promise(function(resolve, reject) {
+
+         var data = this.request.body;
+         var missingFields = [];
+
+         var pathID = data.pathId;
+         if (!pathID) {
+            missingFields.push('pathId');
+         }
+         var startDate = data.startDate;
+         if (!startDate) {
+            missingFields.push('startDate');
+         }
+         var endDate = data.endDate;
+         if (!endDate) {
+            missingFields.push('endDate');
+         }
+         var score = data.score;
+         if (!score) {
+            missingFields.push('score');
+         }
+         var proofs = data.proofResults;
+         if (!proofs) {
+            missingFields.push('proofResults');
+         }
+
+         if (missingFields.length > 0) {
+            console.error('missingFields: ', missingFields);
+            this.response.status(461)({
+               errorCode: 461,
+               errorMessage: missingFields[0] + ' is a required field',
+               errorInfo: {
+                  missingFields: missingFields
+               }
+            });
+            resolve(null);
+            return;
+         }
+
+         var pathData = {
+            pathID: pathID,
+            startDate: startDate,
+            endDate: endDate,
+            totalScore: score
+         };
+
+         var proofsData = [];
+
+         console.log('proofs = ', proofs);
+
+         for (var proof of proofs) {
+            var proofId = proof.proofId;
+            if (!proofId) {
+               missingFields.push('proofId');
+            }
+            var startTime = proof.startTime;
+            if (!startTime) {
+               missingFields.push('startTime');
+            }
+            var endTime = proof.endTime;
+            if (!endTime) {
+               missingFields.push('endTime');
+            }
+            var score = proof.score;
+            if (!score) {
+               missingFields.push('score');
+            }
+
+            if (missingFields.length > 0) {
+               console.error('missingFields: ', missingFields, ' in proof: ', proof);
+               this.response.status(461)({
+                  errorCode: 461,
+                  errorMessage: missingFields[0] + ' is a required field in proof',
+                  errorInfo: {
+                     proof: proof,
+                     missingFields: missingFields
+                  }
+               });
+               resolve(null);
+               return;
+            } else {
+               proofsData.push({
+                  pathID: pathID,
+                  startTime: startTime,
+                  endTime: endTime,
+                  score: score
+               });
+            }
+         }
+         resolve({
+            path: pathData,
+            proofs: proofsData
+         });
+      }.bind(this));
+   };
+};
+
+SavePathsResultsHandler.prototype = new SQLRequestHandler;
+
+module.exports.get = PathsResultsHandler;
+module.exports.set = SavePathsResultsHandler;
