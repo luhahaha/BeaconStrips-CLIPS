@@ -7,12 +7,9 @@ import android.preference.PreferenceManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import Data.LoggedUser;
-import urlrequest.ServerError;
-
 public class LoginManager {
    private static LoginManager singleInstance;
-   private LoggedUser loggedUser;
+   private Data.LoggedUser loggedUser;
    private Context cx; //serve per poter usare SharedPreferences, la classe che permette di usare il "dizionario" con i valori di base che ci interessano
    private AbstractDataManagerListener<Boolean> listener;
 
@@ -21,20 +18,20 @@ public class LoginManager {
       SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
       if(isLogged()) { //se esiste un token già salvato
          String token = preferences.getString("token", ""), email = preferences.getString("email", ""), username = preferences.getString("username", "");
-         loggedUser = new LoggedUser(token, email, username); //do per scontato che ci siano tutti i campi se c'è token
+         loggedUser = new Data.LoggedUser(token, email, username); //do per scontato che ci siano tutti i campi se c'è token
       }
    }
 
-   private void sendResponse(Boolean response, boolean initialization) { //initialization è true quando bisogna inizializzare di nuovo il loggedUser, false altrimenti
+   private void sendResponse(boolean initialization) { //initialization è true quando bisogna inizializzare di nuovo il loggedUser, false altrimenti
       if(initialization==true) {
          SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
          String token = preferences.getString("token", ""), email = preferences.getString("email", ""), username = preferences.getString("username", "");
-         loggedUser = new LoggedUser(token, email, username); //do per scontato che ci siano tutti i campi se c'è token
+         loggedUser = new Data.LoggedUser(token, email, username); //do per scontato che ci siano tutti i campi se c'è token
       }
-      listener.onResponse(response);
+      listener.onResponse(true);
    }
 
-   private void sendError(ServerError error) {
+   private void sendError(urlrequest.ServerError error) {
       listener.onError(error);
    }
 
@@ -57,7 +54,7 @@ public class LoginManager {
       loggedUser = new Data.LoggedUser(token, email, username);
    }
 
-   public LoggedUser getLoggedUser() {
+   public Data.LoggedUser getLoggedUser() {
       return loggedUser;
    }
 
@@ -73,7 +70,7 @@ public class LoginManager {
       if(loggedUser!=null) {
          logout(new AbstractDataManagerListener<Boolean>() { //serve per eliminare eventuali token ancora salvati, non mi interessa se ha successo o meno perché in locale il token viene riscritto nel caso, invece nel server dopo un tot di tempo che non viene usato il token viene eliminato
             public void onResponse(Boolean response) {}
-            public void onError(ServerError error) {}
+            public void onError(urlrequest.ServerError error) {}
          });
       }
       this.listener = listener;
@@ -87,13 +84,13 @@ public class LoginManager {
                editor.putString("username", response.getString("username"));
                editor.apply();
                updateLoggedUser(response.getString("token"), response.getString("email"), response.getString("username"));
-               sendResponse(true, true);
+               sendResponse(true);
             } catch (JSONException e) {
-               sendError(new ServerError(1002, "Error on parsing the response JSON after the execution of login request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
+               sendError(new urlrequest.ServerError(1002, "Error on parsing the response JSON after the execution of login request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
             }
          }
 
-         public void onError(ServerError error) {
+         public void onError(urlrequest.ServerError error) {
             sendError(error);
          }
       });
@@ -108,21 +105,20 @@ public class LoginManager {
             editor.remove("token");
             editor.apply();
             loggedUser = null; //se viene eseguito il logout allora questi dati non sono più validi
-            sendResponse(true, false);
+            sendResponse(false);
          }
 
-         public void onError(ServerError error) {
+         public void onError(urlrequest.ServerError error) {
             sendError(error);
          }
-
       });
    }
 
-   public void register(String email, String username, String password, AbstractDataManagerListener<Boolean> listener) { //questo metodo è uguale a login, cambia solo il metodo chiamato in urlrequest.RequestMaker
+   public void registration(String email, String username, String password, AbstractDataManagerListener<Boolean> listener) { //questo metodo è uguale a login, cambia solo il metodo chiamato in urlrequest.RequestMaker
       if(loggedUser!=null) {
          logout(new AbstractDataManagerListener<Boolean>() { //serve per eliminare eventuali token ancora salvati, non mi interessa se ha successo o meno perché in locale il token viene riscritto nel caso, invece nel server dopo un tot di tempo che non viene usato il token viene eliminato
             public void onResponse(Boolean response) {}
-            public void onError(ServerError error) {}
+            public void onError(urlrequest.ServerError error) {}
          });
       }
       this.listener = listener;
@@ -136,13 +132,13 @@ public class LoginManager {
                editor.putString("username", response.getString("username"));
                editor.apply();
                updateLoggedUser(response.getString("token"), response.getString("email"), response.getString("username"));
-               sendResponse(true, true);
+               sendResponse(true);
             } catch (JSONException e) {
-               sendError(new ServerError(1002, "Error on parsing the response JSON after the execution of registration request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
+               sendError(new urlrequest.ServerError(1002, "Error on parsing the response JSON after the execution of registration request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
             }
          }
 
-         public void onError(ServerError error) {
+         public void onError(urlrequest.ServerError error) {
             sendError(error);
          }
       });
@@ -170,13 +166,13 @@ public class LoginManager {
                   updateLoggedUser("", "", response.getString("username"));
                }
                editor.apply();
-               sendResponse(true, true);
+               sendResponse(true);
             } catch (JSONException e) {
-               sendError(new ServerError(1002, "Error on parsing the response JSON after the execution of change request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
+               sendError(new urlrequest.ServerError(1002, "Error on parsing the response JSON after the execution of change request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
             }
          }
 
-         public void onError(ServerError error) {
+         public void onError(urlrequest.ServerError error) {
             sendError(error);
          }
       });
@@ -186,12 +182,34 @@ public class LoginManager {
       this.listener = listener;
       urlrequest.RequestMaker.check(cx, email, username, password, new urlrequest.AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
-               sendResponse(true, false);
+               sendResponse(false);
          }
 
-         public void onError(ServerError error) {
+         public void onError(urlrequest.ServerError error) {
             sendError(error);
          }
+      });
+   }
+
+   public void getProfileData(AbstractDataManagerListener<Boolean> listener) {
+      this.listener = listener;
+      urlrequest.RequestMaker.getProfileData(cx, new urlrequest.AbstractUrlRequestListener() {
+         public void onResponse(JSONObject response) {
+            try {
+               SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
+               SharedPreferences.Editor editor = preferences.edit();
+               editor.remove("email");
+               editor.putString("email", response.getString("email"));
+               editor.remove("username");
+               editor.putString("username", response.getString("username"));
+               editor.apply();
+               sendResponse(true);
+            } catch(JSONException e) {
+               sendError(new urlrequest.ServerError(1002, "Error on parsing the response JSON after the execution of getProfileData request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
+            }
+         }
+
+         public void onError(urlrequest.ServerError error) {sendError(error);}
       });
    }
 }

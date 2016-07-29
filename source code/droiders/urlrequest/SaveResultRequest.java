@@ -8,6 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
 import java.util.List;
 
 import Data.PathResult;
@@ -32,9 +33,9 @@ public class SaveResultRequest extends URLRequest {
       for(ProofResult element : result.proofResults) {
          JSONObject item = new JSONObject();
          try {
-            item.put("proofID", element.proof.id);
-            item.put("startTime", element.startTime);
-            item.put("endTime", element.endTime);
+            item.put("proofId", element.id);
+            item.put("startTime", DateFormat.getDateInstance(DateFormat.SHORT).format(element.startTime.getTime()));
+            item.put("endTime", DateFormat.getDateInstance(DateFormat.SHORT).format(element.endTime.getTime()));
             item.put("score", element.score);
          } catch (JSONException e) {
             signalError();
@@ -43,9 +44,11 @@ public class SaveResultRequest extends URLRequest {
       }
       JSONObject body = new JSONObject();
       try {
-         body.put("pathID", result.path.id);
-         body.put("startTime", result.startTime);
-         body.put("endTime", result.endTime);
+         body.put("pathId", result.pathID);
+         body.put("pathName", result.pathName);
+         body.put("buildingName", result.buildingName);
+         body.put("startTime", DateFormat.getDateInstance(DateFormat.SHORT).format(result.startTime.getTime()));
+         body.put("endTime", DateFormat.getDateInstance(DateFormat.SHORT).format(result.endTime.getTime()));
          body.put("proofResults", array);
       } catch (JSONException e) {
          signalError();
