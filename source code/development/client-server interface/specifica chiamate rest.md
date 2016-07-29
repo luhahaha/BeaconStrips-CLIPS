@@ -75,6 +75,7 @@
 	"pathId" : Int,
 	"startTime" : String,
 	"endTime" : String,
+   "score" : Int,
 	"proofResults" : [
 		{
 			"proofId" : Int,

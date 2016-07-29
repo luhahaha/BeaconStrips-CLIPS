@@ -51,7 +51,12 @@ app.get('/logout', function(req, res) {
 
 app.get('/pathsresults', function(req, res) {
    console.log('handle pathsresults');
-   prepareAndExecute(PathsResults, req, res);
+   prepareAndExecute(PathsResults.get, req, res);
+});
+
+app.post('/pathsresults', function(req, res) {
+   console.log('handle pathsresults');
+   prepareAndExecute(PathsResults.set, req, res);
 });
 
 app.post('/buildings', function(req, res) {
