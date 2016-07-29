@@ -65,4 +65,8 @@ public class RequestMaker {
    public static void getProfileData(Context cx, AbstractUrlRequestListener listener) {
       GetProfileDataRequest request = new GetProfileDataRequest(cx, listener);
    }
+
+   public static void getRanking(Context cx, int pathID, AbstractUrlRequestListener listener) {
+      GetRankingRequest request = new GetRankingRequest(cx, pathID, listener);
+   }
 }
