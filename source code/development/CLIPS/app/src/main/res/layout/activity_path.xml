@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="beaconstrips.clips.client.viewcontroller.building.PathActivity">
+    tools:context="beaconstrips.clips.client.viewcontroller.building.PathActivity"
+    android:clickable="false">
 
     <TextView
         android:layout_width="wrap_content"
@@ -101,12 +102,12 @@
     </LinearLayout>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/RaisedButton"
         android:text="Inizia percorso"
         android:id="@+id/startButton"
         android:layout_below="@+id/pathDuration"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+         />
 
 
 </RelativeLayout>
