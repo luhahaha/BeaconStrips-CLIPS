@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 /**
  * Created by andrea on 28/07/16.
@@ -46,8 +47,8 @@ public class GetResultsDataRequest extends DataManager<Data.PathResult[]> {
                JSONObject proof = proofArray.getJSONObject(i);
                GregorianCalendar startCalendar = new GregorianCalendar(), endCalendar = new GregorianCalendar();
                try {
-                  startCalendar.setTime(new SimpleDateFormat().parse(proof.getString("startTime")));
-                  endCalendar.setTime(new SimpleDateFormat().parse(proof.getString("endTime")));
+                  startCalendar.setTime(new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN).parse(proof.getString("startTime")));
+                  endCalendar.setTime(new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN).parse(proof.getString("endTime")));
                   proofs.add(new Data.ProofResult(proof.getInt("proofID"), startCalendar, endCalendar, proof.getInt("score")));
                } catch(ParseException e) { //non segnalo l'errore con il listener perché non vale la pena compromettere l'operazione per una data che non viene creata correttamente
                   proofs.add(new Data.ProofResult(proof.getInt("proofID"), new GregorianCalendar(2000, 1, 1, 0, 0, 0), new GregorianCalendar(2000, 1, 1, 0, 0, 0), proof.getInt("score")));
@@ -55,8 +56,8 @@ public class GetResultsDataRequest extends DataManager<Data.PathResult[]> {
             }
             GregorianCalendar startCalendar = new GregorianCalendar(), endCalendar = new GregorianCalendar();
             try {
-               startCalendar.setTime(new SimpleDateFormat().parse(result.getString("startTime")));
-               endCalendar.setTime(new SimpleDateFormat().parse(result.getString("endTime")));
+               startCalendar.setTime(new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN).parse(result.getString("startTime")));
+               endCalendar.setTime(new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN).parse(result.getString("endTime")));
                results[i] = new Data.PathResult(result.getInt("pathID"), result.getString("pathName"), result.getString("buildingName"), startCalendar, endCalendar, result.getInt("totalScore"), proofs);
             } catch(ParseException e) { //non segnalo l'errore con il listener perché non vale la pena compromettere l'operazione per una data che non viene creata correttamente
                results[i] = new Data.PathResult(result.getInt("proofID"), result.getString("pathName"), result.getString("buildingName"), new GregorianCalendar(2000, 1, 1, 0, 0, 0), new GregorianCalendar(2000, 1, 1, 0, 0, 0), result.getInt("totalScore"), proofs);

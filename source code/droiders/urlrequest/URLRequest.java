@@ -96,6 +96,8 @@ class URLRequest {
          @Override
          public Map<String, String> getHeaders() throws AuthFailureError { //l'errore è di volley
             HashMap<String, String> headers = new HashMap<>();
+            if(LoginManager.sharedManager(cx).getToken()==null)
+               System.out.println("Non legge il token");
             if (requiresAuthentication == true)
                headers.put("Authorization", LoginManager.sharedManager(cx).getToken()); //qui viene aggiunto agli headers il token
             return headers;
@@ -104,10 +106,13 @@ class URLRequest {
    }
 
    private JsonRequest<JSONArray> arrayRequest() {
+      if(body==null)
+         body=new JSONObject();
       return new JsonRequest<JSONArray>(httpMethod, url, body.toString(),
             new Response.Listener<JSONArray>() {
                @Override
                public void onResponse(JSONArray response) {
+                  System.out.println("Successo rilevato");
                   try {
                      JSONObject transformedResponse = new JSONObject();
                      transformedResponse.put("array", response);
@@ -119,6 +124,7 @@ class URLRequest {
             }, new Response.ErrorListener() {
          @Override
          public void onErrorResponse(VolleyError error) {
+            System.out.println("Errore rilevato");
             ServerError errorData;
             try {
                String errorBody = new String(error.networkResponse.data, "utf-8");
@@ -135,10 +141,12 @@ class URLRequest {
          @Override
          public Map<String, String> getHeaders() throws AuthFailureError { //l'errore è di volley
             HashMap<String, String> headers = new HashMap<>();
-            if (requiresAuthentication == true)
+            if (requiresAuthentication == true) {
                headers.put("Authorization", LoginManager.sharedManager(cx).getToken()); //qui viene aggiunto agli headers il token
+            }
             return headers;
          }
+         @Override
          protected Response<JSONArray> parseNetworkResponse(NetworkResponse response) {
             try {
                String jsonString = new String(response.data,
