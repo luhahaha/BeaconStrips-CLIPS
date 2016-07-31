@@ -1,11 +1,15 @@
 package beaconstrips.clips.client.viewcontroller.games;
 
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 
 import beaconstrips.clips.R;
+import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
-public class SearchNewStepActivity extends AppCompatActivity {
+public class SearchNewStepActivity extends MenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

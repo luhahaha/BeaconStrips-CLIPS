@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import beaconstrips.clips.R;
+import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
 public class ProofResultActivity extends AppCompatActivity {
 
