@@ -1,6 +1,10 @@
-package PathProgress;
+package pathprogress;
 
-import java.util.Date;
+import java.util.GregorianCalendar;
+import Data.PathProgress;
+import Data.Path;
+import Data.ProofResult;
+import Data.PathResult;
 
 public class PathProgressController{
   private final PathProgress pathProgress;
@@ -8,7 +12,7 @@ public class PathProgressController{
   private Bool completed;
   public PathSearchDelegate searchDelegate;
 
-  public PathProgressController(Path path, Date startTime){
+  public PathProgressController(Path path, GregorianCalendar startTime){
     this.pathProgress=new PathProgress(path,startTime);
   }
 
@@ -20,7 +24,7 @@ public class PathProgressController{
     return this.pathProgress.getPathProgress;
   }
 
-  public complete(Date endTime){
+  public complete(GregorianCalendar endTime){
     this.setEndTime(endTime);
   }
 
