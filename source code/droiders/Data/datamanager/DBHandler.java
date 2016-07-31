@@ -1,4 +1,4 @@
-package data.datamanager;
+package Data.datamanager;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -110,7 +110,7 @@ public class DBHandler extends SQLiteOpenHelper {
    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
    }
 
-   public void addBeacon(Beacon b){
+   public void addBeacon(Data.Beacon b){
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
@@ -123,7 +123,7 @@ public class DBHandler extends SQLiteOpenHelper {
       db.close();
    }
 
-   public void addBuilding(Building b){
+   public void addBuilding(Data.Building b){
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
@@ -141,20 +141,20 @@ public class DBHandler extends SQLiteOpenHelper {
       values.put("telegram", b.telegram);
       values.put("twitter", b.twitter);
       values.put("facebook", b.facebook);
-      values.put("websiteURL", b.webSiteURL);
+      values.put("websiteURL", b.websiteURL);
 
       db.insert("Building", null, values);
       db.close();
 
       //add PathInfos dell'edificio
-      Iterator<PathInfo> it = b.pathsInfos.iterator();
+      Iterator<Data.PathInfo> it = b.pathsInfos.iterator();
       while(it.hasNext()){
          addPathInfo(b.id, it.next());
       }
 
    }
 
-   public void addPath(Path p){
+   public void addPath(Data.Path p){
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
@@ -167,13 +167,13 @@ public class DBHandler extends SQLiteOpenHelper {
       db.close();
 
       //aggiunge al db gli step del path
-      Iterator<Step> it = p.steps.iterator();
+      Iterator<Data.Step> it = p.steps.iterator();
       while(it.hasNext()){
          addStep(p.id,it.next());
       }
    }
 
-   public void addPathInfo(int buildingID, PathInfo pi){
+   public void addPathInfo(int buildingID, Data.PathInfo pi){
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
@@ -188,7 +188,7 @@ public class DBHandler extends SQLiteOpenHelper {
       db.close();
    }
 
-   public void addStep(int pathID, Step s){
+   public void addStep(int pathID, Data.Step s){
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
@@ -210,7 +210,7 @@ public class DBHandler extends SQLiteOpenHelper {
       addProof(s.id,s.proof);
    }
 
-   public void addProximity(int stepID, Proximity p){
+   public void addProximity(int stepID, Data.Proximity p){
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
@@ -223,7 +223,7 @@ public class DBHandler extends SQLiteOpenHelper {
       db.close();
    }
 
-   public void addProof(int stepID, Proof p){
+   public void addProof(int stepID, Data.Proof p){
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
@@ -231,17 +231,17 @@ public class DBHandler extends SQLiteOpenHelper {
       values.put("stepID", stepID);
       values.put("title", p. title);
       values.put("instructions", p.instructions);
-      values.put("algorithmData", p.algorithmData.toString());
+      values.put("algorithmData", p.scoringAlgorithm.toString());
 
       db.insert("Proof", null, values);
       db.close();
    }
 
-   public Building readBuilding(int id){
+   public Data.Building readBuilding(int id){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Building", null, "id =?", new String[]{String.valueOf(id)}, null, null, null, null);
 
-      Building ret = null;
+      Data.Building ret = null;
 
       if (cursor != null) {
          cursor.moveToFirst();
@@ -259,20 +259,20 @@ public class DBHandler extends SQLiteOpenHelper {
          String telegram = cursor.getString(11);
          String twitter = cursor.getString(12);
          String facebook = cursor.getString(13);
-         List<PathInfo> pathsInfos = readPathInfos(id);
+         List<Data.PathInfo> pathsInfos = readPathInfos(id);
          String websiteURL = cursor.getString(14);
 
-         ret = new Building(id,name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,pathsInfos,websiteURL);
+         ret = new Data.Building(id,name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos);
       }
 
       return ret;
    }
 
-   private List<PathInfo> readPathInfos(int buildingID){
+   private List<Data.PathInfo> readPathInfos(int buildingID){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("PathInfo", null, "buildingID =?", new String[]{String.valueOf(buildingID)}, null, null, null, null);
 
-      List<PathInfo> ret = null;
+      List<Data.PathInfo> ret = null;
 
       while(cursor.moveToNext()){
          int id = Integer.parseInt(cursor.getString(0));
@@ -281,17 +281,17 @@ public class DBHandler extends SQLiteOpenHelper {
          String target = cursor.getString(4);
          String estimatedDuration = cursor.getString(5);
 
-         ret.add(new PathInfo(id,title,description,target,estimatedDuration));
+         ret.add(new Data.PathInfo(id,title,description,target,estimatedDuration));
       }
       return ret;
    }
 
-   public Path readPath(int pathID) {
+   public Data.Path readPath(int pathID) {
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Path", null, "id =?", new String[]{String.valueOf(pathID)}, null, null, null, null);
 
 
-      Path ret = null;
+      Data.Path ret = null;
 
       if (cursor != null) {
          cursor.moveToFirst();
@@ -299,37 +299,37 @@ public class DBHandler extends SQLiteOpenHelper {
          int id = Integer.parseInt(cursor.getString(0));
          String startingMessage = cursor.getString(1);
          String rewardMessage = cursor.getString(2);
-         List<Step> steps = readSteps(pathID);
+         List<Data.Step> steps = readSteps(pathID);
 
-         ret = new Path(id, startingMessage, rewardMessage, steps);
+         ret = new Data.Path(id, startingMessage, rewardMessage, steps);
       }
 
       return ret;
    }
 
-   private List<Step> readSteps(int pathID) {
+   private List<Data.Step> readSteps(int pathID) {
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Step", null, "pathID =?", new String[]{String.valueOf(pathID)}, null, null, null, null);
 
-      List<Step> ret = null;
+      List<Data.Step> ret = null;
 
       while(cursor.moveToNext())
       {
          int id = Integer.parseInt(cursor.getString(0));
-         Beacon stopBeacon = readBeacon(Integer.parseInt(cursor.getString(1)));
-         List<Proximity> proximities = readProximities(id);
-         Proof proof = readProof(Integer.parseInt(cursor.getString(2)));
+         Data.Beacon stopBeacon = readBeacon(Integer.parseInt(cursor.getString(1)));
+         List<Data.Proximity> proximities = readProximities(id);
+         Data.Proof proof = readProof(Integer.parseInt(cursor.getString(2)));
 
-         ret.add(new Step(stopBeacon, proximities, proof, id));
+         ret.add(new Data.Step(stopBeacon, proximities, proof, id));
       }
       return ret;
    }
 
-   public Beacon readBeacon(int beaconID){
+   public Data.Beacon readBeacon(int beaconID){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Beacon", null, "id =?", new String[]{String.valueOf(beaconID)}, null, null, null, null);
 
-      Beacon ret = null;
+      Data.Beacon ret = null;
 
       if(cursor != null){
          cursor.moveToFirst();
@@ -338,37 +338,37 @@ public class DBHandler extends SQLiteOpenHelper {
          int major = Integer.parseInt(cursor.getString(2));
          int minor = Integer.parseInt(cursor.getString(3));
 
-         ret = new Beacon(beaconID, UUID, major, minor);
+         ret = new Data.Beacon(beaconID, UUID, major, minor);
       }
       return ret;
    }
 
-   private List<Proximity> readProximities(int stepID){
+   private List<Data.Proximity> readProximities(int stepID){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Proximity", null, "stepID =?", new String[]{String.valueOf(stepID)}, null, null, null, null);
 
-      List<Proximity> ret = null;
+      List<Data.Proximity> ret = null;
 
       if(cursor != null){
          cursor.moveToFirst();
 
          int id = Integer.parseInt(cursor.getString(0));
-         Beacon beacon = readBeacon(Integer.parseInt(cursor.getString(1)));
+         Data.Beacon beacon = readBeacon(Integer.parseInt(cursor.getString(1)));
          float percentage = Float.parseFloat(cursor.getString(3));
          String textToDisplay = cursor.getString(4);
 
 
-         ret.add(new Proximity(beacon,percentage,textToDisplay,id));
+         ret.add(new Data.Proximity(beacon,percentage,textToDisplay,id));
       }
 
       return ret;
    }
 
-   public Proof readProof(int proofID){
+   public Data.Proof readProof(int proofID){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Proof", null, "id =?", new String[]{String.valueOf(proofID)}, null, null, null, null);
 
-      Proof ret = null;
+      Data.Proof ret = null;
 
       if (cursor != null) {
          cursor.moveToFirst();
@@ -384,48 +384,48 @@ public class DBHandler extends SQLiteOpenHelper {
             //TODO catch conversione string to JSONObject
          }
 
-         ret = new Proof(title,instructions,algorithmData,id);
+         ret = new Data.Proof(title,instructions,algorithmData,id);
       }
 
       return ret;
    }
 
-   public Proximity readProximity(int id){
+   public Data.Proximity readProximity(int id){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Proximity", null, "id =?", new String[]{String.valueOf(id)}, null, null, null, null);
 
-      Proximity ret = null;
+      Data.Proximity ret = null;
 
       if(cursor != null){
          cursor.moveToFirst();
 
-         Beacon beacon = readBeacon(Integer.parseInt(cursor.getString(1)));
+         Data.Beacon beacon = readBeacon(Integer.parseInt(cursor.getString(1)));
          float percentage = Float.parseFloat(cursor.getString(3));
          String textToDisplay = cursor.getString(4);
 
 
-         ret = new Proximity(beacon,percentage,textToDisplay,id);
+         ret = new Data.Proximity(beacon,percentage,textToDisplay,id);
       }
 
       return ret;
    }
 
-   public Step readStep(int id){
+   public Data.Step readStep(int id){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Step", null, "id =?", new String[]{String.valueOf(id)}, null, null, null, null);
 
-      Step ret = null;
+      Data.Step ret = null;
 
       if(cursor != null){
          cursor.moveToFirst();
 
          while(cursor != null) {
 
-            Beacon stopBeacon = readBeacon(Integer.parseInt(cursor.getString(1)));
-            List<Proximity> proximities = readProximities(id);
-            Proof proof = readProof(Integer.parseInt(cursor.getString(2)));
+            Data.Beacon stopBeacon = readBeacon(Integer.parseInt(cursor.getString(1)));
+            List<Data.Proximity> proximities = readProximities(id);
+            Data.Proof proof = readProof(Integer.parseInt(cursor.getString(2)));
 
-            ret = new Step(stopBeacon, proximities, proof, id);
+            ret = new Data.Step(stopBeacon, proximities, proof, id);
          }
       }
       return ret;
@@ -447,9 +447,9 @@ public class DBHandler extends SQLiteOpenHelper {
    }
 
    public void deleteSteps(int pathID){
-      List<Step> steps = readSteps(pathID);
+      List<Data.Step> steps = readSteps(pathID);
 
-      Iterator<Step> it = steps.iterator();
+      Iterator<Data.Step> it = steps.iterator();
       while(it.hasNext())
       {
          deleteStep(it.next().id);
@@ -491,37 +491,37 @@ public class DBHandler extends SQLiteOpenHelper {
    }
 
    private void deletePathInfos(int buildingID){
-      List<PathInfo> pathInfos = readPathInfos(buildingID);
+      List<Data.PathInfo> pathInfos = readPathInfos(buildingID);
 
-      Iterator<PathInfo> it = pathInfos.iterator();
+      Iterator<Data.PathInfo> it = pathInfos.iterator();
       while(it.hasNext())
       {
          deletePathInfo(it.next().id);
       }
    }
 
-   public void updatePath(Path p){
+   public void updatePath(Data.Path p){
       deletePath(p.id);
       addPath(p);
    }
 
-   public void updatePathInfo(int buildingID, PathInfo pi)
+   public void updatePathInfo(int buildingID, Data.PathInfo pi)
    {
       deletePathInfo(pi.id);
       addPathInfo(buildingID, pi);
    }
 
-   public void updateStep(int pathID, Step s){
+   public void updateStep(int pathID, Data.Step s){
       deleteStep(s.id);
       addStep(pathID,s);
    }
 
-   public void updateProximity(int stepID, Proximity p){
+   public void updateProximity(int stepID, Data.Proximity p){
       deleteProximity(p.id);
       addProximity(stepID, p);
    }
 
-   public void updateBuilding(Building b){
+   public void updateBuilding(Data.Building b){
       deleteBuilding(b.id);
       addBuilding(b);
    }
