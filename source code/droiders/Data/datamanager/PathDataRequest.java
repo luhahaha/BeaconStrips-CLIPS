@@ -18,11 +18,8 @@ public class PathDataRequest extends DataManager<Data.Path> {
       execute();
    }
 
-   protected String queryForLocalData() {return "SELECT * FROM PATH";}
-
    protected Data.Path parseFromLocal() {
-      Data.Path path = new Data.Path(pathID, "", "", new ArrayList<Data.Step>());
-      return path;
+      return new DBHandler(cx).readPath(pathID);
    }
 
    protected void getRemoteData(urlrequest.AbstractUrlRequestListener listener) {
@@ -40,10 +37,6 @@ public class PathDataRequest extends DataManager<Data.Path> {
    }
 
    protected void updateLocalData(Data.Path data){
-
-   }
-
-   protected String getUpdateLocalDataQuery() {
-      return "";
+      new DBHandler(cx).updatePath(data);
    }
 }

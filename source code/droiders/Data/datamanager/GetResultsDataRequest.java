@@ -22,13 +22,8 @@ public class GetResultsDataRequest extends DataManager<Data.PathResult[]> {
       execute();
    }
 
-   protected String queryForLocalData() {
-      return "SELECT * FROM PathResult";
-   }
-
    protected Data.PathResult[] parseFromLocal() {
-      Data.PathResult[] results = new Data.PathResult[5];
-      return results;
+      return new DBHandler(cx).readPathResults();
    }
 
    protected void getRemoteData(urlrequest.AbstractUrlRequestListener listener) {
@@ -71,10 +66,8 @@ public class GetResultsDataRequest extends DataManager<Data.PathResult[]> {
    }
 
    protected void updateLocalData(Data.PathResult[] data){
-
-   }
-
-   protected String getUpdateLocalDataQuery() {
-      return "";
+      for(int i=0; i<data.length; i++){
+         new DBHandler(cx).updatePathResults(data[i]);
+      }
    }
 }

@@ -6,7 +6,7 @@ public class Proof {
    public final String instructions;
    public final String title;
    public final int id;
-   private final LinearScoringAlgorithm scoringAlgorithm;
+   public final LinearScoringAlgorithm scoringAlgorithm;
 
    public Proof(String title, String instructions, JSONObject algorithmData, int id) { //da verificare se poi viene effettivamente usato un JSONObject
       this.title = title;

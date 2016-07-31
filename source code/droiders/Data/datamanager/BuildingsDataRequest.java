@@ -23,13 +23,8 @@ public class BuildingsDataRequest extends DataManager<Data.Building[]> {
       execute();
    }
 
-   protected String queryForLocalData() {
-      return "SELECT * FROM Building";
-   }
-
    protected Data.Building[] parseFromLocal() {
-      Data.Building[] buildings = new Data.Building[5];
-      return buildings;
+      return new DBHandler(cx).readBuilding(maxBuildings); //ritorna i maxBuildings edifici salvati in locale
    }
 
    protected void getRemoteData(urlrequest.AbstractUrlRequestListener listener) {
@@ -57,11 +52,9 @@ public class BuildingsDataRequest extends DataManager<Data.Building[]> {
       }
    }
 
-   protected void updateLocalData(Data.Building[] data){
-
-   }
-
-   protected String getUpdateLocalDataQuery() {
-      return "";
+   protected void updateLocalData(Data.Building[] data){ //cancella i vecchi edifici salvati nel DB locale, aggiunge i nuovi
+      for(int i=0; i<data.length; i++){
+         new DBHandler(cx).updateBuilding(data[i]);
+      }
    }
 }

@@ -16,8 +16,6 @@ public class AppInfoDataRequest extends DataManager<Data.AppInfo> { //La matrice
       execute();
    }
 
-   protected String queryForLocalData() {return "";}
-
    protected Data.AppInfo parseFromLocal() {
       SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
       Data.AppInfo appInfo = new Data.AppInfo(preferences.getString("description",""), preferences.getString("supportemail",""), preferences.getString("websiteURL",""), preferences.getString("discoveryUUID",""));
@@ -51,6 +49,4 @@ public class AppInfoDataRequest extends DataManager<Data.AppInfo> { //La matrice
       editor.putString("discoveryUUID", data.UUID);
       editor.apply();
    }
-
-   protected String getUpdateLocalDataQuery() {return "";}
 }
