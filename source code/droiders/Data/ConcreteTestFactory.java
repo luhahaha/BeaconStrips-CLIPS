@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by andrea on 01/08/16.
  */
-public class ConcreteFactory implements TestFactory {
+public class ConcreteTestFactory implements AbstractTestFactory {
    public Test createTest(JSONObject testData) {
       try {
          String testType = testData.getString("testType");
@@ -57,7 +57,7 @@ public class ConcreteFactory implements TestFactory {
                ArrayList<TestCollection> games = new ArrayList<>();
                JSONArray array = testData.getJSONObject("data").getJSONArray("games");
                for(int i=0; i<array.length(); i++) {
-                  games.add(new ConcreteFactory().createTestCollection(array.getJSONObject(i)));
+                  games.add(new ConcreteTestFactory().createTestCollection(array.getJSONObject(i)));
                }
                return new GameCollection(testData.getJSONObject("data").getBoolean("shuffleGames"), games);
             }
@@ -67,7 +67,7 @@ public class ConcreteFactory implements TestFactory {
                for(int i=0; i<array.length(); i++) {
                   JSONObject testObject = array.getJSONObject(i);
                   testObject.put("testType", "MultipleChoiceText");
-                  Test test = new ConcreteFactory().createTest(testObject);
+                  Test test = new ConcreteTestFactory().createTest(testObject);
                   if(test instanceof MultipleChoiceText) {
                      questions.add(((MultipleChoiceText)test));
                   }
@@ -80,7 +80,7 @@ public class ConcreteFactory implements TestFactory {
                for(int i=0; i<array.length(); i++) {
                   JSONObject testObject = array.getJSONObject(i);
                   testObject.put("testType", "MultipleChoiceImage");
-                  Test test = new ConcreteFactory().createTest(testObject);
+                  Test test = new ConcreteTestFactory().createTest(testObject);
                   if(test instanceof MultipleChoiceImage) {
                      questions.add(((MultipleChoiceImage)test));
                   }
@@ -93,7 +93,7 @@ public class ConcreteFactory implements TestFactory {
                for(int i=0; i<array.length(); i++) {
                   JSONObject testObject = array.getJSONObject(i);
                   testObject.put("testType", "TrueFalseText");
-                  Test test = new ConcreteFactory().createTest(testObject);
+                  Test test = new ConcreteTestFactory().createTest(testObject);
                   if(test instanceof TrueFalseText) {
                      questions.add(((TrueFalseText)test));
                   }
@@ -106,7 +106,7 @@ public class ConcreteFactory implements TestFactory {
                for(int i=0; i<array.length(); i++) {
                   JSONObject testObject = array.getJSONObject(i);
                   testObject.put("testType", "TrueFalseImage");
-                  Test test = new ConcreteFactory().createTest(testObject);
+                  Test test = new ConcreteTestFactory().createTest(testObject);
                   if(test instanceof TrueFalseImage) {
                      questions.add(((TrueFalseImage)test));
                   }

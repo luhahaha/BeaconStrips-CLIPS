@@ -5,7 +5,7 @@ import org.json.JSONObject;
 /**
  * Created by andrea on 20/07/16.
  */
-public interface TestFactory {
+public interface AbstractTestFactory {
    Test createTest(JSONObject testData);
 
    TestCollection createTestCollection(JSONObject testData);
