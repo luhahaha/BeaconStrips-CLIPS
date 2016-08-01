@@ -11,6 +11,7 @@ const Logout  = require('./Logout.js');
 const PathsResults = require('./PathsResults.js');
 const Buildings  = require('./Buildings.js');
 const Registration = require('./RegistrationHandler.js');
+const Validator = require('./CheckFields.js');
 
 // indica di fare il parse del body di tutte le richieste
 // in entrata come JSON object
@@ -67,6 +68,11 @@ app.post('/buildings', function(req, res) {
 app.post('/newuser', function(req, res) {
    console.log('handle new user');
    prepareAndExecute(Registration, req, res);
+});
+
+app.post('/validateFields', function(req, res) {
+   console.log('handle field validation');
+   prepareAndExecute(Validator, req, res);
 });
 
 app.listen(1234);

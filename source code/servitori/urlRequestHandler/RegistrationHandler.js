@@ -4,6 +4,8 @@ var RequestHandler = require('./URLRequestHandler.js');
 var UsernameChecker = require('./utility/UsernameChecker.js');
 var Token = require('./utility/TokenGenerator.js');
 var db = require('./db.js');
+var emailChecker = require('./utility/EmailChecker.js');
+var passwordChecker = require('./utility/PasswordChecker.js')
 
 function RegistrationRequestHandler() {
    this.execute = function() {
@@ -28,6 +30,18 @@ function RegistrationRequestHandler() {
          this.response.status(460).send({
             errorCode: 460,
             debugMessage: "missing " + missingField
+         });
+      } else if (!emailChecker.isValid(email)) {
+         this.response.status(460).send({
+            errorCode: 460,
+            debugMessage: 'email is not valid',
+            userMessage: 'usa un indirizzo email valido'
+         });
+      } else if (!passwordChecker.isValid(password)) {
+         this.response.status(460).send({
+            errorCode: 460,
+            debugMessage: 'password is not valid',
+            userMessage: passwordChecker.instructions
          });
       } else {
          var response = this.response;
