@@ -6,8 +6,8 @@ package Data;
 public class TrueFalseText extends AbstractTextQuiz {
    Boolean response; //Dato che la domanda è booleana basta un dato boolean per rappresentare la risposta
 
-   public TrueFalseText(String instructions, boolean response) {
-      super(instructions);
+   public TrueFalseText(String helpText, String instructions, boolean response) {
+      super(helpText, instructions);
       this.response = response;
    }
 

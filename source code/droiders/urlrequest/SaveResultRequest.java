@@ -23,12 +23,12 @@ import Data.ProofResult;
  */
 public class SaveResultRequest extends URLRequest {
    SaveResultRequest(Context cx, PathResult result, AbstractUrlRequestListener listener) {
-      super(cx, Request.Method.POST, URLDataConstants.baseURL + "", getBody(result), true, listener);
+      super(cx, Request.Method.POST, URLDataConstants.baseURL + "pathsresults", setBody(result), true, listener);
       execute(ResponseExpected.Object);
    }
 
    //dato che la chiamata super() deve precedere qualunque altra istruzione costruisco il body in questo metodo, è statico perché altrimenti non può essere usato nel super()
-   static JSONObject getBody(PathResult result) {
+   static JSONObject setBody(PathResult result) {
       JSONArray array = new JSONArray();
       for(ProofResult element : result.proofResults) {
          JSONObject item = new JSONObject();

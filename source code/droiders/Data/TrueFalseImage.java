@@ -6,8 +6,8 @@ package Data;
 public class TrueFalseImage extends AbstractImageQuiz {
    Boolean response; //Dato che la domanda è booleana basta un dato boolean per rappresentare la risposta
 
-   public TrueFalseImage(String instructions, String pathImage, boolean response) {
-      super(instructions, pathImage);
+   public TrueFalseImage(String helpText, String instructions, String pathImage, boolean response) {
+      super(helpText, instructions, pathImage);
       this.response = response;
    }
 
