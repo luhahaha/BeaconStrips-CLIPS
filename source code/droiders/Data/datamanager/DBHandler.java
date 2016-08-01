@@ -1,4 +1,4 @@
-package Data.datamanager;
+package data.datamanager;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,14 +8,23 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 
+import data.Utility;
 import data.Beacon;
 import data.Building;
 import data.Path;
 import data.PathInfo;
+import data.PathResult;
 import data.Proof;
+import data.ProofResult;
 import data.Proximity;
 import data.Step;
 
@@ -57,7 +66,7 @@ public class DBHandler extends SQLiteOpenHelper {
    private void createPathInfoTable(SQLiteDatabase db){
       String CREATE_PATHINFO_TABLE = "CREATE TABLE" +
               " PathInfo (idPath INTEGER PRIMARY KEY  NOT NULL  UNIQUE , buildingID INTEGER NOT NULL," +
-              " title TEXT NOT NULL , description TEXT NOT NULL , target TEXT NOT NULL , estimatedDuration TEXT NOT NULL," +
+              " title TEXT NOT NULL , description TEXT NOT NULL , target TEXT NOT NULL , estimatedDuration TEXT NOT NULL, position INTEGER NOT NULL" +
               " FOREIGN KEY(idPath) REFERENCES Path(id), FOREIGN KEY(buildingID) REFERENCES Building(id))";
 
       db.execSQL(CREATE_PATHINFO_TABLE);
@@ -91,7 +100,22 @@ public class DBHandler extends SQLiteOpenHelper {
       db.execSQL(CREATE_PROXIMITY_TABLE);
    }
 
+   private void createPathResultTable(SQLiteDatabase db){
+      String CREATE_PATHRESULT_TABLE = "CREATE  TABLE  IF NOT EXISTS" +
+              " PathResult (idPath INTEGER UNIQUE NOT NULL , startTime DATETIME NOT NULL ," +
+              " endTime DATETIME NOT NULL, FOREIGN KEY(pathID) REFERENCES Path(id))";
 
+      db.execSQL(CREATE_PATHRESULT_TABLE);
+   }
+
+   private void createProofResultTable(SQLiteDatabase db){
+      String CREATE_PROOFRESULT_TABLE = "CREATE TABLE" +
+              " PathResult (proofID INTEGER NOT NULL , pathResultID INTEGER NOT NULL , startTime DATETIME NOT NULL ," +
+              " endTime DATETIME NOT NULL, FOREIGN KEY(proofID) REFERENCES Proof(id)," +
+              " FOREIGN KEY(pathResultID) REFERENCES PathResult(pathID),UNIQUE(proofID, pathResultID) )";
+
+      db.execSQL(CREATE_PROOFRESULT_TABLE);
+   }
 
 
    @Override
@@ -103,6 +127,8 @@ public class DBHandler extends SQLiteOpenHelper {
       createPathTable(db);
       createPathInfoTable(db);
       createStepTable(db);
+      createPathResultTable(db);
+      createProofResultTable(db);
    }
 
    @Override
@@ -110,7 +136,7 @@ public class DBHandler extends SQLiteOpenHelper {
    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
    }
 
-   public void addBeacon(Data.Beacon b){
+   public void addBeacon(Beacon b){
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
@@ -123,7 +149,7 @@ public class DBHandler extends SQLiteOpenHelper {
       db.close();
    }
 
-   public void addBuilding(Data.Building b){
+   public void addBuilding(Building b){
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
@@ -147,14 +173,14 @@ public class DBHandler extends SQLiteOpenHelper {
       db.close();
 
       //add PathInfos dell'edificio
-      Iterator<Data.PathInfo> it = b.pathsInfos.iterator();
+      Iterator<PathInfo> it = b.pathsInfos.iterator();
       while(it.hasNext()){
          addPathInfo(b.id, it.next());
       }
 
    }
 
-   public void addPath(Data.Path p){
+   public void addPath(Path p){
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
@@ -167,13 +193,13 @@ public class DBHandler extends SQLiteOpenHelper {
       db.close();
 
       //aggiunge al db gli step del path
-      Iterator<Data.Step> it = p.steps.iterator();
+      Iterator<Step> it = p.steps.iterator();
       while(it.hasNext()){
          addStep(p.id,it.next());
       }
    }
 
-   public void addPathInfo(int buildingID, Data.PathInfo pi){
+   public void addPathInfo(int buildingID, PathInfo pi){
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
@@ -183,12 +209,13 @@ public class DBHandler extends SQLiteOpenHelper {
       values.put("description", pi.description);
       values.put("target", pi.target);
       values.put("estimatedDuration", pi.estimatedDuration);
+      values.put("position", pi.position);
 
       db.insert("PathInfo", null, values);
       db.close();
    }
 
-   public void addStep(int pathID, Data.Step s){
+   public void addStep(int pathID, Step s){
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
@@ -210,7 +237,7 @@ public class DBHandler extends SQLiteOpenHelper {
       addProof(s.id,s.proof);
    }
 
-   public void addProximity(int stepID, Data.Proximity p){
+   public void addProximity(int stepID, Proximity p){
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
@@ -223,7 +250,7 @@ public class DBHandler extends SQLiteOpenHelper {
       db.close();
    }
 
-   public void addProof(int stepID, Data.Proof p){
+   public void addProof(int stepID, Proof p){
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
@@ -237,11 +264,42 @@ public class DBHandler extends SQLiteOpenHelper {
       db.close();
    }
 
-   public Data.Building readBuilding(int id){
+   public void addPathResult(PathResult pr){
+      SQLiteDatabase db = this.getWritableDatabase();
+      ContentValues values = new ContentValues();
+
+      values.put("pathID", pr.pathID);
+      values.put("startTime", pr.startTime.toString());
+      values.put("endTime", pr.endTime.toString());
+
+      db.insert("PathResult", null, values);
+      db.close();
+
+      //aggiunta ProofResult relativi
+      Iterator<ProofResult> it = pr.proofResults.iterator();
+      while(it.hasNext()){
+         addProofResult(pr.pathID, it.next());
+      }
+   }
+
+   public void addProofResult(int pathID, ProofResult pr){
+      SQLiteDatabase db = this.getWritableDatabase();
+      ContentValues values = new ContentValues();
+
+      values.put("proofID", pr.id);
+      values.put("pathID", pathID);
+      values.put("startTime", pr.startTime.toString());
+      values.put("endTime", pr.endTime.toString());
+
+      db.insert("ProofResult", null, values);
+      db.close();
+   }
+
+   public Building readBuilding(int id){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Building", null, "id =?", new String[]{String.valueOf(id)}, null, null, null, null);
 
-      Data.Building ret = null;
+      Building ret = null;
 
       if (cursor != null) {
          cursor.moveToFirst();
@@ -259,20 +317,20 @@ public class DBHandler extends SQLiteOpenHelper {
          String telegram = cursor.getString(11);
          String twitter = cursor.getString(12);
          String facebook = cursor.getString(13);
-         List<Data.PathInfo> pathsInfos = readPathInfos(id);
+         List<PathInfo> pathsInfos = readPathInfos(id);
          String websiteURL = cursor.getString(14);
 
-         ret = new Data.Building(id,name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos);
+         ret = new Building(id,name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos);
       }
 
       return ret;
    }
 
-   private List<Data.PathInfo> readPathInfos(int buildingID){
+   private List<PathInfo> readPathInfos(int buildingID){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("PathInfo", null, "buildingID =?", new String[]{String.valueOf(buildingID)}, null, null, null, null);
 
-      List<Data.PathInfo> ret = null;
+      List<PathInfo> ret = null;
 
       while(cursor.moveToNext()){
          int id = Integer.parseInt(cursor.getString(0));
@@ -280,18 +338,37 @@ public class DBHandler extends SQLiteOpenHelper {
          String description = cursor.getString(3);
          String target = cursor.getString(4);
          String estimatedDuration = cursor.getString(5);
+         int position = Integer.parseInt(cursor.getString(6));
 
-         ret.add(new Data.PathInfo(id,title,description,target,estimatedDuration));
+         ret.add(new PathInfo(id,title,description,target,estimatedDuration, position));
       }
       return ret;
    }
 
-   public Data.Path readPath(int pathID) {
+   public PathInfo readPathInfo(int pathID){
+      SQLiteDatabase db = this.getReadableDatabase();
+      Cursor cursor = db.query("PathInfo", null, "idPath =?", new String[]{String.valueOf(pathID)}, null, null, null, null);
+
+      PathInfo ret = null;
+
+      while(cursor.moveToNext()){
+         String title = cursor.getString(2);
+         String description = cursor.getString(3);
+         String target = cursor.getString(4);
+         String estimatedDuration = cursor.getString(5);
+         int position = Integer.parseInt(cursor.getString(6));
+
+         ret = new PathInfo(pathID,title,description,target,estimatedDuration,position);
+      }
+      return ret;
+   }
+
+   public Path readPath(int pathID) {
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Path", null, "id =?", new String[]{String.valueOf(pathID)}, null, null, null, null);
 
 
-      Data.Path ret = null;
+      Path ret = null;
 
       if (cursor != null) {
          cursor.moveToFirst();
@@ -299,37 +376,37 @@ public class DBHandler extends SQLiteOpenHelper {
          int id = Integer.parseInt(cursor.getString(0));
          String startingMessage = cursor.getString(1);
          String rewardMessage = cursor.getString(2);
-         List<Data.Step> steps = readSteps(pathID);
+         List<Step> steps = readSteps(pathID);
 
-         ret = new Data.Path(id, startingMessage, rewardMessage, steps);
+         ret = new Path(id, startingMessage, rewardMessage, steps);
       }
 
       return ret;
    }
 
-   private List<Data.Step> readSteps(int pathID) {
+   private List<Step> readSteps(int pathID) {
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Step", null, "pathID =?", new String[]{String.valueOf(pathID)}, null, null, null, null);
 
-      List<Data.Step> ret = null;
+      List<Step> ret = null;
 
       while(cursor.moveToNext())
       {
          int id = Integer.parseInt(cursor.getString(0));
-         Data.Beacon stopBeacon = readBeacon(Integer.parseInt(cursor.getString(1)));
-         List<Data.Proximity> proximities = readProximities(id);
-         Data.Proof proof = readProof(Integer.parseInt(cursor.getString(2)));
+         Beacon stopBeacon = readBeacon(Integer.parseInt(cursor.getString(1)));
+         List<Proximity> proximities = readProximities(id);
+         Proof proof = readProof(Integer.parseInt(cursor.getString(2)));
 
-         ret.add(new Data.Step(stopBeacon, proximities, proof, id));
+         ret.add(new Step(stopBeacon, proximities, proof, id));
       }
       return ret;
    }
 
-   public Data.Beacon readBeacon(int beaconID){
+   public Beacon readBeacon(int beaconID){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Beacon", null, "id =?", new String[]{String.valueOf(beaconID)}, null, null, null, null);
 
-      Data.Beacon ret = null;
+      Beacon ret = null;
 
       if(cursor != null){
          cursor.moveToFirst();
@@ -338,37 +415,37 @@ public class DBHandler extends SQLiteOpenHelper {
          int major = Integer.parseInt(cursor.getString(2));
          int minor = Integer.parseInt(cursor.getString(3));
 
-         ret = new Data.Beacon(beaconID, UUID, major, minor);
+         ret = new Beacon(beaconID, UUID, major, minor);
       }
       return ret;
    }
 
-   private List<Data.Proximity> readProximities(int stepID){
+   private List<Proximity> readProximities(int stepID){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Proximity", null, "stepID =?", new String[]{String.valueOf(stepID)}, null, null, null, null);
 
-      List<Data.Proximity> ret = null;
+      List<Proximity> ret = null;
 
       if(cursor != null){
          cursor.moveToFirst();
 
          int id = Integer.parseInt(cursor.getString(0));
-         Data.Beacon beacon = readBeacon(Integer.parseInt(cursor.getString(1)));
+         Beacon beacon = readBeacon(Integer.parseInt(cursor.getString(1)));
          float percentage = Float.parseFloat(cursor.getString(3));
          String textToDisplay = cursor.getString(4);
 
 
-         ret.add(new Data.Proximity(beacon,percentage,textToDisplay,id));
+         ret.add(new Proximity(beacon,percentage,textToDisplay,id));
       }
 
       return ret;
    }
 
-   public Data.Proof readProof(int proofID){
+   public Proof readProof(int proofID){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Proof", null, "id =?", new String[]{String.valueOf(proofID)}, null, null, null, null);
 
-      Data.Proof ret = null;
+      Proof ret = null;
 
       if (cursor != null) {
          cursor.moveToFirst();
@@ -384,50 +461,100 @@ public class DBHandler extends SQLiteOpenHelper {
             //TODO catch conversione string to JSONObject
          }
 
-         ret = new Data.Proof(title,instructions,algorithmData,id);
+         ret = new Proof(title,instructions,algorithmData,id);
       }
 
       return ret;
    }
 
-   public Data.Proximity readProximity(int id){
+   public Proximity readProximity(int id){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Proximity", null, "id =?", new String[]{String.valueOf(id)}, null, null, null, null);
 
-      Data.Proximity ret = null;
+      Proximity ret = null;
 
       if(cursor != null){
          cursor.moveToFirst();
 
-         Data.Beacon beacon = readBeacon(Integer.parseInt(cursor.getString(1)));
+         Beacon beacon = readBeacon(Integer.parseInt(cursor.getString(1)));
          float percentage = Float.parseFloat(cursor.getString(3));
          String textToDisplay = cursor.getString(4);
 
 
-         ret = new Data.Proximity(beacon,percentage,textToDisplay,id);
+         ret = new Proximity(beacon,percentage,textToDisplay,id);
       }
 
       return ret;
    }
 
-   public Data.Step readStep(int id){
+   public Step readStep(int id){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Step", null, "id =?", new String[]{String.valueOf(id)}, null, null, null, null);
 
-      Data.Step ret = null;
+      Step ret = null;
+
+      while(cursor.moveToNext()) {
+         Beacon stopBeacon = readBeacon(Integer.parseInt(cursor.getString(1)));
+         List<Proximity> proximities = readProximities(id);
+         Proof proof = readProof(Integer.parseInt(cursor.getString(2)));
+
+         ret = new Step(stopBeacon, proximities, proof, id);
+      }
+      return ret;
+   }
+
+   public PathResult readPathResult(int pathID){
+      SQLiteDatabase db = this.getReadableDatabase();
+      Cursor cursor = db.query("PathResult", null, "pathID =?", new String[]{String.valueOf(pathID)}, null, null, null, null);
+
+      PathResult ret = null;
 
       if(cursor != null){
          cursor.moveToFirst();
 
-         while(cursor != null) {
+         String pathName = readPathInfo(pathID).title;
+         String buildingName = getBuildingName(pathID);
+         GregorianCalendar startTime = Utility.stringToGregorianCalendar(cursor.getString(2), "startTime");
+         GregorianCalendar endTime = Utility.stringToGregorianCalendar(cursor.getString(3), "endTime");
+         List<ProofResult> proofsResults = readProofResults(pathID);
+         int totalScore = Utility.calculateTotalScore(proofsResults);
 
-            Data.Beacon stopBeacon = readBeacon(Integer.parseInt(cursor.getString(1)));
-            List<Data.Proximity> proximities = readProximities(id);
-            Data.Proof proof = readProof(Integer.parseInt(cursor.getString(2)));
-
-            ret = new Data.Step(stopBeacon, proximities, proof, id);
-         }
+         ret = new PathResult(pathID, pathName, buildingName, startTime, endTime, totalScore, proofsResults);
       }
+
+      return ret;
+   }
+
+   private List<ProofResult> readProofResults(int pathID){
+      SQLiteDatabase db = this.getReadableDatabase();
+      Cursor cursor = db.query("ProofResult", null, "pathID =?", new String[]{String.valueOf(pathID)}, null, null, null, null);
+
+      List<ProofResult> ret = null;
+
+      while(cursor.moveToNext()){
+         int id = Integer.parseInt(cursor.getString(0));
+         GregorianCalendar startTime = Utility.stringToGregorianCalendar(cursor.getString(2),"startTime");
+         GregorianCalendar endTime = Utility.stringToGregorianCalendar(cursor.getString(3),"endTime");
+         int score = Integer.parseInt(cursor.getString(4));
+
+         ret.add(new ProofResult(id, startTime, endTime, score));
+      }
+
+      return ret;
+   }
+
+   private String getBuildingName(int pathID){
+      SQLiteDatabase db = this.getReadableDatabase();
+      String query = "SELECT B.name FROM PathInfo PI JOIN Building B ON PI.buildingID = B.id WHERE PI.idPath =?";
+      Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(pathID)});
+
+      String ret = null;
+
+      while(cursor.moveToNext())
+      {
+         ret = cursor.getString(0);
+      }
+
       return ret;
    }
 
@@ -438,6 +565,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
       deletePathInfo(id);
       deleteSteps(id);
+      deletePathResult(id);
    }
 
    public void deletePathInfo(int pathID){
@@ -447,9 +575,9 @@ public class DBHandler extends SQLiteOpenHelper {
    }
 
    public void deleteSteps(int pathID){
-      List<Data.Step> steps = readSteps(pathID);
+      List<Step> steps = readSteps(pathID);
 
-      Iterator<Data.Step> it = steps.iterator();
+      Iterator<Step> it = steps.iterator();
       while(it.hasNext())
       {
          deleteStep(it.next().id);
@@ -491,39 +619,69 @@ public class DBHandler extends SQLiteOpenHelper {
    }
 
    private void deletePathInfos(int buildingID){
-      List<Data.PathInfo> pathInfos = readPathInfos(buildingID);
+      List<PathInfo> pathInfos = readPathInfos(buildingID);
 
-      Iterator<Data.PathInfo> it = pathInfos.iterator();
+      Iterator<PathInfo> it = pathInfos.iterator();
       while(it.hasNext())
       {
          deletePathInfo(it.next().id);
       }
    }
 
-   public void updatePath(Data.Path p){
+   public void deletePathResult(int pathID){
+      SQLiteDatabase db = this.getWritableDatabase();
+      db.delete("PathResult", "pathID =?", new String[] { String.valueOf(pathID) });
+      db.close();
+
+      deleteProofsResults(pathID);
+   }
+
+   private void deleteProofsResults(int pathID){
+      SQLiteDatabase db = this.getWritableDatabase();
+      db.delete("ProofResult", "pathID =?", new String[] { String.valueOf(pathID) });
+      db.close();
+   }
+
+   public void deleteProofResult(int proofID){
+      SQLiteDatabase db = this.getWritableDatabase();
+      db.delete("ProofResult", "proofID =?", new String[] { String.valueOf(proofID) });
+      db.close();
+   }
+
+   public void updatePath(Path p){
       deletePath(p.id);
       addPath(p);
    }
 
-   public void updatePathInfo(int buildingID, Data.PathInfo pi)
+   public void updatePathInfo(int buildingID, PathInfo pi)
    {
       deletePathInfo(pi.id);
       addPathInfo(buildingID, pi);
    }
 
-   public void updateStep(int pathID, Data.Step s){
+   public void updateStep(int pathID, Step s){
       deleteStep(s.id);
       addStep(pathID,s);
    }
 
-   public void updateProximity(int stepID, Data.Proximity p){
+   public void updateProximity(int stepID, Proximity p){
       deleteProximity(p.id);
       addProximity(stepID, p);
    }
 
-   public void updateBuilding(Data.Building b){
+   public void updateBuilding(Building b){
       deleteBuilding(b.id);
       addBuilding(b);
+   }
+
+   public void updatePathResult(PathResult pr){
+      deletePathResult(pr.pathID);
+      addPathResult(pr);
+   }
+
+   public void updateProofResult(int pathID, ProofResult pr){
+      deleteProofResult(pr.id);
+      addProofResult(pathID, pr);
    }
 
 
