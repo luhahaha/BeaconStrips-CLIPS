@@ -68,10 +68,8 @@ public abstract class DataManager<Data> {
       }
    }
 
-   protected abstract String queryForLocalData(); //
    protected abstract Data parseFromLocal();
    protected abstract void getRemoteData(urlrequest.AbstractUrlRequestListener listener);
    protected abstract Data parseFromUrlRequest(JSONObject response);
    protected abstract void updateLocalData(Data dataToReplace); //Deve fare il controllo
-   protected abstract String getUpdateLocalDataQuery();
 }

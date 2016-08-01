@@ -18,8 +18,6 @@ public class GetRankingDataRequest extends DataManager<Data.PlayerRanking[]> {
       execute();
    }
 
-   protected String queryForLocalData() {return "";}
-
    protected Data.PlayerRanking[] parseFromLocal() {return new Data.PlayerRanking[0];}
 
    protected void getRemoteData(urlrequest.AbstractUrlRequestListener listener) {
@@ -42,6 +40,4 @@ public class GetRankingDataRequest extends DataManager<Data.PlayerRanking[]> {
    }
 
    protected void updateLocalData(Data.PlayerRanking[] data){}
-
-   protected String getUpdateLocalDataQuery() {return "";}
 }

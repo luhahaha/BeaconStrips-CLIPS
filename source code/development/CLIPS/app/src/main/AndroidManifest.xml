@@ -7,7 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".client.viewcontroller.authentication.LoginActivity" />
         <activity android:name=".client.viewcontroller.building.BuildingActivity" />
         <activity android:name=".client.viewcontroller.games.SearchNewStepActivity" />
@@ -31,8 +31,12 @@
         <activity android:name=".client.viewcontroller.savedresults.SavedResultsActivity" />
         <activity android:name=".client.viewcontroller.games.TrueFalseQuiz" />
         <activity android:name=".client.viewcontroller.games.MultipleChoiceQuizActivity" />
-        <activity android:name=".client.viewcontroller.games.ProofResultActivity" />
-        <activity android:name=".client.viewcontroller.games.ProofActivity"></activity>
+        <activity android:name=".client.viewcontroller.games.ProofResultActivity"/>
+        <activity android:name=".client.viewcontroller.games.ProofActivity" />
+        <activity
+            android:name=".client.viewcontroller.utility.MenuActivity"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
