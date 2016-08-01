@@ -14,9 +14,10 @@ android:fitsSystemWindows="true">
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@color/colorPrimary"
         app:theme="@style/AppTheme.NoActionBar"/>
     <FrameLayout
+
         android:id="@+id/activity_content"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
