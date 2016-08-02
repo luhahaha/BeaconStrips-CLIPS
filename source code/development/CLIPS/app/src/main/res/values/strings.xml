@@ -32,6 +32,16 @@
     <string name="true_button">Vero</string>
     <string name="false_button">Falso</string>
     <string name="title_activity_menu">MenuActivity</string>
+    <!-- nav -->
+    <string name="nav_registration">Registrazione</string>
+    <string name="nav_login">Login</string>
+    <string name="nav_path">Percorsi disponibili</string>
+    <string name="nav_buildings">Edifici</string>
+    <string name="nav_profile">Profilo</string>
+    <string name="nav_logout">Logout</string>
+    <string name="nav_info">Info</string>
+    <string name="nav_contacts">Contatti</string>
+
 
     <!-- stringhe variabili -->
     <string name="logged_username">username utente loggato</string>

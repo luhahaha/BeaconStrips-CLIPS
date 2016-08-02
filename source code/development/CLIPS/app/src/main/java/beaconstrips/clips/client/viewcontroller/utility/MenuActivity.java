@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,10 +19,17 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import beaconstrips.clips.R;
+import beaconstrips.clips.client.viewcontroller.authentication.LoginActivity;
+import beaconstrips.clips.client.viewcontroller.authentication.RegistrationActivity;
+import beaconstrips.clips.client.viewcontroller.building.BuildingActivity;
+import beaconstrips.clips.client.viewcontroller.building.BuildingSearchActivity;
+import beaconstrips.clips.client.viewcontroller.building.PathActivity;
+import beaconstrips.clips.client.viewcontroller.games.ProofActivity;
+import beaconstrips.clips.client.viewcontroller.games.SearchNewStepActivity;
 
 public class MenuActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-
+        //implements NavigationView.OnNavigationItemSelectedListener
+{
 
     private NavigationView navigationView;
     private DrawerLayout fullLayout;
@@ -60,7 +69,8 @@ public class MenuActivity extends AppCompatActivity
             toolbar.setVisibility(View.GONE);
         }
 
-        setUpNavView();
+        //setUpNavView();
+        setupContent(navigationView);
     }
 
     /**
@@ -72,72 +82,71 @@ public class MenuActivity extends AppCompatActivity
     {
         return true;
     }
+    protected boolean useDrawerToggle() {return true; }
 
-    protected void setUpNavView()
-    {
-        navigationView.setNavigationItemSelectedListener(this);
-
+    protected void setupContent(NavigationView nav) {
         if( useDrawerToggle()) { // use the hamburger menu
-            drawerToggle = new ActionBarDrawerToggle(this, fullLayout, toolbar,
+        drawerToggle = new ActionBarDrawerToggle(this, fullLayout, toolbar,
                     R.string.navigation_drawer_open,
                     R.string.navigation_drawer_close);
-
-            fullLayout.setDrawerListener(drawerToggle);
             drawerToggle.syncState();
-        } else if(useToolbar() && getSupportActionBar() != null) {
+        }
+        /*else if(useToolbar() && getSupportActionBar() != null) {
             // Use home/back button instead
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeAsUpIndicator(getResources()
                     .getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha));
+        }*/
+
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        selectDrawerItem(menuItem);
+                        return true;
+                    }
+                });
+
+    }
+
+    protected void selectDrawerItem(MenuItem menuItem) {
+        Intent intent = new Intent();
+        switch(menuItem.getItemId()) {
+            case R.id.nav_registration:
+                intent = new Intent(this, RegistrationActivity.class);
+                break;
+            case R.id.nav_login:
+                intent = new Intent(this, LoginActivity.class);
+                break;
+            case R.id.nav_path:
+                // visualizza percorsi disponibili
+                intent = new Intent(this, PathActivity.class);
+                break;
+            case R.id.nav_edifici:
+                // visualizza il "cerca edifici"
+                intent = new Intent(this, BuildingSearchActivity.class);
+                break;
+            case R.id.nav_profilo:
+                // tanto per provare
+                intent = new Intent(this, ProofActivity.class);
+                break;
+            case R.id.nav_info:
+                intent = new Intent(this, AppInfoActivity.class);
+                break;
+            case R.id.nav_contacts:
+                intent = new Intent(this, AppInfoActivity.class);
+                break;
+            case R.id.nav_logout:
+                intent = new Intent(this, AppInfoActivity.class);
+                break;
         }
+        startActivity(intent);
+
+        menuItem.setChecked(true);
+        setTitle(menuItem.getTitle());
+        // chiusura del drawer
+        fullLayout.closeDrawers();
     }
 
-    /**
-     * Helper method to allow child classes to opt-out of having the
-     * hamburger menu.
-     * @return
-     */
-    protected boolean useDrawerToggle()
-    {
-        return true;
-    }
-
-
-    @Override
-    public boolean onNavigationItemSelected(MenuItem menuItem) {
-        fullLayout.closeDrawer(GravityCompat.START);
-        selectedNavItemId = menuItem.getItemId();
-
-        return onOptionsItemSelected(menuItem);
-    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        switch (id)
-//        {
-//            case R.id.action_main:
-//                startActivity(new Intent(this, MainActivity.class));
-//                return true;
-//
-//            case R.id.action_other:
-//                startActivity(new Intent(this, OtherActivity.class));
-//                return true;
-//
-//            case R.id.action_noHamburger :
-//                startActivity(new Intent(this, NoHamburger.class));
-//                return true;
-//
-//            case R.id.action_noToolbar :
-//                startActivity(new Intent(this, NoToolbar.class));
-//                return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 }
+
