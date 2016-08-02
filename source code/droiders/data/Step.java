@@ -1,8 +1,5 @@
 package data;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.List;
 
 public class Step {
@@ -10,16 +7,9 @@ public class Step {
    public final List<Proximity> proximities;
    public final Proof proof;
 
-   public Step(Beacon stopBeacon, List<Proximity> proximities, JSONObject proofData) {
+   public Step(Beacon stopBeacon, List<Proximity> proximities, Proof proof) {
       this.stopBeacon = stopBeacon;
       this.proximities = proximities;
-
-      Proof temp; //questa variabile serve solo perché altrimenti Android Studio rileva un errore se cerco di inizializzare la variabile statica proof sia nel blocco try che in quello dell'eccezione
-      try {
-         temp = new Proof(proofData.getString("title"), proofData.getString("instructions"), proofData.getJSONObject("algorithmData"), proofData.getJSONObject("testData"));
-      } catch(JSONException e) {
-         temp = new Proof("", "", new JSONObject(), new JSONObject()); //non ho listener o qualche altro modo per poter comunicare alle activity l'errore
-      }
-      this.proof = temp;
+      this.proof = proof;
    }
 }
