@@ -219,3 +219,40 @@
 	"userMessage": String?
 }
 ```
+
+#Field Validation
+**url**: `/validateFields`
+**chiamata**: `POST`
+**autenticazione**: `NO`
+**body**:
+```
+{
+   "customToken": Any?,
+	"username" : String,
+	"email"    : String,
+	"password" : String
+}
+```
+_qualcuno dei campi può essere omesso, ovviamente la validazione ritornerà falso_
+**restituisce**:
+```
+{
+	"customToken": Any,
+   "email": {
+      "isValid": Bool,
+      "reason" : String?,
+      "userMessage": String?
+   },
+   "username": {
+      "isValid": Bool,
+      "reason" : String?,
+      "userMessage": String?
+   },
+   "password": {
+      "isValid": Bool,
+      "reason" : String?,
+      "userMessage": String?
+   }
+}
+```
+_il customToken è un campo opzionale che il client può usare per distinguere tra alcune chiamate consecutive nel caso in cui parta una seconda chiamata prima che torni la prima_

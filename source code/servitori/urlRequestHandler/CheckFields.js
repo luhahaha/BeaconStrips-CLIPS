@@ -86,7 +86,7 @@ function checkUsername(username) {
 function FieldsChecker() {
    this.execute = function() {
       const data = this.request.body;
-      var id = data.id;
+      var customToken = data.customToken;
       var email = data.email;
       var password = data.password;
       var username = data.username;
@@ -94,7 +94,7 @@ function FieldsChecker() {
       Promise.all([checkUsername(username), checkEmail(email), checkPassword(password)])
       .then(function ([username, email, password]) {
          this.response.status(200).send({
-            id: id,
+            customToken: customToken,
             username: username,
             email: email,
             password: password
