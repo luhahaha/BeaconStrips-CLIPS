@@ -68,21 +68,19 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        style="@style/RaisedButton"
         android:text="@string/register"
         android:id="@+id/register_button"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/abc_action_bar_content_inset_material" />
 
 
     <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        style="@style/RaisedButton"
         android:text="@string/already_registered"
         android:id="@+id/link_login_button"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/abc_action_bar_content_inset_material" />
 
 </LinearLayout>
 </ScrollView>

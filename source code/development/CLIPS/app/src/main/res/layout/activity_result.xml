@@ -219,22 +219,19 @@
     </LinearLayout>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/RaisedButton"
         android:text="@string/ranking_button"
         android:id="@+id/rankingButton"
         android:layout_gravity="center_horizontal" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/RaisedButton"
         android:text="@string/proofs_button"
         android:id="@+id/proofsButton"
         android:layout_gravity="center_horizontal" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/RaisedButton"
         android:text="@string/save_result_button"
         android:id="@+id/saveResult"
         android:layout_gravity="center_horizontal" />

@@ -29,8 +29,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/RaisedButton"
         android:text="Inizia test"
         android:id="@+id/startTestButton"
         android:layout_centerVertical="true"

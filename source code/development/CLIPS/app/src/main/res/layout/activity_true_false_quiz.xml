@@ -17,19 +17,20 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        style="@style/RaisedButton"
+        android:layout_width="wrap_content"
         android:text="@string/true_button"
         android:id="@+id/trueButton"
         android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_alignEnd="@+id/include" />
 
     <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        style="@style/RaisedButton"
         android:text="@string/false_button"
         android:id="@+id/falseButton"
         android:layout_below="@+id/trueButton"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp" />
 
