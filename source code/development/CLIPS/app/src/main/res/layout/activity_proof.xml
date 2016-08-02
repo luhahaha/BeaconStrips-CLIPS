@@ -29,8 +29,7 @@
         android:paddingBottom="100dp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/RaisedButton"
         android:text="Inizia prova"
         android:id="@+id/startButton"
         android:layout_gravity="center_horizontal" />
