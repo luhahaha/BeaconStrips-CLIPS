@@ -9,10 +9,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
-import java.util.List;
 
-import Data.PathResult;
-import Data.ProofResult;
+import data.PathResult;
+import data.ProofResult;
 
 /**
  * Created by andrea on 02/07/16.

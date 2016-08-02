@@ -2,7 +2,7 @@ package urlrequest;
 
 import android.content.Context;
 
-import Data.PathResult;
+import data.PathResult;
 
 /**
  * Created by andrea on 01/07/16.
