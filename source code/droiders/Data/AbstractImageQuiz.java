@@ -3,11 +3,11 @@ package Data;
 /**
  * Created by andrea on 15/07/16.
  */
-public abstract class AbstractImageQuiz implements AbstractQuiz {
-   public final String pathImage, instructions;
+public abstract class AbstractImageQuiz extends AbstractTextQuiz {
+   public final String pathImage;
 
-   public AbstractImageQuiz(String instructions, String pathImage) {
-      this.instructions = instructions;
+   public AbstractImageQuiz(String helpText, String instructions, String pathImage) {
+      super(helpText, instructions);
       this.pathImage = pathImage;
    }
 }
