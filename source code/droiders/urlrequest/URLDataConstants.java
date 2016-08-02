@@ -5,5 +5,5 @@ package urlrequest;
  */
 
 public class URLDataConstants {
-   protected final static String baseURL = new String("http://52.58.6.246:1234/");
+   final static String baseURL = new String("http://52.58.6.246:1234/");
 }
