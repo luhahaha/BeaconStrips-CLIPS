@@ -12,6 +12,7 @@ const PathsResults = require('./PathsResults.js');
 const Buildings  = require('./Buildings.js');
 const Registration = require('./RegistrationHandler.js');
 const Validator = require('./CheckFields.js');
+const Path = require('./Path.js');
 
 // indica di fare il parse del body di tutte le richieste
 // in entrata come JSON object
@@ -74,6 +75,14 @@ app.post('/validateFields', function(req, res) {
    console.log('handle field validation');
    prepareAndExecute(Validator, req, res);
 });
+
+app.get('/path/:pathID', function(req, res) {
+   console.log('handle path with id ', req.params.pathID);
+   var handler = new Path;
+   handler.request = req;
+   handler.response = res;
+   handler.execute(req.params.pathID);
+})
 
 app.listen(1234);
 

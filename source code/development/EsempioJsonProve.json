@@ -1,3 +1,9 @@
+File che descrive i JSON per le varie tipologie di Prova possibili.
+
+
+
+
+Quiz standard
 {
    "testType": "standardQuiz",
    "testTypeVersion": "0.1",
@@ -19,6 +25,88 @@
             "question": "Qual è il programma preferito di Matteo Franco",
             "answers" : ["StarUML", "Android Studio", "Paint", "MS World"],
             "correntIndex" : 2
+         }
+      ]
+   }
+}
+
+
+Vero o Falso
+{
+   "testType": "VeroFalso",
+   "testTypeVersion": "0.1",
+   "data" : {
+      "shuffleQuestions": false,
+      "questions" : [
+         {
+            "question": "Napoleone Bonaparte era italiano",
+            "correctAnswer": true
+         },
+         {
+            "question": "Matteo Franco usa MS World",
+            "correctAnswer": true
+         },
+         {
+            "question": "Luca è un bravo programmatore",
+            "correctAnswer": false
+         }
+      ]
+   }
+}
+
+
+Premi la figura più grande
+{
+   "testType": "BiggerShape",
+   "testTypeVersion": "0.1",
+   "data" : {
+      "shuffleSets": true,
+      "sets" : [
+         {
+            "shape": "circle",
+            "left" : 10,
+            "right": 8
+         },
+         {
+            "shape": "circle",
+            "left" : 25,
+            "right": 29
+         },
+         {
+            "shape": "square",
+            "left" : 10,
+            "right": 18
+         },
+         {
+            "shape": "square",
+            "left" : 4,
+            "right": 26
+         },
+         {
+            "shape": "triangle",
+            "left" : 35,
+            "right": 28
+         }
+      ]
+   }
+}
+
+
+Collezione di giochi
+{
+   "testType": "GameCollection",
+   "testTypeVersion": "0.1",
+   "data" : {
+      "shuffleGames": true,
+      "games" : [
+         {
+            "un qualsiasi JSON di un gioco definito in questo file"
+         },
+         {
+            "un qualsiasi JSON di un gioco definito in questo file"
+         },
+         {
+            "un qualsiasi JSON di un gioco definito in questo file"
          }
       ]
    }
