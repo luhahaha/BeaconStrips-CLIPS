@@ -40,6 +40,14 @@ public class ConcreteTestFactory implements AbstractTestFactory {
             case "TrueFalseImage": {
                return new TrueFalseImage(testData.getString("helpText"), testData.getString("instructions"), testData.getString("pathImage"), testData.getBoolean("correctAnswer"));
             }
+            case "BiggerShape": {
+               JSONArray setsArray = testData.getJSONArray("sets");
+               BiggerShape.Set[] sets = new BiggerShape.Set[setsArray.length()];
+               for(int i=0; i<setsArray.length(); i++) {
+                  sets[i] = new BiggerShape.Set(setsArray.getJSONObject(i).getString("shape"), setsArray.getJSONObject(i).getInt("left"), setsArray.getJSONObject(i).getInt("right"));
+               }
+               return new BiggerShape(testData.getString("helpText"), sets);
+            }
             default: {
                return null; //non c'è modo di segnalare l'errore all'activity
             }
@@ -69,7 +77,7 @@ public class ConcreteTestFactory implements AbstractTestFactory {
                   testObject.put("testType", "MultipleChoiceText");
                   Test test = new ConcreteTestFactory().createTest(testObject);
                   if(test instanceof MultipleChoiceText) {
-                     questions.add(((MultipleChoiceText)test));
+                     questions.add((MultipleChoiceText)test);
                   }
                }
                return new MultipleChoiceTextCollection(testData.getJSONObject("data").getBoolean("shuffleQuestions"), testData.getJSONObject("data").getBoolean("shuffleAnswers"), questions);
@@ -82,7 +90,7 @@ public class ConcreteTestFactory implements AbstractTestFactory {
                   testObject.put("testType", "MultipleChoiceImage");
                   Test test = new ConcreteTestFactory().createTest(testObject);
                   if(test instanceof MultipleChoiceImage) {
-                     questions.add(((MultipleChoiceImage)test));
+                     questions.add((MultipleChoiceImage)test);
                   }
                }
                return new MultipleChoiceImageCollection(testData.getJSONObject("data").getBoolean("shuffleQuestions"), testData.getJSONObject("data").getBoolean("shuffleAnswers"), questions);
@@ -95,7 +103,7 @@ public class ConcreteTestFactory implements AbstractTestFactory {
                   testObject.put("testType", "TrueFalseText");
                   Test test = new ConcreteTestFactory().createTest(testObject);
                   if(test instanceof TrueFalseText) {
-                     questions.add(((TrueFalseText)test));
+                     questions.add((TrueFalseText)test);
                   }
                }
                return new TrueFalseTextCollection(testData.getJSONObject("data").getBoolean("shuffleQuestions"), questions);
@@ -108,10 +116,23 @@ public class ConcreteTestFactory implements AbstractTestFactory {
                   testObject.put("testType", "TrueFalseImage");
                   Test test = new ConcreteTestFactory().createTest(testObject);
                   if(test instanceof TrueFalseImage) {
-                     questions.add(((TrueFalseImage)test));
+                     questions.add((TrueFalseImage)test);
                   }
                }
                return new TrueFalseImageCollection(testData.getJSONObject("data").getBoolean("shuffleQuestions"), questions);
+            }
+            case "BiggerShapeCollection": {
+               ArrayList<BiggerShape> games = new ArrayList<>();
+               JSONArray array = testData.getJSONObject("data").getJSONArray("games");
+               for(int i=0; i<array.length(); i++) {
+                  JSONObject testObject = array.getJSONObject(i);
+                  testObject.put("testType", "BiggerShape");
+                  Test test = new ConcreteTestFactory().createTest(testObject);
+                  if(test instanceof BiggerShape) {
+                     games.add((BiggerShape)test);
+                  }
+               }
+               return new BiggerShapeCollection(testData.getJSONObject("data").getBoolean("shuffleSets"), games);
             }
             default: {
                return null;
