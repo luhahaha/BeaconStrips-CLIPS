@@ -84,7 +84,7 @@ class URLRequest {
             try {
                String errorBody = new String(error.networkResponse.data, "utf-8");
                JSONObject body = new JSONObject(errorBody);
-               errorData = new ServerError(error.networkResponse.statusCode, body.optString("userMessage"), body.optString("debugMessage"));
+               errorData = new ServerError(error.networkResponse.statusCode, body.optString("debugMessage"), body.optString("userMessage"));
             } catch (JSONException e) {
                errorData = new ServerError(1000, "Error server isn't a JSON, the error code is " + error.networkResponse.statusCode, ""); //per sicurezza, per evitare inconsistenze. L'errore 1000 indica un errore in fase di parsing dell'errore del server causato dal formato errato dei dati ricevuti.
             } catch (UnsupportedEncodingException encError) {
@@ -129,7 +129,7 @@ class URLRequest {
             try {
                String errorBody = new String(error.networkResponse.data, "utf-8");
                JSONObject body = new JSONObject(errorBody);
-               errorData = new ServerError(error.networkResponse.statusCode, body.optString("userMessage"), body.optString("debugMessage"));
+               errorData = new ServerError(error.networkResponse.statusCode, body.optString("debugMessage"), body.optString("userMessage"));
             } catch (JSONException e) {
                errorData = new ServerError(1000, "Error response isn't a JSON, the error code is " + error.networkResponse.statusCode, ""); //per sicurezza, per evitare inconsistenze. L'errore 1000 indica un errore in fase di parsing dell'errore del server causato dal formato errato dei dati ricevuti.
             } catch (UnsupportedEncodingException encError) {

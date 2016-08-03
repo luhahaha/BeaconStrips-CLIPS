@@ -5,12 +5,12 @@ package urlrequest;
  */
 public class ServerError {
    public int errorCode;
-   public String userMessage;
    public String debugMessage;
+   public String userMessage;
 
-   public ServerError(int errorCode, String userMessage, String debugMessage) {
+   public ServerError(int errorCode, String debugMessage, String userMessage) {
       this.errorCode = errorCode;
-      this.userMessage = userMessage;
       this.debugMessage = debugMessage;
+      this.userMessage = userMessage;
    }
 }
