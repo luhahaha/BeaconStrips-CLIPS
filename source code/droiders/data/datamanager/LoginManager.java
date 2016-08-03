@@ -7,9 +7,14 @@ import android.preference.PreferenceManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import data.LoggedUser;
+import urlrequest.AbstractUrlRequestListener;
+import urlrequest.RequestMaker;
+import urlrequest.ServerError;
+
 public class LoginManager {
    private static LoginManager singleInstance;
-   private data.LoggedUser loggedUser;
+   private LoggedUser loggedUser;
    private Context cx; //serve per poter usare SharedPreferences, la classe che permette di usare il "dizionario" con i valori di base che ci interessano
    private AbstractDataManagerListener<Boolean> listener;
 
@@ -18,7 +23,7 @@ public class LoginManager {
       SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
       if(isLogged()) { //se esiste un token già salvato
          String token = preferences.getString("token", ""), email = preferences.getString("email", ""), username = preferences.getString("username", "");
-         loggedUser = new data.LoggedUser(token, email, username); //do per scontato che ci siano tutti i campi se c'è token
+         loggedUser = new LoggedUser(token, email, username); //do per scontato che ci siano tutti i campi se c'è token
       }
    }
 
@@ -26,12 +31,12 @@ public class LoginManager {
       if(initialization==true) {
          SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
          String token = preferences.getString("token", ""), email = preferences.getString("email", ""), username = preferences.getString("username", "");
-         loggedUser = new data.LoggedUser(token, email, username); //do per scontato che ci siano tutti i campi se c'è token
+         loggedUser = new LoggedUser(token, email, username); //do per scontato che ci siano tutti i campi se c'è token
       }
       listener.onResponse(true);
    }
 
-   private void sendError(urlrequest.ServerError error) {
+   private void sendError(ServerError error) {
       listener.onError(error);
    }
 
@@ -51,10 +56,10 @@ public class LoginManager {
       if(username.equals("")) {
          username = loggedUser.username;
       }
-      loggedUser = new data.LoggedUser(token, email, username);
+      loggedUser = new LoggedUser(token, email, username);
    }
 
-   public data.LoggedUser getLoggedUser() {
+   public LoggedUser getLoggedUser() {
       return loggedUser;
    }
 
@@ -70,11 +75,11 @@ public class LoginManager {
       if(loggedUser!=null) {
          logout(new AbstractDataManagerListener<Boolean>() { //serve per eliminare eventuali token ancora salvati, non mi interessa se ha successo o meno perché in locale il token viene riscritto nel caso, invece nel server dopo un tot di tempo che non viene usato il token viene eliminato
             public void onResponse(Boolean response) {}
-            public void onError(urlrequest.ServerError error) {}
+            public void onError(ServerError error) {}
          });
       }
       this.listener = listener;
-      urlrequest.RequestMaker.login(cx, email, password, new urlrequest.AbstractUrlRequestListener() {
+      RequestMaker.login(cx, email, password, new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) { //dentro response ci sono token, email e username
             try {
                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
@@ -86,11 +91,11 @@ public class LoginManager {
                updateLoggedUser(response.getString("token"), response.getString("email"), response.getString("username"));
                sendResponse(true);
             } catch (JSONException e) {
-               sendError(new urlrequest.ServerError(1002, "Error on parsing the response JSON after the execution of login request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
+               sendError(new ServerError(1002, "Error on parsing the response JSON after the execution of login request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
             }
          }
 
-         public void onError(urlrequest.ServerError error) {
+         public void onError(ServerError error) {
             sendError(error);
          }
       });
@@ -98,7 +103,7 @@ public class LoginManager {
 
    public void logout(AbstractDataManagerListener<Boolean> listener) {
       this.listener = listener;
-      urlrequest.RequestMaker.logout(cx, new urlrequest.AbstractUrlRequestListener() {
+      RequestMaker.logout(cx, new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
             SharedPreferences.Editor editor = preferences.edit();
@@ -108,7 +113,7 @@ public class LoginManager {
             sendResponse(false);
          }
 
-         public void onError(urlrequest.ServerError error) {
+         public void onError(ServerError error) {
             sendError(error);
          }
       });
@@ -118,11 +123,11 @@ public class LoginManager {
       if(loggedUser!=null) {
          logout(new AbstractDataManagerListener<Boolean>() { //serve per eliminare eventuali token ancora salvati, non mi interessa se ha successo o meno perché in locale il token viene riscritto nel caso, invece nel server dopo un tot di tempo che non viene usato il token viene eliminato
             public void onResponse(Boolean response) {}
-            public void onError(urlrequest.ServerError error) {}
+            public void onError(ServerError error) {}
          });
       }
       this.listener = listener;
-      urlrequest.RequestMaker.registration(cx, email, username, password, new urlrequest.AbstractUrlRequestListener() {
+      RequestMaker.registration(cx, email, username, password, new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) { //dentro response ci sono token, email e username
             try {
                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
@@ -134,11 +139,11 @@ public class LoginManager {
                updateLoggedUser(response.getString("token"), response.getString("email"), response.getString("username"));
                sendResponse(true);
             } catch (JSONException e) {
-               sendError(new urlrequest.ServerError(1002, "Error on parsing the response JSON after the execution of registration request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
+               sendError(new ServerError(1002, "Error on parsing the response JSON after the execution of registration request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
             }
          }
 
-         public void onError(urlrequest.ServerError error) {
+         public void onError(ServerError error) {
             sendError(error);
          }
       });
@@ -146,7 +151,7 @@ public class LoginManager {
 
    public void change(String username, String oldPassword, String password, AbstractDataManagerListener<Boolean> listener) {
       this.listener = listener;
-      urlrequest.RequestMaker.changeProfileData(cx, username, oldPassword, password, new urlrequest.AbstractUrlRequestListener() {
+      RequestMaker.changeProfileData(cx, username, oldPassword, password, new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) { //dentro response ci sono token, email e username, se lo username è vuoto viene mandato quello vecchio
             try {
                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
@@ -168,11 +173,11 @@ public class LoginManager {
                editor.apply();
                sendResponse(true);
             } catch (JSONException e) {
-               sendError(new urlrequest.ServerError(1002, "Error on parsing the response JSON after the execution of change request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
+               sendError(new ServerError(1002, "Error on parsing the response JSON after the execution of change request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
             }
          }
 
-         public void onError(urlrequest.ServerError error) {
+         public void onError(ServerError error) {
             sendError(error);
          }
       });
@@ -180,12 +185,12 @@ public class LoginManager {
 
    public void check(String email, String username, String password, AbstractDataManagerListener<Boolean> listener) {
       this.listener = listener;
-      urlrequest.RequestMaker.check(cx, email, username, password, new urlrequest.AbstractUrlRequestListener() {
+      RequestMaker.check(cx, email, username, password, new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
                sendResponse(false);
          }
 
-         public void onError(urlrequest.ServerError error) {
+         public void onError(ServerError error) {
             sendError(error);
          }
       });
@@ -193,7 +198,7 @@ public class LoginManager {
 
    public void getProfileData(AbstractDataManagerListener<Boolean> listener) {
       this.listener = listener;
-      urlrequest.RequestMaker.getProfileData(cx, new urlrequest.AbstractUrlRequestListener() {
+      RequestMaker.getProfileData(cx, new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
             try {
                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
@@ -205,11 +210,11 @@ public class LoginManager {
                editor.apply();
                sendResponse(true);
             } catch(JSONException e) {
-               sendError(new urlrequest.ServerError(1002, "Error on parsing the response JSON after the execution of getProfileData request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
+               sendError(new ServerError(1002, "Error on parsing the response JSON after the execution of getProfileData request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
             }
          }
 
-         public void onError(urlrequest.ServerError error) {sendError(error);}
+         public void onError(ServerError error) {sendError(error);}
       });
    }
 }

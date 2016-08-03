@@ -7,6 +7,11 @@ import android.preference.PreferenceManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import data.AppInfo;
+import urlrequest.AbstractUrlRequestListener;
+import urlrequest.RequestMaker;
+import urlrequest.ServerError;
+
 /**
  * Created by andrea on 26/07/16.
  */
@@ -18,25 +23,25 @@ public class AppInfoDataRequest extends DataManager<data.AppInfo> { //La matrice
 
    protected data.AppInfo parseFromLocal() {
       SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
-      data.AppInfo appInfo = new data.AppInfo(preferences.getString("description",""), preferences.getString("supportemail",""), preferences.getString("websiteURL",""), preferences.getString("discoveryUUID",""));
+      AppInfo appInfo = new AppInfo(preferences.getString("description",""), preferences.getString("supportemail",""), preferences.getString("websiteURL",""), preferences.getString("discoveryUUID",""));
       return appInfo;
    }
 
-   protected void getRemoteData(urlrequest.AbstractUrlRequestListener listener) {
-      urlrequest.RequestMaker.getAppInfo(cx, listener);
+   protected void getRemoteData(AbstractUrlRequestListener listener) {
+      RequestMaker.getAppInfo(cx, listener);
    }
 
-   protected data.AppInfo parseFromUrlRequest(JSONObject response){
+   protected AppInfo parseFromUrlRequest(JSONObject response){
       try {
-         data.AppInfo appInfo = new data.AppInfo(response.getString("description"), response.getString("supportemail"), response.getString("websiteURL"), response.getString("discoveryUUID"));
+         AppInfo appInfo = new AppInfo(response.getString("description"), response.getString("supportemail"), response.getString("websiteURL"), response.getString("discoveryUUID"));
          return appInfo;
       } catch(JSONException e) {
-         listener.onError(new urlrequest.ServerError(1002, "Error on parsing the response JSON after the execution of AppInfo request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta;
-         return new data.AppInfo("", "", "", "");
+         listener.onError(new ServerError(1002, "Error on parsing the response JSON after the execution of AppInfo request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta;
+         return new AppInfo("", "", "", "");
       }
    }
 
-   protected void updateLocalData(data.AppInfo data){
+   protected void updateLocalData(AppInfo data){
       SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
       SharedPreferences.Editor editor = preferences.edit();
       editor.remove("description");

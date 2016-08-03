@@ -4,6 +4,9 @@ import android.content.Context;
 
 import org.json.JSONObject;
 
+import urlrequest.AbstractUrlRequestListener;
+import urlrequest.ServerError;
+
 /**
  * Created by andrea on 20/07/16.
  */
@@ -26,16 +29,16 @@ public abstract class DataManager<Data> {
 
    void execute() {
       if(cachePolicy==CachePolicy.NoCache) {
-         getRemoteData(new urlrequest.AbstractUrlRequestListener() { //con il LoginManager l'inizializzazione di variabili mi dava errore, qui no ma comunque è bene controllare per bene che vada tutto a buon fine
+         getRemoteData(new AbstractUrlRequestListener() { //con il LoginManager l'inizializzazione di variabili mi dava errore, qui no ma comunque è bene controllare per bene che vada tutto a buon fine
             public void onResponse(JSONObject response) {
                remoteData = parseFromUrlRequest(response);
                listener.onResponse(remoteData);
             }
-            public void onError(urlrequest.ServerError error) {listener.onError(error);}
+            public void onError(ServerError error) {listener.onError(error);}
          });
       }
       else if(cachePolicy==CachePolicy.AlwaysReplaceLocal) {
-         getRemoteData(new urlrequest.AbstractUrlRequestListener() {
+         getRemoteData(new AbstractUrlRequestListener() {
             public void onResponse(JSONObject response) {
                remoteData = parseFromUrlRequest(response);
                if(remoteData==null) {
@@ -47,19 +50,19 @@ public abstract class DataManager<Data> {
                   listener.onResponse(remoteData);
                }
             }
-            public void onError(urlrequest.ServerError error) {listener.onError(error);}
+            public void onError(ServerError error) {listener.onError(error);}
          });
       }
       else { //cachePolicy==CachePolicy.LocalElseRemote
          cachedData=parseFromLocal();
          if(cachedData==null) {
-            getRemoteData(new urlrequest.AbstractUrlRequestListener() {
+            getRemoteData(new AbstractUrlRequestListener() {
                public void onResponse(JSONObject response) {
                   remoteData = parseFromUrlRequest(response);
                   updateLocalData(remoteData);
                   listener.onResponse(remoteData);
                }
-               public void onError(urlrequest.ServerError error) {listener.onError(error);}
+               public void onError(ServerError error) {listener.onError(error);}
             });
          }
          else {
@@ -69,7 +72,7 @@ public abstract class DataManager<Data> {
    }
 
    protected abstract Data parseFromLocal();
-   protected abstract void getRemoteData(urlrequest.AbstractUrlRequestListener listener);
+   protected abstract void getRemoteData(AbstractUrlRequestListener listener);
    protected abstract Data parseFromUrlRequest(JSONObject response);
    protected abstract void updateLocalData(Data dataToReplace); //Deve fare il controllo
 }

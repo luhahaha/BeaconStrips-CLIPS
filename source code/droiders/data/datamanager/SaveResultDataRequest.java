@@ -5,6 +5,8 @@ import android.content.Context;
 import org.json.JSONObject;
 
 import data.PathResult;
+import urlrequest.AbstractUrlRequestListener;
+import urlrequest.RequestMaker;
 import urlrequest.ServerError;
 
 /**
@@ -20,7 +22,7 @@ public class SaveResultDataRequest extends SaveDataManager { //andrà sicurament
    }
 
    void execute() {
-      urlrequest.RequestMaker.saveResult(cx, result, new urlrequest.AbstractUrlRequestListener() {
+      RequestMaker.saveResult(cx, result, new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) { //se bisogna salvare in locale le operazioni si possono fare qui
             returnResponse();
          }
