@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.location.Location;
 
 import org.json.JSONObject;
 
@@ -320,7 +321,39 @@ public class DBHandler extends SQLiteOpenHelper {
          List<PathInfo> pathsInfos = readPathInfos(id);
          String websiteURL = cursor.getString(14);
 
-         ret = new Building(id,name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos);
+         ret = new Building(name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos);
+      }
+
+      return ret;
+   }
+
+   public List<Building> readBuildings(){
+      SQLiteDatabase db = this.getReadableDatabase();
+      Cursor cursor = db.query("Building", null, "id =?", new String[]{String.valueOf(id)}, null, null, null, null);
+
+      List<Building> ret = null;
+
+      if (cursor != null) {
+         cursor.moveToFirst();
+
+         int id = Integer.parseInt(cursor.getString(0));
+         String name = cursor.getString(1);
+         String description = cursor.getString(2);
+         String otherInfos = cursor.getString(3);
+         String openingTime = cursor.getString(4);
+         String address = cursor.getString(5);
+         double latitude = Double.parseDouble(cursor.getString(6));
+         double longitude = Double.parseDouble(cursor.getString(7));
+         String telephone = cursor.getString(8);
+         String email = cursor.getString(9);
+         String whatsapp = cursor.getString(10);
+         String telegram = cursor.getString(11);
+         String twitter = cursor.getString(12);
+         String facebook = cursor.getString(13);
+         List<PathInfo> pathsInfos = readPathInfos(id);
+         String websiteURL = cursor.getString(14);
+
+         ret.add(new Building(name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos));
       }
 
       return ret;
@@ -618,6 +651,14 @@ public class DBHandler extends SQLiteOpenHelper {
       deletePathInfos(id);
    }
 
+   public void deleteBuildings(){
+      SQLiteDatabase db = this.getWritableDatabase();
+      db.delete("Building", null, null);
+      db.close();
+
+      deleteAllPathInfos();
+   }
+
    private void deletePathInfos(int buildingID){
       List<PathInfo> pathInfos = readPathInfos(buildingID);
 
@@ -628,12 +669,28 @@ public class DBHandler extends SQLiteOpenHelper {
       }
    }
 
+   public void deleteAllPathInfos(){
+      SQLiteDatabase db = this.getWritableDatabase();
+      db.delete("Building", null, null);
+      db.close();
+
+      deleteAllPathInfos();
+   }
+
    public void deletePathResult(int pathID){
       SQLiteDatabase db = this.getWritableDatabase();
       db.delete("PathResult", "pathID =?", new String[] { String.valueOf(pathID) });
       db.close();
 
       deleteProofsResults(pathID);
+   }
+
+   public void deletePathResults(){
+      SQLiteDatabase db = this.getWritableDatabase();
+      db.delete("PathResult", null, null);
+      db.close();
+
+      deleteAllProofsResults();
    }
 
    private void deleteProofsResults(int pathID){
@@ -669,9 +726,16 @@ public class DBHandler extends SQLiteOpenHelper {
       addProximity(stepID, p);
    }
 
+
    public void updateBuilding(Building b){
       deleteBuilding(b.id);
       addBuilding(b);
+   }
+
+
+   public void updateBuildings(Building[] buildings){
+      deleteBuildings();
+      //addBuildings(buildings);
    }
 
    public void updatePathResult(PathResult pr){
@@ -679,10 +743,28 @@ public class DBHandler extends SQLiteOpenHelper {
       addPathResult(pr);
    }
 
+   public void updatePathResults(PathResult[] pr){
+      deletePathResults();
+      //addPathResults(pr);
+   }
+
    public void updateProofResult(int pathID, ProofResult pr){
       deleteProofResult(pr.id);
       addProofResult(pathID, pr);
    }
 
+   public Building[] getNearestBuildings(int buildingsNumber, double latitude, double longitude){
+      SQLiteDatabase db = this.getReadableDatabase();
+
+      List<Building> buildings = readBuildings();
+      Iterator<Building> it = buildings.iterator();
+      Building[] ret =  new Building[buildingsNumber];
+
+      while(it.hasNext()){
+         ret = Utility.addNearestBuilding(it.next(), ret, latitude, longitude);
+      }
+
+      return ret;
+   }
 
 }

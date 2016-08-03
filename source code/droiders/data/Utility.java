@@ -1,5 +1,7 @@
 package data;
 
+import android.location.Location;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -43,5 +45,40 @@ public class Utility {
       }
 
       return ret;
+   }
+
+   private static float distanceToBuilding(Location user, Building b){
+      Location building = new Location("");
+      building.setLongitude(b.longitude);
+      building.setLatitude(b.latitude);
+
+      return user.distanceTo(building);
+   }
+
+   private static Building[] insertBuilding(Building[] buildings, Building b, int index){
+      System.arraycopy(buildings, index,buildings, index+1, (buildings.length-(index+1)));
+      buildings[index] = b;
+      return buildings;
+   }
+
+   public static Building[] addNearestBuilding(Building b, Building[] buildings,double latitude, double longitude){
+      Location userPosition = new Location("");
+      userPosition.setLatitude(latitude);
+      userPosition.setLongitude(longitude);
+
+      Location buildingPosition = new Location("");
+      buildingPosition.setLatitude(b.latitude);
+      buildingPosition.setLongitude(b.longitude);
+
+      float distance = userPosition.distanceTo(buildingPosition);
+
+      for(int i=0; i<buildings.length; ++i){
+         if(distance <= distanceToBuilding(userPosition, buildings[i])){
+            buildings = insertBuilding(buildings, b, i);
+         }
+      }
+
+
+      return buildings;
    }
 }
