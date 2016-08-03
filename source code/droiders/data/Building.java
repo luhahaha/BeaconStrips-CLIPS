@@ -3,7 +3,6 @@ package data;
 import java.util.List;
 
 public class Building {
-   public final int id;
    public final String name;
    public final String description;
    public final String otherInfos;
@@ -20,8 +19,7 @@ public class Building {
    public final List<PathInfo> pathsInfos;
    public final String websiteURL;
 
-   public Building(int id, String name, String description, String otherInfos, String openingTime, String address, double latitude, double longitude, String telephone, String email, String whatsapp, String telegram, String twitter, String facebook, String websiteURL, List<PathInfo> pathsInfos) {
-      this.id = id;
+   public Building(String name, String description, String otherInfos, String openingTime, String address, double latitude, double longitude, String telephone, String email, String whatsapp, String telegram, String twitter, String facebook, String websiteURL, List<PathInfo> pathsInfos) {
       this.name = name;
       this.description = description;
       this.otherInfos = otherInfos;

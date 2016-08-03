@@ -43,7 +43,7 @@ public class BuildingsDataRequest extends DataManager<data.Building[]> {
                JSONObject path = pathArray.getJSONObject(i);
                paths.add(new data.PathInfo(path.getInt("id"), path.getString("title"), path.getString("description"), path.getString("target"), path.getString("estimatedDuration"), path.getInt("position")));
             }
-            buildings[i] = new data.Building(building.getInt("id"), building.getString("name"), building.getString("description"), building.getString("otherinfo"), building.getString("openingTime"), building.getString("address"), building.getDouble("latitude"), building.getDouble("longitude"), building.getString("telephone"), building.getString("email"), building.getString("whatsapp"), building.getString("telegram"), building.getString("twitter"), building.getString("facebook"), building.getString("websiteURL"), paths);
+            buildings[i] = new data.Building(building.getString("name"), building.getString("description"), building.getString("otherinfo"), building.getString("openingTime"), building.getString("address"), building.getDouble("latitude"), building.getDouble("longitude"), building.getString("telephone"), building.getString("email"), building.getString("whatsapp"), building.getString("telegram"), building.getString("twitter"), building.getString("facebook"), building.getString("websiteURL"), paths);
          }
          return buildings;
       } catch(JSONException e) {
