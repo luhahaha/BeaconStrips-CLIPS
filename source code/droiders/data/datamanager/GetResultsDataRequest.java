@@ -71,8 +71,6 @@ public class GetResultsDataRequest extends DataManager<PathResult[]> {
    }
 
    protected void updateLocalData(PathResult[] data){
-      for(int i=0; i<data.length; i++){
-         new DBHandler(cx).updatePathResults(data[i]);
-      }
+         new DBHandler(cx).updatePathResults(data);
    }
 }
