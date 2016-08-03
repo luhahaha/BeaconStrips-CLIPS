@@ -45,7 +45,7 @@ public class PathDataRequest extends DataManager<data.Path> {
                proximities.add(new data.Proximity(proximityBeacon, proximityObject.getDouble("percentage"), proximityObject.getString("textToDisplay")));
             }
             JSONObject proofObject = step.getJSONObject("proof");
-            data.Proof proof = new data.Proof(proofObject.getString("title"), proofObject.getString("instructions"), proofObject.getJSONObject("algorithmData"), proofObject.getJSONObject("testData"));
+            data.Proof proof = new data.Proof(proofObject.getInt("id"), proofObject.getString("title"), proofObject.getString("instructions"), proofObject.getJSONObject("algorithmData"), proofObject.getJSONObject("testData"));
             steps.add(new data.Step(beacon, proximities, proof));
          }
          return new data.Path(response.getInt("id"), response.getString("startingMessage"), response.getString("rewardMessage"), steps);
