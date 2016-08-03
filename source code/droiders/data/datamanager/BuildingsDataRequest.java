@@ -59,8 +59,6 @@ public class BuildingsDataRequest extends DataManager<Building[]> {
    }
 
    protected void updateLocalData(Building[] data){ //cancella i vecchi edifici salvati nel DB locale, aggiunge i nuovi
-      for(int i=0; i<data.length; i++){
-         new DBHandler(cx).updateBuilding(data[i]);
-      }
+         new DBHandler(cx).updateBuilding(data);
    }
 }
