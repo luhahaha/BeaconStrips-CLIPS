@@ -30,7 +30,7 @@ public class BuildingsDataRequest extends DataManager<Building[]> {
    }
 
    protected Building[] parseFromLocal() {
-      return new DBHandler(cx).readBuilding(maxBuildings); //ritorna i maxBuildings edifici salvati in locale
+      return new DBHandler(cx).getNearestBuildings(maxBuildings, latitude, longitude); //ritorna i maxBuildings edifici salvati in locale
    }
 
    protected void getRemoteData(AbstractUrlRequestListener listener) {
@@ -59,6 +59,6 @@ public class BuildingsDataRequest extends DataManager<Building[]> {
    }
 
    protected void updateLocalData(Building[] data){ //cancella i vecchi edifici salvati nel DB locale, aggiunge i nuovi
-         new DBHandler(cx).updateBuilding(data);
+      new DBHandler(cx).updateBuildings(data);
    }
 }
