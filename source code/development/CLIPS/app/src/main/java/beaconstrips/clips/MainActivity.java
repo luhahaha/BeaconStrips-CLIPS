@@ -46,7 +46,7 @@ public class MainActivity extends MenuActivity {
         //noinspection SimplifiableIfStatement
         switch (id)
         {
-            case R.id.nav_camera: return true;
+            //case R.id.nav_camera: return true;
         }
 
         return super.onOptionsItemSelected(item);
