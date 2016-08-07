@@ -8,7 +8,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".client.viewcontroller.authentication.LoginActivity" />
+        <activity android:name=".client.viewcontroller.authentication.LoginActivity"
+            android:theme="@style/AppTheme"/>
         <activity android:name=".client.viewcontroller.building.BuildingActivity" />
         <activity android:name=".client.viewcontroller.games.SearchNewStepActivity" />
         <activity android:name=".client.viewcontroller.savedresults.ResultActivity" />
@@ -21,22 +22,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".client.viewcontroller.authentication.RecoverPassword" />
+        <!-- <activity android:name=".client.viewcontroller.authentication.RecoverPassword" />
         <activity android:name=".client.viewcontroller.authentication.ForgotPassword" />
-        <activity android:name=".client.viewcontroller.authentication.RegistrationActivity" />
-        <activity android:name=".client.viewcontroller.authentication.ConfirmRegistration" />
+        <activity android:name=".client.viewcontroller.authentication.ConfirmRegistration" /> -->
+        <activity android:name=".client.viewcontroller.authentication.RegistrationActivity"
+            android:theme="@style/AppTheme" />
         <activity android:name=".client.viewcontroller.authentication.AccountActivity" />
         <activity android:name=".client.viewcontroller.building.PathActivity" />
         <activity android:name=".client.viewcontroller.savedresults.RankingActivity" />
         <activity android:name=".client.viewcontroller.savedresults.SavedResultsActivity" />
         <activity android:name=".client.viewcontroller.games.TrueFalseQuiz" />
         <activity android:name=".client.viewcontroller.games.MultipleChoiceQuizActivity" />
-        <activity android:name=".client.viewcontroller.games.ProofResultActivity"/>
+        <activity android:name=".client.viewcontroller.games.ProofResultActivity" />
         <activity android:name=".client.viewcontroller.games.ProofActivity" />
         <activity
             android:name=".client.viewcontroller.utility.MenuActivity"
             android:label="@string/title_activity_menu"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            />
+        <activity android:name=".client.viewcontroller.utility.AppInfoProva" />
+        <activity android:name=".client.viewcontroller.utility.AppinfoProfilo"></activity>
     </application>
 
 </manifest>

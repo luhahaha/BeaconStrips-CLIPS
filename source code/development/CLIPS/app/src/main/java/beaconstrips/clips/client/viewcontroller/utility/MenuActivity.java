@@ -127,8 +127,7 @@ public class MenuActivity extends AppCompatActivity
                 intent = new Intent(this, BuildingSearchActivity.class);
                 break;
             case R.id.nav_profilo:
-                // tanto per provare
-                intent = new Intent(this, ProofActivity.class);
+                intent = new Intent(this, AppinfoProfilo.class);
                 break;
             case R.id.nav_info:
                 intent = new Intent(this, AppInfoActivity.class);
@@ -140,13 +139,14 @@ public class MenuActivity extends AppCompatActivity
                 intent = new Intent(this, AppInfoActivity.class);
                 break;
         }
+
         startActivity(intent);
 
         menuItem.setChecked(true);
-        setTitle(menuItem.getTitle());
         // chiusura del drawer
         fullLayout.closeDrawers();
     }
 
 }
+
 

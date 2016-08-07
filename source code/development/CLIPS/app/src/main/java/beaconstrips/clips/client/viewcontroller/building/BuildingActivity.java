@@ -34,6 +34,7 @@ public class BuildingActivity extends AppCompatActivity {
         //TODO add all names of contacts
     }
 
+
     private void setButtons() {
         final Button openPaths = (Button) findViewById(R.id.pathsButton);
         if (openPaths != null) {
