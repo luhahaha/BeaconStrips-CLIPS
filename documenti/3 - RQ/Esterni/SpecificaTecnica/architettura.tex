@@ -13,8 +13,12 @@
 	\begin{itemize}
 		\item REST offre una interfaccia che separa il client dal server. Questa separazione permette di avere ben chiaro quali siano i ruoli delle due componenti in modo che non ci siano conflitti tra le due. Questo porta beneficio anche alla portabilità e alla scalabilità del prodotto;
 		\item la comunicazione tra client e server è stateless, il che significa che ogni richiesta del client sarà interpretabile dal server senza che esso utilizzi alcun contesto presente nel server;
-		\item i risultati ottenuti da una richiesta client-server possono essere salvati in cache così che se il client avesse la necessità di riutilizzare dati già richiesti lo possa fare senza effettuare nuove richieste.
-		
+		\item i risultati ottenuti da una richiesta client-server possono essere salvati in cache così che se il client avesse la necessità di riutilizzare dati già richiesti lo possa fare senza effettuare nuove richieste.	
 	\end{itemize}
-		
+	
+	\subsection{Architettura del database}
+	\label{architetturaDelDatabase}
+	Nella parte server è presente il database dell'applicazione.\\
+	In particolare verrà utilizzato un database relazionale \gl{MySQL} con la possibilità di interagire con esso tramite l'applicazione web \gl{phpMyAdmin} in modo da semplificarne l'amministrazione.
+	Le rappresentazione del database verrà illustrata nel documento \DPdoc.
 		
