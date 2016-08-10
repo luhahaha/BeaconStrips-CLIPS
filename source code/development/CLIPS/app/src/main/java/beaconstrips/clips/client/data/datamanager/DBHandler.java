@@ -363,9 +363,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
       List<Building> ret = null;
 
-      if (cursor != null) {
-         cursor.moveToFirst();
-
+      while(cursor.moveToNext()){
          int id = Integer.parseInt(cursor.getString(0));
          String name = cursor.getString(1);
          String description = cursor.getString(2);
