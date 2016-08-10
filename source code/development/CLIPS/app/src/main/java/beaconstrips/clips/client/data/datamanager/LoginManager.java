@@ -16,7 +16,7 @@ public class LoginManager {
    private static LoginManager singleInstance;
    private LoggedUser loggedUser;
    private Context cx; //serve per poter usare SharedPreferences, la classe che permette di usare il "dizionario" con i valori di base che ci interessano
-   private AbstractDataManagerListener<Boolean> listener;
+   private AbstractDataManagerListener listener;
 
    private LoginManager(Context cx) {
       this.cx = cx;
@@ -188,11 +188,15 @@ public class LoginManager {
       });
    }
 
-   public void check(String email, String username, String password, AbstractDataManagerListener<Boolean> listener) {
-      this.listener = listener;
+   public void check(String email, String username, String password, final AbstractDataManagerListener<CheckResult> checkListener) {
+      listener = checkListener;
       RequestMaker.check(cx, email, username, password, new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
-               sendResponse(false);
+            try {
+               checkListener.onResponse(new CheckResult(response.getBoolean("isValid"), response.optString("reason"), response.optString("debugMessage")));
+            } catch (JSONException e) {
+               sendError(new ServerError(1002, "Error on parsing the response JSON after the execution of change request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
+            }
          }
 
          public void onError(ServerError error) {
