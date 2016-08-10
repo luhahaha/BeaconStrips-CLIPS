@@ -26,14 +26,14 @@
             android:id="@+id/changeInformation_button"
             android:text="Cambia le tue credenziali"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="@dimen/abc_action_bar_content_inset_material"/>
+            />
 
         <Button
             style="@style/RaisedButton"
             android:text="Visulalizza i tuoi risultati"
             android:id="@+id/results_button"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="@dimen/abc_action_bar_content_inset_material" />
+            />
 
     </LinearLayout>
 

@@ -12,32 +12,28 @@
     <include layout="@layout/activity_quiz" />
 
     <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        style="@style/RaisedButton"
         android:text="Risposta 1"
         android:id="@+id/choice1"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        style="@style/RaisedButton"
         android:text="Risposta 2"
         android:id="@+id/choice2"
         android:layout_below="@+id/choice1"
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        style="@style/RaisedButton"
         android:text="Risposta 3"
         android:id="@+id/choice3"
         android:layout_below="@+id/choice2"
         android:layout_alignStart="@+id/choice2" />
 
     <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        style="@style/RaisedButton"
         android:text="RIsposta 4"
         android:id="@+id/choice4"
         android:layout_below="@+id/choice3"

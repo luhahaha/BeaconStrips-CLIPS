@@ -38,12 +38,8 @@
         android:layout_gravity="center_horizontal" />
 
     <Button
+        style="@style/RaisedButton"
         android:id="@+id/link_login_button"
-        style="?android:textAppearanceSmall"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="@string/go_to_profile"
-        android:textStyle="bold"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_gravity="center_horizontal"/>
 </LinearLayout>
