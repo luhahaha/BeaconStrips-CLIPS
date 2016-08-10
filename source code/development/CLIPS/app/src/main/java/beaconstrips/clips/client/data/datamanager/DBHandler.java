@@ -59,19 +59,20 @@ public class DBHandler extends SQLiteOpenHelper {
    }
 
    private void createPathInfoTable(SQLiteDatabase db){
-      String CREATE_PATHINFO_TABLE = "CREATE TABLE" +
-              " PathInfo (idPath INTEGER PRIMARY KEY  NOT NULL  UNIQUE , buildingID INTEGER NOT NULL," +
+      String CREATE_PATHINFO_TABLE = "CREATE TABLE IF NOT EXISTS" +
+              " PathInfo (pathID INTEGER PRIMARY KEY  NOT NULL  UNIQUE , buildingID INTEGER NOT NULL," +
               " title TEXT NOT NULL , description TEXT NOT NULL , target TEXT NOT NULL , estimatedDuration TEXT NOT NULL, position INTEGER NOT NULL" +
-              " FOREIGN KEY(idPath) REFERENCES Path(id), FOREIGN KEY(buildingID) REFERENCES Building(id))";
+              " FOREIGN KEY(pathID) REFERENCES Path(id), FOREIGN KEY(buildingID) REFERENCES Building(id))";
 
       db.execSQL(CREATE_PATHINFO_TABLE);
    }
 
    private void createStepTable(SQLiteDatabase db){
-      String CREATE_STEP_TABLE = "CREATE  TABLE  IF NOT EXISTS" +
-              " Step (id INTEGER PRIMARY KEY  NOT NULL  UNIQUE , stopBeaconID INTEGER NOT NULL  UNIQUE , proofID INTEGER NOT NULL ," +
-              " pathID INTEGER NOT NULL  UNIQUE , position INTEGER NOT NULL, " +
-              " FOREIGN KEY(stopBeaconID) REFERENCES Beacon(id), FOREIGN KEY(pathID) REFERENCES Path(id), FOREIGN KEY(proofID) REFERENCES Proof(id)";
+      String CREATE_STEP_TABLE = "CREATE TABLE  IF NOT EXISTS" +
+              " Step (id INTEGER PRIMARY KEY  NOT NULL  UNIQUE , stopBeaconID INTEGER NOT NULL ," +
+              " proofID INTEGER NOT NULL , pathID INTEGER NOT NULL  UNIQUE , position INTEGER NOT NULL," +
+              "  FOREIGN KEY(stopBeaconID) REFERENCES Beacon(id), FOREIGN KEY(pathID) REFERENCES Path(id)," +
+              " FOREIGN KEY(proofID) REFERENCES Proof(id))";
 
       db.execSQL(CREATE_STEP_TABLE);
    }
@@ -80,9 +81,9 @@ public class DBHandler extends SQLiteOpenHelper {
       //TODO controllo campi tabella
       String CREATE_PROOF_TABLE = "CREATE  TABLE  IF NOT EXISTS" +
               " Proof (id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE ," +
-              " title VARCHAR NOT NULL , instructions TEXT NOT NULL , scoringAlgorithmData TEXT NOT NULL , testData TEXT NOT NULL," +
+              " title VARCHAR NOT NULL , instructions TEXT NOT NULL , scoringAlgorithmData TEXT NOT NULL , " +
               " testType INTEGER NOT NULL , testData TEXT NOT NULL , testTitle VARCHAR NOT NULL ," +
-              " testInstructions TEXT NOT NULL, FOREIGN KEY(stepID) REFERENCES Step(id) )";
+              " testInstructions TEXT NOT NULL)";
 
       db.execSQL(CREATE_PROOF_TABLE);
    }
@@ -98,7 +99,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
    private void createPathResultTable(SQLiteDatabase db){
       String CREATE_PATHRESULT_TABLE = "CREATE  TABLE  IF NOT EXISTS" +
-              " PathResult (idPath INTEGER UNIQUE NOT NULL , startTime DATETIME NOT NULL ," +
+              " PathResult (pathID INTEGER UNIQUE NOT NULL , startTime DATETIME NOT NULL ," +
               " endTime DATETIME NOT NULL, FOREIGN KEY(pathID) REFERENCES Path(id))";
 
       db.execSQL(CREATE_PATHRESULT_TABLE);
@@ -408,7 +409,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
    public PathInfo readPathInfo(int pathID){
       SQLiteDatabase db = this.getReadableDatabase();
-      Cursor cursor = db.query("PathInfo", null, "idPath =?", new String[]{String.valueOf(pathID)}, null, null, null, null);
+      Cursor cursor = db.query("PathInfo", null, "pathID =?", new String[]{String.valueOf(pathID)}, null, null, null, null);
 
       PathInfo ret = null;
 
@@ -635,7 +636,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
    private String getBuildingName(int pathID){
       SQLiteDatabase db = this.getReadableDatabase();
-      String query = "SELECT B.name FROM PathInfo PI JOIN Building B ON PI.buildingID = B.id WHERE PI.idPath =?";
+      String query = "SELECT B.name FROM PathInfo PI JOIN Building B ON PI.buildingID = B.id WHERE PI.pathID =?";
       Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(pathID)});
 
       String ret = null;
@@ -661,7 +662,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
    public void deletePathInfo(int pathID){
       SQLiteDatabase db = this.getWritableDatabase();
-      db.delete("PathInfo", "idPath =?", new String[] { String.valueOf(pathID) });
+      db.delete("PathInfo", "pathID =?", new String[] { String.valueOf(pathID) });
       db.close();
    }
 
