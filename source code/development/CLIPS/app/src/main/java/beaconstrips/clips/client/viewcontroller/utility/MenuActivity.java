@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import beaconstrips.clips.R;
+import beaconstrips.clips.client.viewcontroller.authentication.AccountActivity;
 import beaconstrips.clips.client.viewcontroller.authentication.LoginActivity;
 import beaconstrips.clips.client.viewcontroller.authentication.RegistrationActivity;
 import beaconstrips.clips.client.viewcontroller.building.BuildingActivity;
@@ -127,7 +128,7 @@ public class MenuActivity extends AppCompatActivity
                 intent = new Intent(this, BuildingSearchActivity.class);
                 break;
             case R.id.nav_profilo:
-                intent = new Intent(this, AppinfoProfilo.class);
+                intent = new Intent(this, AccountActivity.class);
                 break;
             case R.id.nav_info:
                 intent = new Intent(this, AppInfoActivity.class);
