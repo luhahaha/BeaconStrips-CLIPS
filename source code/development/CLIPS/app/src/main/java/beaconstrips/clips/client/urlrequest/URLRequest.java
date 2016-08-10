@@ -21,7 +21,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
-import beaconstrips.clips.client.data.datamanager.LoginManager;
+import data.datamanager.LoginManager;
 
 /**
  * Questa classe è la superclasse che permette di comunicare con il server, il metodo execute() imposta la chiamata al server basandosi sulle variabili istanziate dal costruttore. Le sue sottoclassi semplicemente creano il body e impostano le variabili a seconda delle necessità tramite il costruttore di URLRequest. Il metodo execute() sarà usato da RequestMaker all'interno delle chiamate effettuate (o nelle sottoclassi).
@@ -96,9 +96,8 @@ class URLRequest {
          @Override
          public Map<String, String> getHeaders() throws AuthFailureError { //l'errore è di volley
             HashMap<String, String> headers = new HashMap<>();
-            if(LoginManager.sharedManager(cx).getToken()==null)
             if (requiresAuthentication == true)
-               headers.put("Authorization", LoginManager.sharedManager(cx).getToken()); //qui viene aggiunto agli headers il token
+               headers.put("Authorization", LoginManager.sharedManager(cx).getToken()); //qui viene aggiunto agli headers il token, se esso non esiste, ovvero l'utente non è loggato, il valore salvato sarà una stringa vuota, cioè l'autenticazione fallirà sicuramente
             return headers;
          }
       };

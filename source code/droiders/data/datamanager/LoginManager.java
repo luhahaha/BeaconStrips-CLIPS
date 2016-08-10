@@ -63,7 +63,12 @@ public class LoginManager {
       return loggedUser;
    }
 
-   public String getToken() {return loggedUser.token;}
+   public String getToken() {
+      if(isLogged()) {
+         return loggedUser.token;
+      }
+      return "";
+   }
 
    public boolean isLogged() {
       SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);

@@ -7,10 +7,10 @@ import android.preference.PreferenceManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import beaconstrips.clips.client.data.LoggedUser;
-import beaconstrips.clips.client.urlrequest.AbstractUrlRequestListener;
-import beaconstrips.clips.client.urlrequest.RequestMaker;
-import beaconstrips.clips.client.urlrequest.ServerError;
+import data.LoggedUser;
+import urlrequest.AbstractUrlRequestListener;
+import urlrequest.RequestMaker;
+import urlrequest.ServerError;
 
 public class LoginManager {
    private static LoginManager singleInstance;
@@ -63,7 +63,12 @@ public class LoginManager {
       return loggedUser;
    }
 
-   public String getToken() {return loggedUser.token;}
+   public String getToken() {
+      if(isLogged()) {
+         return loggedUser.token;
+      }
+      return "";
+   }
 
    public boolean isLogged() {
       SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
