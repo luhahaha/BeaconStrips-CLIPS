@@ -29,7 +29,7 @@ public abstract class DataManager<Data> {
 
    void execute() {
       if(cachePolicy== CachePolicy.NoCache) {
-         getRemoteData(new AbstractUrlRequestListener() { //con il LoginManager l'inizializzazione di variabili mi dava errore, qui no ma comunque è bene controllare per bene che vada tutto a buon fine
+         getRemoteData(new AbstractUrlRequestListener() {
             public void onResponse(JSONObject response) {
                remoteData = parseFromUrlRequest(response);
                listener.onResponse(remoteData);

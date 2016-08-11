@@ -20,7 +20,7 @@ public class AppInfoActivity extends MenuActivity {
         DataRequestMaker.getAppInfo(getApplicationContext(), new AbstractDataManagerListener<AppInfo>() {
             @Override
             public void onResponse(AppInfo response) {
-                ((TextView) findViewById(R.id.appInfoLabel)).setText(response.description);
+                z((TextView) findViewById(R.id.appInfoLabel)).setText(response.description);
             }
 
             @Override
