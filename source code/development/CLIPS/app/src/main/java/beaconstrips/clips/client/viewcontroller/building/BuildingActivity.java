@@ -90,9 +90,9 @@ public class BuildingActivity extends AppCompatActivity {
         pathsResult.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                String buildingName = (pathsResult.getItemAtPosition(position)).toString();
+                String pathName = (pathsResult.getItemAtPosition(position)).toString();
                 Intent i = new Intent(getApplicationContext(), PathActivity.class);
-                i.putExtra("pathName", buildingName);
+                i.putExtra("pathName", pathName);
                 startActivity(i);
             }
         });
