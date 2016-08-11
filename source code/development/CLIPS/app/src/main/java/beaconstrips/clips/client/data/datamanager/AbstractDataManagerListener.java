@@ -7,8 +7,8 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  */
 
 //la classe astratta da cui derivano i listener del DataManager, onResponse e onError gestiscono le risposte rispettivamente quando viene ottenuta la risposta e quando viene ricevuto un errore
-public abstract class AbstractDataManagerListener<ModelObject> {
-   public abstract void onResponse(ModelObject response);
+public interface AbstractDataManagerListener<ModelObject> {
+   void onResponse(ModelObject response);
 
-   public abstract void onError(ServerError error);
+   void onError(ServerError error);
 }
