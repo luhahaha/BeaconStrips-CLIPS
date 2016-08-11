@@ -217,7 +217,7 @@ public class DBHandler extends SQLiteOpenHelper {
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
-      values.put("id", pi.id);
+      values.put("pathID", pi.id);
       values.put("buildingID", buildingID);
       values.put("title", pi.title);
       values.put("description", pi.description);
