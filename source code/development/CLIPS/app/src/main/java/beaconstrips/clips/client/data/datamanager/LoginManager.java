@@ -134,17 +134,27 @@ public class LoginManager {
       this.listener = listener;
       RequestMaker.registration(cx, email, username, password, new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) { //dentro response ci sono token, email e username
-            try {
-               SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
-               SharedPreferences.Editor editor = preferences.edit();
-               editor.putString("token", response.getString("token"));
-               editor.putString("email", response.getString("email"));
-               editor.putString("username", response.getString("username"));
-               editor.apply();
-               updateLoggedUser(response.getString("token"), response.getString("email"), response.getString("username"));
-               sendResponse(true);
-            } catch (JSONException e) {
-               sendError(new ServerError(1002, "Error on parsing the response JSON after the execution of registration request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
+            int errorCode = response.optInt("errorCode");
+            if(errorCode == 0) {
+               try {
+                  SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
+                  SharedPreferences.Editor editor = preferences.edit();
+                  editor.putString("token", response.getString("token"));
+                  editor.putString("email", response.getJSONObject("userData").getString("email"));
+                  editor.putString("username", response.getJSONObject("userData").getString("username"));
+                  editor.apply();
+                  updateLoggedUser(response.getString("token"), response.getJSONObject("userData").getString("email"), response.getJSONObject("userData").getString("username"));
+                  sendResponse(true);
+               } catch (JSONException e) {
+                  sendError(new ServerError(1002, "Error on parsing the response JSON after the execution of registration request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
+               }
+            }
+            else {
+               try {
+                  sendError(new ServerError(errorCode, response.getString("debugError"), ""));
+               } catch (JSONException e) {
+                  sendError(new ServerError(1002, "Error on parsing the response JSON after the execution of registration request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
+               }
             }
          }
 
