@@ -61,7 +61,7 @@ public class DBHandler extends SQLiteOpenHelper {
    private void createPathInfoTable(SQLiteDatabase db){
       String CREATE_PATHINFO_TABLE = "CREATE TABLE IF NOT EXISTS" +
               " PathInfo (pathID INTEGER PRIMARY KEY  NOT NULL  UNIQUE , buildingID INTEGER NOT NULL," +
-              " title TEXT NOT NULL , description TEXT NOT NULL , target TEXT NOT NULL , estimatedDuration TEXT NOT NULL, position INTEGER NOT NULL" +
+              " title TEXT NOT NULL , description TEXT NOT NULL , target TEXT NOT NULL , estimatedDuration TEXT NOT NULL, position INTEGER NOT NULL," +
               " FOREIGN KEY(pathID) REFERENCES Path(id), FOREIGN KEY(buildingID) REFERENCES Building(id))";
 
       db.execSQL(CREATE_PATHINFO_TABLE);
@@ -106,7 +106,7 @@ public class DBHandler extends SQLiteOpenHelper {
    }
 
    private void createProofResultTable(SQLiteDatabase db){
-      String CREATE_PROOFRESULT_TABLE = "CREATE TABLE" +
+      String CREATE_PROOFRESULT_TABLE = "CREATE TABLE IF NOT EXISTS" +
               " PathResult (proofID INTEGER NOT NULL , pathResultID INTEGER NOT NULL , startTime DATETIME NOT NULL ," +
               " endTime DATETIME NOT NULL, FOREIGN KEY(proofID) REFERENCES Proof(id)," +
               " FOREIGN KEY(pathResultID) REFERENCES PathResult(pathID),UNIQUE(proofID, pathResultID) )";
