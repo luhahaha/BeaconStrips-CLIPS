@@ -1,0 +1,87 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+% !TEX spellcheck = it-IT
+\documentclass[a4paper,titlepage]{article}
+
+\usepackage[utf8x]{inputenc}
+
+\makeatletter
+\def\input@path{{../../../template/}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Verbale del Giorno 2016-06-23}
+\def\VERSIONE{1.0.0}
+\def\DATA{2016-06-24}
+\def\REDATTORE{Viviana Alessio}
+\def\VERIFICATORE{Luca Soldera}
+\def\RESPONSABILE{Tommaso Panozzo}
+\def\USO{Interno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{In questa riunione si è deciso come organizzare il periodo di progettazione di dettaglio e codifica.}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{diario}
+	\modifica{Tommaso Panozzo}{\RES}{Approvazione del verbale}{2016-06-27}{1.0.0}
+	\modifica{Luca Soldera}{\VER}{Verifica del verbale}{2016-06-26}{0.2.0}
+	\modifica{Viviana Alessio}{\PRJ}{Stese le Sezioni 1, 2 e 3}{2016-05-12}{0.1.0}
+\end{diario}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Informazioni}
+\label{sec:Informazioni}
+
+\begin{itemize}
+ \item \textbf{Luogo}: LuF1, Plesso Paolotti - Via G. B. Belzoni 7, 35121, Padova (PD);
+ \item \textbf{Data}: 2016-06-23;
+ \item \textbf{Ora}: 9:30;
+ \item \textbf{Durata}: 2 ora;
+ \item \textbf{Partecipanti}: Viviana Alessio, Luca Soldera, Matteo Franco, Andrea Grendene, Enrico Bellio, Tommaso Panozzo.
+\end{itemize}
+
+\section{Ordine del giorno}
+\label{sec:Ordine del giorno}
+Di seguito sono riportati i punti affrontati durante la riunione.
+
+\begin{enumerate}
+	\item Decidere come organizzarsi per la progettazione di dettaglio.
+	\item Decidere come organizzarsi per la codifica.
+	\item Decidere come mantenere i contatti nella la fase di codifica.
+\end{enumerate}
+
+\section{Decisioni}
+Vengono riportate ora le decisioni prese durante la riunione. \\
+Per rendere più facile il tracciamento e il riferimento dentro e fuori questo documento ad ogni decisione viene assegnato un codice identificativo secondo la seguente codifica:
+\begin{center}
+D[Codice Identificativo]
+\end{center}
+Vengono riportate anche le fonti che hanno portato a queste decisioni, sia interne che esterne. Per fonti interne si intendono le domande a cui è stata trovata risposta durante la riunione.
+
+\begin{tabella}{!{\VRule}c!{\VRule}X[c,b,c]!{\VRule}c!{\VRule}}
+	\intestazionethreecol{Decisione}{Descrizione}{Fonti}
+		D1 & Prima di procedere con la progettazione di dettaglio si è deciso di aspettare il giudizio dei professori riguardo i documenti della RP. Nel frattempo si procederà a studiare le nuove tecnologie che si è deciso di utilizzare.
+		& Punto 1 \\
+		D2 & Si è deciso di dividere il gruppo in tre sottogruppi formati ciascuno da due persone: 
+			\begin{enumerate}
+				\item\ Viviana e Matteo si occuperanno del viewcontroller
+				\item\ Enrico e Andrea si occuperanno del model
+				\item\ Tommaso e Luca si occuperanno di server e database
+			\end{enumerate}
+		& Punto 2 \\
+		D3 & Si è deciso di rimanere in contatto durante il periodo di codifica mediante una chiamata settimanale di gruppo su hangout durante la quale ognuno esporrà i progressi che ha fatto durante la settimana precedente. Abbiamo dovuto adottare questa soluzione in quanto la maggior parte del gruppo in estate ha difficoltà a recarsi a Padova, inoltre per gran parte del mese di Agosto le strutture universitarie chiudono e quindi non avremo modo di trovarci fisicamente agevolmente & Punto 3 \\
+	
+	\hiderowcolors
+	\caption{Tabella delle decisioni prese}
+\end{tabella}
+
+\end{document}
