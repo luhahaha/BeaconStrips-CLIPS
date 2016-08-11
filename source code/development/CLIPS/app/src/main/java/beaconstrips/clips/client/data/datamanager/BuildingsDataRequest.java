@@ -46,10 +46,10 @@ public class BuildingsDataRequest extends DataManager<Building[]> {
             JSONArray pathArray = building.getJSONArray("paths");
             ArrayList<PathInfo> paths = new ArrayList<PathInfo>();
             for(int j=0; j<pathArray.length(); j++) {
-               JSONObject path = pathArray.getJSONObject(i);
+               JSONObject path = pathArray.getJSONObject(j);
                paths.add(new PathInfo(path.getInt("id"), path.getString("title"), path.getString("description"), path.getString("target"), path.getString("estimatedDuration"), path.getInt("position")));
             }
-            buildings[i] = new Building(building.getString("name"), building.getString("description"), building.getString("otherinfo"), building.getString("openingTime"), building.getString("address"), building.getDouble("latitude"), building.getDouble("longitude"), building.getString("telephone"), building.getString("email"), building.getString("whatsapp"), building.getString("telegram"), building.getString("twitter"), building.getString("facebook"), building.getString("websiteURL"), paths);
+            buildings[i] = new Building(building.getString("name"), building.getString("description"), building.getString("otherInfo"), building.getString("openingTime"), building.getString("address"), building.getDouble("latitude"), building.getDouble("longitude"), building.getString("telephone"), building.getString("email"), building.getString("whatsapp"), building.getString("telegram"), building.getString("twitter"), building.getString("facebook"), building.getString("websiteURL"), paths);
          }
          return buildings;
       } catch(JSONException e) {

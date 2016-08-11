@@ -127,6 +127,7 @@ public class BuildingSearchActivity extends MenuActivity {
 
                     @Override
                     public void onError(ServerError error) {
+                        System.out.println(error.errorCode + " " + error.debugMessage + " " + error.userMessage);
                         Log.e("Error", "not working");
                     }
                 });
