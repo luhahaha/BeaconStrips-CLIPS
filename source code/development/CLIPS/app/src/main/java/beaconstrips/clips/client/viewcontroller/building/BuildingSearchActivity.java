@@ -18,6 +18,10 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import beaconstrips.clips.R;
+import beaconstrips.clips.client.data.Building;
+import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
+import beaconstrips.clips.client.data.datamanager.DataRequestMaker;
+import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
 //TODO rendere scrollabile la list view
@@ -49,12 +53,6 @@ public class BuildingSearchActivity extends MenuActivity {
         results.setVisibility(View.INVISIBLE);
 
 
-        ListView listView = (ListView)findViewById(R.id.buildingResults);
-        String [] array = {"Edificio1","Edificio2","Edificio3","Edificio4", "Edificio5", "Edificio6", "Edificio7", "Edificio8"};
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.row_building, R.id.buildingName, array);
-        listView.setAdapter(arrayAdapter);
-        //ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, R.layout.row_building, R.id.textView6, array);
-        //listView.setAdapter(arrayAdapter2);
         //TODO add as row search building
         setSeekBarSignal();
         setCheckBoxSignal();
@@ -107,6 +105,31 @@ public class BuildingSearchActivity extends MenuActivity {
     private void setButton() {
         showResult.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                DataRequestMaker.getBuildings(getApplicationContext(), 45, 11, 10, new AbstractDataManagerListener<Building[]>() {
+                    @Override
+                    public void onResponse(Building[] response) {
+                        Log.i("Building", "" + response.length);
+
+                        //TODO limitare risultati
+                        ListView listView = (ListView)findViewById(R.id.buildingResults);
+
+                        String [] buildingsName = new String[response.length];
+                        for(int i = 0; i < response.length; ++i) {
+                            buildingsName[i] = response[i].name;
+                        }
+                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_building, R.id.buildingName, buildingsName);
+                        listView.setAdapter(arrayAdapter);
+
+                        //TODO aggiungere numero percorsi
+                        // ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, R.layout.row_building, R.id.textView6, array);
+                        //listView.setAdapter(arrayAdapter2);
+                    }
+
+                    @Override
+                    public void onError(ServerError error) {
+                        Log.e("Error", "not working");
+                    }
+                });
                 results.setVisibility(View.VISIBLE);
             }
         });
