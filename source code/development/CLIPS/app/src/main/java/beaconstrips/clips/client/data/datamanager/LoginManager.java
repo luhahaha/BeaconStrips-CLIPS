@@ -7,10 +7,10 @@ import android.preference.PreferenceManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import data.LoggedUser;
-import urlrequest.AbstractUrlRequestListener;
-import urlrequest.RequestMaker;
-import urlrequest.ServerError;
+import beaconstrips.clips.client.data.LoggedUser;
+import beaconstrips.clips.client.urlrequest.AbstractUrlRequestListener;
+import beaconstrips.clips.client.urlrequest.RequestMaker;
+import beaconstrips.clips.client.urlrequest.ServerError;
 
 public class LoginManager {
    private static LoginManager singleInstance;
