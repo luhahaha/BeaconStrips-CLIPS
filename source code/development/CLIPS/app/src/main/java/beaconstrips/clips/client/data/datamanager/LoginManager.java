@@ -188,12 +188,19 @@ public class LoginManager {
       });
    }
 
-   public void check(String email, String username, String password, final AbstractDataManagerListener<CheckResult> checkListener) {
+   public void check(String email, String username, String password, final AbstractDataManagerListener<CheckResult[]> checkListener) {
       listener = checkListener;
       RequestMaker.check(cx, email, username, password, new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
             try {
-               checkListener.onResponse(new CheckResult(response.getBoolean("isValid"), response.optString("reason"), response.optString("debugMessage")));
+               CheckResult[] checks = new CheckResult[3];
+               JSONObject email = response.getJSONObject("email");
+               checks[0] = new CheckResult("email", email.getBoolean("isValid"), email.optString("reason"), email.optString("debugMessage"));
+               JSONObject username = response.getJSONObject("username");
+               checks[1] = new CheckResult("username", username.getBoolean("isValid"), username.optString("reason"), username.optString("debugMessage"));
+               JSONObject password = response.getJSONObject("password");
+               checks[2] = new CheckResult("password", password.getBoolean("isValid"), password.optString("reason"), password.optString("debugMessage"));
+               checkListener.onResponse(checks);
             } catch (JSONException e) {
                sendError(new ServerError(1002, "Error on parsing the response JSON after the execution of change request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
             }
