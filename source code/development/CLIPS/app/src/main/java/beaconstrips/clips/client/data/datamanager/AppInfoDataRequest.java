@@ -15,7 +15,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
 /**
  * Created by andrea on 26/07/16.
  */
-public class AppInfoDataRequest extends DataManager<AppInfo> { //La matrice ha 2 colonne, una con il nome che sarà associato allo SharedPreferences e uno con il contenuto
+public class AppInfoDataRequest extends DataManager<AppInfo> {
    AppInfoDataRequest(Context cx, AbstractDataManagerListener<AppInfo> listener) {
       super(cx, CachePolicy.AlwaysReplaceLocal, listener);
       execute();
