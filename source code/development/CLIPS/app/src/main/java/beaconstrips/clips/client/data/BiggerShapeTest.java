@@ -3,7 +3,12 @@ package beaconstrips.clips.client.data;
 import java.util.List;
 
 /**
- * Created by andrea on 02/08/16.
+ * @file BiggerShapeTest.java
+ * @date 02/08/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che rappresenta un test di BiggerShape, il parametro instructions contiene la descrizione da mostrare all'utente prima dell'avvio del test, per spiegare cosa deve fare; invece shuffleSets indica se i giochi vanno eseguiti nell'ordine in cui sono salvati o in modo misto
  */
 public class BiggerShapeTest extends Test {
    public final String instructions;

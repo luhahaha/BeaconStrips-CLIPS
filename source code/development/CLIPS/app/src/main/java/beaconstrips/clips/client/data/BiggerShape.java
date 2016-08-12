@@ -1,7 +1,12 @@
 package beaconstrips.clips.client.data;
 
 /**
- * Created by andrea on 02/08/16.
+ * @file BiggerShape.java
+ * @date 02/08/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che rappresenta un gioco in cui bisogna scegliere la figura più grande tra le due mostrate; left e right rappresentano la dimensione della figura geometrica, shape indica il tipo di figura visualizzato, mentre helpText contiene il testo di aiuto da mostrare all'utente dopo un certo lasso di tempo
  */
 public class BiggerShape {
    public final String helpText;

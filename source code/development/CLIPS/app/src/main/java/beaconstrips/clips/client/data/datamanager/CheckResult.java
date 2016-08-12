@@ -1,7 +1,12 @@
 package beaconstrips.clips.client.data.datamanager;
 
 /**
- * Created by andrea on 10/08/16.
+ * @file CheckResult.java
+ * @date 10/08/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che rappresenta il risultato del controllo di un dato del profilo, contiene il tipo di dato controllato ("email", "username" o "password"), se il dato inviato è valido e, in caso negativo, perché non è valido
  */
 public class CheckResult {
    public final String type;

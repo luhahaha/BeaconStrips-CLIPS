@@ -1,7 +1,12 @@
 package beaconstrips.clips.client.data;
 
 /**
- * Created by andrea on 15/07/16.
+ * @file TrueFalseTextQuiz.java
+ * @date 15/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che rappresenta una domanda vero o falso
  */
 public class TrueFalseTextQuiz extends AbstractQuiz {
    public final Boolean response; //Dato che la domanda è booleana basta un dato boolean per rappresentare la risposta

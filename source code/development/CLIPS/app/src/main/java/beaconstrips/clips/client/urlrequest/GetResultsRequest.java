@@ -5,10 +5,13 @@ import android.content.Context;
 import com.android.volley.Request;
 
 /**
- * Created by andrea on 02/07/16.
+ * @file GetResultsRequest.java
+ * @date 02/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe derivata da URLRequest dove vengono impostati i dati per effettuare la richiesta al server dei risultati ottenuti dall'utente
  */
-
-//inizializza l'URLRequest per richiedere l'elenco dei percorsi effettuati dall'utente
 public class GetResultsRequest extends URLRequest {
    GetResultsRequest(Context cx, AbstractUrlRequestListener listener) {
       super(cx, Request.Method.GET, URLDataConstants.baseURL + "pathsresults", null, true, listener);

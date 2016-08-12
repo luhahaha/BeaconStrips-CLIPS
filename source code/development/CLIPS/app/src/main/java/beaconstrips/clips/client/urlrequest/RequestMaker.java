@@ -5,16 +5,18 @@ import android.content.Context;
 import beaconstrips.clips.client.data.PathResult;
 
 /**
- * Created by andrea on 01/07/16.
+ * @file RequestMaker.java
+ * @date 01/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che funziona da interfaccia tra l'urlrequest e l'applicazione tramite i metodi statici definiti nella classe
  */
 
-//questa classe contiene i metodi per effettuare tutti i tipi di richieste al server richiesti all'interno dell'app
 public class RequestMaker {
-
-
    //effettua la chiamata per ottenere l'UUID dei beacon e le stringhe con le info dell'app
    public static void getAppInfo(Context cx, AbstractUrlRequestListener listener) {
-      AppInfoRequest request = new AppInfoRequest(cx, listener); //ULRequest viene automaticamente inizializzato
+      AppInfoRequest request = new AppInfoRequest(cx, listener);
    }
 
    //effettua la chiamata per ottenere i risultati dei percorsi dell'utente
@@ -62,10 +64,12 @@ public class RequestMaker {
       CheckRequest request = new CheckRequest(cx, email, username, password, listener);
    }
 
+   //effettua la chiamata per ottenere i dati del profilo dell'utente attualmente salvati
    public static void getProfileData(Context cx, AbstractUrlRequestListener listener) {
       GetProfileDataRequest request = new GetProfileDataRequest(cx, listener);
    }
 
+   //effettua la chiamata per ottenere la classifica del percorso selezionato
    public static void getRanking(Context cx, int pathID, AbstractUrlRequestListener listener) {
       GetRankingRequest request = new GetRankingRequest(cx, pathID, listener);
    }

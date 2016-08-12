@@ -5,7 +5,12 @@ import android.content.Context;
 import beaconstrips.clips.client.urlrequest.ServerError;
 
 /**
- * Created by andrea on 20/07/16.
+ * @file SaveDataManager.java
+ * @date 20/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe astratta dove sono definite le operazioni generali per il salvataggio dei dati nel server, lasciando alle classi derivate la definizione delle operazioni più specifiche
  */
 public abstract class SaveDataManager {
    protected final AbstractDataManagerListener<Boolean> listener;
@@ -20,7 +25,7 @@ public abstract class SaveDataManager {
 
    protected void returnResponse() {
          listener.onResponse(true);
-   } //non viene passato niente perché già la chiamata di questo metodo indica che l'operazione ha avuto esito positivo
+   }
 
    protected void returnError(ServerError error) {
       listener.onError(error);

@@ -14,11 +14,12 @@ import beaconstrips.clips.client.data.PathResult;
 import beaconstrips.clips.client.data.ProofResult;
 
 /**
- * Created by andrea on 02/07/16.
- */
-
-/**
- * classe che inizializza l'URLRequest per inviare i risultati salvati del percorso appena giocato
+ * @file SaveResultRequest.java
+ * @date 02/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe derivata da URLRequest dove vengono impostati i dati per effettuare la richiesta al server di salvare i dati del percorso appena svolto
  */
 public class SaveResultRequest extends URLRequest {
    SaveResultRequest(Context cx, PathResult result, AbstractUrlRequestListener listener) {
@@ -26,7 +27,6 @@ public class SaveResultRequest extends URLRequest {
       execute(ResponseExpected.Object);
    }
 
-   //dato che la chiamata super() deve precedere qualunque altra istruzione costruisco il body in questo metodo, è statico perché altrimenti non può essere usato nel super()
    static JSONObject setBody(PathResult result) {
       JSONArray array = new JSONArray();
       for(ProofResult element : result.proofResults) {

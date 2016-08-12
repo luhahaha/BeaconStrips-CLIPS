@@ -2,6 +2,14 @@ package beaconstrips.clips.client.data;
 
 import org.json.JSONObject;
 
+/**
+ * @file Proof.java
+ * @date 19/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che rappresenta una prova, contiene quindi un test, un algoritmo di calcolo del punteggio, un titolo e una spiegazione
+ */
 public class Proof {
    public final int id;
    public final String instructions;

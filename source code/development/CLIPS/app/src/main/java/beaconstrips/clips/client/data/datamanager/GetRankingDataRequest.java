@@ -6,43 +6,48 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import beaconstrips.clips.client.data.PlayerRanking;
+import beaconstrips.clips.client.data.Score;
 import beaconstrips.clips.client.urlrequest.AbstractUrlRequestListener;
 import beaconstrips.clips.client.urlrequest.RequestMaker;
 import beaconstrips.clips.client.urlrequest.ServerError;
 
 /**
- * Created by andrea on 29/07/16.
+ * @file GetRankingDataRequest.java
+ * @date 29/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe derivata da DataManager dove vengono implementati tutti i metodi necessari per ottenere dal server la classifica del percorso selezionato
  */
-public class GetRankingDataRequest extends DataManager<PlayerRanking[]> {
+public class GetRankingDataRequest extends DataManager<Score[]> {
    int pathID;
 
-   GetRankingDataRequest(Context cx, int pathID, AbstractDataManagerListener<PlayerRanking[]> listener) {
+   GetRankingDataRequest(Context cx, int pathID, AbstractDataManagerListener<Score[]> listener) {
       super(cx, CachePolicy.NoCache, listener);
       this.pathID = pathID;
       execute();
    }
 
-   protected PlayerRanking[] parseFromLocal() {return new PlayerRanking[0];}
+   protected Score[] parseFromLocal() {return new Score[0];}
 
    protected void getRemoteData(AbstractUrlRequestListener listener) {
       RequestMaker.getRanking(cx, pathID, listener);
    }
 
-   protected PlayerRanking[] parseFromUrlRequest(JSONObject response){
+   protected Score[] parseFromUrlRequest(JSONObject response){
       try {
          JSONArray array = response.getJSONArray("array");
-         PlayerRanking[] ranking = new PlayerRanking[array.length()];
+         Score[] ranking = new Score[array.length()];
          for(int i=0; i<array.length(); i++) {
-            JSONObject playerRanking = array.getJSONObject(i);
-            ranking[i] = new PlayerRanking(playerRanking.getString("username"), playerRanking.getInt("position"));
+            JSONObject score = array.getJSONObject(i);
+            ranking[i] = new Score(score.getString("username"), score.getInt("position"), score.getInt("score"));
          }
          return ranking;
       } catch(JSONException e) {
          listener.onError(new ServerError(1002, "Error on parsing the response JSON after the execution of GetRanking request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta;
-         return new PlayerRanking[0];
+         return new Score[0];
       }
    }
 
-   protected void updateLocalData(PlayerRanking[] data){}
+   protected void updateLocalData(Score[] data){}
 }

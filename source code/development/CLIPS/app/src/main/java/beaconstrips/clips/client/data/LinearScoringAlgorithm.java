@@ -1,5 +1,13 @@
 package beaconstrips.clips.client.data;
 
+/**
+ * @file LinearScoringAlgorithm.java
+ * @date 19/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che rappresenta l'algoritmo di calcolo del punteggio usato nella prova, basato sui parametri passati durante l'inizializzazione
+ */
 public class LinearScoringAlgorithm {
    public final int minScore;
    public final int maxScore;

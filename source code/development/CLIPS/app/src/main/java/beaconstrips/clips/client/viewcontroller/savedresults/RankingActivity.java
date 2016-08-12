@@ -1,15 +1,11 @@
 package beaconstrips.clips.client.viewcontroller.savedresults;
 
-import android.service.notification.NotificationListenerService;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import beaconstrips.clips.R;
-import beaconstrips.clips.client.data.PlayerRanking;
-import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
-import beaconstrips.clips.client.data.datamanager.DataRequestMaker;
 
 public class RankingActivity extends AppCompatActivity {
 

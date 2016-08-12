@@ -5,7 +5,12 @@ import android.content.Context;
 import com.android.volley.Request;
 
 /**
- * Created by andrea on 22/07/16.
+ * @file GetProfileDataRequest.java
+ * @date 22/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe derivata da URLRequest dove vengono impostati i dati per effettuare la richiesta al server dei dati del profilo dell'utente
  */
 public class GetProfileDataRequest extends URLRequest {
    GetProfileDataRequest(Context cx, AbstractUrlRequestListener listener) {

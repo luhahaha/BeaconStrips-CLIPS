@@ -1,7 +1,12 @@
 package beaconstrips.clips.client.data;
 
 /**
- * Created by andrea on 15/07/16.
+ * @file TrueFalseImageQuiz.java
+ * @date 15/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che rappresenta una domanda vero o falso, in cui viene usata un'immagine per porre il quesito
  */
 public class TrueFalseImageQuiz extends TrueFalseTextQuiz {
    public final String image; //contiene il nome dell'immagine

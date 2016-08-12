@@ -7,7 +7,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
- * Created by andrea on 02/08/16.
+ * @file TestBuilder.java
+ * @date 02/08/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che crea i test previsti estrendoli dal JSON inviato dal server
  */
 public class TestBuilder {
    public static Test createTest(JSONObject testData) {
@@ -48,7 +53,7 @@ public class TestBuilder {
             JSONObject testObject = array.getJSONObject(i);
             JSONArray answers = testData.getJSONArray("answers");
             int correctIndex = testData.getInt("correctIndex");
-            String[] wrongAnswers = new String[3]; //i quesiti a risposta multipla hanno sempre 4 risposte possibili
+            String[] wrongAnswers = new String[3]; //i quesiti a risposta multipla hanno sempre 4 risposte possibili, di cui 3 errate
             for (int j = 0; j < correctIndex; j++)
                wrongAnswers[j] = answers.getString(j);
             for (int j = correctIndex + 1; j < 4; j++)

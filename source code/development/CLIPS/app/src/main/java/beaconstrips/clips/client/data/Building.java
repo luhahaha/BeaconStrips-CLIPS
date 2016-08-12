@@ -2,6 +2,14 @@ package beaconstrips.clips.client.data;
 
 import java.util.List;
 
+/**
+ * @file Building.java
+ * @date 19/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che rappresenta i dati di un edificio
+ */
 public class Building {
    public final String name;
    public final String description;

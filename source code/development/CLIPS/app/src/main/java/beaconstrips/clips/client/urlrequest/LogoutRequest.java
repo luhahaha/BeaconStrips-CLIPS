@@ -5,7 +5,12 @@ import android.content.Context;
 import com.android.volley.Request;
 
 /**
- * Created by Enrico on 05/07/2016.
+ * @file LogoutRequest.java
+ * @date 05/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe derivata da URLRequest dove vengono impostati i dati per effettuare la richiesta al server di logout.
  */
 public class LogoutRequest extends URLRequest {
    LogoutRequest(Context cx, AbstractUrlRequestListener listener) {

@@ -19,7 +19,12 @@ import beaconstrips.clips.client.urlrequest.RequestMaker;
 import beaconstrips.clips.client.urlrequest.ServerError;
 
 /**
- * Created by andrea on 28/07/16.
+ * @file GetResultsDataRequest.java
+ * @date 28/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe derivata da DataManager dove vengono implementati tutti i metodi necessari per ottenere, dal server o, in caso avvenga qualche errore, dal database locale, tutti i risultati ottenuti dall'utente
  */
 public class GetResultsDataRequest extends DataManager<PathResult[]> {
    GetResultsDataRequest(Context cx, AbstractDataManagerListener<PathResult[]> listener) {

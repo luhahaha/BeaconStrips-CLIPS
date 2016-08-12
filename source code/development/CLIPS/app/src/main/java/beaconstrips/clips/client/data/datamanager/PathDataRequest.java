@@ -18,7 +18,12 @@ import beaconstrips.clips.client.urlrequest.RequestMaker;
 import beaconstrips.clips.client.urlrequest.ServerError;
 
 /**
- * Created by andrea on 27/07/16.
+ * @file PathDataRequest.java
+ * @date 27/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe derivata da DataManager dove vengono implementati tutti i metodi necessari per ottenere, dal server o, in caso avvenga qualche errore, dal database locale, i dati del percorso selezionato dall'utente
  */
 public class PathDataRequest extends DataManager<Path> {
    int pathID;

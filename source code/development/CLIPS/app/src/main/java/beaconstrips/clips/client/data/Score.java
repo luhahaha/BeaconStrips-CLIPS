@@ -1,5 +1,13 @@
 package beaconstrips.clips.client.data;
 
+/**
+ * @file Score.java
+ * @date 19/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che rappresenta il punteggio e la posizione in classifica dell'utente
+ */
 public class Score {
    public final String username;
    public final int position;

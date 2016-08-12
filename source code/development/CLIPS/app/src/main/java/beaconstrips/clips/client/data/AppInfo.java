@@ -1,5 +1,13 @@
 package beaconstrips.clips.client.data;
 
+/**
+ * @file AppInfo.java
+ * @date 19/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che rappresenta i dati generali dell'applicazione
+ */
 public class AppInfo {
    public final String description;
    public final String supportEmail;

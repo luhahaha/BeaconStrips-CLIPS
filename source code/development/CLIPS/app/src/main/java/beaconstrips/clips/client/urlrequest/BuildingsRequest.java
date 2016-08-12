@@ -8,10 +8,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Created by andrea on 02/07/16.
+ * @file BuildingsRequest.java
+ * @date 01/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe derivata da URLRequest dove vengono impostati i dati per effettuare la richiesta al server degli edifici più vicini all'utente
  */
-
-//inizializza l'URLRequest per richiedere l'elenco degli edifici abilitati più vicini alla posizione inviata, per ogni edificio viene inviata anche la lista dei percorsi presenti
 public class BuildingsRequest extends URLRequest {
 
    BuildingsRequest(Context cx, double latitude, double longitude, int maxBuildings, AbstractUrlRequestListener listener) {

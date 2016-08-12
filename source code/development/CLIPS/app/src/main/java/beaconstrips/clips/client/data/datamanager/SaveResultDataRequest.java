@@ -10,7 +10,12 @@ import beaconstrips.clips.client.urlrequest.RequestMaker;
 import beaconstrips.clips.client.urlrequest.ServerError;
 
 /**
- * Created by andrea on 20/07/16.
+ * @file SaveResultDataRequest.java
+ * @date 20/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe derivata da SaveDataManager dove sono definite le operazioni necessarie per salvare nel server il risultato del percorso appena svolto dall'utente
  */
 public class SaveResultDataRequest extends SaveDataManager {
    private PathResult result;

@@ -15,7 +15,12 @@ import beaconstrips.clips.client.urlrequest.RequestMaker;
 import beaconstrips.clips.client.urlrequest.ServerError;
 
 /**
- * Created by andrea on 26/07/16.
+ * @file BuildingsDataRequest.java
+ * @date 26/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe derivata da DataManager dove vengono implementati tutti i metodi necessari per ottenere, dal server o dal database locale, i dati relativi agli edifici più vicini all'utente
  */
 public class BuildingsDataRequest extends DataManager<Building[]> {
    double latitude, longitude;

@@ -8,7 +8,12 @@ import beaconstrips.clips.client.urlrequest.AbstractUrlRequestListener;
 import beaconstrips.clips.client.urlrequest.ServerError;
 
 /**
- * Created by andrea on 20/07/16.
+ * @file DataManager.java
+ * @date 20/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe astratta per ottenere i dati richiesti dall'applicazione tramite le operazioni dichiarate e gestite dalla classe stessa, che verranno implementate dalle classi derivate
  */
 public abstract class DataManager<Data> {
    public enum CachePolicy {

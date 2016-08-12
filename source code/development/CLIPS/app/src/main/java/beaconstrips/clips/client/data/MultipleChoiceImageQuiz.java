@@ -1,7 +1,12 @@
 package beaconstrips.clips.client.data;
 
 /**
- * Created by andrea on 15/07/16.
+ * @file MultipleChoiceImageQuiz.java
+ * @date 15/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che rappresenta una domanda a risposta multipla con 4 scelte possibili, in cui il quesito posto contiene un'immagine
  */
 public class MultipleChoiceImageQuiz extends MultipleChoiceTextQuiz {
    public final String image; //contiene il nome dell'immagine

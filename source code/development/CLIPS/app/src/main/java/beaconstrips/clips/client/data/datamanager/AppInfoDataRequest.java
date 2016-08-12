@@ -13,7 +13,12 @@ import beaconstrips.clips.client.urlrequest.RequestMaker;
 import beaconstrips.clips.client.urlrequest.ServerError;
 
 /**
- * Created by andrea on 26/07/16.
+ * @file AppInfoDataRequest.java
+ * @date 26/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe derivata da DataManager dove vengono implementati tutti i metodi necessari per ottenere, dal server o, in caso avvenga qualche errore, in locale, le informazioni dell'applicazione
  */
 public class AppInfoDataRequest extends DataManager<AppInfo> {
    AppInfoDataRequest(Context cx, AbstractDataManagerListener<AppInfo> listener) {

@@ -8,7 +8,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Created by andrea on 20/07/16.
+ * @file CheckRequest.java
+ * @date 20/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe derivata da URLRequest dove vengono impostati i dati per effettuare la richiesta al server di controllare i dati digitati dall'utente
  */
 public class CheckRequest extends URLRequest{
 

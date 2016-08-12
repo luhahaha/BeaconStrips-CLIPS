@@ -12,10 +12,18 @@ import beaconstrips.clips.client.urlrequest.AbstractUrlRequestListener;
 import beaconstrips.clips.client.urlrequest.RequestMaker;
 import beaconstrips.clips.client.urlrequest.ServerError;
 
+/**
+ * @file LoginManager.java
+ * @date 19/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe dove sono definite tutte le operazioni necessarie per la gestione del profilo dell'utente, fra cui il login, il logout, la modifica dei dati, la registrazione e il controllo dei dati
+ */
 public class LoginManager {
    private static LoginManager singleInstance;
    private LoggedUser loggedUser;
-   private Context cx; //serve per poter usare SharedPreferences
+   private Context cx;
    private AbstractDataManagerListener listener;
 
    private LoginManager(Context cx) {
@@ -108,13 +116,13 @@ public class LoginManager {
 
    public void logout(AbstractDataManagerListener<Boolean> listener) {
       this.listener = listener;
+      SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx); //il logout in locale viene eseguito a prescindere dalla riuscita o meno della chiamata al server
+      SharedPreferences.Editor editor = preferences.edit();
+      editor.remove("token");
+      editor.apply();
+      loggedUser = null; //se viene eseguito il logout allora questi dati non sono più validi
       RequestMaker.logout(cx, new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
-            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.remove("token");
-            editor.apply();
-            loggedUser = null; //se viene eseguito il logout allora questi dati non sono più validi
             sendResponse(false);
          }
 

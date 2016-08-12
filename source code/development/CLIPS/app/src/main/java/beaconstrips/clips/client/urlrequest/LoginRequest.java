@@ -8,7 +8,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Created by Enrico on 05/07/2016.
+ * @file LoginRequest.java
+ * @date 05/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe derivata da URLRequest dove vengono impostati i dati per effettuare la richiesta al server di login
  */
 public class LoginRequest extends URLRequest {
 

@@ -24,9 +24,12 @@ import java.util.Map;
 import beaconstrips.clips.client.data.datamanager.LoginManager;
 
 /**
- * Questa classe è la superclasse che permette di comunicare con il server, il metodo execute() imposta la chiamata al server basandosi sulle variabili istanziate dal costruttore. Le sue sottoclassi semplicemente creano il body e impostano le variabili a seconda delle necessità tramite il costruttore di URLRequest. Il metodo execute() sarà usato da RequestMaker all'interno delle chiamate effettuate (o nelle sottoclassi).
- * <p>
- * NOTA: il contratto della classe si conclude con la richiesta effettuata al server, si arrangia poi il Listener a gestire la risposta sia in caso positivo sia quando avviene un errore
+ * @file URLRequest.java
+ * @date 01/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe base per effettuare le richieste al server, al cui interno vengono definite le chiamate in base ai parametri forniti dalle classi derivate
  */
 
 class URLRequest {
@@ -36,14 +39,14 @@ class URLRequest {
 
    private Context cx;
    private int httpMethod;
-   private String url; //contiene l'url completo per la chiamata al server
+   private String url;
    private JSONObject body;
    private boolean requiresAuthentication; //authentication è vera quando viene richiesta l'autenticazione, e quindi viene aggiunto l'header con il token dell'utente, falso altrimenti
    private AbstractUrlRequestListener listener;
    private static boolean buildingJSONError = false;
 
    URLRequest(Context cx, int httpMethod, String url, JSONObject body, boolean authentication, AbstractUrlRequestListener listener) {
-      this.cx = cx; //vengono inizializzati tutti i dati in base a quelli immessi nel costruttore
+      this.cx = cx;
       this.httpMethod = httpMethod;
       this.url = url;
       this.body = body;

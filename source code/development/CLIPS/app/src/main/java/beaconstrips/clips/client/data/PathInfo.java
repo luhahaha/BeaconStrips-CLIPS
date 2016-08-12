@@ -1,5 +1,13 @@
 package beaconstrips.clips.client.data;
 
+/**
+ * @file PathInfo.java
+ * @date 19/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che rappresenta le informazioni di un percorso da mostrare all'utente nella lista dei percorsi
+ */
 public class PathInfo {
    public final int id;
    public final String title;

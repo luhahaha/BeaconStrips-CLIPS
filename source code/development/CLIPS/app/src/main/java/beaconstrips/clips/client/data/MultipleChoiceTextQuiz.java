@@ -1,10 +1,15 @@
 package beaconstrips.clips.client.data;
 
 /**
- * Created by andrea on 15/07/16.
+ * @file MultipleChoiceTextQuiz.java
+ * @date 15/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che rappresenta una domanda a risposta multipla con 4 scelte possibili
  */
 public class MultipleChoiceTextQuiz extends AbstractQuiz {
-   public final String trueResponse; //Qui è contenuto il testo della risposta
+   public final String trueResponse;
    public final String falseResponse[];
 
    public MultipleChoiceTextQuiz(String helpText, String instructions, String trueResponse, String falseResponse[]) {

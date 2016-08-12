@@ -3,7 +3,12 @@ package beaconstrips.clips.client.data;
 import java.util.List;
 
 /**
- * Created by andrea on 01/08/16.
+ * @file MultipleChoiceTest.java
+ * @date 01/08/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che rappresenta un test di MultipleChoiceTextQuiz e MultipleChoiceImageQuiz, shuffleQuestions indica se le domande devono essere poste nell'ordine in cui sono salvate o in modo misto, shuffleAnswers invece indica se l'ordine delle risposte dev'essere quello salvato o misto
  */
 public class MultipleChoiceTest extends Test {
    public final boolean shuffleQuestions;

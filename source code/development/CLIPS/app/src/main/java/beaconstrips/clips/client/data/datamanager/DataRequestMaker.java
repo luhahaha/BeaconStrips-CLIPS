@@ -6,10 +6,15 @@ import beaconstrips.clips.client.data.AppInfo;
 import beaconstrips.clips.client.data.Building;
 import beaconstrips.clips.client.data.Path;
 import beaconstrips.clips.client.data.PathResult;
-import beaconstrips.clips.client.data.PlayerRanking;
+import beaconstrips.clips.client.data.Score;
 
 /**
- * Created by andrea on 16/07/16.
+ * @file DataRequestMaker.java
+ * @date 16/07/16
+ * @version 1.0.0
+ * @author Andrea Grendene
+ *
+ * classe che funziona da interfaccia tra il datamanager e l'applicazione, escludendo LoginManager che viene usata senza passare per DataRequestMaker
  */
 public class DataRequestMaker {
    public static void getBuildings(Context cx, double latitude, double longitude, int maxBuildings, AbstractDataManagerListener<Building[]> listener) {
@@ -20,7 +25,7 @@ public class DataRequestMaker {
       PathDataRequest request = new PathDataRequest(cx, pathID, listener);
    }
 
-   public static void getRanking(Context cx, int pathID, AbstractDataManagerListener<PlayerRanking[]> listener) {
+   public static void getRanking(Context cx, int pathID, AbstractDataManagerListener<Score[]> listener) {
       GetRankingDataRequest request = new GetRankingDataRequest(cx, pathID, listener);
    }
 
