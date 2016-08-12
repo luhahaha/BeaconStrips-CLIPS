@@ -12,4 +12,5 @@ public class Beacon {
       this.major = major;
       this.minor = minor;
    }
+   
 }
