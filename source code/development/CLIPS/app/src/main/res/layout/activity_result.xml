@@ -17,9 +17,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        style="@style/TextViewTitolo"
         android:text="Percorso"
         android:id="@+id/namePathLabel"
         android:layout_gravity="center_horizontal" />
@@ -33,18 +31,15 @@
 
         <TextView
             android:id="@+id/dateLabel"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            style="@style/TextViewBase"
             android:text="@string/path_date_label"
             android:layout_gravity="left"
-            android:paddingBottom="20dp" />
+            android:textColor="@color/colorText"/>
 
         <TextView
             android:id="@+id/date"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            style="@style/TextViewBase"
+            android:text="jhgfdss"
             android:layout_gravity="right"
             />
 
@@ -59,18 +54,14 @@
 
         <TextView
             android:id="@+id/buildingLabel"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            style="@style/TextViewBase"
             android:text="@string/path_building_label"
             android:layout_gravity="left"
-            android:paddingBottom="20dp" />
+            android:textColor="@color/colorText"/>
 
         <TextView
             android:id="@+id/building"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            style="@style/TextViewBase"
             android:layout_gravity="right" />
     </LinearLayout>
 
@@ -83,17 +74,14 @@
 
         <TextView
             android:id="@+id/totalPathTimeLabel"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            style="@style/TextViewBase"
             android:text="@string/path_total_time_label"
             android:layout_gravity="left"
-            android:paddingBottom="20dp" />
+            android:textColor="@color/colorText"/>
 
         <TextView
             android:id="@+id/totalPathTime"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            style="@style/TextViewBase"
             android:layout_height="wrap_content"
             android:layout_gravity="right" />
     </LinearLayout>
@@ -106,13 +94,11 @@
         android:layout_below="@id/nameLabel" >
 
         <TextView
-            android:id="@+id/totalTimeProofsLabel"
-            android:layout_width="0dp"
+            style="@style/TextViewBase"
+            android:textColor="@color/colorText"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
             android:text="@string/path_total_time_proofs_label"
-            android:layout_gravity="left"
-            android:paddingBottom="20dp" />
+            android:layout_gravity="left"/>
 
         <TextView
             android:id="@+id/totalTimeProofs"
@@ -131,18 +117,14 @@
 
         <TextView
             android:id="@+id/totalScoreLabel"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            style="@style/TextViewBase"
             android:text="@string/path_total_score_label"
             android:layout_gravity="left"
-            android:paddingBottom="20dp" />
+            android:textColor="@color/colorText"/>
 
         <TextView
             android:id="@+id/totalScore"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            style="@style/TextViewBase"
             android:layout_gravity="right" />
     </LinearLayout>
 
@@ -155,18 +137,14 @@
 
         <TextView
             android:id="@+id/minScoreProofLabel"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            style="@style/TextViewBase"
             android:text="@string/path_min_score_proof_label"
             android:layout_gravity="left"
-            android:paddingBottom="20dp" />
+            android:textColor="@color/colorText"/>
 
         <TextView
             android:id="@+id/minScoreProof"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            style="@style/TextViewBase"
             android:layout_gravity="right" />
     </LinearLayout>
 
@@ -179,17 +157,14 @@
 
         <TextView
             android:id="@+id/maxScoreProofLabel"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            style="@style/TextViewBase"
             android:text="@string/path_max_score_proof_label"
             android:layout_gravity="left"
-            android:paddingBottom="20dp" />
+            android:textColor="@color/colorText"/>
 
         <TextView
             android:id="@+id/maxScoreProof"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            style="@style/TextViewBase"
             android:layout_height="wrap_content"
             android:layout_gravity="right" />
     </LinearLayout>
@@ -203,12 +178,10 @@
 
         <TextView
             android:id="@+id/rankingPositionLabel"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            style="@style/TextViewBase"
             android:text="@string/path_ranking_position_label"
             android:layout_gravity="left"
-            android:paddingBottom="20dp" />
+            android:textColor="@color/colorText"/>
 
         <TextView
             android:id="@+id/rankingPosition"

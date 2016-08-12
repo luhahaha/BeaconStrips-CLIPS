@@ -11,22 +11,16 @@
     tools:context="beaconstrips.clips.client.viewcontroller.games.ProofActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        style="@style/TextViewTitolo"
         android:text="Titolo"
         android:id="@+id/titleLabel"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="30dp" />
+        android:layout_gravity="center_horizontal" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        style="@style/TextViewBase"
         android:text="Istruzioni"
         android:id="@+id/instructionLabel"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="100dp" />
+        android:layout_gravity="center_horizontal" />
 
     <Button
         style="@style/RaisedButton"

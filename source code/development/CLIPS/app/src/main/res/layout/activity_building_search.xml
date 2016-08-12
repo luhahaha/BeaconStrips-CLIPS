@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/buildingResults"
         android:clickable="true"
-        android:divider="@color/colorPrimary"
+        android:divider="@color/colorAccent"
         android:dividerHeight="1dp"
         android:scrollbars="vertical"
         android:layout_below="@+id/row_search_criteria"

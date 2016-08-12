@@ -4,19 +4,14 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Player"
-        android:id="@+id/nameLabel" />
+        style="@style/TextViewBase"
+        android:text="Player:"
+        android:id="@+id/nameLabel"
+        android:textColor="@color/colorText"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        style="@style/TextViewBase"
         android:text="Score"
         android:id="@+id/totalScoreLabel"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="69dp" />
+        android:layout_toRightOf="@+id/nameLabel"/>
 </RelativeLayout>

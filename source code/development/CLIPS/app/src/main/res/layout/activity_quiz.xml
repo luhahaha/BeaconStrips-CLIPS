@@ -4,17 +4,13 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        style="@style/TextViewTitolo"
         android:text="Domanda"
         android:id="@+id/questionLabel"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="@dimen/abc_action_bar_content_inset_material" />
+        android:layout_gravity="center_horizontal" />
 
     <TextView
         style="@style/TextViewBase"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
         android:text="testo della domanda" />
 </LinearLayout>

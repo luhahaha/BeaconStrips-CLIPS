@@ -10,15 +10,12 @@
     tools:context="beaconstrips.clips.client.viewcontroller.building.PathActivity"
     android:clickable="false">
 
+
+    <!-- a cosa serve questa? -->
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        style="@style/TextViewTitolo"
         android:text=""
-        android:id="@+id/nameLabel"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:paddingBottom="20dp" />
+        android:id="@+id/nameLabel" />
 
     <LinearLayout
         android:id="@+id/pathDescription"
@@ -29,20 +26,17 @@
 
         <TextView
             android:id="@+id/descriptionLabel"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            style="@style/TextViewBase"
             android:text="@string/path_description_label"
             android:layout_gravity="left"
-            android:paddingBottom="20dp" />
+            android:textColor="@color/colorText"
+            android:layout_width="130dp"/>
 
         <TextView
             android:id="@+id/description"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:layout_gravity="right"
+            style="@style/TextViewBase"
+            android:text="jhgfdsjhgfdshgfdsfghjfghjbhgfdsgfd"
+            android:layout_gravity="center_horizontal"
             />
 
     </LinearLayout>
@@ -56,20 +50,17 @@
 
     <TextView
         android:id="@+id/targetLabel"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
+        style="@style/TextViewBase"
         android:text="@string/target"
         android:layout_gravity="left"
-        android:paddingBottom="20dp" />
+        android:textColor="@color/colorText"
+        android:layout_width="130dp"/>
 
     <TextView
         android:id="@+id/target"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:layout_gravity="right"
+        style="@style/TextViewBase"
+        android:text="fshdjytgeajdsaaresdhsarttfsaredfghjk"
+        android:layout_gravity="center_horizontal"
         />
 
     </LinearLayout>
@@ -83,21 +74,17 @@
 
         <TextView
             android:id="@+id/durationLabel"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            style="@style/TextViewBase"
             android:text="@string/duration"
             android:layout_gravity="left"
-            android:paddingBottom="20dp" />
+            android:textColor="@color/colorText"
+            android:layout_width="130dp"/>
 
         <TextView
             android:id="@+id/duration"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:layout_gravity="right"
-            />
+            style="@style/TextViewBase"
+            android:text="inf"
+            android:layout_gravity="right"/>
 
     </LinearLayout>
 

@@ -16,26 +16,16 @@
         android:layout_gravity="center_horizontal" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text=""
+        style="@style/TextViewBase"
+        android:text="email schermata precedente"
         android:id="@+id/email_text"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp"
         android:layout_gravity="center_horizontal" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text=""
-        android:id="@+id/password_text"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp"
-        android:layout_gravity="center_horizontal" />
+        style="@style/TextViewBase"
+        android:text="pwd shcermata precedente"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/password_text"/>
 
     <Button
         style="@style/RaisedButton"

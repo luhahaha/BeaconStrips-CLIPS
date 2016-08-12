@@ -14,12 +14,17 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            style="@style/TextViewTitolo"
             android:text="@string/account_label"
             android:id="@+id/account_label"
-            android:layout_centerHorizontal="true" />
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            style="@style/TextViewBase"
+            android:text="@string/logged_email"
+            android:id="@+id/account_email"
+            android:layout_gravity="center_horizontal"/>
+        <!-- da aggiungere altre textview per le altre info -->
 
         <Button
             style="@style/RaisedButton"

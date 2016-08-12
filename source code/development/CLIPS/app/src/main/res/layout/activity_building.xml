@@ -10,17 +10,14 @@
     tools:context="beaconstrips.clips.client.viewcontroller.building.BuildingActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        style="@style/TextViewTitolo"
         android:text="Large Text"
         android:id="@+id/buildingName"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"/>
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/buildingName"
         android:id="@+id/linearLayout">
@@ -28,14 +25,13 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView2" />
+            android:id="@+id/imageView2"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/textView8" />
+            style="@style/TextViewBase"
+            android:id="@+id/textView8"
+            android:text="testo"
+            />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -43,11 +39,9 @@
             android:id="@+id/imageView3" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/textView9" />
+            style="@style/TextViewBase"
+            android:id="@+id/textView9"
+            android:text="testo"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -55,10 +49,8 @@
             android:id="@+id/imageView4" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
+            style="@style/TextViewBase"
+            android:text="testo"
             android:id="@+id/textView10" />
 
         <ImageView
@@ -70,15 +62,14 @@
             style="@style/RaisedButton"
             android:text="Visualizza percorsi"
             android:id="@+id/pathsButton"
-            android:layout_gravity="center_horizontal"
             android:visibility="gone"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            style="@style/TextViewTitolo"
             android:text="@string/available_paths"
-            android:id="@+id/availablePathsLabel" />
+            android:id="@+id/availablePathsLabel"
+            android:layout_gravity="center_horizontal"
+            />
 
     </LinearLayout>
 
