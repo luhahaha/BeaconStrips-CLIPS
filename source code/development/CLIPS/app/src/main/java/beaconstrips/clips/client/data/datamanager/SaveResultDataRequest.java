@@ -12,7 +12,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
 /**
  * Created by andrea on 20/07/16.
  */
-public class SaveResultDataRequest extends SaveDataManager { //andrà sicuramente modificata o questa classe o SaveDataManager, altrimenti in execute non finirà mai result
+public class SaveResultDataRequest extends SaveDataManager {
    private PathResult result;
 
    public SaveResultDataRequest(Context cx, PathResult result, AbstractDataManagerListener<Boolean> listener) {
