@@ -12,7 +12,6 @@ import beaconstrips.clips.client.data.PlayerRanking;
  * Created by andrea on 16/07/16.
  */
 public class DataRequestMaker {
-   //Questo codice sarà sotto commento finché non verranno implementate le classi chiamate
    public static void getBuildings(Context cx, double latitude, double longitude, int maxBuildings, AbstractDataManagerListener<Building[]> listener) {
       BuildingsDataRequest request = new BuildingsDataRequest(cx, latitude, longitude, maxBuildings, listener);
    }
