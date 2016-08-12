@@ -15,7 +15,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
 public class LoginManager {
    private static LoginManager singleInstance;
    private LoggedUser loggedUser;
-   private Context cx; //serve per poter usare SharedPreferences, la classe che permette di usare il "dizionario" con i valori di base che ci interessano
+   private Context cx; //serve per poter usare SharedPreferences
    private AbstractDataManagerListener listener;
 
    private LoginManager(Context cx) {
@@ -23,7 +23,7 @@ public class LoginManager {
       SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
       if(isLogged()) { //se esiste un token già salvato
          String token = preferences.getString("token", ""), email = preferences.getString("email", ""), username = preferences.getString("username", "");
-         loggedUser = new LoggedUser(token, email, username); //do per scontato che ci siano tutti i campi se c'è token
+         loggedUser = new LoggedUser(token, email, username); //assumo che ci siano tutti i campi se c'è token
       }
    }
 
@@ -31,7 +31,7 @@ public class LoginManager {
       if(initialization==true) {
          SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
          String token = preferences.getString("token", ""), email = preferences.getString("email", ""), username = preferences.getString("username", "");
-         loggedUser = new LoggedUser(token, email, username); //do per scontato che ci siano tutti i campi se c'è token
+         loggedUser = new LoggedUser(token, email, username); //assumo che ci siano tutti i campi se c'è token
       }
       listener.onResponse(true);
    }
@@ -46,8 +46,8 @@ public class LoginManager {
       return singleInstance;
    }
 
-   void updateLoggedUser(String token, String email, String username) {
-      if(token.equals("")) { //serve per il change, così mi basta un unico metodo per tutti i casi in cui serve reinizializzare loggedUser, se i dati non sono forniti vengono utilizzati quelli vecchi
+   private void updateLoggedUser(String token, String email, String username) {
+      if(token.equals("")) { //serve per il change, così basta un unico metodo per tutti i casi in cui serve reinizializzare loggedUser, se i dati non sono forniti vengono utilizzati quelli vecchi
          token = loggedUser.token;
       }
       if(email.equals("")) {
@@ -85,7 +85,7 @@ public class LoginManager {
       }
       this.listener = listener;
       RequestMaker.login(cx, email, password, new AbstractUrlRequestListener() {
-         public void onResponse(JSONObject response) { //dentro response ci sono token, email e username
+         public void onResponse(JSONObject response) {
             try {
                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
                SharedPreferences.Editor editor = preferences.edit();
@@ -124,7 +124,7 @@ public class LoginManager {
       });
    }
 
-   public void registration(String email, String username, String password, AbstractDataManagerListener<Boolean> listener) { //questo metodo è uguale a login, cambia solo il metodo chiamato in urlrequest.RequestMaker
+   public void registration(String email, String username, String password, AbstractDataManagerListener<Boolean> listener) {
       if(loggedUser!=null) {
          logout(new AbstractDataManagerListener<Boolean>() { //serve per eliminare eventuali token ancora salvati, non mi interessa se ha successo o meno perché in locale il token viene riscritto nel caso, invece nel server dopo un tot di tempo che non viene usato il token viene eliminato
             public void onResponse(Boolean response) {}
@@ -133,7 +133,7 @@ public class LoginManager {
       }
       this.listener = listener;
       RequestMaker.registration(cx, email, username, password, new AbstractUrlRequestListener() {
-         public void onResponse(JSONObject response) { //dentro response ci sono token, email e username
+         public void onResponse(JSONObject response) {
             int errorCode = response.optInt("errorCode");
             if(errorCode == 0) {
                try {
@@ -167,7 +167,7 @@ public class LoginManager {
    public void change(String username, String oldPassword, String password, AbstractDataManagerListener<Boolean> listener) {
       this.listener = listener;
       RequestMaker.changeProfileData(cx, username, oldPassword, password, new AbstractUrlRequestListener() {
-         public void onResponse(JSONObject response) { //dentro response ci sono token, email e username, se lo username è vuoto viene mandato quello vecchio
+         public void onResponse(JSONObject response) {
             try {
                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
                SharedPreferences.Editor editor = preferences.edit();

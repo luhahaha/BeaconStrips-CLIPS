@@ -23,6 +23,26 @@ public class MainActivity extends MenuActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+      /*beaconstrips.clips.client.data.datamanager.LoginManager.sharedManager(getApplicationContext()).logout(new beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener<Boolean>() {
+          public void onResponse(Boolean response) {
+            System.out.println("Logout avvenuto con successo");
+          }
+
+          public void onError(beaconstrips.clips.client.urlrequest.ServerError error) {
+             System.out.println("Errore in fase di logout");
+          }
+       });
+
+       /*beaconstrips.clips.client.data.datamanager.LoginManager.sharedManager(getApplicationContext()).registration("cenze@gmail.com", "Cenze", "Cenze94", new beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener<Boolean>(){
+          public void onResponse(Boolean response) {
+             System.out.println("Registrazione avvenuta con successo");
+          }
+          public void onError(beaconstrips.clips.client.urlrequest.ServerError error) {
+             System.out.println(error.errorCode+ " "+error.debugMessage+" "+error.userMessage);
+          }
+       });*/
+
         setContentView(R.layout.activity_main);
         Intent intent = new Intent(this, SearchNewStepActivity.class);
         startActivity(intent);
