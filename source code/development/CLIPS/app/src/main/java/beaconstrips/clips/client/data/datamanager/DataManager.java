@@ -15,8 +15,8 @@ public abstract class DataManager<Data> {
       NoCache, AlwaysReplaceLocal, LocalElseRemote
    }
 
-   protected final AbstractDataManagerListener<Data> listener; //se poi viene dichiarato private il final non serve
-   public final CachePolicy cachePolicy; //se poi viene dichiarato private il final non serve
+   protected final AbstractDataManagerListener<Data> listener;
+   protected final CachePolicy cachePolicy;
    protected Data cachedData; //sono i dati salvati in locale, ovviamente il campo è inizializzato solo se ci sono dati salvati in locale e se la polizza di cache prevede il salvataggio in locale
    protected Data remoteData; //sono i dati ricevuti dal server, ovviamente il campo è inizializzato solo se la polizza permette di richiedere i dati al server
    protected final Context cx;
@@ -27,7 +27,7 @@ public abstract class DataManager<Data> {
       this.listener=listener;
    }
 
-   void execute() {
+   protected void execute() {
       if(cachePolicy== CachePolicy.NoCache) {
          getRemoteData(new AbstractUrlRequestListener() {
             public void onResponse(JSONObject response) {
@@ -74,5 +74,5 @@ public abstract class DataManager<Data> {
    protected abstract Data parseFromLocal();
    protected abstract void getRemoteData(AbstractUrlRequestListener listener);
    protected abstract Data parseFromUrlRequest(JSONObject response);
-   protected abstract void updateLocalData(Data dataToReplace); //Deve fare il controllo
+   protected abstract void updateLocalData(Data dataToReplace);
 }
