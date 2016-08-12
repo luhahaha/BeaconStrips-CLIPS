@@ -19,6 +19,7 @@ public class PathActivity extends MenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_path);
         Intent i = getIntent();
+        int pathId = i.getIntExtra("pathId", 0);
         String valueName = i.getStringExtra("pathName");
         TextView name = (TextView) findViewById(R.id.nameLabel);
         name.setText(valueName);

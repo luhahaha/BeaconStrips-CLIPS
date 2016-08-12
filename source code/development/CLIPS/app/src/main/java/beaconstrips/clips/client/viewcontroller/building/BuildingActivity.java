@@ -27,7 +27,7 @@ public class BuildingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_building);
         Intent i = getIntent();
-        String valueName = i.getStringExtra("pathName");
+        final String valueName = i.getStringExtra("buildingName");
         name = (TextView) findViewById(R.id.buildingName);
         name.setText(valueName);
         pathsResult = (ListView) findViewById(R.id.pathsResult);
@@ -44,17 +44,31 @@ public class BuildingActivity extends AppCompatActivity {
                 Building loadPaths = null;
                 //TODO check se non trovato
                 for(int i = 0; !found && i < response.length; ++i) {
-                    if(response[i].name == name.toString()) {
+                    Log.i("Edifici", "" + response[i].name);
+                    if(response[i].name.equals(valueName)) {
                         loadPaths = response[i];
                         found = true;
                     }
+                    Log.i("Found", "" + found);
+                }
+
+                if(loadPaths.pathsInfos == null) {
+                    Log.i("Paths infos", "null");
                 }
 
                 String[] paths = new String[loadPaths.pathsInfos.size()];
+                String[] pathsId = new String[loadPaths.pathsInfos.size()];
+
 
                 for(int i = 0; i < loadPaths.pathsInfos.size(); ++i) {
                     paths[i] = loadPaths.pathsInfos.get(i).title;
+                    pathsId[i] = String.valueOf(loadPaths.pathsInfos.get(i).id);
+                    Log.i("Id", "" + pathsId[i]);
                 }
+
+                ArrayAdapter<String> arrayAdapterIds = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_path, R.id.pathId, paths);
+                pathsResult.setAdapter(arrayAdapterIds);
+
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_path, R.id.pathName, paths);
                 pathsResult.setAdapter(arrayAdapter);
 
@@ -90,9 +104,13 @@ public class BuildingActivity extends AppCompatActivity {
         pathsResult.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
+                String pathId = (((TextView) view.findViewById(R.id.pathId)).getText()).toString(); //TODO recuperare id per recuperare informazioni path
                 String pathName = (pathsResult.getItemAtPosition(position)).toString();
+                Log.i("pathId", "id" + pathId);
+                Log.i("pathName", "" + pathName);
                 Intent i = new Intent(getApplicationContext(), PathActivity.class);
                 i.putExtra("pathName", pathName);
+                //i.putExtra("pathId");
                 startActivity(i);
             }
         });
