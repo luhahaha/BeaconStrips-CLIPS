@@ -18,11 +18,11 @@ public abstract class SaveDataManager {
 
    abstract void execute();
 
-   void returnResponse() {
+   protected void returnResponse() {
          listener.onResponse(true);
-   } //non viene passato niente perché già la risposta ricevuta indica che l'operazione ha avuto esito positivo
+   } //non viene passato niente perché già la chiamata di questo metodo indica che l'operazione ha avuto esito positivo
 
-   void returnError(ServerError error) {
+   protected void returnError(ServerError error) {
       listener.onError(error);
    }
 }
