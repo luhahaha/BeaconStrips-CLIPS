@@ -11,18 +11,14 @@
 
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        style="@style/TextViewTitolo"
         android:text="Vai verso la prossima prova"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/descriptionLabel" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        style="@style/TextViewBase"
         android:text="Suggerimento"
         android:id="@+id/hintLabel"
         android:layout_below="@+id/descriptionLabel"

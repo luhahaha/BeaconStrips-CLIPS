@@ -31,9 +31,18 @@
         <item name="android:horizontalSpacing">8dp</item>
     </style>
 
+    <style name="TextViewTitolo" parent="Base.TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:layout_margin">16dp</item><!-- material -->
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
     <style name="TextViewBase" parent="Base.TextAppearance.AppCompat.Medium">
-        <item name="android:color">@color/colorSecondaryText</item>
-        <item name="android:layout_margin">16dp</item> <!-- material -->
+        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:layout_margin">16dp</item><!-- material -->
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
     </style>
 
 </resources>
