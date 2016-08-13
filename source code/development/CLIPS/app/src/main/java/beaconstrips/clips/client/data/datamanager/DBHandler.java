@@ -10,7 +10,7 @@ import org.json.JSONObject;
 
 import java.util.GregorianCalendar;
 import java.util.Iterator;
-import java.util.List;
+import java.util.ArrayList;
 
 import beaconstrips.clips.client.data.Beacon;
 import beaconstrips.clips.client.data.Building;
@@ -24,7 +24,12 @@ import beaconstrips.clips.client.data.Step;
 import beaconstrips.clips.client.data.Utility;
 
 /**
- * Created by Enrico on 25/07/2016.
+ * @file DBHandler.java
+ * @date 25/07/16
+ * @version 1.0.0
+ * @author Enrico Bellio
+ *
+ * classe per la gestione del database locale
  */
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -207,7 +212,7 @@ public class DBHandler extends SQLiteOpenHelper {
       writeSteps(p.id,p.steps);
    }
 
-   public void writePathInfos(int buildingID, List<PathInfo> pathInfos){
+   public void writePathInfos(int buildingID, ArrayList<PathInfo> pathInfos){
       for(int i=0; i<pathInfos.size(); ++i){
          writePathInfo(buildingID, pathInfos.get(i));
       }
@@ -229,7 +234,7 @@ public class DBHandler extends SQLiteOpenHelper {
       db.close();
    }
 
-   public void writeSteps(int pathID,List<Step> steps){
+   public void writeSteps(int pathID,ArrayList<Step> steps){
       for(int i=0; i<steps.size(); ++i){
          writeStep(pathID, i, steps.get(i));
       }
@@ -254,7 +259,7 @@ public class DBHandler extends SQLiteOpenHelper {
       writeProof(stepID, s.proof);
    }
 
-   public void writeProximities(int stepID, List<Proximity> proximities){
+   public void writeProximities(int stepID, ArrayList<Proximity> proximities){
       for(int i=0; i<proximities.size(); ++i){
          writeProximity(stepID, i, proximities.get(i));
       }
@@ -308,7 +313,7 @@ public class DBHandler extends SQLiteOpenHelper {
       writeProofResults(pr.pathID, pr.proofResults);
    }
 
-   public void writeProofResults(int pathID, List<ProofResult> proofResults){
+   public void writeProofResults(int pathID, ArrayList<ProofResult> proofResults){
       for(int i=0; i<proofResults.size(); ++i){
          writeProofResult(pathID, proofResults.get(i));
       }
@@ -349,7 +354,7 @@ public class DBHandler extends SQLiteOpenHelper {
          String telegram = cursor.getString(11);
          String twitter = cursor.getString(12);
          String facebook = cursor.getString(13);
-         List<PathInfo> pathsInfos = readPathInfos(id);
+         ArrayList<PathInfo> pathsInfos = readPathInfos(id);
          String websiteURL = cursor.getString(14);
 
          ret = new Building(name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos);
@@ -358,11 +363,11 @@ public class DBHandler extends SQLiteOpenHelper {
       return ret;
    }
 
-   public List<Building> readBuildings(){
+   public ArrayList<Building> readBuildings(){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Building", null, null, null, null, null, null, null); //Ritorna tutti gli edifici salvati nel DB
 
-      List<Building> ret = null;
+      ArrayList<Building> ret = null;
 
       while(cursor.moveToNext()){
          int id = Integer.parseInt(cursor.getString(0));
@@ -379,7 +384,7 @@ public class DBHandler extends SQLiteOpenHelper {
          String telegram = cursor.getString(11);
          String twitter = cursor.getString(12);
          String facebook = cursor.getString(13);
-         List<PathInfo> pathsInfos = readPathInfos(id);
+         ArrayList<PathInfo> pathsInfos = readPathInfos(id);
          String websiteURL = cursor.getString(14);
 
          ret.add(new Building(name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos));
@@ -388,11 +393,11 @@ public class DBHandler extends SQLiteOpenHelper {
       return ret;
    }
 
-   private List<PathInfo> readPathInfos(int buildingID){
+   private ArrayList<PathInfo> readPathInfos(int buildingID){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("PathInfo", null, "buildingID =?", new String[]{String.valueOf(buildingID)}, null, null, null, null);
 
-      List<PathInfo> ret = null;
+      ArrayList<PathInfo> ret = null;
 
       while(cursor.moveToNext()){
          int id = Integer.parseInt(cursor.getString(0));
@@ -438,7 +443,7 @@ public class DBHandler extends SQLiteOpenHelper {
          int id = Integer.parseInt(cursor.getString(0));
          String startingMessage = cursor.getString(1);
          String rewardMessage = cursor.getString(2);
-         List<Step> steps = readSteps(pathID);
+         ArrayList<Step> steps = readSteps(pathID);
 
          ret = new Path(id, startingMessage, rewardMessage, steps);
       }
@@ -446,17 +451,17 @@ public class DBHandler extends SQLiteOpenHelper {
       return ret;
    }
 
-   private List<Step> readSteps(int pathID) {
+   private ArrayList<Step> readSteps(int pathID) {
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Step", null, "pathID =?", new String[]{String.valueOf(pathID)}, null, null, null, null);
 
-      List<Step> ret = null;
+      ArrayList<Step> ret = null;
 
       while(cursor.moveToNext())
       {
          int id = Integer.parseInt(cursor.getString(0));
          Beacon stopBeacon = readBeacon(Integer.parseInt(cursor.getString(1)));
-         List<Proximity> proximities = readProximities(id);
+         ArrayList<Proximity> proximities = readProximities(id);
          Proof proof = readProof(Integer.parseInt(cursor.getString(2)));
 
          ret.add(new Step(stopBeacon, proximities, proof));
@@ -483,11 +488,11 @@ public class DBHandler extends SQLiteOpenHelper {
       return ret;
    }
 
-   private List<Proximity> readProximities(int stepID){
+   private ArrayList<Proximity> readProximities(int stepID){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Proximity", null, "stepID =?", new String[]{String.valueOf(stepID)}, null, null, null, null);
 
-      List<Proximity> ret = null;
+      ArrayList<Proximity> ret = null;
 
       while(cursor.moveToNext()){
 
@@ -563,7 +568,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
       while(cursor.moveToNext()) {
          Beacon stopBeacon = readBeacon(Integer.parseInt(cursor.getString(1)));
-         List<Proximity> proximities = readProximities(id);
+         ArrayList<Proximity> proximities = readProximities(id);
          Proof proof = readProof(Integer.parseInt(cursor.getString(2)));
 
          ret = new Step(stopBeacon, proximities, proof);
@@ -575,7 +580,7 @@ public class DBHandler extends SQLiteOpenHelper {
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("PathResult", null, null, null, null, null, null, null);
 
-      List<PathResult> pathResults = null;
+      ArrayList<PathResult> pathResults = null;
 
       while(cursor.moveToNext()){
          int id = Integer.parseInt(cursor.getString(0));
@@ -583,7 +588,7 @@ public class DBHandler extends SQLiteOpenHelper {
          String buildingName = getBuildingName(id);
          GregorianCalendar startTime = Utility.stringToGregorianCalendar(cursor.getString(2), "startTime");
          GregorianCalendar endTime = Utility.stringToGregorianCalendar(cursor.getString(3), "endTime");
-         List<ProofResult> proofsResults = readProofResults(id);
+         ArrayList<ProofResult> proofsResults = readProofResults(id);
          int totalScore = Utility.calculateTotalScore(proofsResults);
 
          pathResults.add(new PathResult(id, pathName, buildingName, startTime, endTime, totalScore, proofsResults));
@@ -607,7 +612,7 @@ public class DBHandler extends SQLiteOpenHelper {
          String buildingName = getBuildingName(pathID);
          GregorianCalendar startTime = Utility.stringToGregorianCalendar(cursor.getString(2), "startTime");
          GregorianCalendar endTime = Utility.stringToGregorianCalendar(cursor.getString(3), "endTime");
-         List<ProofResult> proofsResults = readProofResults(pathID);
+         ArrayList<ProofResult> proofsResults = readProofResults(pathID);
          int totalScore = Utility.calculateTotalScore(proofsResults);
 
          ret = new PathResult(pathID, pathName, buildingName, startTime, endTime, totalScore, proofsResults);
@@ -616,11 +621,11 @@ public class DBHandler extends SQLiteOpenHelper {
       return ret;
    }
 
-   private List<ProofResult> readProofResults(int pathID){
+   private ArrayList<ProofResult> readProofResults(int pathID){
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("ProofResult", null, "pathID =?", new String[]{String.valueOf(pathID)}, null, null, null, null);
 
-      List<ProofResult> ret = null;
+      ArrayList<ProofResult> ret = null;
 
       while(cursor.moveToNext()){
          int id = Integer.parseInt(cursor.getString(0));
@@ -674,7 +679,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
    public void deleteSteps(int pathID){
-      List<Step> steps = readSteps(pathID);
+      ArrayList<Step> steps = readSteps(pathID);
 
       Iterator<Step> it = steps.iterator();
       while(it.hasNext())
@@ -744,7 +749,7 @@ public class DBHandler extends SQLiteOpenHelper {
    }
 
    private void deletePathInfos(int buildingID){
-      List<PathInfo> pathInfos = readPathInfos(buildingID);
+      ArrayList<PathInfo> pathInfos = readPathInfos(buildingID);
 
       Iterator<PathInfo> it = pathInfos.iterator();
       while(it.hasNext())
@@ -848,7 +853,7 @@ public class DBHandler extends SQLiteOpenHelper {
    public Building[] getNearestBuildings(int buildingsNumber, double latitude, double longitude){
       SQLiteDatabase db = this.getReadableDatabase();
 
-      List<Building> buildings = readBuildings();
+      ArrayList<Building> buildings = readBuildings();
       Iterator<Building> it = buildings.iterator();
       Building[] ret =  new Building[buildingsNumber];
 

@@ -1,6 +1,6 @@
 package beaconstrips.clips.client.data;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * @file Path.java
@@ -14,9 +14,9 @@ public class Path {
    public final int id;
    public final String startingMessage;
    public final String rewardMessage;
-   public final List<Step> steps;
+   public final ArrayList<Step> steps;
 
-   public Path(int id, String startingMessage, String rewardMessage, List<Step> steps) {
+   public Path(int id, String startingMessage, String rewardMessage, ArrayList<Step> steps) {
       this.id = id;
       this.startingMessage = startingMessage;
       this.rewardMessage = rewardMessage;

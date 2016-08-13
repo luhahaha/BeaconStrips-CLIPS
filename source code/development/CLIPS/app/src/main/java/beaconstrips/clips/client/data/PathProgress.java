@@ -3,6 +3,15 @@ package beaconstrips.clips.client.data;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+/**
+ * @file PathProgress.java
+ * @date 19/07/16
+ * @version 1.0.0
+ * @author Enrico Bellio
+ *
+ * classe che rappresenta i dati del progresso di un percorso svolto dall'utente
+ */
+
 public class PathProgress {
    private final Path path;
    private final GregorianCalendar startTime;

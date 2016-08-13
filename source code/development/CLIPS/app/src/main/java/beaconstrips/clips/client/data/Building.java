@@ -1,6 +1,6 @@
 package beaconstrips.clips.client.data;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * @file Building.java
@@ -24,10 +24,10 @@ public class Building {
    public final String telegram;
    public final String twitter;
    public final String facebook;
-   public final List<PathInfo> pathsInfos;
+   public final ArrayList<PathInfo> pathsInfos;
    public final String websiteURL;
 
-   public Building(String name, String description, String otherInfos, String openingTime, String address, double latitude, double longitude, String telephone, String email, String whatsapp, String telegram, String twitter, String facebook, String websiteURL, List<PathInfo> pathsInfos) {
+   public Building(String name, String description, String otherInfos, String openingTime, String address, double latitude, double longitude, String telephone, String email, String whatsapp, String telegram, String twitter, String facebook, String websiteURL, ArrayList<PathInfo> pathsInfos) {
       this.name = name;
       this.description = description;
       this.otherInfos = otherInfos;
