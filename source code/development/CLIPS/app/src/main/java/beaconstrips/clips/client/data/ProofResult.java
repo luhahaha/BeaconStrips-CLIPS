@@ -2,6 +2,15 @@ package beaconstrips.clips.client.data;
 
 import java.util.GregorianCalendar;
 
+/**
+ * @file ProofResult.java
+ * @date 19/07/16
+ * @version 1.0.0
+ * @author Enrico Bellio
+ *
+ * classe che rappresenta i dati del risultato di una prova svolta dall'utente
+ */
+
 public class ProofResult {
    public final int id;
    public final GregorianCalendar startTime;

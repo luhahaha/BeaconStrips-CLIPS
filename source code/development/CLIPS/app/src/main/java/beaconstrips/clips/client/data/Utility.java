@@ -12,7 +12,12 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Created by Enrico on 01/08/2016.
+ * @file Utility.java
+ * @date 01/08/2016
+ * @version 1.0.0
+ * @author Enrico Bellio
+ *
+ * classe di supporto per le altre classi
  */
 public class Utility {
 
