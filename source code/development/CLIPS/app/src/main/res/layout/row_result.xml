@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:columnCount="4">
 
     <TextView
         style="@style/TextViewTitolo"
@@ -11,7 +12,7 @@
 
     <TextView
         style="@style/TextViewBase"
-        android:text="Edificio"
+        android:text="Edificio:"
         android:id="@+id/buildingLabel"
         android:textColor="@color/colorText"
         android:layout_row="1"
@@ -19,11 +20,18 @@
 
     <TextView
         style="@style/TextViewBase"
-        android:text="Data"
+        android:text=""
+        android:id="@+id/buildingDemonio"
+        android:layout_row="1"
+        android:layout_column="1" />
+
+    <TextView
+        style="@style/TextViewBase"
+        android:text="Data:"
         android:id="@+id/dateLabel"
         android:textColor="@color/colorText"
         android:layout_row="1"
-        android:layout_column="1" />
+        android:layout_column="2" />
 
     <TextView
         style="@style/TextViewBase"
