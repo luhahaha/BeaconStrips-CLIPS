@@ -27,6 +27,7 @@ import beaconstrips.clips.client.viewcontroller.building.BuildingSearchActivity;
 import beaconstrips.clips.client.viewcontroller.building.PathActivity;
 import beaconstrips.clips.client.viewcontroller.games.ProofActivity;
 import beaconstrips.clips.client.viewcontroller.games.SearchNewStepActivity;
+import beaconstrips.clips.client.viewcontroller.savedresults.SavedResultsActivity;
 
 public class MenuActivity extends AppCompatActivity
         //implements NavigationView.OnNavigationItemSelectedListener
@@ -134,7 +135,7 @@ public class MenuActivity extends AppCompatActivity
                 intent = new Intent(this, AppInfoActivity.class);
                 break;
             case R.id.nav_contacts:
-                intent = new Intent(this, AppInfoActivity.class);
+                intent = new Intent(this, SavedResultsActivity.class);
                 break;
             case R.id.nav_logout:
                 intent = new Intent(this, AppInfoActivity.class);

@@ -21,12 +21,6 @@ public class AccountActivity extends MenuActivity {
         setButtonInfoProfilo();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_menu_drawer, menu);
-        return true;
-    }
-
     void setButtonInfoProfilo() {
         final Button info = (Button) findViewById(R.id.results_button);
         if (info != null) {

@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import beaconstrips.clips.R;
 
@@ -13,6 +14,7 @@ public class SavedResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_results);
+
         ListView listView = (ListView)findViewById(R.id.resultRows);
         String [] array = {"Percorso1","Percorso2","Percorso3","Percorso4","Percorso5","Percorso6"};
         ArrayAdapter<String> arrayAdapter =

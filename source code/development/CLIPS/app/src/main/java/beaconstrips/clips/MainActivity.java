@@ -23,17 +23,11 @@ public class MainActivity extends MenuActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Intent intent = new Intent(this, SearchNewStepActivity.class);
-        startActivity(intent);
+        //setContentView(R.layout.activity_main);
+        //Intent intent = new Intent(this, SearchNewStepActivity.class);
+        //startActivity(intent);
+        setContentView(R.layout.activity_search_new_step);
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_menu_drawer, menu);
-        return true;
     }
 
 }
