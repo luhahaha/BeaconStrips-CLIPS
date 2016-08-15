@@ -1,0 +1,55 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\usepackage{eurosym}
+\usepackage{comment}
+\usepackage{hyperref}
+
+\def\NOME{Manuale Utente}
+\def\VERSIONE{1.0.0}
+\def\DATA{2016-08-16}
+\def\REDATTORE{Viviana Alessio}
+\def\VERIFICATORE{Luca Soldera}
+\def\RESPONSABILE{Tommaso Panozzo}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Manuale destinato agli utenti del \gl{progetto} \PROGETTO\  del gruppo \AUTORE.}
+
+
+\begin{document}
+
+
+\maketitle
+
+\begin{diario}
+	\modifica{Viviana Alessio}{\PRJ}{Stesura Introduzione}{2016-08-11}{0.2.0}
+	\modifica{Viviana Alessio}{\PRJ}{Stesura intestazione e indice documento}{2016-08-10}{0.1.0}
+\end{diario}
+
+\newpage
+\tableofcontents
+\newpage
+\listoftables
+\newpage
+\listoffigures
+\newpage
+
+\include{introduzione}
+
+\include{RequisitiDiSistema}
+
+\section{Utilizzo dell'applicazione}
+\subsection{Informazioni generali}
+Tutte le funzionalità dell'applicazione sono accessibili dal menu laterali apribile tramite uno \gl{swipe} da sinistra verso destra oppure cliccando sul bottone \gl{Hamburger button} presente in alto a sinistra. 
+\include{Autenticazione}
+
+\appendix
+\include{glossario}
+\end{document}
