@@ -36,7 +36,9 @@
 			\label{sec:2.1.1.2.4}
 				Verranno progettate delle classi il cui scopo sarà quello di testare la correttezza dei componenti dell'applicazione.
 				%chiedo ad Andrea
-			
+		\paragraph{Codifica}
+		Una volta ultimata l'attività di progettazione ci si occuperà di approfondire il livello di dettaglio, identificando anche metodi e campi dati da utilizzare nelle classi. Questa analisi approfondita porterà alla produzione della \DPdoc. \\
+		Successivamente ci si occuperà di codificare tutte le scelte effettuate per poter realizzare l'applicazione richiesta.
 \subsubsection{Norme}
 \label{sec:2.1.2}
 	\paragraph{Classificazione  dei requisiti}
@@ -96,9 +98,7 @@
 
 \subsubsection{Codifica}
 \label{sec:2.1.4}
-	I file contenenti codice o documentazione dovranno rispettare la codifica UTF-8 senza \gl{BOM} e verrà utilizzato il carattere LF (U+000A) per andare a capo.
-
-	\subsubsection{Norme tipografiche}
+	\paragraph{Norme tipografiche}
 	\label{sec:2.1.4.1}
 			Tutto il codice prodotto dovrà seguire le seguenti regole:
 			\begin{itemize}
@@ -108,10 +108,11 @@
 				\item i commenti dovranno essere scritti in italiano;
 				\item non vanno usate lettere accentate.
 		\end{itemize}
-	\subsubsection{Norme stilistiche}
-		\paragraph{Intestazione}
-		Ogni file di codice dovrà contenere la seguente intestazione:
-		\begin{lstlisting}[language=Java, commentstyle=\color{green}, keywordstyle=\color{blue}]
+		\paragraph{Norme stilistiche}
+		\label{codNormeStilistiche}
+			\subparagraph{Intestazione}
+			Ogni file di codice dovrà contenere la seguente intestazione:
+			\begin{lstlisting}[language=Java, commentstyle=\color{green}, keywordstyle=\color{blue}]
 	/**
 	* @file [nome del file]
 	* @date [data di creazione (gg/mm/aaaa)]
@@ -125,23 +126,28 @@
 		...
 	}
 }
-	\end{lstlisting}
-	I costrutti e le classi devono essere scritti nel seguente formato:
-	\begin{lstlisting}[language=Java, commentstyle=\color{green}, keywordstyle=\color{blue}]
+			\end{lstlisting}
+			I costrutti e le classi devono essere scritti nel seguente formato:
+			\begin{lstlisting}[language=Java, commentstyle=\color{green}, keywordstyle=\color{blue}]
 	costrutto(condizione) {
 	
 	}
 	
-	tipoRitorno getVariable () const { 
+	tipoRitorno function () { 
 		istruzioni
 	}	
-	\end{lstlisting}
-	\begin{lstlisting}[language=Java, commentstyle=\color{green}, keywordstyle=\color{blue}]
-	Nel caso il metodo sia get/set si utilizzerà invece il seguente formato:
-	\
-	tipoRitorno getVariable () const { return tssa; }
-	\end{lstlisting}
-	Le parentesi graffe vanno usate sempre, anche nel caso sia presente una sola istruzione nel costrutto.
+			\end{lstlisting}
+				Nel caso il metodo sia get/set va utilizzato invece il seguente formato:
+			\begin{lstlisting}[language=Java, commentstyle=\color{green}, keywordstyle=\color{blue}]
+	tipoRitorno getVariable () { return variable; }
+		\end{lstlisting}
+		Le parentesi graffe vanno usate sempre, anche nel caso sia presente una sola istruzione nel costrutto.
 		\paragraph{Stile generale}
 		Le seguenti regole vanno rispettati in tutti i file di codice:
-			\item la tabulazione dev'essere di 3 spazi.
+		\begin{itemize}			
+			\item i file contenenti codice o documentazione dovranno rispettare la codifica UTF-8 senza \gl{BOM} e verrà utilizzato il carattere \texttt{LF (U+000A)} per andare a capo;
+			\item la tabulazione dev'essere di 3 spazi;
+			\item è necessario commentare il codice nel caso vengano implementate funzionalità poco note, al fine di rendere più comprensibile il codice prodotto.
+		\end{itemize}
+
+			
