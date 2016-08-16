@@ -22,20 +22,16 @@ public class PathProgressController implements  BeaconDiscoverDelegate{
   public PathProgressControllerDelegate delegate;
   public PathProgress pathProgress;
 
-  public PathProgressController(Path path){
+  public PathProgressController(Path path, PathProgressControllerDelegate delegate){
     this.rawbeacons=new Vector();
+      this.delegate=delegate;
     this.pathProgress=new PathProgress(path, new GregorianCalendar());
   }
-
-    public void setDelegate(PathProgressControllerDelegate delegate){
-        this.delegate=delegate;
-    }
 
   public void addProofResult(ProofResult result){
     this.pathProgress.addProofResult(result);
   }
-
-
+    
   public void didFoundBeacon(RawBeacon beacon){
     this.rawbeacons.add(beacon);
     //TODO bisogna controllare che l'utente non stia giocando una prova

@@ -13,16 +13,4 @@ public class Step {
       this.proximities = proximities;
       this.proof = proof;
    }
-
-   public Bool equal(Beacon a, RawBeacon b){
-     return a.UUID == b.UUID && a.major == b.major && a.minor == b.minor;
-   }
-
-   public Proximity searchProximity(RawBeacon rawBeacon){
-     for (int i = 0; i < proximities.size(); i++){
-       if(equal(proximities.get(i).beacon,rawBeacon)
-       return proximities.get(i);
-     }
-     return null;
-   }
 }
