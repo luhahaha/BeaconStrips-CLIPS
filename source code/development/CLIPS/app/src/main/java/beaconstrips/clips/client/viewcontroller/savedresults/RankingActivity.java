@@ -1,3 +1,11 @@
+/**
+ @file RankingActivity.java
+ @date 2016-07-20
+ @version 1.10
+ @author Matteo Franco
+ @description gestisce l'activity della classifica
+ **/
+
 package beaconstrips.clips.client.viewcontroller.savedresults;
 
 import android.support.v7.app.AppCompatActivity;

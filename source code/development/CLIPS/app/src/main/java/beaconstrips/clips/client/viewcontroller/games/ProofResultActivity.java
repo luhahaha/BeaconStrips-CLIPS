@@ -1,3 +1,11 @@
+/**
+ @file ProofResultActivity.java
+ @date 2016-07-17
+ @version 1.00
+ @author Viviana Alessio
+ @description si occupa dell'activity di visualizzazione del risultato della prova effettuata
+ **/
+
 package beaconstrips.clips.client.viewcontroller.games;
 
 import android.support.v7.app.AppCompatActivity;

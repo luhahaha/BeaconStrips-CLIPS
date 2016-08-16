@@ -1,3 +1,13 @@
+/**
+    @file AccountActivity.java
+    @date 2016-07-10
+    @version 1.20
+    @author Viviana Alessio
+    @description si occupa di gestire l'activity dell'account dell'utente
+**/
+
+
+
 package beaconstrips.clips.client.viewcontroller.authentication;
 
 import android.content.Intent;

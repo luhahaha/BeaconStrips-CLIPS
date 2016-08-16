@@ -1,3 +1,11 @@
+/**
+ @file PathActivity.java
+ @date 2016-07-14
+ @version 1.10
+ @author Matteo Franco
+ @description gestisce l'activity del percorso
+ **/
+
 package beaconstrips.clips.client.viewcontroller.building;
 
 import android.content.Intent;

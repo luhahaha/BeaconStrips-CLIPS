@@ -1,3 +1,11 @@
+/**
+ @file RegistrationActivity.java
+ @date 2016-07-12
+ @version 1.10
+ @author Matteo Franco
+ @description gestisce l'activity di registrazione di un utente
+ **/
+
 package beaconstrips.clips.client.viewcontroller.authentication;
 
 import android.content.Intent;

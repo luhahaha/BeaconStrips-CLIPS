@@ -1,3 +1,11 @@
+/**
+ @file BuildingSearchActivity.java
+ @date 2016-07-11
+ @version 1.40
+ @author Matteo Franco
+ @description si occupa della gestione dell'activity di ricerca degli edifici
+ **/
+
 package beaconstrips.clips.client.viewcontroller.building;
 
 import android.content.Intent;
