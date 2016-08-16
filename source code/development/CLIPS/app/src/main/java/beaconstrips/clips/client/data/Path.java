@@ -2,6 +2,8 @@ package beaconstrips.clips.client.data;
 
 import java.util.ArrayList;
 
+import beaconstrips.clips.client.pathprogress.RawBeacon;
+
 /**
  * @file Path.java
  * @date 19/07/16
@@ -21,5 +23,19 @@ public class Path {
       this.startingMessage = startingMessage;
       this.rewardMessage = rewardMessage;
       this.steps = steps;
+   }
+
+   public boolean equal(Beacon a, RawBeacon b){
+      return a.UUID == b.UUID && a.major == b.major && a.minor == b.minor;
+   }
+
+   public Proximity searchProximity(RawBeacon rawBeacon){
+      for(int i=0; i < steps.size(); i++){
+         for (int j = 0; j < steps.get(i).proximities.size(); j++){
+            if(equal(steps.get(i).proximities.get(j).beacon,rawBeacon))
+               return steps.get(i).proximities.get(j);
+         }
+      }
+      return null;
    }
 }

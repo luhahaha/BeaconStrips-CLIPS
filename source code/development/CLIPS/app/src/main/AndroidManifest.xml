@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".client.viewcontroller.authentication.LoginActivity"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".client.viewcontroller.building.BuildingActivity" />
+        <activity android:name=".client.viewcontroller.building.BuildingActivity"
+            android:theme="@style/AppTheme"/>
         <activity android:name=".client.viewcontroller.games.SearchNewStepActivity" />
         <activity android:name=".client.viewcontroller.savedresults.ResultActivity" />
         <activity android:name=".client.viewcontroller.utility.AppInfoActivity" />
@@ -37,15 +38,15 @@
         <activity android:name=".client.viewcontroller.savedresults.RankingActivity" />
         <activity android:name=".client.viewcontroller.savedresults.SavedResultsActivity" />
         <activity android:name=".client.viewcontroller.games.TrueFalseQuiz" />
-        <activity android:name=".client.viewcontroller.games.MultipleChoiceQuizActivity" />
-        <activity android:name=".client.viewcontroller.games.ProofResultActivity" />
+        <activity android:name=".client.viewcontroller.games.MultipleChoiceQuizActivity"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".client.viewcontroller.games.ProofResultActivity"
+            android:theme="@style/AppTheme"/>
         <activity android:name=".client.viewcontroller.games.ProofActivity" />
         <activity
             android:name=".client.viewcontroller.utility.MenuActivity"
             android:label="@string/title_activity_menu"
             />
-        <activity android:name=".client.viewcontroller.utility.AppInfoProva" />
-        <activity android:name=".client.viewcontroller.utility.AppinfoProfilo"></activity>
     </application>
 
 </manifest>
