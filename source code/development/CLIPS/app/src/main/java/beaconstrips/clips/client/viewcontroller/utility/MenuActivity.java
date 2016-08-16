@@ -1,3 +1,11 @@
+/**
+ @file MenuActivity.java
+ @date 2016-07-22
+ @version 1.50
+ @author Viviana Alessio
+ @description rappresenta il menù dell'applicazione
+ **/
+
 package beaconstrips.clips.client.viewcontroller.utility;
 
 import android.content.Intent;
@@ -41,20 +49,12 @@ public class MenuActivity extends AppCompatActivity
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
-        /**
-         * This is going to be our actual root layout.
-         */
+
         fullLayout = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_menu, null);
-        /**
-         * {@link FrameLayout} to inflate the child's view. We could also use a {@link android.view.ViewStub}
-         */
+
         FrameLayout activityContainer = (FrameLayout) fullLayout.findViewById(R.id.activity_content);
         getLayoutInflater().inflate(layoutResID, activityContainer, true);
 
-        /**
-         * Note that we don't pass the child's layoutId to the parent,
-         * instead we pass it our inflated layout.
-         */
         super.setContentView(fullLayout);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -75,11 +75,6 @@ public class MenuActivity extends AppCompatActivity
         setupContent(navigationView);
     }
 
-    /**
-     * Helper method that can be used by child classes to
-     * specify that they don't want a {@link Toolbar}
-     * @return true
-     */
     protected boolean useToolbar()
     {
         return true;

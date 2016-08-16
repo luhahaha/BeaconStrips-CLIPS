@@ -1,3 +1,11 @@
+/**
+ @file AppInfoActivity.java
+ @date 2016-07-22
+ @version 1.10
+ @author Viviana Alessio
+ @description rappresenta l'activity contenente le informazioni dell'applicazione
+ **/
+
 package beaconstrips.clips.client.viewcontroller.utility;
 
 import android.support.v7.app.AppCompatActivity;
