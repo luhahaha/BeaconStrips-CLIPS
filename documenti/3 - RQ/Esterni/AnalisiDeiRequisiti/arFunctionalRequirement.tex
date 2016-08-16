@@ -12,6 +12,8 @@
 \requisito{R0F1.1.5.4.1} & \cellacaporiga{Funzionale \\ Obbligatorio } & L'utente deve inserire l'email del proprio account per proseguire al recupero delle credenziali & \cellacaporiga{\UC{UC20.1} } \\ 
 \requisito{R0F1.1.5.4.2} & \cellacaporiga{Funzionale \\ Obbligatorio } & L'utente riceve un'email all'indirizzo inserito con una password casuale. & \cellacaporiga{Interno } \\ 
 \requisito{R0F1.1.5.4.3} & \cellacaporiga{Funzionale \\ Obbligatorio } & La password dell'utente viene sostituita con la password inviata & \cellacaporiga{Interno } \\ 
+\requisito{R0F1.1.5.4.4} & \cellacaporiga{Funzionale \\ Obbligatorio } & Il sistema interrompe la procedura se la mail inserita non è presente nel sistema & \cellacaporiga{\UC{UC20.3} } \\ 
+\requisito{R0F1.1.5.4.5} & \cellacaporiga{Funzionale \\ Obbligatorio } & Il sistema segnala all'utente che la mail inserita non è presente nel sistema & \cellacaporiga{\UC{UC20.3} } \\ 
 \requisito{R0F1.2} & \cellacaporiga{Funzionale \\ Obbligatorio } & L'utente deve poter creare un proprio account & \cellacaporiga{\UC{UC11} } \\ 
 \requisito{R0F1.2.1} & \cellacaporiga{Funzionale \\ Obbligatorio } & La registrazione richiede l'email all'utente & \cellacaporiga{\UC{UC11.1} } \\ 
 \requisito{R0F1.2.2} & \cellacaporiga{Funzionale \\ Obbligatorio } & La registrazione richiede l'username all'utente & \cellacaporiga{\UC{UC11.2} } \\ 
@@ -81,9 +83,7 @@
 \requisito{R0F5.1.1.5} & \cellacaporiga{Funzionale \\ Obbligatorio } & Il dispositivo deve visualizzare il tempo totale per lo svolgimento del percorso & \cellacaporiga{Interno } \\ 
 \requisito{R0F5.1.1.6} & \cellacaporiga{Funzionale \\ Obbligatorio } & Il dispositivo può visualizzare la posizione attuale nella classifica generale del risultato ottenuto & \cellacaporiga{Interno } \\ 
 \requisito{R0F5.2} & \cellacaporiga{Funzionale \\ Obbligatorio } & Se l'utente è autenticato ma non ha percorsi svolti salvati viene mostrato un invito a svolgere un percorso. & \cellacaporiga{\UC{UC18} } \\ 
-\requisito{R0F5.2.1} & \cellacaporiga{Funzionale \\ Obbligatorio } & Nella spiegazione si informa l'utente che in quella schermata è possibile visualizzare i percorsi svolti quando si salveranno. & \cellacaporiga{Interno } \\ 
 \requisito{R0F5.3} & \cellacaporiga{Funzionale \\ Obbligatorio } & Se l'utente non è autenticato viene invitato ad autenticarsi. & \cellacaporiga{\UC{UC16} } \\ 
-\requisito{R0F5.3.1} & \cellacaporiga{Funzionale \\ Obbligatorio } & L'app deve spiegare che l'utente, quando è autenticato, può vedere l'elenco dei percorsi salvati in quella schermata. & \cellacaporiga{Interno } \\ 
 \requisito{R0F6} & \cellacaporiga{Funzionale \\ Obbligatorio } & L'utente deve poter visualizzare dove si trovano gli edifici con percorsi più vicini alla sua posizione. & \cellacaporiga{\UC{UC9} } \\ 
 \requisito{R0F6.1} & \cellacaporiga{Funzionale \\ Obbligatorio } & L'utente deve poter cercare gli edifici con percorsi più vicini inserendo un raggio massimo. & \cellacaporiga{\UC{UC7} } \\ 
 \requisito{R0F6.1.1} & \cellacaporiga{Funzionale \\ Obbligatorio } & L'utente deve poter inserire il raggio in chilometri per poter cercare gli edifici con percorsi più vicini. & \cellacaporiga{\UC{UC7.1} } \\ 
@@ -103,9 +103,9 @@
 \requisito{R0F6.2.3.4} & \cellacaporiga{Funzionale \\ Obbligatorio } & L'utente deve poter contattare l'edificio tramite Twitter (se la struttura possiede un account Twitter) & \cellacaporiga{\UC{UC10.4} } \\ 
 \requisito{R0F6.2.3.5} & \cellacaporiga{Funzionale \\ Obbligatorio } & L'utente deve poter cotattare l'edificio tramite WhatsApp (se la struttura possiede un contatto pubblico di WhatsApp). & \cellacaporiga{\UC{UC10.5} } \\ 
 \requisito{R0F6.2.3.6} & \cellacaporiga{Funzionale \\ Obbligatorio } & L'utente deve poter contattare l'edificio tramite Telegram (se la struttura ha un contatto pubblico di Telegram). & \cellacaporiga{\UC{UC10.6} } \\ 
-\requisito{R0F7} & \cellacaporiga{Funzionale \\ Obbligatorio } & L'utente autenticato deve poter modificare le proprie credenziali d'accesso. & \cellacaporiga{\UC{UC5} } \\
+\requisito{R0F7} & \cellacaporiga{Funzionale \\ Obbligatorio } & L'utente autenticato deve poter modificare le proprie credenziali d'accesso. & \cellacaporiga{\UC{UC5} } \\ 
 \requisito{R0F7.1} & \cellacaporiga{Funzionale \\ Obbligatorio } & L'utente deve poter modificare il proprio username. & \cellacaporiga{\UC{UC5.1} } \\ 
-\requisito{R0F7.1.1} & \cellacaporiga{Funzionale \\ Obbligatorio } & L'username deve rispettare i requisiti \Req{R0F1.2.7.2.1} e \Req{R0F1.2.7.2.2}. & \cellacaporiga{Interno } \\  
+\requisito{R0F7.1.1} & \cellacaporiga{Funzionale \\ Obbligatorio } & L'username deve rispettare i requisiti \Req{R0F1.2.7.2.1} e \Req{R0F1.2.7.2.2}. & \cellacaporiga{Interno } \\ 
 \requisito{R0F7.2} & \cellacaporiga{Funzionale \\ Obbligatorio } & L'utente deve poter modificare la propria password. & \cellacaporiga{\UC{UC5.2} } \\ 
 \requisito{R0F7.2.1} & \cellacaporiga{Funzionale \\ Obbligatorio } & La password deve rispettare il requisito \Req{R0F1.2.7.3}. & \cellacaporiga{Interno } \\ 
 \requisito{R0F7.3} & \cellacaporiga{Funzionale \\ Obbligatorio } & In caso di errore su qualche campo l'app deve informare l'utente & \cellacaporiga{Interno } \\ 

@@ -31,7 +31,7 @@ public class PathProgressController implements  BeaconDiscoverDelegate{
   public void addProofResult(ProofResult result){
     this.pathProgress.addProofResult(result);
   }
-    
+
   public void didFoundBeacon(RawBeacon beacon){
     this.rawbeacons.add(beacon);
     //TODO bisogna controllare che l'utente non stia giocando una prova

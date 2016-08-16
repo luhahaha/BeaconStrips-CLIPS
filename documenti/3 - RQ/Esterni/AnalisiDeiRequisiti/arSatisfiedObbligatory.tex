@@ -12,6 +12,8 @@
 \Req{R0F1.1.5.4.1} & L'utente deve inserire l'email del proprio account per proseguire al recupero delle credenziali & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
 \Req{R0F1.1.5.4.2} & L'utente riceve un'email all'indirizzo inserito con una password casuale. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
 \Req{R0F1.1.5.4.3} & La password dell'utente viene sostituita con la password inviata & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
+\Req{R0F1.1.5.4.4} & Il sistema interrompe la procedura se la mail inserita non è presente nel sistema & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
+\Req{R0F1.1.5.4.5} & Il sistema segnala all'utente che la mail inserita non è presente nel sistema & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
 \Req{R0F1.2} & L'utente deve poter creare un proprio account & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
 \Req{R0F1.2.1} & La registrazione richiede l'email all'utente & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
 \Req{R0F1.2.2} & La registrazione richiede l'username all'utente & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
@@ -73,9 +75,7 @@
 \Req{R0F5.1.1.5} & Il dispositivo deve visualizzare il tempo totale per lo svolgimento del percorso & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
 \Req{R0F5.1.1.6} & Il dispositivo può visualizzare la posizione attuale nella classifica generale del risultato ottenuto & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
 \Req{R0F5.2} & Se l'utente è autenticato ma non ha percorsi svolti salvati viene mostrato un invito a svolgere un percorso. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
-\Req{R0F5.2.1} & Nella spiegazione si informa l'utente che in quella schermata è possibile visualizzare i percorsi svolti quando si salveranno. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
 \Req{R0F5.3} & Se l'utente non è autenticato viene invitato ad autenticarsi. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
-\Req{R0F5.3.1} & L'app deve spiegare che l'utente, quando è autenticato, può vedere l'elenco dei percorsi salvati in quella schermata. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
 \Req{R0F6} & L'utente deve poter visualizzare dove si trovano gli edifici con percorsi più vicini alla sua posizione. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
 \Req{R0F6.1} & L'utente deve poter cercare gli edifici con percorsi più vicini inserendo un raggio massimo. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
 \Req{R0F6.1.1} & L'utente deve poter inserire il raggio in chilometri per poter cercare gli edifici con percorsi più vicini. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
@@ -94,10 +94,10 @@
 \Req{R0F6.2.3.5} & L'utente deve poter cotattare l'edificio tramite WhatsApp (se la struttura possiede un contatto pubblico di WhatsApp). & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
 \Req{R0F6.2.3.6} & L'utente deve poter contattare l'edificio tramite Telegram (se la struttura ha un contatto pubblico di Telegram). & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
 \Req{R0F7} & L'utente autenticato deve poter modificare le proprie credenziali d'accesso. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
-\Req{R0F7.1} & L'utente deve poter modificare la propria password. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
-\Req{R0F7.1.1} & La password deve rispettare il requisito \Req{R0F1.2.7.3}. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
-\Req{R0F7.2} & L'utente deve poter modificare il proprio username. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
-\Req{R0F7.2.1} & L'username deve rispettare i requisiti \Req{R0F1.2.7.2.1} e \Req{R0F1.2.7.2.2}. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
+\Req{R0F7.1} & L'utente deve poter modificare il proprio username. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
+\Req{R0F7.1.1} & L'username deve rispettare i requisiti \Req{R0F1.2.7.2.1} e \Req{R0F1.2.7.2.2}. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
+\Req{R0F7.2} & L'utente deve poter modificare la propria password. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
+\Req{R0F7.2.1} & La password deve rispettare il requisito \Req{R0F1.2.7.3}. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
 \Req{R0F7.3} & In caso di errore su qualche campo l'app deve informare l'utente & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
 \Req{R0P1} & Il tempo di latenza per ottenere una risposta dal server in ogni schermata dev'essere minore di 5 secondi, a meno che non vi siano problemi di connessione. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
 \Req{R0P2} & Il tempo di latenza per cambiare schermata nell'app dev'essere minore di 0.5 secondi, a meno che sia richiesta l'interazione con il server. & {\color{reqNonSoddisfatto} Non soddisfatto}\\ 
