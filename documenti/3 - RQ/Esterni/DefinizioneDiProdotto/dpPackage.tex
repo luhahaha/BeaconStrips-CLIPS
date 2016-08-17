@@ -99,7 +99,7 @@
 \classeDescrizione{classe controller che si occupa di interagire con RegistrationView}
 \classeUtilizzo{si occupa di gestire le interazioni dell'utente con RegistrationView}
 \begin{classeMetodi}
-\classeMetodo{checkFields()}{}{bool}{si occupa di controllare che i campi inseriti siano corretti}
+\classeMetodo{checkFields}{}{bool}{si occupa di controllare che i campi inseriti siano corretti}
 \classeMetodo{clearFields}{}{void}{questo metodo si occupa di resettare i campi dati presenti nella relativa view}
 \classeMetodo{onCreate}{SavedBundleInstance}{void}{si occupa di inizializzare l'activity con la relativa view}
 \begin{classeMetodoArgomenti}
@@ -275,7 +275,7 @@
 \classeMetodo{getScore}{correct, total}{int}{fornisce il punteggio ottenuto nella prova}
 \begin{classeMetodoArgomenti}
 \classeMetodoArgomento{correct}{int}{indica il numero di risposte corrette}
-\classeMetodoArgomento{total}{int}{*da aggiungere*}
+\classeMetodoArgomento{total}{int}{indica il numero totale di risposte fornite}
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
 \end{classe}\begin{classe}{CLIPS::client::data::LoggedUser}
@@ -427,7 +427,7 @@
 \begin{classeMetodi}
 \classeMetodo{createScoringAlgorithm}{algorithmData}{void}{si occupa di creare l'algoritmo per calcolare il punteggio}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{algorithmData}{void}{*da aggiungere*}
+\classeMetodoArgomento{algorithmData}{void}{JSON contenente i dati necessari alla creazione di un algoritmo per assegnare i punteggi}
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
 \begin{classeRelazioni}
@@ -550,7 +550,7 @@
 \begin{classeMetodoArgomenti}
 \classeMetodoArgomento{error}{ServerError}{oggetto che contiene le informazioni relative all'errore rilevato dall'applicazione durante il salvataggio dei dati del percorso svolto }
 \end{classeMetodoArgomenti}
-\classeMetodo{returnResponse}{}{void}{chiama il metodo onResponse del listener e ritorna sempre "true", è un valore che serve solo per mantenere la consistenza della struttura del listener perché già chiamare il metodo indica che l'operazione è riuscita}
+\classeMetodo{returnResponse}{}{void}{chiama il metodo onResponse del listener e ritorna sempre \texttt{true}, è un valore che serve solo per mantenere la consistenza della struttura del listener perché già chiamare il metodo indica che l'operazione è riuscita}
 \end{classeMetodi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura de listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
@@ -591,14 +591,14 @@
 \classeAttributo{debugMessage}{string}{indica il motivo per cui il dato non è valido attraverso una spiegazione più tecnica, è destinato agli sviluppatori per aiutarli a trovare i bug nell'applicazione}
 \classeAttributo{isValid}{boolean}{indica se il dato controllato ha un formato valido o no}
 \classeAttributo{reason}{string}{indica il motivo per cui il dato non è valido}
-\classeAttributo{type}{string}{il tipo di dato controllato, i possibili valori attesi sono "email", "password" e "username"}
+\classeAttributo{type}{string}{il tipo di dato controllato, i possibili valori attesi sono \texttt{email}, \texttt{password} e \texttt{username}}
 \end{classeAttributi}
 \end{classe}\begin{classe}{CLIPS::client::data::datamanager::DataManager}
 \classeDescrizione{classe astratta per la gestione della memorizzazione e del prelievo dei dati necessari per il funzionamento dell'applicazione}
 \classeUtilizzo{permette di prelevare i dati dal server o in locale ed eventualmente di salvarli nel database locale}
 \begin{classeAttributi}
 \classeAttributo{cachedData}{Data}{oggetto generico in cui vengono memorizzati i dati letti dal database locale}
-\classeAttributo{cachePolicy}{CachePolicy}{indica il comportamento dell'applicazione per la memorizzazione dei dati richiesti: "NoCache" indica che i dati vengono richiesti al server e mai salvati in locale; "AlwaysReplaceLocal" significa che i dati vengono richiesti al server, se vengono ricevuti allora i dati del database locale corrispondenti vengono sostituiti da quelli appena ottenuti, altrimenti vengono usati i dati salvati in locale; "LocalElseRemote" indica che vengono usati i dati del database locale, se non ci sono vengono richiesti al server}
+\classeAttributo{cachePolicy}{CachePolicy}{indica il comportamento dell'applicazione per la memorizzazione dei dati richiesti: \texttt{NoCache} indica che i dati vengono richiesti al server e mai salvati in locale; \texttt{AlwaysReplaceLocal} significa che i dati vengono richiesti al server, se vengono ricevuti allora i dati del database locale corrispondenti vengono sostituiti da quelli appena ottenuti, altrimenti vengono usati i dati salvati in locale; \texttt{LocalElseRemote} indica che vengono usati i dati del database locale, se non ci sono vengono richiesti al server}
 \classeAttributo{cx}{Context}{è una classe delle librerie base di Android che costituisce il cuore dell'applicazione, e quindi è necessaria per poter effettuare alcune operazioni, tra cui le richieste al server}
 \classeAttributo{listener}{AbstractDataManagerListener<Building[]>}{il listener che verrà usato per informare l'applicazione se l'operazione prevista ha avuto successo o meno}
 \classeAttributo{remoteData}{Data}{oggetto generico in cui vengono memorizzati i dati ricevuti dal server}
@@ -664,7 +664,7 @@
 \end{classeMetodi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura de listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data}{AppInfo}{classe per la rappresentazione delle informazioni dell'applicazione}\classeRelazione{CLIPS::client::data::datamanager}{AppInfoDataRequest}{classe concreta che gestisce le richieste dei dati sulle info dell'app}\classeRelazione{CLIPS::client::data}{Building}{classe che rappresenta un edificio}\classeRelazione{CLIPS::client::data::datamanager}{BuildingsDataRequest}{classe concreta che gestisce le richieste dei dati sugli edifici}\classeRelazione{CLIPS::client::data::datamanager}{GetRankingDataRequest}{classe concreta che gestisce le richieste dei dati della classifica}\classeRelazione{CLIPS::client::data::datamanager}{GetResultsDataRequest}{classe concreta che gestisce le richieste dei dati dei risultati}\classeRelazione{CLIPS::client::data}{Path}{classe che si occupa di salvare in locale i dati riguardanti un percorso}\classeRelazione{CLIPS::client::data::datamanager}{PathDataRequest}{classe concreta che gestisce le richieste dei dati sui percorsi}\classeRelazione{CLIPS::client::data}{PathResult}{classe che rappresenta i risultati di un percorso}\classeRelazione{CLIPS::client::data::datamanager}{SaveResultDataRequest}{classe concreta che effettua le richieste per salvare il risultato del percorso appena concluso}\classeRelazione{CLIPS::client::data}{Score}{classe che rappresenta il risultato nella classifica dell'utente}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::data::datamanager::DBHandlerFIXME}
+\end{classe}\begin{classe}{CLIPS::client::data::datamanager::DBHandler}
 \classeDescrizione{classe che si occupa dell'interazione con il database locale}
 \classeUtilizzo{utilizzando questa classe è possibile interagire con il database locale per ottenere e salvare i dati desiderati}
 \begin{classeAttributi}
@@ -978,7 +978,7 @@
 \classeMetodoArgomento{listener}{AbstractDataManagerListener<boolean>}{il listener che verrà usato per informare l'applicazione se l'operazione prevista ha avuto successo o meno}
 \end{classeMetodoArgomenti}
 \classeMetodo{getToken}{}{string}{se esiste un token salvato restituisce il suo valore, altrimenti restituisce una stringa vuota}
-\classeMetodo{isLogged}{}{boolean}{restituisce \textit{true} se l'utente è loggato, ovvero se è salvato un token in locale, "false" altrimenti}
+\classeMetodo{isLogged}{}{boolean}{restituisce \textit{true} se l'utente è loggato, ovvero se è salvato un token in locale, \texttt{false} altrimenti}
 \classeMetodo{login}{email, listener, password}{void}{effettua il login dell'utente, controllando la validità dei dati tramite l'apposita richiesta al server}
 \begin{classeMetodoArgomenti}
 \classeMetodoArgomento{email}{string}{l'indirizzo email digitato dall'utente per il login}
@@ -1000,7 +1000,7 @@
 \begin{classeMetodoArgomenti}
 \classeMetodoArgomento{error}{ServerError}{l'oggetto che contiene i dati relativi all'errore rilevato}
 \end{classeMetodoArgomenti}
-\classeMetodo{sendResponse}{initialization}{void}{metodo di supporto che reinizializza loggedUser quando richiesta e invoca il metodo onResponse del listener, inviando come risposta "true"}
+\classeMetodo{sendResponse}{initialization}{void}{metodo di supporto che reinizializza loggedUser quando richiesta e invoca il metodo onResponse del listener, inviando come risposta \texttt{true}}
 \begin{classeMetodoArgomenti}
 \classeMetodoArgomento{initialization}{boolean}{indica se è necessario o meno salvare nuovamente loggedUser usando i dati salvati in locale, ad esempio perché essi sono stati modificati}
 \end{classeMetodoArgomenti}
