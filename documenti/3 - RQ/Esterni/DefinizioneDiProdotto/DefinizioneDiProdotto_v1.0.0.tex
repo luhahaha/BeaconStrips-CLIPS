@@ -12,6 +12,80 @@
 \usepackage{comment}
 \usepackage{hyperref}
 
+% -- COMANDI PER LE COMPONENTI -- %
+\newenvironment{componente}[1]
+{
+	\subsubsection{Componente \texttt{#1}}
+	\label{#1}
+	Informazioni sul package
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+\newcommand{\compDescrizione}[1] {
+	\item \textbf{Descrizione}: {#1}
+}
+\newcommand{\compPadre}[1] {
+	\item \textbf{Padre}: {#1}
+}
+\newcommand{\compUtilizzo}[1] {
+	\item \textbf{Utilizzo}: {#1}
+}
+\newenvironment{compPackageContenuti}[1] {
+	\item \textbf{Package contenuti}: {#1}
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newenvironment{compClassi} [1] {
+	\item \textbf{Classi}: {#1}
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newenvironment{classe} [1] {
+	\item[] \texttt{#1} \\
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newcommand{\classeDescrizione} [1] { \\
+	\item \textbf{Descrizione}: {#1}
+}
+\newcommand{\classeUtilizzo} [1] { \\
+	\item \textbf{Utilizzo}: {#1}
+}
+\newenvironment{classeAttributi} [1] { \\
+	\item \textbf{Attributi}: {#1}
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newcommand{\classeAttributo}[3] { \item \texttt{{#1}: {#2}} {#3}}
+\newenvironment{classeMetodi} [1] {
+	\item \textbf{Metodi}: {#1}
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newcommand{\classeMetodo}[4]{
+	\item \texttt{{#1}}%({#2}) : {#3}} \\ {#4}
+}
+\newenvironment{classeMetodoArgomenti} {
+	\item \textbf{Argomenti}:
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+\newcommand{\classeMetodoArgomento}[3]{\item \texttt{{#1} : {#2}} \\ {#3} }
+\newenvironment{classeRelazioni} { \\
+	\item \textbf{Relazioni con altre classi}:
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newcommand{\classeRelazione}[3]{\item \textt{#1::#2}: {#3}}
+
 \def\NOME{Definizione di Prodotto}
 \def\VERSIONE{1.0.0}
 \def\DATA{\TODO}
@@ -23,15 +97,15 @@
 \def\SOMMARIO{Descrizione approfondita dell'architettura del \gl{progetto} \PROGETTO.}
 
 \begin{document}
-	
-	
+
+
 	\maketitle
-	
+
 	\begin{diario}
 		\modifica{Luca Soldera}{\PRJ}{Aggiunta sezione \hyperref[strutturaDelDatabase]{Struttura del database}}{2016-07-15}{0.0.2}
 		\modifica{Tommaso Panozzo}{\RES}{Creazione documento}{2016-07-10}{0.0.1}
 	\end{diario}
-	
+
 	\newpage
 	\tableofcontents
 	\newpage
@@ -39,10 +113,19 @@
 	\newpage
 	\listoffigures
 	\newpage
-	
+
 	\include{introduzione}
-	
-	
+
+   \include{standardProgetto}
+
+   %% qui vanno le stampe da trender
+
 	\include{strutturaDatabase}
-	
+
+   %% qui vanno i diagrammi di sequenza
+
+   %% qui vanno le tabelle requisito - package
+
+   %% qui quelle package - requisito
+
 \end{document}
