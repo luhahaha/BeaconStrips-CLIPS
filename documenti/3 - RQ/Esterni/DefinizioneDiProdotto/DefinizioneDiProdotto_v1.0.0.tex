@@ -17,7 +17,7 @@
 {
 	\subsubsection{Componente \texttt{#1}}
 	\label{#1}
-	Informazioni sul package
+	\textbf{Informazioni sul package}
 	\begin{itemize}
 }{
 	\end{itemize}
@@ -31,8 +31,8 @@
 \newcommand{\compUtilizzo}[1] {
 	\item \textbf{Utilizzo}: {#1}
 }
-\newenvironment{compPackageContenuti}[1] {
-	\item \textbf{Package contenuti}: {#1}
+\newenvironment{compPackageContenuti} {
+	\item \textbf{Package contenuti}:% {#1}
 	\begin{itemize}
 } {
 	\end{itemize}
