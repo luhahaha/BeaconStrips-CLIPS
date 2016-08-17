@@ -29,7 +29,7 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 	
 \subsection{Android} %forse sono stato un po' troppo lungo qui nella descrizione
 
-	Android è il sistema operativo più diffuso al mondo, usato per smartphone, tablet e altri dispositivi, come Android TV e Google Glass, sviluppati da Google, la proprietaria del sistema operativo. Strutturalmente deriva da Linux, ma usa Java per le applicazioni che interagiscono con l'utente. In pratica il linguaggio di programmazione principale previsto è Java, più supportato e ricco di funzionalità già fornite di base, mentre in genere si usano C e C++ per ottenere prestazioni migliori, sebbene siano presenti meno librerie rispetto al primo linguaggio. Esiste comunque la possibilità di usare entrambi per la stessa applicazione, ad esempio utilizzando Java per la struttura principale e C++ per le parti più pesanti da eseguire. Il \gl{team} userà solo Java, dato che il programma sviluppato dovrebbe essere abbastanza leggero da eseguire. //
+	Android è il sistema operativo più diffuso al mondo, usato per smartphone, tablet e altri dispositivi, come Android TV e Google Glass, sviluppati da Google, la proprietaria del sistema operativo. Strutturalmente deriva da Linux, ma usa Java per le applicazioni che interagiscono con l'utente. In pratica il linguaggio di programmazione principale previsto è Java, più supportato e ricco di funzionalità già fornite di base, mentre in genere si usano C e C++ per ottenere prestazioni migliori, sebbene siano presenti meno librerie rispetto al primo linguaggio. Esiste comunque la possibilità di usare entrambi per la stessa applicazione, ad esempio utilizzando Java per la struttura principale e C++ per le parti più pesanti da eseguire. Il \gl{team} userà solo Java, dato che il programma sviluppato dovrebbe essere abbastanza leggero da eseguire. \\
 	Android inoltre fornisce delle proprie librerie, che, insieme alla struttura del sistema operativo, caratterizzano la stesura del codice dell'applicazione. Ad esempio ogni programma viene eseguito in una macchina virtuale propria, così la sua esecuzione non può modificare né il sistema operativo né le altre applicazioni, mentre la comunicazione con gli altri programmi può avvenire soltanto tramite dei pattern specifici. La struttura del programma sfrutta altri pattern già definiti, come le Activity, che caratterizzano lo sviluppo dell'applicazione. Android quindi presenta vantaggi e svantaggi differenti rispetto a Java.
 	
 	\begin{itemize}
@@ -128,7 +128,7 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 		\item 	interrogare i dati memorizzati;
 		\item 	creare e gestire strumenti di controllo ed accesso ai dati.
 	\end{itemize}
-	È costruito per essere semplice, sia in scrittura sia in lettura, e poco verboso, e per permettere automaticamente una gestione ottimale dei dati. //
+	È costruito per essere semplice, sia in scrittura sia in lettura, e poco verboso, e per permettere automaticamente una gestione ottimale dei dati. \\
 	Useremo SQL per gestire i dati dell'applicazione.
 	
 	\begin{itemize}
@@ -171,7 +171,7 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 
 %ho unito la libreria e la specifica, visto che parlare di una vuol dire praticamente parlare anche dell'altra
 \subsection{Android Beacon Library e AltBeacon}
-	Android Beacon Library è una libreria Android che fornisce delle API per interagire con i beacon, e permette ai dispositivi Android di usarli similmente a quanto viene fatto dai dispositivi iOS. Un'applicazione può richiedere di ricevere notifiche quando uno o più beacon appaiono o spariscono. Può richiedere inoltre di ricevere degli aggiornamenti da uno o più beacon alla frequenza di 1Hz. //
+	Android Beacon Library è una libreria Android che fornisce delle API per interagire con i beacon, e permette ai dispositivi Android di usarli similmente a quanto viene fatto dai dispositivi iOS. Un'applicazione può richiedere di ricevere notifiche quando uno o più beacon appaiono o spariscono. Può richiedere inoltre di ricevere degli aggiornamenti da uno o più beacon alla frequenza di 1Hz. \\
 	Android Beacon Library usa di default la specifica AltBeacon. Essa definisce il formato dei messaggi che i dispositivi BLE trasmettono. Permette di gestire l'interazione con i beacon come funziona per iBeacon: essi trasmettono un UUID e l'applicazione che implementa AltBeacon usa un database esterno per dare un significato ai beacon.
 	Al contrario di iBeacon, AltBeacon è open source e offre una quantità di dati più grande da utilizzare.
 	
@@ -193,7 +193,7 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 		
 \subsection{Volley}
 
-	Volley è una libreria Android che permette e facilita la comunicazione tra client e server tramite HTTP. Effettua automaticamente le chiamate, asincrone o sincrone, al server, in base alle impostazioni fornite dal programmatore. È nata per sopperire alla mancanza di librerie simili in Java, dove le uniche classi presenti per effettuare chiamate REST sono obsolete e non esenti da errori. Il risultato ottenuto è rappresentato da una libreria molto veloce, leggera e soprattutto con un'eccellente gestione della memoria. //
+	Volley è una libreria Android che permette e facilita la comunicazione tra client e server tramite HTTP. Effettua automaticamente le chiamate, asincrone o sincrone, al server, in base alle impostazioni fornite dal programmatore. È nata per sopperire alla mancanza di librerie simili in Java, dove le uniche classi presenti per effettuare chiamate REST sono obsolete e non esenti da errori. Il risultato ottenuto è rappresentato da una libreria molto veloce, leggera e soprattutto con un'eccellente gestione della memoria. \\
 	Nella nostra applicazione verrà appunto usata per effettuare le richieste al server.
 
 	\begin{itemize}
