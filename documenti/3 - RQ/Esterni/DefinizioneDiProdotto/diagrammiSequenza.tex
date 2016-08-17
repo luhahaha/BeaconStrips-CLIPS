@@ -7,8 +7,7 @@ In questa sezione saranno riportati i diagrammi di sequenza riguardo alle operaz
 \label{sub:Richiesta lista edifici abilitati}
 
 \includegraphics[scale=0.28]{img/diagrammiSequenza/ricercaEdifici.png}
-\caption{Diagramma di Sequenza della richiesta di edifici abilitati ai percorsi}.
-\end{figure}
+\caption{Diagramma di Sequenza della richiesta di edifici abilitati ai percorsi}
 
 Il diagramma in figura illustra come viene gestita la visualizzazione nel client della lista di edifici abilitati nelle vicinanze.
 La sequenza ha inizio ogni volta che l'utente accede alla schermata di ricerca degli edifici abilitati dal proprio terminale.
@@ -18,3 +17,14 @@ A questo punto il \texttt{DataManager} interrogherà sia il database locale alla
 Solitamente il database locale risponderà in tempi brevissimi, ritornando quindi l'informazione richiesta al \texttt{DataManager} che provvederà a inviarla alla activity che l'ha richiesta.
 Intanto la richiesta inviata al server viene instradata dal \texttt{Server} alla corretta classe che si occuperà di interrogare il DB remoto per ottenere i dati più aggiornati.
 Tali dati vengono poi inviati dal server fino al \texttt{DataManager} e poi di nuovo all'activity, che avrà ora i dati più aggiornati da mostrare all'utente.
+
+\subsection{Scoperta nuovi \gl{Beacon}}
+\label{sub:Scoperta nuovi Beacon}
+
+\includegraphics[scale=0.22]{img/diagrammiSequenza/scopertaBeacon.png}
+\caption{Diagramma di Sequenza della scoperta di nuovi beacon}
+
+Il diagramma in figura illustra come viene gestita dall'app la situazione in cui, durante lo svolgimento di un percorso, l'utente si avvicini al \gl{beacon} che segnala il raggiungimento della prova seguente.
+
+Il \gl{beacon} trasmette costantemente i propri dati nelle vicinanze; quando il dispositivo ne rivela la presenza lo segnala all'applicazione attraverso la libreria \gl{AltBeacon} che effettua una chiamata al metodo \texttt{didEnterRegion} di un oggetto di tipo \texttt{BeaconDiscover}.
+A sua volta il \texttt{BeaconDiscover} chiamerà il metodo \texttt{didFoundBeacon} nel proprio delegate (ovvero un istanza di \texttt{PathProgressController}) che si occuperà di capire se il \gl{beacon} è effettivamente uno del percorso ed eventualmente notificarlo all'activity \texttt{SearchNewStepActivity} che ha il compito di informare l'utente.
