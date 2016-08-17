@@ -1,6 +1,6 @@
 \paragraph{Client}
-\begin{tabella}{!{\VRule}l!{\VRule}c!{\VRule}c!{\VRule}c!{\VRule}l!{\VRule}}
-	\intestazionefivecol{Classe}{Numero attributi}{Complessità ciclomatica}{Numero massimo parametri}{Esito}
+\begin{tabella}{!{\VRule}l!{\VRule}X[c,b,c]!{\VRule}c!{\VRule}X[c,b,c]!{\VRule}c!{\VRule}}
+    \intestazionefivecol{Classe}{Numero attributi}{CC}{Numero massimo parametri}{Esito}
 	AccountActivity & 0 & 2 & 1 & {\color[rgb]{0,1,0} Superato} \\
 	AccountView & 4 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
 	ConfirmRegistration & 0 & 2 & 1 & {\color[rgb]{0,1,0} Superato} \\
@@ -13,6 +13,7 @@
 	RegistrationView & 9 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
 	UpdateUserInfoActivity & 0 & 2 & 1 & {\color[rgb]{0,1,0} Superato} \\
 	UpdateUserInfoView & 6 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	AbstractQuiz & 2 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
 	AppInfo & 3 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
 	Beacon & 4 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
 	BiggerShape & 4 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
@@ -41,77 +42,78 @@
 	TrueFalseTest & 2 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
 	TrueFalseTextQuiz & 1 & 1 & 1 & {\color[rgb]{0,1,0} Superato} \\
 	Utility & 0 & 3 & 4 & {\color[rgb]{0,1,0} Superato} \\
-	AbstractDataManagerListener & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	AppInfoDataRequest & 3 & & & {\color[rgb]{0,1,0} Superato} \\
-	BuildingsDataRequest & 3 & & & {\color[rgb]{0,1,0} Superato} \\
-	CheckResult & 4 & & & {\color[rgb]{0,1,0} Superato} \\
-	DataManager & 5 & & & {\color[rgb]{0,1,0} Superato} \\
-	DataRequestMaker & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	DBHandler & 1 & & & {\color[rgb]{0,1,0} Superato} \\
-	GetRankingDataRequest & 1 & & & {\color[rgb]{0,1,0} Superato} \\
-	GetResultsDataRequest & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	LoginManager & 4 & & & {\color[rgb]{0,1,0} Superato} \\
-	PathDataRequest & 1 & & & {\color[rgb]{0,1,0} Superato} \\
-	SaveResultDataRequest & 1 & & & {\color[rgb]{0,1,0} Superato} \\
-	AbstractUrlRequestListener &  & & & {\color[rgb]{0,1,0} Superato} \\
-	AppInfoRequest & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	BuildingsRequest & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	ChangeProfileDataRequest & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	CheckRequest & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	GetProfileDataRequest & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	GetRankingRequest & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	GetResultsRequest & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	LoginRequest & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	LogoutRequest & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	PathRequest & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	RegistrationRequest & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	RequestMaker & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	SaveResultRequest & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	ServerError & 3 & & & {\color[rgb]{0,1,0} Superato} \\
-	URLDataConstants & 1 & & & {\color[rgb]{0,1,0} Superato} \\
-	URLRequest & 7 & & & {\color[rgb]{0,1,0} Superato} \\
+	AbstractDataManagerListener & 0 & 1 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	AppInfoDataRequest & 3 & 2 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	BuildingsDataRequest & 3 & 4 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	CheckResult & 4 & 1 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	DataManager & 5 & 5 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	DataRequestMaker & 0 & 1 & 5 & {\color[rgb]{0,1,0} Superato} \\
+	DBHandler & 1 & 4 & 3 & {\color[rgb]{0,1,0} Superato} \\
+	GetRankingDataRequest & 1 & 3 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	GetResultsDataRequest & 0 & 6 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	LoginManager & 4 & 5 & 4 & {\color[rgb]{0,1,0} Superato} \\
+	PathDataRequest & 1 & 4 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	SaveDataManager & 2 & 1 & 1 & {\color[rgb]{0,1,0} Superato}
+	SaveResultDataRequest & 1 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	AbstractUrlRequestListener & 0 & 1 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	AppInfoRequest & 0 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	BuildingsRequest & 0 & 2 & 3 & {\color[rgb]{0,1,0} Superato} \\
+	ChangeProfileDataRequest & 0 & 2 & 3 & {\color[rgb]{0,1,0} Superato} \\
+	CheckRequest & 0 & 2 & 3 & {\color[rgb]{0,1,0} Superato} \\
+	GetProfileDataRequest & 0 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	GetRankingRequest & 0 & 2 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	GetResultsRequest & 0 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	LoginRequest & 0 & 2 & 2 & {\color[rgb]{0,1,0} Superato} \\
+	LogoutRequest & 0 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	PathRequest & 0 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	RegistrationRequest & 0 & 2 & 3 & {\color[rgb]{0,1,0} Superato} \\
+	RequestMaker & 0 & 1 & 5 & {\color[rgb]{0,1,0} Superato} \\
+	SaveResultRequest & 0 & 1 & 4 & {\color[rgb]{0,1,0} Superato} \\
+	ServerError & 3 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	URLDataConstants & 1 & 0 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	URLRequest & 7 & 8 & 1 & {\color[rgb]{0,1,0} Superato} \\
 	BeaconDiscover & 1 & & & {\color[rgb]{0,1,0} Superato} \\
-	BeaconDiscoverDelegate & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	PathProgressController & 4 & & & {\color[rgb]{0,1,0} Superato} \\
-	PathProgressControllerDelegate & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	RawBeacon & 3 & & & {\color[rgb]{0,1,0} Superato} \\
-	BuildingActivity & 2 & & & {\color[rgb]{0,1,0} Superato} \\
-	BuildingRow & 2 & & & {\color[rgb]{0,1,0} Superato} \\
-	BuildingSearchActivity & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	BuildingSearchView & 2 & & & {\color[rgb]{0,1,0} Superato} \\
-	BuildingView & 13 & & & {\color[rgb]{0,1,0} Superato} \\
-	PathActivity & 1 & & & {\color[rgb]{0,1,0} Superato} \\
-	PathRow & 1 & & & {\color[rgb]{0,1,0} Superato} \\
-	PathView & 5 & & & {\color[rgb]{0,1,0} Superato} \\
-	SearchCriteriaRow & 4 & & & {\color[rgb]{0,1,0} Superato} \\
-	MultipleChoiceQuizActivity & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	MultipleChoiceQuizView & 4 & & & {\color[rgb]{0,1,0} Superato} \\
-	ProofActivity & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	ProofResultActivity & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	ProofResultRow & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	ProofResultView & 1 & & & {\color[rgb]{0,1,0} Superato} \\
-	ProofView & 2 & & & {\color[rgb]{0,1,0} Superato} \\
+	BeaconDiscoverDelegate & 0 & 1 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	PathProgressController & 4 & 3 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	PathProgressControllerDelegate & 0 & 1 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	RawBeacon & 3 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	BuildingActivity & 2 & 6 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	BuildingRow & 2 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	BuildingSearchActivity & 0 & 2 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	BuildingSearchView & 2 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	BuildingView & 13 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	PathActivity & 1 & 1 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	PathRow & 1 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	PathView & 5 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	SearchCriteriaRow & 4 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	MultipleChoiceQuizActivity & 0 & 1 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	MultipleChoiceQuizView & 4 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	ProofActivity & 0 & 1 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	ProofResultActivity & 0 & 1 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	ProofResultRow & 0 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	ProofResultView & 1 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	ProofView & 2 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
 	QuizActivity & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	QuizResultView & 2 & & & {\color[rgb]{0,1,0} Superato} \\
-	QuizView & 1 & & & {\color[rgb]{0,1,0} Superato} \\
-	SearchNewStepActivity & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	SearchNewStepView & 2 & & & {\color[rgb]{0,1,0} Superato} \\
-	TestResultView & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	TestView & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	TrueFalseQuizActivity & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	TrueFalseQuizView & 2 & & & {\color[rgb]{0,1,0} Superato} \\
-	PlayerRow & 2 & & & {\color[rgb]{0,1,0} Superato} \\
-	RankingActivity & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	RankingView & 2 & & & {\color[rgb]{0,1,0} Superato} \\
-	ResultActivity & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	ResultRow & 5 & & & {\color[rgb]{0,1,0} Superato} \\
-	ResultView & 12 & & & {\color[rgb]{0,1,0} Superato} \\
-	SavedResultsActivity & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	SavedResultView & 4 & & & {\color[rgb]{0,1,0} Superato} \\
-	AppInfoActivity & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	AppInfoView & 1 & & & {\color[rgb]{0,1,0} Superato} \\
-	MenuActivity & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	MenuView & 0 & & & {\color[rgb]{0,1,0} Superato} \\
+	QuizResultView & 2 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	QuizView & 1 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	SearchNewStepActivity & 0 & 1 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	SearchNewStepView & 2 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	TestResultView & 0 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	TestView & 0 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	TrueFalseQuizActivity & 0 & 1 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	TrueFalseQuizView & 2 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	PlayerRow & 2 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	RankingActivity & 0 & 1 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	RankingView & 2 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	ResultActivity & 0 & 1 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	ResultRow & 5 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	ResultView & 12 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	SavedResultsActivity & 0 & 1 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	SavedResultView & 4 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	AppInfoActivity & 0 & 1 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	AppInfoView & 1 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
+	MenuActivity & 0 & 9 & 1 & {\color[rgb]{0,1,0} Superato} \\
+	MenuView & 0 & 1 & 0 & {\color[rgb]{0,1,0} Superato} \\
 \end{tabella}
 
 \paragraph{Server}
@@ -145,6 +147,4 @@
 	URLRequestRouter & 0 & & & {\color[rgb]{0,1,0} Superato} \\
 	UsernameChecker & 0 & & & {\color[rgb]{0,1,0} Superato} \\
 	UserResultProvider & 0 & & & {\color[rgb]{0,1,0} Superato} \\
-	AbstractQuiz & 2 & & & {\color[rgb]{0,1,0} Superato} \\
-	SaveDataManager & 2 & & & {\color[rgb]{0,1,0} Superato}
 \end{tabella}
