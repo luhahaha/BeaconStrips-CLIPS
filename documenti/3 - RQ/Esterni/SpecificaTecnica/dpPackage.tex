@@ -508,47 +508,6 @@
 \classeUtilizzo{permette di effettuare al URLRequest di effettuare delle callback}
 \end{classe}\end{compClassi}
 \end{componente}
-\begin{componente}{CLIPS::client::location}
-\compDescrizione{componente che gestisce l'individuazione e la lettura dei beacon}
-\compPadre{client}
-\begin{compClassi} \\
-\begin{classe}{CLIPS::client::location::BeaconMonitor}
-\classeDescrizione{classe che si occupa di monitorare la scoperta di nuovi beacon e l'allontanamento da beacon presenti}
-\classeUtilizzo{PathLocationManager ne crea un'istanza e imposta se stesso come il suo delegate per essere notificato quando nuovi beacon entrano nel raggio del dispositivo}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::location}{BeaconMonitorDelegate}{interfaccia che devono implementare le classi che desiderano essere notificate dal BeaconMonitor}\classeRelazione{CLIPS::client::location}{LocationMonitor<DelegateType,RegionType>}{gli oggetti della classe LocationMonitor si occupano di monitorare quando il dispositivo entra od esce da una regione di tipo RegionType e notificano di ci� un oggetto di tipo DelegateType}\classeRelazione{CLIPS::client::location}{RawRegion}{oggetto che rappresenta una regione geografica circolare}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::location::BeaconMonitorDelegate}
-\classeDescrizione{interfaccia che devono implementare le classi che desiderano essere notificate dal BeaconMonitor}
-\classeUtilizzo{le classi che desiderano essere informate quando vengono scoperti nuovi beacon o quando un beacon noto esce dal raggio del dispositivo devono implementare questa interfaccia per permettere al BeaconMonitor di notificarle}
-\end{classe}\begin{classe}{CLIPS::client::location::GPSMonitor}
-\classeDescrizione{classe che si occupa di monitorare l'ingresso o l'uscita in una regione geografica registrata}
-\classeUtilizzo{PathLocationManager ne può creare un'istanza e può impostare se stesso come il suo delegate per essere notificato quando l'utente entra od esce da una regione geografica registrata}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::location}{GPSMonitorDelegate}{interfaccia per segnalare gli eventi della classe GPSMonitor}\classeRelazione{CLIPS::client::location}{LocationMonitor<DelegateType,RegionType>}{gli oggetti della classe LocationMonitor si occupano di monitorare quando il dispositivo entra od esce da una regione di tipo RegionType e notificano di ci� un oggetto di tipo DelegateType}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::location::GPSMonitorDelegate}
-\classeDescrizione{interfaccia per segnalare gli eventi della classe GPSMonitor}
-\classeUtilizzo{si occupa di fornire i metodi necessari alla classe GPSMonitor}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::location}{GPSMonitor}{classe che si occupa di monitorare l'ingresso o l'uscita in una regione geografica registrata}\classeRelazione{CLIPS::client::location}{PathLocationManager}{classe che si occupa di gestire gli eventi legati alla posizione di un determinato percorso}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::location::LocationMonitor<DelegateType,RegionType>}
-\classeDescrizione{gli oggetti della classe LocationMonitor si occupano di monitorare quando il dispositivo entra od esce da una regione di tipo RegionType e notificano di ci� un oggetto di tipo DelegateType}
-\classeUtilizzo{le classi BeaconMonitor e GPSMonitor sono sottoclassi che monitorano rispettivamente delle regioni di tipo RawBeacon e RawRegion ed entrambe notificano un oggetto di tipo PathLocationManager}
-\end{classe}\begin{classe}{CLIPS::client::location::PathLocationDelegate}
-\classeDescrizione{interfaccia che devono implementare le classi che desiderano essere notificate quando il PathLocationManager rileva un beacon}
-\classeUtilizzo{interfaccia implementata da PathProgress che desidera essere notificato quando PathLocationManager rileva un beacon di quelli appartenenti al percorso (Path) in corso}
-\end{classe}\begin{classe}{CLIPS::client::location::PathLocationManager}
-\classeDescrizione{classe che si occupa di gestire gli eventi legati alla posizione di un determinato percorso}
-\classeUtilizzo{un oggetto di tipo PathLocationManager viene creato dal PathProgress che gli fornisce i dati sui beacon presenti nel percorso (che dovranno quindi essere monitorati) e imposta se stesso come delegate, per essere notificato di eventuali beacon che entrano/escono dal raggio del dispositivo}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::location}{BeaconMonitor}{classe che si occupa di monitorare la scoperta di nuovi beacon e l'allontanamento da beacon presenti}\classeRelazione{CLIPS::client::location}{BeaconMonitorDelegate}{interfaccia che devono implementare le classi che desiderano essere notificate dal BeaconMonitor}\classeRelazione{CLIPS::client::location}{GPSMonitor}{classe che si occupa di monitorare l'ingresso o l'uscita in una regione geografica registrata}\classeRelazione{CLIPS::client::location}{PathLocationDelegate}{interfaccia che devono implementare le classi che desiderano essere notificate quando il PathLocationManager rileva un beacon}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::location::RawBeacon}
-\classeDescrizione{oggetto che rappresenta un Beacon: nonostante i campi siano simili alla classe \'Beacon\' il fatto che siano di tipi diversi enfatizza la differenza che c'è tra un Beacon (proveniente dal server e appartenente ad un percorso) e un RawBeacon (un oggetto monitorabile dalla classe BeaconMonitor)}
-\classeUtilizzo{quando il PathLocationManager riceve un path, a partire dai suoi Beacon crea i necessari oggetti RawBeacon e chiede al proprio BeaconManager di monitorarli}
-\end{classe}\begin{classe}{CLIPS::client::location::RawRegion}
-\classeDescrizione{oggetto che rappresenta una regione geografica circolare}
-\classeUtilizzo{utilizzata dal LocationManager per descrivere una regione geografica circolare}
-\end{classe}\end{compClassi}
-\end{componente}
 \begin{componente}{CLIPS::client::pathprogress}
 \begin{figure}[h!]
 \centering
