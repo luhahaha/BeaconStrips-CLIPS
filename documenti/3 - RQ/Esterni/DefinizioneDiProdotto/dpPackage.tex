@@ -22,10 +22,15 @@
 \end{componente}
 \begin{componente}{CLIPS::client::authentication}
 \begin{figure}[h!]
-\centering
-\includegraphics[scale=0.2]{img/package/png/client--viewcontroller--authentication.png}
-\caption{Schema package client::viewcontroller::authentication}
- \end{figure}
+	\centering
+	\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication1.png}
+	\caption{Prima parte schema package client::viewcontroller::authentication}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication2.png}
+	\caption{Seconda parte schema package client::viewcontroller::authentication}
+\end{figure}
 \compDescrizione{componente che si occupa di gestire l'autenticazione dell'utente}
 \compPadre{client}
 \begin{compClassi} \\
@@ -149,10 +154,25 @@
 \end{componente}
 \begin{componente}{CLIPS::client::data}
 \begin{figure}[h!]
-\centering
-\includegraphics[scale=0.4]{img/package/png/client--data.png}
-\caption{Schema package client::data}
- \end{figure}
+	\centering
+	\includegraphics[scale=0.35]{img/package/png/client--data--min.png}
+	\caption{Schema sintetico package client::data}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.35]{img/package/png/client--data1.png}
+	\caption{Prima parte schema package client::data}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.35]{img/package/png/client--data2.png}
+	\caption{Seconda parte schema package client::data}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{img/package/png/client--data3.png}
+	\caption{Terza parte schema package client::data}
+\end{figure}
 \compDescrizione{package per la gestione in locale dei dati}
 \compPadre{client}
 \begin{compPackageContenuti}
@@ -530,10 +550,25 @@
 \end{componente}
 \begin{componente}{CLIPS::client::data::datamanager}
 \begin{figure}[h!]
-\centering
-\includegraphics[scale=0.4]{img/package/png/client--datamanager.png}
-\caption{Schema package client::datamanager}
- \end{figure}
+	\centering
+	\includegraphics[scale=0.45]{img/package/png/client--datamanager--min.png}
+	\caption{Schema sintetico package client::data::datamanager}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{img/package/png/client--datamanager1.png}
+	\caption{Prima parte schema package client::data::datamanager}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{img/package/png/client--datamanager2.png}
+	\caption{Seconda parte schema package client::data::datamanager}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.35]{img/package/png/client--datamanager3.png}
+	\caption{Terza parte schema package client::data::datamanager}
+\end{figure}
 \compDescrizione{componente che gestisce i dati in locale}
 \compPadre{data}
 \begin{compClassi} \\
@@ -553,8 +588,29 @@
 \classeMetodo{returnResponse}{}{void}{chiama il metodo onResponse del listener e ritorna sempre \texttt{true}, è un valore che serve solo per mantenere la consistenza della struttura del listener perché già chiamare il metodo indica che l'operazione è riuscita}
 \end{classeMetodi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura de listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::data::datamanager::AbstractDataManagerListener}
+\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura de listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}\end{classe}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.45]{img/package/png/client--urlrequest--min.png}
+	\caption{Schema sintetico package client::data::urlrequest}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{img/package/png/client--urlrequest1.png}
+	\caption{Prima parte schema package client::data::urlrequest}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.30]{img/package/png/client--urlrequest2.png}
+	\caption{Seconda parte schema package client::data::urlrequest}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.35]{img/package/png/client--urlrequest3.png}
+	\caption{Terza parte schema package client::data::urlrequest}
+\end{figure}
+
+\begin{classe}{CLIPS::client::data::datamanager::AbstractDataManagerListener}
 \classeDescrizione{interfaccia che definisce la struttura de listener astratto usato nel package datamanager}
 \classeUtilizzo{permette alle classi che interagiscono con il datamanager di definire un proprio listener concreto da poter usare per ottenere le informazioni richieste}
 \begin{classeMetodi}
@@ -1510,10 +1566,20 @@ selezionato}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::games}
 \begin{figure}[h!]
-\centering
-\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--games.png}
-\caption{Schema package client::viewcontroller::games}
- \end{figure}
+	\centering
+	\includegraphics[scale=0.5]{img/package/png/client--viewcontroller--games1.png}
+	\caption{Prima parte schema package client::viewcontroller::games}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{img/package/png/client--viewcontroller--games2.png}
+	\caption{Seconda parte schema package client::viewcontroller::games}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{img/package/png/client--viewcontroller--games3.png}
+	\caption{Terza parte schema package client::viewcontroller::games}
+\end{figure}
 \compDescrizione{componente che gestisce le prove che l'utente deve completare all'interno di un percorso}
 \compPadre{viewcontroller}
 \begin{compClassi} \\
