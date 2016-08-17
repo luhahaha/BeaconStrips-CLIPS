@@ -148,24 +148,25 @@
 					Sono riportati qui i valori dell'indice Gulpease per ogni documento presente durante l'attività di analisi nel Periodo di Progettazione di Dettaglio e Codifica. Un documento è considerato valido soltanto se rispetta le metriche descritte secondo la sezione \hyperref[indiceGulpease]{Indice Gulpease}.
 					\begin{tabella}{!{\VRule}l!{\VRule}c!{\VRule}c!{\VRule}}
 						\intestazionethreecol{Documento}{Valore}{Esito}
-						\ARdoc & 84  & Superato\\
-						\DPdoc & & Superato\\
-						\Gldoc & 54 & Superato\\
-						\MUdoc & & Superato\\
-						\NPdoc & 71 & Superato\\
+						\ARdoc & 79 & Superato\\
+						\DPdoc & 79 & Superato\\
+						\Gldoc & 48 & Superato\\
+						\MUdoc & 50 & Superato\\
+						\NPdoc & 70 & Superato\\
 						\PPdoc & 51 & Superato\\
-						\PQdoc & 61 & Superato\\
-						\STdoc & 86 & Superato\\
+						\PQdoc & 52 & Superato\\
+						\STdoc & 87 & Superato\\
 						
 						\hiderowcolors
 						\caption{Esiti verifica documenti - Periodo di Progettazione di Dettaglio e Codifica}
 					\end{tabella}
-					\subsection{Soddisfacimento metriche}
-					\subsubsection{Grado d'instabilità}
-					Viene riportata di seguito una tabella riassuntiva che espone gli indici di instabilità per i componenti rilevati durante la progettazione.
-					\input{pqDesignInstability}
-					\subsubsection{Classi}
-					Viene riportata di seguito una tabella riassuntiva che espone gli esiti delle metriche sulle classi.\\
-					Per ragioni di spazio la Complessità Ciclomatica è stata abbreviata in CC.\\
-					Inoltre si è deciso di riportare, per quanto riguarda il numero di parametri dei metodi, il numero del metodo della classe con numero massimo di parametri, escludendo dal calcolo i costruttori.
-					\input{Numero_attributi}
+				\subsubsection{Soddisfacimento metriche}
+				\label{codicePDC}
+					\paragraph{Grado d'instabilità}
+						Viene riportata di seguito una tabella riassuntiva che espone gli indici di instabilità per i componenti rilevati durante la progettazione.
+						\input{pqDesignInstability}
+					\paragraph{Classi}
+						Viene riportata di seguito una tabella riassuntiva che espone gli esiti delle metriche sulle classi.\\
+						Per ragioni di spazio la Complessità Ciclomatica è stata abbreviata in CC.\\
+						Inoltre si è deciso di riportare, per quanto riguarda il numero di parametri dei metodi, il numero del metodo della classe con numero massimo di parametri, escludendo dal calcolo i costruttori.
+						\input{Numero_attributi}
