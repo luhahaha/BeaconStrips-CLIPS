@@ -160,14 +160,14 @@
 \item \texttt{CLIPS::client::data::urlrequest}: componente che si occupa di effettuare le richieste al server
 \end{compPackageContenuti}
 \begin{compClassi} \\
-\begin{classe}{CLIPS::client::data::/textit{AbstractQuiz}}
+\begin{classe}{CLIPS::client::data::\textit{AbstractQuiz}}
 \classeDescrizione{classe astratta dei quiz}
 \classeUtilizzo{classe astratta da cui far derivare tutte le classi che rappresentano un quiz}
 \begin{classeAttributi}
 \classeAttributo{helpText}{string}{stringa contenente il messaggio d'aiuto per la prova}
 \classeAttributo{instructions}{string}{stringa contenente le istruzioni della prova}
 \end{classeAttributi}
-\end{classe}\begin{classe}{CLIPS::client::data::/textit{Test}}
+\end{classe}\begin{classe}{CLIPS::client::data::\textit{Test}}
 \classeDescrizione{classe astratta che rappresenta un test}
 \classeUtilizzo{classe astratta per rappresentare un test, ovvero un gruppo di giochi generalmente dello stesso tipo}
 \end{classe}\begin{classe}{CLIPS::client::data::AppInfo}
@@ -247,7 +247,7 @@
 \classeAttributo{shuffleGames}{boolean}{booleano per indicare se la lista dei Test va mescolata o meno}
 \end{classeAttributi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data}{/textit{Test}}{classe astratta che rappresenta un test}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{\textit{Test}}{classe astratta che rappresenta un test}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::LeaderBoard}
 \classeDescrizione{classe che rappresenta la classifica di un percorso}
 \classeUtilizzo{consente di salvare i dati della classifica in locale}
@@ -388,7 +388,7 @@
 \classeAttributo{title}{string}{stringa contenente il titolo della prova}
 \end{classeAttributi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data}{/textit{Test}}{classe astratta che rappresenta un test}\classeRelazione{CLIPS::client::data}{LinearScoringAlgorithm}{classe per calcolare il punteggio di una prova}\classeRelazione{CLIPS::client::data}{ScoringAlgorithmFactory}{classe base per la creazione degli algoritmi}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{\textit{Test}}{classe astratta che rappresenta un test}\classeRelazione{CLIPS::client::data}{LinearScoringAlgorithm}{classe per calcolare il punteggio di una prova}\classeRelazione{CLIPS::client::data}{ScoringAlgorithmFactory}{classe base per la creazione degli algoritmi}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::ProofResult}
 \classeDescrizione{classe che rappresenta il risultato di una prova}
 \classeUtilizzo{permette di salvare in locale il risultato di una prova}
@@ -537,7 +537,7 @@
 \compDescrizione{componente che gestisce i dati in locale}
 \compPadre{data}
 \begin{compClassi} \\
-\begin{classe}{CLIPS::client::data::datamanager::/textit{SaveDataManager}}
+\begin{classe}{CLIPS::client::data::datamanager::\textit{SaveDataManager}}
 \classeDescrizione{classe astratta per il salvataggio di dati nel server}
 \classeUtilizzo{permette di effettuare il salvataggio dei dati nel server}
 \begin{classeAttributi}
@@ -978,7 +978,7 @@
 \classeMetodoArgomento{listener}{AbstractDataManagerListener<boolean>}{il listener che verrà usato per informare l'applicazione se l'operazione prevista ha avuto successo o meno}
 \end{classeMetodoArgomenti}
 \classeMetodo{getToken}{}{string}{se esiste un token salvato restituisce il suo valore, altrimenti restituisce una stringa vuota}
-\classeMetodo{isLogged}{}{boolean}{restituisce \textit{true} se l'utente è loggato, ovvero se è salvato un token in locale, \texttt{false} altrimenti}
+\classeMetodo{isLogged}{}{boolean}{restituisce \texttt{true} se l'utente è loggato, ovvero se è salvato un token in locale, \texttt{false} altrimenti}
 \classeMetodo{login}{email, listener, password}{void}{effettua il login dell'utente, controllando la validità dei dati tramite l'apposita richiesta al server}
 \begin{classeMetodoArgomenti}
 \classeMetodoArgomento{email}{string}{l'indirizzo email digitato dall'utente per il login}
@@ -1285,7 +1285,7 @@
 \classeMetodoArgomento{type}{ResponseExpected}{indica se la chiamata si aspetta di ricevere, in caso di successo, un oggetto o un array JSON}
 \end{classeMetodoArgomenti}
 \classeMetodo{objectRequest}{}{JSONObjectRequest}{è un metodo di supporto che crea una chiamata la cui risposta è un oggetto JSON}
-\classeMetodo{signalError}{}{void}{cambia il valore di buildingJSONError in \textit{true} e segnala quindi all'URLRequest che c'è stato un errore in fase di costruzione di ''body'', viene invocato dalle classi derivate di URLRequest}
+\classeMetodo{signalError}{}{void}{cambia il valore di buildingJSONError in \texttt{true} e segnala quindi all'URLRequest che c'è stato un errore in fase di costruzione di ''body'', viene invocato dalle classi derivate di URLRequest}
 \end{classeMetodi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data::datamanager}{LoginManager}{classe che gestisce le operazioni del profilo dell'utente}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
