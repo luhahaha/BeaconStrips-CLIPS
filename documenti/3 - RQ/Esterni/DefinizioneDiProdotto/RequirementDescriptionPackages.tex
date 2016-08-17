@@ -2,9 +2,9 @@
 
 \begin{tabella}{!{\VRule}c!{\VRule}X[c,b,c]!{\VRule}c!{\VRule}}
 	\intestazionethreecol{Requisiti}{Descrizione}{Componenti}
-	
+
 	R0F1  & L'utente deve poter possedere un account registrato nel database &    \cellacaporiga{CLIPS::server::dataserver \\ CLIPS::server  \\} \\
-	
+
 	R0F1.1 & Il sistema deve permettere all'utente di autenticarsi  & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 	CLIPS::client  \\
 	CLIPS::client::data \\
@@ -15,40 +15,40 @@
 
 	R0F1.1.1  &  Il sistema deve chiedere all'utente l'email per la procedura di autenticazione & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 	CLIPS::client  \\ } \\
-	
+
 	R0F1.1.2  &  Il sistema deve chiedere all'utente la password per la procedura di autenticazione & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 		CLIPS::client  \\ } \\
-	
+
 	R0F1.1.3  &  Il sistema deve permettere all'utente di confermare i dati inseriti per la procedura di autenticazione & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 		CLIPS::client  \\ } \\
-	
+
 	R0F1.1.4  &  Se i dati confermati dall'utente sono validi, egli viene autenticato  &  \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 		CLIPS::client  \\ CLIPS::client::data \\ CLIPS::client::data::datamanager \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler } \\
-	
+
 	R0F1.1.5  &  Il sistema deve segnalare all'utente ogni eventuale errore durante la procedura di autenticazione  & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 		CLIPS::client  \\ CLIPS::client::data \\ CLIPS::client::data::datamanager \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler } \\
-	
+
 	R0F1.1.5.1 & Il sistema interrompe la procedura di autenticazione se l'email non corrisponde a nessuna di quelle registrate & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 		CLIPS::client  \\ CLIPS::client::data \\ CLIPS::client::data::datamanager \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler } \\
-	
+
 	R0F1.1.5.2 & Il sistema interrompe la procedura di autenticazione se la password non corrisponde a quella associata all'email  &  \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 		CLIPS::client  \\ CLIPS::client::data \\ CLIPS::client::data::datamanager \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler } \\
-	
+
 	R0F1.1.5.3 & L'applicazione informa l'utente dell'errore nell'inserimento dei dati & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 		CLIPS::client  \\} \\
-	
+
 	R0F1.1.5.4  & L'utente può chiedere una nuova password inserendo l'email & CLIPS::CLIPS::client ::authentication  \\
-	
+
 	R0F1.1.5.4.1 & L'utente deve inserire l'email del proprio account per proseguire al recupero delle credenziali & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 		CLIPS::client  \\} \\
-	
+
 	R0F1.1.5.4.2  &  L'utente riceve un'email all'indirizzo inserito con una password casuale. &  \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 		CLIPS::client  \\} \\
-	
+
 	R0F1.1.5.4.3 & La password dell'utente viene sostituita con la password inviata  & \cellacaporiga{CLIPS::server::dataserver \\
 	CLIPS::server  \\ } \\
 
-	R0F1.2 & L'utente deve poter creare un proprio account & 
+	R0F1.2 & L'utente deve poter creare un proprio account &
 	\cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 	CLIPS::client  \\
 	CLIPS::client::data \\
@@ -69,22 +69,22 @@
 		CLIPS::client  \\} \\
 	R0F1.2.6  &  Se i dati confermati dall'utente sono validi, il suo account viene registrato  & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 		CLIPS::client  \\ CLIPS::client::data \\ CLIPS::server::dataserver \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler} \\
-	
+
 	R0F1.2.6.1 & L'utente viene automaticamente autenticato & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 		CLIPS::client  \\ CLIPS::client::data \\ CLIPS::server::dataserver \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler} \\
-	
+
 	R0F1.2.7 & Il sistema deve segnalare all'utente i vari problemi di registrazione  & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 		CLIPS::client  \\ CLIPS::client::data \\ CLIPS::server::dataserver \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler} \\
-	
+
 	R0F1.2.7.1 & L'utente ha inserito un'email non valida   & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 		CLIPS::client  \\ CLIPS::server::dataserver \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler} \\
-	
+
 	R0F1.2.7.1.1  &  L'email deve avere un formato valido: deve contenere una @ preceduto da altri caratteri seguito da un dominio valido & \cellacaporiga{CLIPS::server::dataserver \\
 	CLIPS::server  \\ } \\
 
 	R0F1.2.7.1.2   & L'email non deve essere già  in uso  & \cellacaporiga{CLIPS::server::dataserver \\
 		CLIPS::server  \\ } \\
-	
+
 	R0F1.2.7.2 & L'utente ha inserito un username non valido & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
 		CLIPS::client  \\ CLIPS::client::data \\ CLIPS::server::dataserver \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler} \\
 	R0F1.2.7.2.1 &   L'username deve avere un formato valido: deve contenere solo caratteri alfanumerici & \cellacaporiga {CLIPS::server::dataserver \\
@@ -169,9 +169,9 @@
 	CLIPS::CLIPS::client::viewcontroller::savedresults \\
 	CLIPS::client::viewcontroller} \\
 	R0F3.2.1 & Il dispositivo mostra il tempo totale del percorso  & \cellacaporiga {CLIPS::client  \\
-	CLIPS::CLIPS::client::viewcontroller::savedresults \\ 
+	CLIPS::CLIPS::client::viewcontroller::savedresults \\
 	CLIPS::client::viewcontroller} \\
-	R0F3.2.2  & Il dispositivo mostra il tempo totale impiegato per eseguire le prove \cellacaporiga {CLIPS::client  \\
+	R0F3.2.2  & Il dispositivo mostra il tempo totale impiegato per eseguire le prove & \cellacaporiga {CLIPS::client  \\
 	CLIPS::CLIPS::client::viewcontroller::savedresults\\
 	CLIPS::client::viewcontroller}\\
 	R0F3.2.2.1 & Il tempo totale per eseguire le prove viene calcolato sommando i tempi impiegati per eseguire ogni prova (è il tempo totale senza considerare gli spostamenti effettuati per cambiare stazione) & \cellacaporiga {CLIPS::client  \\
@@ -332,7 +332,7 @@
    CLIPS::client  \\
    CLIPS::client::viewcontroller \\ } \\
 
-   R0F6	& L'utente deve poter visualizzare dove si trovano gli edifici con percorsi più vicini alla sua posizione.	 & 
+   R0F6	& L'utente deve poter visualizzare dove si trovano gli edifici con percorsi più vicini alla sua posizione.	 &
    \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
    CLIPS::client  \\
    CLIPS::client::data::datamanager \\
@@ -369,7 +369,7 @@
     CLIPS::client::viewcontroller \\
 } \\
 
-    R0F6.2	& Cliccando su un edificio della lista l'utente deve poter visualizzare tutte le informazioni su di esso. &	
+    R0F6.2	& Cliccando su un edificio della lista l'utente deve poter visualizzare tutte le informazioni su di esso. &
     \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
     	CLIPS::client  \\
     	CLIPS::client::data \\
@@ -381,8 +381,8 @@
     	CLIPS::server::urlrequesthandler \\
     	CLIPS::client::viewcontroller \\
     } \\
-    
-    R0F6.2.1 &	L'utente deve poter visualizzare delle informazioni specifiche sull'edificio. &	
+
+    R0F6.2.1 &	L'utente deve poter visualizzare delle informazioni specifiche sull'edificio. &
     \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
     	CLIPS::client  \\
     	CLIPS::client::data \\
@@ -394,9 +394,9 @@
     	CLIPS::server::urlrequesthandler \\
     	CLIPS::client::viewcontroller \\
     } \\
-    
-    
-    R0F6.2.1.1 &	L'utente deve poter visualizzare il nome dell'edificio. &	
+
+
+    R0F6.2.1.1 &	L'utente deve poter visualizzare il nome dell'edificio. &
     \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
     	CLIPS::client  \\
     	CLIPS::client::data \\
@@ -408,8 +408,8 @@
     	CLIPS::server::urlrequesthandler \\
     	CLIPS::client::viewcontroller \\
     } \\
-    
-    R0F6.2.1.2 &	L'utente deve poter visualizzare la destinazione d'uso dell'edificio (ad esempio museo di storia egizia). &	
+
+    R0F6.2.1.2 &	L'utente deve poter visualizzare la destinazione d'uso dell'edificio (ad esempio museo di storia egizia). &
     \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
     CLIPS::client  \\
     CLIPS::client::data \\ } \\
@@ -418,46 +418,46 @@
     \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
     	CLIPS::client  \\
     	CLIPS::client::data \\ } \\
-    
+
     R0F6.2.2 &	L'utente deve poter visualizzare il link al sito dell'edificio. & 	\cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
     	CLIPS::client  \\
     	CLIPS::client::data \\ } \\
-    
-    R0F6.2.3 &	L'utente deve poter visualizzare alcuni contatti dell' edificio. &	
+
+    R0F6.2.3 &	L'utente deve poter visualizzare alcuni contatti dell' edificio. &
     \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
     	CLIPS::client  \\
     	CLIPS::client::data \\ } \\
-    
-    R0F6.2.3.1	& L'utente deve poter visualizzare il contatto telefonico dell'edificio. &	
+
+    R0F6.2.3.1	& L'utente deve poter visualizzare il contatto telefonico dell'edificio. &
     \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
     	CLIPS::client  \\
     	CLIPS::client::data \\ } \\
-    
-    R0F6.2.3.2 &	L'utente deve poter contattare l'edificio per email.	& 
+
+    R0F6.2.3.2 &	L'utente deve poter contattare l'edificio per email.	&
     \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
     	CLIPS::client  \\
     	CLIPS::client::data \\ } \\
-    
-    R0F6.2.3.3	& L'utente deve poter contattare l'edificio tramite Facebook (se la struttura possiede un account Facebook). &	
+
+    R0F6.2.3.3	& L'utente deve poter contattare l'edificio tramite Facebook (se la struttura possiede un account Facebook). &
     \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
     	CLIPS::client  \\
     	CLIPS::client::data \\ } \\
-    
-    R0F6.2.3.4	& L'utente deve poter contattare l'edificio tramite Twitter (se la struttura possiede un account Twitter) &	
+
+    R0F6.2.3.4	& L'utente deve poter contattare l'edificio tramite Twitter (se la struttura possiede un account Twitter) &
     \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
     	CLIPS::client  \\
     	CLIPS::client::data \\ } \\
-    
-    R0F6.2.3.5 &	L'utente deve poter cotattare l'edificio tramite WhatsApp (se la struttura possiede un contatto pubblico di WhatsApp). &	
+
+    R0F6.2.3.5 &	L'utente deve poter cotattare l'edificio tramite WhatsApp (se la struttura possiede un contatto pubblico di WhatsApp). &
     \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
     	CLIPS::client  \\
     	CLIPS::client::data \\ } \\
-    
+
     R0F6.2.3.6	& L'utente deve poter contattare l'edificio tramite Telegram (se la struttura ha un contatto pubblico di Telegram). & 	\cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
     	CLIPS::client  \\
     	CLIPS::client::data \\ } \\
-    
-    R0F7 &	L'utente autenticato deve poter modificare le proprie credenziali d'accesso.	& 
+
+    R0F7 &	L'utente autenticato deve poter modificare le proprie credenziali d'accesso.	&
     \cellacaporiga {CLIPS::CLIPS::client ::authentication  \\
     CLIPS::client  \\
     CLIPS::client::data \\
@@ -474,13 +474,13 @@
     	CLIPS::server  \\
     	CLIPS::client::data:urlrequest \\
     	CLIPS::server::urlrequesthandler \\ } \\
-    
-    R0F7.1.1 &	La password deve rispettare il requisito \Req{R0F1.2.7.3}. &	
+
+    R0F7.1.1 &	La password deve rispettare il requisito \Req{R0F1.2.7.3}. &
     \cellacaporiga {
     	CLIPS::server::dataserver \\
     	CLIPS::server  \\} \\
-    
-    
+
+
     R0F7.2 &	L'utente deve poter modificare il proprio username. &	\cellacaporiga {
     	CLIPS::CLIPS::client ::authentication  \\
     	CLIPS::client  \\
@@ -489,12 +489,12 @@
     	CLIPS::server  \\
     	CLIPS::client::data:urlrequest \\
     	CLIPS::server::urlrequesthandler \\ } \\
-    
-    R0F7.2.1 &	L'username deve rispettare i requisiti \Req{R0F1.2.7.2.1} e \Req{R0F1.2.7.2.2}. &	
+
+    R0F7.2.1 &	L'username deve rispettare i requisiti \Req{R0F1.2.7.2.1} e \Req{R0F1.2.7.2.2}. &
     \cellacaporiga {
     	CLIPS::server::dataserver \\
     	CLIPS::server  \\} \\
-    
+
     R0F7.3 &	In caso di errore su qualche campo l'app deve informare l'utente &	\cellacaporiga {
     	CLIPS::CLIPS::client ::authentication  \\
     	CLIPS::client  \\
@@ -502,14 +502,14 @@
     	CLIPS::server  \\
     	CLIPS::client::data:urlrequest \\
     	CLIPS::server::urlrequesthandler \\ } \\
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
 	\rowcolor{white}
 	\caption{Tracciamento requisiti-componenti}
 \end{longtable}
