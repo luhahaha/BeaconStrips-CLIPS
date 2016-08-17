@@ -6,11 +6,11 @@
 \end{compPackageContenuti}
 \end{componente}
 \begin{componente}{CLIPS::client}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/client.png} 
-\caption{Schema package client} 
- \end{figure} 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client.png}
+\caption{Schema package client}
+ \end{figure}
 \compDescrizione{componente globale per il front end del prodotto che utilizza il design pattern \gl{MVC}. Si occupa di fornire un'interfaccia grafica dell'applicazione e di interagire con il lato server.}
 \compPadre{CLIPS}
 \begin{compPackageContenuti}
@@ -21,14 +21,14 @@
 \end{compPackageContenuti}
 \end{componente}
 \begin{componente}{CLIPS::client::authentication}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication.png} 
-\caption{Schema package client::viewcontroller::authentication} 
- \end{figure} 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication.png}
+\caption{Schema package client::viewcontroller::authentication}
+ \end{figure}
 \compDescrizione{componente che si occupa di gestire l'autenticazione dell'utente}
 \compPadre{client}
-\begin{compClassi} \\ 
+\begin{compClassi} \\
 \begin{classe}{CLIPS::client::authentication::AccountActivity}
 \classeDescrizione{classe controller che si occupa di interagire con AccountView}
 \classeUtilizzo{si occupa di gestire le interazioni dell'utente con AccountView}
@@ -148,18 +148,18 @@
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::data}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/client--data.png} 
-\caption{Schema package client::data} 
- \end{figure} 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--data.png}
+\caption{Schema package client::data}
+ \end{figure}
 \compDescrizione{package per la gestione in locale dei dati}
 \compPadre{client}
 \begin{compPackageContenuti}
 \item CLIPS::client::data::datamanager: componente che gestisce i dati in locale
 \item CLIPS::client::data::urlrequest: componente che si occupa di effettuare le richieste al server
 \end{compPackageContenuti}
-\begin{compClassi} \\ 
+\begin{compClassi} \\
 \begin{classe}{CLIPS::client::data::/textit{AbstractQuiz}}
 \classeDescrizione{classe astratta dei quiz}
 \classeUtilizzo{classe astratta da cui far derivare tutte le classi che rappresentano un quiz}
@@ -529,14 +529,14 @@
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::data::datamanager}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/client--datamanager.png} 
-\caption{Schema package client::datamanager} 
- \end{figure} 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--datamanager.png}
+\caption{Schema package client::datamanager}
+ \end{figure}
 \compDescrizione{componente che gestisce i dati in locale}
 \compPadre{data}
-\begin{compClassi} \\ 
+\begin{compClassi} \\
 \begin{classe}{CLIPS::client::data::datamanager::/textit{SaveDataManager}}
 \classeDescrizione{classe astratta per il salvataggio di dati nel server}
 \classeUtilizzo{permette di effettuare il salvataggio dei dati nel server}
@@ -978,7 +978,7 @@
 \classeMetodoArgomento{listener}{AbstractDataManagerListener<boolean>}{il listener che verrà usato per informare l'applicazione se l'operazione prevista ha avuto successo o meno}
 \end{classeMetodoArgomenti}
 \classeMetodo{getToken}{}{string}{se esiste un token salvato restituisce il suo valore, altrimenti restituisce una stringa vuota}
-\classeMetodo{isLogged}{}{boolean}{restituisce "true" se l'utente è loggato, ovvero se è salvato un token in locale, "false" altrimenti}
+\classeMetodo{isLogged}{}{boolean}{restituisce \textit{true} se l'utente è loggato, ovvero se è salvato un token in locale, "false" altrimenti}
 \classeMetodo{login}{email, listener, password}{void}{effettua il login dell'utente, controllando la validità dei dati tramite l'apposita richiesta al server}
 \begin{classeMetodoArgomenti}
 \classeMetodoArgomento{email}{string}{l'indirizzo email digitato dall'utente per il login}
@@ -1036,14 +1036,14 @@
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::data::urlrequest}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/client--urlrequest.png} 
-\caption{Schema package client::urlrequest} 
- \end{figure} 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--urlrequest.png}
+\caption{Schema package client::urlrequest}
+ \end{figure}
 \compDescrizione{componente che si occupa di effettuare le richieste al server}
 \compPadre{data}
-\begin{compClassi} \\ 
+\begin{compClassi} \\
 \begin{classe}{CLIPS::client::data::urlrequest::AbstractUrlRequestListener}
 \classeDescrizione{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}
 \classeUtilizzo{permette alle classi che interagiscono con l'urlrequest di definire un proprio listener concreto da poter usare per le chiamate al server}
@@ -1209,8 +1209,8 @@
 \end{classeMetodoArgomenti}
 \classeMetodo{getResults}{cx, listener}{void}{crea l'oggetto per ottenere dal server i risultati conseguiti dall'utente}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{cx}{Context}{� una classe delle librerie base di Android che costituisce il cuore dell'applicazione, e quindi � necessaria per poter effettuare alcune operazioni, tra cui le richieste al server}
-\classeMetodoArgomento{listener}{AbstractUrlRequestListener}{il listener che verr� usato per informare l'applicazione se la richiesta al server ha avuto successo o meno}
+\classeMetodoArgomento{cx}{Context}{� una classe delle librerie base di Android che costituisce il cuore dell'applicazione, e quindi � necessaria per poter effettuare alcune operazioni, tra cui le richieste al server}
+\classeMetodoArgomento{listener}{AbstractUrlRequestListener}{il listener che verr�� usato per informare l'applicazione se la richiesta al server ha avuto successo o meno}
 \end{classeMetodoArgomenti}
 \classeMetodo{login}{cx, email, listener, password}{void}{crea l'oggetto per chiedere al server di verificare i dati inseriti dall'utente per il login}
 \begin{classeMetodoArgomenti}
@@ -1285,21 +1285,21 @@
 \classeMetodoArgomento{type}{ResponseExpected}{indica se la chiamata si aspetta di ricevere, in caso di successo, un oggetto o un array JSON}
 \end{classeMetodoArgomenti}
 \classeMetodo{objectRequest}{}{JSONObjectRequest}{è un metodo di supporto che crea una chiamata la cui risposta è un oggetto JSON}
-\classeMetodo{signalError}{}{void}{cambia il valore di buildingJSONError in ''true'' e segnala quindi all'URLRequest che c'è stato un errore in fase di costruzione di ''body'', viene invocato dalle classi derivate di URLRequest}
+\classeMetodo{signalError}{}{void}{cambia il valore di buildingJSONError in \textit{true} e segnala quindi all'URLRequest che c'è stato un errore in fase di costruzione di ''body'', viene invocato dalle classi derivate di URLRequest}
 \end{classeMetodi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data::datamanager}{LoginManager}{classe che gestisce le operazioni del profilo dell'utente}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::pathprogress}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/client--pathprogress.png} 
-\caption{Schema package client::pathprogress} 
- \end{figure} 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--pathprogress.png}
+\caption{Schema package client::pathprogress}
+ \end{figure}
 \compDescrizione{componente che gestisce i dati del percorso e salva i risultati ottenuti nelle prove mentre si sta giocando}
 \compPadre{client}
-\begin{compClassi} \\ 
+\begin{compClassi} \\
 \begin{classe}{CLIPS::client::pathprogress::BeaconDiscover}
 \classeDescrizione{classe che si interfaccia direttamente con i beacon fisici}
 \classeUtilizzo{permette di rilevare i beacon}
@@ -1371,11 +1371,11 @@
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/client--viewcontroller.png} 
-\caption{Schema package client::viewcontroller} 
- \end{figure} 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller.png}
+\caption{Schema package client::viewcontroller}
+ \end{figure}
 \compDescrizione{componente che raggruppa tutte le view ed i controller relativi alle view}
 \compPadre{client}
 \begin{compPackageContenuti}
@@ -1386,14 +1386,14 @@
 \end{compPackageContenuti}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::building}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--building.png} 
-\caption{Schema package client::viewcontroller::building} 
- \end{figure} 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--building.png}
+\caption{Schema package client::viewcontroller::building}
+ \end{figure}
 \compDescrizione{componente che gestisce le informazioni e le interazioni dell'utente con gli edifici abilitati}
 \compPadre{viewcontroller}
-\begin{compClassi} \\ 
+\begin{compClassi} \\
 \begin{classe}{CLIPS::client::viewcontroller::building::BuildingActivity}
 \classeDescrizione{classe controller che si occupa di interagire con BuildingView}
 \classeUtilizzo{classe controller che si occupa di interagire con BuildingView}
@@ -1404,7 +1404,7 @@
 \end{classeMetodoArgomenti}
 \classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view
 }
-\classeMetodo{setItems}{}{void}{questo metodo rende cliccabile la lista dei risultati e rende visualizzabili i dettagli del percorso 
+\classeMetodo{setItems}{}{void}{questo metodo rende cliccabile la lista dei risultati e rende visualizzabili i dettagli del percorso
 selezionato}
 \end{classeMetodi}
 \begin{classeRelazioni}
@@ -1509,14 +1509,14 @@ selezionato}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::games}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--games.png} 
-\caption{Schema package client::viewcontroller::games} 
- \end{figure} 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--games.png}
+\caption{Schema package client::viewcontroller::games}
+ \end{figure}
 \compDescrizione{componente che gestisce le prove che l'utente deve completare all'interno di un percorso}
 \compPadre{viewcontroller}
-\begin{compClassi} \\ 
+\begin{compClassi} \\
 \begin{classe}{CLIPS::client::viewcontroller::games::MultipleChoiceQuizActivity}
 \classeDescrizione{classe controller che si occupa di interagire con MultipleChoiceView}
 \classeUtilizzo{si occupa di gestire le interazioni dell'utente con MultipleChoiceView}
@@ -1655,14 +1655,14 @@ selezionato}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::savedresults}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--savedresults.png} 
-\caption{Schema package client::viewcontroller::savedresults} 
- \end{figure} 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--savedresults.png}
+\caption{Schema package client::viewcontroller::savedresults}
+ \end{figure}
 \compDescrizione{componente che raggruppa le le view e i controller dei risultati salvati e delle classifiche}
 \compPadre{viewcontroller}
-\begin{compClassi} \\ 
+\begin{compClassi} \\
 \begin{classe}{CLIPS::client::viewcontroller::savedresults::PlayerRow}
 \classeDescrizione{classe che rappresenta una riga all'interno di una classifica}
 \classeUtilizzo{permette all'utente di visualizzare il nome del giocatore e il suo punteggio nel percorso d'interesse}
@@ -1747,14 +1747,14 @@ selezionato}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::utility}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--utility.png} 
-\caption{Schema package client::viewcontroller::utility} 
- \end{figure} 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--utility.png}
+\caption{Schema package client::viewcontroller::utility}
+ \end{figure}
 \compDescrizione{componente che raggruppa le view generali dell'app}
 \compPadre{viewcontroller}
-\begin{compClassi} \\ 
+\begin{compClassi} \\
 \begin{classe}{CLIPS::client::viewcontroller::utility::AppInfoActivity}
 \classeDescrizione{classe controller che si occupa di interagire con AppInfoView}
 \classeUtilizzo{si occupa di gestire le interazioni dell'utente con AppInfoView}
@@ -1793,11 +1793,11 @@ selezionato}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::server}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/server.png} 
-\caption{Schema package server} 
- \end{figure} 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/server.png}
+\caption{Schema package server}
+ \end{figure}
 \compDescrizione{componente globale per il back end del prodotto}
 \compPadre{CLIPS}
 \begin{compPackageContenuti}
@@ -1806,14 +1806,14 @@ selezionato}
 \end{compPackageContenuti}
 \end{componente}
 \begin{componente}{CLIPS::server::dataserver}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/server--data.png} 
-\caption{Schema package server::dataserver} 
- \end{figure} 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/server--data.png}
+\caption{Schema package server::dataserver}
+ \end{figure}
 \compDescrizione{package per la gestione dei dati sul server}
 \compPadre{server}
-\begin{compClassi} \\ 
+\begin{compClassi} \\
 \begin{classe}{CLIPS::server::dataserver::AppInfoServer}
 \classeDescrizione{classe che rappresenta le informazioni dell'app sul server}
 \classeUtilizzo{permette di salvare sul server le informazioni dell'app}
@@ -1858,14 +1858,14 @@ selezionato}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::server::urlrequesthandler}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/server--urlrequesthandler.png} 
-\caption{Schema package server::urlrequesthandler} 
- \end{figure} 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{img/package/png/server--urlrequesthandler.png}
+\caption{Schema package server::urlrequesthandler}
+ \end{figure}
 \compDescrizione{componente che gestisce le richieste inviate al server e le risposte da inviare al client}
 \compPadre{server}
-\begin{compClassi} \\ 
+\begin{compClassi} \\
 \begin{classe}{CLIPS::server::urlrequesthandler::AppInfoProvider}
 \classeDescrizione{classe che gestisce la richiesta di informazioni sull'app (come la descrizione dell'app, l'indirizzo del sito di supporto, l'email del supporto tecnico ed altro)}
 \classeUtilizzo{si occupa di restituire le informazioni dell'app richieste}
