@@ -16,8 +16,7 @@
 \begin{compPackageContenuti}
 \item CLIPS::client::authentication: componente che si occupa di gestire l'autenticazione dell'utente
 \item CLIPS::client::data: package per la gestione in locale dei dati
-\item CLIPS::client::location: componente che gestisce l'individuazione e la lettura dei beacon
-\item CLIPS::client::pathprogress: componente che gestisce i dati del percorso e salva i risultati ottenuti nelle prove mentre si sta giocando
+\item CLIPS::client::pathprogress: componente che gestisce i dati del percorso, l'individuazione e la lettura dei beacon e salva i risultati ottenuti nelle prove mentre si sta giocando
 \item CLIPS::client::viewcontroller: componente che raggruppa tutte le view ed i controller relativi alle view
 \end{compPackageContenuti}
 \end{componente}
@@ -257,7 +256,7 @@
 \classeDescrizione{classe che si occupa di salvare in locale i dati riguardanti un percorso}
 \classeUtilizzo{permette di salvare i dati di un percorso in locale}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data}{StepServer}{}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{Step}{}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::PathInfo}
 \classeDescrizione{classe che si occupa di salvare in locale le informazioni generali di un percorso}
 \classeUtilizzo{consente di salvare in locale le informazioni generali di un percorso}
@@ -510,16 +509,6 @@
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::location}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.45]{img/package/png/client--location--min.png}
-	\caption{Schema sintetico package client::location}
-\end{figure}
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.5]{img/package/png/client--location.png}
-\caption{Schema package client::location}
- \end{figure}
 \compDescrizione{componente che gestisce l'individuazione e la lettura dei beacon}
 \compPadre{client}
 \begin{compClassi} \\
@@ -566,20 +555,39 @@
 \includegraphics[scale=0.5]{img/package/png/client--pathprogress.png}
 \caption{Schema package client::pathprogress}
  \end{figure}
-\compDescrizione{componente che gestisce i dati del percorso e salva i risultati ottenuti nelle prove mentre si sta giocando}
+\compDescrizione{componente che gestisce i dati del percorso, l'individuazione e la lettura dei beacon e salva i risultati ottenuti nelle prove mentre si sta giocando}
 \compPadre{client}
 \begin{compClassi} \\
+\begin{classe}{CLIPS::client::pathprogress::BeaconDiscover}
+	\classeDescrizione{classe che si interfaccia direttamente con i beacon fisici}
+	\classeUtilizzo{permette di rilevare i beacon}
+	\begin{classeRelazioni}
+		\classeRelazione{CLIPS::client::pathprogress}{BeaconDiscoverDelegate}{interfaccia utilizzata per notificare se il dispositivo è entrato o uscito dal raggio di un beacon}
+	\end{classeRelazioni}
+\end{classe}
+\begin{classe}{CLIPS::client::pathprogress::BeaconDiscoverDelegate}
+	\classeDescrizione{interfaccia utilizzata per notificare se il dispositivo è entrato o uscito dal raggio di un beacon}
+	\classeUtilizzo{permette di notificare se si è entrati o usciti dal raggio di un beacon}
+	\begin{classeRelazioni}
+		\classeRelazione{CLIPS::client::pathprogress}{BeaconDiscover}{classe che si interfaccia direttamente con i beacon fisici}
+	\end{classeRelazioni}
+\end{classe}
 \begin{classe}{CLIPS::client::pathprogress::PathProgressController}
 \classeDescrizione{classe che gestisce l'avanzamento di un percorso}
 \classeUtilizzo{permette di gestire i dati dell'avanzamento di un percorso}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::pathprogress}{PathSearchDelegate}{interfaccia per le funzioni di ricerca di un beacon in un percorso}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::pathprogress::PathSearchDelegate}
-\classeDescrizione{interfaccia per le funzioni di ricerca di un beacon in un percorso}
-\classeUtilizzo{permette di gestire la ricerca di un beacon}
+\classeRelazione{CLIPS::client::pathprogress}{PathProgressControllerDelegate}{interfaccia utilizzata per notificare se si è in presenza del beacon del prossimo step o di uno del proximity}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::pathprogress::PathProgressControllerDelegate}
+\classeDescrizione{interfaccia utilizzata per notificare se si è in presenza del beacon del prossimo step o di uno del proximity}
+\classeUtilizzo{notifica se si è nel raggio del beacon del prossimo step o di uno di proximity}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::pathprogress}{PathProgressController}{classe che gestisce l'avanzamento di un percorso}\end{classeRelazioni}
-\end{classe}\end{compClassi}
+\end{classe}
+\begin{classe}{CLIPS::client::pathprogress::RawBeacon}
+	\classeDescrizione{classe che rappresenta un beacon semplice}
+	\classeUtilizzo{utilizzato per rappresentare un beacon fisico}
+\end{classe}
+\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller}
 \begin{figure}[h!]
