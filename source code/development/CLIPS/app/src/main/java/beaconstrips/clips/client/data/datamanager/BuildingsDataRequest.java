@@ -24,22 +24,24 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  */
 public class BuildingsDataRequest extends DataManager<Building[]> {
    double latitude, longitude;
-   int maxBuildings;
+   int maxNumber;
+   boolean searchByDistance;
 
-   BuildingsDataRequest(Context cx, double latitude, double longitude, int maxBuildings, AbstractDataManagerListener<Building[]> listener) {
+   BuildingsDataRequest(Context cx, double latitude, double longitude, int maxNumber, boolean searchByDistance, AbstractDataManagerListener<Building[]> listener) {
       super(cx, DataManager.CachePolicy.AlwaysReplaceLocal, listener);
       this.latitude = latitude;
       this.longitude = longitude;
-      this.maxBuildings = maxBuildings;
+      this.maxNumber = maxNumber;
+      this.searchByDistance = searchByDistance;
       execute();
    }
 
    protected Building[] parseFromLocal() {
-      return new DBHandler(cx).getNearestBuildings(maxBuildings, latitude, longitude); //ritorna i maxBuildings edifici salvati in locale
+      return new DBHandler(cx).getNearestBuildings(maxNumber, searchByDistance, latitude, longitude); //ritorna i maxBuildings edifici salvati in locale
    }
 
    protected void getRemoteData(AbstractUrlRequestListener listener) {
-      RequestMaker.getBuildings(cx, latitude, longitude, maxBuildings, listener);
+      RequestMaker.getBuildings(cx, latitude, longitude, maxNumber, searchByDistance, listener);
    }
 
    protected Building[] parseFromUrlRequest(JSONObject response){

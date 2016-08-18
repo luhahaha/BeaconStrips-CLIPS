@@ -17,8 +17,8 @@ import beaconstrips.clips.client.data.Score;
  * classe che funziona da interfaccia tra il datamanager e l'applicazione, escludendo LoginManager che viene usata senza passare per DataRequestMaker
  */
 public class DataRequestMaker {
-   public static void getBuildings(Context cx, double latitude, double longitude, int maxBuildings, AbstractDataManagerListener<Building[]> listener) {
-      BuildingsDataRequest request = new BuildingsDataRequest(cx, latitude, longitude, maxBuildings, listener);
+   public static void getBuildings(Context cx, double latitude, double longitude, int maxNumber, boolean searchByDistance, AbstractDataManagerListener<Building[]> listener) {
+      BuildingsDataRequest request = new BuildingsDataRequest(cx, latitude, longitude, maxNumber, searchByDistance, listener);
    }
 
    public static void getPath(Context cx, int pathID, AbstractDataManagerListener<Path> listener) {

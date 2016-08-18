@@ -103,6 +103,23 @@ class URLRequest {
                headers.put("Authorization", LoginManager.sharedManager(cx).getToken()); //qui viene aggiunto agli headers il token, se esso non esiste, ovvero l'utente non è loggato, il valore salvato sarà una stringa vuota, cioè l'autenticazione fallirà sicuramente
             return headers;
          }
+
+         @Override
+         protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+            try {
+               String jsonString = new String(response.data,
+                     HttpHeaderParser.parseCharset(response.headers, PROTOCOL_CHARSET));
+               if(jsonString.equals(""))
+                  return Response.success(new JSONObject(), HttpHeaderParser.parseCacheHeaders(response));
+               else
+                  return Response.success(new JSONObject(jsonString),
+                     HttpHeaderParser.parseCacheHeaders(response));
+            } catch (UnsupportedEncodingException e) {
+               return Response.error(new ParseError(e));
+            } catch (JSONException je) {
+               return Response.error(new ParseError(je));
+            }
+         }
       };
    }
 

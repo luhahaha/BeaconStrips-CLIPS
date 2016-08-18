@@ -34,9 +34,9 @@ public class RequestMaker {
       PathRequest request = new PathRequest(cx, pathID, listener);
    }
 
-   //effettua la chiamata per ottenere i dati degli edifici nei dintorni
-   public static void getBuildings(Context cx, double latitude, double longitude, int maxBuildings, AbstractUrlRequestListener listener) {
-      BuildingsRequest request = new BuildingsRequest(cx, latitude, longitude, maxBuildings, listener);
+   //effettua la chiamata per ottenere i dati degli edifici nei dintorni, searchByDistance è true se la ricerca deve restituire tutti gli edifici entro i maxNumber chilometri, è false se invece deve ritornare i maxNumber edifici più vicini
+   public static void getBuildings(Context cx, double latitude, double longitude, int maxNumber, boolean searchByDistance, AbstractUrlRequestListener listener) {
+      BuildingsRequest request = new BuildingsRequest(cx, latitude, longitude, maxNumber, searchByDistance, listener);
    }
 
    //effettua la chiamata per verificare se i dati inseriti nella registrazione sono validi
