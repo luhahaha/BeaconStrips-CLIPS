@@ -59,7 +59,6 @@ public class LoginManager {
 
    public void login(String email, String password, final AbstractDataManagerListener<Boolean> listener) {
       SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
-      System.out.println("Il token è " + preferences.getString("token", ""));
       if(loggedUser!=null) {
          logout(new AbstractDataManagerListener<Boolean>() { //serve per eliminare eventuali token ancora salvati, non mi interessa se ha successo o meno perché in locale il token viene riscritto nel caso, invece nel server dopo un tot di tempo che non viene usato il token viene eliminato
             public void onResponse(Boolean response) {}
