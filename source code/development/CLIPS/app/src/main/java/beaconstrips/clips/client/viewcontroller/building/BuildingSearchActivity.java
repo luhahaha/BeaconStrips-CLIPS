@@ -106,7 +106,7 @@ public class BuildingSearchActivity extends MenuActivity {
     private void setButton() {
         showResult.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DataRequestMaker.getBuildings(getApplicationContext(), 45, 11, 10, new AbstractDataManagerListener<Building[]>() {
+                DataRequestMaker.getBuildings(getApplicationContext(), 45, 11, 10, true, new AbstractDataManagerListener<Building[]>() {
                     @Override
                     public void onResponse(Building[] response) {
                         Log.i("Building", "" + response.length);

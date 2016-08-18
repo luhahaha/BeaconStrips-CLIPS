@@ -28,7 +28,7 @@ public class BuildingsRequest extends URLRequest {
          body.put("latitude", latitude);
          body.put("longitude", longitude);
          if(searchByDistance==true)
-            body.put("maxDistance", maxNumber);
+            body.put("maxDistance", maxNumber*1000);
          else
             body.put("maxResults", maxNumber);
       } catch (JSONException e) {
