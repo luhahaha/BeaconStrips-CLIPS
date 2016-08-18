@@ -850,7 +850,7 @@ public class DBHandler extends SQLiteOpenHelper {
       writeProofResult(pathID, pr);
    }
 
-   public Building[] getNearestBuildings(int buildingsNumber, double latitude, double longitude){
+   public Building[] getNearestBuildings(int buildingsNumber, boolean searchByDistance, double latitude, double longitude){
       SQLiteDatabase db = this.getReadableDatabase();
 
       ArrayList<Building> buildings = readBuildings();
