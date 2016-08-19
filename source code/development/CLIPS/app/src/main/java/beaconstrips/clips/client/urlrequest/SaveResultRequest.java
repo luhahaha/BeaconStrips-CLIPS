@@ -9,6 +9,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 import beaconstrips.clips.client.data.PathResult;
 import beaconstrips.clips.client.data.ProofResult;
@@ -24,17 +26,18 @@ import beaconstrips.clips.client.data.ProofResult;
 public class SaveResultRequest extends URLRequest {
    SaveResultRequest(Context cx, PathResult result, AbstractUrlRequestListener listener) {
       super(cx, Request.Method.POST, URLDataConstants.baseURL + "pathsresults", setBody(result), true, listener);
-      execute(ResponseExpected.Object);
+         execute(ResponseExpected.Object);
    }
 
    static JSONObject setBody(PathResult result) {
+      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN);
       JSONArray array = new JSONArray();
       for(ProofResult element : result.proofResults) {
          JSONObject item = new JSONObject();
          try {
-            item.put("proofID", element.id);
-            item.put("startTime", DateFormat.getDateInstance(DateFormat.SHORT).format(element.startTime.getTime()));
-            item.put("endTime", DateFormat.getDateInstance(DateFormat.SHORT).format(element.endTime.getTime()));
+            item.put("proofId", element.id);
+            item.put("startTime", dateFormat.format(element.startTime.getTime()));
+            item.put("endTime", dateFormat.format(element.endTime.getTime()));
             item.put("score", element.score);
          } catch (JSONException e) {
             signalError();
@@ -43,13 +46,11 @@ public class SaveResultRequest extends URLRequest {
       }
       JSONObject body = new JSONObject();
       try {
-         body.put("pathID", result.pathID);
-         body.put("pathName", result.pathName);
-         body.put("buildingName", result.buildingName);
-         body.put("totalScore", result.totalScore);
-         body.put("startTime", DateFormat.getDateInstance(DateFormat.SHORT).format(result.startTime.getTime()));
-         body.put("endTime", DateFormat.getDateInstance(DateFormat.SHORT).format(result.endTime.getTime()));
-         body.put("proofResults", array);
+         body.put("pathID", result.pathID);;
+         body.put("score", result.totalScore);
+         body.put("startDate", dateFormat.format(result.startTime.getTime()));
+         body.put("endDate", dateFormat.format(result.endTime.getTime()));
+         body.put("proofs", array);
       } catch (JSONException e) {
          signalError();
       }
