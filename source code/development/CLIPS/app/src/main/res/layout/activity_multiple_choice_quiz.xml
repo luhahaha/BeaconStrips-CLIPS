@@ -9,14 +9,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="beaconstrips.clips.client.viewcontroller.games.MultipleChoiceQuizActivity">
 
-    <include layout="@layout/activity_quiz" />
+    <include layout="@layout/activity_quiz"
+        android:id="@+id/include_domanda"/>
 
     <Button
         style="@style/RaisedButton"
         android:text="Risposta 1"
         android:id="@+id/choice1"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/include_domanda"/>
 
     <Button
         style="@style/RaisedButton"
