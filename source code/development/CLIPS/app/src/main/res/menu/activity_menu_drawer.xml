@@ -11,10 +11,10 @@
             android:id="@+id/nav_login"
             android:icon="@drawable/ic_keyboard_arrow_right"
             android:title="@string/nav_login" />
-        <item
+        <!-- <item
             android:id="@+id/nav_path"
             android:icon="@drawable/ic_keyboard_arrow_right"
-            android:title="@string/nav_path" />
+            android:title="@string/nav_path" /> -->
         <item
             android:id="@+id/nav_edifici"
             android:icon="@drawable/ic_keyboard_arrow_right"
@@ -31,10 +31,10 @@
             android:id="@+id/nav_info"
             android:icon="@drawable/ic_keyboard_arrow_right"
             android:title="@string/nav_info" />
-        <item
+        <!-- <item
             android:id="@+id/nav_contacts"
             android:icon="@drawable/ic_keyboard_arrow_right"
-            android:title="@string/nav_contacts" />
+            android:title="@string/nav_contacts" /> -->
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_keyboard_arrow_right"
