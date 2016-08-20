@@ -10,13 +10,19 @@
     tools:context="beaconstrips.clips.client.viewcontroller.savedresults.SavedResultsActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        style="@style/TextViewTitolo"
         android:text="Risultati"
         android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        style="@style/TextViewBase"
+        android:text="kjhgfdss"
+        android:id="@+id/noResults"
+        android:layout_below="@id/textView"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
+
 
     <ListView
         android:layout_width="wrap_content"

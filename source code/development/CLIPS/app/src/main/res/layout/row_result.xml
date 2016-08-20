@@ -21,6 +21,7 @@
             android:textColor="@color/colorText"
             android:layout_weight="0.25"/>
         <TextView
+            android:id="@+id/building"
             style="@style/TextViewBase"
             android:text="jhgfdsshgfd"
             android:layout_weight="0.25"/>
@@ -33,6 +34,7 @@
             android:layout_weight="0.25"/>
 
         <TextView
+            android:id="@+id/date"
             style="@style/TextViewBase"
             android:text="jhgfdsshgfd"
             android:layout_weight="0.25"/>
@@ -54,7 +56,7 @@
         <TextView
             style="@style/TextViewBase"
             android:id="@+id/totalPathTime"
-            android:text="jhgfdss"
+            android:text="hcvbn"
             android:layout_weight="0.25"/>
 
         <TextView
