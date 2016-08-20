@@ -41,7 +41,7 @@ public class BuildingActivity extends AppCompatActivity {
         pathsResult = (ListView) findViewById(R.id.pathsResult);
         setButtons();
         setItems();
-        DataRequestMaker.getBuildings(getApplicationContext(), 45, 11, 10, true, new AbstractDataManagerListener<Building[]>() { //TODO passare tramite intent coordinate e numero edifici
+        DataRequestMaker.getBuildings(getApplicationContext(), 45, 5, 10, true, new AbstractDataManagerListener<Building[]>() { //TODO passare tramite intent coordinate e numero edifici
             @Override
             public void onResponse(Building[] response) {
                 Log.i("Building", "" + response.length);
