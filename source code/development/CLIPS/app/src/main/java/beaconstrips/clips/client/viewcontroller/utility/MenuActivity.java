@@ -115,10 +115,6 @@ public class MenuActivity extends AppCompatActivity
             case R.id.nav_login:
                 intent = new Intent(this, LoginActivity.class);
                 break;
-            case R.id.nav_path:
-                // visualizza percorsi disponibili
-                intent = new Intent(this, PathActivity.class);
-                break;
             case R.id.nav_edifici:
                 // visualizza il "cerca edifici"
                 intent = new Intent(this, BuildingSearchActivity.class);
@@ -128,9 +124,6 @@ public class MenuActivity extends AppCompatActivity
                 break;
             case R.id.nav_info:
                 intent = new Intent(this, AppInfoActivity.class);
-                break;
-            case R.id.nav_contacts:
-                intent = new Intent(this, SavedResultsActivity.class);
                 break;
             case R.id.nav_logout:
                 intent = new Intent(this, AppInfoActivity.class);
