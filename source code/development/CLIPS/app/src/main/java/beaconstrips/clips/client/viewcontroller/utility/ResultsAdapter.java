@@ -20,7 +20,7 @@ public class ResultsAdapter extends BaseAdapter {
     private ArrayList<risultatoProva> listData;
     private LayoutInflater layoutInflater;
 
-    public MyAdapter(Context aContext, ArrayList<risultatoProva> listData) {
+    public ResultsAdapter(Context aContext, ArrayList<risultatoProva> listData) {
         this.listData = listData;
         layoutInflater = LayoutInflater.from(aContext);
     }
