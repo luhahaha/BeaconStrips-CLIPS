@@ -1,10 +1,10 @@
 /**
- @file BuildingActivity.java
- @date 2016-07-12
- @version 1.30
- @author Matteo Franco
- @description permette di gestire l'activity dell'edificio
- **/
+ * @file BuildingActivity.java
+ * @date 2016-07-12
+ * @version 1.30
+ * @author Matteo Franco
+ * Permette di gestire l'activity dell'edificio
+ */
 
 package beaconstrips.clips.client.viewcontroller.building;
 

@@ -1,10 +1,10 @@
 /**
- @file ResultActivity.java
- @date 2016-07-20
- @version 1.00
- @author Matteo Franco
- @description si occupa di gestire l'activity dei risultati conseguiti dall'utente
- **/
+ * @file ResultActivity.java
+ * @date 2016-07-20
+ * @version 1.00
+ * @author Matteo Franco
+ * Si occupa di gestire l'activity dei risultati conseguiti dall'utente
+ */
 
 package beaconstrips.clips.client.viewcontroller.savedresults;
 

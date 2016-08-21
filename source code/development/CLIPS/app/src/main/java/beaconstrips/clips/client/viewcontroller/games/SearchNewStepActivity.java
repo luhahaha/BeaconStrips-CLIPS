@@ -1,10 +1,10 @@
 /**
- @file SearchNewStepActivity.java
- @date 2016-07-18
- @version 1.00
- @author Viviana Alessio
- @description si occupa di gestire l'activity per la ricerca di un nuovo beacon
- **/
+ * @file SearchNewStepActivity.java
+ * @date 2016-07-18
+ * @version 1.00
+ * @author Viviana Alessio
+ * Si occupa di gestire l'activity per la ricerca di un nuovo beacon
+ */
 
 package beaconstrips.clips.client.viewcontroller.games;
 

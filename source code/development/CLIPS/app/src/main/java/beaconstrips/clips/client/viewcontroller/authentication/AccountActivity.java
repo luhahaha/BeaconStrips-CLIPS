@@ -1,10 +1,10 @@
 /**
-    @file AccountActivity.java
-    @date 2016-07-10
-    @version 1.20
-    @author Viviana Alessio
-    @description si occupa di gestire l'activity dell'account dell'utente
-**/
+ * @file AccountActivity.java
+ * @date 2016-07-10
+ * @version 1.20
+ * @author Viviana Alessio
+ * Si occupa di gestire l'activity dell'account dell'utente
+ */
 
 
 

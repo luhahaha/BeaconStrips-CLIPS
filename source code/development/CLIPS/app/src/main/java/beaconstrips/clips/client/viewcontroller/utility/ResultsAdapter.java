@@ -12,7 +12,12 @@ import java.util.ArrayList;
 import beaconstrips.clips.R;
 
 /**
- * Created by vivi on 20/08/16.
+ * @file ResultAdapter.java
+ * @date 2016-08-19
+ * @version 1.0.0
+ * @author Viviana Alessio
+ *
+ * Classe che permette di avere un Adapter per poter visualizzare correttamente gli elementi della ListView presente in activity_saved_results.xml
  */
 public class ResultsAdapter extends BaseAdapter {
 
