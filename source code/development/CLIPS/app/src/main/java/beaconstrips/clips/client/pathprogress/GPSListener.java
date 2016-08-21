@@ -11,6 +11,6 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * classe astratta del listener usato per richiedere le coordinate GPS.
  */
 public interface GPSListener {
-   void onResponse(double[] coordinates);
+   void onResponse(double latitude, double longitude);
    void onError(ServerError error);
 }

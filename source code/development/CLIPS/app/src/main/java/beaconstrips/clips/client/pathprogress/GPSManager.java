@@ -62,8 +62,7 @@ class GPSManager {
       locationListener = new LocationListener() {
          @Override
          public void onLocationChanged(Location location) {
-            double[] coordinates = {location.getLatitude(), location.getLongitude()};
-            listener.onResponse(coordinates);
+            listener.onResponse(location.getLatitude(), location.getLongitude());
             googleApiClient.disconnect();
          }
       };
