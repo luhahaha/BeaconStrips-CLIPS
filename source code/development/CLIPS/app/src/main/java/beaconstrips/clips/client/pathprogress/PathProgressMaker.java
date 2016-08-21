@@ -4,7 +4,7 @@ import android.content.Context;
 
 /**
  * @file PathProgressMaker.java
- * @date 20/07/16
+ * @date 20/08/16
  * @version 1.0.0
  * @author Andrea Grendene
  *
