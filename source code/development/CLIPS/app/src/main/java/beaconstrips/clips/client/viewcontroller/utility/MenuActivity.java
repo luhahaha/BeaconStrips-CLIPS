@@ -1,10 +1,10 @@
 /**
- @file MenuActivity.java
- @date 2016-07-22
- @version 1.50
- @author Viviana Alessio
- @description rappresenta il menù dell'applicazione
- **/
+ * @file MenuActivity.java
+ * @date 2016-07-22
+ * @version 1.50
+ * @author Viviana Alessio
+ * Rappresenta il menù dell'applicazione
+ */
 
 package beaconstrips.clips.client.viewcontroller.utility;
 
@@ -126,7 +126,8 @@ public class MenuActivity extends AppCompatActivity
                 intent = new Intent(this, AppInfoActivity.class);
                 break;
             case R.id.nav_logout:
-                intent = new Intent(this, AppInfoActivity.class);
+                //intent = new Intent(this, AppInfoActivity.class);
+                intent = new Intent(this, SavedResultsActivity.class);
                 break;
         }
 

@@ -1,10 +1,10 @@
 /**
- @file LoginActivity.java
- @date 2016-07-10
- @version 1.10
- @author Matteo Franco
- @description gestisce l'activity di login per l'utente; comprende inoltre l'activity per la password dimenticata e per il recupero
- **/
+ * @file LoginActivity.java
+ * @date 2016-07-10
+ * @version 1.10
+ * @author Matteo Franco
+ * Gestisce l'activity di login per l'utente; comprende inoltre l'activity per la password dimenticata e per il recupero
+ */
 
 package beaconstrips.clips.client.viewcontroller.authentication;
 

@@ -1,18 +1,10 @@
 /**
- @file MultipleChoiceQuizActivity.java
- @date 2016-07-17
- @version 1.00
- @author Viviana Alessio
- @description gestisce l'activity per i quiz a risposta multipla
- **/
-
-/**
- @file Activity.java
- @date 2016-07-17
- @version 1.00
- @author Viviana Alessio
- @description
- **/
+ * @file MultipleChoiceQuizActivity.java
+ * @date 2016-07-17
+ * @version 1.00
+ * @author Viviana Alessio
+ * Gestisce l'activity per i quiz a risposta multipla
+ */
 
 package beaconstrips.clips.client.viewcontroller.games;
 

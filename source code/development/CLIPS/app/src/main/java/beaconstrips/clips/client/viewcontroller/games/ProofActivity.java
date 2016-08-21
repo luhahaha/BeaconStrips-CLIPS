@@ -1,10 +1,10 @@
 /**
- @file ProofActivity.java
- @date 2016-07-17
- @version 1.00
- @author Viviana Alessio
- @description gestisce l'activity della prova
- **/
+ * @file ProofActivity.java
+ * @date 2016-07-17
+ * @version 1.00
+ * @author Viviana Alessio
+ * Gestisce l'activity della prova
+ */
 
 package beaconstrips.clips.client.viewcontroller.games;
 

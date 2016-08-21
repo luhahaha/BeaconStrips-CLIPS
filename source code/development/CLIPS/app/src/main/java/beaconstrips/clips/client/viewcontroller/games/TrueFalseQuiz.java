@@ -1,10 +1,10 @@
 /**
- @file TrueFalseQuiz.java
- @date 2016-07-18
- @version 1.00
- @author Viviana Alessio
- @description gestisce l'activity per i quiz vero/falso
- **/
+ * @file TrueFalseQuiz.java
+ * @date 2016-07-18
+ * @version 1.00
+ * @author Viviana Alessio
+ * Gestisce l'activity per i quiz vero/falso
+ */
 
 package beaconstrips.clips.client.viewcontroller.games;
 

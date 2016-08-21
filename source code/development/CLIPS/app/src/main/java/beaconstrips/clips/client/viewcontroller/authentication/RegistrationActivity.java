@@ -1,10 +1,10 @@
 /**
- @file RegistrationActivity.java
- @date 2016-07-12
- @version 1.10
- @author Matteo Franco
- @description gestisce l'activity di registrazione di un utente
- **/
+ * @file RegistrationActivity.java
+ * @date 2016-07-12
+ * @version 1.10
+ * @author Matteo Franco
+ * Gestisce l'activity di registrazione di un utente
+ */
 
 package beaconstrips.clips.client.viewcontroller.authentication;
 
@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import beaconstrips.clips.R;
+import beaconstrips.clips.client.urlrequest.RegistrationRequest;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -64,7 +65,6 @@ public class RegistrationActivity extends AppCompatActivity {
                         i.putExtra("password", password.getText().toString());
                         startActivity(i);
                         clearFields();
-
                         //finish(); se l'utente fa back qui esce dall'app
                         /*
                             questo va aggiunto al file AndroidManifest.xml per evitare di aggiungere l'attività allo stack
