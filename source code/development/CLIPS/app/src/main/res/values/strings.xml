@@ -1,56 +1,56 @@
 <resources>
-    <string name="app_name">CLIPS</string>
-    <string name="recover_password">Recupera password</string>
-    <string name="forgot_password">Password dimenticata?</string>
-    <string name="login">Login</string>
-    <string name="password_reset">Hai recuperato la password</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="username">Username</string>
-    <string name="repeat_password">Ripeti password</string>
-    <string name="register">Registrati</string>
-    <string name="already_registered">Già registrato? Effettua il login</string>
-    <string name="registration_ok_label">I tuoi dati di registrazione:</string>
-    <string name="go_to_profile">Vai al tuo profilo</string>
-    <string name="account_label">Il mio profilo</string>
-    <string name="search">Ricerca per raggio</string>
-    <string name="available_paths">Percorsi disponibili</string>
-    <string name="path_description_label">Descrizione:</string>
-    <string name="target">Target:</string>
-    <string name="duration">Durata stimata:</string>
-    <string name="path_date_label">Data:</string>
-    <string name="path_building_label">Percorso:</string>
-    <string name="path_total_time_label">Durata totale:</string>
-    <string name="path_total_time_proofs_label">Durata totale (solo prove):</string>
-    <string name="path_total_score_label">Punteggio totale:</string>
-    <string name="path_min_score_proof_label">Punteggio minimo prova:</string>
-    <string name="path_max_score_proof_label">Punteggio massimo prova:</string>
-    <string name="path_ranking_position_label">Posizione in classifica:</string>
-    <string name="ranking_button">Visualizza classifica</string>
-    <string name="proofs_button">Visualizza prove</string>
-    <string name="save_result_button">Salva risultato</string>
-    <string name="true_button">Vero</string>
-    <string name="false_button">Falso</string>
-    <string name="title_activity_menu">MenuActivity</string>
-    <!-- nav -->
-    <string name="nav_registration">Registrazione</string>
-    <string name="nav_login">Login</string>
-    <string name="nav_path">Percorsi disponibili</string>
-    <string name="nav_buildings">Edifici</string>
-    <string name="nav_profile">Profilo</string>
-    <string name="nav_logout">Logout</string>
-    <string name="nav_info">Info</string>
-    <string name="nav_contacts">Contatti</string>
+   <string name="app_name">CLIPS</string>
+   <string name="recover_password">Recupera password</string>
+   <string name="forgot_password">Password dimenticata?</string>
+   <string name="login">Login</string>
+   <string name="password_reset">Hai recuperato la password</string>
+   <string name="email">Email</string>
+   <string name="password">Password</string>
+   <string name="username">Username</string>
+   <string name="repeat_password">Ripeti password</string>
+   <string name="register">Registrati</string>
+   <string name="already_registered">Già registrato? Effettua il login</string>
+   <string name="registration_ok_label">I tuoi dati di registrazione:</string>
+   <string name="go_to_profile">Vai al tuo profilo</string>
+   <string name="account_label">Il mio profilo</string>
+   <string name="search">Ricerca per raggio</string>
+   <string name="available_paths">Percorsi disponibili</string>
+   <string name="path_description_label">Descrizione:</string>
+   <string name="target">Target:</string>
+   <string name="duration">Durata stimata:</string>
+   <string name="path_date_label">Data:</string>
+   <string name="path_building_label">Percorso:</string>
+   <string name="path_total_time_label">Durata totale:</string>
+   <string name="path_total_time_proofs_label">Durata totale (solo prove):</string>
+   <string name="path_total_score_label">Punteggio totale:</string>
+   <string name="path_min_score_proof_label">Punteggio minimo prova:</string>
+   <string name="path_max_score_proof_label">Punteggio massimo prova:</string>
+   <string name="path_ranking_position_label">Posizione in classifica:</string>
+   <string name="ranking_button">Visualizza classifica</string>
+   <string name="proofs_button">Visualizza prove</string>
+   <string name="save_result_button">Salva risultato</string>
+   <string name="true_button">Vero</string>
+   <string name="false_button">Falso</string>
+   <string name="title_activity_menu">MenuActivity</string>
+   <!-- nav -->
+   <string name="nav_registration">Registrazione</string>
+   <string name="nav_login">Login</string>
+   <string name="nav_path">Percorsi disponibili</string>
+   <string name="nav_buildings">Edifici</string>
+   <string name="nav_profile">Profilo</string>
+   <string name="nav_logout">Logout</string>
+   <string name="nav_info">Info</string>
+   <string name="nav_contacts">Contatti</string>
 
 
-    <!-- stringhe variabili -->
-    <string name="logged_username">username utente loggato</string>
-    <string name="logged_email">email utente loggato</string>
-    <string name="suggerimento">suggerimento prova corrente</string>
+   <!-- stringhe variabili -->
+   <string name="logged_username">username utente loggato</string>
+   <string name="logged_email">email utente loggato</string>
+   <string name="suggerimento">suggerimento prova corrente</string>
 
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+   <string name="navigation_drawer_open">Open navigation drawer</string>
+   <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+   <string name="action_settings">Settings</string>
 </resources>

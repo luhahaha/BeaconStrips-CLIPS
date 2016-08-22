@@ -17,16 +17,17 @@ import beaconstrips.clips.client.viewcontroller.savedresults.RankingActivity;
 import beaconstrips.clips.client.viewcontroller.savedresults.ResultActivity;
 import beaconstrips.clips.client.viewcontroller.savedresults.SavedResultsActivity;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
+import beaconstrips.clips.client.viewcontroller.utility.SplashActivity;
 
 public class MainActivity extends MenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
-        //Intent intent = new Intent(this, SearchNewStepActivity.class);
-        //startActivity(intent);
-        setContentView(R.layout.activity_search_new_step);
+        setContentView(R.layout.activity_main);
+        Intent intent = new Intent(this, SplashActivity.class);
+        startActivity(intent);
+        //setContentView(R.layout.activity_search_new_step);
 
     }
 
