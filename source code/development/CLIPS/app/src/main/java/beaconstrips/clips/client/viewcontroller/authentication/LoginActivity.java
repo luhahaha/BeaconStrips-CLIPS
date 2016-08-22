@@ -44,7 +44,6 @@ public class LoginActivity extends AppCompatActivity {
         missingPassword = (TextInputLayout) findViewById(R.id.password_label);
         setButton();
         setLoginButton();
-        //TODO add check fields
     }
 
 
@@ -57,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     String e = email.getText().toString();
                     String p = password.getText().toString();
-                    if(areSet(e, p)) {
+                    if(checkFields(e, p)) {
                         LoginManager.sharedManager(getApplicationContext()).login(e, p, new AbstractDataManagerListener<Boolean>() {
                             @Override
                             public void onResponse(Boolean response) {
@@ -76,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    boolean areSet(String email, String password) {
+    boolean checkFields(String email, String password) {
         boolean e = false, p = false;
         if(TextUtils.isEmpty(email)) {
             missingEmail.setErrorEnabled(true);
