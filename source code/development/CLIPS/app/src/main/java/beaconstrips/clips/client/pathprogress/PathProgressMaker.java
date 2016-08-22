@@ -11,7 +11,7 @@ import android.content.Context;
  * classe che funge da interfaccia tra la richiesta di ottenere la posizione dell'utente con il GPS e il resto dell'applicazione
  */
 public class PathProgressMaker {
-   static void getCoordinates(Context cx, GPSListener listener) {
+   public static void getCoordinates(Context cx, GPSListener listener) {
       new GPSManager(cx, listener);
    }
 }

@@ -8,7 +8,12 @@
 
 package beaconstrips.clips.client.viewcontroller.building;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.LocationManager;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,8 +34,11 @@ import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.Building;
 import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.DataRequestMaker;
+import beaconstrips.clips.client.pathprogress.GPSListener;
+import beaconstrips.clips.client.pathprogress.PathProgressMaker;
 import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
+import beaconstrips.clips.client.pathprogress.PathProgressMaker;
 
 //TODO rendere scrollabile la list view
 
@@ -106,33 +114,87 @@ public class BuildingSearchActivity extends MenuActivity {
     private void setButton() {
         showResult.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DataRequestMaker.getBuildings(getApplicationContext(), 45, 5, 10, true, new AbstractDataManagerListener<Building[]>() {
-                    @Override
-                    public void onResponse(Building[] response) {
-                        Log.i("Building", "" + response.length);
+                final Context context = getApplicationContext();
+                LocationManager lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+                boolean gps_enabled = false;
+                boolean network_enabled = false;
 
-                        //TODO limitare risultati
-                        ListView listView = (ListView)findViewById(R.id.buildingResults);
+                try {
+                    gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+                } catch (Exception ex) {
+                }
 
-                        String [] buildingsName = new String[response.length];
-                        for(int i = 0; i < response.length; ++i) {
-                            buildingsName[i] = response[i].name;
+                try {
+                    network_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+                } catch (Exception ex) {
+                }
+
+                if (!gps_enabled && !network_enabled) {
+                    // notify user
+                    new AlertDialog.Builder(BuildingSearchActivity.this)
+                            .setMessage("Servizi di localizzazione non attivi")
+                            .setPositiveButton("Attiva", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                                    // TODO Auto-generated method stub
+                                    Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(i);
+                                }
+                            })
+                            .setNegativeButton("Cancella", new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                                    // TODO Auto-generated method stub
+
+                                }
+                            })
+                            .show();
+                } else {
+                    Log.i("Trying to call" , "");
+                    PathProgressMaker.getCoordinates(getApplicationContext(), new GPSListener() {
+                        @Override
+                        public void onResponse(double latitude, double longitude) {
+                            Log.i("Getting position", "");
+                            Log.i("Latitude:", "" + latitude);
+                            Log.i("Longitude:", "" + longitude);
+                            DataRequestMaker.getBuildings(getApplicationContext(), latitude, longitude, 10, true, new AbstractDataManagerListener<Building[]>() {
+                                @Override
+                                public void onResponse(Building[] response) {
+
+                                    //TODO limitare risultati
+                                    ListView listView = (ListView) findViewById(R.id.buildingResults);
+
+                                    String[] buildingsName = new String[response.length];
+                                    for (int i = 0; i < response.length; ++i) {
+                                        buildingsName[i] = response[i].name;
+                                    }
+                                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_building, R.id.buildingName, buildingsName);
+                                    listView.setAdapter(arrayAdapter);
+
+                                    //TODO aggiungere numero percorsi
+                                    // ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, R.layout.row_building, R.id.textView6, array);
+                                    //listView.setAdapter(arrayAdapter2);
+                                    results.setVisibility(View.VISIBLE);
+                                }
+
+                                @Override
+                                public void onError(ServerError error) {
+                                    System.out.println(error.errorCode + " " + error.debugMessage + " " + error.userMessage);
+                                    Log.e("Error", "not working");
+                                }
+                            });
                         }
-                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_building, R.id.buildingName, buildingsName);
-                        listView.setAdapter(arrayAdapter);
 
-                        //TODO aggiungere numero percorsi
-                        // ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, R.layout.row_building, R.id.textView6, array);
-                        //listView.setAdapter(arrayAdapter2);
-                    }
+                        @Override
+                        public void onError(ServerError error) {
+                            Log.e("Error", "Not getting position");
+                        }
 
-                    @Override
-                    public void onError(ServerError error) {
-                        System.out.println(error.errorCode + " " + error.debugMessage + " " + error.userMessage);
-                        Log.e("Error", "not working");
-                    }
-                });
-                results.setVisibility(View.VISIBLE);
+                    });
+
+                }
             }
         });
     }
