@@ -51,7 +51,7 @@ public abstract class DataManager<Data> {
                   listener.onResponse(cachedData);
                }
                else {
-                  updateLocalData(remoteData);
+                  //updateLocalData(remoteData);
                   listener.onResponse(remoteData);
                }
             }

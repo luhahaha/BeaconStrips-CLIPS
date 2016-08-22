@@ -1,5 +1,6 @@
 package beaconstrips.clips.client.data;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -11,7 +12,11 @@ import org.json.JSONObject;
  * classe in cui viene impostato l'algoritmo di calcolo usato nelle prove in base ai dati contenuti nel JSON
  */
 public class ScoringAlgorithmFactory { //il nom e della classe e quello del file sono da cambiare
-   public static LinearScoringAlgorithm createScoringAlgorithm(JSONObject algorithmData) { //TODO: da verificare anche che venga effettivamente usato un JSONObject
-      return new LinearScoringAlgorithm(5, 5, 5, 5, 5, 5); //TODO funzione da finire con la lettura del JSON e relativa inizializzazione della classe
+   public static LinearScoringAlgorithm createScoringAlgorithm(JSONObject algorithmData) {
+      try {
+         return new LinearScoringAlgorithm(algorithmData.getJSONObject("data").getInt("minScore"), algorithmData.getJSONObject("data").getInt("maxScore"), algorithmData.getJSONObject("data").getDouble("minTime"), algorithmData.getJSONObject("data").getDouble("maxTime"), algorithmData.getJSONObject("data").getDouble("timeWeight"), algorithmData.getJSONObject("data").getDouble("accuracyWeight"));
+      } catch (JSONException e) {
+         return new LinearScoringAlgorithm(0, 0, 0, 0, 0, 0);
+      }
    }
 }

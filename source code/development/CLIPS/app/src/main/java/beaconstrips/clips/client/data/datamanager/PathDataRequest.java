@@ -59,7 +59,7 @@ public class PathDataRequest extends DataManager<Path> {
                proximities.add(new Proximity(proximityBeacon, proximityObject.getDouble("percentage"), proximityObject.getString("textToDisplay")));
             }
             JSONObject proofObject = step.getJSONObject("proof");
-            Proof proof = new Proof(proofObject.getInt("id"), proofObject.getString("title"), proofObject.getString("instructions"), proofObject.getJSONObject("algorithmData"), proofObject.getJSONObject("testData"));
+            Proof proof = new Proof(proofObject.getInt("id"), proofObject.getString("title"), proofObject.getString("instructions"), proofObject.getJSONObject("algorithm"), proofObject.getJSONObject("test"));
             steps.add(new Step(beacon, proximities, proof));
          }
          return new Path(response.getInt("id"), response.getString("startingMessage"), response.getString("rewardMessage"), steps);

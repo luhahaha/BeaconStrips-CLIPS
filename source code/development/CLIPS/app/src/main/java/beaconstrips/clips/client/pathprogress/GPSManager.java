@@ -45,13 +45,6 @@ class GPSManager {
          public void onConnectionSuspended(int i) {
             listener.onError(new ServerError(1006, "GPSManager: GoogleApiClient connection has been suspend", ""));
          }
-
-         protected void startLocationUpdates() {
-            int status = cx.getPackageManager().checkPermission(Manifest.permission.ACCESS_FINE_LOCATION, cx.getPackageName());
-            if(status == PackageManager.PERMISSION_GRANTED) {
-               LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, locationListener);
-            }
-         }
       };
       failedListener = new GoogleApiClient.OnConnectionFailedListener() {
          @Override
