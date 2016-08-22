@@ -32,11 +32,10 @@
             <category android:name="android.intent.category.LAUNCHER"/>
          </intent-filter>
       </activity>
-      <!--
-        <activity android:name=".client.viewcontroller.authentication.RecoverPassword" />
-        <activity android:name=".client.viewcontroller.authentication.ForgotPassword" />
-        <activity android:name=".client.viewcontroller.authentication.ConfirmRegistration" />
-        -->
+        <activity android:name=".client.viewcontroller.authentication.RecoverPassword"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".client.viewcontroller.authentication.ForgotPassword"
+            android:theme="@style/AppTheme"/>
       <activity
           android:name=".client.viewcontroller.authentication.RegistrationActivity"
           android:theme="@style/AppTheme"/>
