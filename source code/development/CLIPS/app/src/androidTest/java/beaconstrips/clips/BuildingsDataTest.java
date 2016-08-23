@@ -28,28 +28,28 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  *
  * Nota: d'ora in poi per "array di n edifici" si intende un array di n oggetti, dove n viene definito da un numero preciso solo se la ricerca avviene per numero massimo di edifici, in cui la struttura dell'output previsto è la seguente:
  * "Edificio <i>"
- * "name: <name>"
- * "description: <description>"
- * "otherInfos: <otherInfos>"
- * "openingTime: <openingTime>"
- * "address: <address>"
- * "latitude: <latitude>"
- * "longitude: <longitude>"
- * "telephone: <telephone>"
- * "email: <email>"
- * "whatsapp: <whatsapp>"
- * "telegram: <telegram>"
- * "twitter: <twitter>"
- * "facebook: <facebook>"
- * "websiteURL: <websiteURL>"
+ * "   name: <name>"
+ * "   description: <description>"
+ * "   otherInfos: <otherInfos>"
+ * "   openingTime: <openingTime>"
+ * "   address: <address>"
+ * "   latitude: <latitude>"
+ * "   longitude: <longitude>"
+ * "   telephone: <telephone>"
+ * "   email: <email>"
+ * "   whatsapp: <whatsapp>"
+ * "   telegram: <telegram>"
+ * "   twitter: <twitter>"
+ * "   facebook: <facebook>"
+ * "   websiteURL: <websiteURL>"
  * [
- *    "Percorso <j>"
- *    "id: <id>"
- *    "title: <title>"
- *    "description: <description>"
- *    "target: <target>"
- *    "estimatedDuration: <estimatedDuration>"
- *    "position: <position>"
+ *    "   Percorso <j>"
+ *    "      id: <id>"
+ *    "      title: <title>"
+ *    "      description: <description>"
+ *    "      target: <target>"
+ *    "      estimatedDuration: <estimatedDuration>"
+ *    "      position: <position>"
  * ]
  * Legenda: i valori tra "<>" sono quelli che l'oggetto contiene, ad eccezione di "i" e "j" che invece sono dei semplici contatori, il cui valore di partenza è 0.
  *          Le parentesi quadre invece indicano che "pathsInfos" è un array dentro l'oggetto.
@@ -82,28 +82,28 @@ public class BuildingsDataTest {
             Log.d("BuildingsDataTest", "Richiesta buildingsByDistance() eseguita con successo");
             for (int i=0; i <response.length ; i++) {
                Log.d("BuildingsDataTest", "Edificio " + i);
-               Log.d("BuildingsDataTest", "name: " + response[i].name);
-               Log.d("BuildingsDataTest", "description: " + response[i].description);
-               Log.d("BuildingsDataTest", "otherInfos: " + response[i].otherInfos);
-               Log.d("BuildingsDataTest", "openingTime: " + response[i].openingTime);
-               Log.d("BuildingsDataTest", "address: " + response[i].address);
-               Log.d("BuildingsDataTest", "latitude: " + response[i].latitude);
-               Log.d("BuildingsDataTest", "longitude: " + response[i].longitude);
-               Log.d("BuildingsDataTest", "telephone: " + response[i].telephone);
-               Log.d("BuildingsDataTest", "email: " + response[i].email);
-               Log.d("BuildingsDataTest", "whatsapp: " + response[i].whatsapp);
-               Log.d("BuildingsDataTest", "telegram: " + response[i].telegram);
-               Log.d("BuildingsDataTest", "twitter: " + response[i].twitter);
-               Log.d("BuildingsDataTest", "facebook: " + response[i].facebook);
-               Log.d("BuildingsDataTest", "websiteURL: " + response[i].websiteURL);
+               Log.d("BuildingsDataTest", "   name: " + response[i].name);
+               Log.d("BuildingsDataTest", "   description: " + response[i].description);
+               Log.d("BuildingsDataTest", "   otherInfos: " + response[i].otherInfos);
+               Log.d("BuildingsDataTest", "   openingTime: " + response[i].openingTime);
+               Log.d("BuildingsDataTest", "   address: " + response[i].address);
+               Log.d("BuildingsDataTest", "   latitude: " + response[i].latitude);
+               Log.d("BuildingsDataTest", "   longitude: " + response[i].longitude);
+               Log.d("BuildingsDataTest", "   telephone: " + response[i].telephone);
+               Log.d("BuildingsDataTest", "   email: " + response[i].email);
+               Log.d("BuildingsDataTest", "   whatsapp: " + response[i].whatsapp);
+               Log.d("BuildingsDataTest", "   telegram: " + response[i].telegram);
+               Log.d("BuildingsDataTest", "   twitter: " + response[i].twitter);
+               Log.d("BuildingsDataTest", "   facebook: " + response[i].facebook);
+               Log.d("BuildingsDataTest", "   websiteURL: " + response[i].websiteURL);
                for (int j=0; j<response[i].pathsInfos.size(); j++) {
-                  Log.d("BuildingsDataTest", "Percorso " + j);
-                  Log.d("BuildingsDataTest", "id: " + response[i].pathsInfos.get(j).id);
-                  Log.d("BuildingsDataTest", "title: " + response[i].pathsInfos.get(j).title);
-                  Log.d("BuildingsDataTest", "description: " + response[i].pathsInfos.get(j).description);
-                  Log.d("BuildingsDataTest", "target: " + response[i].pathsInfos.get(j).target);
-                  Log.d("BuildingsDataTest", "estimatedDuration: " + response[i].pathsInfos.get(j).estimatedDuration);
-                  Log.d("BuildingsDataTest", "position: " + response[i].pathsInfos.get(j).position);
+                  Log.d("BuildingsDataTest", "   Percorso " + j);
+                  Log.d("BuildingsDataTest", "      id: " + response[i].pathsInfos.get(j).id);
+                  Log.d("BuildingsDataTest", "      title: " + response[i].pathsInfos.get(j).title);
+                  Log.d("BuildingsDataTest", "      description: " + response[i].pathsInfos.get(j).description);
+                  Log.d("BuildingsDataTest", "      target: " + response[i].pathsInfos.get(j).target);
+                  Log.d("BuildingsDataTest", "      estimatedDuration: " + response[i].pathsInfos.get(j).estimatedDuration);
+                  Log.d("BuildingsDataTest", "      position: " + response[i].pathsInfos.get(j).position);
                }
             }
          }
@@ -124,28 +124,28 @@ public class BuildingsDataTest {
             Log.d("BuildingsDataTest", "Richiesta buildingsByNumber() eseguita con successo");
             for (int i=0; i <response.length ; i++) {
                Log.d("BuildingsDataTest", "Edificio " + i);
-               Log.d("BuildingsDataTest", "name: " + response[i].name);
-               Log.d("BuildingsDataTest", "description: " + response[i].description);
-               Log.d("BuildingsDataTest", "otherInfos: " + response[i].otherInfos);
-               Log.d("BuildingsDataTest", "openingTime: " + response[i].openingTime);
-               Log.d("BuildingsDataTest", "address: " + response[i].address);
-               Log.d("BuildingsDataTest", "latitude: " + response[i].latitude);
-               Log.d("BuildingsDataTest", "longitude: " + response[i].longitude);
-               Log.d("BuildingsDataTest", "telephone: " + response[i].telephone);
-               Log.d("BuildingsDataTest", "email: " + response[i].email);
-               Log.d("BuildingsDataTest", "whatsapp: " + response[i].whatsapp);
-               Log.d("BuildingsDataTest", "telegram: " + response[i].telegram);
-               Log.d("BuildingsDataTest", "twitter: " + response[i].twitter);
-               Log.d("BuildingsDataTest", "facebook: " + response[i].facebook);
-               Log.d("BuildingsDataTest", "websiteURL: " + response[i].websiteURL);
+               Log.d("BuildingsDataTest", "   name: " + response[i].name);
+               Log.d("BuildingsDataTest", "   description: " + response[i].description);
+               Log.d("BuildingsDataTest", "   otherInfos: " + response[i].otherInfos);
+               Log.d("BuildingsDataTest", "   openingTime: " + response[i].openingTime);
+               Log.d("BuildingsDataTest", "   address: " + response[i].address);
+               Log.d("BuildingsDataTest", "   latitude: " + response[i].latitude);
+               Log.d("BuildingsDataTest", "   longitude: " + response[i].longitude);
+               Log.d("BuildingsDataTest", "   telephone: " + response[i].telephone);
+               Log.d("BuildingsDataTest", "   email: " + response[i].email);
+               Log.d("BuildingsDataTest", "   whatsapp: " + response[i].whatsapp);
+               Log.d("BuildingsDataTest", "   telegram: " + response[i].telegram);
+               Log.d("BuildingsDataTest", "   twitter: " + response[i].twitter);
+               Log.d("BuildingsDataTest", "   facebook: " + response[i].facebook);
+               Log.d("BuildingsDataTest", "   websiteURL: " + response[i].websiteURL);
                for (int j=0; j<response[i].pathsInfos.size(); j++) {
-                  Log.d("BuildingsDataTest", "Percorso " + j);
-                  Log.d("BuildingsDataTest", "id: " + response[i].pathsInfos.get(j).id);
-                  Log.d("BuildingsDataTest", "title: " + response[i].pathsInfos.get(j).title);
-                  Log.d("BuildingsDataTest", "description: " + response[i].pathsInfos.get(j).description);
-                  Log.d("BuildingsDataTest", "target: " + response[i].pathsInfos.get(j).target);
-                  Log.d("BuildingsDataTest", "estimatedDuration: " + response[i].pathsInfos.get(j).estimatedDuration);
-                  Log.d("BuildingsDataTest", "position: " + response[i].pathsInfos.get(j).position);
+                  Log.d("BuildingsDataTest", "   Percorso " + j);
+                  Log.d("BuildingsDataTest", "      id: " + response[i].pathsInfos.get(j).id);
+                  Log.d("BuildingsDataTest", "      title: " + response[i].pathsInfos.get(j).title);
+                  Log.d("BuildingsDataTest", "      description: " + response[i].pathsInfos.get(j).description);
+                  Log.d("BuildingsDataTest", "      target: " + response[i].pathsInfos.get(j).target);
+                  Log.d("BuildingsDataTest", "      estimatedDuration: " + response[i].pathsInfos.get(j).estimatedDuration);
+                  Log.d("BuildingsDataTest", "      position: " + response[i].pathsInfos.get(j).position);
                }
             }
          }
@@ -166,28 +166,28 @@ public class BuildingsDataTest {
             Log.d("BuildingsDataTest", "Richiesta buildingsByLongDistance() eseguita con successo");
             for (int i=0; i <response.length ; i++) {
                Log.d("BuildingsDataTest", "Edificio " + i);
-               Log.d("BuildingsDataTest", "name: " + response[i].name);
-               Log.d("BuildingsDataTest", "description: " + response[i].description);
-               Log.d("BuildingsDataTest", "otherInfos: " + response[i].otherInfos);
-               Log.d("BuildingsDataTest", "openingTime: " + response[i].openingTime);
-               Log.d("BuildingsDataTest", "address: " + response[i].address);
-               Log.d("BuildingsDataTest", "latitude: " + response[i].latitude);
-               Log.d("BuildingsDataTest", "longitude: " + response[i].longitude);
-               Log.d("BuildingsDataTest", "telephone: " + response[i].telephone);
-               Log.d("BuildingsDataTest", "email: " + response[i].email);
-               Log.d("BuildingsDataTest", "whatsapp: " + response[i].whatsapp);
-               Log.d("BuildingsDataTest", "telegram: " + response[i].telegram);
-               Log.d("BuildingsDataTest", "twitter: " + response[i].twitter);
-               Log.d("BuildingsDataTest", "facebook: " + response[i].facebook);
-               Log.d("BuildingsDataTest", "websiteURL: " + response[i].websiteURL);
+               Log.d("BuildingsDataTest", "   name: " + response[i].name);
+               Log.d("BuildingsDataTest", "   description: " + response[i].description);
+               Log.d("BuildingsDataTest", "   otherInfos: " + response[i].otherInfos);
+               Log.d("BuildingsDataTest", "   openingTime: " + response[i].openingTime);
+               Log.d("BuildingsDataTest", "   address: " + response[i].address);
+               Log.d("BuildingsDataTest", "   latitude: " + response[i].latitude);
+               Log.d("BuildingsDataTest", "   longitude: " + response[i].longitude);
+               Log.d("BuildingsDataTest", "   telephone: " + response[i].telephone);
+               Log.d("BuildingsDataTest", "   email: " + response[i].email);
+               Log.d("BuildingsDataTest", "   whatsapp: " + response[i].whatsapp);
+               Log.d("BuildingsDataTest", "   telegram: " + response[i].telegram);
+               Log.d("BuildingsDataTest", "   twitter: " + response[i].twitter);
+               Log.d("BuildingsDataTest", "   facebook: " + response[i].facebook);
+               Log.d("BuildingsDataTest", "   websiteURL: " + response[i].websiteURL);
                for (int j=0; j<response[i].pathsInfos.size(); j++) {
-                  Log.d("BuildingsDataTest", "Percorso " + j);
-                  Log.d("BuildingsDataTest", "id: " + response[i].pathsInfos.get(j).id);
-                  Log.d("BuildingsDataTest", "title: " + response[i].pathsInfos.get(j).title);
-                  Log.d("BuildingsDataTest", "description: " + response[i].pathsInfos.get(j).description);
-                  Log.d("BuildingsDataTest", "target: " + response[i].pathsInfos.get(j).target);
-                  Log.d("BuildingsDataTest", "estimatedDuration: " + response[i].pathsInfos.get(j).estimatedDuration);
-                  Log.d("BuildingsDataTest", "position: " + response[i].pathsInfos.get(j).position);
+                  Log.d("BuildingsDataTest", "   Percorso " + j);
+                  Log.d("BuildingsDataTest", "      id: " + response[i].pathsInfos.get(j).id);
+                  Log.d("BuildingsDataTest", "      title: " + response[i].pathsInfos.get(j).title);
+                  Log.d("BuildingsDataTest", "      description: " + response[i].pathsInfos.get(j).description);
+                  Log.d("BuildingsDataTest", "      target: " + response[i].pathsInfos.get(j).target);
+                  Log.d("BuildingsDataTest", "      estimatedDuration: " + response[i].pathsInfos.get(j).estimatedDuration);
+                  Log.d("BuildingsDataTest", "      position: " + response[i].pathsInfos.get(j).position);
                }
             }
          }
@@ -208,28 +208,28 @@ public class BuildingsDataTest {
             Log.d("BuildingsDataTest", "Richiesta buildingsByBigNumber() eseguita con successo");
             for (int i=0; i <response.length ; i++) {
                Log.d("BuildingsDataTest", "Edificio " + i);
-               Log.d("BuildingsDataTest", "name: " + response[i].name);
-               Log.d("BuildingsDataTest", "description: " + response[i].description);
-               Log.d("BuildingsDataTest", "otherInfos: " + response[i].otherInfos);
-               Log.d("BuildingsDataTest", "openingTime: " + response[i].openingTime);
-               Log.d("BuildingsDataTest", "address: " + response[i].address);
-               Log.d("BuildingsDataTest", "latitude: " + response[i].latitude);
-               Log.d("BuildingsDataTest", "longitude: " + response[i].longitude);
-               Log.d("BuildingsDataTest", "telephone: " + response[i].telephone);
-               Log.d("BuildingsDataTest", "email: " + response[i].email);
-               Log.d("BuildingsDataTest", "whatsapp: " + response[i].whatsapp);
-               Log.d("BuildingsDataTest", "telegram: " + response[i].telegram);
-               Log.d("BuildingsDataTest", "twitter: " + response[i].twitter);
-               Log.d("BuildingsDataTest", "facebook: " + response[i].facebook);
-               Log.d("BuildingsDataTest", "websiteURL: " + response[i].websiteURL);
+               Log.d("BuildingsDataTest", "   name: " + response[i].name);
+               Log.d("BuildingsDataTest", "   description: " + response[i].description);
+               Log.d("BuildingsDataTest", "   otherInfos: " + response[i].otherInfos);
+               Log.d("BuildingsDataTest", "   openingTime: " + response[i].openingTime);
+               Log.d("BuildingsDataTest", "   address: " + response[i].address);
+               Log.d("BuildingsDataTest", "   latitude: " + response[i].latitude);
+               Log.d("BuildingsDataTest", "   longitude: " + response[i].longitude);
+               Log.d("BuildingsDataTest", "   telephone: " + response[i].telephone);
+               Log.d("BuildingsDataTest", "   email: " + response[i].email);
+               Log.d("BuildingsDataTest", "   whatsapp: " + response[i].whatsapp);
+               Log.d("BuildingsDataTest", "   telegram: " + response[i].telegram);
+               Log.d("BuildingsDataTest", "   twitter: " + response[i].twitter);
+               Log.d("BuildingsDataTest", "   facebook: " + response[i].facebook);
+               Log.d("BuildingsDataTest", "   websiteURL: " + response[i].websiteURL);
                for (int j=0; j<response[i].pathsInfos.size(); j++) {
-                  Log.d("BuildingsDataTest", "Percorso " + j);
-                  Log.d("BuildingsDataTest", "id: " + response[i].pathsInfos.get(j).id);
-                  Log.d("BuildingsDataTest", "title: " + response[i].pathsInfos.get(j).title);
-                  Log.d("BuildingsDataTest", "description: " + response[i].pathsInfos.get(j).description);
-                  Log.d("BuildingsDataTest", "target: " + response[i].pathsInfos.get(j).target);
-                  Log.d("BuildingsDataTest", "estimatedDuration: " + response[i].pathsInfos.get(j).estimatedDuration);
-                  Log.d("BuildingsDataTest", "position: " + response[i].pathsInfos.get(j).position);
+                  Log.d("BuildingsDataTest", "   Percorso " + j);
+                  Log.d("BuildingsDataTest", "      id: " + response[i].pathsInfos.get(j).id);
+                  Log.d("BuildingsDataTest", "      title: " + response[i].pathsInfos.get(j).title);
+                  Log.d("BuildingsDataTest", "      description: " + response[i].pathsInfos.get(j).description);
+                  Log.d("BuildingsDataTest", "      target: " + response[i].pathsInfos.get(j).target);
+                  Log.d("BuildingsDataTest", "      estimatedDuration: " + response[i].pathsInfos.get(j).estimatedDuration);
+                  Log.d("BuildingsDataTest", "      position: " + response[i].pathsInfos.get(j).position);
                }
             }
          }
@@ -250,28 +250,28 @@ public class BuildingsDataTest {
             Log.d("BuildingsDataTest", "Richiesta buildingsByDistanceFromDifferentPosition() eseguita con successo");
             for (int i=0; i <response.length ; i++) {
                Log.d("BuildingsDataTest", "Edificio " + i);
-               Log.d("BuildingsDataTest", "name: " + response[i].name);
-               Log.d("BuildingsDataTest", "description: " + response[i].description);
-               Log.d("BuildingsDataTest", "otherInfos: " + response[i].otherInfos);
-               Log.d("BuildingsDataTest", "openingTime: " + response[i].openingTime);
-               Log.d("BuildingsDataTest", "address: " + response[i].address);
-               Log.d("BuildingsDataTest", "latitude: " + response[i].latitude);
-               Log.d("BuildingsDataTest", "longitude: " + response[i].longitude);
-               Log.d("BuildingsDataTest", "telephone: " + response[i].telephone);
-               Log.d("BuildingsDataTest", "email: " + response[i].email);
-               Log.d("BuildingsDataTest", "whatsapp: " + response[i].whatsapp);
-               Log.d("BuildingsDataTest", "telegram: " + response[i].telegram);
-               Log.d("BuildingsDataTest", "twitter: " + response[i].twitter);
-               Log.d("BuildingsDataTest", "facebook: " + response[i].facebook);
-               Log.d("BuildingsDataTest", "websiteURL: " + response[i].websiteURL);
+               Log.d("BuildingsDataTest", "   name: " + response[i].name);
+               Log.d("BuildingsDataTest", "   description: " + response[i].description);
+               Log.d("BuildingsDataTest", "   otherInfos: " + response[i].otherInfos);
+               Log.d("BuildingsDataTest", "   openingTime: " + response[i].openingTime);
+               Log.d("BuildingsDataTest", "   address: " + response[i].address);
+               Log.d("BuildingsDataTest", "   latitude: " + response[i].latitude);
+               Log.d("BuildingsDataTest", "   longitude: " + response[i].longitude);
+               Log.d("BuildingsDataTest", "   telephone: " + response[i].telephone);
+               Log.d("BuildingsDataTest", "   email: " + response[i].email);
+               Log.d("BuildingsDataTest", "   whatsapp: " + response[i].whatsapp);
+               Log.d("BuildingsDataTest", "   telegram: " + response[i].telegram);
+               Log.d("BuildingsDataTest", "   twitter: " + response[i].twitter);
+               Log.d("BuildingsDataTest", "   facebook: " + response[i].facebook);
+               Log.d("BuildingsDataTest", "   websiteURL: " + response[i].websiteURL);
                for (int j=0; j<response[i].pathsInfos.size(); j++) {
-                  Log.d("BuildingsDataTest", "Percorso " + j);
-                  Log.d("BuildingsDataTest", "id: " + response[i].pathsInfos.get(j).id);
-                  Log.d("BuildingsDataTest", "title: " + response[i].pathsInfos.get(j).title);
-                  Log.d("BuildingsDataTest", "description: " + response[i].pathsInfos.get(j).description);
-                  Log.d("BuildingsDataTest", "target: " + response[i].pathsInfos.get(j).target);
-                  Log.d("BuildingsDataTest", "estimatedDuration: " + response[i].pathsInfos.get(j).estimatedDuration);
-                  Log.d("BuildingsDataTest", "position: " + response[i].pathsInfos.get(j).position);
+                  Log.d("BuildingsDataTest", "   Percorso " + j);
+                  Log.d("BuildingsDataTest", "      id: " + response[i].pathsInfos.get(j).id);
+                  Log.d("BuildingsDataTest", "      title: " + response[i].pathsInfos.get(j).title);
+                  Log.d("BuildingsDataTest", "      description: " + response[i].pathsInfos.get(j).description);
+                  Log.d("BuildingsDataTest", "      target: " + response[i].pathsInfos.get(j).target);
+                  Log.d("BuildingsDataTest", "      estimatedDuration: " + response[i].pathsInfos.get(j).estimatedDuration);
+                  Log.d("BuildingsDataTest", "      position: " + response[i].pathsInfos.get(j).position);
                }
             }
          }
@@ -292,28 +292,28 @@ public class BuildingsDataTest {
             Log.d("BuildingsDataTest", "Richiesta buildingsByNumberFromDifferentPosition() eseguita con successo");
             for (int i=0; i <response.length ; i++) {
                Log.d("BuildingsDataTest", "Edificio " + i);
-               Log.d("BuildingsDataTest", "name: " + response[i].name);
-               Log.d("BuildingsDataTest", "description: " + response[i].description);
-               Log.d("BuildingsDataTest", "otherInfos: " + response[i].otherInfos);
-               Log.d("BuildingsDataTest", "openingTime: " + response[i].openingTime);
-               Log.d("BuildingsDataTest", "address: " + response[i].address);
-               Log.d("BuildingsDataTest", "latitude: " + response[i].latitude);
-               Log.d("BuildingsDataTest", "longitude: " + response[i].longitude);
-               Log.d("BuildingsDataTest", "telephone: " + response[i].telephone);
-               Log.d("BuildingsDataTest", "email: " + response[i].email);
-               Log.d("BuildingsDataTest", "whatsapp: " + response[i].whatsapp);
-               Log.d("BuildingsDataTest", "telegram: " + response[i].telegram);
-               Log.d("BuildingsDataTest", "twitter: " + response[i].twitter);
-               Log.d("BuildingsDataTest", "facebook: " + response[i].facebook);
-               Log.d("BuildingsDataTest", "websiteURL: " + response[i].websiteURL);
+               Log.d("BuildingsDataTest", "   name: " + response[i].name);
+               Log.d("BuildingsDataTest", "   description: " + response[i].description);
+               Log.d("BuildingsDataTest", "   otherInfos: " + response[i].otherInfos);
+               Log.d("BuildingsDataTest", "   openingTime: " + response[i].openingTime);
+               Log.d("BuildingsDataTest", "   address: " + response[i].address);
+               Log.d("BuildingsDataTest", "   latitude: " + response[i].latitude);
+               Log.d("BuildingsDataTest", "   longitude: " + response[i].longitude);
+               Log.d("BuildingsDataTest", "   telephone: " + response[i].telephone);
+               Log.d("BuildingsDataTest", "   email: " + response[i].email);
+               Log.d("BuildingsDataTest", "   whatsapp: " + response[i].whatsapp);
+               Log.d("BuildingsDataTest", "   telegram: " + response[i].telegram);
+               Log.d("BuildingsDataTest", "   twitter: " + response[i].twitter);
+               Log.d("BuildingsDataTest", "   facebook: " + response[i].facebook);
+               Log.d("BuildingsDataTest", "   websiteURL: " + response[i].websiteURL);
                for (int j=0; j<response[i].pathsInfos.size(); j++) {
-                  Log.d("BuildingsDataTest", "Percorso " + j);
-                  Log.d("BuildingsDataTest", "id: " + response[i].pathsInfos.get(j).id);
-                  Log.d("BuildingsDataTest", "title: " + response[i].pathsInfos.get(j).title);
-                  Log.d("BuildingsDataTest", "description: " + response[i].pathsInfos.get(j).description);
-                  Log.d("BuildingsDataTest", "target: " + response[i].pathsInfos.get(j).target);
-                  Log.d("BuildingsDataTest", "estimatedDuration: " + response[i].pathsInfos.get(j).estimatedDuration);
-                  Log.d("BuildingsDataTest", "position: " + response[i].pathsInfos.get(j).position);
+                  Log.d("BuildingsDataTest", "   Percorso " + j);
+                  Log.d("BuildingsDataTest", "      id: " + response[i].pathsInfos.get(j).id);
+                  Log.d("BuildingsDataTest", "      title: " + response[i].pathsInfos.get(j).title);
+                  Log.d("BuildingsDataTest", "      description: " + response[i].pathsInfos.get(j).description);
+                  Log.d("BuildingsDataTest", "      target: " + response[i].pathsInfos.get(j).target);
+                  Log.d("BuildingsDataTest", "      estimatedDuration: " + response[i].pathsInfos.get(j).estimatedDuration);
+                  Log.d("BuildingsDataTest", "      position: " + response[i].pathsInfos.get(j).position);
                }
             }
          }

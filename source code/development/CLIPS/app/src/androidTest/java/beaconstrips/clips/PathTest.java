@@ -17,7 +17,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
 
 /**
  * @file PathTest.java
- * @date 22/08/16
+ * @date 23/08/16
  * @version 1.0.0
  * @author Andrea Grendene
  *
