@@ -6,7 +6,6 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.util.Log;
 
-import org.json.JSONObject;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,8 +13,6 @@ import org.junit.runner.RunWith;
 import beaconstrips.clips.client.data.Building;
 import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.DataRequestMaker;
-import beaconstrips.clips.client.urlrequest.AbstractUrlRequestListener;
-import beaconstrips.clips.client.urlrequest.RequestMaker;
 import beaconstrips.clips.client.urlrequest.ServerError;
 
 /**

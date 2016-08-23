@@ -26,7 +26,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU3 (Test di Unità 3). Verifica che la richiesta al server di salvare i risultati del percorso appena svolto dall'utente funzione correttamente.
+ * classe che contiene il TU3 (Test di Unità 3). Verifica che la richiesta al server di salvare i risultati del percorso appena svolto dall'utente funzioni correttamente.
  * Dato che la chiamata richiede parametri saranno previste due richieste errate, una in cui manca un dato tra quelli inviati e una in cui un dato è errato.
  * Questi errori non dovrebbero presentarsi durante l'esecuzione dell'applicazione, ma questi test garantiranno che, nel caso non fosse così, ad esempio a seguito di un aggiornamento, non avvengano comportamenti imprevisti.
  *

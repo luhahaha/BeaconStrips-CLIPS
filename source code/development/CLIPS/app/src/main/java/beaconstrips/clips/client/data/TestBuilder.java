@@ -60,15 +60,14 @@ public class TestBuilder {
             for (int j = correctIndex + 1; j < 4; j++)
                wrongAnswers[j - 1] = answers.getString(j);
             String image = testObject.optString("image");
-            if(image==null) {
-               questions.add(new MultipleChoiceTextQuiz(/*testObject.getString("helpText")*/"HELP", testObject.getString("question"), answers.getString(correctIndex), wrongAnswers));
+            if(image.equals("")) {
+               questions.add(new MultipleChoiceTextQuiz(testObject.getString("helpText"), testObject.getString("question"), answers.getString(correctIndex), wrongAnswers));
             } else {
-               questions.add(new MultipleChoiceImageQuiz(/*testObject.getString("helpText")*/"HELP", testObject.getString("question"), answers.getString(correctIndex), wrongAnswers, image));
+               questions.add(new MultipleChoiceImageQuiz(testObject.getString("helpText"), testObject.getString("question"), answers.getString(correctIndex), wrongAnswers, image));
             }
          }
          return new MultipleChoiceTest(testData.getJSONObject("data").getBoolean("shuffleQuestions"), testData.getJSONObject("data").getBoolean("shuffleAnswers"), questions);
       } catch(JSONException e) {
-         System.out.println("Test: errore JSON");
          return null;
       }
    }
@@ -80,10 +79,10 @@ public class TestBuilder {
          for(int i=0; i<array.length(); i++) {
             JSONObject testObject = array.getJSONObject(i);
             String image = testObject.optString("image");
-            if(image==null) {
-               questions.add(new TrueFalseTextQuiz(/*testObject.getString("helpText")*/"HELP", testObject.getString("question"), testObject.getBoolean("correctAnswer")));
+            if(image.equals("")) {
+               questions.add(new TrueFalseTextQuiz(testObject.getString("helpText"), testObject.getString("question"), testObject.getBoolean("correctAnswer")));
             } else {
-               questions.add(new TrueFalseImageQuiz(/*testObject.getString("helpText")*/"HELP", testObject.getString("question"), testObject.getBoolean("correctAnswer"), image));
+               questions.add(new TrueFalseImageQuiz(testObject.getString("helpText"), testObject.getString("question"), testObject.getBoolean("correctAnswer"), image));
             }
          }
          return new TrueFalseTest(testData.getJSONObject("data").getBoolean("shuffleQuestions"), questions);
@@ -98,7 +97,7 @@ public class TestBuilder {
          JSONArray array = testData.getJSONObject("data").getJSONArray("sets");
          for(int i=0; i<array.length(); i++) {
             JSONObject testObject = array.getJSONObject(i);
-            sets.add(new BiggerShape(/*testObject.getString("helptext")*/"HELP", testObject.getString("shape"), testObject.getInt("left"), testObject.getInt("right")));
+            sets.add(new BiggerShape(testObject.getString("helptext"), testObject.getString("shape"), testObject.getInt("left"), testObject.getInt("right")));
          }
          return new BiggerShapeTest(testData.getJSONObject("data").getString("instructions"), testData.getJSONObject("data").getBoolean("shuffleSets"), sets);
       } catch(JSONException e) {

@@ -22,7 +22,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU1 (Test di Unità 1). Verifica che la richiesta al server delle informazioni sell'applicazione siano restituite correttamente.
+ * classe che contiene il TU1 (Test di Unità 1). Verifica che la richiesta al server delle informazioni sell'applicazione sia effettuata correttamente.
  * Dato che la chiamata non richiede parametri non esistono errori, ritornati dal server, caratteristici di questo tipo di richiesta; di conseguenza non ci sono test relativi agli errori restituiti dal server.
  *
  *
