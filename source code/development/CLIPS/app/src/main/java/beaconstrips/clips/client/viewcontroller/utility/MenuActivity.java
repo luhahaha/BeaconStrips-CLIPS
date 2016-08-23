@@ -11,10 +11,12 @@ package beaconstrips.clips.client.viewcontroller.utility;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -25,8 +27,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import beaconstrips.clips.R;
+import beaconstrips.clips.client.data.LoggedUser;
+import beaconstrips.clips.client.data.datamanager.LoginManager;
 import beaconstrips.clips.client.viewcontroller.authentication.AccountActivity;
 import beaconstrips.clips.client.viewcontroller.authentication.LoginActivity;
 import beaconstrips.clips.client.viewcontroller.authentication.RegistrationActivity;
@@ -41,10 +47,12 @@ public class MenuActivity extends AppCompatActivity
         //implements NavigationView.OnNavigationItemSelectedListener
 {
 
+
     private NavigationView navigationView;
     private DrawerLayout fullLayout;
     private Toolbar toolbar;
     private ActionBarDrawerToggle drawerToggle;
+    private View headerView;
     private int selectedNavItemId;
 
     @Override
@@ -58,7 +66,14 @@ public class MenuActivity extends AppCompatActivity
         super.setContentView(fullLayout);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+
         navigationView = (NavigationView) findViewById(R.id.navigationView);
+        headerView = navigationView.inflateHeaderView(R.layout.nav_header_menu);
+
+        if(LoginManager.sharedManager(getApplicationContext()).isLogged()) {
+            updateView();
+        }
 
         if (useToolbar())
         {
@@ -75,11 +90,36 @@ public class MenuActivity extends AppCompatActivity
         setupContent(navigationView);
     }
 
+    public void updateView(){
+        if(LoginManager.sharedManager(getApplicationContext()).isLogged()) {
+            Log.e("MenuActivity", "loggato");
+            LoggedUser u = LoginManager.sharedManager(getApplicationContext()).getLoggedUser();
+            Log.e("MenuActivity", u.email);
+            Log.e("MenuActivity", u.username);
+            //ImageView img = (ImageView) headerView.findViewById(R.id.imageView);
+            // setto l'immagine dell'utente (non so se è prevista questa opzione)
+            // img.setImageResource(R.drawable.ic_keyboard_arrow_right);
+            TextView us = (TextView) headerView.findViewById(R.id.username_utente);
+            // setto l'username dell'utente loggato
+            us.setText(u.username);
+            TextView e = (TextView) headerView.findViewById(R.id.email_utente);
+            // setto l'email dell'utente loggato
+            e.setText(u.email);
+        }
+    }
+
+
     protected boolean useToolbar()
     {
         return true;
     }
     protected boolean useDrawerToggle() {return true; }
+
+    @Nullable
+    @Override
+    public ActionBarDrawerToggle.Delegate getDrawerToggleDelegate() {
+        return super.getDrawerToggleDelegate();
+    }
 
     protected void setupContent(NavigationView nav) {
         if( useDrawerToggle()) { // use the hamburger menu
@@ -87,6 +127,7 @@ public class MenuActivity extends AppCompatActivity
                     R.string.navigation_drawer_open,
                     R.string.navigation_drawer_close);
             drawerToggle.syncState();
+
         }
         /*else if(useToolbar() && getSupportActionBar() != null) {
             // Use home/back button instead
@@ -105,6 +146,8 @@ public class MenuActivity extends AppCompatActivity
                 });
 
     }
+
+
 
     protected void selectDrawerItem(MenuItem menuItem) {
         Intent intent = new Intent();
