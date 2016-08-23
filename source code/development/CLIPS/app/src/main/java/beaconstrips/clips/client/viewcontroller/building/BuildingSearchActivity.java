@@ -50,12 +50,14 @@ public class BuildingSearchActivity extends MenuActivity {
     CheckBox searchRadius;
     Button showResult;
     ListView results;
+    Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_building_search);
 
+        i = new Intent(getApplicationContext(), BuildingActivity.class);
         distanceText = (TextView) findViewById(R.id.distanceKmText);
         distance = (SeekBar) findViewById(R.id.kmFilter);
         searchRadius = (CheckBox) findViewById(R.id.checkRadius);
@@ -159,7 +161,14 @@ public class BuildingSearchActivity extends MenuActivity {
                             Log.i("Getting position", "");
                             Log.i("Latitude:", "" + latitude);
                             Log.i("Longitude:", "" + longitude);
-                            DataRequestMaker.getBuildings(getApplicationContext(), latitude, longitude, 10, true, new AbstractDataManagerListener<Building[]>() {
+                            int radius = 10;
+                            if(searchRadius.isChecked()) {
+                               radius = distance.getProgress();
+                            }
+                            i.putExtra("distance", radius);
+                            i.putExtra("latitude", latitude);
+                            i.putExtra("longitude", longitude);
+                            DataRequestMaker.getBuildings(getApplicationContext(), latitude, longitude, radius, true, new AbstractDataManagerListener<Building[]>() {
                                 @Override
                                 public void onResponse(Building[] response) {
 
@@ -169,6 +178,7 @@ public class BuildingSearchActivity extends MenuActivity {
                                     String[] buildingsName = new String[response.length];
                                     for (int i = 0; i < response.length; ++i) {
                                         buildingsName[i] = response[i].name;
+                                        Log.i("Building name", "" + response[i].name);
                                     }
                                     ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_building, R.id.buildingName, buildingsName);
                                     listView.setAdapter(arrayAdapter);
@@ -205,7 +215,7 @@ public class BuildingSearchActivity extends MenuActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 String buildingName = (results.getItemAtPosition(position)).toString();
-                Intent i = new Intent(getApplicationContext(), BuildingActivity.class);
+                Log.i("Building name pressed", buildingName);
                 i.putExtra("buildingName", buildingName);
                 startActivity(i);
 

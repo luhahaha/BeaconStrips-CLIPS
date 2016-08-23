@@ -8,6 +8,8 @@
 
 package beaconstrips.clips.client.viewcontroller.building;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Path;
 import android.support.v7.app.AppCompatActivity;
@@ -36,53 +38,67 @@ public class BuildingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_building);
         Intent i = getIntent();
         final String valueName = i.getStringExtra("buildingName");
+        final int radius = i.getIntExtra("distance", 10);
+        final double latitude = i.getDoubleExtra("latitude", 45);
+        final double longitude = i.getDoubleExtra("longitude", 11);
         name = (TextView) findViewById(R.id.buildingName);
         name.setText(valueName);
         pathsResult = (ListView) findViewById(R.id.pathsResult);
         setButtons();
         setItems();
-        DataRequestMaker.getBuildings(getApplicationContext(), 45, 5, 10, true, new AbstractDataManagerListener<Building[]>() { //TODO passare tramite intent coordinate e numero edifici
+        DataRequestMaker.getBuildings(getApplicationContext(), latitude, longitude, radius, true, new AbstractDataManagerListener<Building[]>() { //TODO passare tramite intent coordinate e numero edifici
             @Override
             public void onResponse(Building[] response) {
-                Log.i("Building", "" + response.length);
+               Log.i("Building", "" + response.length);
 
-                //TODO limitare risultati
+               //TODO limitare risultati
 
-                boolean found = false;
-                Building loadPaths = null;
-                //TODO check se non trovato
-                for(int i = 0; !found && i < response.length; ++i) {
-                    Log.i("Edifici", "" + response[i].name);
-                    if(response[i].name.equals(valueName)) {
-                        loadPaths = response[i];
-                        found = true;
-                    }
-                    Log.i("Found", "" + found);
-                }
+               boolean found = false;
+               Building loadPaths = null;
+               //TODO check se non trovato
+               for (int i = 0; !found && i < response.length; ++i) {
+                  Log.i("Edifici", "" + response[i].name);
+                  if (response[i].name.equals(valueName)) {
+                     loadPaths = response[i];
+                     found = true;
+                  }
+                  Log.i("Found", "" + found);
+               }
 
-                if(loadPaths.pathsInfos == null) {
-                    Log.i("Paths infos", "null");
-                }
+               if (loadPaths == null) {
+                  Log.i("Paths infos", "null");
+                  new AlertDialog.Builder(BuildingActivity.this)
+                          .setTitle("Avviso")
+                          .setMessage("C'è stato un errore nello scaricamento dei dati")
+                          .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                             public void onClick(DialogInterface dialog, int which) {
 
-                String[] paths = new String[loadPaths.pathsInfos.size()];
-                String[] pathsId = new String[loadPaths.pathsInfos.size()];
+                             }
+                          })
+                          .setIcon(android.R.drawable.ic_dialog_alert)
+                          .show();
+               }
 
+               else {
+                  String[] paths = new String[loadPaths.pathsInfos.size()];
+                  String[] pathsId = new String[loadPaths.pathsInfos.size()];
 
-                for(int i = 0; i < loadPaths.pathsInfos.size(); ++i) {
-                    paths[i] = loadPaths.pathsInfos.get(i).title;
-                    pathsId[i] = String.valueOf(loadPaths.pathsInfos.get(i).id);
-                    Log.i("Id", "" + pathsId[i]);
-                }
+                  for (int i = 0; i < loadPaths.pathsInfos.size(); ++i) {
+                     paths[i] = loadPaths.pathsInfos.get(i).title;
+                     pathsId[i] = String.valueOf(loadPaths.pathsInfos.get(i).id);
+                     Log.i("Id", "" + pathsId[i]);
+                  }
 
-                ArrayAdapter<String> arrayAdapterIds = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_path, R.id.pathId, paths);
-                pathsResult.setAdapter(arrayAdapterIds);
+                  ArrayAdapter<String> arrayAdapterIds = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_path, R.id.pathId, paths);
+                  pathsResult.setAdapter(arrayAdapterIds);
 
-                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_path, R.id.pathName, paths);
-                pathsResult.setAdapter(arrayAdapter);
+                  ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_path, R.id.pathName, paths);
+                  pathsResult.setAdapter(arrayAdapter);
 
-                //TODO aggiungere numero percorsi
-                // ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, R.layout.row_building, R.id.textView6, array);
-                //listView.setAdapter(arrayAdapter2);
+                  //TODO aggiungere numero percorsi
+                  // ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, R.layout.row_building, R.id.textView6, array);
+                  //listView.setAdapter(arrayAdapter2);
+               }
             }
 
             @Override
