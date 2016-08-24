@@ -16,8 +16,7 @@
        android:theme="@style/AppTheme.NoActionBar">
       android:name="android.support.multidex.MultiDexApplication">
       <activity
-          android:name=".client.viewcontroller.authentication.LoginActivity"
-          android:theme="@style/AppTheme"/>
+          android:name=".client.viewcontroller.authentication.LoginActivity" />
       <activity
           android:name=".client.viewcontroller.building.BuildingActivity"
           android:theme="@style/AppTheme"/>

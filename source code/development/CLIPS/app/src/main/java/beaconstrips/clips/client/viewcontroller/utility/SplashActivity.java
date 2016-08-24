@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.view.Menu;
 
 import beaconstrips.clips.R;
+import beaconstrips.clips.client.viewcontroller.authentication.LoginActivity;
 import beaconstrips.clips.client.viewcontroller.building.BuildingSearchActivity;
 
 public class SplashActivity extends Activity {
@@ -26,7 +27,7 @@ public class SplashActivity extends Activity {
          @Override
          public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
-            Intent mainIntent = new Intent(SplashActivity.this, BuildingSearchActivity.class);
+            Intent mainIntent = new Intent(SplashActivity.this, LoginActivity.class);
             SplashActivity.this.startActivity(mainIntent);
             SplashActivity.this.finish();
          }

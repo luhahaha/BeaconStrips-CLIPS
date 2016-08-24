@@ -27,7 +27,7 @@ import beaconstrips.clips.R;
 import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends MenuActivity {
 
     private EditText email;
     private EditText password;
@@ -61,6 +61,9 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(Boolean response) {
                                 Log.e("funz", "response");
+                                if(LoginManager.sharedManager(getApplicationContext()).isLogged()) {
+                                    Log.e("LoginActivity", "loggato");
+                                }
                             }
 
                             @Override
@@ -69,6 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         });
                     }
+
                 }
             });
         }
