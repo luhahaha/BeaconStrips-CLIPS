@@ -35,7 +35,7 @@
         <TextView
             android:id="@+id/description"
             style="@style/TextViewBase"
-            android:text="jhgfdsjhgfdshgfdsfghjfghjbhgfdsgfd"
+            android:text="Esplora Torre Archimede "
             android:layout_gravity="center_horizontal"
             />
 
@@ -59,7 +59,7 @@
     <TextView
         android:id="@+id/target"
         style="@style/TextViewBase"
-        android:text="fshdjytgeajdsaaresdhsarttfsaredfghjk"
+        android:text="Scova tutte le tappe e completa il percorso"
         android:layout_gravity="center_horizontal"
         />
 
@@ -83,7 +83,7 @@
         <TextView
             android:id="@+id/duration"
             style="@style/TextViewBase"
-            android:text="inf"
+            android:text="5 minuti"
             android:layout_gravity="right"/>
 
     </LinearLayout>

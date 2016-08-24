@@ -7,7 +7,7 @@ android:layout_height="match_parent">
 <TextView
     style="@style/TextViewTitolo"
     android:text="Medium Text"
-    android:id="@+id/pathName" />
+    android:id="@+id/pathName"/>
 
 <TextView
     style="@style/TextViewTitolo"
@@ -15,4 +15,14 @@ android:layout_height="match_parent">
     android:enabled="true"
     android:visibility="visible"
     android:layout_toRightOf="@+id/pathName"/>
+
+    <ImageView
+        android:contentDescription="Visualizza informazioni prova"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/imageView"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:src="@drawable/ic_keyboard_arrow_right" />
 </RelativeLayout>

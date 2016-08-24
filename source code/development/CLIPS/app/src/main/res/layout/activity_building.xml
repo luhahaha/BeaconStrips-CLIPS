@@ -30,15 +30,19 @@
         <TextView
             style="@style/TextViewBase"
             android:id="@+id/textView8"
-            android:text="testo"
+            android:text="Via Trieste, 63, 35121 Padova PD"
+            android:layout_gravity="center_horizontal"
             />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView3" />
+            android:id="@+id/imageView3"
+            android:src="@drawable/esterno_torre"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            />
 
-        <TextView
+        <!-- <TextView
             style="@style/TextViewBase"
             android:id="@+id/textView9"
             android:text="testo"/>
@@ -51,12 +55,8 @@
         <TextView
             style="@style/TextViewBase"
             android:text="testo"
-            android:id="@+id/textView10" />
+            android:id="@+id/textView10" /> -->
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView5" />
 
         <Button
             style="@style/RaisedButton"
@@ -69,6 +69,7 @@
             android:text="@string/available_paths"
             android:id="@+id/availablePathsLabel"
             android:layout_gravity="center_horizontal"
+
             />
 
     </LinearLayout>
@@ -80,6 +81,7 @@
         android:layout_below="@+id/linearLayout"
         android:layout_alignParentStart="true"
         android:divider="@color/colorAccent"
-        android:dividerHeight="1dp"/>
+        android:dividerHeight="1dp"
+        />
 
 </RelativeLayout>
