@@ -1,7 +1,6 @@
 package beaconstrips.clips.client.urlrequest;
 
 import android.content.Context;
-import org.apache.http.HttpStatus;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -86,9 +85,6 @@ class URLRequest {
          public void onErrorResponse(VolleyError error) {
             ServerError errorData;
             try {
-               if(error.networkResponse != null && error.networkResponse.statusCode == HttpStatus.SC_UNAUTHORIZED){
-                  System.out.println("Habemus errore 401");
-               } else System.out.println("Non habemus errore 401");
                String errorBody = new String(error.networkResponse.data, "utf-8");
                JSONObject body = new JSONObject(errorBody);
                errorData = new ServerError(error.networkResponse.statusCode, body.optString("debugMessage"), body.optString("userMessage"));
@@ -147,9 +143,6 @@ class URLRequest {
          public void onErrorResponse(VolleyError error) {
             ServerError errorData;
             try {
-               if(error.networkResponse != null && error.networkResponse.statusCode == HttpStatus.SC_UNAUTHORIZED){
-                  System.out.println("Habemus errore 401");
-               } else System.out.println("Non habemus errore 401");
                String errorBody = new String(error.networkResponse.data, "utf-8");
                JSONObject body = new JSONObject(errorBody);
                errorData = new ServerError(error.networkResponse.statusCode, body.optString("debugMessage"), body.optString("userMessage"));

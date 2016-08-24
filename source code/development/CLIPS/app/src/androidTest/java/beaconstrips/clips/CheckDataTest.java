@@ -112,7 +112,7 @@ public class CheckDataTest {
             }
          }
          public void onError(ServerError error) {
-            Log.d("CheckDataTest", "Rilevato un errore in checkWrongData():");
+            Log.d("CheckDataTest", "Rilevato un errore in checkWrongData() con dati con formato errato:");
             Log.d("CheckDataTest", "Codice dell'errore: " + error.errorCode);
             Log.d("CheckDataTest", "Messaggio per l'utente: " + error.userMessage);
             Log.d("CheckDataTest", "Messaggio di debug: " + error.debugMessage);
@@ -134,7 +134,7 @@ public class CheckDataTest {
             }
          }
          public void onError(ServerError error) {
-            Log.d("CheckDataTest", "Rilevato un errore in checkExistingData():");
+            Log.d("CheckDataTest", "Rilevato un errore in checkExistingData() con dati già usati:");
             Log.d("CheckDataTest", "Codice dell'errore: " + error.errorCode);
             Log.d("CheckDataTest", "Messaggio per l'utente: " + error.userMessage);
             Log.d("CheckDataTest", "Messaggio di debug: " + error.debugMessage);

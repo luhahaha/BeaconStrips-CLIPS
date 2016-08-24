@@ -43,6 +43,5 @@ dependencies {
     androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
     compile 'com.google.android.gms:play-services:9.4.0'
     compile 'com.android.support:multidex:1.0.0'
-    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
     compile 'com.kontaktio:sdk:3.1.0'
 }
