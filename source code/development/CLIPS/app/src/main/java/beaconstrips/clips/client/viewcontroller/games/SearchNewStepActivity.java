@@ -72,7 +72,7 @@ public class SearchNewStepActivity extends MenuActivity {
     private void configureProximityManager() {
         proximityManager.configuration()
                 .scanMode(ScanMode.LOW_LATENCY)
-                .scanPeriod(ScanPeriod.create(TimeUnit.SECONDS.toMillis(3), TimeUnit.SECONDS.toMillis(7)))
+                .scanPeriod(ScanPeriod.create(TimeUnit.SECONDS.toMillis(3), TimeUnit.SECONDS.toMillis(10)))
                 .activityCheckConfiguration(ActivityCheckConfiguration.MINIMAL)
                 .monitoringEnabled(false);
     }
@@ -136,7 +136,7 @@ public class SearchNewStepActivity extends MenuActivity {
         return new SimpleIBeaconListener() {
             @Override
             public void onIBeaconDiscovered(IBeaconDevice ibeacon, IBeaconRegion region) {
-                if (ibeacon.getUniqueId().equals("JySs")) { //qui va modificato il beacon da trovare!
+                if (ibeacon.getUniqueId().equals("CS7J")) { //qui va modificato il beacon da trovare!
                     Log.i("Sample", "IBeacon discovered! UniqueID: " + ibeacon.getUniqueId());
                     Log.i("Distance", "" + ibeacon.getProximity());
                     showToast("Hai trovato il beacon!");

@@ -65,7 +65,7 @@ public class LoginActivity extends MenuActivity {
                                 Log.e("funz", "response");
                                 if(LoginManager.sharedManager(getApplicationContext()).isLogged()) {
                                     Log.e("LoginActivity", "loggato");
-                                    Intent i = new Intent(getApplicationContext(), BuildingSearchActivity.class);
+                                    Intent i = new Intent(getApplicationContext(), AccountActivity.class);
                                     Toast.makeText(getApplicationContext(), "Ora sei loggato come Prova",
                                             Toast.LENGTH_LONG).show();
                                     startActivity(i);
