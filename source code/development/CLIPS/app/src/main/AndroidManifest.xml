@@ -7,6 +7,7 @@
    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
    <uses-permission android:name="android.permission.BLUETOOTH"/>
+   <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
 
    <application
        android:allowBackup="true"
@@ -15,6 +16,12 @@
        android:supportsRtl="true"
        android:theme="@style/AppTheme.NoActionBar">
       android:name="android.support.multidex.MultiDexApplication">
+
+      <meta-data
+          android:name="kontakt.io.API_KEY"
+          android:value="@string/kontakt_io_api_key" />
+      <service android:name="com.kontakt.sdk.android.ble.service.ProximityService" android:exported="false"/>
+
       <activity
           android:name=".client.viewcontroller.authentication.LoginActivity" />
       <activity
