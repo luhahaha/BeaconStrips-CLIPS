@@ -19,7 +19,7 @@
 
     <TextView
         style="@style/TextViewBase"
-        android:text="Suggerimento"
+        android:text="È più vicina di quanto tu possa immaginare"
         android:id="@+id/hintLabel"
         android:layout_below="@+id/descriptionLabel"
         android:layout_centerHorizontal="true" />
@@ -27,8 +27,9 @@
     <Button
         style="@style/RaisedButton"
         android:text="Inizia test"
+        android:layout_below="@id/hintLabel"
         android:id="@+id/startTestButton"
         android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/hintLabel"
-        android:visibility="gone"/>
+        android:layout_centerHorizontal="true"
+        android:visibility="visible"/>
 </RelativeLayout>
