@@ -19,6 +19,7 @@ import android.widget.Button;
 
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.viewcontroller.savedresults.ResultActivity;
+import beaconstrips.clips.client.viewcontroller.savedresults.SavedResultsActivity;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
 public class AccountActivity extends MenuActivity {
@@ -37,7 +38,7 @@ public class AccountActivity extends MenuActivity {
             info.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(getApplicationContext(), ResultActivity.class);
+                    Intent i = new Intent(getApplicationContext(), SavedResultsActivity.class);
                     startActivity(i);
                 }
             });
