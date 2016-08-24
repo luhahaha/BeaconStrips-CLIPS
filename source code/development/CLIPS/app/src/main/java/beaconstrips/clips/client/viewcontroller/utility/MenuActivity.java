@@ -169,8 +169,7 @@ public class MenuActivity extends AppCompatActivity
                 intent = new Intent(this, AppInfoActivity.class);
                 break;
             case R.id.nav_logout:
-                //intent = new Intent(this, AppInfoActivity.class);
-                intent = new Intent(this, SavedResultsActivity.class);
+                intent = new Intent(this, AppInfoActivity.class);
                 break;
         }
 
