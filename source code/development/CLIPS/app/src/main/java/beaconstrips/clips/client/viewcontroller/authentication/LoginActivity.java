@@ -21,10 +21,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import beaconstrips.clips.MainActivity;
 import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.LoginManager;
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.urlrequest.ServerError;
+import beaconstrips.clips.client.viewcontroller.building.BuildingSearchActivity;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
 public class LoginActivity extends MenuActivity {
@@ -63,6 +65,10 @@ public class LoginActivity extends MenuActivity {
                                 Log.e("funz", "response");
                                 if(LoginManager.sharedManager(getApplicationContext()).isLogged()) {
                                     Log.e("LoginActivity", "loggato");
+                                    Intent i = new Intent(getApplicationContext(), BuildingSearchActivity.class);
+                                    Toast.makeText(getApplicationContext(), "Ora sei loggato come Prova",
+                                            Toast.LENGTH_LONG).show();
+                                    startActivity(i);
                                 }
                             }
 
@@ -101,6 +107,7 @@ public class LoginActivity extends MenuActivity {
 
 
     void setButton() {
+
         final Button forgotPassword = (Button) findViewById(R.id.forgot_password_button);
         if (forgotPassword != null) {
             forgotPassword.setOnClickListener(new View.OnClickListener() {
