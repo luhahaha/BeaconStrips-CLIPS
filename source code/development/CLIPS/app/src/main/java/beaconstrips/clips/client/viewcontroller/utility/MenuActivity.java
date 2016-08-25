@@ -29,10 +29,13 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.LoggedUser;
+import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.LoginManager;
+import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.authentication.AccountActivity;
 import beaconstrips.clips.client.viewcontroller.authentication.LoginActivity;
 import beaconstrips.clips.client.viewcontroller.authentication.RegistrationActivity;
@@ -147,11 +150,34 @@ public class MenuActivity extends AppCompatActivity
 
     }
 
+    private void logout(){
+        if(LoginManager.sharedManager(getApplicationContext()).isLogged()) {
+            LoginManager.sharedManager(getApplicationContext()).logout(new AbstractDataManagerListener<Boolean>() {
+                @Override
+                public void onResponse(Boolean response) {
+                    Log.e("MenuActivity", "logout");
+                    Toast.makeText(getApplicationContext(), "Ora sei sloggato",
+                            Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                public void onError(ServerError error) {
+                    Log.e("MenuActivity", "logout error");
+                }
+            });
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Non sei loggato",
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
 
 
     protected void selectDrawerItem(MenuItem menuItem) {
+        boolean startNewActivity = true;
         Intent intent = new Intent();
-        switch(menuItem.getItemId()) {
+        switch (menuItem.getItemId()) {
             case R.id.nav_registration:
                 intent = new Intent(this, RegistrationActivity.class);
                 break;
@@ -169,15 +195,18 @@ public class MenuActivity extends AppCompatActivity
                 intent = new Intent(this, AppInfoActivity.class);
                 break;
             case R.id.nav_logout:
-                intent = new Intent(this, AppInfoActivity.class);
+                logout();
+                startNewActivity = false;
                 break;
         }
 
-        startActivity(intent);
+        if (startNewActivity) {
+            startActivity(intent);
+            fullLayout.closeDrawers(); // il drawer si chiude solo se si lancia una nuova activity
+        }
 
         menuItem.setChecked(true);
-        // chiusura del drawer
-        fullLayout.closeDrawers();
+
     }
 
 }
