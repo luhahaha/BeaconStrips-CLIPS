@@ -58,7 +58,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
    private void createPathTable(SQLiteDatabase db){
       String CREATE_PATH_TABLE = "CREATE  TABLE  IF NOT EXISTS" +
-              " Path (id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , startingMessage TEXT, rewardMessage TEXT)";
+              " Path (id INTEGER PRIMARY KEY  NOT NULL  UNIQUE , startingMessage TEXT, rewardMessage TEXT)";
 
       db.execSQL(CREATE_PATH_TABLE);
    }
@@ -112,7 +112,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
    private void createProofResultTable(SQLiteDatabase db){
       String CREATE_PROOFRESULT_TABLE = "CREATE TABLE IF NOT EXISTS" +
-              " PathResult (proofID INTEGER NOT NULL , pathResultID INTEGER NOT NULL , startTime DATETIME NOT NULL ," +
+              " ProofResult (proofID INTEGER NOT NULL , pathResultID INTEGER NOT NULL , startTime DATETIME NOT NULL ," +
               " endTime DATETIME NOT NULL, FOREIGN KEY(proofID) REFERENCES Proof(id)," +
               " FOREIGN KEY(pathResultID) REFERENCES PathResult(pathID),UNIQUE(proofID, pathResultID) )";
 
@@ -338,7 +338,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
       Building ret = null;
 
-      if (cursor != null) {
+      if (cursor.getCount() > 0) {
          cursor.moveToFirst();
 
          String name = cursor.getString(1);
@@ -433,11 +433,10 @@ public class DBHandler extends SQLiteOpenHelper {
    public Path readPath(int pathID) {
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Path", null, "id =?", new String[]{String.valueOf(pathID)}, null, null, null, null);
-
-
+      
       Path ret = null;
 
-      if (cursor != null) {
+      if (cursor.getCount() > 0) {
          cursor.moveToFirst();
 
          int id = Integer.parseInt(cursor.getString(0));
@@ -475,7 +474,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
       Beacon ret = null;
 
-      if(cursor != null){
+      if(cursor.getCount() > 0){
          cursor.moveToFirst();
 
          String UUID = cursor.getString(1);
@@ -513,7 +512,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
       Proof ret = null;
 
-      if (cursor != null) {
+      if (cursor.getCount() > 0) {
          cursor.moveToFirst();
 
          int id = Integer.parseInt(cursor.getString(0));
@@ -546,7 +545,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
       Proximity ret = null;
 
-      if(cursor != null){
+      if(cursor.getCount() > 0){
          cursor.moveToFirst();
 
          Beacon beacon = readBeacon(Integer.parseInt(cursor.getString(1)));
@@ -605,7 +604,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
       PathResult ret = null;
 
-      if(cursor != null){
+      if(cursor.getCount() > 0){
          cursor.moveToFirst();
 
          String pathName = readPathInfo(pathID).title;
