@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
+import com.android.volley.NoConnectionError;
 import com.android.volley.ParseError;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -84,14 +85,18 @@ class URLRequest {
          @Override
          public void onErrorResponse(VolleyError error) {
             ServerError errorData;
-            try {
-               String errorBody = new String(error.networkResponse.data, "utf-8");
-               JSONObject body = new JSONObject(errorBody);
-               errorData = new ServerError(error.networkResponse.statusCode, body.optString("debugMessage"), body.optString("userMessage"));
-            } catch (JSONException e) {
-               errorData = new ServerError(1000, "Error server isn't a JSON, the error code is " + error.networkResponse.statusCode, ""); //per sicurezza, per evitare inconsistenze. L'errore 1000 indica un errore in fase di parsing dell'errore del server causato dal formato errato dei dati ricevuti.
-            } catch (UnsupportedEncodingException encError) {
-               errorData = new ServerError(1001, "utf-8 encoding isn't supported", ""); //per sicurezza, per evitare inconsistenze. L'errore 1001 indica un errore in fase di parsing dell'errore del server causato da un difetto dell'applicazione o del dispositivo.
+            if(error instanceof NoConnectionError) {
+               errorData = new ServerError(1005, "No Internet access, check your Internet connection", "Errore di connessione");
+            } else {
+               try {
+                  String errorBody = new String(error.networkResponse.data, "utf-8");
+                  JSONObject body = new JSONObject(errorBody);
+                  errorData = new ServerError(error.networkResponse.statusCode, body.optString("debugMessage"), body.optString("userMessage"));
+               } catch (JSONException e) {
+                  errorData = new ServerError(1000, "Error server isn't a JSON, the error code is " + error.networkResponse.statusCode, ""); //per sicurezza, per evitare inconsistenze. L'errore 1000 indica un errore in fase di parsing dell'errore del server causato dal formato errato dei dati ricevuti.
+               } catch (UnsupportedEncodingException encError) {
+                  errorData = new ServerError(1001, "utf-8 encoding isn't supported", ""); //per sicurezza, per evitare inconsistenze. L'errore 1001 indica un errore in fase di parsing dell'errore del server causato da un difetto dell'applicazione o del dispositivo.
+               }
             }
             listener.onError(errorData);
          }
@@ -142,14 +147,18 @@ class URLRequest {
          @Override
          public void onErrorResponse(VolleyError error) {
             ServerError errorData;
-            try {
-               String errorBody = new String(error.networkResponse.data, "utf-8");
-               JSONObject body = new JSONObject(errorBody);
-               errorData = new ServerError(error.networkResponse.statusCode, body.optString("debugMessage"), body.optString("userMessage"));
-            } catch (JSONException e) {
-               errorData = new ServerError(1000, "Error response isn't a JSON, the error code is " + error.networkResponse.statusCode, ""); //per sicurezza, per evitare inconsistenze. L'errore 1000 indica un errore in fase di parsing dell'errore del server causato dal formato errato dei dati ricevuti.
-            } catch (UnsupportedEncodingException encError) {
-               errorData = new ServerError(1001, "utf-8 encoding isn't supported", ""); //per sicurezza, per evitare inconsistenze. L'errore 1001 indica un errore in fase di parsing dell'errore del server causato da un difetto dell'applicazione o del dispositivo.
+            if(error instanceof NoConnectionError) {
+               errorData = new ServerError(1005, "No Internet access, check your Internet connection", "Errore di connessione");
+            } else {
+               try {
+                  String errorBody = new String(error.networkResponse.data, "utf-8");
+                  JSONObject body = new JSONObject(errorBody);
+                  errorData = new ServerError(error.networkResponse.statusCode, body.optString("debugMessage"), body.optString("userMessage"));
+               } catch (JSONException e) {
+                  errorData = new ServerError(1000, "Error response isn't a JSON, the error code is " + error.networkResponse.statusCode, ""); //per sicurezza, per evitare inconsistenze. L'errore 1000 indica un errore in fase di parsing dell'errore del server causato dal formato errato dei dati ricevuti.
+               } catch (UnsupportedEncodingException encError) {
+                  errorData = new ServerError(1001, "utf-8 encoding isn't supported", ""); //per sicurezza, per evitare inconsistenze. L'errore 1001 indica un errore in fase di parsing dell'errore del server causato da un difetto dell'applicazione o del dispositivo.
+               }
             }
             listener.onError(errorData);
          }

@@ -73,4 +73,9 @@ public class RequestMaker {
    public static void getRanking(Context cx, int pathID, AbstractUrlRequestListener listener) {
       GetRankingRequest request = new GetRankingRequest(cx, pathID, listener);
    }
+
+   //effettua la chiamata per informare il server che l'utente ha dimenticato la password e agire di conseguenza
+   public static void forgotPassword(Context cx, String email, AbstractUrlRequestListener listener) {
+      ForgotPasswordRequest request = new ForgotPasswordRequest(cx, email, listener);
+   }
 }

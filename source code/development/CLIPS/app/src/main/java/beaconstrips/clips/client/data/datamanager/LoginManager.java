@@ -224,4 +224,14 @@ public class LoginManager {
          public void onError(ServerError error) {listener.onError(error);}
       });
    }
+
+   public void forgotPassword(String email, final AbstractDataManagerListener<Boolean> listener) {
+      RequestMaker.forgotPassword(cx, email, new AbstractUrlRequestListener() {
+         public void onResponse(JSONObject response) {
+               listener.onResponse(true);
+         }
+
+         public void onError(ServerError error) {listener.onError(error);}
+      });
+   }
 }
