@@ -40,186 +40,211 @@ import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 import beaconstrips.clips.client.pathprogress.PathProgressMaker;
 
-//TODO rendere scrollabile la list view
-
 
 public class BuildingSearchActivity extends MenuActivity {
 
-    TextView distanceText;
-    SeekBar distance;
-    CheckBox searchRadius;
-    Button showResult;
-    ListView results;
-    Intent i;
+   private TextView distanceText;
+   private SeekBar distance;
+   private CheckBox searchRadius;
+   private Button showResult;
+   private ListView results;
+   private Intent i;
+   final private String TAG = "BuildingSearchActivity";
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_building_search);
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_building_search);
 
-        i = new Intent(getApplicationContext(), BuildingActivity.class);
-        distanceText = (TextView) findViewById(R.id.distanceKmText);
-        distance = (SeekBar) findViewById(R.id.kmFilter);
-        searchRadius = (CheckBox) findViewById(R.id.checkRadius);
-        showResult = (Button) findViewById(R.id.searchBuilding);
-        results = (ListView) findViewById(R.id.buildingResults);
+      distanceText = (TextView) findViewById(R.id.distanceKmText);
+      distance = (SeekBar) findViewById(R.id.kmFilter);
+      searchRadius = (CheckBox) findViewById(R.id.checkRadius);
+      showResult = (Button) findViewById(R.id.searchBuilding);
+      results = (ListView) findViewById(R.id.buildingResults);
 
+      distance.setEnabled(false);
+      distanceText.setText(String.valueOf(distance.getProgress()));
+      distanceText.setVisibility(View.INVISIBLE);
+      results.setVisibility(View.INVISIBLE);
 
-        distance.setEnabled(false);
-        distanceText.setText(String.valueOf(distance.getProgress()));
-        distanceText.setVisibility(View.INVISIBLE);
-        results.setVisibility(View.INVISIBLE);
+      i = new Intent(getApplicationContext(), BuildingActivity.class);
 
+      //TODO add as row search building
+      setSeekBarSignal();
+      setCheckBoxSignal();
+      setButton();
+      setItems();
+   }
 
-        //TODO add as row search building
-        setSeekBarSignal();
-        setCheckBoxSignal();
-        setButton();
-        setItems();
-    }
+   void setSeekBarSignal() {
+      distance.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+         @Override
+         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            distanceText.setText(String.valueOf(distance.getProgress()));
+         }
 
-    void setSeekBarSignal() {
-        distance.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                distanceText.setText(String.valueOf(distance.getProgress()));
-                Log.i("Distance", String.valueOf(distance.getProgress()));
+         @Override
+         public void onStartTrackingTouch(SeekBar seekBar) {
+            return;
+         }
+
+         @Override
+         public void onStopTrackingTouch(SeekBar seekBar) {
+            return;
+         }
+      });
+   }
+
+   void setCheckBoxSignal() {
+      searchRadius.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+         @Override
+         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if (searchRadius.isChecked()) {
+               distance.setEnabled(true);
+               distanceText.setVisibility(View.VISIBLE);
+            } else {
+               distance.setEnabled(false);
+               distanceText.setVisibility(View.INVISIBLE);
             }
-            @Override
-            public void onStartTrackingTouch (SeekBar seekBar){
-                return;
+         }
+      });
+   }
+
+   private void setButton() {
+      showResult.setOnClickListener(new View.OnClickListener() {
+         public void onClick(View v) {
+            final Context context = getApplicationContext();
+            LocationManager lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+            boolean gpsEnabled = false;
+            boolean networkEnabled = false;
+
+            try {
+               gpsEnabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
             }
 
-            @Override
-            public void onStopTrackingTouch (SeekBar seekBar){
-                return;
+            catch (Exception ex) {
+
             }
-        });
-    }
 
-    void setCheckBoxSignal() {
-        searchRadius.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(searchRadius.isChecked()) {
-                    distance.setEnabled(true);
-                    distanceText.setVisibility(View.VISIBLE);
-                }
-                else {
-                    distance.setEnabled(false);
-                    distanceText.setVisibility(View.INVISIBLE);
-                }
+            try {
+               networkEnabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
             }
-        });
-    }
 
-    private void setButton() {
-        showResult.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                final Context context = getApplicationContext();
-                LocationManager lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
-                boolean gps_enabled = false;
-                boolean network_enabled = false;
+            catch (Exception ex) {
+            }
 
-                try {
-                    gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
-                } catch (Exception ex) {
-                }
+            if (!gpsEnabled && !networkEnabled) {
+               new AlertDialog.Builder(BuildingSearchActivity.this)
+                  .setMessage("Servizi di localizzazione non attivi")
+                  .setPositiveButton("Attiva", new DialogInterface.OnClickListener() {
+                     @Override
+                     public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                        Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
+                     }
+                  })
+                 .setNegativeButton("Cancella", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface paramDialogInterface, int paramInt) {
 
-                try {
-                    network_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-                } catch (Exception ex) {
-                }
+                    }
+                 })
+                 .show();
+            }
 
-                if (!gps_enabled && !network_enabled) {
-                    // notify user
-                    new AlertDialog.Builder(BuildingSearchActivity.this)
-                            .setMessage("Servizi di localizzazione non attivi")
-                            .setPositiveButton("Attiva", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface paramDialogInterface, int paramInt) {
-                                    // TODO Auto-generated method stub
-                                    Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    startActivity(i);
-                                }
-                            })
-                            .setNegativeButton("Cancella", new DialogInterface.OnClickListener() {
+            else {
+               Log.i("Trying to call", "");
+               PathProgressMaker.getCoordinates(getApplicationContext(), new GPSListener() {
+                  @Override
+                  public void onResponse(double latitude, double longitude) {
+                     Log.i("Getting position", "");
+                     Log.i("Latitude:", "" + latitude);
+                     Log.i("Longitude:", "" + longitude);
 
-                                @Override
-                                public void onClick(DialogInterface paramDialogInterface, int paramInt) {
-                                    // TODO Auto-generated method stub
+                     int radius = 10;
 
-                                }
-                            })
-                            .show();
-                } else {
-                    Log.i("Trying to call" , "");
-                    PathProgressMaker.getCoordinates(getApplicationContext(), new GPSListener() {
+                     if (searchRadius.isChecked()) {
+                        radius = distance.getProgress();
+                     }
+
+                     i.putExtra("distance", radius);
+                     i.putExtra("latitude", latitude);
+                     i.putExtra("longitude", longitude);
+
+                     DataRequestMaker.getBuildings(getApplicationContext(), latitude, longitude, radius, true, new AbstractDataManagerListener<Building[]>() {
                         @Override
-                        public void onResponse(double latitude, double longitude) {
-                            Log.i("Getting position", "");
-                            Log.i("Latitude:", "" + latitude);
-                            Log.i("Longitude:", "" + longitude);
-                            int radius = 10;
-                            if(searchRadius.isChecked()) {
-                               radius = distance.getProgress();
-                            }
-                            i.putExtra("distance", radius);
-                            i.putExtra("latitude", latitude);
-                            i.putExtra("longitude", longitude);
-                            DataRequestMaker.getBuildings(getApplicationContext(), latitude, longitude, radius, true, new AbstractDataManagerListener<Building[]>() {
-                                @Override
-                                public void onResponse(Building[] response) {
+                        public void onResponse(Building[] response) {
 
-                                    //TODO limitare risultati
-                                    ListView listView = (ListView) findViewById(R.id.buildingResults);
+                           //TODO limitare risultati
+                           ListView listView = (ListView) findViewById(R.id.buildingResults);
 
-                                    String[] buildingsName = new String[response.length];
-                                    for (int i = 0; i < response.length; ++i) {
-                                        buildingsName[i] = response[i].name;
-                                        Log.i("Building name", "" + response[i].name);
-                                    }
-                                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_building, R.id.buildingName, buildingsName);
-                                    listView.setAdapter(arrayAdapter);
+                           String[] buildingsName = new String[response.length];
+                           String[] pathsNumber = new String[response.length];
+                           for (int i = 0; i < response.length; ++i) {
+                              buildingsName[i] = response[i].name;
+                              pathsNumber[i] = String.valueOf(response[i].pathsInfos.size());
+                              Log.i(TAG, "" + buildingsName[i]);
+                              Log.i(TAG, "" + pathsNumber[i]);
+                           }
+                           ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_building, R.id.buildingName, buildingsName);
+                           listView.setAdapter(arrayAdapter);
 
-                                    //TODO aggiungere numero percorsi
-                                    // ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, R.layout.row_building, R.id.textView6, array);
-                                    //listView.setAdapter(arrayAdapter2);
-                                    results.setVisibility(View.VISIBLE);
-                                }
-
-                                @Override
-                                public void onError(ServerError error) {
-                                    System.out.println(error.errorCode + " " + error.debugMessage + " " + error.userMessage);
-                                    Log.e("Error", "not working");
-                                }
-                            });
+                           //TODO aggiungere numero percorsi
+                           //ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_building, R.id.pathsNumber, pathsNumber);
+                           //listView.setAdapter(arrayAdapter2);
+                           results.setVisibility(View.VISIBLE);
                         }
 
                         @Override
                         public void onError(ServerError error) {
-                            Log.e("Error", "Not getting position");
+                           Log.e(TAG, error.errorCode + " " + error.debugMessage + " " + error.userMessage);
+                           new AlertDialog.Builder(getApplicationContext())
+                                   .setTitle("Avviso")
+                                   .setMessage("Si è verificato un errore nello scaricamento dei dati. Controlla la tua connessione ad internet e riprova.")
+                                   .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                      public void onClick(DialogInterface dialog, int which) {
+
+                                      }
+                                   })
+                                   .setIcon(android.R.drawable.ic_dialog_alert)
+                                   .show();
                         }
+                     });
+                  }
 
-                    });
+                  @Override
+                  public void onError(ServerError error) {
+                     Log.e(TAG, "Not getting position");
+                     new AlertDialog.Builder(getApplicationContext())
+                             .setTitle("Avviso")
+                             .setMessage("Si è verificato un errore nell'acquisire la posizione. Riprova.")
+                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
 
-                }
+                                }
+                             })
+                             .setIcon(android.R.drawable.ic_dialog_alert)
+                             .show();
+                  }
+
+               });
+
             }
-        });
-    }
+         }
+      });
+   }
 
-    private void setItems() {
-        final ListView results = (ListView)findViewById(R.id.buildingResults);
-        results.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                String buildingName = (results.getItemAtPosition(position)).toString();
-                Log.i("Building name pressed", buildingName);
-                i.putExtra("buildingName", buildingName);
-                startActivity(i);
-
-            }
-        });
-    }
+   private void setItems() {
+      final ListView results = (ListView) findViewById(R.id.buildingResults);
+      results.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+         public void onItemClick(AdapterView<?> parent, View view,
+                                 int position, long id) {
+            String buildingName = (results.getItemAtPosition(position)).toString();
+            Log.i("Building name pressed", buildingName);
+            i.putExtra("buildingName", buildingName);
+            startActivity(i);
+         }
+      });
+   }
 }

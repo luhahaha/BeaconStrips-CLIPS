@@ -9,24 +9,33 @@
 package beaconstrips.clips.client.viewcontroller.building;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Path;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.Building;
+import beaconstrips.clips.client.data.PathInfo;
 import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.DataRequestMaker;
 import beaconstrips.clips.client.urlrequest.ServerError;
+import beaconstrips.clips.client.viewcontroller.utility.BuildingAdapter;
+import beaconstrips.clips.client.viewcontroller.utility.risultatoProva;
 
 public class BuildingActivity extends AppCompatActivity {
 
@@ -80,20 +89,22 @@ public class BuildingActivity extends AppCompatActivity {
                }
 
                else {
-                  String[] paths = new String[loadPaths.pathsInfos.size()];
-                  String[] pathsId = new String[loadPaths.pathsInfos.size()];
+                  //String[] paths = new String[loadPaths.pathsInfos.size()];
+                  //String[] pathsId = new String[loadPaths.pathsInfos.size()];
+                  ArrayList<PathInfo> paths = loadPaths.getPathInfo();
+
 
                   for (int i = 0; i < loadPaths.pathsInfos.size(); ++i) {
-                     paths[i] = loadPaths.pathsInfos.get(i).title;
-                     pathsId[i] = String.valueOf(loadPaths.pathsInfos.get(i).id);
-                     Log.i("Id", "" + pathsId[i]);
+                     //paths[i] = loadPaths.pathsInfos.get(i).title;
+                     //pathsId[i] = String.valueOf(loadPaths.pathsInfos.get(i).id);
+                     //Log.i("Id", "" + pathsId[i]);
                   }
 
-                  ArrayAdapter<String> arrayAdapterIds = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_path, R.id.pathId, paths);
-                  pathsResult.setAdapter(arrayAdapterIds);
+                  //ArrayAdapter<String> arrayAdapterIds = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_path, R.id.pathId, paths);
+                  pathsResult.setAdapter(new BuildingAdapter(getApplicationContext(), paths));
 
-                  ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_path, R.id.pathName, paths);
-                  pathsResult.setAdapter(arrayAdapter);
+                  //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_path, R.id.pathName, paths);
+                  //pathsResult.setAdapter(arrayAdapter);
 
                   //TODO aggiungere numero percorsi
                   // ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, R.layout.row_building, R.id.textView6, array);
@@ -129,14 +140,15 @@ public class BuildingActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 String pathId = (((TextView) view.findViewById(R.id.pathId)).getText()).toString(); //TODO recuperare id per recuperare informazioni path
-                String pathName = (pathsResult.getItemAtPosition(position)).toString();
-                Log.i("pathId", "id" + pathId);
-                Log.i("pathName", "" + pathName);
+                String pathName = ((TextView) view.findViewById(R.id.pathName)).getText().toString();
                 Intent i = new Intent(getApplicationContext(), PathActivity.class);
+                i.putExtra("pathId", pathId);
                 i.putExtra("pathName", pathName);
                 //i.putExtra("pathId");
                 startActivity(i);
             }
         });
     }
+
+
 }

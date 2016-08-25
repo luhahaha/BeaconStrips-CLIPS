@@ -13,7 +13,7 @@ android:layout_height="match_parent">
     style="@style/TextViewTitolo"
     android:id="@+id/pathId"
     android:enabled="true"
-    android:visibility="visible"
+    android:visibility="gone"
     android:layout_toRightOf="@+id/pathName"/>
 
     <ImageView

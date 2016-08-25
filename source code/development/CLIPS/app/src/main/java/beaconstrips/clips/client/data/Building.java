@@ -44,4 +44,8 @@ public class Building {
       this.pathsInfos = pathsInfos;
       this.websiteURL = websiteURL;
    }
+
+   public ArrayList<PathInfo> getPathInfo() {
+      return pathsInfos;
+   }
 }
