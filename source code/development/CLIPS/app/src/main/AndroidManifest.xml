@@ -46,6 +46,8 @@
           android:name=".client.viewcontroller.authentication.RegistrationActivity"
           android:theme="@style/AppTheme"/>
       <activity android:name=".client.viewcontroller.authentication.AccountActivity"/>
+      <activity android:name=".client.viewcontroller.authentication.ConfirmRegistration"
+          android:theme="@style/AppTheme" />
       <activity android:name=".client.viewcontroller.building.PathActivity"/>
       <activity android:name=".client.viewcontroller.savedresults.RankingActivity"/>
       <activity android:name=".client.viewcontroller.savedresults.SavedResultsActivity"

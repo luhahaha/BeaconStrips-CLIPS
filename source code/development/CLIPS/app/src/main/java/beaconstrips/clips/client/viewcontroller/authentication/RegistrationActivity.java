@@ -12,16 +12,21 @@ import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import beaconstrips.clips.R;
+import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
+import beaconstrips.clips.client.data.datamanager.LoginManager;
 import beaconstrips.clips.client.urlrequest.RegistrationRequest;
+import beaconstrips.clips.client.urlrequest.ServerError;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -60,11 +65,29 @@ public class RegistrationActivity extends AppCompatActivity {
                         final EditText username = (EditText) findViewById(R.id.username);
                         final EditText repeatPassword = (EditText) findViewById(R.id.repeat_password);
 
+                        String e = email.getText().toString();
+                        String p = password.getText().toString();
+                        String u = username.getText().toString();
+
                         Intent i = new Intent(getApplicationContext(), ConfirmRegistration.class);
                         i.putExtra("email", email.getText().toString());
                         i.putExtra("password", password.getText().toString());
                         startActivity(i);
                         clearFields();
+
+                        LoginManager.sharedManager(getApplicationContext()).registration(e, u, p, new AbstractDataManagerListener<Boolean>() {
+                            @Override
+                            public void onResponse(Boolean response) {
+                                Log.e("registrationActivity","registration ok");
+                            }
+
+                            @Override
+                            public void onError(ServerError error) {
+                                Log.e("registrationActivity","registration error");
+                            }
+                        });
+
+                        login(e, p, u);
                         //finish(); se l'utente fa back qui esce dall'app
                         /*
                             questo va aggiunto al file AndroidManifest.xml per evitare di aggiungere l'attività allo stack
@@ -91,6 +114,26 @@ public class RegistrationActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    private void login(final String email, final String password, final String username){
+        LoginManager.sharedManager(getApplicationContext()).login(email, password, new AbstractDataManagerListener<Boolean>() {
+            @Override
+            public void onResponse(Boolean response) {
+                Log.e("funz", "response");
+                if(LoginManager.sharedManager(getApplicationContext()).isLogged()) {
+                    Log.e("RegistrationActivity", "loggato");
+                    Intent i = new Intent(getApplicationContext(), AccountActivity.class);
+                    Toast.makeText(getApplicationContext(), "Ora sei loggato come " + username,
+                            Toast.LENGTH_LONG).show();
+                    startActivity(i);
+                }
+            }
+            @Override
+            public void onError(ServerError error) {
+                Log.e("funz", "error");
+            }
+        });
     }
 
 
@@ -160,13 +203,14 @@ class ConfirmRegistration extends AppCompatActivity {
     }
 
     private void setButton() {
+        // bottone "vai al tuo profilo"
         final Button register = (Button) findViewById(R.id.link_login_button);
         if (register != null) {
             register.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     //TODO set to open profile
-                    //Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-                    //startActivity(i);
+                    Intent i = new Intent(getApplicationContext(), AccountActivity.class);
+                    startActivity(i);
                 }
             });
         }
