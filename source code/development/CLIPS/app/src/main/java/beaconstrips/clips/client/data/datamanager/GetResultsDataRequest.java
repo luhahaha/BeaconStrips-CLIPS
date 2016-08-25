@@ -61,11 +61,12 @@ public class GetResultsDataRequest extends DataManager<PathResult[]> {
             }
             GregorianCalendar startCalendar = new GregorianCalendar(), endCalendar = new GregorianCalendar();
             try {
-               startCalendar.setTime(new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN).parse(result.getString("startTime")));
-               endCalendar.setTime(new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN).parse(result.getString("endTime")));
+               startCalendar.setTime(new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN).parse(result.getString("startDate")));
+               endCalendar.setTime(new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN).parse(result.getString("endDate")));
+               System.out.println("Fin qui arriva : " + result.getString("endDate"));
                results[i] = new PathResult(result.getInt("pathID"), result.getString("pathName"), result.getString("buildingName"), startCalendar, endCalendar, result.getInt("totalScore"), proofs);
             } catch(ParseException e) { //non segnalo l'errore con il listener perché non vale la pena compromettere l'operazione per una data che non viene creata correttamente
-               results[i] = new PathResult(result.getInt("proofID"), result.getString("pathName"), result.getString("buildingName"), new GregorianCalendar(2000, 1, 1, 0, 0, 0), new GregorianCalendar(2000, 1, 1, 0, 0, 0), result.getInt("totalScore"), proofs);
+               results[i] = new PathResult(result.getInt("pathID"), result.getString("pathName"), result.getString("buildingName"), new GregorianCalendar(2000, 1, 1, 0, 0, 0), new GregorianCalendar(2000, 1, 1, 0, 0, 0), result.getInt("totalScore"), proofs);
             }
          }
          return results;

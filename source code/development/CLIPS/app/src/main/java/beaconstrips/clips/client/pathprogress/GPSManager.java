@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -59,7 +60,12 @@ class GPSManager {
             googleApiClient.disconnect();
          }
       };
-      googleApiClient = new GoogleApiClient.Builder(cx).addConnectionCallbacks(callback).addOnConnectionFailedListener(failedListener).addApi(LocationServices.API).build();
-      googleApiClient.connect();
+      LocationManager manager = (LocationManager) cx.getSystemService( Context.LOCATION_SERVICE );
+      if(manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+         googleApiClient = new GoogleApiClient.Builder(cx).addConnectionCallbacks(callback).addOnConnectionFailedListener(failedListener).addApi(LocationServices.API).build();
+         googleApiClient.connect();
+      } else {
+         listener.onError(new ServerError(1006, "GPS is off", "Il GPS è spento"));
+      }
    }
 }

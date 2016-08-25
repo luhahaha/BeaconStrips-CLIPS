@@ -2,6 +2,8 @@ package beaconstrips.clips;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
 import android.support.test.filters.SmallTest;
 import android.support.test.rule.ActivityTestRule;
