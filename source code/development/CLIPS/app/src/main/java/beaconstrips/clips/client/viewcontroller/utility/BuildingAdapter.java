@@ -62,10 +62,10 @@ public class BuildingAdapter extends BaseAdapter {
          holder = (ViewHolder) convertView.getTag();
       }
 
-      holder.pathId.setText(String.valueOf(searchArrayList.get(position).getId()));
-      holder.pathName.setText(searchArrayList.get(position).getTitle());
-      Log.i("Id", "" + searchArrayList.get(position).getId());
-      Log.i("Name", "" + searchArrayList.get(position).getId());
+      holder.pathId.setText(String.valueOf(searchArrayList.get(position).id));
+      holder.pathName.setText(searchArrayList.get(position).title);
+      Log.i("Id", String.valueOf(searchArrayList.get(position).id));
+      Log.i("Name", searchArrayList.get(position).title);
 
       return convertView;
    }

@@ -39,116 +39,108 @@ import beaconstrips.clips.client.viewcontroller.utility.risultatoProva;
 
 public class BuildingActivity extends AppCompatActivity {
 
-    private ListView pathsResult;
-    private TextView name;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_building);
-        Intent i = getIntent();
-        final String valueName = i.getStringExtra("buildingName");
-        final int radius = i.getIntExtra("distance", 10);
-        final double latitude = i.getDoubleExtra("latitude", 45);
-        final double longitude = i.getDoubleExtra("longitude", 11);
-        name = (TextView) findViewById(R.id.buildingName);
-        name.setText(valueName);
-        pathsResult = (ListView) findViewById(R.id.pathsResult);
-        setButtons();
-        setItems();
-        DataRequestMaker.getBuildings(getApplicationContext(), latitude, longitude, radius, true, new AbstractDataManagerListener<Building[]>() { //TODO passare tramite intent coordinate e numero edifici
-            @Override
-            public void onResponse(Building[] response) {
-               Log.i("Building", "" + response.length);
+   private ListView pathsResult;
+   private TextView name;
+   private ArrayList<PathInfo> paths;
 
-               //TODO limitare risultati
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_building);
+      Intent i = getIntent();
+      final String valueName = i.getStringExtra("buildingName");
+      final int radius = i.getIntExtra("distance", 10);
+      final double latitude = i.getDoubleExtra("latitude", 45);
+      final double longitude = i.getDoubleExtra("longitude", 11);
+      name = (TextView) findViewById(R.id.buildingName);
+      name.setText(valueName);
+      pathsResult = (ListView) findViewById(R.id.pathsResult);
+      setButtons();
+      setItems();
+      DataRequestMaker.getBuildings(getApplicationContext(), latitude, longitude, radius, true, new AbstractDataManagerListener<Building[]>() { //TODO passare tramite intent coordinate e numero edifici
+         @Override
+         public void onResponse(Building[] response) {
+            Log.i("Building", "" + response.length);
 
-               boolean found = false;
-               Building loadPaths = null;
-               //TODO check se non trovato
-               for (int i = 0; !found && i < response.length; ++i) {
-                  Log.i("Edifici", "" + response[i].name);
-                  if (response[i].name.equals(valueName)) {
-                     loadPaths = response[i];
-                     found = true;
-                  }
-                  Log.i("Found", "" + found);
+            //TODO limitare risultati
+
+            boolean found = false;
+            Building loadPaths = null;
+            //TODO check se non trovato
+            for (int i = 0; !found && i < response.length; ++i) {
+               Log.i("Edifici", "" + response[i].name);
+               if (response[i].name.equals(valueName)) {
+                  loadPaths = response[i];
+                  found = true;
                }
-
-               if (loadPaths == null) {
-                  Log.i("Paths infos", "null");
-                  new AlertDialog.Builder(BuildingActivity.this)
-                          .setTitle("Avviso")
-                          .setMessage("C'è stato un errore nello scaricamento dei dati")
-                          .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                             public void onClick(DialogInterface dialog, int which) {
-
-                             }
-                          })
-                          .setIcon(android.R.drawable.ic_dialog_alert)
-                          .show();
-               }
-
-               else {
-                  //String[] paths = new String[loadPaths.pathsInfos.size()];
-                  //String[] pathsId = new String[loadPaths.pathsInfos.size()];
-                  ArrayList<PathInfo> paths = loadPaths.getPathInfo();
-
-
-                  for (int i = 0; i < loadPaths.pathsInfos.size(); ++i) {
-                     //paths[i] = loadPaths.pathsInfos.get(i).title;
-                     //pathsId[i] = String.valueOf(loadPaths.pathsInfos.get(i).id);
-                     //Log.i("Id", "" + pathsId[i]);
-                  }
-
-                  //ArrayAdapter<String> arrayAdapterIds = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_path, R.id.pathId, paths);
-                  pathsResult.setAdapter(new BuildingAdapter(getApplicationContext(), paths));
-
-                  //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_path, R.id.pathName, paths);
-                  //pathsResult.setAdapter(arrayAdapter);
-
-                  //TODO aggiungere numero percorsi
-                  // ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, R.layout.row_building, R.id.textView6, array);
-                  //listView.setAdapter(arrayAdapter2);
-               }
+               Log.i("Found", "" + found);
             }
 
-            @Override
-            public void onError(ServerError error) {
-                Log.e("Error", "not working");
+            if (loadPaths == null) {
+               Log.i("Paths infos", "null");
+               new AlertDialog.Builder(BuildingActivity.this)
+                       .setTitle("Avviso")
+                       .setMessage("C'è stato un errore nello scaricamento dei dati")
+                       .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                          public void onClick(DialogInterface dialog, int which) {
+
+                          }
+                       })
+                       .setIcon(android.R.drawable.ic_dialog_alert)
+                       .show();
             }
-        });
-        //TODO add all names of contacts
-    }
 
+            else {
 
-    private void setButtons() {
-        final Button openPaths = (Button) findViewById(R.id.pathsButton);
-        if (openPaths != null) {
-            openPaths.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    //Intent paths = new Intent(getApplicationContext(), PathsActivity.class);
-                    //startActivity(paths);
-                    //TODO add spinner for loading
+               paths = loadPaths.getPathInfo();
 
-                }
-            });
-        }
-    }
+               pathsResult.setAdapter(new BuildingAdapter(getApplicationContext(), paths));
 
-    private void setItems() {
-        pathsResult.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                String pathId = (((TextView) view.findViewById(R.id.pathId)).getText()).toString(); //TODO recuperare id per recuperare informazioni path
-                String pathName = ((TextView) view.findViewById(R.id.pathName)).getText().toString();
-                Intent i = new Intent(getApplicationContext(), PathActivity.class);
-                i.putExtra("pathId", pathId);
-                i.putExtra("pathName", pathName);
-                //i.putExtra("pathId");
-                startActivity(i);
+               //TODO aggiungere numero percorsi
+
             }
-        });
-    }
+         }
+
+         @Override
+         public void onError(ServerError error) {
+            Log.e("Error", "not working");
+         }
+      });
+      //TODO add all names of contacts
+   }
+
+
+   private void setButtons() {
+      final Button openPaths = (Button) findViewById(R.id.pathsButton);
+      if (openPaths != null) {
+         openPaths.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+               //Intent paths = new Intent(getApplicationContext(), PathsActivity.class);
+               //startActivity(paths);
+               //TODO add spinner for loading
+
+            }
+         });
+      }
+   }
+
+   private void setItems() {
+      pathsResult.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+         public void onItemClick(AdapterView<?> parent, View view,
+                                 int position, long id) {
+            String pathId = (((TextView) view.findViewById(R.id.pathId)).getText()).toString(); //TODO recuperare id per recuperare informazioni path
+            String pathName = ((TextView) view.findViewById(R.id.pathName)).getText().toString();
+            Intent i = new Intent(getApplicationContext(), PathActivity.class);
+            i.putExtra("pathId", pathId);
+            i.putExtra("pathName", pathName);
+            i.putExtra("pathDescription", paths.get(position).description);
+            i.putExtra("pathTarget", paths.get(position).target);
+            i.putExtra("pathEstimatedDuration", paths.get(position).estimatedDuration);
+            i.putExtra("pathPosition", paths.get(position).position);
+            startActivity(i);
+         }
+      });
+   }
 
 
 }
