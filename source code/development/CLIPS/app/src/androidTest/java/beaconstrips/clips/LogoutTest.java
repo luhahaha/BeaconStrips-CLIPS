@@ -23,7 +23,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @author Andrea Grendene
  *
  * classe che contiene il TU8 (Test di Unità 8). Verifica che la richiesta al server di fare il logout dell'utente sia effettuata correttamente.
- * Nota: affinché il test vada l'utente dev'essere loggato, altrimenti fallirà.
+ * Nota: affinché il test vada a buon fine l'utente dev'essere loggato, altrimenti fallirà.
  *
  *
  * Stampa attesa per il test "logout": "Chiamata logout() eseguita con successo"

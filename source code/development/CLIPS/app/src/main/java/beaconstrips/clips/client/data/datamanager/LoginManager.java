@@ -215,6 +215,7 @@ public class LoginManager {
                editor.remove("username");
                editor.putString("username", response.getString("username"));
                editor.apply();
+               loggedUser = new LoggedUser(preferences.getString("token", ""), response.getString("email"), response.getString("username"));
                listener.onResponse(true);
             } catch(JSONException e) {
                listener.onError(new ServerError(1002, "Error on parsing the response JSON after the execution of getProfileData request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta

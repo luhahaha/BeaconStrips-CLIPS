@@ -46,16 +46,18 @@ public abstract class DataManager<Data> {
          getRemoteData(new AbstractUrlRequestListener() {
             public void onResponse(JSONObject response) {
                remoteData = parseFromUrlRequest(response);
-               if(remoteData==null) {
-                  cachedData=parseFromLocal();
+               updateLocalData(remoteData);
+               listener.onResponse(remoteData);
+            }
+            public void onError(ServerError error) {//remoteData non viene inizializzato in due casi: o il server non è raggiungibile, e quindi bisogna prelevare i dati in locale, oppure il JSON non viene parsato correttamente, e quindi deve restituire un errore
+               cachedData=parseFromLocal();
+               System.out.println("I dati locali sono: " + cachedData);
+               if(cachedData!=null) {
                   listener.onResponse(cachedData);
-               }
-               else {
-                  updateLocalData(remoteData);
-                  listener.onResponse(remoteData);
+               } else {
+                  listener.onError(error);
                }
             }
-            public void onError(ServerError error) {listener.onError(error);}
          });
       }
       else { //cachePolicy==CachePolicy.LocalElseRemote

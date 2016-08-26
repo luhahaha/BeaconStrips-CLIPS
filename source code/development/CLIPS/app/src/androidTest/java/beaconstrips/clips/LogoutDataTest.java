@@ -26,7 +26,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  *
  * classe che contiene il TU20 (Test di Unità 20). Verifica che la richiesta di fare il logout dell'utente sia effettuata correttamente.
  * Per verificare che ci sia l'aggiornamento del token, e quindi la sua eliminazione a seguito della richiesta, verrà stampato prima e dopo la chiamata leggendolo sia dal file dove è salvato sia dalla classe LoggedUser in cui è contenuto.
- * Nota: affinché il test vada l'utente dev'essere loggato, altrimenti fallirà.
+ * Nota: affinché il test vada a buon fine l'utente dev'essere loggato, altrimenti fallirà.
  *
  *
  * Stampa attesa per il test "logout": "Token salvato nel file: <token>"
