@@ -49,7 +49,7 @@ public class GetResultsDataRequest extends DataManager<PathResult[]> {
             JSONArray proofArray = result.getJSONArray("proofResults");
             ArrayList<ProofResult> proofs = new ArrayList<ProofResult>();
             for(int j=0; j<proofArray.length(); j++) {
-               JSONObject proof = proofArray.getJSONObject(i);
+               JSONObject proof = proofArray.getJSONObject(j);
                GregorianCalendar startCalendar = new GregorianCalendar(), endCalendar = new GregorianCalendar();
                try {
                   startCalendar.setTime(new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN).parse(proof.getString("startTime")));
@@ -63,10 +63,9 @@ public class GetResultsDataRequest extends DataManager<PathResult[]> {
             try {
                startCalendar.setTime(new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN).parse(result.getString("startDate")));
                endCalendar.setTime(new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN).parse(result.getString("endDate")));
-               System.out.println("Fin qui arriva : " + result.getString("endDate"));
-               results[i] = new PathResult(result.getInt("pathID"), result.getString("pathName"), result.getString("buildingName"), startCalendar, endCalendar, result.getInt("totalScore"), proofs);
+               results[i] = new PathResult(result.getInt("pathID"), result.getString("pathTitle"), result.getString("buildingName"), startCalendar, endCalendar, result.getInt("totalScore"), proofs);
             } catch(ParseException e) { //non segnalo l'errore con il listener perché non vale la pena compromettere l'operazione per una data che non viene creata correttamente
-               results[i] = new PathResult(result.getInt("pathID"), result.getString("pathName"), result.getString("buildingName"), new GregorianCalendar(2000, 1, 1, 0, 0, 0), new GregorianCalendar(2000, 1, 1, 0, 0, 0), result.getInt("totalScore"), proofs);
+               results[i] = new PathResult(result.getInt("pathID"), result.getString("pathTitle"), result.getString("buildingName"), new GregorianCalendar(2000, 1, 1, 0, 0, 0), new GregorianCalendar(2000, 1, 1, 0, 0, 0), result.getInt("totalScore"), proofs);
             }
          }
          return results;

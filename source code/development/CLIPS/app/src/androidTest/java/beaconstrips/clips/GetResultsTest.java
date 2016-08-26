@@ -21,7 +21,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU2 (Test di Unità 2). Verifica che la richiesta dei risultati ottenuti dall'utente sia effettuata correttamente.
+ * classe che contiene il TU2 (Test di Unità 2). Verifica che la richiesta al server dei risultati ottenuti dall'utente sia effettuata correttamente.
  *
  * Stampa attesa per il test "getResults": "Chiamata getResults() eseguita con successo"
  */
@@ -36,7 +36,7 @@ public class GetResultsTest {
       Context context = rule.getActivity().getBaseContext();
       android.content.SharedPreferences preferences = android.preference.PreferenceManager.getDefaultSharedPreferences(context);
       android.content.SharedPreferences.Editor editor = preferences.edit();
-      editor.putString("token", "3ebad59a194d");
+      editor.putString("token", "84872d7ea0f3");
       editor.apply();
       RequestMaker.getResults(context, new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
