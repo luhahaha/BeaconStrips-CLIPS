@@ -25,6 +25,4 @@ public class PathInfo {
       this.position = position;
    }
 
-   public int getId() { return id; }
-   public String getTitle() { return title; }
 }
