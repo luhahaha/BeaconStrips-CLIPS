@@ -367,7 +367,7 @@ public class DBHandler extends SQLiteOpenHelper {
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Building", null, null, null, null, null, null, null); //Ritorna tutti gli edifici salvati nel DB
 
-      ArrayList<Building> ret = null;
+      ArrayList<Building> ret = new ArrayList<Building>();
 
       while(cursor.moveToNext()){
          int id = Integer.parseInt(cursor.getString(0));
@@ -397,7 +397,7 @@ public class DBHandler extends SQLiteOpenHelper {
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("PathInfo", null, "buildingID =?", new String[]{String.valueOf(buildingID)}, null, null, null, null);
 
-      ArrayList<PathInfo> ret = null;
+      ArrayList<PathInfo> ret = new ArrayList<PathInfo>();
 
       while(cursor.moveToNext()){
          int id = Integer.parseInt(cursor.getString(0));
@@ -454,7 +454,7 @@ public class DBHandler extends SQLiteOpenHelper {
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Step", null, "pathID =?", new String[]{String.valueOf(pathID)}, null, null, null, null);
 
-      ArrayList<Step> ret = null;
+      ArrayList<Step> ret = new ArrayList<Step>();
 
       while(cursor.moveToNext())
       {
@@ -491,7 +491,7 @@ public class DBHandler extends SQLiteOpenHelper {
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("Proximity", null, "stepID =?", new String[]{String.valueOf(stepID)}, null, null, null, null);
 
-      ArrayList<Proximity> ret = null;
+      ArrayList<Proximity> ret = new ArrayList<Proximity>();
 
       while(cursor.moveToNext()){
 
@@ -579,7 +579,7 @@ public class DBHandler extends SQLiteOpenHelper {
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("PathResult", null, null, null, null, null, null, null);
 
-      ArrayList<PathResult> pathResults = null;
+      ArrayList<PathResult> pathResults = new ArrayList<PathResult>();
 
       while(cursor.moveToNext()){
          int id = Integer.parseInt(cursor.getString(0));
@@ -593,9 +593,7 @@ public class DBHandler extends SQLiteOpenHelper {
          pathResults.add(new PathResult(id, pathName, buildingName, startTime, endTime, totalScore, proofsResults));
       }
 
-      PathResult[] ret = new PathResult[pathResults.size()];
-
-      return ret;
+      return (PathResult[]) pathResults.toArray();
    }
 
    public PathResult readPathResult(int pathID){
@@ -624,7 +622,7 @@ public class DBHandler extends SQLiteOpenHelper {
       SQLiteDatabase db = this.getReadableDatabase();
       Cursor cursor = db.query("ProofResult", null, "pathID =?", new String[]{String.valueOf(pathID)}, null, null, null, null);
 
-      ArrayList<ProofResult> ret = null;
+      ArrayList<ProofResult> ret = new ArrayList<ProofResult>();
 
       while(cursor.moveToNext()){
          int id = Integer.parseInt(cursor.getString(0));
