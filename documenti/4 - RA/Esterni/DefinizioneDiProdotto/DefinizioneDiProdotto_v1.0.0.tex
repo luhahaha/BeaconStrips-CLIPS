@@ -1,0 +1,173 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\usepackage{eurosym}
+\usepackage{comment}
+\usepackage{hyperref}
+
+\usepackage{enumitem}
+\setlist[itemize,1]{label=\textbullet}
+\setlist[itemize,1]{label=\normalfont\bfseries \textendash}
+\setlist[itemize,1]{label=\textasteriskcentered}
+\setlist[itemize,1]{label=\textperiodcentered}
+\setlist[itemize,5]{label=$ $}
+\setlist[itemize,6]{label=$\bullet$}
+\setlist[itemize,7]{label=$\bullet$}
+\setlist[itemize,8]{label=$\bullet$}
+\setlist[itemize,9]{label=$\bullet$}
+
+\renewlist{itemize}{itemize}{9}
+
+% -- COMANDI PER LE COMPONENTI -- %
+\newenvironment{componente}[1]
+{
+	\subsubsection{Componente \texttt{#1}}
+	\label{#1}
+	\textbf{Informazioni sul package}
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+\newcommand{\compDescrizione}[1] {
+	\item \textbf{Descrizione}: {#1}
+}
+\newcommand{\compPadre}[1] {
+	\item \textbf{Padre}: {#1}
+}
+\newcommand{\compUtilizzo}[1] {
+	\item \textbf{Utilizzo}: {#1}
+}
+\newenvironment{compPackageContenuti} {
+	\item \textbf{Package contenuti}:% {#1}
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newenvironment{compClassi} [1] {
+	\item \textbf{Classi}: {#1}
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newenvironment{classe} [1] {
+	\item[] \texttt{#1} \\
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newcommand{\classeDescrizione} [1] { \\
+	\item \textbf{Descrizione}: {#1}
+}
+\newcommand{\classeUtilizzo} [1] { \\
+	\item \textbf{Utilizzo}: {#1}
+}
+\newenvironment{classeAttributi} { \\
+	\item \textbf{Attributi}:
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newcommand{\classeAttributo}[3] { \item \texttt{{#1}: {#2}} {#3}}
+\newenvironment{classeMetodi} {
+	\item \textbf{Metodi}:
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newcommand{\classeMetodo}[4]{
+	\item \texttt{{#1}({#2}) : {#3}} \\ {#4}
+}
+\newenvironment{classeMetodoArgomenti} {
+   \begin{itemize}
+	\item \textit{Argomenti}:
+   \begin{itemize}
+}{
+   \end{itemize}
+	\end{itemize}
+}
+\newcommand{\classeMetodoArgomento}[3]{\item \texttt{{#1} : {#2}} {#3} }
+\newenvironment{classeRelazioni} { \\
+	\item \textbf{Relazioni con altre classi}:
+	\begin{itemize}
+} {
+	\end{itemize}
+}
+\newcommand{\classeRelazione}[3]{\item \texttt{#1::#2}: {#3}}
+
+\def\NOME{Definizione di Prodotto}
+\def\VERSIONE{1.0.0}
+\def\DATA{\TODO}
+\def\REDATTORE{Viviana Alessio \\ & Matteo Franco \\ & Andrea Grandene \\ & Luca Soldera \\ & Tommaso Panozzo \\ & Enrico Bellio}
+\def\VERIFICATORE{Matteo Franco \\ & Luca Soldera}
+\def\RESPONSABILE{Tommaso Panozzo}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Descrizione approfondita dell'architettura del \gl{progetto} \PROGETTO.}
+
+\begin{document}
+
+
+	\maketitle
+
+	\begin{diario}
+      \modifica{Tommaso Panozzo}{\RES}{Approvazione documento}{2016-08-17}{1.0.0}    
+      \modifica{Matteo Franco}{\PRJ}{Verifica documento}{2016-08-12}{0.7.0}
+      \modifica{Enrico Bellio}{\PRJ}{Inserimento immagini per le varie componenti}{2016-08-10}{0.6.1}
+      \modifica{Luca Soldera}{\PRJ}{Verifica documento}{2016-08-03}{0.6.0}
+      \modifica{Matteo Franco}{\PRJ}{Correzioni sezione ``Componente CLIPS::server::dataserver''}{2016-08-02}{0.5.4}
+      \modifica{Enrico Bellio}{\PRJ}{Correzioni sezione ``Componente CLIPS::client::datamanager''}{2016-08-01}{0.5.3}
+      \modifica{Andrea Grandene}{\PRJ}{Correzioni sezione ``Componente CLIPS::client::data''}{2016-08-01}{0.5.2}
+      \modifica{Matteo Franco}{\PRJ}{Correzioni sezione ``Componente CLIPS::client::viewcontroller''}{2016-08-01}{0.5.1}
+      \modifica{Luca Soldera}{\PRJ}{Verifica documento}{2016-07-30}{0.5.0}
+      \modifica{Tommaso Panozzo}{\PRJ}{Stesura sezione ``Componente CLIPS::server::urlrequesthandler''}{2016-07-29}{0.4.4}
+      \modifica{Luca Soldera}{\PRJ}{Stesura sezione ``Componente CLIPS::server::dataserver''}{2016-07-29}{0.4.3}
+      \modifica{Luca Soldera}{\PRJ}{Stesura sezione ``Componente CLIPS::server''}{2016-07-28}{0.4.2}
+      \modifica{Tommaso Panozzo}{\PRJ}{Stesura sezione ``Componente CLIPS::client::data::urlrequest''}{2016-07-27}{0.4.1}
+      \modifica{Luca Soldera}{\PRJ}{Verifica documento}{2016-07-26}{0.4.0}
+      \modifica{Tommaso Panozzo}{\PRJ}{Stesura sezione ``Componente CLIPS::client::pathprogress''}{2016-07-25}{0.3.2}
+      \modifica{Andrea Grandene}{\PRJ}{Stesura sezione ``Componente CLIPS::client::data'' e ``Componente CLIPS::client::data::datamanager''}{2016-07-25}{0.3.1}
+      \modifica{Matteo Franco}{\PRJ}{Verifica documento}{2016-07-24}{0.3.0}
+      \modifica{Luca Soldera}{\PRJ}{Stesura sezione ``Componente CLIPS::client::authentication''}{2016-07-23}{0.2.4}
+      \modifica{Matteo Franco}{\PRJ}{Ampliamento sezione ``Componente CLIPS::client::viewcontroller''}{2016-07-23}{0.2.3}
+      \modifica{Viviana Alessio}{\PRJ}{Ampliamento sezione ``Componente CLIPS::client::viewcontroller''}{2016-07-22}{0.2.2}
+      \modifica{Viviana Alessio}{\PRJ}{Stesura sezione ``Componente CLIPS::client::viewcontroller''}{2016-07-20}{0.2.1}
+      \modifica{Matteo Franco}{\PRJ}{Verifica sezione ``Standard di progetto'' }{2016-07-19}{0.2.0}
+      \modifica{Enrico Bellio}{\PRJ}{Ampliata sezione ``Standard di progetto'' }{2016-07-18}{0.1.1}
+      \modifica{Luca Soldera}{\PRJ}{Aggiunta sezione ``Standard di progetto'' }{2016-07-17}{0.1.0}
+		\modifica{Luca Soldera}{\PRJ}{Aggiunta sezione \hyperref[sub:Struttura del database]{Struttura del database}}{2016-07-15}{0.0.2}
+		\modifica{Tommaso Panozzo}{\RES}{Creazione documento}{2016-07-10}{0.0.1}
+	\end{diario}
+
+	\newpage
+	\tableofcontents
+	\newpage
+	\listoftables
+	\newpage
+	\listoffigures
+	\newpage
+
+	\include{introduzione}
+
+   %% qui va indicato dove stanno gli standard del progetto
+   \include{standardProgetto}
+
+   %% qui vanno le componenti (descrizioni delle classi e della struttura del DB)
+   \include{componenti}
+
+   %% qui vanno i diagrammi di sequenza
+   \include{diagrammiSequenza}
+
+   %% qui vanno le tabelle package - requisito
+   \include{RequirementDescriptionPackages}
+
+   %% qui quelle requisito - package
+   \include{PackagesRequirements}
+
+\end{document}

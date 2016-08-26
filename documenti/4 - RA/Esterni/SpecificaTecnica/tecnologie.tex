@@ -1,0 +1,221 @@
+\section{Tecnologie} 
+\label{tecnologie}
+Per lo sviluppo del progetto abbiamo la necessità di utlizzare delle tecnologie specifiche che sono state scelte dopo attenta analisi. 
+In questa sezione del documento vengono riportate quelle che verranno utilizzate principalmente. 
+
+\subsection{Java}
+	
+	Java è virtualmente alla base di qualsiasi tipo di applicazione in rete ed è lo standard globale per lo sviluppo e la distribuzione di applicazioni incorporate e per sistemi portatili, giochi, contenuto basato su Web e software aziendale. Con oltre 9 milioni di sviluppatori in tutto il mondo, Java consente di sviluppare, distribuire e utilizzare applicazioni e servizi in modo efficiente. \\ 
+	In particolare Java viene utilizzato come linguaggio di programmazione per creare applicazioni mobile per il sistema operativo Android.
+	
+	\begin{itemize}
+		\item \textbf{Vantaggi:}
+			\begin{itemize}
+				\item è un linguaggio molto diffuso;
+				\item è un linguaggio libero e gratuito; %la licenza è GNU GPL ma penso di non specificarla perché altrimenti dovrei definirne le caratteristiche
+				\item è un linguaggio multipiattaforma, ovvero dallo stesso codice si ottiene lo stesso programma, a prescindere dal sistema operativo usato e dalle caratteristiche specifiche dell'elaboratore;
+				\item contiene già di base molti design pattern e strutture varie, semplificando la loro implementazione;
+				\item sono disponibili numerose librerie utilizzabili con questo linguaggio, di conseguenza sono presenti molte funzioni già definite e validate;
+				\item è disponibile online una documentazione molto dettagliata;
+				\item utilizza una sintassi molto simile al C++, un linguaggio che tutti i componenti del \gl{team}\ conoscono;
+				\item rispetto al C++ è più semplice perché gestisce automaticamente molte funzionalità, come ad esempio la memoria e quindi l'allocazione e la deallocazione degli oggetti;
+			\end{itemize}
+		\item \textbf{Svantaggi:}
+			\begin{itemize}
+				\item essendo un linguaggio interpretato è più lento in fase di esecuzione rispetto ad uno nativo, sebbene questo svantaggio fosse più importante in passato, perché ormai la potenza che hanno raggiunto gli elaboratori è di gran lunga maggiore di quella necessaria per superare questo problema, di fatto al giorno d'oggi questo svantaggio si presenta solo con applicazioni molto pesanti, come i programmi grafici, o in supporti hardware più limitati, come ad esempio gli smartphone e i tablet;
+				\item richiede un interprete, e quindi un'ulteriore applicazione, comunque già presente in Android visto che tutte le sue applicazioni sono scritte in Java.
+			\end{itemize}
+	\end{itemize}
+	
+\subsection{Android} %forse sono stato un po' troppo lungo qui nella descrizione
+
+	Android è il sistema operativo più diffuso al mondo, usato per smartphone, tablet e altri dispositivi, come Android TV e Google Glass, sviluppati da Google, la proprietaria del sistema operativo. Strutturalmente deriva da Linux, ma usa Java per le applicazioni che interagiscono con l'utente. In pratica il linguaggio di programmazione principale previsto è Java, più supportato e ricco di funzionalità già fornite di base, mentre in genere si usano C e C++ per ottenere prestazioni migliori, sebbene siano presenti meno librerie rispetto al primo linguaggio. Esiste comunque la possibilità di usare entrambi per la stessa applicazione, ad esempio utilizzando Java per la struttura principale e C++ per le parti più pesanti da eseguire. Il \gl{team} userà solo Java, dato che il programma sviluppato dovrebbe essere abbastanza leggero da eseguire. \\
+	Android inoltre fornisce delle proprie librerie, che, insieme alla struttura del sistema operativo, caratterizzano la stesura del codice dell'applicazione. Ad esempio ogni programma viene eseguito in una macchina virtuale propria, così la sua esecuzione non può modificare né il sistema operativo né le altre applicazioni, mentre la comunicazione con gli altri programmi può avvenire soltanto tramite dei pattern specifici. La struttura del programma sfrutta altri pattern già definiti, come le Activity, che caratterizzano lo sviluppo dell'applicazione. Android quindi presenta vantaggi e svantaggi differenti rispetto a Java.
+	
+	\begin{itemize}
+		\item \textbf{Vantaggi:}
+			\begin{itemize}
+				\item è il sistema operativo più usato al mondo;
+				\item è libero e gratuito;
+				\item è disponibile online una documentazione molto dettagliata sulle librerie di Android;
+				\item per sviluppare un'applicazione Android bisogna usare dei pattern già definiti, semplificando il codice da scrivere e lo studio della loro applicazione;
+				\item dato che Android è stato pensato per i dispositivi mobile la connessione ad Internet, il GPS e le altre interazioni con sistemi di comunicazione esterni all'applicazione sono automatici, quindi il programmatore non deve conoscere come siano implementatoi ma soltanto come interagirci tramite il codice;
+				\item l'utilizzo di altri linguaggi come complemento a Java, ad esempio l'XML per le GUI, semplifica il lavoro da svolgere e lo rende più intuitivo;
+				\item dato che il programma viene eseguito in una macchina virtuale non può in alcun modo danneggiare né il sistema operativo né le altre applicazioni;
+				\item Android non viene usato solo per dispositivi mobile, di conseguenza è possibile adattare o creare un programma per gli altri prodotti Google che usano questo sistema operativo;
+				\item sono presenti numerose librerie, di cui molte sono ufficiali di Android.
+			\end{itemize}
+		\item \textbf{Svantaggi:}
+			\begin{itemize}
+				\item dato che Android è open source ogni azienda che lo usa tende a personalizzarlo, quindi la stessa applicazione può dare risultati leggermente diversi cambiando dispositivo, di conseguenza la programmazione potrebbe dover variare per rispondere a queste differenze;
+				\item l'utilizzo di linguaggi complementari, come l'XML e il C/C++, può richiedere una maggiore conoscenza per poterli sfruttare, aumentando quindi il carico di lavoro necessario per poter scrivere l'applicazione.
+			\end{itemize}
+	\end{itemize}
+	
+\subsection{XML}
+	
+	XML è un metalinguaggio per la definizione di linguaggi di markup, ovvero un linguaggio marcatore basato su un meccanismo sintattico che consente di definire e controllare il significato degli elementi contenuti in un documento o in un testo.
+	In particolare nello sviluppo di applicazioni Android la parte grafica viene scritta proprio attraverso file XML, quindi questo linguaggio è essenziale per lo sviluppo del nostro progetto.
+	
+	\begin{itemize}
+		\item \textbf{Vantaggi:}
+			\begin{itemize}
+				\item è un linguaggio molto diffuso;
+				\item è un linguaggio libero e gratuito;
+				\item è disponibile online una documentazione molto dettagliata;
+				\item permette di definire dei propri tag e di fissare il loro contenuto, evitando così problemi di interpretazione dei termini, anche se nel caso della nostra applicazione questo vantaggio è irrilevante, visto che siamo noi ad usare dei tag già definiti da Google;
+				\item i file XML vengono gestiti da quasi tutti i linguaggi di programmazione, permettendo così una completa integrazione con le applicazioni.
+			\end{itemize}
+		\item \textbf{Svantaggi:}
+			\begin{itemize}
+				\item l'utilizzo degli schemi per fissare il tipo di contenuto dei tag può rendere il controllo dei contenuti molto pesante;
+				\item anche il file XML stesso può aumentare parecchio le dimensioni, arrivando addirittura ad un incremento esponenziale, sebbene esistano delle tecniche di compressione che permettono di ridurre notevolmente la grandezza del file;
+				\item il file XML è poco significativo finché non viene usato un programma per interpretare i tag previsti e di conseguenza eseguire delle azioni ben precise.
+			\end{itemize}
+	\end{itemize}
+	
+
+\subsection{JSON}
+	JSON (JavaScript Object Notation) è un semplice formato per lo scambio di dati. È scritto in JavaScript, un linguaggio molto usato nel mondo del Web che ha permesso a JSON di diffondersi rapidamente. Viene usato al posto di XML, anche se quest'ultimo nasce come linguaggio di markup e non specificatamente per lo scambio di dati. Per le persone è facile da leggere e scrivere, mentre per le macchine risulta facile da generare e analizzarne la sintassi.
+	
+	\begin{itemize}
+		\item \textbf{Vantaggi:}
+			\begin{itemize}
+				\item è un linguaggio molto diffuso;
+				\item è un linguaggio libero e gratuito;
+				\item è disponibile online una documentazione molto dettagliata;
+				\item è conciso e facile da leggere;
+				\item è leggero, garantendo delle prestazioni migliori per le richieste e le risposte tra client e server;
+				\item è supportato da tutti i browser che implementano Javascript, dato che è scritto con questo linguaggio;
+				\item permette di distinguere i tipi di dato inviati, ad esempio può specificare se viene inviato un booleano, un numero intero o una stringa;
+				\item molti linguaggi di programmazione possono gestire JSON e le relative comunicazione tra client e server tramite delle librerie apposite.
+			\end{itemize}
+		\item \textbf{Svantaggi:}
+			\begin{itemize}
+				\item è un linguaggio efficiente solo per lo scambio di dati tra client e server, quando serve in locale esistono sistemi più efficienti;
+				\item rispetto a XML ha funzionalità più limitate, anche se generalmente le caratteristiche mancanti non sono necessarie per svolgere il lavoro previsto;
+				\item non è validato, quindi se il mittente omette campi o sbaglia il formato dei dati, client diversi potrebbero interpretare diversamente il JSON.
+			\end{itemize}
+	\end{itemize}
+
+\subsection{JavaScript}
+
+	Javascript è un linguaggio di scripting orientato agli oggetti e agli eventi, utilizzato soprattutto nella programmazione Web. Un linguaggio di scripting è un tipo di linguaggio che viene integrato all'interno di un altro programma, nel caso del Web ad esempio l'interprete Javascript viene ospitato dal browser, che esegue il codice delle pagine quando esse vengono chiamate. Nell'applicazione sviluppata dal \gl{team}\ questo linguaggio viene usato per impostare le risposte del server da inviare al client, utilizzando JSON per il trasferimenti dei dati.		
+
+	\begin{itemize}
+		\item \textbf{Vantaggi:}
+			\begin{itemize}
+				\item è un linguaggio molto diffuso;
+				\item è un linguaggio libero e gratuito;
+				\item è disponibile online una documentazione molto dettagliata;
+				\item dato che il codice viene eseguito in locale dal client il trasferimento dei dati risulta leggero e al server basta eseguire poche istruzioni;
+				\item è semplice e meno restrittivo di altri linguaggi famosi, come C++ e Java, perché ad esempio le variabili non sono tipizzate;
+				\item molti linguaggi di programmazione integrano e gestiscono Javascript tramite delle librerie apposite.
+			\end{itemize}
+		\item \textbf{Svantaggi:}
+			\begin{itemize}
+				\item non è un linguaggio sicuro, perché ad esempio permette di eseguire azioni malevole con un semplice script, anche se al giorno d'oggi questo problema è stato risolto in parte dai browser, usando accorgimenti come il blocco dei pop-up;
+				\item essendo un linguaggio meno restrittivo la stesura del codice Javascript è più esposto agli errori di programmazione, ad esempio il cast automatico di variabili può provocare dei comportamenti inaspettati dello script in certe condizioni;
+				\item nonostante esista uno standard universale di Javascript, le istruzioni implementate dai browser possono essere leggermente diverse a seconda del tipo o addirittura della versione del browser stesso.
+			\end{itemize}
+	\end{itemize}
+
+\subsection{SQL}
+	SQL (Structured Query Language) è un linguaggio standardizzato per database basati sul modello relazionale (RDBMS) progettato per:
+	\begin{itemize}
+		\item 	creare e modificare schemi di database;
+		\item 	inserire, modificare e gestire dati memorizzati;
+		\item 	interrogare i dati memorizzati;
+		\item 	creare e gestire strumenti di controllo ed accesso ai dati.
+	\end{itemize}
+	È costruito per essere semplice, sia in scrittura sia in lettura, e poco verboso, e per permettere automaticamente una gestione ottimale dei dati. \\
+	Useremo SQL per gestire i dati dell'applicazione.
+	
+	\begin{itemize}
+		\item \textbf{Vantaggi:}
+			\begin{itemize}
+				\item è un linguaggio molto diffuso;
+				\item è un linguaggio libero e gratuito;
+				\item è disponibile online una documentazione molto dettagliata;
+				\item è semplice da utilizzare per eseguire qualsiasi delle sue operazioni;
+				\item è efficiente, tutte le azioni che si possono eseguire sono leggere e veloci;
+				\item molti linguaggi di programmazione permettono l'interrogazione dei database SQL tramite delle apposite librerie;
+				\item è un linguaggio molto restrittivo, garantendo così un'alta solidità del database.
+			\end{itemize}
+		\item \textbf{Svantaggi:}
+			\begin{itemize}
+				\item essendo un linguaggio molto restrittivo SQL non permette di eseguire alcune operazioni avanzate, e inoltre un cambiamento, anche piccolo, del database può risultare più difficile del previsto, ad esempio perché crea temporaneamente un'incongruenza delle chiavi primarie;
+				\item il database SQL non può essere partizionato e suddiviso in più parti, perché risulterebbe molto difficile o addirittura impossibile effettuare i controlli di integrità del database, di conseguenza diventa problematico ingrandirlo quando è necessario memorizzare moltissimi dati.
+			\end{itemize}
+	\end{itemize}
+	
+\subsection{GraphQL} 
+	GraphQL è un query language progettato per creare applicazioni client fornendo una sintassi intuitiva e flessibile per descrivere le loro interazioni con i dati. Rappresenta quindi un'interfaccia tra il database SQL e il resto dell'applicazione, molto utile quando sono richieste tante query diverse tra loro.
+	Una query scritta in GraphQL è una stringa interpretata da un server che ritorna dati in un formato specificato. 
+	Questo linguaggio ci permetterebbe di interrogare i database, quello locale del client e quello in remoto del server, scritti in SQL. \\
+	Alla fine non useremo questa tecnologia perché le query da scrivere sono poche e semplici, quindi risulta più facile e veloce usare il linguaggio SQL rispetto a GraphQL. %Secondo me a questo punto tanto vale togliere questa tecnologia dall'elenco, ma Tommaso mi ha invece detto di lasciarla nonostante non venga usata.
+	
+	\begin{itemize}
+		\item \textbf{Vantaggi:}
+			\begin{itemize}
+				\item è un linguaggio libero e gratuito;
+				\item semplifica l'interazione con il database SQL, in particolare quando è necessario usare query molto complesse;
+				\item è disponibile online una spiegazione abbastanza dettagliata di come funziona e di come usarlo;
+				\item è un linguaggio abbastanza veloce da scrivere, in particolare quando le query sono tante e differenti tra loro.
+			\end{itemize}
+		\item \textbf{Svantaggi:}
+			\begin{itemize}
+				\item quando il set di query che vengono effettuate sul database è limitato o non è previsto che vari, la scrittura di una interfaccia GraphQL per interrogare il database può richiedere più tempo e risorse di quante non ne servano per implementare il set di query direttamente e portare pochi vantaggi.
+			\end{itemize}
+	\end{itemize}
+
+%ho unito la libreria e la specifica, visto che parlare di una vuol dire praticamente parlare anche dell'altra
+\subsection{Android Beacon Library e AltBeacon}
+	Android Beacon Library è una libreria Android che fornisce delle API per interagire con i beacon, e permette ai dispositivi Android di usarli similmente a quanto viene fatto dai dispositivi iOS. Un'applicazione può richiedere di ricevere notifiche quando uno o più beacon appaiono o spariscono. Può richiedere inoltre di ricevere degli aggiornamenti da uno o più beacon alla frequenza di 1Hz. \\
+	Android Beacon Library usa di default la specifica AltBeacon. Essa definisce il formato dei messaggi che i dispositivi BLE trasmettono. Permette di gestire l'interazione con i beacon come funziona per iBeacon: essi trasmettono un UUID e l'applicazione che implementa AltBeacon usa un database esterno per dare un significato ai beacon.
+	Al contrario di iBeacon, AltBeacon è open source e offre una quantità di dati più grande da utilizzare.
+	
+	\begin{itemize} %TODO: rilevare eventuali svantaggi, in rete si trova gran poco a riguardo
+		\item \textbf{Vantaggi:}
+			\begin{itemize}
+				\item la libreria e la specifica sono libere e gratuite;
+				\item Android Beacon Library è una delle librerie più usate per l'interazione con i beacon;
+				\item Android Beacon Library è una libreria ufficiale di Android, mentre AltBeacon è sviluppata da Radius Networks, quindi il loro funzionamento e il loro mantenimento sono garantiti;
+				\item sono disponibili online varie spiegazioni sul loro funzionamento e uso;
+				\item i beacon supportati sono numerosi e di varie marche;
+				\item Android Beacon Library è progettata per lavorare in background in modo efficiente e consumare poca energia;
+			\end{itemize}
+		\item \textbf{Svantaggi:}
+			\begin{itemize}
+				\item sono librerie complesse e difficili da usare;
+			\end{itemize}
+	\end{itemize}
+		
+\subsection{Volley}
+
+	Volley è una libreria Android che permette e facilita la comunicazione tra client e server tramite HTTP. Effettua automaticamente le chiamate, asincrone o sincrone, al server, in base alle impostazioni fornite dal programmatore. È nata per sopperire alla mancanza di librerie simili in Java, dove le uniche classi presenti per effettuare chiamate REST sono obsolete e non esenti da errori. Il risultato ottenuto è rappresentato da una libreria molto veloce, leggera e soprattutto con un'eccellente gestione della memoria. \\
+	Nella nostra applicazione verrà appunto usata per effettuare le richieste al server.
+
+	\begin{itemize}
+		\item \textbf{Vantaggi:}
+			\begin{itemize}
+				\item è una libreria libera e gratuita;
+				\item è una libreria ufficiale di Android, quindi il suo funzionamento e il suo mantenimento vengono garantiti;
+				\item sono disponibili online delle spiegazioni su come farla funzionare ed usare;
+				\item imposta e gestisce automaticamente le chiamate da effettuare al server, quindi il programmatore deve solo fornire i dati necessari;
+				\item le chiamate che effettua possono essere già asincrone, quindi il programmatore non deve preoccuparsi di gestire i thread;
+				\item permette di inviare vari tipi di oggetti, tra cui quelli scritti in JSON;
+				\item gestisce molto bene la memoria in modo automatico, è veloce e leggera.
+			\end{itemize}
+		\item \textbf{Svantaggi:}
+			\begin{itemize}
+				\item le spiegazioni online a volte sono scarse o poco chiare;
+				\item Volley è adatto per le piccole comunicazioni con il server, ma quando è richiesto, ad esempio, di fare un upload abbastanza grande, la libreria mostra delle lacune, come la mancanza di una barra di avanzamento. Nella nostra applicazione non dovrebbero esserci problemi del genere, dato che i dati scambiati sono abbastanza piccoli e le chiamate risultano essere semplici;
+				\item non è la libreria che garantisce il minor tempo di attesa per inviare e ricevere una risposta, altre come Retrofit sono più performanti.
+			\end{itemize}
+	\end{itemize}
+	
+	
+	
+	
+	

@@ -1,0 +1,507 @@
+\section{Tabella tracciamento Requisiti-Componenti}
+
+\begin{tabella}{!{\VRule}c!{\VRule}X[c,b,c]!{\VRule}c!{\VRule}}
+	\intestazionethreecol{Requisiti}{Descrizione}{Componenti}
+	
+	R0F1  & L'utente deve poter possedere un account registrato nel database &    \cellacaporiga{CLIPS::server::data \\ CLIPS::server  \\} \\
+	
+	R0F1.1 & Il sistema deve permettere all'utente di autenticarsi  & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+	CLIPS::client  \\
+	CLIPS::client::data \\
+	CLIPS::client::data::datamanager \\
+	CLIPS::server  \\
+	CLIPS::client::data:urlrequest \\
+	CLIPS::server::urlrequesthandler \\} \\
+
+	R0F1.1.1  &  Il sistema deve chiedere all'utente l'email per la procedura di autenticazione & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+	CLIPS::client  \\ } \\
+	
+	R0F1.1.2  &  Il sistema deve chiedere all'utente la password per la procedura di autenticazione & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\ } \\
+	
+	R0F1.1.3  &  Il sistema deve permettere all'utente di confermare i dati inseriti per la procedura di autenticazione & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\ } \\
+	
+	R0F1.1.4  &  Se i dati confermati dall'utente sono validi, egli viene autenticato  &  \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\ CLIPS::client::data \\ CLIPS::client::data::datamanager \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler } \\
+	
+	R0F1.1.5  &  Il sistema deve segnalare all'utente ogni eventuale errore durante la procedura di autenticazione  & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\ CLIPS::client::data \\ CLIPS::client::data::datamanager \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler } \\
+	
+	R0F1.1.5.1 & Il sistema interrompe la procedura di autenticazione se l'email non corrisponde a nessuna di quelle registrate & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\ CLIPS::client::data \\ CLIPS::client::data::datamanager \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler } \\
+	
+	R0F1.1.5.2 & Il sistema interrompe la procedura di autenticazione se la password non corrisponde a quella associata all'email  &  \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\ CLIPS::client::data \\ CLIPS::client::data::datamanager \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler } \\
+	
+	R0F1.1.5.3 & L'applicazione informa l'utente dell'errore nell'inserimento dei dati & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\} \\
+	
+	R0F1.1.5.4  & L'utente può chiedere una nuova password inserendo l'email & CLIPS::CLIPS::client ::authentication  \\
+	
+	R0F1.1.5.4.1 & L'utente deve inserire l'email del proprio account per proseguire al recupero delle credenziali & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\} \\
+	
+	R0F1.1.5.4.2  &  L'utente riceve un'email all'indirizzo inserito con una password casuale. &  \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\} \\
+	
+	R0F1.1.5.4.3 & La password dell'utente viene sostituita con la password inviata  & \cellacaporiga{CLIPS::server::data \\
+	CLIPS::server  \\ } \\
+
+	R0F1.2 & L'utente deve poter creare un proprio account & 
+	\cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+	CLIPS::client  \\
+	CLIPS::client::data \\
+	CLIPS::server::data \\
+	CLIPS::server  \\
+	CLIPS::client::data:urlrequest \\
+	CLIPS::server::urlrequesthandler \\} \\
+
+	R0F1.2.1  &  La registrazione richiede l'email all'utente  &  \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\} \\
+	R0F1.2.2  &  La registrazione richiede l'username all'utente & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\} \\
+	R0F1.2.3  &  La registrazione richiede la password all'utente   & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\} \\
+	R0F1.2.4  &  L'utente reinserisce la nuova password & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\} \\
+	R0F1.2.5  &  Il sistema chiede all'utente di confermare i dati della propria registrazione  & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\} \\
+	R0F1.2.6  &  Se i dati confermati dall'utente sono validi, il suo account viene registrato  & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\ CLIPS::client::data \\ CLIPS::server::data \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler} \\
+	
+	R0F1.2.6.1 & L'utente viene automaticamente autenticato & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\ CLIPS::client::data \\ CLIPS::server::data \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler} \\
+	
+	R0F1.2.7 & Il sistema deve segnalare all'utente i vari problemi di registrazione  & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\ CLIPS::client::data \\ CLIPS::server::data \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler} \\
+	
+	R0F1.2.7.1 & L'utente ha inserito un'email non valida   & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\ CLIPS::server::data \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler} \\
+	
+	R0F1.2.7.1.1  &  L'email deve avere un formato valido: deve contenere una @ preceduto da altri caratteri seguito da un dominio valido & \cellacaporiga{CLIPS::server::data \\
+	CLIPS::server  \\ } \\
+
+	R0F1.2.7.1.2   & L'email non deve essere già  in uso  & \cellacaporiga{CLIPS::server::data \\
+		CLIPS::server  \\ } \\
+	
+	R0F1.2.7.2 & L'utente ha inserito un username non valido & \cellacaporiga{CLIPS::CLIPS::client ::authentication  \\
+		CLIPS::client  \\ CLIPS::client::data \\ CLIPS::server::data \\ CLIPS::server  \\ CLIPS::client::data:urlrequest \\ CLIPS::server::urlrequesthandler} \\
+	R0F1.2.7.2.1 &   L'username deve avere un formato valido: deve contenere solo caratteri alfanumerici & \cellacaporiga {CLIPS::server::data \\
+	CLIPS::server  } \\
+	R0F1.2.7.2.2 &   L'username non deve essere già in uso da un altro utente & \cellacaporiga {CLIPS::server::data \\
+	CLIPS::server } \\
+	R0F1.2.7.3 & La password deve contenere un minimo di 6 carattere ed un massimo di 16 & \cellacaporiga{CLIPS::server::data \\
+	CLIPS::server } \\
+	R0F1.2.7.4 & L'utente ha reinserito una password che non corrisponde a quella inserita in precedenza &  \cellacaporiga {CLIPS::server::data \\
+	CLIPS::server } \\
+	R0F2  &  L'utente deve poter fare il logout & \cellacaporiga {CLIPS::CLIPS::client ::authentication  \\
+	CLIPS::client  \\
+	CLIPS::client::data \\
+	CLIPS::client::data::datamanager \\
+	CLIPS::server  \\
+	CLIPS::client::data:urlrequest \\
+	CLIPS::server::urlrequesthandler} \\
+	R0F3  &  L'utente deve poter effettuare un percorso tra quelli disponibili nel luogo in cui si trova & \cellacaporiga{ CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+	CLIPS::client  \\
+	CLIPS::client::data \\
+	CLIPS::client::data::datamanager \\
+	CLIPS::server::data \\
+	CLIPS::client::CLIPS::client::viewcontroller::games \\
+	CLIPS::client::pathprogress  \\
+	CLIPS::client::data:urlrequest \\
+	CLIPS::server::urlrequesthandler \\
+	CLIPS::client::viewcontroller} \\
+	R0F3.1 & L'utente gioca il percorso selezionato fino alla sua conclusione & \cellacaporiga{ CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+	CLIPS::client  \\
+	CLIPS::client::data \\
+	CLIPS::client::data::datamanager \\
+	CLIPS::client::CLIPS::client::viewcontroller::games \\
+	CLIPS::client::pathprogress  \\
+	CLIPS::client::viewcontroller }\\
+	R0F3.1.1  &  L'utente cerca il beacon corrispondente alla prima stazione &  \cellacaporiga{CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+	CLIPS::client  \\
+	CLIPS::client::CLIPS::client::viewcontroller::games \\
+	CLIPS::client::pathprogress  \\
+	CLIPS::client::viewcontroller} \\
+	R0F3.1.1.1 & Se il dispositivo dell'utente trova il beacon corrispondente alla stazione corretta l'utente può cominciare a giocare & \cellacaporiga{ CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+	CLIPS::client  \\
+	CLIPS::client::CLIPS::client::viewcontroller::games \\
+	CLIPS::client::pathprogress  \\
+	CLIPS::client::viewcontroller}\\
+	R0F3.1.1.2 & I beacon che il dispositivo rileva non inerenti con la stazione cercata devono essere ignorati dall'app & \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+	CLIPS::client  \\
+	CLIPS::client::CLIPS::client::viewcontroller::games \\
+	CLIPS::client::viewcontroller} \\
+	R0F3.1.2  &  L'utente gioca la prova relativa a quella stazione & \cellacaporiga{CLIPS::client  \\
+	CLIPS::client::CLIPS::client::viewcontroller::games \\
+	CLIPS::client::viewcontroller} \\
+	R0F3.1.2.1 & La prova proposta all'utente è una fra quelle disponibili & \cellacaporiga {CLIPS::server::data \\
+	CLIPS::server } \\
+	R0F3.1.2.2 & L'app mostra le istruzioni della prova & \cellacaporiga {CLIPS::client  \\
+	CLIPS::client::CLIPS::client::viewcontroller::games \\
+	CLIPS::client::viewcontroller }\\
+	R0F3.1.2.3 & L'utente deve poter svolgere la prova & \cellacaporiga {CLIPS::client  \\
+	CLIPS::client::CLIPS::client::viewcontroller::games \\
+	CLIPS::client::viewcontroller}\\
+	R0F3.1.2.4 & Finita la prova il dispositivo deve mostrare il risultato ottenuto & \cellacaporiga {CLIPS::client  \\
+	CLIPS::client::CLIPS::client::viewcontroller::games \\
+	CLIPS::client::viewcontroller } \\
+	R0F3.1.2.5 & Finita la prova l'utente può proseguire il percorso o averlo terminato & \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+	CLIPS::client \\
+	CLIPS::client::CLIPS::client::viewcontroller::games \\
+	CLIPS::client::pathprogress  \\
+	CLIPS::client::viewcontroller} \\
+	R0F3.1.2.5.1  &  Se la prova non è l'ultima l'app indica qual'è la prossima stazione & \cellacaporiga{CLIPS::client  \\
+	CLIPS::client::CLIPS::client::viewcontroller::games\\
+	CLIPS::client::viewcontroller}\\
+	R0F3.1.2.5.1.1 & L'app mostra all'utente le informazioni per trovare la prossima stazione & \cellacaporiga{CLIPS::client  \\
+	CLIPS::client::CLIPS::client::viewcontroller::games \\
+	CLIPS::client::viewcontroller}\\
+	R0F3.1.2.5.2  &  Se la prova è l'ultima l'utente ha finito il percorso & \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+	CLIPS::client  \\
+	CLIPS::client::pathprogress  \\
+	CLIPS::client::viewcontroller}\\
+	R0F3.2 & Quando il percorso è finito il dispositivo mostra all'utente il riepilogo dei dati suoi e generali &   \cellacaporiga{CLIPS::client  \\
+	CLIPS::CLIPS::client::viewcontroller::savedresults \\
+	CLIPS::client::viewcontroller} \\
+	R0F3.2.1 & Il dispositivo mostra il tempo totale del percorso  & \cellacaporiga {CLIPS::client  \\
+	CLIPS::CLIPS::client::viewcontroller::savedresults \\ 
+	CLIPS::client::viewcontroller} \\
+	R0F3.2.2  & Il dispositivo mostra il tempo totale impiegato per eseguire le prove \cellacaporiga {CLIPS::client  \\
+	CLIPS::CLIPS::client::viewcontroller::savedresults\\
+	CLIPS::client::viewcontroller}\\
+	R0F3.2.2.1 & Il tempo totale per eseguire le prove viene calcolato sommando i tempi impiegati per eseguire ogni prova (è il tempo totale senza considerare gli spostamenti effettuati per cambiare stazione) & \cellacaporiga {CLIPS::client  \\
+	CLIPS::client::data}\\
+	R0F3.2.2.1.1  &  La durata della prova viene misurata da quando si accetta di affrontarla fino alla conferma della soluzione & \cellacaporiga {CLIPS::client  \\
+	CLIPS::client::data}\\
+	R0F3.2.3 &  Il dispositivo mostra il punteggio totale ottenuto & \cellacaporiga {CLIPS::client  \\
+	CLIPS::CLIPS::client::viewcontroller::savedresults \\
+	CLIPS::client::viewcontroller} \\
+	R0F3.2.3.1 & Il punteggio totale viene calcolato sommando il numero di punti ottenuto in ogni singola prova & \cellacaporiga {CLIPS::client \\
+	CLIPS::client::data}\\
+	R0F3.2.4  &  Il dispositivo mostra la posizione in classifica che l'utente ha raggiunto con il punteggio ottenuto & \cellacaporiga  {CLIPS::client  \\
+	CLIPS::CLIPS::client::viewcontroller::savedresults\\
+	CLIPS::client::viewcontroller}\\
+	R0F3.2.4.1 & L'utente deve poter visualizzare la classifica generale CLIPS::client  & \cellacaporiga{
+	CLIPS::CLIPS::client::viewcontroller::savedresults\\
+	CLIPS::client::viewcontroller}\\
+	R0F3.2.5  &  Il dispositivo visualizza la prova con il maggior numero di punti realizzati & \cellacaporiga {CLIPS::client \\
+	CLIPS::server::data\\
+	CLIPS::client::viewcontroller}\\
+	R0F3.2.6 & Il dispositivo visualizza la prova con il minor numero di punti realizzati & \cellacaporiga {CLIPS::client  \\
+	CLIPS::CLIPS::client::viewcontroller::savedresults\\
+	CLIPS::client::viewcontroller}\\
+	R0F3.3 & L'utente autenticato può salvare il risultato ottenuto & \cellacaporiga{CLIPS::client \\
+	CLIPS::client::data::datamanager\\
+	CLIPS::server::data\\
+	CLIPS::client::CLIPS::client::viewcontroller::games\\
+	CLIPS::server \\
+	CLIPS::client::data:urlrequest\\
+	CLIPS::server::urlrequesthandler\\
+	CLIPS::client::viewcontroller}\\
+	R0F4 &   L'utente deve poter visualizzare alcune informazioni sull'app & \cellacaporiga {CLIPS::client \\
+	CLIPS::client::data\\
+	CLIPS::client::data::datamanager\\
+	CLIPS::server::data\\
+	CLIPS::server \\
+	CLIPS::client::data:urlrequest\\
+	CLIPS::server::urlrequesthandler\\
+	CLIPS::client::CLIPS::client::viewcontroller::utility}\\
+	R0F4.1 & L'utente deve poter visualizzare una schermata con una descrizione generale dell'app & \cellacaporiga {CLIPS::client \\
+	CLIPS::client::data\\
+	CLIPS::client::data::datamanager\\
+	CLIPS::server::data\\
+	CLIPS::server \\
+	CLIPS::client::data:urlrequest\\
+	CLIPS::server::urlrequesthandler\\
+	CLIPS::client::CLIPS::client::viewcontroller::utility}\\
+	R0F4.2 & L'utente deve poter accedere alla pagina web relativa all'app tramite un link presente all'interno dell'app & \cellacaporiga {CLIPS::client \\
+	CLIPS::client::data\\
+	CLIPS::client::data::datamanager\\
+	CLIPS::server::data\\
+	CLIPS::server \\
+	CLIPS::client::data:urlrequest\\
+	CLIPS::server::urlrequesthandler \\
+	CLIPS::client::CLIPS::client::viewcontroller::utility}\\
+	R0F4.3 & L'utente deve poter inviare una segnalazione tramite mail in caso di errore &  \cellacaporiga {CLIPS::client  \\
+	CLIPS::client::data \\
+	CLIPS::client::data::datamanager\\
+	CLIPS::server::data\\
+	CLIPS::server \\
+	CLIPS::client::data:urlrequest\\
+	CLIPS::server::urlrequesthandler\\
+	CLIPS::client::CLIPS::client::viewcontroller::utility}\\
+	R0F4.3.1 & Quando l'utente clicca il pulsante per inviare la segnalazione viene aperta una nuova email da scrivere tramite il gestore di email predefinito. Nell'email il destinatario viene impostato con l'email destinata alle segnalazioni &  \cellacaporiga {CLIPS::client \\
+	CLIPS::client::CLIPS::client::viewcontroller::utility}\\
+	R0F5 & L'utente autenticato deve poter visualizzare i risultati dei percorsi effettuati precedentemente  & \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building\\
+	CLIPS::client \\
+	CLIPS::client::data\\
+	CLIPS::server::data\\
+	CLIPS::server \\
+	CLIPS::client::data:urlrequest\\
+	CLIPS::server::urlrequesthandler\\
+	CLIPS::client::viewcontroller}\\
+	R0F5.1 & Se l'utente è autenticato e ha percorsi salvati deve poterne vedere l'elenco & \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building\\
+	CLIPS::client \\
+	CLIPS::client::data\\
+	CLIPS::client::data::datamanager\\
+	CLIPS::server::data\\
+	CLIPS::server \\
+	CLIPS::client::data:urlrequest\\
+	CLIPS::server::urlrequesthandler\\
+	CLIPS::client::viewcontroller}\\
+	R0F5.1.1 & Se l'utente clicca su un percorso l'app deve fornire tutte le informazioni salvate & \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building\\
+	CLIPS::client \\
+	CLIPS::client::data\\
+	CLIPS::client::data::datamanager\\
+	CLIPS::server::data\\
+	CLIPS::server \\
+	CLIPS::client::data:urlrequest\\
+	CLIPS::server::urlrequesthandler\\
+	CLIPS::client::viewcontroller}\\
+	R0F5.1.1.1 & Il dispositivo deve visualizzare il nome del percorso & \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building\\
+	CLIPS::client \\
+	CLIPS::client::data\\
+	CLIPS::client::data::datamanager\\
+	CLIPS::server::data\\
+	CLIPS::server \\
+	CLIPS::client::data:urlrequest\\
+	CLIPS::server::urlrequesthandler\\
+	CLIPS::client::viewcontroller}\\
+	R0F5.1.1.2 & Il dispositivo deve visualizzare il nome del luogo dove si è svolto il percorso & \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building\\
+	CLIPS::client \\
+	CLIPS::client::data\\
+	CLIPS::client::data::datamanager\\
+	CLIPS::server::data\\
+	CLIPS::server \\
+	CLIPS::client::data:urlrequest\\
+	CLIPS::server::urlrequesthandler\\
+	CLIPS::client::viewcontroller}\\
+	R0F5.1.1.3 & Il dispositivo deve visualizzare la CLIPS::client::data in cui si è svolto il percorso & \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building\\
+	CLIPS::client \\
+	CLIPS::client::data\\
+	CLIPS::client::data::datamanager\\
+	CLIPS::server::data\\
+	CLIPS::server \\
+	CLIPS::client::data:urlrequest\\
+	CLIPS::server::urlrequesthandler}\\
+	R0F5.1.1.4 & Il dispositivo deve visualizzare il punteggio totale del percorso & \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building\\
+	CLIPS::client \\
+	CLIPS::client::data\\
+	CLIPS::client::data::datamanager\\
+	CLIPS::server::data\\
+	CLIPS::server \\
+	CLIPS::client::data:urlrequest\\
+	CLIPS::server::urlrequesthandler\\
+	CLIPS::client::viewcontroller}\\
+	R0F5.1.1.5 & Il dispositivo deve visualizzare il tempo totale per lo svolgimento del percorso & \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building\\
+	CLIPS::client \\
+	CLIPS::client::data\\
+	CLIPS::client::data::datamanager\\
+	CLIPS::server::data\\
+	CLIPS::server \\
+	CLIPS::client::data:urlrequest\\
+	CLIPS::server::urlrequesthandler\\
+	CLIPS::client::viewcontroller}\\
+
+	R0F5.1.1.6 & Il dispositivo può visualizzare la posizione attuale nella classifica generale del risultato ottenuto & \cellacaporiga {CLIPS::client \\
+	CLIPS::CLIPS::client::viewcontroller::savedresults\\
+	CLIPS::server \\
+	CLIPS::client::data:urlrequest\\
+	CLIPS::server::urlrequesthandler\\
+	CLIPS::client::viewcontroller}\\
+
+	R0F5.2 & Se l'utente è autenticato ma non ha percorsi svolti salvati viene mostrato un invito a svolgere un percorso. &	\cellacaporiga {CLIPS::client  \\
+	CLIPS::CLIPS::client::viewcontroller::savedresults \\
+	CLIPS::client::viewcontroller \\
+} \\
+
+    R0F5.2.1 &	Nella spiegazione si informa l'utente che in quella schermata è possibile visualizzare i percorsi svolti quando si salveranno.	& 	\cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+    CLIPS::client  \\
+    CLIPS::client::viewcontroller \\
+} \\
+
+   R0F5.3 &	Se l'utente non è autenticato viene invitato ad autenticarsi. &	\cellacaporiga {CLIPS::CLIPS::client ::authentication  \\
+   CLIPS::client  \\ } \\
+
+   R0F5.3.1 &	L'app deve spiegare che l'utente, quando è autenticato, può vedere l'elenco dei percorsi salvati in quella schermata. &	\cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+   CLIPS::client  \\
+   CLIPS::client::viewcontroller \\ } \\
+
+   R0F6	& L'utente deve poter visualizzare dove si trovano gli edifici con percorsi più vicini alla sua posizione.	 & 
+   \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+   CLIPS::client  \\
+   CLIPS::client::data::datamanager \\
+   CLIPS::server::data \\
+   CLIPS::server  \\
+   CLIPS::client::data:urlrequest \\
+   CLIPS::server::urlrequesthandler \\
+   CLIPS::client::viewcontroller \\
+} \\
+
+   R0F6.1 &	L'utente deve poter cercare gli edifici con percorsi più vicini inserendo un raggio massimo.	& \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+   CLIPS::client  \\
+   CLIPS::client::data \\
+   CLIPS::client::data::datamanager \\
+   CLIPS::server::data \\
+   CLIPS::server  \\
+   CLIPS::client::data:urlrequest \\
+   CLIPS::server::urlrequesthandler \\ } \\
+
+    R0F6.1.1 &	L'utente deve poter inserire il raggio in chilometri per poter cercare gli edifici con percorsi più vicini. &	\cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+    CLIPS::client  \\
+    CLIPS::client::viewcontroller \\  } \\
+
+    R0F6.1.1.1 &	Se la ricerca ha esito positivo vengono elencati tutti gli edifici con percorsi presenti nell'area cercata.	&
+    \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+    CLIPS::client  \\
+    CLIPS::client::data::datamanager \\
+    CLIPS::server::data \\
+    CLIPS::server  \\
+    CLIPS::client::data:urlrequest \\
+    CLIPS::server::urlrequesthandler \\
+    CLIPS::client::viewcontroller \\
+} \\
+
+    R0F6.2	& Cliccando su un edificio della lista l'utente deve poter visualizzare tutte le informazioni su di esso. &	
+    \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+    	CLIPS::client  \\
+    	CLIPS::client::data \\
+    	CLIPS::client::data::datamanager \\
+    	CLIPS::server::data \\
+    	CLIPS::server  \\
+    	CLIPS::client::data:urlrequest \\
+    	CLIPS::server::urlrequesthandler \\
+    	CLIPS::client::viewcontroller \\
+    } \\
+    
+    R0F6.2.1 &	L'utente deve poter visualizzare delle informazioni specifiche sull'edificio. &	
+    \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+    	CLIPS::client  \\
+    	CLIPS::client::data \\
+    	CLIPS::client::data::datamanager \\
+    	CLIPS::server::data \\
+    	CLIPS::server  \\
+    	CLIPS::client::data:urlrequest \\
+    	CLIPS::server::urlrequesthandler \\
+    	CLIPS::client::viewcontroller \\
+    } \\
+    
+    
+    R0F6.2.1.1 &	L'utente deve poter visualizzare il nome dell'edificio. &	
+    \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+    	CLIPS::client  \\
+    	CLIPS::client::data \\
+    	CLIPS::client::data::datamanager \\
+    	CLIPS::server::data \\
+    	CLIPS::server  \\
+    	CLIPS::client::data:urlrequest \\
+    	CLIPS::server::urlrequesthandler \\
+    	CLIPS::client::viewcontroller \\
+    } \\
+    
+    R0F6.2.1.2 &	L'utente deve poter visualizzare la destinazione d'uso dell'edificio (ad esempio museo di storia egizia). &	
+    \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+    CLIPS::client  \\
+    CLIPS::client::data \\ } \\
+
+    R0F6.2.1.3 &	L'utente deve poter visualizzare l'indirizzo dell'edificio.&
+    \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+    	CLIPS::client  \\
+    	CLIPS::client::data \\ } \\
+    
+    R0F6.2.2 &	L'utente deve poter visualizzare il link al sito dell'edificio. & 	\cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+    	CLIPS::client  \\
+    	CLIPS::client::data \\ } \\
+    
+    R0F6.2.3 &	L'utente deve poter visualizzare alcuni contatti dell' edificio. &	
+    \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+    	CLIPS::client  \\
+    	CLIPS::client::data \\ } \\
+    
+    R0F6.2.3.1	& L'utente deve poter visualizzare il contatto telefonico dell'edificio. &	
+    \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+    	CLIPS::client  \\
+    	CLIPS::client::data \\ } \\
+    
+    R0F6.2.3.2 &	L'utente deve poter contattare l'edificio per email.	& 
+    \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+    	CLIPS::client  \\
+    	CLIPS::client::data \\ } \\
+    
+    R0F6.2.3.3	& L'utente deve poter contattare l'edificio tramite Facebook (se la struttura possiede un account Facebook). &	
+    \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+    	CLIPS::client  \\
+    	CLIPS::client::data \\ } \\
+    
+    R0F6.2.3.4	& L'utente deve poter contattare l'edificio tramite Twitter (se la struttura possiede un account Twitter) &	
+    \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+    	CLIPS::client  \\
+    	CLIPS::client::data \\ } \\
+    
+    R0F6.2.3.5 &	L'utente deve poter cotattare l'edificio tramite WhatsApp (se la struttura possiede un contatto pubblico di WhatsApp). &	
+    \cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+    	CLIPS::client  \\
+    	CLIPS::client::data \\ } \\
+    
+    R0F6.2.3.6	& L'utente deve poter contattare l'edificio tramite Telegram (se la struttura ha un contatto pubblico di Telegram). & 	\cellacaporiga {CLIPS::CLIPS::client ::CLIPS::client::viewcontroller::building \\
+    	CLIPS::client  \\
+    	CLIPS::client::data \\ } \\
+    
+    R0F7 &	L'utente autenticato deve poter modificare le proprie credenziali d'accesso.	& 
+    \cellacaporiga {CLIPS::CLIPS::client ::authentication  \\
+    CLIPS::client  \\
+    CLIPS::client::data \\
+    CLIPS::server::data \\
+    CLIPS::server  \\
+    CLIPS::client::data:urlrequest \\
+    CLIPS::server::urlrequesthandler \\ } \\
+
+    R0F7.1 &	L'utente deve poter modificare la propria password. &	 \cellacaporiga {
+    	CLIPS::CLIPS::client ::authentication  \\
+    	CLIPS::client  \\
+    	CLIPS::client::data \\
+    	CLIPS::server::data \\
+    	CLIPS::server  \\
+    	CLIPS::client::data:urlrequest \\
+    	CLIPS::server::urlrequesthandler \\ } \\
+    
+    R0F7.1.1 &	La password deve rispettare il requisito \Req{R0F1.2.7.3}. &	
+    \cellacaporiga {
+    	CLIPS::server::data \\
+    	CLIPS::server  \\} \\
+    
+    
+    R0F7.2 &	L'utente deve poter modificare il proprio username. &	\cellacaporiga {
+    	CLIPS::CLIPS::client ::authentication  \\
+    	CLIPS::client  \\
+    	CLIPS::client::data \\
+    	CLIPS::server::data \\
+    	CLIPS::server  \\
+    	CLIPS::client::data:urlrequest \\
+    	CLIPS::server::urlrequesthandler \\ } \\
+    
+    R0F7.2.1 &	L'username deve rispettare i requisiti \Req{R0F1.2.7.2.1} e \Req{R0F1.2.7.2.2}. &	
+    \cellacaporiga {
+    	CLIPS::server::data \\
+    	CLIPS::server  \\} \\
+    
+    R0F7.3 &	In caso di errore su qualche campo l'app deve informare l'utente &	\cellacaporiga {
+    	CLIPS::CLIPS::client ::authentication  \\
+    	CLIPS::client  \\
+    	CLIPS::server::data \\
+    	CLIPS::server  \\
+    	CLIPS::client::data:urlrequest \\
+    	CLIPS::server::urlrequesthandler \\ } \\
+    
+    
+    
+    
+    
+    
+    
+    
+	\rowcolor{white}
+	\caption{Tracciamento requisiti-componenti}
+\end{longtable}

@@ -1,0 +1,153 @@
+\subsubsection{Attività}
+\label{sec:2.1.1}
+		\paragraph{Analisi dei requisiti}
+		\label{sec:2.1.1.1}
+			\subparagraph{Studio di Fattibilità e Analisi dei Rischi}
+			\label{sec:2.1.1.1.1}
+				Prima dell'attività di analisi, sarà necessario effettuare uno studio di fattibilità per analizzare i vari capitolati, evidenziando di ciascuno gli aspetti positivi e negativi, in maniera particolare per il capitolato scelto. Questa attività porterà alla produzione del documento \SFdoc.
+				Lo studio di fattibilità sarà il primo documento dell'analisi dei requisiti che analizzerà i seguenti punti per ogni \gl{capitolato}, con maggior interesse per quello scelto dal team:
+				\begin{itemize}
+					\item \textbf{Scopo del \gl{progetto}}: analisi delle richieste del \gl{capitolato};
+					\item \textbf{Studio del dominio}: valutazione delle tecnologie e conoscenze richieste rispetto l'attuale livello del team;
+					\item \textbf{Analisi dei rischi}: ricerca dei rischi e delle criticità per ciascun \gl{capitolato}.
+				\end{itemize}
+			\subparagraph{Analisi dei requisiti}
+			\label{sec:2.1.1.1.2}
+				Una volta terminato lo studio di fattibilità si procederà all'analisi dei requisiti. \\
+				Questa attività consiste nell'identificare i requisiti e i casi d'uso a partire dalle informazioni raccolte tramite lo studio del \gl{capitolato} e riunioni esterne con il \gl{proponente}. I requisiti prodotti dovranno essere atomici e tracciabili; i casi d'uso dovranno coprire tutte le possibile interazioni dell'utente. \\
+				Per rendere più precisa e veloce la stesura dei requisiti e fornire un tracciamento di essi verrà utilizzato il \gl{software} \gl{Trender}. \\
+				L'attività di analisi concluderà con la redazione del documento \ARdoc.
+		\paragraph{Progettazione}
+		\label{sec:2.1.1.2}
+			L'attività di progettazione sarà caratterizzata dal descrivere l'architettura ad alto livello dell'applicazione e progettare opportuni test d'integrazione. Questi compiti saranno svolti dai Progettisti. \\
+			Nello specifico si dovranno identificare:
+			\begin{itemize}
+				\item l'architettura da realizzare;
+				\item eventuali \gl{design pattern} da utilizzare: i progettisti dovranno inoltre fornire una descrizione e un'immagine esplicativa dei design pattern utilizzati per realizzare l'applicazione;
+				\item i package, per i quali sarà necessario realizzare i corrispondenti diagrammi;
+				\item le classi, per le quali sarà necessario realizzare i corrispondenti diagrammi;
+				\item le attività svolte dall'utente; per meglio identificare le attività i progettisti dovranno analizzare i casi d'uso precedentemente identificati.
+			\end{itemize}
+			Una volta identificati tutti i componenti necessari, si procederà alla produzione del documento \STdoc.
+			\subparagraph{Tracciamento componenti}
+			\label{sec:2.1.1.2.3}
+				Affinchè tutti i requisiti vengano soddisfatti, verrà utilizzata l'applicazione \gl{Trender} per tenere traccia delle varie componenti e dei requisiti che soddisfano.
+			\subparagraph{Test di integrazione}
+			\label{sec:2.1.1.2.4}
+				Verranno progettate delle classi il cui scopo sarà quello di testare la correttezza dei componenti dell'applicazione.
+				%chiedo ad Andrea
+		\paragraph{Codifica}
+		Una volta ultimata l'attività di progettazione ci si occuperà di approfondire il livello di dettaglio, identificando anche metodi e campi dati da utilizzare nelle classi. Questa analisi approfondita porterà alla produzione della \DPdoc. \\
+		Successivamente ci si occuperà di codificare tutte le scelte effettuate per poter realizzare l'applicazione richiesta.
+\subsubsection{Norme}
+\label{sec:2.1.2}
+	\paragraph{Classificazione  dei requisiti}
+	\label{sec:2.1.2.1}
+		I requisiti saranno rappresentati secondo la seguente codifica:
+		\begin{center}
+			R[importanza][tipo][identificativo]
+		\end{center}
+		\begin{itemize}
+			\item \textbf{Importanza}:indica se il requisito è:
+			\begin{enumerate}
+				\item \textbf{0}: obbligatorio;
+				\item \textbf{1}: desiderabile;
+				\item \textbf{2}: opzionale.
+			\end{enumerate}
+			\item \textbf{Tipo}: indica se è di tipo:
+			\begin{enumerate}
+				\item \textbf{F}: funzionale;
+				\item \textbf{Q}: di qualità;
+				\item \textbf{P}: prestazionale;
+				\item \textbf{V}: di vincolo.
+			\end{enumerate}
+			\item \textbf{Identificativo}: è il codice univoco e gerarchico che automaticamente il \gl{software} assegna al requisito (esempio: 4.2.1);
+			\item \textbf{Descrizione}: una breve descrizione del requisito;
+			\item \textbf{Fonte}: la fonte da cui deriva il requisito.
+		\end{itemize}
+	\paragraph{Classificazione dei casi d'uso}
+	\label{sec:2.1.2.2}
+		I casi d'uso saranno rappresentati secondo la seguente codifica:
+		\begin{center}
+			UC[identificativo]
+		\end{center}
+		\begin{itemize}
+			\item \textbf{Identificativo}: codice univoco e gerarchico che automaticamente il \gl{software} assegna al caso d'uso (esempio: 3.4.1);
+		\end{itemize}
+		inoltre i casi d'uso saranno caratterizzati da:
+		\begin{itemize}
+			\item \textbf{Tipo}: se non specificato è di tipo standard altrimenti viene scelto fra:
+			\begin{enumerate}
+				\item \textbf{estensione};
+				\item \textbf{inclusione};
+				\item \textbf{generalizzazione}.
+			\end{enumerate}
+			\item \textbf{titolo} breve del caso d'uso;
+			\item \textbf{descrizione} del caso d'uso;
+			\item \textbf{precondizione} del caso d'uso;
+			\item \textbf{postcondizione} del caso d'uso 
+			\item \textbf{scenario principale} degli eventi;
+			\item \textbf{scenario secondario} eventuale;
+			\item \textbf{attori}: lista degli attori coinvolti;
+		\end{itemize}
+\subsubsection{Strumenti}
+\label{sec:2.1.3}
+	\paragraph{\gl{Trender}}
+	\label{sec:2.1.3.1}
+		Per velocizzare e automatizzare la stesura dei requisiti e dei casi d'uso è stato utilizzato il \gl{software} \textbf{\gl{Trender}} sviluppato da Simone Campagna del gruppo InfiniTech dell'anno 2014/2015. Il \gl{software} permette di tracciare i requisiti e i casi d'uso assegnando automaticamente un codice univoco che rispetti la sintassi desiderata.
+
+\subsubsection{Codifica}
+\label{sec:2.1.4}
+	\paragraph{Norme tipografiche}
+	\label{sec:2.1.4.1}
+			Tutto il codice prodotto dovrà seguire le seguenti regole:
+			\begin{itemize}
+				\item i nomi di variabili, metodi, funzioni e classi dovranno essere scritti in inglese;
+				\item i nomi delle classi dovranno rispettare le regole del \gl{CamelCase};
+				\item i nomi di variabili, metodi e funzioni dovranno avere la prima lettera minuscola e l'iniziale di ogni altra parola contenuta nel nome in maiuscolo;
+				\item i commenti dovranno essere scritti in italiano;
+				\item non vanno usate lettere accentate.
+		\end{itemize}
+		\paragraph{Norme stilistiche}
+		\label{codNormeStilistiche}
+			\subparagraph{Intestazione}
+			Ogni file di codice dovrà contenere la seguente intestazione:
+			\begin{lstlisting}[language=Java, commentstyle=\color{green}, keywordstyle=\color{blue}]
+	/**
+	* @file [nome del file]
+	* @date [data di creazione (gg/mm/aaaa)]
+	* @version [versione]
+	* @author [autore]
+	*
+	* Descrizione del file.
+	*/
+	package nomePackage;
+	public class NomeClasse {
+		...
+	}
+}
+			\end{lstlisting}
+			I costrutti e le classi devono essere scritti nel seguente formato:
+			\begin{lstlisting}[language=Java, commentstyle=\color{green}, keywordstyle=\color{blue}]
+	costrutto(condizione) {
+	
+	}
+	
+	tipoRitorno function () { 
+		istruzioni
+	}	
+			\end{lstlisting}
+				Nel caso il metodo sia get/set va utilizzato invece il seguente formato:
+			\begin{lstlisting}[language=Java, commentstyle=\color{green}, keywordstyle=\color{blue}]
+	tipoRitorno getVariable () { return variable; }
+		\end{lstlisting}
+		Le parentesi graffe vanno usate sempre, anche nel caso sia presente una sola istruzione nel costrutto.
+		\paragraph{Stile generale}
+		Le seguenti regole vanno rispettati in tutti i file di codice:
+		\begin{itemize}			
+			\item i file contenenti codice o documentazione dovranno rispettare la codifica UTF-8 senza \gl{BOM} e verrà utilizzato il carattere \texttt{LF (U+000A)} per andare a capo;
+			\item la tabulazione dev'essere di 3 spazi;
+			\item è necessario commentare il codice nel caso vengano implementate funzionalità poco note, al fine di rendere più comprensibile il codice prodotto.
+		\end{itemize}
+
+			

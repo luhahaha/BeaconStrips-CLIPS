@@ -1,0 +1,24 @@
+\section{Descrizione architettura} 
+\label{architettura}
+	In questa sezione verrà descritta lo schema generale dell'architettura, nella sezione successiva % aggiungere label
+	verranno riportate tutti i packages e le classi dettagliatamente.
+	 Per i diagrammi delle classi e di attività è stato utilizzato il formalismo UML 2.0. \\
+	 L'architettura descritta in questo documento è ad alto livello. Classi, sottoclassi e attributi verranno descritti più dettagliatamente nel periodo in cui attueremo la Progettazione di dettaglio. \\
+	 Si procederà nella descrizione dell'architettura con un approccio top-down. Saranno descritte prima quindi le parti più generali per poi andare sempre più nello specifico. Si procederà quindi prima con la descizione dei packages e delle componenti, per poi passare alle singole classi. Successivamente verranno descritti i design pattern utilizzati.
+	
+	\subsection{Architettura generale}
+	L'architettura generale dell'applicazione segue il modello client - server. \\
+	In particolare si utilizzerà lo stile architetturale REST (representational state transfer) per coordinare compomenti, connettori e dati attraverso un sistema ipermediale distribuito dove l'attenzione è data al ruolo delle componenti ed ai vincoli imposti dalle loro interazioni tra di essi. \\
+	Alcune caratteristiche e vincoli di REST sono i seguenti:	
+	\begin{itemize}
+		\item REST offre una interfaccia che separa il client dal server. Questa separazione permette di avere ben chiaro quali siano i ruoli delle due componenti in modo che non ci siano conflitti tra le due. Questo porta beneficio anche alla portabilità e alla scalabilità del prodotto;
+		\item la comunicazione tra client e server è stateless, il che significa che ogni richiesta del client sarà interpretabile dal server senza che esso utilizzi alcun contesto presente nel server;
+		\item i risultati ottenuti da una richiesta client-server possono essere salvati in cache così che se il client avesse la necessità di riutilizzare dati già richiesti lo possa fare senza effettuare nuove richieste.	
+	\end{itemize}
+	
+	\subsection{Architettura del database}
+	\label{architetturaDelDatabase}
+	Nella parte server è presente il database dell'applicazione.\\
+	In particolare verrà utilizzato un database relazionale \gl{MySQL} con la possibilità di interagire con esso tramite l'applicazione web \gl{phpMyAdmin} in modo da semplificarne l'amministrazione.
+	Le rappresentazione del database verrà illustrata nel documento \DPdoc.
+		

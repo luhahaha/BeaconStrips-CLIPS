@@ -1,0 +1,74 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\usepackage{eurosym}
+\usepackage{comment}
+\usepackage{hyperref}
+
+\def\NOME{Manuale Utente}
+\def\VERSIONE{1.0.0}
+\def\DATA{2016-08-16}
+\def\REDATTORE{Viviana Alessio}
+\def\VERIFICATORE{Matteo Franco}
+\def\RESPONSABILE{Tommaso Panozzo}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Manuale destinato agli utenti del \gl{progetto} \PROGETTO\  del gruppo \AUTORE.}
+
+
+\begin{document}
+
+
+\maketitle
+
+\begin{diario}
+	\modifica{Tommaso Panozzo}{\RES}{Approvazione documento}{2016-08-16}{1.0.0}
+	\modifica{Matteo Franco}{\VER}{Verifica documento}{2016-08-12}{0.5.0}
+	\modifica{Viviana Alessio}{\PRJ}{Stesura Glossario}{2016-08-12}{0.4.0}
+	\modifica{Viviana Alessio}{\PRJ}{Stesura sezione Autenticazione, Edifici, Gioco}{2016-08-11}{0.3.0}
+	\modifica{Viviana Alessio}{\PRJ}{Stesura Introduzione}{2016-08-11}{0.2.0}
+	\modifica{Viviana Alessio}{\PRJ}{Stesura intestazione e indice documento}{2016-08-10}{0.1.0}
+\end{diario}
+
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+
+\include{introduzione}
+
+\include{RequisitiDiSistema}
+
+\section{Utilizzo dell'applicazione}
+\subsection{Informazioni generali}
+Tutte le funzionalità dell'applicazione sono accessibili dal menu laterali apribile tramite uno \gl{swipe} da sinistra verso destra oppure cliccando sul bottone \gl{Hamburger button} presente in alto a sinistra. 
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.2]{screenshot/menu_before}
+	\caption{Hamburger button}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.15]{screenshot/menu}
+	\caption{Visualizzazione menu aperto}
+\end{figure}
+
+\include{Autenticazione}
+
+\include{edifici}
+
+\include{gioco}
+
+\appendix
+\include{glossario}
+\end{document}
