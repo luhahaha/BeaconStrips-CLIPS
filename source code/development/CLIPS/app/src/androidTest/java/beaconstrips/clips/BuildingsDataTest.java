@@ -56,16 +56,8 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  *
  *
  * Stampa attesa per il test "buildingsByDistance": "Richiesta buildingsByDistance() eseguita con successo"
- *                                                  "array di n edifici"
- * Stampa attesa per il test "buildingsByNumber": "Richiesta buildingsByNumber() eseguita con successo"
- *                                                "array di 1 edificio"
- * Stampa attesa per il test "buildingsByLongDistance": "Richiesta buildingsByLongDistance() eseguita con successo"
- *                                                      "array di n edifici"
- * Stampa attesa per il test "buildingsByBigNumber": "Richiesta buildingsByBigNumber() eseguita con successo"
- *                                                   "array di 2 edifici"
- * Stampa attesa per il test "buildingsByDistanceFromDifferentPosition": "Richiesta buildingsByDistanceFromDifferentPosition() eseguita con successo"
  *                                                                       "array di n edifici"
- * Stampa attesa per il test "buildingsByNumberFromDifferentPosition": "Richiesta buildingsByNumberFromDifferentPosition() eseguita con successo"
+ * Stampa attesa per il test "buildingsByNumber": "Richiesta buildingsByNumber() eseguita con successo"
  *                                                                     "array di 1 edificio"
  */
 @RunWith(AndroidJUnit4.class)
@@ -77,7 +69,7 @@ public class BuildingsDataTest {
    @Test
    public void buildingsByDistance() {
       Context context = rule.getActivity().getBaseContext();
-      DataRequestMaker.getBuildings(context, 45, 5, 5, true, new AbstractDataManagerListener<Building[]>() {
+      DataRequestMaker.getBuildings(context, 46, 11, 150, true, new AbstractDataManagerListener<Building[]>() {
          public void onResponse(Building[] response) {
             Log.d("BuildingsDataTest", "Richiesta buildingsByDistance() eseguita con successo");
             for (int i=0; i <response.length ; i++) {
@@ -119,7 +111,7 @@ public class BuildingsDataTest {
    @Test
    public void buildingsByNumber() {
       Context context = rule.getActivity().getBaseContext();
-      DataRequestMaker.getBuildings(context, 45, 5, 1, false, new AbstractDataManagerListener<Building[]>() {
+      DataRequestMaker.getBuildings(context, 46, 11, 1, false, new AbstractDataManagerListener<Building[]>() {
          public void onResponse(Building[] response) {
             Log.d("BuildingsDataTest", "Richiesta buildingsByNumber() eseguita con successo");
             for (int i=0; i <response.length ; i++) {
@@ -151,174 +143,6 @@ public class BuildingsDataTest {
          }
          public void onError(ServerError error) {
             Log.d("BuildingsDataTest", "Rilevato un errore in buildingsByNumber():");
-            Log.d("BuildingsDataTest", "Codice dell'errore: " + error.errorCode);
-            Log.d("BuildingsDataTest", "Messaggio per l'utente: " + error.userMessage);
-            Log.d("BuildingsDataTest", "Messaggio di debug: " + error.debugMessage);
-         }
-      });
-   }
-
-   @Test
-   public void buildingsByLongDistance() {
-      Context context = rule.getActivity().getBaseContext();
-      DataRequestMaker.getBuildings(context, 45, 5, 500, true, new AbstractDataManagerListener<Building[]>() {
-         public void onResponse(Building[] response) {
-            Log.d("BuildingsDataTest", "Richiesta buildingsByLongDistance() eseguita con successo");
-            for (int i=0; i <response.length ; i++) {
-               Log.d("BuildingsDataTest", "Edificio " + i);
-               Log.d("BuildingsDataTest", "   name: " + response[i].name);
-               Log.d("BuildingsDataTest", "   description: " + response[i].description);
-               Log.d("BuildingsDataTest", "   otherInfos: " + response[i].otherInfos);
-               Log.d("BuildingsDataTest", "   openingTime: " + response[i].openingTime);
-               Log.d("BuildingsDataTest", "   address: " + response[i].address);
-               Log.d("BuildingsDataTest", "   latitude: " + response[i].latitude);
-               Log.d("BuildingsDataTest", "   longitude: " + response[i].longitude);
-               Log.d("BuildingsDataTest", "   telephone: " + response[i].telephone);
-               Log.d("BuildingsDataTest", "   email: " + response[i].email);
-               Log.d("BuildingsDataTest", "   whatsapp: " + response[i].whatsapp);
-               Log.d("BuildingsDataTest", "   telegram: " + response[i].telegram);
-               Log.d("BuildingsDataTest", "   twitter: " + response[i].twitter);
-               Log.d("BuildingsDataTest", "   facebook: " + response[i].facebook);
-               Log.d("BuildingsDataTest", "   websiteURL: " + response[i].websiteURL);
-               for (int j=0; j<response[i].pathsInfos.size(); j++) {
-                  Log.d("BuildingsDataTest", "   Percorso " + j);
-                  Log.d("BuildingsDataTest", "      id: " + response[i].pathsInfos.get(j).id);
-                  Log.d("BuildingsDataTest", "      title: " + response[i].pathsInfos.get(j).title);
-                  Log.d("BuildingsDataTest", "      description: " + response[i].pathsInfos.get(j).description);
-                  Log.d("BuildingsDataTest", "      target: " + response[i].pathsInfos.get(j).target);
-                  Log.d("BuildingsDataTest", "      estimatedDuration: " + response[i].pathsInfos.get(j).estimatedDuration);
-                  Log.d("BuildingsDataTest", "      position: " + response[i].pathsInfos.get(j).position);
-               }
-            }
-         }
-         public void onError(ServerError error) {
-            Log.d("BuildingsDataTest", "Rilevato un errore in buildingsByLongDistance():");
-            Log.d("BuildingsDataTest", "Codice dell'errore: " + error.errorCode);
-            Log.d("BuildingsDataTest", "Messaggio per l'utente: " + error.userMessage);
-            Log.d("BuildingsDataTest", "Messaggio di debug: " + error.debugMessage);
-         }
-      });
-   }
-
-   @Test
-   public void buildingsByBigNumber() {
-      Context context = rule.getActivity().getBaseContext();
-      DataRequestMaker.getBuildings(context, 45, 5, 2, false, new AbstractDataManagerListener<Building[]>() {
-         public void onResponse(Building[] response) {
-            Log.d("BuildingsDataTest", "Richiesta buildingsByBigNumber() eseguita con successo");
-            for (int i=0; i <response.length ; i++) {
-               Log.d("BuildingsDataTest", "Edificio " + i);
-               Log.d("BuildingsDataTest", "   name: " + response[i].name);
-               Log.d("BuildingsDataTest", "   description: " + response[i].description);
-               Log.d("BuildingsDataTest", "   otherInfos: " + response[i].otherInfos);
-               Log.d("BuildingsDataTest", "   openingTime: " + response[i].openingTime);
-               Log.d("BuildingsDataTest", "   address: " + response[i].address);
-               Log.d("BuildingsDataTest", "   latitude: " + response[i].latitude);
-               Log.d("BuildingsDataTest", "   longitude: " + response[i].longitude);
-               Log.d("BuildingsDataTest", "   telephone: " + response[i].telephone);
-               Log.d("BuildingsDataTest", "   email: " + response[i].email);
-               Log.d("BuildingsDataTest", "   whatsapp: " + response[i].whatsapp);
-               Log.d("BuildingsDataTest", "   telegram: " + response[i].telegram);
-               Log.d("BuildingsDataTest", "   twitter: " + response[i].twitter);
-               Log.d("BuildingsDataTest", "   facebook: " + response[i].facebook);
-               Log.d("BuildingsDataTest", "   websiteURL: " + response[i].websiteURL);
-               for (int j=0; j<response[i].pathsInfos.size(); j++) {
-                  Log.d("BuildingsDataTest", "   Percorso " + j);
-                  Log.d("BuildingsDataTest", "      id: " + response[i].pathsInfos.get(j).id);
-                  Log.d("BuildingsDataTest", "      title: " + response[i].pathsInfos.get(j).title);
-                  Log.d("BuildingsDataTest", "      description: " + response[i].pathsInfos.get(j).description);
-                  Log.d("BuildingsDataTest", "      target: " + response[i].pathsInfos.get(j).target);
-                  Log.d("BuildingsDataTest", "      estimatedDuration: " + response[i].pathsInfos.get(j).estimatedDuration);
-                  Log.d("BuildingsDataTest", "      position: " + response[i].pathsInfos.get(j).position);
-               }
-            }
-         }
-         public void onError(ServerError error) {
-            Log.d("BuildingsDataTest", "Rilevato un errore in buildingsByBigNumber():");
-            Log.d("BuildingsDataTest", "Codice dell'errore: " + error.errorCode);
-            Log.d("BuildingsDataTest", "Messaggio per l'utente: " + error.userMessage);
-            Log.d("BuildingsDataTest", "Messaggio di debug: " + error.debugMessage);
-         }
-      });
-   }
-
-   @Test
-   public void buildingsByDistanceFromDifferentPosition() {
-      Context context = rule.getActivity().getBaseContext();
-      DataRequestMaker.getBuildings(context, 46, 11, 150, true, new AbstractDataManagerListener<Building[]>() {
-         public void onResponse(Building[] response) {
-            Log.d("BuildingsDataTest", "Richiesta buildingsByDistanceFromDifferentPosition() eseguita con successo");
-            for (int i=0; i <response.length ; i++) {
-               Log.d("BuildingsDataTest", "Edificio " + i);
-               Log.d("BuildingsDataTest", "   name: " + response[i].name);
-               Log.d("BuildingsDataTest", "   description: " + response[i].description);
-               Log.d("BuildingsDataTest", "   otherInfos: " + response[i].otherInfos);
-               Log.d("BuildingsDataTest", "   openingTime: " + response[i].openingTime);
-               Log.d("BuildingsDataTest", "   address: " + response[i].address);
-               Log.d("BuildingsDataTest", "   latitude: " + response[i].latitude);
-               Log.d("BuildingsDataTest", "   longitude: " + response[i].longitude);
-               Log.d("BuildingsDataTest", "   telephone: " + response[i].telephone);
-               Log.d("BuildingsDataTest", "   email: " + response[i].email);
-               Log.d("BuildingsDataTest", "   whatsapp: " + response[i].whatsapp);
-               Log.d("BuildingsDataTest", "   telegram: " + response[i].telegram);
-               Log.d("BuildingsDataTest", "   twitter: " + response[i].twitter);
-               Log.d("BuildingsDataTest", "   facebook: " + response[i].facebook);
-               Log.d("BuildingsDataTest", "   websiteURL: " + response[i].websiteURL);
-               for (int j=0; j<response[i].pathsInfos.size(); j++) {
-                  Log.d("BuildingsDataTest", "   Percorso " + j);
-                  Log.d("BuildingsDataTest", "      id: " + response[i].pathsInfos.get(j).id);
-                  Log.d("BuildingsDataTest", "      title: " + response[i].pathsInfos.get(j).title);
-                  Log.d("BuildingsDataTest", "      description: " + response[i].pathsInfos.get(j).description);
-                  Log.d("BuildingsDataTest", "      target: " + response[i].pathsInfos.get(j).target);
-                  Log.d("BuildingsDataTest", "      estimatedDuration: " + response[i].pathsInfos.get(j).estimatedDuration);
-                  Log.d("BuildingsDataTest", "      position: " + response[i].pathsInfos.get(j).position);
-               }
-            }
-         }
-         public void onError(ServerError error) {
-            Log.d("BuildingsDataTest", "Rilevato un errore in buildingsByDistanceFromDifferentPosition():");
-            Log.d("BuildingsDataTest", "Codice dell'errore: " + error.errorCode);
-            Log.d("BuildingsDataTest", "Messaggio per l'utente: " + error.userMessage);
-            Log.d("BuildingsDataTest", "Messaggio di debug: " + error.debugMessage);
-         }
-      });
-   }
-
-   @Test
-   public void buildingsByNumberFromDifferentPosition() {
-      Context context = rule.getActivity().getBaseContext();
-      DataRequestMaker.getBuildings(context, 46, 11, 1, false, new AbstractDataManagerListener<Building[]>() {
-         public void onResponse(Building[] response) {
-            Log.d("BuildingsDataTest", "Richiesta buildingsByNumberFromDifferentPosition() eseguita con successo");
-            for (int i=0; i <response.length ; i++) {
-               Log.d("BuildingsDataTest", "Edificio " + i);
-               Log.d("BuildingsDataTest", "   name: " + response[i].name);
-               Log.d("BuildingsDataTest", "   description: " + response[i].description);
-               Log.d("BuildingsDataTest", "   otherInfos: " + response[i].otherInfos);
-               Log.d("BuildingsDataTest", "   openingTime: " + response[i].openingTime);
-               Log.d("BuildingsDataTest", "   address: " + response[i].address);
-               Log.d("BuildingsDataTest", "   latitude: " + response[i].latitude);
-               Log.d("BuildingsDataTest", "   longitude: " + response[i].longitude);
-               Log.d("BuildingsDataTest", "   telephone: " + response[i].telephone);
-               Log.d("BuildingsDataTest", "   email: " + response[i].email);
-               Log.d("BuildingsDataTest", "   whatsapp: " + response[i].whatsapp);
-               Log.d("BuildingsDataTest", "   telegram: " + response[i].telegram);
-               Log.d("BuildingsDataTest", "   twitter: " + response[i].twitter);
-               Log.d("BuildingsDataTest", "   facebook: " + response[i].facebook);
-               Log.d("BuildingsDataTest", "   websiteURL: " + response[i].websiteURL);
-               for (int j=0; j<response[i].pathsInfos.size(); j++) {
-                  Log.d("BuildingsDataTest", "   Percorso " + j);
-                  Log.d("BuildingsDataTest", "      id: " + response[i].pathsInfos.get(j).id);
-                  Log.d("BuildingsDataTest", "      title: " + response[i].pathsInfos.get(j).title);
-                  Log.d("BuildingsDataTest", "      description: " + response[i].pathsInfos.get(j).description);
-                  Log.d("BuildingsDataTest", "      target: " + response[i].pathsInfos.get(j).target);
-                  Log.d("BuildingsDataTest", "      estimatedDuration: " + response[i].pathsInfos.get(j).estimatedDuration);
-                  Log.d("BuildingsDataTest", "      position: " + response[i].pathsInfos.get(j).position);
-               }
-            }
-         }
-         public void onError(ServerError error) {
-            Log.d("BuildingsDataTest", "Rilevato un errore in buildingsByNumberFromDifferentPosition():");
             Log.d("BuildingsDataTest", "Codice dell'errore: " + error.errorCode);
             Log.d("BuildingsDataTest", "Messaggio per l'utente: " + error.userMessage);
             Log.d("BuildingsDataTest", "Messaggio di debug: " + error.debugMessage);

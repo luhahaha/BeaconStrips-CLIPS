@@ -46,7 +46,7 @@ public class GetResultsDataTest {
       Context context = rule.getActivity().getBaseContext();
       android.content.SharedPreferences preferences = android.preference.PreferenceManager.getDefaultSharedPreferences(context);
       android.content.SharedPreferences.Editor editor = preferences.edit();
-      editor.putString("token", "84872d7ea0f3");
+      editor.putString("token", " cf9ad04f81bd467a817b1da8f18ba858");
       editor.apply();
       DataRequestMaker.getResults(context, new AbstractDataManagerListener<PathResult[]>() {
          public void onResponse(PathResult[] response) {

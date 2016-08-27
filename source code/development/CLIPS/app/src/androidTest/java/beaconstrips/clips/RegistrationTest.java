@@ -51,7 +51,7 @@ public class RegistrationTest {
    @Rule
    public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
 
-   @Test
+   /*@Test
    public void registration() {
       Context context = rule.getActivity().getBaseContext();
       RequestMaker.registration(context, "prova34@gmail.com", "Prova34", "prova34", new AbstractUrlRequestListener() {
@@ -65,7 +65,7 @@ public class RegistrationTest {
             Log.d("RegistrationTest", "Messaggio di debug: " + error.debugMessage);
          }
       });
-   }
+   }*/
 
    @Test
    public void registrationWrongEmail() {
@@ -97,7 +97,7 @@ public class RegistrationTest {
    @Test
    public void registrationWrongUsername() {
       Context context = rule.getActivity().getBaseContext();
-      RequestMaker.registration(context, "prova34@gmail.com", "Prova", "prova34", new AbstractUrlRequestListener() {
+      RequestMaker.registration(context, "prova34@gmail.com", "Cenze", "prova34", new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
             Log.d("RegistrationTest", "Chiamata registrationWrongUsername() con username già usato eseguita con successo");
          }

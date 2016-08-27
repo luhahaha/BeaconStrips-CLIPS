@@ -36,7 +36,7 @@ public class GetResultsTest {
       Context context = rule.getActivity().getBaseContext();
       android.content.SharedPreferences preferences = android.preference.PreferenceManager.getDefaultSharedPreferences(context);
       android.content.SharedPreferences.Editor editor = preferences.edit();
-      editor.putString("token", "84872d7ea0f3");
+      editor.putString("token", " cf9ad04f81bd467a817b1da8f18ba858");
       editor.apply();
       RequestMaker.getResults(context, new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
