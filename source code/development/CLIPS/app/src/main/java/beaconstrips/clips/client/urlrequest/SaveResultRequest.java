@@ -35,7 +35,7 @@ public class SaveResultRequest extends URLRequest {
       for(ProofResult element : result.proofResults) {
          JSONObject item = new JSONObject();
          try {
-            item.put("proofId", element.id);
+            item.put("proofID", element.id);
             item.put("startTime", dateFormat.format(element.startTime.getTime()));
             item.put("endTime", dateFormat.format(element.endTime.getTime()));
             item.put("score", element.score);
@@ -50,7 +50,7 @@ public class SaveResultRequest extends URLRequest {
          body.put("score", result.totalScore);
          body.put("startDate", dateFormat.format(result.startTime.getTime()));
          body.put("endDate", dateFormat.format(result.endTime.getTime()));
-         body.put("proofs", array);
+         body.put("proofResults", array);
       } catch (JSONException e) {
          signalError();
       }
