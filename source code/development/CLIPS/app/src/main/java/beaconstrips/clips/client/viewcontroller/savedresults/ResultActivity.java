@@ -8,10 +8,15 @@
 
 package beaconstrips.clips.client.viewcontroller.savedresults;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import beaconstrips.clips.R;
+import beaconstrips.clips.client.data.PathResult;
+import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
+import beaconstrips.clips.client.data.datamanager.DataRequestMaker;
+import beaconstrips.clips.client.urlrequest.ServerError;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -20,5 +25,21 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         //TODO add buttons linking
+
+        /*
+        DataRequestMaker.getResults(getApplicationContext(), new AbstractDataManagerListener<PathResult[]>() {
+        @Override
+        public void onResponse(PathResult[] response) {
+
+        }
+
+        @Override
+        public void onError(ServerError error) {
+
+        }
+    });
+    */
+
     }
+
 }

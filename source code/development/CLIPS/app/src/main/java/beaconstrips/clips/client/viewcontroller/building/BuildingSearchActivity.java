@@ -17,6 +17,7 @@ import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,9 @@ import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.TreeSet;
 
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.Building;
@@ -120,40 +124,35 @@ public class BuildingSearchActivity extends MenuActivity {
 
             try {
                gpsEnabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
-            }
-
-            catch (Exception ex) {
+            } catch (Exception ex) {
 
             }
 
             try {
                networkEnabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-            }
-
-            catch (Exception ex) {
+            } catch (Exception ex) {
             }
 
             if (!gpsEnabled && !networkEnabled) {
+
                new AlertDialog.Builder(BuildingSearchActivity.this)
-                  .setMessage("Servizi di localizzazione non attivi")
-                  .setPositiveButton("Attiva", new DialogInterface.OnClickListener() {
-                     @Override
-                     public void onClick(DialogInterface paramDialogInterface, int paramInt) {
-                        Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(i);
-                     }
-                  })
-                 .setNegativeButton("Cancella", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                       .setMessage("Servizi di localizzazione non attivi")
+                       .setPositiveButton("Attiva", new DialogInterface.OnClickListener() {
+                          @Override
+                          public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                             Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                             startActivity(i);
+                          }
+                       })
+                       .setNegativeButton("Cancella", new DialogInterface.OnClickListener() {
+                          @Override
+                          public void onClick(DialogInterface paramDialogInterface, int paramInt) {
 
-                    }
-                 })
-                 .show();
-            }
-
-            else {
+                          }
+                       })
+                       .show();
+            } else {
                Log.i("Trying to call", "");
                PathProgressMaker.getCoordinates(getApplicationContext(), new GPSListener() {
                   @Override
