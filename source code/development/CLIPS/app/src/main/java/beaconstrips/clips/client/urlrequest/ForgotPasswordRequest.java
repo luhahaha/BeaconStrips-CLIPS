@@ -17,7 +17,7 @@ import org.json.JSONObject;
  */
 public class ForgotPasswordRequest extends URLRequest {
    ForgotPasswordRequest(Context cx, String email, AbstractUrlRequestListener listener) {
-      super(cx, Request.Method.POST, URLDataConstants.baseURL + "forgotPassword", setBody(email), false, listener);
+      super(cx, Request.Method.POST, URLDataConstants.baseURL + "passwordReset", setBody(email), false, listener);
       execute(URLRequest.ResponseExpected.Object);
    }
 

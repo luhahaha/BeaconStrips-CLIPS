@@ -38,18 +38,18 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  *                                         "   ID del percorso: 1"
  *                                         "   Nome del percorso: Prova"
  *                                         "   Nome dell'edificio: Torre Archimede"
- *                                         "   Orario d'inizio: Fri Aug 19 10:53:24 CEST 2016"
- *                                         "   Orario di fine: Fri Aug 19 13:22:15 CEST 2016"
+ *                                         "   Orario d'inizio: 2016-08-19T10:53:24.000Z"
+ *                                         "   Orario di fine: 2016-08-19T13:22:15.000Z"
  *                                         "   Punteggio finale: 34"
  *                                         "   Prova 0:"
  *                                         "      ID della tappa: 4"
- *                                         "      Orario d'inizio: Fri Aug 19 10:53:55 CEST 2016"
- *                                         "      Orario di fine: Fri Aug 19 11:56:05 CEST 2016"
+ *                                         "      Orario d'inizio: 2016-08-24T10:53:55.000Z"
+ *                                         "      Orario di fine: 2016-08-24T11:56:05.000Z"
  *                                         "      Punteggio della tappa: 15"
  *                                         "   Prova 1:"
  *                                         "      ID della tappa: 5"
- *                                         "      Orario d'inizio: Fri Aug 19 12:03:12 CEST 2016"
- *                                         "      Orario di fine: Fri Aug 19 13:22:15 CEST 2016"
+ *                                         "      Orario d'inizio: 2016-08-24T12:03:12.000Z"
+ *                                         "      Orario di fine: 2016-08-24T13:22:15.000Z"
  *                                         "      Punteggio della tappa: 19"
  *                                         "<Risultati vecchi>"
  * Legenda: "<Risultati vecchi>" indica che vengono rappresentati alcuni o tutti i risultati dell'utente, quello che si vuole indicare in questo modo è che bisogna che tra prima e dopo la richiesta di salvataggio del risultato vengano stampate in più le stringhe rappresentate sopra.
@@ -89,7 +89,7 @@ public class SaveResultDataTest {
    }
 
    void getResults(Context context) { //metodo di supporto, stampa tutti i risultati dell'utente
-      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN);
+      final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN);
       DataRequestMaker.getResults(context, new AbstractDataManagerListener<PathResult[]>() {
          public void onResponse(PathResult[] response) {
             Log.d("SaveResultDataTest", "Chiamata getResults() eseguita con successo:");
@@ -97,15 +97,15 @@ public class SaveResultDataTest {
                Log.d("SaveResultDataTest", "   ID del percorso: " + response[i].pathID);
                Log.d("SaveResultDataTest", "   Nome del percorso: " + response[i].pathName);
                Log.d("SaveResultDataTest", "   Nome dell'edificio: " + response[i].buildingName);
-               Log.d("SaveResultDataTest", "   Orario d'inizio: " + response[i].startTime.getTime());
-               Log.d("SaveResultDataTest", "   Orario di fine: " + response[i].endTime.getTime());
+               Log.d("SaveResultDataTest", "   Orario d'inizio: " + dateFormat.format(response[i].startTime.getTime()));
+               Log.d("SaveResultDataTest", "   Orario di fine: " + dateFormat.format(response[i].endTime.getTime()));
                Log.d("SaveResultDataTest", "   Punteggio finale: " + response[i].totalScore);
                ArrayList<ProofResult> array = response[i].proofResults;
                for(int j=0; j<array.size(); j++) {
                   Log.d("SaveResultDataTest", "   Prova " + j + ":");
                   Log.d("SaveResultDataTest", "      ID della tappa: " + array.get(j).id);
-                  Log.d("SaveResultDataTest", "      Orario d'inizio: " + array.get(j).startTime.getTime());
-                  Log.d("SaveResultDataTest", "      Orario di fine: " + array.get(j).endTime.getTime());
+                  Log.d("SaveResultDataTest", "      Orario d'inizio: " + dateFormat.format(array.get(j).startTime.getTime()));
+                  Log.d("SaveResultDataTest", "      Orario di fine: " + dateFormat.format(array.get(j).endTime.getTime()));
                   Log.d("SaveResultDataTest", "      Punteggio della tappa: " + array.get(j).score);
                }
             }

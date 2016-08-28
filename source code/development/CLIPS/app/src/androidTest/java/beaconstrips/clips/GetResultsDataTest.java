@@ -32,18 +32,18 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  *                                         "   ID del percorso: 1"
  *                                         "   Nome del percorso: Prova"
  *                                         "   Nome dell'edificio: Torre Archimede"
- *                                         "   Orario d'inizio: Fri Aug 19 10:53:24 CEST 2016"
- *                                         "   Orario di fine: Fri Aug 19 13:22:15 CEST 2016"
+ *                                         "   Orario d'inizio: 2016-08-19T10:53:24.000Z"
+ *                                         "   Orario di fine: 2016-08-19T13:22:15.000Z"
  *                                         "   Punteggio finale: 34"
  *                                         "   Prova 0:"
  *                                         "      ID della tappa: 4"
- *                                         "      Orario d'inizio: Fri Aug 19 10:53:55 CEST 2016"
- *                                         "      Orario di fine: Fri Aug 19 11:56:05 CEST 2016"
+ *                                         "      Orario d'inizio: 2016-08-24T10:53:55.000Z"
+ *                                         "      Orario di fine: 2016-08-24T11:56:05.000Z"
  *                                         "      Punteggio della tappa: 15"
  *                                         "   Prova 1:"
  *                                         "      ID della tappa: 5"
- *                                         "      Orario d'inizio: Fri Aug 19 12:03:12 CEST 2016"
- *                                         "      Orario di fine: Fri Aug 19 13:22:15 CEST 2016"
+ *                                         "      Orario d'inizio: 2016-08-24T12:03:12.000Z"
+ *                                         "      Orario di fine: 2016-08-24T13:22:15.000Z"
  *                                         "      Punteggio della tappa: 19"
  */
 @RunWith(AndroidJUnit4.class)
@@ -59,7 +59,7 @@ public class GetResultsDataTest {
       android.content.SharedPreferences.Editor editor = preferences.edit();
       editor.putString("token", "cf9ad04f81bd467a817b1da8f18ba858");
       editor.apply();
-      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN);
+      final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN);
       DataRequestMaker.getResults(context, new AbstractDataManagerListener<PathResult[]>() {
          public void onResponse(PathResult[] response) {
             Log.d("GetResultsDataTest", "Chiamata getResults() eseguita con successo:");
@@ -68,15 +68,15 @@ public class GetResultsDataTest {
                Log.d("GetResultsDataTest", "   ID del percorso: " + response[i].pathID);
                Log.d("GetResultsDataTest", "   Nome del percorso: " + response[i].pathName);
                Log.d("GetResultsDataTest", "   Nome dell'edificio: " + response[i].buildingName);
-               Log.d("GetResultsDataTest", "   Orario d'inizio: " + response[i].startTime.getTime());
-               Log.d("GetResultsDataTest", "   Orario di fine: " + response[i].endTime.getTime());
+               Log.d("GetResultsDataTest", "   Orario d'inizio: " + dateFormat.format(response[i].startTime.getTime()));
+               Log.d("GetResultsDataTest", "   Orario di fine: " + dateFormat.format(response[i].endTime.getTime()));
                Log.d("GetResultsDataTest", "   Punteggio finale: " + response[i].totalScore);
                ArrayList<ProofResult> array = response[i].proofResults;
                for(int j=0; j<array.size(); j++) {
                   Log.d("GetResultsDataTest", "   Prova " + j +":");
                   Log.d("GetResultsDataTest", "      ID della tappa: " + array.get(j).id);
-                  Log.d("GetResultsDataTest", "      Orario d'inizio: " + array.get(j).startTime.getTime());
-                  Log.d("GetResultsDataTest", "      Orario di fine: " + array.get(j).endTime.getTime());
+                  Log.d("GetResultsDataTest", "      Orario d'inizio: " + dateFormat.format(array.get(j).startTime.getTime()));
+                  Log.d("GetResultsDataTest", "      Orario di fine: " + dateFormat.format(array.get(j).endTime.getTime()));
                   Log.d("GetResultsDataTest", "      Punteggio della tappa: " + array.get(j).score);
                }
             }
