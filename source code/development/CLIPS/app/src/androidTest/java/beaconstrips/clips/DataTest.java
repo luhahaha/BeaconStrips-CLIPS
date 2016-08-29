@@ -18,8 +18,11 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 import beaconstrips.clips.client.data.Beacon;
+import beaconstrips.clips.client.data.Building;
+import beaconstrips.clips.client.data.LinearScoringAlgorithm;
 import beaconstrips.clips.client.data.MultipleChoiceTextQuiz;
 import beaconstrips.clips.client.data.Path;
+import beaconstrips.clips.client.data.PathInfo;
 import beaconstrips.clips.client.data.Proof;
 import beaconstrips.clips.client.data.ProofResult;
 import beaconstrips.clips.client.data.Proximity;
@@ -138,6 +141,30 @@ public class DataTest {
       SimpleDateFormat dateFormat = new SimpleDateFormat("kk:mm:ss.SSS", Locale.ITALIAN);
       dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
       Log.d("DataTest", "Stampa di getDuration(): " + dateFormat.format(proofResult.getDuration()));
+   }
 
+   @Test
+   public void linearScoringAlgorithmtTest() { //TODO
+      LinearScoringAlgorithm algorithm = new LinearScoringAlgorithm(0, 40, 10, 30, 1, 1);
+      Log.d("DataTest", "Risultato ottenuto: " + algorithm.getScore(20, 30, 40));
+   }
+
+   @Test
+   public void buildingTest() {
+      ArrayList<PathInfo> pathinfos = new ArrayList<>();
+      pathinfos.add(new PathInfo(1, "Primo percorso di prova", "Percorso delle P", "Per persone con il nome che comincia per P", "Poco", 1));
+      pathinfos.add(new PathInfo(2, "Secondo percorso di prova", "Percorso delle lettere miste", "Per tutti, anche le persone il cui nome comincia per P", "Tanto", 2));
+      Building building = new Building("Edificio di prova", "Edificio per i test", "Edificio creato esclusivamente per i test", "Ogni volta che questo test si rivela necessario", "Indirizzo di prova", 5, 5, "0349423618", "prova@gmail.com", "Prova WhatsApp", "Prova Telegram", "Account Twitter", "Account Facebook", "www.prova.com", pathinfos);
+      ArrayList<PathInfo> array = building.getPathInfo();
+      Log.d("DataTest", "Risultati di getPathInfo():");
+      for(int i=0; i<array.size(); i++) {
+         Log.d("DataTest", "   Path " + i + ":");
+         Log.d("DataTest", "      ID: " + array.get(i).id);
+         Log.d("DataTest", "      Titolo: " + array.get(i).title);
+         Log.d("DataTest", "      Descrizione: " + array.get(i).description);
+         Log.d("DataTest", "      Destinatari: " + array.get(i).target);
+         Log.d("DataTest", "      Durata stimata: " + array.get(i).estimatedDuration);
+         Log.d("DataTest", "      Posizione nella visualizzazione: " + array.get(i).position);
+      }
    }
 }
