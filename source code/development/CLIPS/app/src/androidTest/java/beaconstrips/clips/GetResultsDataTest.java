@@ -29,6 +29,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * classe che contiene il TU14 (Test di Unità 14). Verifica che la richiesta dei risultati ottenuti dall'utente sia effettuata correttamente.
  *
  * Stampa attesa per il test "getResults": "Chiamata getResults() eseguita con successo:"
+ *                                         "<altri risultati>"
  *                                         "   ID del percorso: 1"
  *                                         "   Nome del percorso: Prova"
  *                                         "   Nome dell'edificio: Torre Archimede"
@@ -45,6 +46,8 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  *                                         "      Orario d'inizio: 2016-08-24T12:03:12.000Z"
  *                                         "      Orario di fine: 2016-08-24T13:22:15.000Z"
  *                                         "      Punteggio della tappa: 19"
+ *                                         "<altri risultati>"
+ * Legenda: "<altri risultati>" indica che prima o dopo possono esserci altri risultati che rispettano la stessa struttura dell'unico risultato definito sopra.
  */
 @RunWith(AndroidJUnit4.class)
 @SmallTest

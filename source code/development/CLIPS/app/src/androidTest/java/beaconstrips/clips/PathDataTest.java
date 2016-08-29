@@ -148,7 +148,7 @@ public class PathDataTest {
       Context context = rule.getActivity().getBaseContext();
       DataRequestMaker.getPath(context, 1, new AbstractDataManagerListener<Path>() {
          public void onResponse(Path response) {
-            Log.d("PathTest", "Richiesta path() eseguita con successo");
+            Log.d("PathDataTest", "Richiesta path() eseguita con successo");
             Log.d("PathDataTest", "Dati sul percorso:");
             Log.d("PathDataTest", "   ID: " + response.id);
             Log.d("PathDataTest", "   Messaggio d'inizio: " + response.startingMessage);
@@ -164,7 +164,7 @@ public class PathDataTest {
                Log.d("PathDataTest", "         Major: " + stepBeacon.major);
                Log.d("PathDataTest", "         Minor: " + stepBeacon.minor);
                for(int j=0; j<stepProximities.size(); j++) {
-                  Beacon proximityBeacon = stepProximities.get(i).beacon;
+                  Beacon proximityBeacon = stepProximities.get(j).beacon;
                   Log.d("PathDataTest", "      Dati sulla proximity " +j +":");
                   Log.d("PathDataTest", "         Dati sul beacon di proximity:");
                   Log.d("PathDataTest", "            ID: " + proximityBeacon.id);

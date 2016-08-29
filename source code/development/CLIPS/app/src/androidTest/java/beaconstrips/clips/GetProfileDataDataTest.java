@@ -47,14 +47,14 @@ public class GetProfileDataDataTest {
 
    @Test
    public void getProfileData() {
-      Context context = rule.getActivity().getBaseContext();
+      final Context context = rule.getActivity().getBaseContext();
       final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
       SharedPreferences.Editor editor = preferences.edit();
       editor.putString("token", "dd664cb2ee2e42da90733dc8c8b2a731");
       editor.putString("email", "Email non valida");
       editor.putString("username", "Username non valido");
       editor.apply();
-      final LoggedUser loggedUser = LoginManager.sharedManager(context).getLoggedUser();
+      LoggedUser loggedUser = LoginManager.sharedManager(context).getLoggedUser();
       Log.d("GetProfileDatadataTest", "Email salvata nel file: " + preferences.getString("email", ""));
       Log.d("GetProfileDatadataTest", "Email salvata in loggedUser: " + loggedUser.email);
       Log.d("GetProfileDatadataTest", "Username salvato nel file: " + preferences.getString("username", ""));
@@ -62,6 +62,7 @@ public class GetProfileDataDataTest {
       if(LoginManager.sharedManager(context).isLogged()) {
          LoginManager.sharedManager(context).getProfileData(new AbstractDataManagerListener<Boolean>() {
             public void onResponse(Boolean response) {
+               final LoggedUser loggedUser = LoginManager.sharedManager(context).getLoggedUser();
                Log.d("GetProfileDatadataTest", "Chiamata getProfileData() eseguita con successo");
                Log.d("GetProfileDatadataTest", "   Email salvata nel file: " + preferences.getString("email", ""));
                Log.d("GetProfileDatadataTest", "   Email salvata in loggedUser: " + loggedUser.email);

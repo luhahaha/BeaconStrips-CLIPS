@@ -1,5 +1,6 @@
 package beaconstrips.clips.client.data;
 
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class PathProgress {
    private final Path path;
    private final GregorianCalendar startTime;
    private GregorianCalendar endTime;
-   private List<ProofResult> proofResults;
+   private ArrayList<ProofResult> proofResults = new ArrayList<>();
 
    public PathProgress(Path path, GregorianCalendar startTime) {
       this.path = path;
@@ -40,6 +41,9 @@ public class PathProgress {
    }
 
    //TODO correggere calcolo durata
+   //Nota Cenze: il calcolo è corretto, è la trasformazione con dateFormat che è errata perché aggiunge un'ora di troppo, basta aggiungere l'istruzione:
+   //dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+   //dove dateFormat è l'oggetto di tipo SimpleDateFormat usato.
    public long getDuration() {
       return endTime.getTime().getTime() - startTime.getTime().getTime();
    }
