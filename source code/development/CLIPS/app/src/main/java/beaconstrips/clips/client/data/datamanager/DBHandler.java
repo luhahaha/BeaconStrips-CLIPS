@@ -324,7 +324,7 @@ public class DBHandler extends SQLiteOpenHelper {
       ContentValues values = new ContentValues();
 
       values.put("proofID", pr.id);
-      values.put("pathID", pathID);
+      values.put("pathResultID", pathID);
       values.put("startTime", pr.startTime.toString());
       values.put("endTime", pr.endTime.toString());
 
@@ -432,7 +432,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
    public Path readPath(int pathID) {
       SQLiteDatabase db = this.getReadableDatabase();
-      Cursor cursor = db.query("Path", null, "id =?", new String[]{String.valueOf(pathID)}, null, null, null, null);
+      Cursor cursor = db.query("Path", null, "id=?", new String[]{String.valueOf(pathID)}, null, null, null, null);
       
       Path ret = null;
 
