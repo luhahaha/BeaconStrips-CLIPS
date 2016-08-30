@@ -78,8 +78,9 @@ public class Utility {
       float distance = userPosition.distanceTo(buildingPosition);
 
       for(int i=0; i<buildings.length; ++i){
-         if(distance <= distanceToBuilding(userPosition, buildings[i])){
+         if(buildings[i] != null && distance <= distanceToBuilding(userPosition, buildings[i])){
             buildings = insertBuilding(buildings, b, i);
+            ++i;
          }
       }
 
