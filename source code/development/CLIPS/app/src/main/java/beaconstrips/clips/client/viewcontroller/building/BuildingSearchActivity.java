@@ -8,12 +8,16 @@
 
 package beaconstrips.clips.client.viewcontroller.building;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.os.Build;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -133,6 +137,27 @@ public class BuildingSearchActivity extends MenuActivity {
             } catch (Exception ex) {
             }
 
+            // controllo se sono stati forniti i permessi per la geolocalizzazione
+            int permissionCheck = ContextCompat.checkSelfPermission(getApplicationContext(),
+                    Manifest.permission.ACCESS_FINE_LOCATION);
+            if(permissionCheck != PackageManager.PERMISSION_GRANTED && Build.VERSION.SDK_INT >= 23) {
+               // se l'utente ha rifiutato di dare i permessi mostro la motivazione per cui servono
+               if (shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION)) {
+                  showMessageOKCancel("Per cercare gli edifici più vicini a te abbiamo bisogno della tua posizione.",
+                          new DialogInterface.OnClickListener() {
+                             @Override
+                             public void onClick(DialogInterface dialog, int which) {
+                                requestPermissions(new String[] {Manifest.permission.ACCESS_FINE_LOCATION},
+                                        0);
+                             }
+                          });
+               }
+               // la prima volta mostro la richiesta semplice
+               else {
+                  requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
+               }
+            }
+
             if (!gpsEnabled && !networkEnabled) {
 
                new AlertDialog.Builder(BuildingSearchActivity.this)
@@ -217,7 +242,8 @@ public class BuildingSearchActivity extends MenuActivity {
                      Log.e(TAG, "Not getting position");
                      new AlertDialog.Builder(BuildingSearchActivity.this)
                              .setTitle("Avviso")
-                             .setMessage("Si è verificato un errore nell'acquisire la posizione. Riprova.")
+                             .setMessage("Si è verificato un errore nell'acquisire la posizione, " +
+                                     "assicurati che la geolocalizzazione sia attiva ed impostata su \"Alta precisione\". Riprova.")
                              .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
 
@@ -245,5 +271,14 @@ public class BuildingSearchActivity extends MenuActivity {
             startActivity(i);
          }
       });
+   }
+
+   private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
+      new android.support.v7.app.AlertDialog.Builder(BuildingSearchActivity.this)
+           .setMessage(message)
+           .setPositiveButton("OK", okListener)
+           .setNegativeButton("Cancel", null)
+           .create()
+           .show();
    }
 }
