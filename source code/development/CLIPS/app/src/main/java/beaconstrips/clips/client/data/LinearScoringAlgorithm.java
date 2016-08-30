@@ -25,11 +25,11 @@ public class LinearScoringAlgorithm {
       this.accuracyWeight = accuracyWeight;
    }
 
-   public double getScore(double time, int correct, int total) {
+   public double getScore(double time, int correct, int total) { //correct e total indicano quante risposte corrette ci sono e quante ne sono previste in tutto
       double weightSum = this.timeWeight + this.accuracyWeight;
       double deltaScore = this.maxScore - this.minScore;
       double deltaTime = this.maxTime - this.minTime;
 
-      return deltaScore * ((1 - (Math.min(Math.max(time, this.minTime), this.maxTime)) / deltaTime) * this.timeWeight + (double) correct / (double) total * this.accuracyWeight) / (weightSum) + this.minScore;
+      return deltaScore * (((Math.min(Math.max(time, this.minTime), this.maxTime)) / deltaTime) * this.timeWeight + (double) correct / (double) total * this.accuracyWeight) / (weightSum) + this.minScore;
    }
 }

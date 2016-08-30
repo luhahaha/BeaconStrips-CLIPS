@@ -37,7 +37,7 @@ import beaconstrips.clips.client.data.TrueFalseTest;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU33 (Test di Unità 33). Verifica che i metodi di PathProgress, Path e ProofResult funzionino correttamente.
+ * classe che contiene il TU33 (Test di Unità 33). Verifica che i metodi di PathProgress funzionino correttamente.
  *
  *
  * Stampa attesa per il test "pathProgressTest()": "Stampa di getPath():"
@@ -105,8 +105,6 @@ import beaconstrips.clips.client.data.TrueFalseTest;
  *                                                 "   Orario di fine: 11:01:10.000"
  *                                                 "   Punteggio: 17"
  *                                                 "Stampa di getTotalScore(): 52"
- * Stampa attesa per il test "checkTrueFalseTextQuiz()": "Risultato di checkTrueFalseQuiz() per la risposta corretta: true"
- *                                                       "Risultato di checkTrueFalseQuiz() per la risposta errata: false"
  */
 @RunWith(AndroidJUnit4.class)
 @SmallTest

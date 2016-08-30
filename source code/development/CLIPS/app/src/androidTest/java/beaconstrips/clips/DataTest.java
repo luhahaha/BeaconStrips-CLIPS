@@ -36,8 +36,8 @@ import beaconstrips.clips.client.pathprogress.RawBeacon;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU31 (Test di Unità 31). Verifica che il metodo check, con cui si verifica se la risposta data dall'utente è corretta o no, funziona come previsto.
- * Verranno effettuate due prove per metodo, una in cui la risposta inviata è esatta e l'altra in cui è errata.
+ * classe che contiene il TU31 (Test di Unità 31). Verifica che i metodi di tutte le classi di data, ad eccezione di PathProgress, Utility e di quelle già verificate per gli altri package, funzionino correttamente.
+ * In particolare le classi trattate sono MultipleChoiceTextQuiz, TrueFalseTextQuiz, Path, ProofResult, LinearScoringAlgorithm e Building.
  *
  *
  * Stampa attesa per il test "checkMultipleChoiceTextQuiz()": "Risultato di checkMultipleChoiceQuiz() per la risposta corretta: true"
@@ -58,6 +58,29 @@ import beaconstrips.clips.client.pathprogress.RawBeacon;
  *                                         "   Testo da mostrare: Sei a due terzi"
  *                                         "Proximity di un beacon errato: null"
  * Stampa attesa per il test "proofResultTest()": "Stampa di getDuration(): 02:35:35.000"
+ * Stampa attesa per il test "linearScoringAlgorithmTest()": "Stampa di getScore() standard: 34.0"
+ *                                                           "Stampa di getScore() con il risultato a metà esatta: 30.0"
+ *                                                           "Stampa di getScore() con le risposte tutte errate: 20.0"
+ *                                                           "Stampa di getScore() con le risposte tutte esatte: 40.0"
+ *                                                           "Stampa di getScore() con un tempo minore del minimo previsto: 30.0"
+ *                                                           "Stampa di getScore() con un tempo maggiore del massimo previsto: 50.0"
+ *                                                           "Stampa di getScore() senza tenere conto del tempo: 28.0"
+ *                                                           "Stampa di getScore() senza tenere conto di quante risposte sono corrette: 40.0"
+ * Stampa attesa per il test "buildingTest()": "Risultati di getPathInfo():"
+ *                                             "   Path 0:"
+ *                                             "      ID: 1"
+ *                                             "      Titolo: Primo percorso di prova"
+ *                                             "      Descrizione: Percorso delle P"
+ *                                             "      Destinatari: Per persone con il nome che comincia per P"
+ *                                             "      Durata stimata: Poco"
+ *                                             "      Posizione nella visualizzazione: 1"
+ *                                             "   Path 1:"
+ *                                             "      ID: 2"
+ *                                             "      Titolo: Secondo percorso di prova"
+ *                                             "      Descrizione: Percorso delle lettere miste"
+ *                                             "      Destinatari: Per tutti, anche le persone il cui nome comincia per P"
+ *                                             "      Durata stimata: Tanto"
+ *                                             "      Posizione nella visualizzazione: 2"
  */
 @RunWith(AndroidJUnit4.class)
 @SmallTest
@@ -146,14 +169,23 @@ public class DataTest {
    @Test
    public void linearScoringAlgorithmtTest() { //TODO
       LinearScoringAlgorithm algorithm = new LinearScoringAlgorithm(0, 40, 10, 30, 1, 1);
-      Log.d("DataTest", "Risultato ottenuto: " + algorithm.getScore(20, 30, 40));
+      Log.d("DataTest", "Stampa di getScore() standard: " + algorithm.getScore(20, 7, 10));
+      Log.d("DataTest", "Stampa di getScore() con il risultato a metà esatta: " + algorithm.getScore(20, 5, 10));
+      Log.d("DataTest", "Stampa di getScore() con le risposte tutte errate: " + algorithm.getScore(20, 0, 10));
+      Log.d("DataTest", "Stampa di getScore() con le risposte tutte esatte: " + algorithm.getScore(20, 10, 10));
+      Log.d("DataTest", "Stampa di getScore() con un tempo minore del minimo previsto: " + algorithm.getScore(9, 10, 10));
+      Log.d("DataTest", "Stampa di getScore() con un tempo maggiore del massimo previsto: " + algorithm.getScore(31, 10, 10));
+      algorithm = new LinearScoringAlgorithm(0, 40, 10, 30, 0, 1);
+      Log.d("DataTest", "Stampa di getScore() senza tenere conto del tempo: " + algorithm.getScore(20, 7, 10));
+      algorithm = new LinearScoringAlgorithm(0, 40, 10, 30, 1, 0);
+      Log.d("DataTest", "Stampa di getScore() senza tenere conto di quante risposte sono corrette: " + algorithm.getScore(20, 7, 10));
    }
 
    @Test
    public void buildingTest() {
       ArrayList<PathInfo> pathinfos = new ArrayList<>();
       pathinfos.add(new PathInfo(1, "Primo percorso di prova", "Percorso delle P", "Per persone con il nome che comincia per P", "Poco", 1));
-      pathinfos.add(new PathInfo(2, "Secondo percorso di prova", "Percorso delle lettere miste", "Per tutti, anche le persone il cui nome comincia per P", "Tanto", 2));
+      pathinfos.add(new PathInfo(2, "Secondo percorso di prova", "Percorso delle lettere miste", "Per tutti, anche per le persone il cui nome comincia per P", "Tanto", 2));
       Building building = new Building("Edificio di prova", "Edificio per i test", "Edificio creato esclusivamente per i test", "Ogni volta che questo test si rivela necessario", "Indirizzo di prova", 5, 5, "0349423618", "prova@gmail.com", "Prova WhatsApp", "Prova Telegram", "Account Twitter", "Account Facebook", "www.prova.com", pathinfos);
       ArrayList<PathInfo> array = building.getPathInfo();
       Log.d("DataTest", "Risultati di getPathInfo():");
