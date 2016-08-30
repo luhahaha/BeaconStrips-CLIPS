@@ -128,7 +128,7 @@ public class BuildingActivity extends AppCompatActivity {
       pathsResult.setOnItemClickListener(new AdapterView.OnItemClickListener() {
          public void onItemClick(AdapterView<?> parent, View view,
                                  int position, long id) {
-            String pathId = (((TextView) view.findViewById(R.id.pathId)).getText()).toString(); //TODO recuperare id per recuperare informazioni path
+            int pathId = Integer.parseInt((((TextView) view.findViewById(R.id.pathId)).getText()).toString()); //TODO recuperare id per recuperare informazioni path
             String pathName = ((TextView) view.findViewById(R.id.pathName)).getText().toString();
             Intent i = new Intent(getApplicationContext(), PathActivity.class);
             i.putExtra("pathId", pathId);
