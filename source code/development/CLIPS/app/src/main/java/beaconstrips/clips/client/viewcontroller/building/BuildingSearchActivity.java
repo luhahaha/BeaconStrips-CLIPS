@@ -198,7 +198,7 @@ public class BuildingSearchActivity extends MenuActivity {
                         @Override
                         public void onError(ServerError error) {
                            Log.e(TAG, error.errorCode + " " + error.debugMessage + " " + error.userMessage);
-                           new AlertDialog.Builder(getApplicationContext())
+                           new AlertDialog.Builder(BuildingSearchActivity.this)
                                    .setTitle("Avviso")
                                    .setMessage("Si è verificato un errore nello scaricamento dei dati. Controlla la tua connessione ad internet e riprova.")
                                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -215,7 +215,7 @@ public class BuildingSearchActivity extends MenuActivity {
                   @Override
                   public void onError(ServerError error) {
                      Log.e(TAG, "Not getting position");
-                     new AlertDialog.Builder(getApplicationContext())
+                     new AlertDialog.Builder(BuildingSearchActivity.this)
                              .setTitle("Avviso")
                              .setMessage("Si è verificato un errore nell'acquisire la posizione. Riprova.")
                              .setPositiveButton("OK", new DialogInterface.OnClickListener() {
