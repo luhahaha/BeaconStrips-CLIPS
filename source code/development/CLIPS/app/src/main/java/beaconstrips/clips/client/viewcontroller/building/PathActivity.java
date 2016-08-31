@@ -8,6 +8,7 @@
 
 package beaconstrips.clips.client.viewcontroller.building;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -50,7 +51,24 @@ public class PathActivity extends MenuActivity {
       ((TextView) findViewById(R.id.target)).setText(pathTarget);
       ((TextView) findViewById(R.id.duration)).setText(pathEstimatedDuration);
 
+      DataRequestMaker.getPath(getApplicationContext(), pathId, new AbstractDataManagerListener<Path>() {
+         @Override
+         public void onResponse(Path response) {
+            for(int i = 0; i < response.steps.size(); ++i) {
+               Log.i("Step", "" + i + " " + response.steps.get(i).stopBeacon.UUID);
+            }
+         }
+
+         @Override
+         public void onError(ServerError error) {
+
+         }
+      });
+
       setButton();
+
+
+
    }
 
    void setButton() {
