@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * @file AppInfoRequest.java
+ * @file ChangeProfileDataRequest.java
  * @date 20/07/16
  * @version 1.0.0
  * @author Andrea Grendene

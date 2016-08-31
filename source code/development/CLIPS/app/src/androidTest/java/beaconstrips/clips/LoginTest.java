@@ -22,7 +22,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @author Andrea Grendene
  *
  * classe che contiene il TU7 (Test di Unità 7). Verifica che la richiesta al server di login dell'utente sia effettuata correttamente.
- * Oltre al test con i dati corretti ne verrà effettuato due con dati errati, uno con un'email errata e l'altro con una password sbagliata.
+ * Oltre al test con i dati corretti ne verranno effettuati due con dati errati, uno con un'email errata e l'altro con una password sbagliata.
  *
  *
  * Stampa attesa per il test "login": "Chiamata login() eseguita con successo"

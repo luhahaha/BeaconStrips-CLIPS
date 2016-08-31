@@ -21,16 +21,20 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU9 (Test di Unità 9). Verifica che la richiesta al server di login dell'utente sia effettuata correttamente.
- * Oltre al test con i dati corretti ne verrà effettuato due con dati errati, uno con un'email errata e l'altro con una password sbagliata.
+ * classe che contiene il TU9 (Test di Unità 9). Verifica che la richiesta al server di cambiare i dati dell'utente sia effettuata correttamente.
+ * Oltre al test con i dati corretti ne verranno effettuati tre con dati errati, uno con un nuovo username errato, uno con una vecchia password sbagliata e l'ultimo con una nuova password non corretta.
  *
  *
  * Stampa attesa per il test "change": "Chiamata change() eseguita con successo"
- * Stampa attesa per il test "changeWrongEmail": "Rilevato un errore in changeWrongEmail():"
+ * Stampa attesa per il test "changeWrongUsername": "Rilevato un errore in changeWrongUsername():"
+ *                                                     "Codice dell'errore: 460"
+ *                                                     "Messaggio per l'utente: L'username Prova non è disponibile, scegline un altro!"
+ *                                                     "Messaggio di debug: Username is not available"
+ * Stampa attesa per il test "changeWrongPassword": "Rilevato un errore in changeWrongPassword():"
  *                                                     "Codice dell'errore: 460"
  *                                                     "Messaggio per l'utente: "
  *                                                     "Messaggio di debug: l'utente non esiste"
- * Stampa attesa per il test "changeWrongPassword": "Rilevato un errore in changeWrongPassword():"
+ * Stampa attesa per il test "changeWrongOldPassword": "Rilevato un errore in changeWrongOldPassword():"
  *                                                     "Codice dell'errore: 460"
  *                                                     "Messaggio per l'utente: "
  *                                                     "Messaggio di debug: l'utente non esiste"
@@ -46,9 +50,9 @@ public class ChangeTest {
       Context context = rule.getActivity().getBaseContext();
       android.content.SharedPreferences preferences = android.preference.PreferenceManager.getDefaultSharedPreferences(context);
       android.content.SharedPreferences.Editor editor = preferences.edit();
-      editor.putString("token", "bf0fe8d39cac");
+      editor.putString("token", "9b444df00879");
       editor.apply();
-      RequestMaker.changeProfileData(context, "UsernameCorretto", "Cenze94", "provaCorretta", new AbstractUrlRequestListener() {
+      RequestMaker.changeProfileData(context, "Nuovo Cenze", "Cenze94", "Cenze95", new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
             Log.d("ChangeTest", "Chiamata change() eseguita con successo");
          }
@@ -61,15 +65,15 @@ public class ChangeTest {
       });
    }
 
-   /*@Test
+   @Test
    public void changeWrongUsername() {
       Context context = rule.getActivity().getBaseContext();
-      RequestMaker.changeProfileData(context, "prova@gmail.com", "", "prova", new AbstractUrlRequestListener() {
+      RequestMaker.changeProfileData(context, "Prova", "Cenze94", "Cenze95", new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
-            Log.d("ChangeTest", "Chiamata changeWrongEmail() eseguita con successo");
+            Log.d("ChangeTest", "Chiamata changeWrongUsername() eseguita con successo");
          }
          public void onError(ServerError error) {
-            Log.d("ChangeTest", "Rilevato un errore in changeWrongEmail():");
+            Log.d("ChangeTest", "Rilevato un errore in changeWrongUsername():");
             Log.d("ChangeTest", "Codice dell'errore: " + error.errorCode);
             Log.d("ChangeTest", "Messaggio per l'utente: " + error.userMessage);
             Log.d("ChangeTest", "Messaggio di debug: " + error.debugMessage);
@@ -80,7 +84,7 @@ public class ChangeTest {
    @Test
    public void changeWrongPassword() {
       Context context = rule.getActivity().getBaseContext();
-      RequestMaker.changeProfileData(context, "p@gmail.com", "", "prova33", new AbstractUrlRequestListener() {
+      RequestMaker.changeProfileData(context, "Nuovo Cenze", "Cenze94", "Cenze", new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
             Log.d("ChangeTest", "Chiamata changeWrongPassword() eseguita con successo");
          }
@@ -96,7 +100,7 @@ public class ChangeTest {
    @Test
    public void changeWrongOldPassword() {
       Context context = rule.getActivity().getBaseContext();
-      RequestMaker.changeProfileData(context, "p@gmail.com", "passwordErrata", "prova33", new AbstractUrlRequestListener() {
+      RequestMaker.changeProfileData(context, "Nuovo Cenze", "passwordErrata", "Cenze95", new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
             Log.d("ChangeTest", "Chiamata changeWrongOldPassword() eseguita con successo");
          }
@@ -107,5 +111,5 @@ public class ChangeTest {
             Log.d("ChangeTest", "Messaggio di debug: " + error.debugMessage);
          }
       });
-   }*/
+   }
 }

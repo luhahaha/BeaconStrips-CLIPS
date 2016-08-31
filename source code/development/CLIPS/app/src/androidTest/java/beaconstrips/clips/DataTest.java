@@ -58,14 +58,16 @@ import beaconstrips.clips.client.pathprogress.RawBeacon;
  *                                         "   Testo da mostrare: Sei a due terzi"
  *                                         "Proximity di un beacon errato: null"
  * Stampa attesa per il test "proofResultTest()": "Stampa di getDuration(): 02:35:35.000"
- * Stampa attesa per il test "linearScoringAlgorithmTest()": "Stampa di getScore() standard: 34.0"
- *                                                           "Stampa di getScore() con il risultato a metà esatta: 30.0"
- *                                                           "Stampa di getScore() con le risposte tutte errate: 20.0"
- *                                                           "Stampa di getScore() con le risposte tutte esatte: 40.0"
- *                                                           "Stampa di getScore() con un tempo minore del minimo previsto: 30.0"
- *                                                           "Stampa di getScore() con un tempo maggiore del massimo previsto: 50.0"
+ * Stampa attesa per il test "linearScoringAlgorithmTest()": "Stampa di getScore() standard: 24.0"
+ *                                                           "Stampa di getScore() con il risultato a metà esatta: 20.0"
+ *                                                           "Stampa di getScore() con le risposte tutte errate: 10.0"
+ *                                                           "Stampa di getScore() con le risposte tutte esatte: 30.0"
+ *                                                           "Stampa di getScore() con un tempo minore del minimo previsto: 34.0"
+ *                                                           "Stampa di getScore() con un tempo maggiore del massimo previsto: 14.0"
  *                                                           "Stampa di getScore() senza tenere conto del tempo: 28.0"
- *                                                           "Stampa di getScore() senza tenere conto di quante risposte sono corrette: 40.0"
+ *                                                           "Stampa di getScore() senza tenere conto di quante risposte sono corrette: 20.0"
+ *                                                           "Stampa di getScore() con un punteggio minimo e senza tempo minimo: 25.5"
+ *                                                           "Stampa di getScore() con un punteggio minimo: 28.0"
  * Stampa attesa per il test "buildingTest()": "Risultati di getPathInfo():"
  *                                             "   Path 0:"
  *                                             "      ID: 1"
@@ -173,12 +175,16 @@ public class DataTest {
       Log.d("DataTest", "Stampa di getScore() con il risultato a metà esatta: " + algorithm.getScore(20, 5, 10));
       Log.d("DataTest", "Stampa di getScore() con le risposte tutte errate: " + algorithm.getScore(20, 0, 10));
       Log.d("DataTest", "Stampa di getScore() con le risposte tutte esatte: " + algorithm.getScore(20, 10, 10));
-      Log.d("DataTest", "Stampa di getScore() con un tempo minore del minimo previsto: " + algorithm.getScore(9, 10, 10));
-      Log.d("DataTest", "Stampa di getScore() con un tempo maggiore del massimo previsto: " + algorithm.getScore(31, 10, 10));
+      Log.d("DataTest", "Stampa di getScore() con un tempo minore del minimo previsto: " + algorithm.getScore(9, 7, 10));
+      Log.d("DataTest", "Stampa di getScore() con un tempo maggiore del massimo previsto: " + algorithm.getScore(31, 7, 10));
       algorithm = new LinearScoringAlgorithm(0, 40, 10, 30, 0, 1);
       Log.d("DataTest", "Stampa di getScore() senza tenere conto del tempo: " + algorithm.getScore(20, 7, 10));
       algorithm = new LinearScoringAlgorithm(0, 40, 10, 30, 1, 0);
       Log.d("DataTest", "Stampa di getScore() senza tenere conto di quante risposte sono corrette: " + algorithm.getScore(20, 7, 10));
+      algorithm = new LinearScoringAlgorithm(10, 40, 0, 30, 1, 1);
+      Log.d("DataTest", "Stampa di getScore() con un punteggio minimo e senza tempo minimo: " + algorithm.getScore(20, 7, 10));
+      algorithm = new LinearScoringAlgorithm(10, 40, 10, 30, 1, 1);
+      Log.d("DataTest", "Stampa di getScore() con un punteggio minimo: " + algorithm.getScore(20, 7, 10));
    }
 
    @Test

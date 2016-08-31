@@ -22,18 +22,14 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @author Andrea Grendene
  *
  * classe che contiene il TU (Test di Unità ). Verifica che la richiesta al server di cambiare la password dimenticata dell'utente sia effettuata correttamente.
- * L'output atteso è un errore perché l'invio automatico dell'email non è stato ancora implementato, di conseguenza tramite questo errore viene comunicato se la password è stata cambiata e qual è quella nuova.
+ * Dato che la richiesta è molto lenta in caso di successo il primo test aspetta due secondi in più prima di chiudersi, in questo modo dovrebbe arrivare l'esito senza problemi.
  * C'è inoltre un altro test che verifica se viene restituito l'errore corretto quando l'email inviata risulta errata.
  *
- * Stampa attesa per il test "forgotPassword": "Rilevato un errore in forgotPassword():"
- *                                             "Codice dell'errore: 552"
- *                                             "Messaggio per l'utente: L'opzione di invio della nuova password per email non è ancora disponibile, puoi usare la password: <password>"
- *                                             "Messaggio di debug: Sending function doesn't work yet."
+ * Stampa attesa per il test "forgotPassword": "Chiamata forgotPassword() eseguita con successo"
  * Stampa attesa per il test "forgotPasswordWrongEmail": "Rilevato un errore in forgotPasswordWrongEmail():"
  *                                             "Codice dell'errore: 462"
  *                                             "Messaggio per l'utente: Nessun utente è registrato con l'indirizzo email c@gmail.com"
  *                                             "Messaggio di debug: email (c@gmail.com) not found in registered users"
- * Legenda: "<password>" indica che al suo posto dev'essere segnata la password nuova, siccome è generata automaticamente il valore ricevuto è variabile.
  */
 @RunWith(AndroidJUnit4.class)
 @SmallTest
@@ -55,6 +51,11 @@ public class ForgotPasswordTest {
             Log.d("ForgotPasswordTest", "Messaggio di debug: " + error.debugMessage);
          }
       });
+      try {
+         Thread.sleep(2000);
+      } catch(InterruptedException e) {
+         Log.d("ForgotPasswordTest", "Errore con l'attesa forzata del test, il messaggio di riuscita del test potrebbe non essere arrivato");
+      }
    }
 
    @Test
