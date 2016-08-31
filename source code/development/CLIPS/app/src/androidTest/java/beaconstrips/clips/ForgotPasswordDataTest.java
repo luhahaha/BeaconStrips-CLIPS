@@ -1,11 +1,14 @@
 package beaconstrips.clips;
 
 import android.content.Context;
+import android.support.test.filters.SmallTest;
 import android.support.test.rule.ActivityTestRule;
+import android.support.test.runner.AndroidJUnit4;
 import android.util.Log;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.LoginManager;
@@ -22,6 +25,8 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  *
  * Stampa attesa per il test "forgotPassword": "Chiamata forgotPassword() eseguita con successo"
  */
+@RunWith(AndroidJUnit4.class)
+@SmallTest
 public class ForgotPasswordDataTest {
    @Rule
    public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
