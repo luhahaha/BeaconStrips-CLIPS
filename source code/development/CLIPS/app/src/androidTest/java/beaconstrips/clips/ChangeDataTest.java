@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import beaconstrips.clips.client.data.LoggedUser;
+import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.LoginManager;
 import beaconstrips.clips.client.urlrequest.AbstractUrlRequestListener;
 import beaconstrips.clips.client.urlrequest.RequestMaker;
@@ -41,12 +42,14 @@ public class ChangeDataTest {
       final android.content.SharedPreferences preferences = android.preference.PreferenceManager.getDefaultSharedPreferences(context);
       android.content.SharedPreferences.Editor editor = preferences.edit();
       editor.putString("token", "9b444df00879");
+      editor.putString("username", "Cenze");
+      editor.putString("email", "cenze@gmail.com");
       editor.apply();
       LoggedUser loggedUser = LoginManager.sharedManager(context).getLoggedUser();
       Log.d("ChangeDataTest", "Username del file: " + preferences.getString("username", ""));
       Log.d("ChangeDataTest", "Username di loggedUser: " + loggedUser.username);
-      RequestMaker.changeProfileData(context, "Nuovo Cenze", "Cenze94", "Cenze95", new AbstractUrlRequestListener() {
-         public void onResponse(JSONObject response) {
+      LoginManager.sharedManager(context).change("Nuovo Cenze", "Cenze94", "Cenze95", new AbstractDataManagerListener<Boolean>() {
+         public void onResponse(Boolean response) {
             LoggedUser loggedUser = LoginManager.sharedManager(context).getLoggedUser();
             Log.d("ChangeDataTest", "Chiamata change() eseguita con successo");
             Log.d("ChangeDataTest", "   Username del file: " + preferences.getString("username", ""));
