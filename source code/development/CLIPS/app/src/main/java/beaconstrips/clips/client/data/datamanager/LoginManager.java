@@ -154,20 +154,9 @@ public class LoginManager {
             try {
                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
                SharedPreferences.Editor editor = preferences.edit();
-               String token = preferences.getString("token", "");
-               if(!token.equals(response.getString("token"))) {
-                  editor.remove("token");
-                  editor.putString("token", response.getString("token"));
-                  editor.remove("email");
-                  editor.putString("email", response.getString("email"));
-                  editor.remove("username");
-                  editor.putString("username", response.getString("username"));
-                  loggedUser = new LoggedUser(response.getString("token"), response.getString("email"), response.getString("username"));
-               } else {
-                  editor.remove("username");
-                  editor.putString("username", response.getString("username"));
-                  loggedUser = new LoggedUser(loggedUser.token, loggedUser.email, response.getString("username"));
-               }
+               editor.remove("username");
+               editor.putString("username", response.getString("username"));
+               loggedUser = new LoggedUser(loggedUser.token, loggedUser.email, response.getString("username"));
                editor.apply();
                listener.onResponse(true);
             } catch (JSONException e) {
