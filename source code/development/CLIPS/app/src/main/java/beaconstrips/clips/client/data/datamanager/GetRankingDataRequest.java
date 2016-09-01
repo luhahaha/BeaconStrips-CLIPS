@@ -40,7 +40,7 @@ public class GetRankingDataRequest extends DataManager<Score[]> {
          Score[] ranking = new Score[array.length()];
          for(int i=0; i<array.length(); i++) {
             JSONObject score = array.getJSONObject(i);
-            ranking[i] = new Score(score.getString("username"), score.getInt("position"), score.getInt("score"));
+            ranking[i] = new Score(score.getString("username"), i+1, score.getInt("totalScore"));
          }
          return ranking;
       } catch(JSONException e) {
