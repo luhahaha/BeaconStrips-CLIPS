@@ -31,13 +31,14 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  *                                                     "Messaggio per l'utente: L'username Prova non è disponibile, scegline un altro!"
  *                                                     "Messaggio di debug: Username is not available"
  * Stampa attesa per il test "changeWrongPassword": "Rilevato un errore in changeWrongPassword():"
- *                                                     "Codice dell'errore: 460"
- *                                                     "Messaggio per l'utente: "
- *                                                     "Messaggio di debug: l'utente non esiste"
+ *                                                     "Codice dell'errore: 461"
+ *                                                     "Messaggio per l'utente: La password deve contenere almeno 6 caratteri e al massimo 16."
+ *                                                     "Sono ammesse le lettere latine senza accenti (maiuscole e minuscole), i numeri e i segni ! @ # $ & ( ) - / \ _ ?"
+ *                                                     "Messaggio di debug: new password is NOT valid"
  * Stampa attesa per il test "changeWrongOldPassword": "Rilevato un errore in changeWrongOldPassword():"
- *                                                     "Codice dell'errore: 460"
- *                                                     "Messaggio per l'utente: "
- *                                                     "Messaggio di debug: l'utente non esiste"
+ *                                                     "Codice dell'errore: 461"
+ *                                                     "Messaggio per l'utente: La vecchia password non corrisponde"
+ *                                                     "Messaggio di debug: oldPassword not matching with stored password"
  */
 @RunWith(AndroidJUnit4.class)
 @SmallTest
@@ -68,7 +69,7 @@ public class ChangeTest {
    @Test
    public void changeWrongUsername() {
       Context context = rule.getActivity().getBaseContext();
-      RequestMaker.changeProfileData(context, "Prova", "Cenze94", "Cenze95", new AbstractUrlRequestListener() {
+      RequestMaker.changeProfileData(context, "Prova", "Cenze95", "Cenze94", new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
             Log.d("ChangeTest", "Chiamata changeWrongUsername() eseguita con successo");
          }

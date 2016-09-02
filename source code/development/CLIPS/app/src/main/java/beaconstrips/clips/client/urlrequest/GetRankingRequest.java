@@ -17,17 +17,7 @@ import org.json.JSONObject;
  */
 public class GetRankingRequest extends URLRequest {
    GetRankingRequest(Context cx, int pathID, AbstractUrlRequestListener listener) {
-      super(cx, Request.Method.POST, URLDataConstants.baseURL + "ranking", setBody(pathID), true, listener);
+      super(cx, Request.Method.GET, URLDataConstants.baseURL + "leaderboard/" + pathID, null, true, listener);
       execute(ResponseExpected.Array);
-   }
-
-   private static JSONObject setBody(int pathID) {
-      JSONObject body = new JSONObject();
-      try {
-         body.put("pathID", pathID);
-      } catch (JSONException e) {
-         signalError();
-      }
-      return body;
    }
 }
