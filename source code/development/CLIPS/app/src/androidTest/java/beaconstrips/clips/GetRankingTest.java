@@ -21,7 +21,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU12 (Test di Unità 12). Verifica che la richiesta dei risultati ottenuti dall'utente sia effettuata correttamente.
+ * classe che contiene il TU12 (Test di Unità 12). Verifica che la richiesta al server dei risultati ottenuti dall'utente sia effettuata correttamente.
  *
  * Stampa attesa per il test "getRanking": "Chiamata getRanking() eseguita con successo"
  */
