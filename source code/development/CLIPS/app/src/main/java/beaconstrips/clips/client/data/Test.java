@@ -1,5 +1,7 @@
 package beaconstrips.clips.client.data;
 
+import java.io.Serializable;
+
 /**
  * @file Test.java
  * @date 01/08/16
@@ -8,5 +10,5 @@ package beaconstrips.clips.client.data;
  *
  * classe astratta che rappresenta un test, ovvero un insieme di domande o giochi dello stesso tipo
  */
-public abstract class Test {
+public abstract class Test implements Serializable{
 }

@@ -1,5 +1,7 @@
 package beaconstrips.clips.client.data;
 
+import java.io.Serializable;
+
 /**
  * @file TrueFalseTextQuiz.java
  * @date 15/07/16
@@ -8,7 +10,7 @@ package beaconstrips.clips.client.data;
  *
  * classe che rappresenta una domanda vero o falso
  */
-public class TrueFalseTextQuiz extends AbstractQuiz {
+public class TrueFalseTextQuiz extends AbstractQuiz implements Serializable{
    public final Boolean response; //Dato che la domanda è booleana basta un dato boolean per rappresentare la risposta
 
    public TrueFalseTextQuiz(String helpText, String instructions, boolean response) {

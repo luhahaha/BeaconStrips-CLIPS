@@ -1,5 +1,6 @@
 package beaconstrips.clips.client.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -10,7 +11,7 @@ import java.util.ArrayList;
  *
  * classe che rappresenta una stazione diun percorso, contiene quindi un beacon di riferimento, una prova e una lista di beacon da usare come indicatori di prossimità della stazione durante la sua ricerca
  */
-public class Step {
+public class Step implements Serializable{
    public final Beacon stopBeacon;
    public final ArrayList<Proximity> proximities;
    public final Proof proof;

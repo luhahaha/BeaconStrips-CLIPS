@@ -1,5 +1,6 @@
 package beaconstrips.clips.client.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import beaconstrips.clips.client.pathprogress.RawBeacon;
@@ -12,7 +13,7 @@ import beaconstrips.clips.client.pathprogress.RawBeacon;
  *
  * classe i dati di un percorso, ovvero il messaggio di inizio, quello di fine e l'elenco delle stazioni
  */
-public class Path {
+public class Path implements Serializable {
    public final int id;
    public final String startingMessage;
    public final String rewardMessage;
