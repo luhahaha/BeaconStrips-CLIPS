@@ -3,26 +3,26 @@
 \section{Design pattern utilizzati}
 \label{pattern}
 \subsection{Pattern architetturali}
-	\subsubsection{Model View Controller}
+	\subsubsection{Model View Presenter}
 	
 		\begin{figure}[!h]
 			\centering
-			\includegraphics[scale=0.5]{img/mvc}  
-			\caption{Struttura del pattern MVC}
+			\includegraphics[scale=0.5]{img/mvp}  
+			\caption{Struttura del pattern MVP}
 		\end{figure}
 		
 		\begin{itemize}	
-			\item \textbf{Descrizione} \\ Model View Controller è un design pattern architetturale che permette di dividere l'architettura del sistema che si intende sviluppare in tre blocchi:
+			\item \textbf{Descrizione} \\ Model View Presenter è un design pattern architetturale simile al Model View Controller nel quale il presenter è posizionato tra model e view. Permette di dividere l'architettura del sistema che si intende sviluppare in tre blocchi:
 			\begin{itemize}
-				\item \textbf{il modello} che contiene le classi con i metodi di accesso ai dati;
-				\item \textbf{la vista} che contiene le classi che permettono all'utente di visualizzare i dati e di interagire con il modello;
-				\item \textbf{il controllore} che si occupa di fare da tramite tra vista e modello, ovvero riceve i comandi dell'utente attraverso la vista e va a cambiare lo stato del modello di conseguenza, successivamente aggiorna la vista.				
+				\item \textbf{il model} che contiene le classi con i metodi di accesso ai dati;
+				\item \textbf{la view}, completamente pasiva, contiene le classi che permettono all'utente di visualizzare i dati e segnala tramite gli eventi le interazioni dell'utente;
+				\item \textbf{il presenter} che si occupa di fare da tramite tra vista e modello, ovvero riceve i comandi dell'utente attraverso la vista e va a cambiare lo stato del modello di conseguenza, successivamente aggiorna la vista.				
 			\end{itemize}
 			
 			\item \textbf{Vantaggi} \\
 			Questo pattern architetturale permette il riuso del codice in quanto molte parti di lavoro sono indipendenti. Ad esempio il modello creato potrà essere utilizzato con diverse viste. \\ Grazie all'indipendenza di alcune parti è semplice dividere il lavoro tra più componenti di un team e sarà quindi più facile anche la manutenzione.
 			\utilizzo \\
-			Nel nostro progetto il pattern MVC è usato nella parte client dell'architettura. 
+			Nel nostro progetto il pattern MVP è usato nella parte client dell'architettura, nello specifico il model è rappresentato dalle classi del database locale, ciè quelle del package \textbf{Data}, le view sono rappresentate dai \textbf{file XML} di Android che vengono utilizzati per la gestione del layout mentre il presenter è costituito dalle classi \textbf{activity} e dalle classi all'interno del package \textbf{Datamanager}.
 		\end{itemize}
 		
 		\newpage
