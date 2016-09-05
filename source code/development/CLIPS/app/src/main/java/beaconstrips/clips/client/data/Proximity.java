@@ -1,5 +1,7 @@
 package beaconstrips.clips.client.data;
 
+import java.io.Serializable;
+
 /**
  * @file Proximity.java
  * @date 19/07/16
@@ -9,7 +11,7 @@ package beaconstrips.clips.client.data;
  * classe che rappresenta i dati della distanza dell'utente da un beacon
  */
 
-public class Proximity {
+public class Proximity implements Serializable{
    public final Beacon beacon;
    public final double percentage;
    public final String textToDisplay;

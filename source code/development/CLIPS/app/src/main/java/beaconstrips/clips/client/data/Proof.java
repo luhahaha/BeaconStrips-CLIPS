@@ -2,6 +2,8 @@ package beaconstrips.clips.client.data;
 
 import org.json.JSONObject;
 
+import java.io.Serializable;
+
 /**
  * @file Proof.java
  * @date 19/07/16
@@ -10,7 +12,7 @@ import org.json.JSONObject;
  *
  * classe che rappresenta una prova, contiene quindi un test, un algoritmo di calcolo del punteggio, un titolo e una spiegazione
  */
-public class Proof {
+public class Proof implements Serializable{
    public final int id;
    public final String instructions;
    public final String title;

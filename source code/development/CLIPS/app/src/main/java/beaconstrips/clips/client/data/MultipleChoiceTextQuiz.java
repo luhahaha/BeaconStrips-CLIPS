@@ -1,5 +1,7 @@
 package beaconstrips.clips.client.data;
 
+import java.io.Serializable;
+
 /**
  * @file MultipleChoiceTextQuiz.java
  * @date 15/07/16
@@ -8,7 +10,7 @@ package beaconstrips.clips.client.data;
  *
  * classe che rappresenta una domanda a risposta multipla con 4 scelte possibili
  */
-public class MultipleChoiceTextQuiz extends AbstractQuiz {
+public class MultipleChoiceTextQuiz extends AbstractQuiz implements Serializable{
    public final String trueResponse;
    public final String falseResponse[];
 

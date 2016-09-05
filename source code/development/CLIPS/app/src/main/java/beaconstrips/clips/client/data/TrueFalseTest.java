@@ -1,5 +1,6 @@
 package beaconstrips.clips.client.data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ import java.util.List;
  *
  * classe che contiene un test di TrueFalseImageQuiz e TrueFalseTextQuiz, il parametro shuffleQuestions indica se le domande devono essere poste nell'ordine in cui sono salvate o in modo misto
  */
-public class TrueFalseTest extends Test {
+public class TrueFalseTest extends Test implements Serializable{
    public final boolean shuffleQuestions;
    public final List<TrueFalseTextQuiz> questions;
 
