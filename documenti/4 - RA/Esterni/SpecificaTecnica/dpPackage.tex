@@ -1,7 +1,8 @@
+\subsection{Descrizione dei componenti}
 \begin{componente}{CLIPS}
 \compDescrizione{package generale contenente il prodotto del progetto}
 \begin{compPackageContenuti}
-\item CLIPS::client: componente globale per il front end del prodotto che utilizza il design pattern \gl{MVC}. Si occupa di fornire un'interfaccia grafica dell'applicazione e di interagire con il lato server.
+\item CLIPS::client: componente globale per il front end del prodotto che utilizza il design pattern \gl{MVP}. Si occupa di fornire un'interfaccia grafica dell'applicazione e di interagire con il lato server.
 \item CLIPS::server: componente globale per il back end del prodotto
 \end{compPackageContenuti}
 \end{componente}
@@ -11,115 +12,13 @@
 \includegraphics[scale=0.5]{img/package/png/client.png}
 \caption{Schema package client}
  \end{figure}
-\compDescrizione{componente globale per il front end del prodotto che utilizza il design pattern \gl{MVC}. Si occupa di fornire un'interfaccia grafica dell'applicazione e di interagire con il lato server.}
+\compDescrizione{componente globale per il front end del prodotto che utilizza il design pattern \gl{MVP}. Si occupa di fornire un'interfaccia grafica dell'applicazione e di interagire con il lato server.}
 \compPadre{CLIPS}
 \begin{compPackageContenuti}
-\item CLIPS::client::authentication: componente che si occupa di gestire l'autenticazione dell'utente
 \item CLIPS::client::data: package per la gestione in locale dei dati
 \item CLIPS::client::pathprogress: componente che gestisce i dati del percorso, l'individuazione e la lettura dei beacon e salva i risultati ottenuti nelle prove mentre si sta giocando
 \item CLIPS::client::viewcontroller: componente che raggruppa tutte le view ed i controller relativi alle view
 \end{compPackageContenuti}
-\end{componente}
-\begin{componente}{CLIPS::client::authentication}
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication1.png}
-\caption{Prima parte schema package client::viewcontroller::authentication}
- \end{figure}
- \begin{figure}[h!]
- 	\centering
- 	\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication2.png}
- 	\caption{Seconda parte schema package client::viewcontroller::authentication}
- \end{figure}
-\compDescrizione{componente che si occupa di gestire l'autenticazione dell'utente}
-\compPadre{client}
-\begin{compClassi} \\
-\begin{classe}{CLIPS::client::authentication::AccountActivity}
-\classeDescrizione{classe controller che si occupa di interagire con AccountView}
-\classeUtilizzo{si occupa di gestire le interazioni dell'utente con AccountView}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{AccountViewDelegate}{interfaccia per segnalare gli eventi della classe AccountView}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::AccountView}
-\classeDescrizione{classe che rappresenta la schermata delle informazioni dell'utente}
-\classeUtilizzo{permette all'utente di visualizzare le informazioni del proprio profilo}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{AccountActivity}{classe controller che si occupa di interagire con AccountView}\classeRelazione{CLIPS::client::authentication}{AccountViewDelegate}{interfaccia per segnalare gli eventi della classe AccountView}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::AccountViewDelegate}
-\classeDescrizione{interfaccia per segnalare gli eventi della classe AccountView}
-\classeUtilizzo{si occupa di fornire i metodi necessari alla classe AccountView per notificare gli eventi}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{AccountActivity}{classe controller che si occupa di interagire con AccountView}\classeRelazione{CLIPS::client::authentication}{AccountView}{classe che rappresenta la schermata delle informazioni dell'utente}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::ForgotPasswordActivity}
-\classeDescrizione{classe controller che si occupa di interagire con ForgotPasswordView}
-\classeUtilizzo{si occupa di gestire le interazioni dell'utente con ForgotPasswordView}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{ForgotPasswordView}{classe che si occupa della visualizzazione della schermata per la richiesta di una nuova password}\classeRelazione{CLIPS::client::authentication}{ForgotPasswordViewDelegate}{interfaccia per segnalare gli eventi della classe ForgotPasswordView}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::ForgotPasswordView}
-\classeDescrizione{classe che si occupa della visualizzazione della schermata per la richiesta di una nuova password}
-\classeUtilizzo{consente all'utente di inserire la mail per ricevere una nuova password}
-%\begin{classeAttributi}
-%\classeAttributo{emailTextField}{TextField}{text field dell'email}
-%\end{classeAttributi}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{ForgotPasswordViewDelegate}{interfaccia per segnalare gli eventi della classe ForgotPasswordView}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::ForgotPasswordViewDelegate}
-\classeDescrizione{interfaccia per segnalare gli eventi della classe ForgotPasswordView}
-\classeUtilizzo{si occupa di fornire i metodi necessari alla classe ForgotPasswordView per notificare gli eventi}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{ForgotPasswordActivity}{classe controller che si occupa di interagire con ForgotPasswordView}\classeRelazione{CLIPS::client::authentication}{ForgotPasswordView}{classe che si occupa della visualizzazione della schermata per la richiesta di una nuova password}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::LoginActivity}
-\classeDescrizione{classe controller che si occupa di interagire con LoginView}
-\classeUtilizzo{si occupa di gestire le interazioni dell'utente con LoginView}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{LoginView}{classe che si occupa della visualizzazione della schermata per il login}\classeRelazione{CLIPS::client::authentication}{LoginViewDelegate}{interfaccia per segnalare gli eventi della classe LoginView}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::LoginView}
-\classeDescrizione{classe che si occupa della visualizzazione della schermata per il login}
-\classeUtilizzo{consente all'utente di inserire i propri dati per effettuare il login}
-%\begin{classeAttributi}
-%\classeAttributo{emailTextField}{string}{rappresenta l'email}
-%\end{classeAttributi}
-%\begin{classeMetodi}
-%\classeMetodo{forgotPasswordPressed()}{}{void}{invia un evento il quale notifica che il bottone di password dimenticata è stato premuto}
-%\classeMetodo{loginButtonPressed()}{}{void}{invia un evento di bottone del login premuto}
-%\end{classeMetodi}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{LoginViewDelegate}{interfaccia per segnalare gli eventi della classe LoginView}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::LoginViewDelegate}
-\classeDescrizione{interfaccia per segnalare gli eventi della classe LoginView}
-\classeUtilizzo{si occupa di fornire i metodi necessari alla classe LoginView per notificare gli eventi}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{LoginActivity}{classe controller che si occupa di interagire con LoginView}\classeRelazione{CLIPS::client::authentication}{LoginView}{classe che si occupa della visualizzazione della schermata per il login}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::RegistrationActivity}
-\classeDescrizione{classe controller che si occupa di interagire con RegistrationView}
-\classeUtilizzo{si occupa di gestire le interazioni dell'utente con RegistrationView}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{RegistrationView}{classe che si occupa della visualizzazione della schermata per la registrazione}\classeRelazione{CLIPS::client::authentication}{RegistrationViewDelegate}{interfaccia per segnalare gli eventi della classe RegistrationView}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::RegistrationView}
-\classeDescrizione{classe che si occupa della visualizzazione della schermata per la registrazione}
-\classeUtilizzo{consente all'utente di inserire i propri dati per effettuare la registrazione}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{AccountViewDelegate}{interfaccia per segnalare gli eventi della classe AccountView}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::RegistrationViewDelegate}
-\classeDescrizione{interfaccia per segnalare gli eventi della classe RegistrationView}
-\classeUtilizzo{si occupa di fornire i metodi necessari alla classe RegistrationView per notificare gli eventi}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{RegistrationActivity}{classe controller che si occupa di interagire con RegistrationView}\classeRelazione{CLIPS::client::authentication}{RegistrationActivity}{classe controller che si occupa di interagire con RegistrationView}\classeRelazione{CLIPS::client::authentication}{RegistrationView}{classe che si occupa della visualizzazione della schermata per la registrazione}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::UpdateUserInfoActivity}
-\classeDescrizione{classe controller che si occupa di interagire con UpdateUserInfoView}
-\classeUtilizzo{si occupa di gestire le interazioni dell'utente con UpdateUserInfoView}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{UpdateUserInfoView}{classe che si occupa della visualizzazione della schermata per il cambio delle credenziali}\classeRelazione{CLIPS::client::authentication}{UpdateUserInfoViewDelegate}{interfaccia per segnalare gli eventi della classe UpdateUserInfoViewDelegate}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::UpdateUserInfoView}
-\classeDescrizione{classe che si occupa della visualizzazione della schermata per il cambio delle credenziali}
-\classeUtilizzo{consente all'utente di inserire i nuovi dati per cambiare le sue credenziali}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{UpdateUserInfoViewDelegate}{interfaccia per segnalare gli eventi della classe UpdateUserInfoViewDelegate}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::UpdateUserInfoViewDelegate}
-\classeDescrizione{interfaccia per segnalare gli eventi della classe UpdateUserInfoViewDelegate}
-\classeUtilizzo{si occupa di fornire i metodi necessari alla classe UpdateUserInfoViewDelegate per notificare gli eventi}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{UpdateUserInfoActivity}{classe controller che si occupa di interagire con UpdateUserInfoView}\classeRelazione{CLIPS::client::authentication}{UpdateUserInfoActivity}{classe controller che si occupa di interagire con UpdateUserInfoView}\classeRelazione{CLIPS::client::authentication}{UpdateUserInfoView}{classe che si occupa della visualizzazione della schermata per il cambio delle credenziali}\end{classeRelazioni}
-\end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::data}
 	\begin{figure}[h!]
@@ -563,6 +462,107 @@
 \item CLIPS::client::viewcontroller::utility: componente che raggruppa le view generali dell'app
 \end{compPackageContenuti}
 \end{componente}
+\begin{componente}{CLIPS::client::viewcontroller::authentication}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication1.png}
+		\caption{Prima parte schema package client::viewcontroller::authentication}
+	\end{figure}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication2.png}
+		\caption{Seconda parte schema package client::viewcontroller::authentication}
+	\end{figure}
+	\compDescrizione{componente che si occupa di gestire l'autenticazione dell'utente}
+	\compPadre{client}
+	\begin{compClassi} \\
+		\begin{classe}{CLIPS::client::viewcontroller::authentication::AccountActivity}
+			\classeDescrizione{classe controller che si occupa di interagire con AccountView}
+			\classeUtilizzo{si occupa di gestire le interazioni dell'utente con AccountView}
+			\begin{classeRelazioni}
+				\classeRelazione{CLIPS::client::viewcontroller::authentication}{AccountViewDelegate}{interfaccia per segnalare gli eventi della classe AccountView}\end{classeRelazioni}
+		\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::AccountView}
+		\classeDescrizione{classe che rappresenta la schermata delle informazioni dell'utente}
+		\classeUtilizzo{permette all'utente di visualizzare le informazioni del proprio profilo}
+		\begin{classeRelazioni}
+			\classeRelazione{CLIPS::client::viewcontroller::authentication}{AccountActivity}{classe controller che si occupa di interagire con AccountView}\classeRelazione{CLIPS::client::viewcontroller::authentication}{AccountViewDelegate}{interfaccia per segnalare gli eventi della classe AccountView}\end{classeRelazioni}
+	\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::AccountViewDelegate}
+	\classeDescrizione{interfaccia per segnalare gli eventi della classe AccountView}
+	\classeUtilizzo{si occupa di fornire i metodi necessari alla classe AccountView per notificare gli eventi}
+	\begin{classeRelazioni}
+		\classeRelazione{CLIPS::client::viewcontroller::authentication}{AccountActivity}{classe controller che si occupa di interagire con AccountView}\classeRelazione{CLIPS::client::viewcontroller::authentication}{AccountView}{classe che rappresenta la schermata delle informazioni dell'utente}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::ForgotPasswordActivity}
+\classeDescrizione{classe controller che si occupa di interagire con ForgotPasswordView}
+\classeUtilizzo{si occupa di gestire le interazioni dell'utente con ForgotPasswordView}
+\begin{classeRelazioni}
+	\classeRelazione{CLIPS::client::viewcontroller::authentication}{ForgotPasswordView}{classe che si occupa della visualizzazione della schermata per la richiesta di una nuova password}\classeRelazione{CLIPS::client::viewcontroller::authentication}{ForgotPasswordViewDelegate}{interfaccia per segnalare gli eventi della classe ForgotPasswordView}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::ForgotPasswordView}
+\classeDescrizione{classe che si occupa della visualizzazione della schermata per la richiesta di una nuova password}
+\classeUtilizzo{consente all'utente di inserire la mail per ricevere una nuova password}
+%\begin{classeAttributi}
+%\classeAttributo{emailTextField}{TextField}{text field dell'email}
+%\end{classeAttributi}
+\begin{classeRelazioni}
+	\classeRelazione{CLIPS::client::viewcontroller::authentication}{ForgotPasswordViewDelegate}{interfaccia per segnalare gli eventi della classe ForgotPasswordView}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::ForgotPasswordViewDelegate}
+\classeDescrizione{interfaccia per segnalare gli eventi della classe ForgotPasswordView}
+\classeUtilizzo{si occupa di fornire i metodi necessari alla classe ForgotPasswordView per notificare gli eventi}
+\begin{classeRelazioni}
+	\classeRelazione{CLIPS::client::viewcontroller::authentication}{ForgotPasswordActivity}{classe controller che si occupa di interagire con ForgotPasswordView}\classeRelazione{CLIPS::client::viewcontroller::authentication}{ForgotPasswordView}{classe che si occupa della visualizzazione della schermata per la richiesta di una nuova password}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::LoginActivity}
+\classeDescrizione{classe controller che si occupa di interagire con LoginView}
+\classeUtilizzo{si occupa di gestire le interazioni dell'utente con LoginView}
+\begin{classeRelazioni}
+	\classeRelazione{CLIPS::client::viewcontroller::authentication}{LoginView}{classe che si occupa della visualizzazione della schermata per il login}\classeRelazione{CLIPS::client::viewcontroller::authentication}{LoginViewDelegate}{interfaccia per segnalare gli eventi della classe LoginView}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::LoginView}
+\classeDescrizione{classe che si occupa della visualizzazione della schermata per il login}
+\classeUtilizzo{consente all'utente di inserire i propri dati per effettuare il login}
+%\begin{classeAttributi}
+%\classeAttributo{emailTextField}{string}{rappresenta l'email}
+%\end{classeAttributi}
+%\begin{classeMetodi}
+%\classeMetodo{forgotPasswordPressed()}{}{void}{invia un evento il quale notifica che il bottone di password dimenticata è stato premuto}
+%\classeMetodo{loginButtonPressed()}{}{void}{invia un evento di bottone del login premuto}
+%\end{classeMetodi}
+\begin{classeRelazioni}
+	\classeRelazione{CLIPS::client::viewcontroller::authentication}{LoginViewDelegate}{interfaccia per segnalare gli eventi della classe LoginView}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::LoginViewDelegate}
+\classeDescrizione{interfaccia per segnalare gli eventi della classe LoginView}
+\classeUtilizzo{si occupa di fornire i metodi necessari alla classe LoginView per notificare gli eventi}
+\begin{classeRelazioni}
+	\classeRelazione{CLIPS::client::viewcontroller::authentication}{LoginActivity}{classe controller che si occupa di interagire con LoginView}\classeRelazione{CLIPS::client::viewcontroller::authentication}{LoginView}{classe che si occupa della visualizzazione della schermata per il login}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::RegistrationActivity}
+\classeDescrizione{classe controller che si occupa di interagire con RegistrationView}
+\classeUtilizzo{si occupa di gestire le interazioni dell'utente con RegistrationView}
+\begin{classeRelazioni}
+	\classeRelazione{CLIPS::client::viewcontroller::authentication}{RegistrationView}{classe che si occupa della visualizzazione della schermata per la registrazione}\classeRelazione{CLIPS::client::viewcontroller::authentication}{RegistrationViewDelegate}{interfaccia per segnalare gli eventi della classe RegistrationView}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::RegistrationView}
+\classeDescrizione{classe che si occupa della visualizzazione della schermata per la registrazione}
+\classeUtilizzo{consente all'utente di inserire i propri dati per effettuare la registrazione}
+\begin{classeRelazioni}
+	\classeRelazione{CLIPS::client::viewcontroller::authentication}{AccountViewDelegate}{interfaccia per segnalare gli eventi della classe AccountView}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::RegistrationViewDelegate}
+\classeDescrizione{interfaccia per segnalare gli eventi della classe RegistrationView}
+\classeUtilizzo{si occupa di fornire i metodi necessari alla classe RegistrationView per notificare gli eventi}
+\begin{classeRelazioni}
+	\classeRelazione{CLIPS::client::viewcontroller::authentication}{RegistrationActivity}{classe controller che si occupa di interagire con RegistrationView}\classeRelazione{CLIPS::client::viewcontroller::authentication}{RegistrationActivity}{classe controller che si occupa di interagire con RegistrationView}\classeRelazione{CLIPS::client::viewcontroller::authentication}{RegistrationView}{classe che si occupa della visualizzazione della schermata per la registrazione}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::UpdateUserInfoActivity}
+\classeDescrizione{classe controller che si occupa di interagire con UpdateUserInfoView}
+\classeUtilizzo{si occupa di gestire le interazioni dell'utente con UpdateUserInfoView}
+\begin{classeRelazioni}
+	\classeRelazione{CLIPS::client::viewcontroller::authentication}{UpdateUserInfoView}{classe che si occupa della visualizzazione della schermata per il cambio delle credenziali}\classeRelazione{CLIPS::client::viewcontroller::authentication}{UpdateUserInfoViewDelegate}{interfaccia per segnalare gli eventi della classe UpdateUserInfoViewDelegate}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::UpdateUserInfoView}
+\classeDescrizione{classe che si occupa della visualizzazione della schermata per il cambio delle credenziali}
+\classeUtilizzo{consente all'utente di inserire i nuovi dati per cambiare le sue credenziali}
+\begin{classeRelazioni}
+	\classeRelazione{CLIPS::client::viewcontroller::authentication}{UpdateUserInfoViewDelegate}{interfaccia per segnalare gli eventi della classe UpdateUserInfoViewDelegate}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::UpdateUserInfoViewDelegate}
+\classeDescrizione{interfaccia per segnalare gli eventi della classe UpdateUserInfoViewDelegate}
+\classeUtilizzo{si occupa di fornire i metodi necessari alla classe UpdateUserInfoViewDelegate per notificare gli eventi}
+\begin{classeRelazioni}
+	\classeRelazione{CLIPS::client::viewcontroller::authentication}{UpdateUserInfoActivity}{classe controller che si occupa di interagire con UpdateUserInfoView}\classeRelazione{CLIPS::client::viewcontroller::authentication}{UpdateUserInfoActivity}{classe controller che si occupa di interagire con UpdateUserInfoView}\classeRelazione{CLIPS::client::viewcontroller::authentication}{UpdateUserInfoView}{classe che si occupa della visualizzazione della schermata per il cambio delle credenziali}\end{classeRelazioni}
+\end{classe}\end{compClassi}
+\end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::building}
 \begin{figure}[h!]
 \centering
@@ -875,7 +875,7 @@
 \classeDescrizione{classe controller che si occupa di interagire con AppInfoView}
 \classeUtilizzo{si occupa di gestire le interazioni dell'utente con AppInfoView}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{AccountViewDelegate}{interfaccia per segnalare gli eventi della classe AccountView}\classeRelazione{CLIPS::client::viewcontroller::utility}{AppInfoView}{classe che si occupa delle informazioni generali dell'app}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::viewcontroller::authentication}{AccountViewDelegate}{interfaccia per segnalare gli eventi della classe AccountView}\classeRelazione{CLIPS::client::viewcontroller::utility}{AppInfoView}{classe che si occupa delle informazioni generali dell'app}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::utility::AppInfoView}
 \classeDescrizione{classe che si occupa delle informazioni generali dell'app}
 \classeUtilizzo{permette all'utente di visualizzare le informazioni generali dell'app}
