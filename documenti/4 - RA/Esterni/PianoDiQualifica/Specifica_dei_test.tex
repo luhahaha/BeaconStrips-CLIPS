@@ -2,27 +2,28 @@
 \label{specificaDeiTest}
 	\subsection{Descrizione dei test}
 	\label{descrizioneDeiTest}
-		Vengono ora indicati i test di validazione, di sistema e di integrazione previsti. I test di unità saranno inseriti in un momento successivo. \\
-		Poiché i test saranno applicati in uno stadio di lavoro successivo a quello attuale, lo stato dei singoli è indicato come \textbf{N.I.}: non implementati. \\
-		Di ogni test verranno indicati la tipologia ed altri parametri come specificato dalla seguente sintassi:
-		\begin{itemize}
-					\item per i test di unità: \textbf{TU[Codice Test]};
-					\item per i test di integrazione: \textbf{TI[Identificativo del componente]};
-					\item per i test di sistema: \textbf{TS[Tipo Requisito][Codice Requisito]};
-					\item per i test di validazione: \textbf{TV[Tipo Requisito][Codice Requisito]}.
-		\end{itemize}
-		In particolare:
-		\begin{itemize}
-			\item \textbf{Codice Requisito}: è il codice gerarchico univoco di ogni vincolo espresso in numero (esempio: 1.3.2);
-			\item \textbf{Identificativo del componente}: corrisponde al componente i cui elementi sono integrati;
-			\item \textbf{Tipo Requisito}: può assumere solo uno fra i seguenti valori:
-			\begin{itemize}
-				\item F: funzionale;
-				\item Q: di qualità;
-				\item P: prestazionale;
-				\item V: di vincolo.
-			\end{itemize}
-		\end{itemize}
+		Vengono ora indicati i test di validazione, di sistema e di integrazione previsti e infine i test di unità. \\
+		Per ogni test ci sarà la dicitura N.I. qualora non fossero ancora stati implementati altrimenti IMPL.\\
+		Per la sintassi con cui verranno esposti si rimanda al documento \NPdoc.
+%		Di ogni test verranno indicati la tipologia ed altri parametri come specificato dalla seguente sintassi:
+%		\begin{itemize}
+%					\item per i test di unità: \textbf{TU[Codice Test]};
+%					\item per i test di integrazione: \textbf{TI[Identificativo del componente]};
+%					\item per i test di sistema: \textbf{TS[Tipo Requisito][Codice Requisito]};
+%					\item per i test di validazione: \textbf{TV[Tipo Requisito][Codice Requisito]}.
+%		\end{itemize}
+%		In particolare:
+%		\begin{itemize}
+%			\item \textbf{Codice Requisito}: è il codice gerarchico univoco di ogni vincolo espresso in numero (esempio: 1.3.2);
+%			\item \textbf{Identificativo del componente}: corrisponde al componente i cui elementi sono integrati;
+%			\item \textbf{Tipo Requisito}: può assumere solo uno fra i seguenti valori:
+%			\begin{itemize}
+%				\item F: funzionale;
+%				\item Q: di qualità;
+%				\item P: prestazionale;
+%				\item V: di vincolo.
+%			\end{itemize}
+%		\end{itemize}
 	\subsection{Modello a V}
 	\label{modelloAV}
 			Per la specificazione dei test si utilizzerà il Modello a V. Secondo questo modello il testing del software viene suddiviso in livelli differenti, i quali si concretizzano in un'esecuzione bottom-up che avanza sequenzialmente alle attività di codifica e di validazione. Ad ogni livello corrisponde un ciclo di uno specifico tipo di test, ed ogni test viene creato in base al relativo livello di progettazione.
