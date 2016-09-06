@@ -28,9 +28,9 @@
 % -- COMANDI PER LE COMPONENTI -- %
 \newenvironment{componente}[1]
 {
-	\subsubsection{Componente \texttt{#1}}
+	\subsection{Componente \texttt{#1}}
 	\label{#1}
-	\textbf{Informazioni sul package}
+	\subsubsection{Informazioni sul package}
 	\begin{itemize}
 }{
 	\end{itemize}
@@ -51,13 +51,13 @@
 	\end{itemize}
 }
 \newenvironment{compClassi} [1] {
-	\item \textbf{Classi}: {#1}
+	\subsubsection{Classi} {#1}
 	\begin{itemize}
 } {
 	\end{itemize}
 }
 \newenvironment{classe} [1] {
-	\item[] \texttt{#1} \\
+	\item[] \paragraph{\texttt{#1}} \\
 	\begin{itemize}
 } {
 	\end{itemize}
@@ -102,7 +102,7 @@
 \newcommand{\classeRelazione}[3]{\item \texttt{#1::#2}: {#3}}
 
 \def\NOME{Definizione di Prodotto}
-\def\VERSIONE{1.0.0}
+\def\VERSIONE{2.0.0}
 \def\DATA{\TODO}
 \def\REDATTORE{Viviana Alessio \\ & Matteo Franco \\ & Andrea Grandene \\ & Luca Soldera \\ & Tommaso Panozzo \\ & Enrico Bellio}
 \def\VERIFICATORE{Matteo Franco \\ & Luca Soldera}
