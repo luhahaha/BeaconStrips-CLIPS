@@ -23,9 +23,14 @@ import android.widget.TextView;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.List;
 
 import beaconstrips.clips.R;
+import beaconstrips.clips.client.data.GameCollection;
+import beaconstrips.clips.client.data.MultipleChoiceTest;
 import beaconstrips.clips.client.data.Path;
+import beaconstrips.clips.client.data.Test;
+import beaconstrips.clips.client.data.TrueFalseTest;
 import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.DataRequestMaker;
 import beaconstrips.clips.client.data.datamanager.PathDataRequest;
@@ -63,11 +68,24 @@ public class PathActivity extends MenuActivity {
          @Override
          public void onResponse(Path response) {
             for(int i = 0; i < response.steps.size(); ++i) {
-               Log.i("Step", "" + i + " " + response.steps.get(i).stopBeacon.UUID);
+               Log.i("Step", "" + i + " " + response.steps.get(i).stopBeacon.major);
+               Log.i("Proofs", "" + response.steps.get(i).proof.test.getClass());
+               Test test = response.steps.get(i).proof.test;
+               if(test instanceof GameCollection) {
+                  List<Test> tests = ((GameCollection) test).games;
+                  Log.i("Number of tests", "" + tests.size());
+               }
+               if(test instanceof MultipleChoiceTest) {
+                  Log.i("MultipleChoiceTest", "");
+               }
+               if(test instanceof TrueFalseTest) {
+                  Log.i("TrueFalseTest", "");
+               }
             }
             Bundle bundle = new Bundle();
             bundle.putSerializable("Path", response);
             searchStep.putExtras(bundle);
+            searchStep.putExtra("pathIndex", 0);
             try {
                new ObjectOutputStream(new ByteArrayOutputStream()).writeObject(response);
             } catch (IOException e) {

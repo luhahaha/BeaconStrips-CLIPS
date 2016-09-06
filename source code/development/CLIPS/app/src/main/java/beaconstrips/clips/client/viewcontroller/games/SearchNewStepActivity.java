@@ -40,13 +40,23 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import beaconstrips.clips.R;
+import beaconstrips.clips.client.data.GameCollection;
+import beaconstrips.clips.client.data.MultipleChoiceTest;
 import beaconstrips.clips.client.data.Path;
+import beaconstrips.clips.client.data.Proof;
+import beaconstrips.clips.client.data.Step;
+import beaconstrips.clips.client.data.Test;
+import beaconstrips.clips.client.data.TrueFalseTest;
+import beaconstrips.clips.client.data.TrueFalseTextQuiz;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
 public class SearchNewStepActivity extends MenuActivity {
 
     private ProximityManagerContract proximityManager;
     private Button startTestButton;
+    private Path path;
+    private int pathIndex;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,8 +67,10 @@ public class SearchNewStepActivity extends MenuActivity {
 
         Intent i = getIntent();
         Bundle bundle = i.getExtras();
+        pathIndex = i.getIntExtra("pathIndex", 0);
+
         if (bundle != null) {
-            Path path = (Path) bundle.getSerializable("Path");
+            path = (Path) bundle.getSerializable("Path");
             Log.i("Path", "Not null");
         }
         else
@@ -73,6 +85,7 @@ public class SearchNewStepActivity extends MenuActivity {
          */
         KontaktSDK.initialize(this);
         proximityManager = new ProximityManager(this);
+        getProof(pathIndex);
         configureProximityManager();
         configureListeners();
         configureSpaces();
@@ -147,12 +160,15 @@ public class SearchNewStepActivity extends MenuActivity {
         return new SimpleIBeaconListener() {
             @Override
             public void onIBeaconDiscovered(IBeaconDevice ibeacon, IBeaconRegion region) {
-                if (ibeacon.getUniqueId().equals("CS7J")) { //qui va modificato il beacon da trovare!
-                    Log.i("Sample", "IBeacon discovered! UniqueID: " + ibeacon.getUniqueId());
+                Step step = path.steps.get(pathIndex);
+                Log.i("Getting beacon", step.stopBeacon.UUID);
+                if (ibeacon.getProximityUUID().equals(java.util.UUID.fromString(step.stopBeacon.UUID))
+                    && ibeacon.getMajor() == step.stopBeacon.major
+                    && ibeacon.getMinor() == step.stopBeacon.minor) { //qui va modificato il beacon da trovare!
+                    Log.i("Searching beacon", String.valueOf(step.stopBeacon.major));
                     Log.i("Distance", "" + ibeacon.getProximity());
                     showToast("Hai trovato il beacon!");
                     startTestButton.setVisibility(View.VISIBLE);
-
                 }
             }
         };
@@ -177,12 +193,26 @@ public class SearchNewStepActivity extends MenuActivity {
         if (startTestButton != null) {
             startTestButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    Intent i = new Intent(getApplicationContext(), MultipleChoiceQuizActivity.class);
+                    GameCollection tests = (GameCollection) path.steps.get(pathIndex).proof.test;
+                    Test test = tests.games.get(pathIndex);
+                    Intent i = new Intent();
+                    if(test instanceof MultipleChoiceTest)
+                        i = new Intent(getApplicationContext(), MultipleChoiceQuizActivity.class);
+                    if(test instanceof TrueFalseTest)
+                        i = new Intent(getApplicationContext(), TrueFalseQuiz.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("Path", path);
+                    i.putExtras(bundle);
+                    i.putExtra("pathIndex", pathIndex);
                     startActivity(i);
                     //TODO add spinner for loading
 
                 }
             });
         }
+    }
+
+    private void getProof(int index) {
+
     }
 }
