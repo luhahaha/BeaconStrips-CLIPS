@@ -25,9 +25,17 @@ public class ChangeProfileDataRequest extends URLRequest {
    private static JSONObject setBody(String username, String oldPassword, String password) {
       JSONObject body = new JSONObject();
       try {
-         body.put("username", username);
+         if(username.equals("")) {
+            body.put("username", null);
+         } else {
+            body.put("username", username);
+         }
          body.put("oldPassword", oldPassword);
-         body.put("newPassword", password);
+         if(password.equals("")) {
+            body.put("password", null);
+         } else {
+            body.put("newPassword", password);
+         }
       } catch(JSONException e) {
          signalError();
       }

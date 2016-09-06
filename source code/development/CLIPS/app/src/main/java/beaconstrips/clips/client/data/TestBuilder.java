@@ -6,6 +6,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import beaconstrips.clips.client.urlrequest.URLDataConstants;
+
 /**
  * @file TestBuilder.java
  * @date 02/08/16
@@ -23,7 +25,7 @@ public class TestBuilder {
                ArrayList<Test> games = new ArrayList<>();
                JSONArray array = testData.getJSONObject("data").getJSONArray("games");
                for (int i = 0; i < array.length(); i++) {
-                  createTest(array.getJSONObject(i));
+                  games.add(createTest(array.getJSONObject(i)));
                }
                return new GameCollection(testData.getJSONObject("data").getBoolean("shuffleGames"), games);
             }
@@ -41,7 +43,6 @@ public class TestBuilder {
             }
          }
       } catch(JSONException e) {
-         System.out.println("Test: errore JSON");
          return null;
       }
    }
@@ -63,7 +64,7 @@ public class TestBuilder {
             if(image.equals("")) {
                questions.add(new MultipleChoiceTextQuiz(testObject.getString("helpText"), testObject.getString("question"), answers.getString(correctIndex), wrongAnswers));
             } else {
-               questions.add(new MultipleChoiceImageQuiz(testObject.getString("helpText"), testObject.getString("question"), answers.getString(correctIndex), wrongAnswers, image));
+               questions.add(new MultipleChoiceImageQuiz(testObject.getString("helpText"), testObject.getString("question"), answers.getString(correctIndex), wrongAnswers, URLDataConstants.mediaBaseURL + image));
             }
          }
          return new MultipleChoiceTest(testData.getJSONObject("data").getBoolean("shuffleQuestions"), testData.getJSONObject("data").getBoolean("shuffleAnswers"), questions);
@@ -82,7 +83,7 @@ public class TestBuilder {
             if(image.equals("")) {
                questions.add(new TrueFalseTextQuiz(testObject.getString("helpText"), testObject.getString("question"), testObject.getBoolean("correctAnswer")));
             } else {
-               questions.add(new TrueFalseImageQuiz(testObject.getString("helpText"), testObject.getString("question"), testObject.getBoolean("correctAnswer"), image));
+               questions.add(new TrueFalseImageQuiz(testObject.getString("helpText"), testObject.getString("question"), testObject.getBoolean("correctAnswer"), URLDataConstants.mediaBaseURL + image));
             }
          }
          return new TrueFalseTest(testData.getJSONObject("data").getBoolean("shuffleQuestions"), questions);

@@ -152,12 +152,16 @@ public class LoginManager {
       RequestMaker.changeProfileData(cx, username, oldPassword, password, new AbstractUrlRequestListener() {
          public void onResponse(JSONObject response) {
             try {
-               SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
-               SharedPreferences.Editor editor = preferences.edit();
-               editor.remove("username");
-               editor.putString("username", response.getString("username"));
-               loggedUser = new LoggedUser(loggedUser.token, loggedUser.email, response.getString("username"));
-               editor.apply();
+               if(!response.optString("username").equals("")) {//se viene cambiata solo la password non viene restituito lo username
+                  SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cx);
+                  SharedPreferences.Editor editor = preferences.edit();
+                  editor.remove("username");
+                  editor.putString("username", response.getString("username"));
+                  loggedUser = new LoggedUser(loggedUser.token, loggedUser.email, response.getString("username"));
+                  editor.apply();
+               } else {
+                  loggedUser = new LoggedUser(loggedUser.token, loggedUser.email, loggedUser.username);
+               }
                listener.onResponse(true);
             } catch (JSONException e) {
                listener.onError(new ServerError(1002, "Error on parsing the response JSON after the execution of change request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
