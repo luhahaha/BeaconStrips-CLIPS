@@ -16,9 +16,16 @@
 		\item i risultati ottenuti da una richiesta client-server possono essere salvati in cache così che se il client avesse la necessità di riutilizzare dati già richiesti lo possa fare senza effettuare nuove richieste.	
 	\end{itemize}
 	
+	\subsubsection{Client}
+	Per la parte Client si è deciso di utilizzare il linguaggio Android per la creazione dell'applicazione con cui gli utenti interagiranno;
+	verrà utilizzato il pattern architetturale Model View Presenter, spiegato in dettaglio nell'\hyperref[pattern]{Appendice}, per consentire la separazione logica delle varie componenti, permettendo di non dover modificare una componente logica qualora ne venga modificata un'altra, e facilitando lo sviluppo di unit test.\\
+	Il Client inoltre avrà un proprio database locale nel quale momorizzare temporaneamente i dati dell'utente e i dati richiesti al server, consentendo una maggiore fluidità limitando le chiamate al server.
+	\subsection{Server}
+	La parte server sarà costituita da un database in linguanggio SQL, per il salvataggio dei dati riguardanti l'utente, come salvataggi e dati per l'autenticazione, e tutte le informazioni sugli edifici che includono percorsi giocabili dall'utente con i relativi percorsi e classifiche. \\
+	Le interazioni tra Client e database verranno gestite da alcune classi progettate in Javascript, che gestiranno le richieste di dati e il loro aggiornamento.\\
+	Per il trasferimento di dati tra Server e Client verrà utilizzato il formato JSON.
 	\subsection{Architettura del database}
 	\label{architetturaDelDatabase}
-	Nella parte server è presente il database dell'applicazione.\\
 	In particolare verrà utilizzato un database relazionale \gl{MySQL} con la possibilità di interagire con esso tramite l'applicazione web \gl{phpMyAdmin} in modo da semplificarne l'amministrazione.
 	Le rappresentazione del database verrà illustrata nel documento \DPdoc.
 		

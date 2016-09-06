@@ -1,5 +1,6 @@
 package beaconstrips.clips.client.data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ import java.util.List;
  *
  * classe che rappresenta un test di MultipleChoiceTextQuiz e MultipleChoiceImageQuiz, shuffleQuestions indica se le domande devono essere poste nell'ordine in cui sono salvate o in modo misto, shuffleAnswers invece indica se l'ordine delle risposte dev'essere quello salvato o misto
  */
-public class MultipleChoiceTest extends Test {
+public class MultipleChoiceTest extends Test implements Serializable{
    public final boolean shuffleQuestions;
    public final boolean shuffleAnswers;
    public final List<MultipleChoiceTextQuiz> questions;

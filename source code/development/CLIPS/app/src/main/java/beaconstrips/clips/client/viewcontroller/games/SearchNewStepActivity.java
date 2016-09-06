@@ -35,10 +35,12 @@ import com.kontakt.sdk.android.common.KontaktSDK;
 import com.kontakt.sdk.android.common.profile.IBeaconDevice;
 import com.kontakt.sdk.android.common.profile.IBeaconRegion;
 
+import java.io.IOException;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import beaconstrips.clips.R;
+import beaconstrips.clips.client.data.Path;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
 public class SearchNewStepActivity extends MenuActivity {
@@ -52,6 +54,15 @@ public class SearchNewStepActivity extends MenuActivity {
         startTestButton = (Button) findViewById(R.id.startTestButton);
         setButtons();
         startTestButton.setVisibility(View.INVISIBLE);
+
+        Intent i = getIntent();
+        Bundle bundle = i.getExtras();
+        if (bundle != null) {
+            Path path = (Path) bundle.getSerializable("Path");
+            Log.i("Path", "Not null");
+        }
+        else
+            Log.i("Path", "null");
 
         /* TODO when proof beacon is found:
             TextView descriptionLabel = (TextView) findElementById(R.id.descriptionLabel);

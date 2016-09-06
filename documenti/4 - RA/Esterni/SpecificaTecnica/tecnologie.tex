@@ -5,8 +5,7 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 
 \subsection{Java}
 	
-	Java è virtualmente alla base di qualsiasi tipo di applicazione in rete ed è lo standard globale per lo sviluppo e la distribuzione di applicazioni incorporate e per sistemi portatili, giochi, contenuto basato su Web e software aziendale. Con oltre 9 milioni di sviluppatori in tutto il mondo, Java consente di sviluppare, distribuire e utilizzare applicazioni e servizi in modo efficiente. \\ 
-	In particolare Java viene utilizzato come linguaggio di programmazione per creare applicazioni mobile per il sistema operativo Android.
+	Java è virtualmente alla base di qualsiasi tipo di applicazione in rete ed è lo standard globale per lo sviluppo e la distribuzione di applicazioni incorporate e per sistemi portatili, giochi, contenuto basato su Web e software aziendale. Con oltre 9 milioni di sviluppatori in tutto il mondo, Java consente di sviluppare, distribuire e utilizzare applicazioni e servizi in modo efficiente. \\
 	
 	\begin{itemize}
 		\item \textbf{Vantaggi:}
@@ -26,8 +25,10 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 				\item richiede un interprete, e quindi un'ulteriore applicazione, comunque già presente in Android visto che tutte le sue applicazioni sono scritte in Java.
 			\end{itemize}
 	\end{itemize}
+	\subsubsection{Utilizzo}
+	Java viene utilizzato come linguaggio di programmazione per creare applicazioni mobile per il sistema operativo Android per questo verrà utilizzato dal team.
 	
-\subsection{Android} %forse sono stato un po' troppo lungo qui nella descrizione
+\subsection{Android}
 
 	Android è il sistema operativo più diffuso al mondo, usato per smartphone, tablet e altri dispositivi, come Android TV e Google Glass, sviluppati da Google, la proprietaria del sistema operativo. Strutturalmente deriva da Linux, ma usa Java per le applicazioni che interagiscono con l'utente. In pratica il linguaggio di programmazione principale previsto è Java, più supportato e ricco di funzionalità già fornite di base, mentre in genere si usano C e C++ per ottenere prestazioni migliori, sebbene siano presenti meno librerie rispetto al primo linguaggio. Esiste comunque la possibilità di usare entrambi per la stessa applicazione, ad esempio utilizzando Java per la struttura principale e C++ per le parti più pesanti da eseguire. Il \gl{team} userà solo Java, dato che il programma sviluppato dovrebbe essere abbastanza leggero da eseguire. \\
 	Android inoltre fornisce delle proprie librerie, che, insieme alla struttura del sistema operativo, caratterizzano la stesura del codice dell'applicazione. Ad esempio ogni programma viene eseguito in una macchina virtuale propria, così la sua esecuzione non può modificare né il sistema operativo né le altre applicazioni, mentre la comunicazione con gli altri programmi può avvenire soltanto tramite dei pattern specifici. La struttura del programma sfrutta altri pattern già definiti, come le Activity, che caratterizzano lo sviluppo dell'applicazione. Android quindi presenta vantaggi e svantaggi differenti rispetto a Java.
@@ -51,11 +52,12 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 				\item l'utilizzo di linguaggi complementari, come l'XML e il C/C++, può richiedere una maggiore conoscenza per poterli sfruttare, aumentando quindi il carico di lavoro necessario per poter scrivere l'applicazione.
 			\end{itemize}
 	\end{itemize}
+	\subsubsection{Utilizzo}
+	Il team ha deciso di utilizzare Android come linguaggio per la creazione dell'applicazione del progetto, applicazione che costituisce la parte Client del progetto.
 	
 \subsection{XML}
 	
 	XML è un metalinguaggio per la definizione di linguaggi di markup, ovvero un linguaggio marcatore basato su un meccanismo sintattico che consente di definire e controllare il significato degli elementi contenuti in un documento o in un testo.
-	In particolare nello sviluppo di applicazioni Android la parte grafica viene scritta proprio attraverso file XML, quindi questo linguaggio è essenziale per lo sviluppo del nostro progetto.
 	
 	\begin{itemize}
 		\item \textbf{Vantaggi:}
@@ -73,6 +75,8 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 				\item il file XML è poco significativo finché non viene usato un programma per interpretare i tag previsti e di conseguenza eseguire delle azioni ben precise.
 			\end{itemize}
 	\end{itemize}
+	\subsubsection{Utilizzo}
+	In particolare nello sviluppo di applicazioni Android la parte grafica viene scritta proprio attraverso file XML, quindi questo linguaggio è essenziale per lo sviluppo del nostro progetto.
 	
 
 \subsection{JSON}
@@ -97,10 +101,12 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 				\item non è validato, quindi se il mittente omette campi o sbaglia il formato dei dati, client diversi potrebbero interpretare diversamente il JSON.
 			\end{itemize}
 	\end{itemize}
+	\subsubsection{Utilizzo}
+	Nel progetto il team utilizzerà questo formato per lo scambio dei dati tra Server e Client.
 
 \subsection{JavaScript}
 
-	Javascript è un linguaggio di scripting orientato agli oggetti e agli eventi, utilizzato soprattutto nella programmazione Web. Un linguaggio di scripting è un tipo di linguaggio che viene integrato all'interno di un altro programma, nel caso del Web ad esempio l'interprete Javascript viene ospitato dal browser, che esegue il codice delle pagine quando esse vengono chiamate. Nell'applicazione sviluppata dal \gl{team}\ questo linguaggio viene usato per impostare le risposte del server da inviare al client, utilizzando JSON per il trasferimenti dei dati.		
+	Javascript è un linguaggio di scripting orientato agli oggetti e agli eventi, utilizzato soprattutto nella programmazione Web. Un linguaggio di scripting è un tipo di linguaggio che viene integrato all'interno di un altro programma, nel caso del Web ad esempio l'interprete Javascript viene ospitato dal browser, che esegue il codice delle pagine quando esse vengono chiamate.		
 
 	\begin{itemize}
 		\item \textbf{Vantaggi:}
@@ -119,6 +125,8 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 				\item nonostante esista uno standard universale di Javascript, le istruzioni implementate dai browser possono essere leggermente diverse a seconda del tipo o addirittura della versione del browser stesso.
 			\end{itemize}
 	\end{itemize}
+	\subsubsection{Utilizzo}
+	Nell'applicazione sviluppata dal \gl{team}\ questo linguaggio viene usato per impostare le risposte del server da inviare al client, utilizzando JSON per il trasferimenti dei dati e per effettuare le query per la gestione dei dati del database.
 
 \subsection{SQL}
 	SQL (Structured Query Language) è un linguaggio standardizzato per database basati sul modello relazionale (RDBMS) progettato per:
@@ -129,7 +137,6 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 		\item 	creare e gestire strumenti di controllo ed accesso ai dati.
 	\end{itemize}
 	È costruito per essere semplice, sia in scrittura sia in lettura, e poco verboso, e per permettere automaticamente una gestione ottimale dei dati. \\
-	Useremo SQL per gestire i dati dell'applicazione.
 	
 	\begin{itemize}
 		\item \textbf{Vantaggi:}
@@ -148,53 +155,31 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 				\item il database SQL non può essere partizionato e suddiviso in più parti, perché risulterebbe molto difficile o addirittura impossibile effettuare i controlli di integrità del database, di conseguenza diventa problematico ingrandirlo quando è necessario memorizzare moltissimi dati.
 			\end{itemize}
 	\end{itemize}
-	
-\subsection{GraphQL} 
-	GraphQL è un query language progettato per creare applicazioni client fornendo una sintassi intuitiva e flessibile per descrivere le loro interazioni con i dati. Rappresenta quindi un'interfaccia tra il database SQL e il resto dell'applicazione, molto utile quando sono richieste tante query diverse tra loro.
-	Una query scritta in GraphQL è una stringa interpretata da un server che ritorna dati in un formato specificato. 
-	Questo linguaggio ci permetterebbe di interrogare i database, quello locale del client e quello in remoto del server, scritti in SQL. \\
-	Alla fine non useremo questa tecnologia perché le query da scrivere sono poche e semplici, quindi risulta più facile e veloce usare il linguaggio SQL rispetto a GraphQL. %Secondo me a questo punto tanto vale togliere questa tecnologia dall'elenco, ma Tommaso mi ha invece detto di lasciarla nonostante non venga usata.
+	\subsubsection{Utilizzo}
+	Nell'applicazione SQL verrà utilizzato per la creazione del data base e per la gestione, tramite query, dei dati.
+
+\subsection{Librerie}
+\subsubsection{Kontakt.io Android Proximity SDK}
+	Kontakt.io Android Proximity SDK è una libreria per Android che supportai formati iBeacon e Eddystone.\\
+	Fornisce gli strumenti per la gestione e la creazione di applicazioni che utilizzino i beacon kontakt.io
 	
 	\begin{itemize}
 		\item \textbf{Vantaggi:}
 			\begin{itemize}
-				\item è un linguaggio libero e gratuito;
-				\item semplifica l'interazione con il database SQL, in particolare quando è necessario usare query molto complesse;
-				\item è disponibile online una spiegazione abbastanza dettagliata di come funziona e di come usarlo;
-				\item è un linguaggio abbastanza veloce da scrivere, in particolare quando le query sono tante e differenti tra loro.
+				\item semplici da utilizzare;
+				\item sviluppata da un'azienda giovane che garantisce molti aggiornamenti;.
 			\end{itemize}
 		\item \textbf{Svantaggi:}
 			\begin{itemize}
-				\item quando il set di query che vengono effettuate sul database è limitato o non è previsto che vari, la scrittura di una interfaccia GraphQL per interrogare il database può richiedere più tempo e risorse di quante non ne servano per implementare il set di query direttamente e portare pochi vantaggi.
+				\item utilizza due formati proprietari;
+				\item supportano solo i beacon kontakt.io.
 			\end{itemize}
 	\end{itemize}
-
-%ho unito la libreria e la specifica, visto che parlare di una vuol dire praticamente parlare anche dell'altra
-\subsection{Android Beacon Library e AltBeacon}
-	Android Beacon Library è una libreria Android che fornisce delle API per interagire con i beacon, e permette ai dispositivi Android di usarli similmente a quanto viene fatto dai dispositivi iOS. Un'applicazione può richiedere di ricevere notifiche quando uno o più beacon appaiono o spariscono. Può richiedere inoltre di ricevere degli aggiornamenti da uno o più beacon alla frequenza di 1Hz. \\
-	Android Beacon Library usa di default la specifica AltBeacon. Essa definisce il formato dei messaggi che i dispositivi BLE trasmettono. Permette di gestire l'interazione con i beacon come funziona per iBeacon: essi trasmettono un UUID e l'applicazione che implementa AltBeacon usa un database esterno per dare un significato ai beacon.
-	Al contrario di iBeacon, AltBeacon è open source e offre una quantità di dati più grande da utilizzare.
-	
-	\begin{itemize} %TODO: rilevare eventuali svantaggi, in rete si trova gran poco a riguardo
-		\item \textbf{Vantaggi:}
-			\begin{itemize}
-				\item la libreria e la specifica sono libere e gratuite;
-				\item Android Beacon Library è una delle librerie più usate per l'interazione con i beacon;
-				\item Android Beacon Library è una libreria ufficiale di Android, mentre AltBeacon è sviluppata da Radius Networks, quindi il loro funzionamento e il loro mantenimento sono garantiti;
-				\item sono disponibili online varie spiegazioni sul loro funzionamento e uso;
-				\item i beacon supportati sono numerosi e di varie marche;
-				\item Android Beacon Library è progettata per lavorare in background in modo efficiente e consumare poca energia;
-			\end{itemize}
-		\item \textbf{Svantaggi:}
-			\begin{itemize}
-				\item sono librerie complesse e difficili da usare;
-			\end{itemize}
-	\end{itemize}
+	\paragraph{Utilizzo}
+	Nel nostro progetto l'interazione coi beacon verrà utilizzata durante lo svolgimento dei percorsi, per questo la libreria Kontakt verrà utilizzata dalle classi all'interno del package \texttt{pathprogress}, componente che controlla l'avanzamento dell'utente nel percorso che sta svolgendo.
 		
-\subsection{Volley}
-
-	Volley è una libreria Android che permette e facilita la comunicazione tra client e server tramite HTTP. Effettua automaticamente le chiamate, asincrone o sincrone, al server, in base alle impostazioni fornite dal programmatore. È nata per sopperire alla mancanza di librerie simili in Java, dove le uniche classi presenti per effettuare chiamate REST sono obsolete e non esenti da errori. Il risultato ottenuto è rappresentato da una libreria molto veloce, leggera e soprattutto con un'eccellente gestione della memoria. \\
-	Nella nostra applicazione verrà appunto usata per effettuare le richieste al server.
+\subsubsection{Volley}
+Volley è una libreria Android che permette e facilita la comunicazione tra client e server tramite HTTP. Effettua automaticamente le chiamate, asincrone o sincrone, al server, in base alle impostazioni fornite dal programmatore. È nata per sopperire alla mancanza di librerie simili in Java, dove le uniche classi presenti per effettuare chiamate REST sono obsolete e non esenti da errori. Il risultato ottenuto è rappresentato da una libreria molto veloce, leggera e soprattutto con un'eccellente gestione della memoria.
 
 	\begin{itemize}
 		\item \textbf{Vantaggi:}
@@ -214,6 +199,9 @@ In questa sezione del documento vengono riportate quelle che verranno utilizzate
 				\item non è la libreria che garantisce il minor tempo di attesa per inviare e ricevere una risposta, altre come Retrofit sono più performanti.
 			\end{itemize}
 	\end{itemize}
+	\paragraph{Utilizzo}
+	Nel nostro progetto la libreria Volley è stata utilizzata per effettuare le chiamate dal Client al Server, infatti sono necessarie delle richieste per ottenere i dati dal database e per aggiornarli qual'ora un utente svolga dei percorsi e desideri salvarne il risultato.
+	Nello specifico tutte le chiamate verranno effettuate dalle classi all'interno del package \texttt{urlrequest}.
 	
 	
 	
