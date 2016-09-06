@@ -10,5 +10,5 @@ package beaconstrips.clips.client.urlrequest;
  */
 public class URLDataConstants {
    final static String baseURL = new String("http://beaconstrips.tk:1234/");
-   final statis String mediaBaseURL = new String("http://beaconstrips.tk/");
+   final static String mediaBaseURL = new String("http://beaconstrips.tk/");
 }
