@@ -22,6 +22,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import beaconstrips.clips.MainActivity;
+import beaconstrips.clips.client.data.LoggedUser;
 import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.LoginManager;
 import beaconstrips.clips.R;
@@ -65,11 +66,13 @@ public class LoginActivity extends MenuActivity {
                                 Log.e("funz", "response");
                                 if(LoginManager.sharedManager(getApplicationContext()).isLogged()) {
                                     Log.e("LoginActivity", "loggato");
+                                    LoggedUser u = LoginManager.sharedManager(getApplicationContext()).getLoggedUser();
                                     Intent i = new Intent(getApplicationContext(), AccountActivity.class);
-                                    Toast.makeText(getApplicationContext(), "Ora sei loggato come Prova",
+                                    Toast.makeText(getApplicationContext(), "Ora sei loggato come " + u.username,
                                             Toast.LENGTH_LONG).show();
                                     startActivity(i);
                                 }
+
                             }
 
                             @Override
