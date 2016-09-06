@@ -23,7 +23,8 @@
 \setlist[itemize,8]{label=$\bullet$}
 \setlist[itemize,9]{label=$\bullet$}
 
-\renewlist{itemize}{itemize}{9}
+% \renewlist{itemize}{itemize}{9}
+\setlistdepth{10}
 
 % -- COMANDI PER LE COMPONENTI -- %
 \newenvironment{componente}[1]
@@ -52,13 +53,13 @@
 }
 \newenvironment{compClassi} [1] {
 	\subsubsection{Classi} {#1}
-	\begin{itemize}
+	\begin{itemize}[leftmargin=*]
 } {
 	\end{itemize}
 }
 \newenvironment{classe} [1] {
 	\item[] \paragraph{\texttt{#1}} \\
-	\begin{itemize}
+	\begin{itemize}[label=\textbullet]
 } {
 	\end{itemize}
 }
@@ -83,14 +84,13 @@
 }
 \newcommand{\classeMetodo}[4]{
 	\item \texttt{{#1}({#2}) : {#3}} \\ {#4}
+		\item \textit{Argomenti}:
 }
 \newenvironment{classeMetodoArgomenti} {
-   \begin{itemize}
-	\item \textit{Argomenti}:
-   \begin{itemize}
-}{
-   \end{itemize}
-	\end{itemize}
+	
+	   \begin{itemize}[itemindent=5em] % non va
+} {
+	   \end{itemize}
 }
 \newcommand{\classeMetodoArgomento}[3]{\item \texttt{{#1} : {#2}} {#3} }
 \newenvironment{classeRelazioni} { \\
