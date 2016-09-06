@@ -14,143 +14,10 @@
 \compDescrizione{componente globale per il front end del prodotto che utilizza il design pattern \gl{MVC}. Si occupa di fornire un'interfaccia grafica dell'applicazione e di interagire con il lato server.}
 \compPadre{CLIPS}
 \begin{compPackageContenuti}
-\item \texttt{CLIPS::client::authentication}: componente che si occupa di gestire l'autenticazione dell'utente
 \item \texttt{CLIPS::client::data}: package per la gestione in locale dei dati
 \item \texttt{CLIPS::client::pathprogress}: componente che gestisce i dati del percorso e salva i risultati ottenuti nelle prove mentre si sta giocando
 \item \texttt{CLIPS::client::viewcontroller}: componente che raggruppa tutte le view ed i controller relativi alle view
 \end{compPackageContenuti}
-\end{componente}
-\begin{componente}{CLIPS::client::authentication}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication1.png}
-	\caption{Prima parte schema package client::viewcontroller::authentication}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication2.png}
-	\caption{Seconda parte schema package client::viewcontroller::authentication}
-\end{figure}
-\compDescrizione{componente che si occupa di gestire l'autenticazione dell'utente}
-\compPadre{client}
-\begin{compClassi} \\
-\begin{classe}{CLIPS::client::authentication::AccountActivity}
-\classeDescrizione{classe controller che si occupa di interagire con AccountView}
-\classeUtilizzo{si occupa di gestire le interazioni dell'utente con AccountView}
-\begin{classeMetodi}
-\classeMetodo{onCreate}{}{void}{si occupa di inizializzare l'activity con la relativa view}
-\classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view}
-\end{classeMetodi}
-\end{classe}\begin{classe}{CLIPS::client::authentication::AccountView}
-\classeDescrizione{classe che rappresenta la schermata delle informazioni dell'utente}
-\classeUtilizzo{permette all'utente di visualizzare le informazioni del proprio profilo}
-\begin{classeAttributi}
-\classeAttributo{emailLabel}{TextView}{rappresenta l'email dell'utente}
-\classeAttributo{savedResultsButton}{Button}{rappresenta il bottone per visualizzare i risultati salvati}
-\classeAttributo{updateUserButton}{Button}{rappresenta il bottone per modificare le informazioni dell'utente}
-\classeAttributo{usernameLabel}{TextView}{indica l'username dell'utente}
-\end{classeAttributi}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{AccountActivity}{classe controller che si occupa di interagire con AccountView}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::ConfirmRegistration}
-\classeDescrizione{classe che interagisce con RegistrationActivity e permette all'utente di visualizzare i propri dati di registrazione}
-\classeUtilizzo{l'utente può visualizzare i dati inseriti in precedenza}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{RegistrationActivity}{classe controller che si occupa di interagire con RegistrationView}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::ForgotPasswordActivity}
-\classeDescrizione{classe controller che si occupa di interagire con ForgotPasswordView}
-\classeUtilizzo{si occupa di gestire le interazioni dell'utente con ForgotPasswordView}
-\begin{classeMetodi}
-\classeMetodo{onCreate}{SavedBundleInstance, savedInstanceState}{void}{si occupa di inizializzare l'activity con la relativa view}
-\begin{classeMetodoArgomenti}
-\classeMetodoArgomento{SavedBundleInstance}{Bundle}{contiene i dati dell'istanza creata o di un'attività precedente}
-\classeMetodoArgomento{savedInstanceState}{Bundle}{contiene i dati dell'istanza creata o di un'attività precedente}
-\end{classeMetodoArgomenti}
-\end{classeMetodi}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{ForgotPasswordView}{classe che si occupa della visualizzazione della schermata per la richiesta di una nuova password}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::ForgotPasswordView}
-\classeDescrizione{classe che si occupa della visualizzazione della schermata per la richiesta di una nuova password}
-\classeUtilizzo{consente all'utente di inserire la mail per ricevere una nuova password}
-\begin{classeAttributi}
-\classeAttributo{confirmButton}{Button}{rappresenta il bottone per la conferma dell'email inserita}
-\classeAttributo{emailTextField}{EditText}{rappresenta l'email da inserire da parte dell'utente}
-\end{classeAttributi}
-\end{classe}\begin{classe}{CLIPS::client::authentication::LoginActivity}
-\classeDescrizione{classe controller che si occupa di interagire con LoginView}
-\classeUtilizzo{si occupa di gestire le interazioni dell'utente con LoginView}
-\begin{classeMetodi}
-\classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view}
-\end{classeMetodi}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{LoginView}{classe che si occupa della visualizzazione della schermata per il login}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::LoginView}
-\classeDescrizione{classe che si occupa della visualizzazione della schermata per il login}
-\classeUtilizzo{consente all'utente di inserire i propri dati per effettuare il login}
-\begin{classeAttributi}
-\classeAttributo{emailTextField}{EditText}{rappresenta l'email da inserire da parte dell'utente}
-\classeAttributo{forgotPasswordButton}{Button}{rappresenta il button per la password dimenticata}
-\classeAttributo{loginButton}{Button}{indica il button per effettuare il login}
-\classeAttributo{passwordTextField}{EditText}{rappresenta la password da inserire da parte dell'utente}
-\end{classeAttributi}
-\begin{classeMetodi}
-\classeMetodo{forgotPasswordPressed}{}{void}{invia un evento il quale notifica che il bottone di password dimenticata è stato premuto}
-\classeMetodo{loginButtonPressed}{}{void}{invia un evento di bottone del login premuto}
-\end{classeMetodi}
-\end{classe}\begin{classe}{CLIPS::client::authentication::RecoverPassword}
-\classeDescrizione{classe che rappresenta l'avvenuto recupero della password di un utente}
-\classeUtilizzo{view che permette all'utente di sapere che la sua password è stata recuperata correttamente}
-\end{classe}\begin{classe}{CLIPS::client::authentication::RegistrationActivity}
-\classeDescrizione{classe controller che si occupa di interagire con RegistrationView}
-\classeUtilizzo{si occupa di gestire le interazioni dell'utente con RegistrationView}
-\begin{classeMetodi}
-\classeMetodo{checkFields}{}{bool}{si occupa di controllare che i campi inseriti siano corretti}
-\classeMetodo{clearFields}{}{void}{questo metodo si occupa di resettare i campi dati presenti nella relativa view}
-\classeMetodo{onCreate}{SavedBundleInstance}{void}{si occupa di inizializzare l'activity con la relativa view}
-\begin{classeMetodoArgomenti}
-\classeMetodoArgomento{SavedBundleInstance}{Bundle}{contiene i dati dell'istanza creata o di un'attività precedente}
-\end{classeMetodoArgomenti}
-\classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view
-}
-\end{classeMetodi}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{RegistrationView}{classe che si occupa della visualizzazione della schermata per la registrazione}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::RegistrationView}
-\classeDescrizione{classe che si occupa della visualizzazione della schermata per la registrazione}
-\classeUtilizzo{consente all'utente di inserire i propri dati per effettuare la registrazione}
-\begin{classeAttributi}
-\classeAttributo{confirmButton}{Button}{indica il bottone di conferma di registrazione}
-\classeAttributo{confirmPasswordErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento della conferma della password}
-\classeAttributo{emailErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento dell'email}
-\classeAttributo{emailTextField}{EditText}{rappresenta l'email da inserire da parte dell'utente}
-\classeAttributo{passwordConfirmationTextField}{EditText}{rappresenta la conferma della password da inserire da parte dell'utente}
-\classeAttributo{passwordLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento della password}
-\classeAttributo{passwordTextField}{EditText}{indica la password da inserire da parte dell'utente}
-\classeAttributo{usernameErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento dell'username}
-\classeAttributo{usernameTextField}{EditText}{rappresenta l'username da inserire da parte dell'utente}
-\end{classeAttributi}
-\end{classe}\begin{classe}{CLIPS::client::authentication::UpdateUserInfoActivity}
-\classeDescrizione{classe controller che si occupa di interagire con UpdateUserInfoView}
-\classeUtilizzo{si occupa di gestire le interazioni dell'utente con UpdateUserInfoView}
-\begin{classeMetodi}
-\classeMetodo{onCreate}{}{void}{si occupa di inizializzare l'activity con la relativa view}
-\classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view
-}
-\end{classeMetodi}
-\begin{classeRelazioni}
-\classeRelazione{CLIPS::client::authentication}{UpdateUserInfoView}{classe che si occupa della visualizzazione della schermata per il cambio delle credenziali}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::authentication::UpdateUserInfoView}
-\classeDescrizione{classe che si occupa della visualizzazione della schermata per il cambio delle credenziali}
-\classeUtilizzo{consente all'utente di inserire i nuovi dati per cambiare le sue credenziali}
-\begin{classeAttributi}
-\classeAttributo{confirmPasswordErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento della conferma della password}
-\classeAttributo{passwordConfirmationTextField}{EditText}{rappresenta la conferma della password da inserire da parte dell'utente}
-\classeAttributo{passwordErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento della password}
-\classeAttributo{passwordTextField}{EditText}{rappresenta la password da inserire da parte dell'utente}
-\classeAttributo{usernameErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento dell'username}
-\classeAttributo{usernameTextField}{EditText}{rappresenta l'username da inserire da parte dell'utente}
-\end{classeAttributi}
-\end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::data}
 \begin{figure}[h!]
@@ -248,9 +115,9 @@
 \classeAttributo{latitude}{double}{rappresenta la latitudine dell'edificio}
 \classeAttributo{longitude}{double}{rappresenta la longitudine dell'edificio}
 \classeAttributo{name}{string}{indica il nome dell'edificio}
-\classeAttributo{openingTime}{void}{rappresenta gli orari di apertura dell'edificio}
+\classeAttributo{openingTime}{string}{rappresenta gli orari di apertura dell'edificio}
 \classeAttributo{otherInfos}{string}{contiene informazioni aggiuntive sull'edificio}
-\classeAttributo{pathsInfos}{void}{fornisce informazioni sui percorsi dell'edificio}
+\classeAttributo{pathsInfos}{string}{fornisce informazioni sui percorsi dell'edificio}
 \classeAttributo{telegram}{string}{rappresenta il contatto telegram dell'edificio}
 \classeAttributo{telephone}{string}{indica il numero di telefono dell'edificio}
 \classeAttributo{twitter}{string}{rappresenta l'indirizzo twitter dell'edificio}
@@ -1435,11 +1302,144 @@
 \compDescrizione{componente che raggruppa tutte le view ed i controller relativi alle view}
 \compPadre{client}
 \begin{compPackageContenuti}
+\item \texttt{CLIPS::client::viewcontroller::authentication}: componente che si occupa di gestire l'autenticazione dell'utente
 \item \texttt{CLIPS::client::viewcontroller::building}: componente che gestisce le informazioni e le interazioni dell'utente con gli edifici abilitati
 \item \texttt{CLIPS::client::viewcontroller::games}: componente che gestisce le prove che l'utente deve completare all'interno di un percorso
 \item \texttt{CLIPS::client::viewcontroller::savedresults}: componente che raggruppa le le view e i controller dei risultati salvati e delle classifiche
 \item \texttt{CLIPS::client::viewcontroller::utility}: componente che raggruppa le view generali dell'app
 \end{compPackageContenuti}
+\end{componente}
+\begin{componente}{CLIPS::client::viewcontroller::authentication}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication1.png}
+		\caption{Prima parte schema package client::viewcontroller::authentication}
+	\end{figure}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication2.png}
+		\caption{Seconda parte schema package client::viewcontroller::authentication}
+	\end{figure}
+	\compDescrizione{componente che si occupa di gestire l'autenticazione dell'utente}
+	\compPadre{client}
+	\begin{compClassi} \\
+		\begin{classe}{CLIPS::client::viewcontroller::authentication::AccountActivity}
+			\classeDescrizione{classe controller che si occupa di interagire con AccountView}
+			\classeUtilizzo{si occupa di gestire le interazioni dell'utente con AccountView}
+			\begin{classeMetodi}
+				\classeMetodo{onCreate}{}{void}{si occupa di inizializzare l'activity con la relativa view}
+				\classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view}
+			\end{classeMetodi}
+		\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::AccountView}
+		\classeDescrizione{classe che rappresenta la schermata delle informazioni dell'utente}
+		\classeUtilizzo{permette all'utente di visualizzare le informazioni del proprio profilo}
+		\begin{classeAttributi}
+			\classeAttributo{emailLabel}{TextView}{rappresenta l'email dell'utente}
+			\classeAttributo{savedResultsButton}{Button}{rappresenta il bottone per visualizzare i risultati salvati}
+			\classeAttributo{updateUserButton}{Button}{rappresenta il bottone per modificare le informazioni dell'utente}
+			\classeAttributo{usernameLabel}{TextView}{indica l'username dell'utente}
+		\end{classeAttributi}
+		\begin{classeRelazioni}
+			\classeRelazione{CLIPS::client::viewcontroller::authentication}{AccountActivity}{classe controller che si occupa di interagire con AccountView}\end{classeRelazioni}
+	\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::ConfirmRegistration}
+	\classeDescrizione{classe che interagisce con RegistrationActivity e permette all'utente di visualizzare i propri dati di registrazione}
+	\classeUtilizzo{l'utente può visualizzare i dati inseriti in precedenza}
+	\begin{classeRelazioni}
+		\classeRelazione{CLIPS::client::viewcontroller::authentication}{RegistrationActivity}{classe controller che si occupa di interagire con RegistrationView}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::ForgotPasswordActivity}
+\classeDescrizione{classe controller che si occupa di interagire con ForgotPasswordView}
+\classeUtilizzo{si occupa di gestire le interazioni dell'utente con ForgotPasswordView}
+\begin{classeMetodi}
+	\classeMetodo{onCreate}{SavedBundleInstance, savedInstanceState}{void}{si occupa di inizializzare l'activity con la relativa view}
+	\begin{classeMetodoArgomenti}
+		\classeMetodoArgomento{SavedBundleInstance}{Bundle}{contiene i dati dell'istanza creata o di un'attività precedente}
+		\classeMetodoArgomento{savedInstanceState}{Bundle}{contiene i dati dell'istanza creata o di un'attività precedente}
+	\end{classeMetodoArgomenti}
+\end{classeMetodi}
+\begin{classeRelazioni}
+	\classeRelazione{CLIPS::client::viewcontroller::authentication}{ForgotPasswordView}{classe che si occupa della visualizzazione della schermata per la richiesta di una nuova password}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::ForgotPasswordView}
+\classeDescrizione{classe che si occupa della visualizzazione della schermata per la richiesta di una nuova password}
+\classeUtilizzo{consente all'utente di inserire la mail per ricevere una nuova password}
+\begin{classeAttributi}
+	\classeAttributo{confirmButton}{Button}{rappresenta il bottone per la conferma dell'email inserita}
+	\classeAttributo{emailTextField}{EditText}{rappresenta l'email da inserire da parte dell'utente}
+\end{classeAttributi}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::LoginActivity}
+\classeDescrizione{classe controller che si occupa di interagire con LoginView}
+\classeUtilizzo{si occupa di gestire le interazioni dell'utente con LoginView}
+\begin{classeMetodi}
+	\classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view}
+\end{classeMetodi}
+\begin{classeRelazioni}
+	\classeRelazione{CLIPS::client::viewcontroller::authentication}{LoginView}{classe che si occupa della visualizzazione della schermata per il login}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::LoginView}
+\classeDescrizione{classe che si occupa della visualizzazione della schermata per il login}
+\classeUtilizzo{consente all'utente di inserire i propri dati per effettuare il login}
+\begin{classeAttributi}
+	\classeAttributo{emailTextField}{EditText}{rappresenta l'email da inserire da parte dell'utente}
+	\classeAttributo{forgotPasswordButton}{Button}{rappresenta il button per la password dimenticata}
+	\classeAttributo{loginButton}{Button}{indica il button per effettuare il login}
+	\classeAttributo{passwordTextField}{EditText}{rappresenta la password da inserire da parte dell'utente}
+\end{classeAttributi}
+\begin{classeMetodi}
+	\classeMetodo{forgotPasswordPressed}{}{void}{invia un evento il quale notifica che il bottone di password dimenticata è stato premuto}
+	\classeMetodo{loginButtonPressed}{}{void}{invia un evento di bottone del login premuto}
+\end{classeMetodi}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::RecoverPassword}
+\classeDescrizione{classe che rappresenta l'avvenuto recupero della password di un utente}
+\classeUtilizzo{view che permette all'utente di sapere che la sua password è stata recuperata correttamente}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::RegistrationActivity}
+\classeDescrizione{classe controller che si occupa di interagire con RegistrationView}
+\classeUtilizzo{si occupa di gestire le interazioni dell'utente con RegistrationView}
+\begin{classeMetodi}
+	\classeMetodo{checkFields}{}{bool}{si occupa di controllare che i campi inseriti siano corretti}
+	\classeMetodo{clearFields}{}{void}{questo metodo si occupa di resettare i campi dati presenti nella relativa view}
+	\classeMetodo{onCreate}{SavedBundleInstance}{void}{si occupa di inizializzare l'activity con la relativa view}
+	\begin{classeMetodoArgomenti}
+		\classeMetodoArgomento{SavedBundleInstance}{Bundle}{contiene i dati dell'istanza creata o di un'attività precedente}
+	\end{classeMetodoArgomenti}
+	\classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view
+	}
+\end{classeMetodi}
+\begin{classeRelazioni}
+	\classeRelazione{CLIPS::client::viewcontroller::authentication}{RegistrationView}{classe che si occupa della visualizzazione della schermata per la registrazione}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::RegistrationView}
+\classeDescrizione{classe che si occupa della visualizzazione della schermata per la registrazione}
+\classeUtilizzo{consente all'utente di inserire i propri dati per effettuare la registrazione}
+\begin{classeAttributi}
+	\classeAttributo{confirmButton}{Button}{indica il bottone di conferma di registrazione}
+	\classeAttributo{confirmPasswordErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento della conferma della password}
+	\classeAttributo{emailErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento dell'email}
+	\classeAttributo{emailTextField}{EditText}{rappresenta l'email da inserire da parte dell'utente}
+	\classeAttributo{passwordConfirmationTextField}{EditText}{rappresenta la conferma della password da inserire da parte dell'utente}
+	\classeAttributo{passwordLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento della password}
+	\classeAttributo{passwordTextField}{EditText}{indica la password da inserire da parte dell'utente}
+	\classeAttributo{usernameErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento dell'username}
+	\classeAttributo{usernameTextField}{EditText}{rappresenta l'username da inserire da parte dell'utente}
+\end{classeAttributi}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::UpdateUserInfoActivity}
+\classeDescrizione{classe controller che si occupa di interagire con UpdateUserInfoView}
+\classeUtilizzo{si occupa di gestire le interazioni dell'utente con UpdateUserInfoView}
+\begin{classeMetodi}
+	\classeMetodo{onCreate}{}{void}{si occupa di inizializzare l'activity con la relativa view}
+	\classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view
+	}
+\end{classeMetodi}
+\begin{classeRelazioni}
+	\classeRelazione{CLIPS::client::viewcontroller::authentication}{UpdateUserInfoView}{classe che si occupa della visualizzazione della schermata per il cambio delle credenziali}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::UpdateUserInfoView}
+\classeDescrizione{classe che si occupa della visualizzazione della schermata per il cambio delle credenziali}
+\classeUtilizzo{consente all'utente di inserire i nuovi dati per cambiare le sue credenziali}
+\begin{classeAttributi}
+	\classeAttributo{confirmPasswordErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento della conferma della password}
+	\classeAttributo{passwordConfirmationTextField}{EditText}{rappresenta la conferma della password da inserire da parte dell'utente}
+	\classeAttributo{passwordErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento della password}
+	\classeAttributo{passwordTextField}{EditText}{rappresenta la password da inserire da parte dell'utente}
+	\classeAttributo{usernameErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento dell'username}
+	\classeAttributo{usernameTextField}{EditText}{rappresenta l'username da inserire da parte dell'utente}
+\end{classeAttributi}
+\end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::building}
 \begin{figure}[h!]
@@ -1499,19 +1499,19 @@ selezionato}
 \classeDescrizione{classe per la visualizzazione di un edificio}
 \classeUtilizzo{permette all'utente di visualizzare le informazioni relative all'edificio selezionato}
 \begin{classeAttributi}
-\classeAttributo{addressButton}{void}{rappresenta l'indirizzo dell'edificio}
-\classeAttributo{descriptionLabel}{void}{indica la descrizione dell'edificio}
-\classeAttributo{emailButton}{void}{indica l'indirizzo email dell'edificio}
-\classeAttributo{facebookButton}{void}{indica l'indirizzo facebook dell'edificio}
-\classeAttributo{nameLabel}{void}{rappresenta il nome dell'edificio}
-\classeAttributo{openingTimeLabel}{void}{rappresenta gli orari di apertura dell'edificio}
-\classeAttributo{otherInfosLabel}{void}{rappresenta le altre informazioni sull'edificio}
-\classeAttributo{pathRows}{void}{rappresenta la lista dei percorsi dell'edificio}
-\classeAttributo{telegramButton}{void}{rappresenta il contatto Telegram dell'edificio}
-\classeAttributo{telephoneButton}{void}{rappresenta il numero telefonico dell'edificio}
-\classeAttributo{twitterButton}{void}{indica l'indirizzo twitter dell'edificio}
-\classeAttributo{webSiteButton}{void}{rappresenta l'indirizzo web dell'edificio}
-\classeAttributo{whatsappButton}{void}{indica il contatto WhatsApp dell'edificio}
+\classeAttributo{addressButton}{Button}{rappresenta l'indirizzo dell'edificio}
+\classeAttributo{descriptionLabel}{TextView}{indica la descrizione dell'edificio}
+\classeAttributo{emailButton}{Button}{indica l'indirizzo email dell'edificio}
+\classeAttributo{facebookButton}{Button}{indica l'indirizzo facebook dell'edificio}
+\classeAttributo{nameLabel}{TextView}{rappresenta il nome dell'edificio}
+\classeAttributo{openingTimeLabel}{TextView}{rappresenta gli orari di apertura dell'edificio}
+\classeAttributo{otherInfosLabel}{TextView}{rappresenta le altre informazioni sull'edificio}
+\classeAttributo{pathRows}{List<TextView>}{rappresenta la lista dei percorsi dell'edificio}
+\classeAttributo{telegramButton}{Button}{rappresenta il contatto Telegram dell'edificio}
+\classeAttributo{telephoneButton}{Button}{rappresenta il numero telefonico dell'edificio}
+\classeAttributo{twitterButton}{Button}{indica l'indirizzo twitter dell'edificio}
+\classeAttributo{webSiteButton}{Button}{rappresenta l'indirizzo web dell'edificio}
+\classeAttributo{whatsappButton}{Button}{indica il contatto WhatsApp dell'edificio}
 \end{classeAttributi}
 \begin{classeMetodi}
 \classeMetodo{addressButtonPressed}{}{void}{notifica al controller l'interazione con addressButton}
@@ -1642,7 +1642,7 @@ selezionato}
 \classeDescrizione{classe per la visualizzazione del risultato di un quiz}
 \classeUtilizzo{fornisce all'utente un'interfaccia affinché visualizzi il risultato del quiz}
 \begin{classeAttributi}
-\classeAttributo{continueButton}{void}{button per chiudere la schermata e continuare il percorso}
+\classeAttributo{continueButton}{Button}{button per chiudere la schermata e continuare il percorso}
 \classeAttributo{feedbackLabel}{string}{mostra la frase di successo/fallimento del quiz}
 \end{classeAttributi}
 \begin{classeMetodi}
@@ -1709,8 +1709,8 @@ selezionato}
 \classeDescrizione{classe per il quiz vero/falso}
 \classeUtilizzo{si occupa di fornire un'interfaccia per la prova di tipo vero/falso}
 \begin{classeAttributi}
-\classeAttributo{falseButton}{void}{button grafico per rispondere falso al quiz}
-\classeAttributo{trueButton}{void}{button grafico per rispondere vero al quiz}
+\classeAttributo{falseButton}{Button}{button grafico per rispondere falso al quiz}
+\classeAttributo{trueButton}{Button}{button grafico per rispondere vero al quiz}
 \end{classeAttributi}
 \begin{classeMetodi}
 \classeMetodo{falseButtonPressed}{}{void}{questo metodo si occupa di notificare al controller che è stato premuto falseButton}
