@@ -17,14 +17,15 @@
 \setlist[itemize,1]{label=\normalfont\bfseries \textendash}
 \setlist[itemize,1]{label=\textasteriskcentered}
 \setlist[itemize,1]{label=\textperiodcentered}
-\setlist[itemize,5]{label=$ $}
-\setlist[itemize,6]{label=$\bullet$}
-\setlist[itemize,7]{label=$\bullet$}
-\setlist[itemize,8]{label=$\bullet$}
-\setlist[itemize,9]{label=$\bullet$}
+\setlist[itemize,2]{label=\rightarrow}
+\setlist[itemize,3]{label=\ast}
+\setlist[itemize,5]{label=\ast}
+\setlist[itemize,6]{label=\ast}
+\setlist[itemize,7]{label=\ast}
+\setlist[itemize,8]{label=\ast}
+\setlist[itemize,9]{label=\ast}
 
-% \renewlist{itemize}{itemize}{9}
-\setlistdepth{10}
+\renewlist{itemize}{itemize}{9}
 
 % -- COMANDI PER LE COMPONENTI -- %
 \newenvironment{componente}[1]
@@ -84,11 +85,11 @@
 }
 \newcommand{\classeMetodo}[4]{
 	\item \texttt{{#1}({#2}) : {#3}} \\ {#4}
-		\item \textit{Argomenti}:
 }
 \newenvironment{classeMetodoArgomenti} {
 	
-	   \begin{itemize}[itemindent=5em] % non va
+	\item \textit{Argomenti}:
+	   \begin{itemize}
 } {
 	   \end{itemize}
 }
