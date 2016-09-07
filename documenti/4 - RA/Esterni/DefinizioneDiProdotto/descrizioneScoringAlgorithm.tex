@@ -1,0 +1,42 @@
+\section{Algoritmo di assegnazione del punteggio}
+\label{sec:Algoritmo di assegnazione del punteggio}
+
+L'assegnazione del punteggio viene fatta da una classe che implementa l'interfaccia \texttt{ScoringAlgorithm}.
+
+Questa classe viene configurata con dei dati forniti dal server in modo che ricevendo in input:
+\begin{itemize}
+   \item il numero di risposte corrette,
+   \item il numero di risposte totali,
+   \item la durata della prova
+\end{itemize}
+sappia fornire un punteggio appropriato.
+
+Non è necessario che siano per forza risposte a domande testuali: se la prova consiste di un gioco le risposte corrette possono essere il numero di successi e le risposte totali il totale dei tentativi. \\
+
+La classe \texttt{LinearScoringAlgorithm} è, al momento, l'unica implementazione di \texttt{ScoringAlgorithm} e serve ad assegnare il punteggio al termine di una prova. Viene configurata per ciascuna prova con un \texttt{JSON} contenente le seguenti chiavi:
+\begin{itemize}
+   \item[\texttt{maxScore}] indica il punteggio massimo assegnabile ad ogni prova
+   \item[\texttt{minScore}] indica il punteggio minimo assegnato ad ogni prova
+   \item[\texttt{maxTime}] indica il tempo massimo in cui completare la prova: se un giocatore impiega più di questo tempo viene penalizzato come se ci avesse messo questo tempo
+   \item[\texttt{minTime}] il tempo massimo in cui l'utente può finire la prova ottenendo il massimo punteggio per il tempo
+   \item[\texttt{timeWeight}] indica il peso con cui conta il tempo nel computo del punteggio finale
+   \item[\texttt{correctnessWeight}] indica il peso con cui conta l'esattezza delle risposte nel computo del punteggio finale
+\end{itemize}
+
+Nello specifico, per l'assegnazione dei punteggi, \texttt{LinearScoringAlgorithm} assegna linearmente un punteggio tra minScore e maxScore alla prova confrontando le risposte corrette con quelle totali, assegna un punteggio tra \texttt{minScore} e \texttt{maxScore} al tempo in cui viene risolta la prova (dove un tempo di \texttt{minTime} o inferiore aggiudica il massimo dei punti, cioè \texttt{maxScore}, e un tempo di \texttt{maxTime} o superiore aggiudica il minimo dei punti, cioè \texttt{minScore}) e infine effettua la media tra i due valori, pesata secondo i pesi \texttt{correctnessWeight} e \texttt{timeWeight}.
+
+La formula per il conteggio dei punti risulta quindi, definendo:
+\begin{flalign}
+   \nonumber \Delta_{score} & = maxScore - minScore \\
+   \nonumber weight & = weight_c + weight_t \\
+   \nonumber \widetilde{t} & = min(time_{max}, min(time_{min}, time))
+\end{flalign}
+% \[ \Delta _{score} = maxScore - minScore \]
+% \[ weight = weight_c + weight_t \]
+% \[ \widetilde{t} = min(time_{max}, min(time_{min}, time)) \]
+dove $weight_t$ e $weight_c$ sono \texttt{timeWeight} e \texttt{correctnewssWeight}, otteniamo la funzione di per l'assegnazione del punteggio come:
+\[ score = \frac{\Delta_{score}}{weight} \cdot \left ( \frac{correct}{total} \cdot {weight}_{c} +\left ( 1 - \frac{\widetilde{t} - time_{min}}{time_{max} - time_{min}} \right ) \cdot weight_{t}  \right ) \]
+
+
+Ad esempio se si vuole un algoritmo che non tenga in considerazione del tempo impiegato dal giocatore per completare una prova si può creare un \texttt{LinearScoringAlgorithm} passando il \texttt{timeWeight} $ = 0 $.
+Invece se si vuole che ad ogni prova, vengano assegnati sempre almeno 10 punti, per non demoralizzare gli utenti meno abili sarà sufficiente assegnare un \texttt{minScore} di 10.

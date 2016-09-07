@@ -148,7 +148,7 @@
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data}{PathInfo}{classe che si occupa di salvare in locale le informazioni generali di un percorso}\classeRelazione{CLIPS::client::data}{Score}{classe che rappresenta il risultato nella classifica dell'utente}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::LinearScoringAlgorithm}
-\classeDescrizione{classe per calcolare il punteggio di una prova}
+\classeDescrizione{classe per calcolare il punteggio di una prova. Per approfondire si veda \hyperref[sec:Algoritmo di assegnazione del punteggio]{Algoritmo di Assegnazione del Punteggio}}
 \classeUtilizzo{si occupa di calcolare il punteggio utilizzando un algoritmo lineare}
 \begin{classeAttributi}
 \classeAttributo{accuracyWeight}{double}{indica l'incidenza dell'accuratezza rispetto alla risposta}
@@ -270,7 +270,7 @@
 \begin{classeAttributi}
 \classeAttributo{id}{int}{intero contenente l'id dell'oggetto}
 \classeAttributo{instructions}{string}{stringa contenente le istruzioni della prova}
-\classeAttributo{scoringAlgotithm}{LinearScoringAlgorithm}{oggetto contenente l'algoritmo per calcolare il punteggio della prova}
+\classeAttributo{scoringAlgorithm}{LinearScoringAlgorithm}{oggetto contenente l'algoritmo per calcolare il punteggio della prova}
 \classeAttributo{test}{Test}{oggetto contenente il quesito da proporre all'utente}
 \classeAttributo{title}{string}{stringa contenente il titolo della prova}
 \end{classeAttributi}
