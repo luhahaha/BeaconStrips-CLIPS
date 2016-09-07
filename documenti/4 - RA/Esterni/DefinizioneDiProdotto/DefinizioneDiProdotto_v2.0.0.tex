@@ -11,6 +11,8 @@
 \usepackage{eurosym}
 \usepackage{comment}
 \usepackage{hyperref}
+\usepackage{amsmath}
+
 
 \usepackage{enumitem}
 \setlist[itemize,1]{label=\textbullet}
@@ -87,7 +89,7 @@
 	\item \texttt{{#1}({#2}) : {#3}} \\ {#4}
 }
 \newenvironment{classeMetodoArgomenti} {
-	
+
 	\item \textit{Argomenti}:
 	   \begin{itemize}
 } {
@@ -170,5 +172,7 @@
 
    %% qui quelle requisito - package
    \include{PackagesRequirements}
+
+   \include{descrizioneScoringAlgorithm}
 
 \end{document}
