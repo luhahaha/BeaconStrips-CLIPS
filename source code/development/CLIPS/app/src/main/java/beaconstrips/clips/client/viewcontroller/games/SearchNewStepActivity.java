@@ -9,17 +9,12 @@
 package beaconstrips.clips.client.viewcontroller.games;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.android.gms.games.Game;
 import com.kontakt.sdk.android.ble.configuration.ActivityCheckConfiguration;
 import com.kontakt.sdk.android.ble.configuration.ScanPeriod;
 import com.kontakt.sdk.android.ble.configuration.scan.ScanMode;
@@ -36,8 +31,6 @@ import com.kontakt.sdk.android.common.KontaktSDK;
 import com.kontakt.sdk.android.common.profile.IBeaconDevice;
 import com.kontakt.sdk.android.common.profile.IBeaconRegion;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -45,12 +38,9 @@ import java.util.concurrent.TimeUnit;
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.GameCollection;
 import beaconstrips.clips.client.data.MultipleChoiceTest;
-import beaconstrips.clips.client.data.Path;
-import beaconstrips.clips.client.data.Proof;
 import beaconstrips.clips.client.data.Step;
 import beaconstrips.clips.client.data.Test;
 import beaconstrips.clips.client.data.TrueFalseTest;
-import beaconstrips.clips.client.data.TrueFalseTextQuiz;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
 public class SearchNewStepActivity extends MenuActivity {
@@ -210,11 +200,11 @@ public class SearchNewStepActivity extends MenuActivity {
                   Log.i(TAG, "Set class MultipleChoiceQuizActivity.class");
                }
                if (test instanceof TrueFalseTest) {
-                  i.setClass(getApplicationContext(), TrueFalseQuiz.class);
+                  i.setClass(getApplicationContext(), TrueFalseQuizView.class);
                   Log.i(TAG, "Set class TrueFalseTest.class");
                }
 
-               i.putExtra("Test", test);
+               i.putExtra("test", test);
 
                if(i != null) {
                   startActivity(i);
