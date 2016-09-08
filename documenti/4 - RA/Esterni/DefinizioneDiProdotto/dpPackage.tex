@@ -33,17 +33,17 @@
 \end{compPackageContenuti}
 \begin{compClassi} \\ 
 \begin{classe}{CLIPS::client::data::/textit{AbstractQuiz}}
-\classeDescrizione{classe astratta dei quiz}
+\classeDescrizione{classe astratta per la definizione di un quiz da proporre all'utente}
 \classeUtilizzo{classe astratta da cui far derivare tutte le classi che rappresentano un quiz}
 \begin{classeAttributi}
 \classeAttributo{helpText}{string}{stringa contenente il messaggio d'aiuto per la prova}
 \classeAttributo{instructions}{string}{stringa contenente le istruzioni della prova}
 \end{classeAttributi}
 \end{classe}\begin{classe}{CLIPS::client::data::/textit{Test}}
-\classeDescrizione{classe astratta che rappresenta un test}
+\classeDescrizione{classe astratta che rappresenta la definizione di un test da proporre all'utente}
 \classeUtilizzo{classe astratta per rappresentare un test, ovvero un gruppo di giochi generalmente dello stesso tipo}
 \end{classe}\begin{classe}{CLIPS::client::data::AppInfo}
-\classeDescrizione{classe per la rappresentazione delle informazioni dell'applicazione}
+\classeDescrizione{classe per la rappresentazione delle informazioni generali dell'applicazione}
 \classeUtilizzo{permette di salvare le informazioni generali relative all'applicazione}
 \begin{classeAttributi}
 \classeAttributo{description}{string}{stringa contenente la descrizione dell'applicazione}
@@ -52,7 +52,7 @@
 \classeAttributo{website}{string}{stringa contenente il sito dell'applicazione}
 \end{classeAttributi}
 \end{classe}\begin{classe}{CLIPS::client::data::Beacon}
-\classeDescrizione{classe che rappresenta un beacon in locale}
+\classeDescrizione{classe che rappresenta i dati di un beacon in locale}
 \classeUtilizzo{permette di salvere in locale le informazioni di un beacon}
 \begin{classeAttributi}
 \classeAttributo{id}{int}{rappresenta il codice identificativo}
@@ -89,7 +89,7 @@
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data}{BiggerShape}{classe che rappresenta un gioco in cui bisogna selezionare la figura piÃ¹ grande tra le due che appaiono}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::Building}
-\classeDescrizione{classe che rappresenta un edificio}
+\classeDescrizione{classe che rappresenta i dati di un edificio in cui Ã¨ possibile utilizzare l'applicazione}
 \classeUtilizzo{permette di memorizzare i dati di un edificio in locale}
 \begin{classeAttributi}
 \classeAttributo{address}{string}{indica l'indirizzo dell'edificio}
@@ -121,7 +121,7 @@
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data}{/textit{Test}}{classe astratta che rappresenta un test}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::LeaderBoard}
-\classeDescrizione{classe che rappresenta la classifica di un percorso}
+\classeDescrizione{classe che rappresenta la classifica di un percorso di un determinato edificio}
 \classeUtilizzo{consente di salvare i dati della classifica in locale}
 \begin{classeAttributi}
 \classeAttributo{lastUpdate}{DataManager}{data contenente la data dell'ultimo aggiornamento}
@@ -131,7 +131,7 @@
 \classeAttributo{scores}{List<Score>}{lista contenente gli Score da mostrare nella Leaderboard}
 \end{classeAttributi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data}{PathInfo}{classe che si occupa di salvare in locale le informazioni generali di un percorso}\classeRelazione{CLIPS::client::data}{Score}{classe che rappresenta il risultato nella classifica dell'utente}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{PathInfo}{classe che si occupa di salvare in locale le informazioni generali di un percorso}\classeRelazione{CLIPS::client::data}{Score}{classe che rappresenta il risultato nella classifica di uno specifico percorso svolto dall'utente}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::LinearScoringAlgorithm}
 \classeDescrizione{classe per calcolare il punteggio di una prova}
 \classeUtilizzo{si occupa di calcolare il punteggio utilizzando un algoritmo lineare}
@@ -151,7 +151,7 @@
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
 \end{classe}\begin{classe}{CLIPS::client::data::LoggedUser}
-\classeDescrizione{classe che si occupa di memorizzare in locale i dati dell'utente loggato}
+\classeDescrizione{classe che si occupa di memorizzare in locale i dati dell'utente che ha eseguito l'accesso}
 \classeUtilizzo{permette il salvataggio in locale dei dati di un utente loggato}
 \begin{classeAttributi}
 \classeAttributo{email}{string}{stringa contenente l'email dell'utente che ha fatto il login}
@@ -188,7 +188,7 @@
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
 \end{classe}\begin{classe}{CLIPS::client::data::Path}
-\classeDescrizione{classe che si occupa di salvare in locale i dati riguardanti un percorso}
+\classeDescrizione{classe che si occupa di salvare in locale i dati riguardanti un percorso di un determinato edificio}
 \classeUtilizzo{permette di salvare i dati di un percorso in locale}
 \begin{classeAttributi}
 \classeAttributo{id}{int}{intero contenente l'id dell'oggetto}
@@ -209,7 +209,7 @@
 \classeAttributo{title}{string}{stringa contenente il titolo del percorso}
 \end{classeAttributi}
 \end{classe}\begin{classe}{CLIPS::client::data::PathProgress}
-\classeDescrizione{classe per il salvataggio in locale del progresso di un percorso}
+\classeDescrizione{classe per il salvataggio in locale del progresso di un percorso svolto dall'utente}
 \classeUtilizzo{permette di salvare in locale i risultati delle prove durante lo svolgimento del percorso}
 \begin{classeAttributi}
 \classeAttributo{endTime}{GregorianCalendar}{oggetto contenente la data e l'orario in cui l'utente ha completato il percorso}
@@ -234,9 +234,9 @@
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data}{Path}{classe che si occupa di salvare in locale i dati riguardanti un percorso}\classeRelazione{CLIPS::client::data}{ProofResult}{classe che rappresenta il risultato di una prova}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{Path}{classe che si occupa di salvare in locale i dati riguardanti un percorso di un determinato edificio}\classeRelazione{CLIPS::client::data}{ProofResult}{classe che rappresenta il risultato di una prova svolta dall'utente}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::PathResult}
-\classeDescrizione{classe che rappresenta i risultati di un percorso}
+\classeDescrizione{classe che rappresenta i risultati di un percorso svolto dall'utente}
 \classeUtilizzo{permette di salvare i dati di un percorso in locale}
 \begin{classeAttributi}
 \classeAttributo{buildingName}{string}{stringa contenente il nome dell'edificio in cui si trova il percorso}
@@ -248,9 +248,9 @@
 \classeAttributo{totalScore}{int}{intero contenente lo Score totale del percorso ottenuto dall'utente}
 \end{classeAttributi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data}{ProofResult}{classe che rappresenta il risultato di una prova}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{ProofResult}{classe che rappresenta il risultato di una prova svolta dall'utente}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::Proof}
-\classeDescrizione{classe che rappresenta una prova del percorso}
+\classeDescrizione{classe che rappresenta una prova da proporre all'utente che sta svolgendo un percorso}
 \classeUtilizzo{salva in locale i dati della prova da far visualizzare all'utente}
 \begin{classeAttributi}
 \classeAttributo{id}{int}{intero contenente l'id dell'oggetto}
@@ -260,9 +260,9 @@
 \classeAttributo{title}{string}{stringa contenente il titolo della prova}
 \end{classeAttributi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data}{/textit{Test}}{classe astratta che rappresenta un test}\classeRelazione{CLIPS::client::data}{LinearScoringAlgorithm}{classe per calcolare il punteggio di una prova}\classeRelazione{CLIPS::client::data}{ScoringAlgorithmFactory}{classe base per la creazione degli algoritmi}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{/textit{Test}}{classe astratta che rappresenta un test}\classeRelazione{CLIPS::client::data}{LinearScoringAlgorithm}{classe per calcolare il punteggio di una prova}\classeRelazione{CLIPS::client::data}{ScoringAlgorithmFactory}{classe base per la creazione degli algoritmi per il calcolo del punteggio di una determinata prova}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::ProofResult}
-\classeDescrizione{classe che rappresenta il risultato di una prova}
+\classeDescrizione{classe che rappresenta il risultato di una prova svolta dall'utente}
 \classeUtilizzo{permette di salvare in locale il risultato di una prova}
 \begin{classeAttributi}
 \classeAttributo{endTime}{GregorianCalendar}{oggetto contenente la data e l'orario in cui l'utente ha completato il percorso}
@@ -274,9 +274,9 @@
 \classeMetodo{getDuration}{}{long}{metodo per ottenere la durata della prova svolta dall'utente}
 \end{classeMetodi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data}{PathProgress}{classe per il salvataggio in locale del progresso di un percorso}\classeRelazione{CLIPS::client::data}{PathResult}{classe che rappresenta i risultati di un percorso}\classeRelazione{CLIPS::client::data}{Proof}{classe che rappresenta una prova del percorso}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{PathProgress}{classe per il salvataggio in locale del progresso di un percorso svolto dall'utente}\classeRelazione{CLIPS::client::data}{PathResult}{classe che rappresenta i risultati di un percorso svolto dall'utente}\classeRelazione{CLIPS::client::data}{Proof}{classe che rappresenta una prova del percorso}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::Proximity}
-\classeDescrizione{classe che rappresenta in locale un beacon indicato alla segnalazione della distanza dalla prossima prova}
+\classeDescrizione{classe che rappresenta in locale un beacon dedicato alla segnalazione della distanza dalla prossima prova}
 \classeUtilizzo{consente di salvare un beacon e la sua distanza dal beacon della prossima prova}
 \begin{classeAttributi}
 \classeAttributo{beacon}{Beacon}{oggetto Beacon a cui fa riferimento l'oggetto}
@@ -294,7 +294,7 @@
 \classeAttributo{username}{string}{stringa contenente lo username dell'utente che ha ottenuto il punteggio}
 \end{classeAttributi}
 \end{classe}\begin{classe}{CLIPS::client::data::ScoringAlgorithmFactory}
-\classeDescrizione{classe base per la creazione degli algoritmi}
+\classeDescrizione{classe base per la creazione degli algoritmi di calcolo del punteggio di una determinata prova}
 \classeUtilizzo{fornisce il metodo per la creazione di algoritmi per il calcolo dei punteggi}
 \begin{classeMetodi}
 \classeMetodo{createScoringAlgorithm}{algorithmData}{void}{si occupa di creare l'algoritmo per calcolare il punteggio}
@@ -305,7 +305,7 @@
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data}{LinearScoringAlgorithm}{classe per calcolare il punteggio di una prova}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::Step}
-\classeDescrizione{classe che rappresenta in locale lo spostamento da una prova a quella successiva}
+\classeDescrizione{classe che rappresenta in locale una frazione del percorso da svolgere}
 \classeUtilizzo{permette di salvare in locale le informazioni che rappresentano la ricerca della nuova prova}
 \begin{classeAttributi}
 \classeAttributo{proof}{Proof}{oggetto contenente la prova da proporre all'utente}
@@ -313,7 +313,7 @@
 \classeAttributo{stopBeacon}{Beacon}{oggetto Beacon a cui fa riferimento l'oggetto}
 \end{classeAttributi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data}{Beacon}{classe che rappresenta un beacon in locale}\classeRelazione{CLIPS::client::data}{Proof}{classe che rappresenta una prova del percorso}\classeRelazione{CLIPS::client::data}{Proximity}{classe che rappresenta in locale un beacon indicato alla segnalazione della distanza dalla prossima prova}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{Beacon}{classe che rappresenta un beacon in locale}\classeRelazione{CLIPS::client::data}{Proof}{classe che rappresenta una prova del percorso}\classeRelazione{CLIPS::client::data}{Proximity}{classe che rappresenta in locale un beacon dedicato alla segnalazione della distanza dalla prossima prova}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::TestBuilder}
 \classeDescrizione{classe per la creazione degli oggetti Test partendo dagli oggetti JSON ricevuti dal server}
 \classeUtilizzo{permette di costruire gli oggetti Test partendo dagli oggetti JSON ricevuti dal server}
@@ -397,7 +397,7 @@
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data}{Building}{classe che rappresenta un edificio}\classeRelazione{CLIPS::client::data}{ProofResult}{classe che rappresenta il risultato di una prova}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{Building}{classe che rappresenta un edificio }\classeRelazione{CLIPS::client::data}{ProofResult}{classe che rappresenta il risultato di una prova}\end{classeRelazioni}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::data::datamanager}
@@ -443,17 +443,17 @@
 \classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::datamanager::AppInfoDataRequest}
 \classeDescrizione{classe concreta che gestisce le richieste dei dati sulle info dell'app}
-\classeUtilizzo{permette di ottenere i dati sulle informazioni dell'app}
+\classeUtilizzo{permette di ottenere i dati riguardanti le informazioni generali dell'app}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data}{AppInfo}{classe per la rappresentazione delle informazioni dell'applicazione}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::datamanager::BuildingsDataRequest}
-\classeDescrizione{classe concreta che gestisce le richieste dei dati sugli edifici}
+\classeDescrizione{classe concreta che gestisce le richieste al server per ottenere i dati riguardanti gli edifici abilitati ad utilizzare l'applicazione}
 \classeUtilizzo{permette di ottenere i dati sugli edifici}
 \begin{classeAttributi}
 \classeAttributo{latitude}{double}{la latitudine dell'utente}
 \classeAttributo{longitude}{double}{la longitudine dell'utente}
 \classeAttributo{maxNumber}{int}{il numero massimo di edifici richiesti o la distanza massimi entro cui devono essere presenti gli edifici restituiti, a seconda del valore di ''searchByDistance''}
-\classeAttributo{searchByDistance}{boolean}{indica se la richiesta al server deve ritornare gli edifici più vicini secondo un numero massimo o una distanza massima entro cui essi sono presenti}
+\classeAttributo{searchByDistance}{boolean}{indica se la richiesta al server deve ritornare gli edifici piï¿½ vicini secondo un numero massimo o una distanza massima entro cui essi sono presenti}
 \end{classeAttributi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data}{Building}{classe che rappresenta un edificio}\classeRelazione{CLIPS::server::urlrequesthandler}{DBHandler}{classe che si occupa di gestire il DB e di ritornare un oggetto configurato della libreria knex}\classeRelazione{CLIPS::client::data}{PathInfo}{classe che si occupa di salvare in locale le informazioni generali di un percorso}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
@@ -538,8 +538,8 @@
 \end{classeMetodi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data}{AppInfo}{classe per la rappresentazione delle informazioni dell'applicazione}\classeRelazione{CLIPS::client::data::datamanager}{AppInfoDataRequest}{classe concreta che gestisce le richieste dei dati sulle info dell'app}\classeRelazione{CLIPS::client::data}{Building}{classe che rappresenta un edificio}\classeRelazione{CLIPS::client::data::datamanager}{BuildingsDataRequest}{classe concreta che gestisce le richieste dei dati sugli edifici}\classeRelazione{CLIPS::client::data::datamanager}{GetRankingDataRequest}{classe concreta che gestisce le richieste dei dati della classifica}\classeRelazione{CLIPS::client::data::datamanager}{GetResultsDataRequest}{classe concreta che gestisce le richieste dei dati dei risultati}\classeRelazione{CLIPS::client::data}{Path}{classe che si occupa di salvare in locale i dati riguardanti un percorso}\classeRelazione{CLIPS::client::data::datamanager}{PathDataRequest}{classe concreta che gestisce le richieste dei dati sui percorsi}\classeRelazione{CLIPS::client::data}{PathResult}{classe che rappresenta i risultati di un percorso}\classeRelazione{CLIPS::client::data::datamanager}{SaveResultDataRequest}{classe concreta che effettua le richieste per salvare il risultato del percorso appena concluso}\classeRelazione{CLIPS::client::data}{Score}{classe che rappresenta il risultato nella classifica dell'utente}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::data::datamanager::DBHandlerFIXME}
-\classeDescrizione{classe che si occupa dell'interazione con il database locale}
+\end{classe}\begin{classe}{CLIPS::client::data::datamanager::DBHandler}
+\classeDescrizione{classe che si occupa della gestione del database locale}
 \classeUtilizzo{utilizzando questa classe Ã¨ possibile interagire con il database locale per ottenere e salvare i dati desiderati}
 \begin{classeAttributi}
 \classeAttributo{DB_NAME}{string}{variabile costante statica contenente il nome del database locale}
@@ -818,10 +818,10 @@
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data}{Score}{classe che rappresenta il risultato nella classifica dell'utente}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::datamanager::GetResultsDataRequest}
-\classeDescrizione{classe concreta che gestisce le richieste dei dati dei risultati}
+\classeDescrizione{classe concreta che gestisce le richieste dei dati dei risultati delle prove}
 \classeUtilizzo{permette di ottenere i dati dei risultati}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::server::urlrequesthandler}{DBHandler}{classe che si occupa di gestire il DB e di ritornare un oggetto configurato della libreria knex}\classeRelazione{CLIPS::client::data}{PathResult}{classe che rappresenta i risultati di un percorso}\classeRelazione{CLIPS::client::data}{ProofResult}{classe che rappresenta il risultato di una prova}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::server::urlrequesthandler}{DBHandler}{classe che si occupa di gestire il DB e di ritornare un oggetto configurato della libreria knex}\classeRelazione{CLIPS::client::data}{PathResult}{classe che rappresenta i risultati di un percorso}\classeRelazione{CLIPS::client::data}{ProofResult}{classe che rappresenta il risultato di una prova}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::datamanager::LoginManager}
 \classeDescrizione{classe che gestisce le operazioni del profilo dell'utente}
 \classeUtilizzo{permette di effettuare il login, il logout, la registrazione, il check dei dati inseriti, l'aggiornamento dei dati salvati in locale e la modifica dei dati del profilo}
@@ -876,9 +876,9 @@
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data::datamanager}{CheckResult}{classe che contiene il risultato del check per il dato specificato}\classeRelazione{CLIPS::client::data}{LoggedUser}{classe che si occupa di memorizzare in locale i dati dell'utente loggato}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data::datamanager}{CheckResult}{classe che contiene il risultato del check per il dato specificato}\classeRelazione{CLIPS::client::data}{LoggedUser}{classe che si occupa di memorizzare in locale i dati dell'utente loggato}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::datamanager::PathDataRequest}
-\classeDescrizione{classe concreta che gestisce le richieste dei dati sui percorsi}
+\classeDescrizione{classe concreta che gestisce le richieste dei dati sui percorsi di un edificio}
 \classeUtilizzo{permette di ottenere i dati sui percorsi}
 \begin{classeAttributi}
 \classeAttributo{pathID}{int}{l'ID del percorso selezionato}
@@ -933,7 +933,7 @@
 \classeMetodoArgomento{latitude}{double}{indica la latitudine attuale dell'utente, serve per trovare gli edifici piÃ¹ vicini}
 \classeMetodoArgomento{longitude}{double}{indica la longitudine attuale dell'utente, serve per trovare gli edifici piÃ¹ vicini}
 \classeMetodoArgomento{maxNumber}{int}{indica il numero massimo di edifici richiesto o la distanza massima entro cui essi sono situati, a seconda del valore di ''searchByDistance''}
-\classeMetodoArgomento{searchByDistance}{boolean}{indica se la ricerca degli edifici più vicini deve essere effettuata in base ad un numero massimo o ad una distanza entro cui devono essere situati}
+\classeMetodoArgomento{searchByDistance}{boolean}{indica se la ricerca degli edifici piï¿½ vicini deve essere effettuata in base ad un numero massimo o ad una distanza entro cui devono essere situati}
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
 \begin{classeRelazioni}
@@ -1078,8 +1078,8 @@
 \end{classeMetodoArgomenti}
 \classeMetodo{getResults}{cx, listener}{void}{crea l'oggetto per ottenere dal server i risultati conseguiti dall'utente}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{cx}{Context}{è una classe delle librerie base di Android che costituisce il cuore dell'applicazione, e quindi è necessaria per poter effettuare alcune operazioni, tra cui le richieste al server}
-\classeMetodoArgomento{listener}{AbstractUrlRequestListener}{il listener che verrà  usato per informare l'applicazione se la richiesta al server ha avuto successo o meno}
+\classeMetodoArgomento{cx}{Context}{ï¿½ una classe delle librerie base di Android che costituisce il cuore dell'applicazione, e quindi ï¿½ necessaria per poter effettuare alcune operazioni, tra cui le richieste al server}
+\classeMetodoArgomento{listener}{AbstractUrlRequestListener}{il listener che verrï¿½ï¿½ usato per informare l'applicazione se la richiesta al server ha avuto successo o meno}
 \end{classeMetodoArgomenti}
 \classeMetodo{login}{cx, email, listener, password}{void}{crea l'oggetto per chiedere al server di verificare i dati inseriti dall'utente per il login}
 \begin{classeMetodoArgomenti}
@@ -2004,15 +2004,15 @@ selezionato}
 \end{classeMetodoArgomenti}
 \classeMetodo{fulfilledProximity}{proximity}{Promise}{ritorna una Promise in grado di aggiungere in maniera asincrona i dati derivati alla Proximity in ingresso}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{proximity}{JSON}{la Proximity che si vuole completare inserendo dati derivati; proximity è un JSON che deve contenere almeno la chiave \texttt{beaconID} con l'id del beacon che viene usato per la prossimità}
+\classeMetodoArgomento{proximity}{JSON}{la Proximity che si vuole completare inserendo dati derivati; proximity ï¿½ un JSON che deve contenere almeno la chiave \texttt{beaconID} con l'id del beacon che viene usato per la prossimitï¿½}
 \end{classeMetodoArgomenti}
 \classeMetodo{fulfilledStep}{step}{Promise}{ritorna una Promise in grado di aggiungere in maniera asincrona i dati derivati alla tappe in ingresso}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{step}{JSON}{la tappa che si vuole completare inserendo dati derivati; in particolare step è un JSON object che deve contenere almeno le chiavi \texttt{stopbeaconID} con l'id del beacon della stazione, \texttt{proof} con un oggetto di tipo Proof e \texttt{proximities} con un array di oggetti Proximity}
+\classeMetodoArgomento{step}{JSON}{la tappa che si vuole completare inserendo dati derivati; in particolare step ï¿½ un JSON object che deve contenere almeno le chiavi \texttt{stopbeaconID} con l'id del beacon della stazione, \texttt{proof} con un oggetto di tipo Proof e \texttt{proximities} con un array di oggetti Proximity}
 \end{classeMetodoArgomenti}
 \classeMetodo{getAlgorithm}{proof}{Promise}{ritorna una Promise in grado di tornare l'algoritmo per il calcolo dei punteggi della prova in input}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{proof}{JSON}{la prova di cui si vuole ottenere l'algoritmo; è un oggetto JSON che rappresenta l'oggetto Proof}
+\classeMetodoArgomento{proof}{JSON}{la prova di cui si vuole ottenere l'algoritmo; ï¿½ un oggetto JSON che rappresenta l'oggetto Proof}
 \end{classeMetodoArgomenti}
 \classeMetodo{getBeacon}{beaconID}{Promise}{metodo che ritorna una Promise in grado di recuperare in maniera asincrona i dati di un Beacon con ID in ingresso}
 \begin{classeMetodoArgomenti}
@@ -2028,7 +2028,7 @@ selezionato}
 \end{classeMetodoArgomenti}
 \classeMetodo{getProximities}{step}{Promise}{ritorna una Promise in grado di recuperare in maniera asincrona i dati delle Proximity associate alla tappa in ingresso}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{step}{JSON}{tappa di cui si vogliono avere le proximities; step è un JSON che deve contenere almeno la chiave \texttt{id} con l'id della stazione }
+\classeMetodoArgomento{step}{JSON}{tappa di cui si vogliono avere le proximities; step ï¿½ un JSON che deve contenere almeno la chiave \texttt{id} con l'id della stazione }
 \end{classeMetodoArgomenti}
 \classeMetodo{getSteps}{path}{Promise}{metodo che ritorna una Promise in grado di recuperare in maniera asincrona i dati delle tappe associate al path in ingresso}
 \begin{classeMetodoArgomenti}
