@@ -9,12 +9,8 @@
 package beaconstrips.clips.client.viewcontroller.games;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -35,46 +31,44 @@ import com.kontakt.sdk.android.common.KontaktSDK;
 import com.kontakt.sdk.android.common.profile.IBeaconDevice;
 import com.kontakt.sdk.android.common.profile.IBeaconRegion;
 
-import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.GameCollection;
 import beaconstrips.clips.client.data.MultipleChoiceTest;
-import beaconstrips.clips.client.data.Path;
-import beaconstrips.clips.client.data.Proof;
 import beaconstrips.clips.client.data.Step;
 import beaconstrips.clips.client.data.Test;
 import beaconstrips.clips.client.data.TrueFalseTest;
-import beaconstrips.clips.client.data.TrueFalseTextQuiz;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
 public class SearchNewStepActivity extends MenuActivity {
 
-    private ProximityManagerContract proximityManager;
-    private Button startTestButton;
-    private Path path;
-    private int pathIndex;
+   private ProximityManagerContract proximityManager;
+   private Button startTestButton;
+   private List<Step> steps;
+   private int stepIndex;
+   private final String TAG = "SearchNewStepActivity";
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_new_step);
-        startTestButton = (Button) findViewById(R.id.startTestButton);
-        setButtons();
-        startTestButton.setVisibility(View.INVISIBLE);
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_search_new_step);
+      startTestButton = (Button) findViewById(R.id.startTestButton);
+      setButtons();
+      startTestButton.setVisibility(View.INVISIBLE);
 
-        Intent i = getIntent();
-        Bundle bundle = i.getExtras();
-        pathIndex = i.getIntExtra("pathIndex", 0);
+      Intent i = getIntent();
+      Bundle bundle = i.getExtras();
+      stepIndex = i.getIntExtra("pathIndex", 0);
 
-        if (bundle != null) {
-            path = (Path) bundle.getSerializable("Path");
-            Log.i("Path", "Not null");
-        }
-        else
-            Log.i("Path", "null");
+      if (bundle != null) {
+         steps = (List<Step>) bundle.getSerializable("steps");
+         Log.i(TAG, "Steps is not null and it has " + steps.size() + " steps left");
+      }
+      else
+         Log.i("TAG", "Steps is null");
 
         /* TODO when proof beacon is found:
             TextView descriptionLabel = (TextView) findElementById(R.id.descriptionLabel);
@@ -83,136 +77,143 @@ public class SearchNewStepActivity extends MenuActivity {
             descriptionLabel.setVisibility(View.GONE);
             hintLabel.setVisibility(View.GONE);
          */
-        KontaktSDK.initialize(this);
-        proximityManager = new ProximityManager(this);
-        getProof(pathIndex);
-        configureProximityManager();
-        configureListeners();
-        configureSpaces();
-        //configureFilters();
-        //TODO add all algorithms for proximity
-    }
+      KontaktSDK.initialize(this);
+      proximityManager = new ProximityManager(this);
+      //getProof(stepIndex);
+      configureProximityManager();
+      configureListeners();
+      configureSpaces();
+      //configureFilters();
+      //TODO add all algorithms for proximity
+   }
 
-    private void configureProximityManager() {
-        proximityManager.configuration()
-                .scanMode(ScanMode.LOW_LATENCY)
-                .scanPeriod(ScanPeriod.create(TimeUnit.SECONDS.toMillis(3), TimeUnit.SECONDS.toMillis(10)))
-                .activityCheckConfiguration(ActivityCheckConfiguration.MINIMAL)
-                .monitoringEnabled(false);
-    }
+   private void configureProximityManager() {
+      proximityManager.configuration()
+              .scanMode(ScanMode.LOW_LATENCY)
+              .scanPeriod(ScanPeriod.create(TimeUnit.SECONDS.toMillis(3), TimeUnit.SECONDS.toMillis(10)))
+              .activityCheckConfiguration(ActivityCheckConfiguration.MINIMAL)
+              .monitoringEnabled(false);
+   }
 
-    private void configureListeners() {
-        proximityManager.setIBeaconListener(createIBeaconListener());
-        proximityManager.setScanStatusListener(createScanStatusListener());
-    }
+   private void configureListeners() {
+      proximityManager.setIBeaconListener(createIBeaconListener());
+      proximityManager.setScanStatusListener(createScanStatusListener());
+   }
 
-    private void configureSpaces() {
-        IBeaconRegion region = new BeaconRegion.Builder()
-                .setIdentifier("All my iBeacons")
-                .setProximity(UUID.fromString("f7826da6-4fa2-4e98-8024-bc5b71e0893e"))
-                .build();
+   private void configureSpaces() {
+      IBeaconRegion region = new BeaconRegion.Builder()
+              .setIdentifier("All my iBeacons")
+              .setProximity(UUID.fromString("f7826da6-4fa2-4e98-8024-bc5b71e0893e"))
+              .build();
 
-        proximityManager.spaces().iBeaconRegion(region);
-    }
+      proximityManager.spaces().iBeaconRegion(region);
+   }
 
-    private void configureFilters() {
-        proximityManager.filters().iBeaconFilter(IBeaconFilters.newDeviceNameFilter(""));
-    }
+   private void configureFilters() {
+      proximityManager.filters().iBeaconFilter(IBeaconFilters.newDeviceNameFilter(""));
+   }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        startScanning();
-    }
+   @Override
+   protected void onStart() {
+      super.onStart();
+      startScanning();
+   }
 
-    @Override
-    protected void onStop() {
-        proximityManager.stopScanning();
-        super.onStop();
-    }
+   @Override
+   protected void onStop() {
+      proximityManager.stopScanning();
+      super.onStop();
+   }
 
-    @Override
-    protected void onDestroy() {
-        proximityManager.disconnect();
-        proximityManager = null;
-        super.onDestroy();
-    }
+   @Override
+   protected void onDestroy() {
+      proximityManager.disconnect();
+      proximityManager = null;
+      super.onDestroy();
+   }
 
-    private void startScanning() {
-        proximityManager.connect(new OnServiceReadyListener() {
-            @Override
-            public void onServiceReady() {
-                proximityManager.startScanning();
-            }
-        });
-    }
+   private void startScanning() {
+      proximityManager.connect(new OnServiceReadyListener() {
+         @Override
+         public void onServiceReady() {
+            proximityManager.startScanning();
+         }
+      });
+   }
 
-    private void showToast(final String message) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(SearchNewStepActivity.this, message, Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+   private void showToast(final String message) {
+      runOnUiThread(new Runnable() {
+         @Override
+         public void run() {
+            Toast.makeText(SearchNewStepActivity.this, message, Toast.LENGTH_SHORT).show();
+         }
+      });
+   }
 
-    private IBeaconListener createIBeaconListener() {
-        return new SimpleIBeaconListener() {
-            @Override
-            public void onIBeaconDiscovered(IBeaconDevice ibeacon, IBeaconRegion region) {
-                Step step = path.steps.get(pathIndex);
-                Log.i("Getting beacon", step.stopBeacon.UUID);
-                if (ibeacon.getProximityUUID().equals(java.util.UUID.fromString(step.stopBeacon.UUID))
+   private IBeaconListener createIBeaconListener() {
+      return new SimpleIBeaconListener() {
+         @Override
+         public void onIBeaconDiscovered(IBeaconDevice ibeacon, IBeaconRegion region) {
+            Step step = steps.get(stepIndex);
+            if (ibeacon.getProximityUUID().equals(java.util.UUID.fromString(step.stopBeacon.UUID))
                     && ibeacon.getMajor() == step.stopBeacon.major
                     && ibeacon.getMinor() == step.stopBeacon.minor) { //qui va modificato il beacon da trovare!
-                    Log.i("Searching beacon", String.valueOf(step.stopBeacon.major));
-                    Log.i("Distance", "" + ibeacon.getProximity());
-                    showToast("Hai trovato il beacon!");
-                    startTestButton.setVisibility(View.VISIBLE);
-                }
+               Log.i("Searching beacon", String.valueOf(step.stopBeacon.major));
+               Log.i("Distance", "" + ibeacon.getProximity());
+               showToast("Hai trovato il beacon!");
+               startTestButton.setVisibility(View.VISIBLE);
             }
-        };
-    }
+         }
+      };
+   }
 
-    private ScanStatusListener createScanStatusListener() {
-        return new SimpleScanStatusListener() {
-            @Override
-            public void onScanStart() {
-                //showToast("Scanning started");
+   private ScanStatusListener createScanStatusListener() {
+      return new SimpleScanStatusListener() {
+         @Override
+         public void onScanStart() {
+            //showToast("Scanning started");
+         }
+
+         @Override
+         public void onScanStop() {
+            //showToast("Scanning stopped");
+         }
+      };
+   }
+
+
+   private void setButtons() {
+      if (startTestButton != null) {
+         startTestButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+               Test test = steps.get(stepIndex).proof.test;
+               Intent i = new Intent();
+
+               if(test instanceof GameCollection) {
+                  test = ((GameCollection) test).games.get(1);
+                  i.putExtra("testIndex", 0);
+                  Log.i(TAG, "Test has now type " + test.getClass());
+               }
+
+               if (test instanceof MultipleChoiceTest) {
+                  i.setClass(getApplicationContext(), MultipleChoiceQuizActivity.class);
+                  Log.i(TAG, "Set class MultipleChoiceQuizActivity.class");
+               }
+               if (test instanceof TrueFalseTest) {
+                  i.setClass(getApplicationContext(), TrueFalseQuizView.class);
+                  Log.i(TAG, "Set class TrueFalseTest.class");
+               }
+
+               i.putExtra("test", test);
+
+               if(i != null) {
+                  startActivity(i);
+               }
+               //TODO add spinner for loading
+
             }
+         });
+      }
+   }
 
-            @Override
-            public void onScanStop() {
-                //showToast("Scanning stopped");
-            }
-        };
-    }
-
-
-    private void setButtons() {
-        if (startTestButton != null) {
-            startTestButton.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    GameCollection tests = (GameCollection) path.steps.get(pathIndex).proof.test;
-                    Test test = tests.games.get(pathIndex);
-                    Intent i = new Intent();
-                    if(test instanceof MultipleChoiceTest)
-                        i = new Intent(getApplicationContext(), MultipleChoiceQuizActivity.class);
-                    if(test instanceof TrueFalseTest)
-                        i = new Intent(getApplicationContext(), TrueFalseQuiz.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("Path", path);
-                    i.putExtras(bundle);
-                    i.putExtra("pathIndex", pathIndex);
-                    startActivity(i);
-                    //TODO add spinner for loading
-
-                }
-            });
-        }
-    }
-
-    private void getProof(int index) {
-
-    }
 }
