@@ -1,9 +1,7 @@
 \section{Algoritmo di assegnazione del punteggio}
 \label{sec:Algoritmo di assegnazione del punteggio}
 
-L'assegnazione del punteggio viene fatta da una classe che implementa l'interfaccia \texttt{ScoringAlgorithm}.
-
-Questa classe viene configurata con dei dati forniti dal server in modo che ricevendo in input:
+L'assegnazione del punteggio di ciascuna prova viene fatta dalla classe \texttt{LinearScoringAlgorithm}. Questa classe viene configurata all'inizio di una prova, con dei dati forniti dal server in modo che ricevendo in input:
 \begin{itemize}
    \item il numero di risposte corrette,
    \item il numero di risposte totali,
@@ -13,7 +11,7 @@ sappia fornire un punteggio appropriato.
 
 Non è necessario che siano per forza risposte a domande testuali: se la prova consiste di un gioco le risposte corrette possono essere il numero di successi e le risposte totali il totale dei tentativi. \\
 
-La classe \texttt{LinearScoringAlgorithm} è, al momento, l'unica implementazione di \texttt{ScoringAlgorithm} e serve ad assegnare il punteggio al termine di una prova. Viene configurata per ciascuna prova con un \texttt{JSON} contenente le seguenti chiavi:
+La classe \texttt{LinearScoringAlgorithm} viene configurata per ciascuna prova con un \texttt{JSON} contenente le seguenti chiavi:
 \begin{itemize}
    \item[\texttt{maxScore}] indica il punteggio massimo assegnabile ad ogni prova
    \item[\texttt{minScore}] indica il punteggio minimo assegnato ad ogni prova
