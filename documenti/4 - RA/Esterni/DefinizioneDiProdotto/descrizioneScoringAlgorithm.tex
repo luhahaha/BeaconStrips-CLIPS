@@ -18,22 +18,22 @@ La classe \texttt{LinearScoringAlgorithm} viene configurata per ciascuna prova c
    \item[\texttt{maxTime}] indica il tempo massimo in cui completare la prova: se un giocatore impiega più di questo tempo viene penalizzato come se ci avesse messo questo tempo
    \item[\texttt{minTime}] il tempo massimo in cui l'utente può finire la prova ottenendo il massimo punteggio per il tempo
    \item[\texttt{timeWeight}] indica il peso con cui conta il tempo nel computo del punteggio finale
-   \item[\texttt{correctnessWeight}] indica il peso con cui conta l'esattezza delle risposte nel computo del punteggio finale
+   \item[\texttt{accuracyWeight}] indica il peso con cui conta l'esattezza delle risposte nel computo del punteggio finale
 \end{itemize}
 
-Nello specifico, per l'assegnazione dei punteggi, \texttt{LinearScoringAlgorithm} assegna linearmente un punteggio tra minScore e maxScore alla prova confrontando le risposte corrette con quelle totali, assegna un punteggio tra \texttt{minScore} e \texttt{maxScore} al tempo in cui viene risolta la prova (dove un tempo di \texttt{minTime} o inferiore aggiudica il massimo dei punti, cioè \texttt{maxScore}, e un tempo di \texttt{maxTime} o superiore aggiudica il minimo dei punti, cioè \texttt{minScore}) e infine effettua la media tra i due valori, pesata secondo i pesi \texttt{correctnessWeight} e \texttt{timeWeight}.
+Nello specifico, per l'assegnazione dei punteggi, \texttt{LinearScoringAlgorithm} assegna linearmente un punteggio tra minScore e maxScore alla prova confrontando le risposte corrette con quelle totali, assegna un punteggio tra \texttt{minScore} e \texttt{maxScore} al tempo in cui viene risolta la prova (dove un tempo di \texttt{minTime} o inferiore aggiudica il massimo dei punti, cioè \texttt{maxScore}, e un tempo di \texttt{maxTime} o superiore aggiudica il minimo dei punti, cioè \texttt{minScore}) e infine effettua la media tra i due valori, pesata secondo i pesi \texttt{accuracyWeight} e \texttt{timeWeight}.
 
 La formula per il conteggio dei punti risulta quindi, definendo:
 \begin{flalign}
    \nonumber \Delta_{score} & = maxScore - minScore \\
-   \nonumber weight & = weight_c + weight_t \\
+   \nonumber weight & = weight_a + weight_t \\
    \nonumber \widetilde{t} & = min(time_{max}, min(time_{min}, time))
 \end{flalign}
 % \[ \Delta _{score} = maxScore - minScore \]
 % \[ weight = weight_c + weight_t \]
 % \[ \widetilde{t} = min(time_{max}, min(time_{min}, time)) \]
-dove $weight_t$ e $weight_c$ sono \texttt{timeWeight} e \texttt{correctnewssWeight}, otteniamo la funzione di per l'assegnazione del punteggio come:
-\[ score = \frac{\Delta_{score}}{weight} \cdot \left ( \frac{correct}{total} \cdot {weight}_{c} +\left ( 1 - \frac{\widetilde{t} - time_{min}}{time_{max} - time_{min}} \right ) \cdot weight_{t}  \right ) \]
+dove $weight_t$ e $weight_a$ sono \texttt{timeWeight} e \texttt{accuracyWeight}, otteniamo la funzione di per l'assegnazione del punteggio come:
+\[ score = \frac{\Delta_{score}}{weight} \cdot \left ( \frac{correct}{total} \cdot {weight}_{a} +\left ( 1 - \frac{\widetilde{t} - time_{min}}{time_{max} - time_{min}} \right ) \cdot weight_{t}  \right ) \]
 
 
 Ad esempio se si vuole un algoritmo che non tenga in considerazione del tempo impiegato dal giocatore per completare una prova si può creare un \texttt{LinearScoringAlgorithm} passando il \texttt{timeWeight} $ = 0 $.
