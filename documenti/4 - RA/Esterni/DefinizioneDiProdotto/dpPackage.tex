@@ -1,60 +1,45 @@
 \begin{componente}{CLIPS}
 \compDescrizione{package generale contenente il prodotto del progetto}
 \begin{compPackageContenuti}
-\item \texttt{CLIPS::client}: componente globale per il front end del prodotto che utilizza il design pattern \gl{MVC}. Si occupa di fornire un'interfaccia grafica dell'applicazione e di interagire con il lato server.
-\item \texttt{CLIPS::server}: componente globale per il back end del prodotto
+\item CLIPS::client: componente globale per il front end del prodotto che utilizza il design pattern \gl{MVC}. Si occupa di fornire un'interfaccia grafica dell'applicazione e di interagire con il lato server.
+\item CLIPS::server: componente globale per il back end del prodotto
 \end{compPackageContenuti}
 \end{componente}
 \begin{componente}{CLIPS::client}
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.4]{img/package/png/client.png}
-\caption{Schema package client}
- \end{figure}
+\begin{figure}[h!] 
+\centering 
+\includegraphics[scale=0.4]{img/package/png/client.png} 
+\caption{Schema package client} 
+ \end{figure} 
 \compDescrizione{componente globale per il front end del prodotto che utilizza il design pattern \gl{MVC}. Si occupa di fornire un'interfaccia grafica dell'applicazione e di interagire con il lato server.}
 \compPadre{CLIPS}
 \begin{compPackageContenuti}
-\item \texttt{CLIPS::client::data}: package per la gestione in locale dei dati
-\item \texttt{CLIPS::client::pathprogress}: componente che gestisce i dati del percorso e salva i risultati ottenuti nelle prove mentre si sta giocando
-\item \texttt{CLIPS::client::viewcontroller}: componente che raggruppa tutte le view ed i controller relativi alle view
+\item CLIPS::client::data: package per la gestione in locale dei dati
+\item CLIPS::client::pathprogress: componente che gestisce i dati del percorso e salva i risultati ottenuti nelle prove mentre si sta giocando
+\item CLIPS::client::viewcontroller: componente che raggruppa tutte le view ed i controller relativi alle view
 \end{compPackageContenuti}
 \end{componente}
 \begin{componente}{CLIPS::client::data}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.35]{img/package/png/client--data--min.png}
-	\caption{Schema sintetico package client::data}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.35]{img/package/png/client--data1.png}
-	\caption{Prima parte schema package client::data}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.35]{img/package/png/client--data2.png}
-	\caption{Seconda parte schema package client::data}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.4]{img/package/png/client--data3.png}
-	\caption{Terza parte schema package client::data}
-\end{figure}
+\begin{figure}[h!] 
+\centering 
+\includegraphics[scale=0.4]{img/package/png/client--data.png} 
+\caption{Schema package client::data} 
+ \end{figure} 
 \compDescrizione{package per la gestione in locale dei dati}
 \compPadre{client}
 \begin{compPackageContenuti}
-\item \texttt{CLIPS::client::data::datamanager}: componente che gestisce i dati in locale
-\item \texttt{CLIPS::client::data::urlrequest}: componente che si occupa di effettuare le richieste al server
+\item CLIPS::client::data::datamanager: componente che gestisce i dati in locale
+\item CLIPS::client::data::urlrequest: componente che si occupa di effettuare le richieste al server
 \end{compPackageContenuti}
-\begin{compClassi} \\
-\begin{classe}{CLIPS::client::data::\textit{AbstractQuiz}}
+\begin{compClassi} \\ 
+\begin{classe}{CLIPS::client::data::/textit{AbstractQuiz}}
 \classeDescrizione{classe astratta dei quiz}
 \classeUtilizzo{classe astratta da cui far derivare tutte le classi che rappresentano un quiz}
 \begin{classeAttributi}
 \classeAttributo{helpText}{string}{stringa contenente il messaggio d'aiuto per la prova}
 \classeAttributo{instructions}{string}{stringa contenente le istruzioni della prova}
 \end{classeAttributi}
-\end{classe}\begin{classe}{CLIPS::client::data::\textit{Test}}
+\end{classe}\begin{classe}{CLIPS::client::data::/textit{Test}}
 \classeDescrizione{classe astratta che rappresenta un test}
 \classeUtilizzo{classe astratta per rappresentare un test, ovvero un gruppo di giochi generalmente dello stesso tipo}
 \end{classe}\begin{classe}{CLIPS::client::data::AppInfo}
@@ -134,7 +119,7 @@
 \classeAttributo{shuffleGames}{boolean}{booleano per indicare se la lista dei Test va mescolata o meno}
 \end{classeAttributi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data}{\textit{Test}}{classe astratta che rappresenta un test}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{/textit{Test}}{classe astratta che rappresenta un test}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::LeaderBoard}
 \classeDescrizione{classe che rappresenta la classifica di un percorso}
 \classeUtilizzo{consente di salvare i dati della classifica in locale}
@@ -148,7 +133,7 @@
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data}{PathInfo}{classe che si occupa di salvare in locale le informazioni generali di un percorso}\classeRelazione{CLIPS::client::data}{Score}{classe che rappresenta il risultato nella classifica dell'utente}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::LinearScoringAlgorithm}
-\classeDescrizione{classe per calcolare il punteggio di una prova. Per approfondire si veda \hyperref[sec:Algoritmo di assegnazione del punteggio]{Algoritmo di Assegnazione del Punteggio}}
+\classeDescrizione{classe per calcolare il punteggio di una prova}
 \classeUtilizzo{si occupa di calcolare il punteggio utilizzando un algoritmo lineare}
 \begin{classeAttributi}
 \classeAttributo{accuracyWeight}{double}{indica l'incidenza dell'accuratezza rispetto alla risposta}
@@ -162,7 +147,7 @@
 \classeMetodo{getScore}{correct, total}{int}{fornisce il punteggio ottenuto nella prova}
 \begin{classeMetodoArgomenti}
 \classeMetodoArgomento{correct}{int}{indica il numero di risposte corrette}
-\classeMetodoArgomento{total}{int}{indica il numero totale di risposte fornite}
+\classeMetodoArgomento{total}{int}{*da aggiungere*}
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
 \end{classe}\begin{classe}{CLIPS::client::data::LoggedUser}
@@ -270,12 +255,12 @@
 \begin{classeAttributi}
 \classeAttributo{id}{int}{intero contenente l'id dell'oggetto}
 \classeAttributo{instructions}{string}{stringa contenente le istruzioni della prova}
-\classeAttributo{scoringAlgorithm}{LinearScoringAlgorithm}{oggetto contenente l'algoritmo per calcolare il punteggio della prova}
+\classeAttributo{scoringAlgotithm}{LinearScoringAlgorithm}{oggetto contenente l'algoritmo per calcolare il punteggio della prova}
 \classeAttributo{test}{Test}{oggetto contenente il quesito da proporre all'utente}
 \classeAttributo{title}{string}{stringa contenente il titolo della prova}
 \end{classeAttributi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data}{\textit{Test}}{classe astratta che rappresenta un test}\classeRelazione{CLIPS::client::data}{LinearScoringAlgorithm}{classe per calcolare il punteggio di una prova}\classeRelazione{CLIPS::client::data}{ScoringAlgorithmFactory}{classe base per la creazione degli algoritmi}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data}{/textit{Test}}{classe astratta che rappresenta un test}\classeRelazione{CLIPS::client::data}{LinearScoringAlgorithm}{classe per calcolare il punteggio di una prova}\classeRelazione{CLIPS::client::data}{ScoringAlgorithmFactory}{classe base per la creazione degli algoritmi}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::ProofResult}
 \classeDescrizione{classe che rappresenta il risultato di una prova}
 \classeUtilizzo{permette di salvare in locale il risultato di una prova}
@@ -314,7 +299,7 @@
 \begin{classeMetodi}
 \classeMetodo{createScoringAlgorithm}{algorithmData}{void}{si occupa di creare l'algoritmo per calcolare il punteggio}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{algorithmData}{void}{JSON contenente i dati necessari alla creazione di un algoritmo per assegnare i punteggi}
+\classeMetodoArgomento{algorithmData}{LinearScoringAlgorithm}{algoritmo per il punteggio}
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
 \begin{classeRelazioni}
@@ -416,30 +401,15 @@
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::data::datamanager}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.45]{img/package/png/client--datamanager--min.png}
-	\caption{Schema sintetico package client::data::datamanager}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.5]{img/package/png/client--datamanager1.png}
-	\caption{Prima parte schema package client::data::datamanager}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.4]{img/package/png/client--datamanager2.png}
-	\caption{Seconda parte schema package client::data::datamanager}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.35]{img/package/png/client--datamanager3.png}
-	\caption{Terza parte schema package client::data::datamanager}
-\end{figure}
+\begin{figure}[h!] 
+\centering 
+\includegraphics[scale=0.4]{img/package/png/client--datamanager.png} 
+\caption{Schema package client::datamanager} 
+ \end{figure} 
 \compDescrizione{componente che gestisce i dati in locale}
 \compPadre{data}
-\begin{compClassi} \\
-\begin{classe}{CLIPS::client::data::datamanager::\textit{SaveDataManager}}
+\begin{compClassi} \\ 
+\begin{classe}{CLIPS::client::data::datamanager::/textit{SaveDataManager}}
 \classeDescrizione{classe astratta per il salvataggio di dati nel server}
 \classeUtilizzo{permette di effettuare il salvataggio dei dati nel server}
 \begin{classeAttributi}
@@ -452,33 +422,12 @@
 \begin{classeMetodoArgomenti}
 \classeMetodoArgomento{error}{ServerError}{oggetto che contiene le informazioni relative all'errore rilevato dall'applicazione durante il salvataggio dei dati del percorso svolto }
 \end{classeMetodoArgomenti}
-\classeMetodo{returnResponse}{}{void}{chiama il metodo onResponse del listener e ritorna sempre \texttt{true}, è un valore che serve solo per mantenere la consistenza della struttura del listener perché già chiamare il metodo indica che l'operazione è riuscita}
+\classeMetodo{returnResponse}{}{void}{chiama il metodo onResponse del listener e ritorna sempre "true", è un valore che serve solo per mantenere la consistenza della struttura del listener perché già chiamare il metodo indica che l'operazione è riuscita}
 \end{classeMetodi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura de listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}\end{classe}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.45]{img/package/png/client--urlrequest--min.png}
-	\caption{Schema sintetico package client::data::urlrequest}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.5]{img/package/png/client--urlrequest1.png}
-	\caption{Prima parte schema package client::data::urlrequest}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.30]{img/package/png/client--urlrequest2.png}
-	\caption{Seconda parte schema package client::data::urlrequest}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.35]{img/package/png/client--urlrequest3.png}
-	\caption{Terza parte schema package client::data::urlrequest}
-\end{figure}
-
-\begin{classe}{CLIPS::client::data::datamanager::AbstractDataManagerListener}
-\classeDescrizione{interfaccia che definisce la struttura de listener astratto usato nel package datamanager}
+\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::data::datamanager::AbstractDataManagerListener}
+\classeDescrizione{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}
 \classeUtilizzo{permette alle classi che interagiscono con il datamanager di definire un proprio listener concreto da poter usare per ottenere le informazioni richieste}
 \begin{classeMetodi}
 \classeMetodo{onError}{error}{void}{metodo che viene invocato quando si ottiene un errore mentre si cerca di ricavare il dato richiesto}
@@ -496,17 +445,18 @@
 \classeDescrizione{classe concreta che gestisce le richieste dei dati sulle info dell'app}
 \classeUtilizzo{permette di ottenere i dati sulle informazioni dell'app}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura de listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data}{AppInfo}{classe per la rappresentazione delle informazioni dell'applicazione}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data}{AppInfo}{classe per la rappresentazione delle informazioni dell'applicazione}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::datamanager::BuildingsDataRequest}
 \classeDescrizione{classe concreta che gestisce le richieste dei dati sugli edifici}
 \classeUtilizzo{permette di ottenere i dati sugli edifici}
 \begin{classeAttributi}
 \classeAttributo{latitude}{double}{la latitudine dell'utente}
 \classeAttributo{longitude}{double}{la longitudine dell'utente}
-\classeAttributo{maxBuildings}{int}{il numero massimo di edifici richiesti, serve per limitare la quantità di dati da ricevere dal server o da leggere dal database locale}
+\classeAttributo{maxNumber}{int}{il numero massimo di edifici richiesti o la distanza massimi entro cui devono essere presenti gli edifici restituiti, a seconda del valore di ''searchByDistance''}
+\classeAttributo{searchByDistance}{boolean}{indica se la richiesta al server deve ritornare gli edifici pi� vicini secondo un numero massimo o una distanza massima entro cui essi sono presenti}
 \end{classeAttributi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura de listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data}{Building}{classe che rappresenta un edificio}\classeRelazione{CLIPS::server::urlrequesthandler}{DBHandler}{classe che si occupa di gestire il DB e di ritornare un oggetto configurato della libreria knex}\classeRelazione{CLIPS::client::data}{PathInfo}{classe che si occupa di salvare in locale le informazioni generali di un percorso}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data}{Building}{classe che rappresenta un edificio}\classeRelazione{CLIPS::server::urlrequesthandler}{DBHandler}{classe che si occupa di gestire il DB e di ritornare un oggetto configurato della libreria knex}\classeRelazione{CLIPS::client::data}{PathInfo}{classe che si occupa di salvare in locale le informazioni generali di un percorso}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::datamanager::CheckResult}
 \classeDescrizione{classe che contiene il risultato del check per il dato specificato}
 \classeUtilizzo{contiene tutte le informazioni sul dato controllato dal server, ovvero se è valido e il messaggio d'errore quando ne viene rilevato uno}
@@ -514,14 +464,14 @@
 \classeAttributo{debugMessage}{string}{indica il motivo per cui il dato non è valido attraverso una spiegazione più tecnica, è destinato agli sviluppatori per aiutarli a trovare i bug nell'applicazione}
 \classeAttributo{isValid}{boolean}{indica se il dato controllato ha un formato valido o no}
 \classeAttributo{reason}{string}{indica il motivo per cui il dato non è valido}
-\classeAttributo{type}{string}{il tipo di dato controllato, i possibili valori attesi sono \texttt{email}, \texttt{password} e \texttt{username}}
+\classeAttributo{type}{string}{il tipo di dato controllato, i possibili valori attesi sono "email", "password" e "username"}
 \end{classeAttributi}
 \end{classe}\begin{classe}{CLIPS::client::data::datamanager::DataManager}
 \classeDescrizione{classe astratta per la gestione della memorizzazione e del prelievo dei dati necessari per il funzionamento dell'applicazione}
 \classeUtilizzo{permette di prelevare i dati dal server o in locale ed eventualmente di salvarli nel database locale}
 \begin{classeAttributi}
 \classeAttributo{cachedData}{Data}{oggetto generico in cui vengono memorizzati i dati letti dal database locale}
-\classeAttributo{cachePolicy}{CachePolicy}{indica il comportamento dell'applicazione per la memorizzazione dei dati richiesti: \texttt{NoCache} indica che i dati vengono richiesti al server e mai salvati in locale; \texttt{AlwaysReplaceLocal} significa che i dati vengono richiesti al server, se vengono ricevuti allora i dati del database locale corrispondenti vengono sostituiti da quelli appena ottenuti, altrimenti vengono usati i dati salvati in locale; \texttt{LocalElseRemote} indica che vengono usati i dati del database locale, se non ci sono vengono richiesti al server}
+\classeAttributo{cachePolicy}{CachePolicy}{indica il comportamento dell'applicazione per la memorizzazione dei dati richiesti: "NoCache" indica che i dati vengono richiesti al server e mai salvati in locale; "AlwaysReplaceLocal" significa che i dati vengono richiesti al server, se vengono ricevuti allora i dati del database locale corrispondenti vengono sostituiti da quelli appena ottenuti, altrimenti vengono usati i dati salvati in locale; "LocalElseRemote" indica che vengono usati i dati del database locale, se non ci sono vengono richiesti al server}
 \classeAttributo{cx}{Context}{è una classe delle librerie base di Android che costituisce il cuore dell'applicazione, e quindi è necessaria per poter effettuare alcune operazioni, tra cui le richieste al server}
 \classeAttributo{listener}{AbstractDataManagerListener<Building[]>}{il listener che verrà usato per informare l'applicazione se l'operazione prevista ha avuto successo o meno}
 \classeAttributo{remoteData}{Data}{oggetto generico in cui vengono memorizzati i dati ricevuti dal server}
@@ -543,7 +493,7 @@
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura de listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::datamanager::DataRequestMaker}
 \classeDescrizione{classe che effettua le operazioni di ricerca e salvataggio dei dati}
 \classeUtilizzo{permette di effettuare operazioni di salvataggio dei dati nel server e di ricerca dei dati, richiedendoli al server o cercandoli in locale}
@@ -553,13 +503,14 @@
 \classeMetodoArgomento{cx}{Context}{è una classe delle librerie base di Android che costituisce il cuore dell'applicazione, e quindi è necessaria per poter effettuare alcune operazioni, tra cui le richieste al server}
 \classeMetodoArgomento{listener}{AbstractDataManagerListener<AppInfo>}{il listener che verrà usato per informare l'applicazione se la ricerca dei dati ha avuto successo o meno}
 \end{classeMetodoArgomenti}
-\classeMetodo{getBuldings}{cx, latitude, listener, longitude, maxBuildings}{void}{crea l'oggetto per ottenere la lista degli edifici da visualizzare nell'applicazione, prima cercandoli nel server e poi, in caso ci siano problemi, nel database locale}
+\classeMetodo{getBuildings}{cx, latitude, listener, longitude, maxNumber, searchByDistance}{void}{crea l'oggetto per ottenere la lista degli edifici da visualizzare nell'applicazione, prima cercandoli nel server e poi, in caso ci siano problemi, nel database locale}
 \begin{classeMetodoArgomenti}
 \classeMetodoArgomento{cx}{Context}{è una classe delle librerie base di Android che costituisce il cuore dell'applicazione, e quindi è necessaria per poter effettuare alcune operazioni, tra cui le richieste al server}
 \classeMetodoArgomento{latitude}{double}{la latitudine attuale dell'utente}
 \classeMetodoArgomento{listener}{AbstractDataManagerListener<Building[]>}{il listener che verrà usato per informare l'applicazione se la ricerca dei dati ha avuto successo o meno}
 \classeMetodoArgomento{longitude}{double}{la longitudine attuale dell'utente}
-\classeMetodoArgomento{maxBuildings}{int}{il numero massimo di edifici richiesti, serve per limitare l'elenco ottenuto}
+\classeMetodoArgomento{maxNumber}{int}{valore che indica il numero massimo di edifici restituiti dal server o la loro distanza massima, a seconda del valore di ''searchByDistance''}
+\classeMetodoArgomento{searchByDistance}{boolean}{valore che indica se la chiamata deve restituire gli edifici in base ad un numero massimo o ad una distanza massima}
 \end{classeMetodoArgomenti}
 \classeMetodo{getPath}{cx, listener, pathID}{void}{crea l'oggetto per ottenere i dati del percorso selezionato, prima cercandoli nel server e poi, in caso ci siano problemi, nel database locale}
 \begin{classeMetodoArgomenti}
@@ -586,13 +537,13 @@
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura de listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data}{AppInfo}{classe per la rappresentazione delle informazioni dell'applicazione}\classeRelazione{CLIPS::client::data::datamanager}{AppInfoDataRequest}{classe concreta che gestisce le richieste dei dati sulle info dell'app}\classeRelazione{CLIPS::client::data}{Building}{classe che rappresenta un edificio}\classeRelazione{CLIPS::client::data::datamanager}{BuildingsDataRequest}{classe concreta che gestisce le richieste dei dati sugli edifici}\classeRelazione{CLIPS::client::data::datamanager}{GetRankingDataRequest}{classe concreta che gestisce le richieste dei dati della classifica}\classeRelazione{CLIPS::client::data::datamanager}{GetResultsDataRequest}{classe concreta che gestisce le richieste dei dati dei risultati}\classeRelazione{CLIPS::client::data}{Path}{classe che si occupa di salvare in locale i dati riguardanti un percorso}\classeRelazione{CLIPS::client::data::datamanager}{PathDataRequest}{classe concreta che gestisce le richieste dei dati sui percorsi}\classeRelazione{CLIPS::client::data}{PathResult}{classe che rappresenta i risultati di un percorso}\classeRelazione{CLIPS::client::data::datamanager}{SaveResultDataRequest}{classe concreta che effettua le richieste per salvare il risultato del percorso appena concluso}\classeRelazione{CLIPS::client::data}{Score}{classe che rappresenta il risultato nella classifica dell'utente}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::data::datamanager::DBHandler}
+\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data}{AppInfo}{classe per la rappresentazione delle informazioni dell'applicazione}\classeRelazione{CLIPS::client::data::datamanager}{AppInfoDataRequest}{classe concreta che gestisce le richieste dei dati sulle info dell'app}\classeRelazione{CLIPS::client::data}{Building}{classe che rappresenta un edificio}\classeRelazione{CLIPS::client::data::datamanager}{BuildingsDataRequest}{classe concreta che gestisce le richieste dei dati sugli edifici}\classeRelazione{CLIPS::client::data::datamanager}{GetRankingDataRequest}{classe concreta che gestisce le richieste dei dati della classifica}\classeRelazione{CLIPS::client::data::datamanager}{GetResultsDataRequest}{classe concreta che gestisce le richieste dei dati dei risultati}\classeRelazione{CLIPS::client::data}{Path}{classe che si occupa di salvare in locale i dati riguardanti un percorso}\classeRelazione{CLIPS::client::data::datamanager}{PathDataRequest}{classe concreta che gestisce le richieste dei dati sui percorsi}\classeRelazione{CLIPS::client::data}{PathResult}{classe che rappresenta i risultati di un percorso}\classeRelazione{CLIPS::client::data::datamanager}{SaveResultDataRequest}{classe concreta che effettua le richieste per salvare il risultato del percorso appena concluso}\classeRelazione{CLIPS::client::data}{Score}{classe che rappresenta il risultato nella classifica dell'utente}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::data::datamanager::DBHandlerFIXME}
 \classeDescrizione{classe che si occupa dell'interazione con il database locale}
 \classeUtilizzo{utilizzando questa classe è possibile interagire con il database locale per ottenere e salvare i dati desiderati}
 \begin{classeAttributi}
-\classeAttributo{DB\_NAME}{string}{costante statica contenente il nome del database locale}
-\classeAttributo{DB\_VERSION}{int}{costante statica contenente la versione del database locale}
+\classeAttributo{DB_NAME}{string}{variabile costante statica contenente il nome del database locale}
+\classeAttributo{DB_VERSION}{int}{variabile costante statica contenente la versione del database locale}
 \end{classeAttributi}
 \begin{classeMetodi}
 \classeMetodo{createBeaconTable}{db}{void}{metodo per la creazione della tabella Beacon all'interno del database locale}
@@ -865,15 +816,15 @@
 \classeAttributo{pathID}{int}{l'ID del percorso di cui vengono richiesti i dati da ricavare}
 \end{classeAttributi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura de listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data}{Score}{classe che rappresenta il risultato nella classifica dell'utente}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data}{Score}{classe che rappresenta il risultato nella classifica dell'utente}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::datamanager::GetResultsDataRequest}
 \classeDescrizione{classe concreta che gestisce le richieste dei dati dei risultati}
 \classeUtilizzo{permette di ottenere i dati dei risultati}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura de listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::server::urlrequesthandler}{DBHandler}{classe che si occupa di gestire il DB e di ritornare un oggetto configurato della libreria knex}\classeRelazione{CLIPS::client::data}{PathResult}{classe che rappresenta i risultati di un percorso}\classeRelazione{CLIPS::client::data}{ProofResult}{classe che rappresenta il risultato di una prova}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::server::urlrequesthandler}{DBHandler}{classe che si occupa di gestire il DB e di ritornare un oggetto configurato della libreria knex}\classeRelazione{CLIPS::client::data}{PathResult}{classe che rappresenta i risultati di un percorso}\classeRelazione{CLIPS::client::data}{ProofResult}{classe che rappresenta il risultato di una prova}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::datamanager::LoginManager}
-\classeDescrizione{classe che gestisce le operazioni del profilo dell'utente. Applica i principi del design pattern Singleton. È stato preferito rispetto ad altri design pattern, come la Dependency Injection, perché è più semplice, e in più in questo caso i suoi svantaggi pesano molto poco. Per maggiori informazioni consultare il documento ``Specifica Tecnica'', sezione ``Design Pattern'', paragrafo ``Singleton''}
-\classeUtilizzo{permette di effettuare il login, il logout, la registrazione, il check dei dati inseriti, l'aggiornamento dei dati salvati in locale, la modifica dei dati del profilo e la richiesta della nuova password}
+\classeDescrizione{classe che gestisce le operazioni del profilo dell'utente}
+\classeUtilizzo{permette di effettuare il login, il logout, la registrazione, il check dei dati inseriti, l'aggiornamento dei dati salvati in locale e la modifica dei dati del profilo}
 \begin{classeAttributi}
 \classeAttributo{cx}{Context}{è una classe delle librerie base di Android che costituisce il cuore dell'applicazione, e quindi è necessaria per poter effettuare alcune operazioni, tra cui le richieste al server}
 \classeAttributo{listener}{AbstractDataManagerListener}{il listener che verrà usato per informare l'applicazione se l'operazione prevista ha avuto successo o meno}
@@ -901,7 +852,7 @@
 \classeMetodoArgomento{listener}{AbstractDataManagerListener<boolean>}{il listener che verrà usato per informare l'applicazione se l'operazione prevista ha avuto successo o meno}
 \end{classeMetodoArgomenti}
 \classeMetodo{getToken}{}{string}{se esiste un token salvato restituisce il suo valore, altrimenti restituisce una stringa vuota}
-\classeMetodo{isLogged}{}{boolean}{restituisce \texttt{true} se l'utente è loggato, ovvero se è salvato un token in locale, \texttt{false} altrimenti}
+\classeMetodo{isLogged}{}{boolean}{restituisce "true" se l'utente è loggato, ovvero se è salvato un token in locale, "false" altrimenti}
 \classeMetodo{login}{email, listener, password}{void}{effettua il login dell'utente, controllando la validità dei dati tramite l'apposita richiesta al server}
 \begin{classeMetodoArgomenti}
 \classeMetodoArgomento{email}{string}{l'indirizzo email digitato dall'utente per il login}
@@ -919,27 +870,13 @@
 \classeMetodoArgomento{password}{string}{la password digitata dall'utente per effettuare la registrazione}
 \classeMetodoArgomento{username}{string}{lo username digitato dall'utente per effettuare la registrazione}
 \end{classeMetodoArgomenti}
-\classeMetodo{sendError}{error}{void}{metodo di supporto che invoca onError di listener}
-\begin{classeMetodoArgomenti}
-\classeMetodoArgomento{error}{ServerError}{l'oggetto che contiene i dati relativi all'errore rilevato}
-\end{classeMetodoArgomenti}
-\classeMetodo{sendResponse}{initialization}{void}{metodo di supporto che reinizializza loggedUser quando richiesta e invoca il metodo onResponse del listener, inviando come risposta \texttt{true}}
-\begin{classeMetodoArgomenti}
-\classeMetodoArgomento{initialization}{boolean}{indica se è necessario o meno salvare nuovamente loggedUser usando i dati salvati in locale, ad esempio perché essi sono stati modificati}
-\end{classeMetodoArgomenti}
 \classeMetodo{sharedManager}{cx}{LoginManager}{il metodo statico che permette di implementare il design pattern Singleton, dato che LoginManager può essere creato solo tramite questo metodo e quindi permette l'esistenza di un'unica copia}
 \begin{classeMetodoArgomenti}
 \classeMetodoArgomento{cx}{Context}{è una classe delle librerie base di Android che costituisce il cuore dell'applicazione, e quindi è necessaria per poter effettuare alcune operazioni, tra cui le richieste al server}
 \end{classeMetodoArgomenti}
-\classeMetodo{updateLoggedUser}{email, token, username}{void}{metodo di supporto per reinizializzare loggedUser quando occorre nel metodo change(), se vengono ricevuti dati nuovi allora essi vengono salvati, altrimenti per i parametri vuoti vengono riutilizzati i valori già salvati in locale}
-\begin{classeMetodoArgomenti}
-\classeMetodoArgomento{email}{string}{l'indirizzo email attuale del profilo dell'utente}
-\classeMetodoArgomento{token}{string}{il token attuale dell'utente}
-\classeMetodoArgomento{username}{string}{lo username attuale del profilo dell'utente}
-\end{classeMetodoArgomenti}
 \end{classeMetodi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura de listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data::datamanager}{CheckResult}{classe che contiene il risultato del check per il dato specificato}\classeRelazione{CLIPS::client::data}{LoggedUser}{classe che si occupa di memorizzare in locale i dati dell'utente loggato}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data::datamanager}{CheckResult}{classe che contiene il risultato del check per il dato specificato}\classeRelazione{CLIPS::client::data}{LoggedUser}{classe che si occupa di memorizzare in locale i dati dell'utente loggato}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::datamanager::PathDataRequest}
 \classeDescrizione{classe concreta che gestisce le richieste dei dati sui percorsi}
 \classeUtilizzo{permette di ottenere i dati sui percorsi}
@@ -947,7 +884,7 @@
 \classeAttributo{pathID}{int}{l'ID del percorso selezionato}
 \end{classeAttributi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura de listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data}{Beacon}{classe che rappresenta un beacon in locale}\classeRelazione{CLIPS::server::urlrequesthandler}{DBHandler}{classe che si occupa di gestire il DB e di ritornare un oggetto configurato della libreria knex}\classeRelazione{CLIPS::client::data}{Path}{classe che si occupa di salvare in locale i dati riguardanti un percorso}\classeRelazione{CLIPS::client::data}{Proof}{classe che rappresenta una prova del percorso}\classeRelazione{CLIPS::client::data}{Proximity}{classe che rappresenta in locale un beacon indicato alla segnalazione della distanza dalla prossima prova}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\classeRelazione{CLIPS::client::data}{Step}{classe che rappresenta in locale lo spostamento da una prova a quella successiva}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data}{Beacon}{classe che rappresenta un beacon in locale}\classeRelazione{CLIPS::server::urlrequesthandler}{DBHandler}{classe che si occupa di gestire il DB e di ritornare un oggetto configurato della libreria knex}\classeRelazione{CLIPS::client::data}{Path}{classe che si occupa di salvare in locale i dati riguardanti un percorso}\classeRelazione{CLIPS::client::data}{Proof}{classe che rappresenta una prova del percorso}\classeRelazione{CLIPS::client::data}{Proximity}{classe che rappresenta in locale un beacon indicato alla segnalazione della distanza dalla prossima prova}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\classeRelazione{CLIPS::client::data}{Step}{classe che rappresenta in locale lo spostamento da una prova a quella successiva}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::datamanager::SaveResultDataRequest}
 \classeDescrizione{classe concreta che effettua le richieste per salvare il risultato del percorso appena concluso}
 \classeUtilizzo{permette di salvare in remoto il risultato del percorso appena svolto}
@@ -955,18 +892,18 @@
 \classeAttributo{result}{PathResult}{i dati del risultato da salvare nel server}
 \end{classeAttributi}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura de listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data}{PathResult}{classe che rappresenta i risultati di un percorso}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data}{PathResult}{classe che rappresenta i risultati di un percorso}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::data::urlrequest}
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.4]{img/package/png/client--urlrequest.png}
-\caption{Schema package client::urlrequest}
- \end{figure}
+\begin{figure}[h!] 
+\centering 
+\includegraphics[scale=0.4]{img/package/png/client--urlrequest.png} 
+\caption{Schema package client::urlrequest} 
+ \end{figure} 
 \compDescrizione{componente che si occupa di effettuare le richieste al server}
 \compPadre{data}
-\begin{compClassi} \\
+\begin{compClassi} \\ 
 \begin{classe}{CLIPS::client::data::urlrequest::AbstractUrlRequestListener}
 \classeDescrizione{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}
 \classeUtilizzo{permette alle classi che interagiscono con l'urlrequest di definire un proprio listener concreto da poter usare per le chiamate al server}
@@ -991,11 +928,12 @@
 \classeDescrizione{classe per la richiesta di dati sugli edifici}
 \classeUtilizzo{permette di effettuare una richiesta al server di dati sugli edifici}
 \begin{classeMetodi}
-\classeMetodo{setBody}{latitude, longitude, maxBuildings}{JSONObject}{costruisce la sezione body dell'oggetto JSON, è un metodo di supporto}
+\classeMetodo{setBody}{latitude, longitude, maxNumber, searchByDistance}{JSONObject}{costruisce la sezione body dell'oggetto JSON, è un metodo di supporto}
 \begin{classeMetodoArgomenti}
 \classeMetodoArgomento{latitude}{double}{indica la latitudine attuale dell'utente, serve per trovare gli edifici più vicini}
 \classeMetodoArgomento{longitude}{double}{indica la longitudine attuale dell'utente, serve per trovare gli edifici più vicini}
-\classeMetodoArgomento{maxBuildings}{int}{indica il numero massimo di edifici richiesto, in questo modo si evita di richiedere liste troppo lunghe mantenendo allo stesso tempo la possibilità di visualizzare più risultati}
+\classeMetodoArgomento{maxNumber}{int}{indica il numero massimo di edifici richiesto o la distanza massima entro cui essi sono situati, a seconda del valore di ''searchByDistance''}
+\classeMetodoArgomento{searchByDistance}{boolean}{indica se la ricerca degli edifici pi� vicini deve essere effettuata in base ad un numero massimo o ad una distanza entro cui devono essere situati}
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
 \begin{classeRelazioni}
@@ -1024,6 +962,14 @@
 \end{classeMetodi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data::urlrequest}{URLDataConstants}{classe che contiene i dati per effettuare le richieste al server che potrebbero variare nel tempo}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::data::urlrequest::ForgotPasswordRequest}
+\classeDescrizione{Classe che effettua la richiesta di cambiare la password dimenticata dell'utente}
+\classeUtilizzo{Quando l'utente non ricorda la password può usare questa chiamata per ottenerne una generata casualmente dopo aver inserito l'indirizzo email dell'account da cambiare}
+\begin{classeMetodi}
+\classeMetodo{setBody}{}{JSONObject}{Crea l'oggetto JSON da inserire nella chiamata per poter inviare l'email dell'account di cui bisogna cambiare la password con una generata automaticamente}
+\end{classeMetodi}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data::urlrequest}{URLDataConstants}{classe che contiene i dati per effettuare le richieste al server che potrebbero variare nel tempo}\classeRelazione{CLIPS::client::data::urlrequest}{URLRequest}{classe che si occupa delle richieste da inviare al server, fornisce un'implementazione delle richieste in base ai dati forniti alle sue classi derivate}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::data::urlrequest::GetProfileDataRequest}
 \classeDescrizione{classe per la richiesta al server di aggiornare in locale i dati dell'utente}
 \classeUtilizzo{permette di inviare la richiesta al server per aggiornare l'email e lo username dell'utente nel caso non fossero uguali a quelli salvati nel server}
@@ -1132,8 +1078,8 @@
 \end{classeMetodoArgomenti}
 \classeMetodo{getResults}{cx, listener}{void}{crea l'oggetto per ottenere dal server i risultati conseguiti dall'utente}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{cx}{Context}{� una classe delle librerie base di Android che costituisce il cuore dell'applicazione, e quindi � necessaria per poter effettuare alcune operazioni, tra cui le richieste al server}
-\classeMetodoArgomento{listener}{AbstractUrlRequestListener}{il listener che verr�� usato per informare l'applicazione se la richiesta al server ha avuto successo o meno}
+\classeMetodoArgomento{cx}{Context}{� una classe delle librerie base di Android che costituisce il cuore dell'applicazione, e quindi � necessaria per poter effettuare alcune operazioni, tra cui le richieste al server}
+\classeMetodoArgomento{listener}{AbstractUrlRequestListener}{il listener che verr� usato per informare l'applicazione se la richiesta al server ha avuto successo o meno}
 \end{classeMetodoArgomenti}
 \classeMetodo{login}{cx, email, listener, password}{void}{crea l'oggetto per chiedere al server di verificare i dati inseriti dall'utente per il login}
 \begin{classeMetodoArgomenti}
@@ -1208,27 +1154,30 @@
 \classeMetodoArgomento{type}{ResponseExpected}{indica se la chiamata si aspetta di ricevere, in caso di successo, un oggetto o un array JSON}
 \end{classeMetodoArgomenti}
 \classeMetodo{objectRequest}{}{JSONObjectRequest}{è un metodo di supporto che crea una chiamata la cui risposta è un oggetto JSON}
-\classeMetodo{signalError}{}{void}{cambia il valore di buildingJSONError in \texttt{true} e segnala quindi all'URLRequest che c'è stato un errore in fase di costruzione di ''body'', viene invocato dalle classi derivate di URLRequest}
+\classeMetodo{signalError}{}{void}{cambia il valore di buildingJSONError in ''true'' e segnala quindi all'URLRequest che c'è stato un errore in fase di costruzione di ''body'', viene invocato dalle classi derivate di URLRequest}
 \end{classeMetodi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data::datamanager}{LoginManager}{classe che gestisce le operazioni del profilo dell'utente}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::pathprogress}
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.4]{img/package/png/client--pathprogress.png}
-\caption{Schema package client::pathprogress}
- \end{figure}
+\begin{figure}[h!] 
+\centering 
+\includegraphics[scale=0.4]{img/package/png/client--pathprogress.png} 
+\caption{Schema package client::pathprogress} 
+ \end{figure} 
 \compDescrizione{componente che gestisce i dati del percorso e salva i risultati ottenuti nelle prove mentre si sta giocando}
 \compPadre{client}
-\begin{compClassi} \\
+\begin{compClassi} \\ 
 \begin{classe}{CLIPS::client::pathprogress::BeaconDiscover}
 \classeDescrizione{classe che si interfaccia direttamente con i beacon fisici}
 \classeUtilizzo{permette di rilevare i beacon}
 \begin{classeAttributi}
 \classeAttributo{delegate}{BeaconDiscoverDelegate}{riferimento al delegate}
 \end{classeAttributi}
+\begin{classeMetodi}
+\classeMetodo{onBeaconServiceConnect()}{}{void}{metodo chiamato una volta che il dispositivo dell'utente si è collegato ad un Beacon}
+\end{classeMetodi}
 \end{classe}\begin{classe}{CLIPS::client::pathprogress::BeaconDiscoverDelegate}
 \classeDescrizione{interfaccia utilizzata per notificare se il dispositivo è entrato o uscito dal raggio di un beacon}
 \classeUtilizzo{permette di notificare se si è entrati o usciti dal raggio di un beacon}
@@ -1244,6 +1193,27 @@
 \end{classeMetodi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::pathprogress}{PathProgressController}{classe che gestisce l'avanzamento di un percorso}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::pathprogress::GPSListener}
+\classeDescrizione{interfaccia che definisce la struttura del listener astratto usato nel package pathprogress}
+\classeUtilizzo{permette alle classi che interagiscono con il pathprogress di definire un proprio listener concreto da poter usare per ottenere le informazioni richieste}
+\begin{classeMetodi}
+\classeMetodo{onError}{error}{void}{Restituisce il messaggio di errore quando ne avviene uno durante la rilevazione delle coordinate dell'utente con il GPS}
+\begin{classeMetodoArgomenti}
+\classeMetodoArgomento{error}{ServerError}{L'errore restituito durante la rilevazione del GPS}
+\end{classeMetodoArgomenti}
+\classeMetodo{onResponse}{latitude, longitude}{void}{Restituisce le coordinate GPS dell'utente rilevate come risposta}
+\begin{classeMetodoArgomenti}
+\classeMetodoArgomento{latitude}{double}{La latitudine dell'utente rilevata dal GPS}
+\classeMetodoArgomento{longitude}{double}{La longitudine dell'utente rilevata dal GPS}
+\end{classeMetodoArgomenti}
+\end{classeMetodi}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::pathprogress::GPSManager}
+\classeDescrizione{classe che rileva la posizione dell'utente tramite il GPS}
+\classeUtilizzo{appena viene creato l'oggetto comunica con i satelliti GPS tramite i Google Play Services, appena riceve una posizione sufficientemente precisa restituisce le coordinate ricevute}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::pathprogress}{GPSListener}{interfaccia che definisce la struttura del listener astratto usato nel package pathprogress}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::pathprogress::PathProgressController}
 \classeDescrizione{classe che gestisce l'avanzamento di un percorso}
 \classeUtilizzo{permette di gestire i dati dell'avanzamento di un percorso}
@@ -1283,6 +1253,18 @@
 \classeMetodoArgomento{step}{Step}{rappresenta il step in cui ci si trova}
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
+\end{classe}\begin{classe}{CLIPS::client::pathprogress::PathProgressMaker}
+\classeDescrizione{classe che funziona come interfaccia tra le classi per rilevare la posizione con il GPS e il resto dell'applicazione}
+\classeUtilizzo{quando all'applicazione serve la posizione dell'utente invoca il relativo metodo della classe}
+\begin{classeMetodi}
+\classeMetodo{getCoordinates}{cx, listener}{void}{costruisce l'oggetto per rilevare le coordinate dell'utente con il GPS}
+\begin{classeMetodoArgomenti}
+\classeMetodoArgomento{cx}{Context}{è una classe delle librerie base di Android che costituisce il cuore dell'applicazione, e quindi è necessaria per poter effettuare alcune operazioni, tra cui le richieste al server}
+\classeMetodoArgomento{listener}{GPSListener}{il listener che verrà  usato per informare l'applicazione se l'operazione prevista ha avuto successo o meno}
+\end{classeMetodoArgomenti}
+\end{classeMetodi}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::pathprogress}{GPSListener}{interfaccia che definisce la struttura del listener astratto usato nel package pathprogress}\classeRelazione{CLIPS::client::pathprogress}{GPSManager}{classe che rileva la posizione dell'utente tramite il GPS}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::pathprogress::RawBeacon}
 \classeDescrizione{classe che rappresenta un beacon semplice}
 \classeUtilizzo{utilizzato per rappresentare un beacon fisico}
@@ -1294,97 +1276,100 @@
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller}
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.4]{img/package/png/client--viewcontroller.png}
-\caption{Schema package client::viewcontroller}
- \end{figure}
+\begin{figure}[h!] 
+\centering 
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller.png} 
+\caption{Schema package client::viewcontroller} 
+ \end{figure} 
 \compDescrizione{componente che raggruppa tutte le view ed i controller relativi alle view}
 \compPadre{client}
 \begin{compPackageContenuti}
-\item \texttt{CLIPS::client::viewcontroller::authentication}: componente che si occupa di gestire l'autenticazione dell'utente
-\item \texttt{CLIPS::client::viewcontroller::building}: componente che gestisce le informazioni e le interazioni dell'utente con gli edifici abilitati
-\item \texttt{CLIPS::client::viewcontroller::games}: componente che gestisce le prove che l'utente deve completare all'interno di un percorso
-\item \texttt{CLIPS::client::viewcontroller::savedresults}: componente che raggruppa le le view e i controller dei risultati salvati e delle classifiche
-\item \texttt{CLIPS::client::viewcontroller::utility}: componente che raggruppa le view generali dell'app
+\item CLIPS::client::viewcontroller::authentication: componente che si occupa di gestire l'autenticazione dell'utente
+\item CLIPS::client::viewcontroller::building: componente che gestisce le informazioni e le interazioni dell'utente con gli edifici abilitati
+\item CLIPS::client::viewcontroller::games: componente che gestisce le prove che l'utente deve completare all'interno di un percorso
+\item CLIPS::client::viewcontroller::savedresults: componente che raggruppa le le view e i controller dei risultati salvati e delle classifiche
+\item CLIPS::client::viewcontroller::utility: componente che raggruppa le view generali dell'app
 \end{compPackageContenuti}
+\begin{compClassi} \\ 
+\begin{classe}{CLIPS::client::viewcontroller::ResultAdapter}
+\classeDescrizione{classe che permette la corretta visualizzazione dei risultati di un utente}
+\classeUtilizzo{viene usata da SavedResultActivity}
+\end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::authentication}
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication1.png}
-		\caption{Prima parte schema package client::viewcontroller::authentication}
-	\end{figure}
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication2.png}
-		\caption{Seconda parte schema package client::viewcontroller::authentication}
-	\end{figure}
-	\compDescrizione{componente che si occupa di gestire l'autenticazione dell'utente}
-	\compPadre{client}
-	\begin{compClassi} \\
-		\begin{classe}{CLIPS::client::viewcontroller::authentication::AccountActivity}
-			\classeDescrizione{classe controller che si occupa di interagire con AccountView}
-			\classeUtilizzo{si occupa di gestire le interazioni dell'utente con AccountView}
-			\begin{classeMetodi}
-				\classeMetodo{onCreate}{}{void}{si occupa di inizializzare l'activity con la relativa view}
-				\classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view}
-			\end{classeMetodi}
-		\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::AccountView}
-		\classeDescrizione{classe che rappresenta la schermata delle informazioni dell'utente}
-		\classeUtilizzo{permette all'utente di visualizzare le informazioni del proprio profilo}
-		\begin{classeAttributi}
-			\classeAttributo{emailLabel}{TextView}{rappresenta l'email dell'utente}
-			\classeAttributo{savedResultsButton}{Button}{rappresenta il bottone per visualizzare i risultati salvati}
-			\classeAttributo{updateUserButton}{Button}{rappresenta il bottone per modificare le informazioni dell'utente}
-			\classeAttributo{usernameLabel}{TextView}{indica l'username dell'utente}
-		\end{classeAttributi}
-		\begin{classeRelazioni}
-			\classeRelazione{CLIPS::client::viewcontroller::authentication}{AccountActivity}{classe controller che si occupa di interagire con AccountView}\end{classeRelazioni}
-	\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::ConfirmRegistration}
-	\classeDescrizione{classe che interagisce con RegistrationActivity e permette all'utente di visualizzare i propri dati di registrazione}
-	\classeUtilizzo{l'utente può visualizzare i dati inseriti in precedenza}
-	\begin{classeRelazioni}
-		\classeRelazione{CLIPS::client::viewcontroller::authentication}{RegistrationActivity}{classe controller che si occupa di interagire con RegistrationView}\end{classeRelazioni}
+\begin{figure}[h!] 
+\centering 
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication.png} 
+\caption{Schema package client::viewcontroller::authentication} 
+ \end{figure} 
+\compDescrizione{componente che si occupa di gestire l'autenticazione dell'utente}
+\compPadre{viewcontroller}
+\begin{compClassi} \\ 
+\begin{classe}{CLIPS::client::viewcontroller::authentication::AccountActivity}
+\classeDescrizione{classe controller che si occupa di interagire con AccountView}
+\classeUtilizzo{si occupa di gestire le interazioni dell'utente con AccountView}
+\begin{classeMetodi}
+\classeMetodo{onCreate}{}{void}{si occupa di inizializzare l'activity con la relativa view}
+\classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view}
+\end{classeMetodi}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::AccountView}
+\classeDescrizione{classe che rappresenta la schermata delle informazioni dell'utente}
+\classeUtilizzo{permette all'utente di visualizzare le informazioni del proprio profilo}
+\begin{classeAttributi}
+\classeAttributo{emailLabel}{TextView}{rappresenta l'email dell'utente}
+\classeAttributo{savedResultsButton}{Button}{rappresenta il bottone per visualizzare i risultati salvati}
+\classeAttributo{updateUserButton}{Button}{rappresenta il bottone per modificare le informazioni dell'utente}
+\classeAttributo{usernameLabel}{TextView}{indica l'username dell'utente}
+\end{classeAttributi}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::viewcontroller::authentication}{AccountActivity}{classe controller che si occupa di interagire con AccountView}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::ChangeProfileActivity}
+\classeDescrizione{permette all'utente di cambiare le proprie credenziali }
+\classeUtilizzo{l'utente grazie a ChangeProfileView potrà cambiare le proprie credenziali}
+\end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::ConfirmRegistration}
+\classeDescrizione{classe che interagisce con RegistrationActivity e permette all'utente di visualizzare i propri dati di registrazione}
+\classeUtilizzo{l'utente può visualizzare i dati inseriti in precedenza}
+\begin{classeRelazioni}
+\classeRelazione{CLIPS::client::viewcontroller::authentication}{RegistrationActivity}{classe controller che si occupa di interagire con RegistrationView}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::ForgotPasswordActivity}
 \classeDescrizione{classe controller che si occupa di interagire con ForgotPasswordView}
 \classeUtilizzo{si occupa di gestire le interazioni dell'utente con ForgotPasswordView}
 \begin{classeMetodi}
-	\classeMetodo{onCreate}{SavedBundleInstance, savedInstanceState}{void}{si occupa di inizializzare l'activity con la relativa view}
-	\begin{classeMetodoArgomenti}
-		\classeMetodoArgomento{SavedBundleInstance}{Bundle}{contiene i dati dell'istanza creata o di un'attività precedente}
-		\classeMetodoArgomento{savedInstanceState}{Bundle}{contiene i dati dell'istanza creata o di un'attività precedente}
-	\end{classeMetodoArgomenti}
+\classeMetodo{onCreate}{SavedBundleInstance, savedInstanceState}{void}{si occupa di inizializzare l'activity con la relativa view}
+\begin{classeMetodoArgomenti}
+\classeMetodoArgomento{SavedBundleInstance}{Bundle}{contiene i dati dell'istanza creata o di un'attività precedente}
+\classeMetodoArgomento{savedInstanceState}{Bundle}{contiene i dati dell'istanza creata o di un'attività precedente}
+\end{classeMetodoArgomenti}
 \end{classeMetodi}
 \begin{classeRelazioni}
-	\classeRelazione{CLIPS::client::viewcontroller::authentication}{ForgotPasswordView}{classe che si occupa della visualizzazione della schermata per la richiesta di una nuova password}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::viewcontroller::authentication}{ForgotPasswordView}{classe che si occupa della visualizzazione della schermata per la richiesta di una nuova password}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::ForgotPasswordView}
 \classeDescrizione{classe che si occupa della visualizzazione della schermata per la richiesta di una nuova password}
 \classeUtilizzo{consente all'utente di inserire la mail per ricevere una nuova password}
 \begin{classeAttributi}
-	\classeAttributo{confirmButton}{Button}{rappresenta il bottone per la conferma dell'email inserita}
-	\classeAttributo{emailTextField}{EditText}{rappresenta l'email da inserire da parte dell'utente}
+\classeAttributo{confirmButton}{Button}{rappresenta il bottone per la conferma dell'email inserita}
+\classeAttributo{emailTextField}{EditText}{rappresenta l'email da inserire da parte dell'utente}
 \end{classeAttributi}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::LoginActivity}
 \classeDescrizione{classe controller che si occupa di interagire con LoginView}
 \classeUtilizzo{si occupa di gestire le interazioni dell'utente con LoginView}
 \begin{classeMetodi}
-	\classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view}
+\classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view}
 \end{classeMetodi}
 \begin{classeRelazioni}
-	\classeRelazione{CLIPS::client::viewcontroller::authentication}{LoginView}{classe che si occupa della visualizzazione della schermata per il login}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::viewcontroller::authentication}{LoginView}{classe che si occupa della visualizzazione della schermata per il login}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::LoginView}
 \classeDescrizione{classe che si occupa della visualizzazione della schermata per il login}
 \classeUtilizzo{consente all'utente di inserire i propri dati per effettuare il login}
 \begin{classeAttributi}
-	\classeAttributo{emailTextField}{EditText}{rappresenta l'email da inserire da parte dell'utente}
-	\classeAttributo{forgotPasswordButton}{Button}{rappresenta il button per la password dimenticata}
-	\classeAttributo{loginButton}{Button}{indica il button per effettuare il login}
-	\classeAttributo{passwordTextField}{EditText}{rappresenta la password da inserire da parte dell'utente}
+\classeAttributo{emailTextField}{EditText}{rappresenta l'email da inserire da parte dell'utente}
+\classeAttributo{forgotPasswordButton}{Button}{rappresenta il button per la password dimenticata}
+\classeAttributo{loginButton}{Button}{indica il button per effettuare il login}
+\classeAttributo{passwordTextField}{EditText}{rappresenta la password da inserire da parte dell'utente}
 \end{classeAttributi}
 \begin{classeMetodi}
-	\classeMetodo{forgotPasswordPressed}{}{void}{invia un evento il quale notifica che il bottone di password dimenticata è stato premuto}
-	\classeMetodo{loginButtonPressed}{}{void}{invia un evento di bottone del login premuto}
+\classeMetodo{forgotPasswordPressed}{}{void}{invia un evento il quale notifica che il bottone di password dimenticata è stato premuto}
+\classeMetodo{loginButtonPressed}{}{void}{invia un evento di bottone del login premuto}
 \end{classeMetodi}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::RecoverPassword}
 \classeDescrizione{classe che rappresenta l'avvenuto recupero della password di un utente}
@@ -1393,63 +1378,63 @@
 \classeDescrizione{classe controller che si occupa di interagire con RegistrationView}
 \classeUtilizzo{si occupa di gestire le interazioni dell'utente con RegistrationView}
 \begin{classeMetodi}
-	\classeMetodo{checkFields}{}{bool}{si occupa di controllare che i campi inseriti siano corretti}
-	\classeMetodo{clearFields}{}{void}{questo metodo si occupa di resettare i campi dati presenti nella relativa view}
-	\classeMetodo{onCreate}{SavedBundleInstance}{void}{si occupa di inizializzare l'activity con la relativa view}
-	\begin{classeMetodoArgomenti}
-		\classeMetodoArgomento{SavedBundleInstance}{Bundle}{contiene i dati dell'istanza creata o di un'attività precedente}
-	\end{classeMetodoArgomenti}
-	\classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view
-	}
+\classeMetodo{checkFields()}{}{bool}{si occupa di controllare che i campi inseriti siano corretti}
+\classeMetodo{clearFields}{}{void}{questo metodo si occupa di resettare i campi dati presenti nella relativa view}
+\classeMetodo{onCreate}{SavedBundleInstance}{void}{si occupa di inizializzare l'activity con la relativa view}
+\begin{classeMetodoArgomenti}
+\classeMetodoArgomento{SavedBundleInstance}{Bundle}{contiene i dati dell'istanza creata o di un'attività precedente}
+\end{classeMetodoArgomenti}
+\classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view
+}
 \end{classeMetodi}
 \begin{classeRelazioni}
-	\classeRelazione{CLIPS::client::viewcontroller::authentication}{RegistrationView}{classe che si occupa della visualizzazione della schermata per la registrazione}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::viewcontroller::authentication}{RegistrationView}{classe che si occupa della visualizzazione della schermata per la registrazione}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::RegistrationView}
 \classeDescrizione{classe che si occupa della visualizzazione della schermata per la registrazione}
 \classeUtilizzo{consente all'utente di inserire i propri dati per effettuare la registrazione}
 \begin{classeAttributi}
-	\classeAttributo{confirmButton}{Button}{indica il bottone di conferma di registrazione}
-	\classeAttributo{confirmPasswordErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento della conferma della password}
-	\classeAttributo{emailErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento dell'email}
-	\classeAttributo{emailTextField}{EditText}{rappresenta l'email da inserire da parte dell'utente}
-	\classeAttributo{passwordConfirmationTextField}{EditText}{rappresenta la conferma della password da inserire da parte dell'utente}
-	\classeAttributo{passwordLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento della password}
-	\classeAttributo{passwordTextField}{EditText}{indica la password da inserire da parte dell'utente}
-	\classeAttributo{usernameErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento dell'username}
-	\classeAttributo{usernameTextField}{EditText}{rappresenta l'username da inserire da parte dell'utente}
+\classeAttributo{confirmButton}{Button}{indica il bottone di conferma di registrazione}
+\classeAttributo{confirmPasswordErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento della conferma della password}
+\classeAttributo{emailErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento dell'email}
+\classeAttributo{emailTextField}{EditText}{rappresenta l'email da inserire da parte dell'utente}
+\classeAttributo{passwordConfirmationTextField}{EditText}{rappresenta la conferma della password da inserire da parte dell'utente}
+\classeAttributo{passwordLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento della password}
+\classeAttributo{passwordTextField}{EditText}{indica la password da inserire da parte dell'utente}
+\classeAttributo{usernameErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento dell'username}
+\classeAttributo{usernameTextField}{EditText}{rappresenta l'username da inserire da parte dell'utente}
 \end{classeAttributi}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::UpdateUserInfoActivity}
 \classeDescrizione{classe controller che si occupa di interagire con UpdateUserInfoView}
 \classeUtilizzo{si occupa di gestire le interazioni dell'utente con UpdateUserInfoView}
 \begin{classeMetodi}
-	\classeMetodo{onCreate}{}{void}{si occupa di inizializzare l'activity con la relativa view}
-	\classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view
-	}
+\classeMetodo{onCreate}{}{void}{si occupa di inizializzare l'activity con la relativa view}
+\classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view
+}
 \end{classeMetodi}
 \begin{classeRelazioni}
-	\classeRelazione{CLIPS::client::viewcontroller::authentication}{UpdateUserInfoView}{classe che si occupa della visualizzazione della schermata per il cambio delle credenziali}\end{classeRelazioni}
+\classeRelazione{CLIPS::client::viewcontroller::authentication}{UpdateUserInfoView}{classe che si occupa della visualizzazione della schermata per il cambio delle credenziali}\end{classeRelazioni}
 \end{classe}\begin{classe}{CLIPS::client::viewcontroller::authentication::UpdateUserInfoView}
 \classeDescrizione{classe che si occupa della visualizzazione della schermata per il cambio delle credenziali}
 \classeUtilizzo{consente all'utente di inserire i nuovi dati per cambiare le sue credenziali}
 \begin{classeAttributi}
-	\classeAttributo{confirmPasswordErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento della conferma della password}
-	\classeAttributo{passwordConfirmationTextField}{EditText}{rappresenta la conferma della password da inserire da parte dell'utente}
-	\classeAttributo{passwordErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento della password}
-	\classeAttributo{passwordTextField}{EditText}{rappresenta la password da inserire da parte dell'utente}
-	\classeAttributo{usernameErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento dell'username}
-	\classeAttributo{usernameTextField}{EditText}{rappresenta l'username da inserire da parte dell'utente}
+\classeAttributo{confirmPasswordErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento della conferma della password}
+\classeAttributo{passwordConfirmationTextField}{EditText}{rappresenta la conferma della password da inserire da parte dell'utente}
+\classeAttributo{passwordErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento della password}
+\classeAttributo{passwordTextField}{EditText}{rappresenta la password da inserire da parte dell'utente}
+\classeAttributo{usernameErrorLabel}{TextView}{indica il messaggio di errore riguardante l'inserimento dell'username}
+\classeAttributo{usernameTextField}{EditText}{rappresenta l'username da inserire da parte dell'utente}
 \end{classeAttributi}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::building}
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--building.png}
-\caption{Schema package client::viewcontroller::building}
- \end{figure}
+\begin{figure}[h!] 
+\centering 
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--building.png} 
+\caption{Schema package client::viewcontroller::building} 
+ \end{figure} 
 \compDescrizione{componente che gestisce le informazioni e le interazioni dell'utente con gli edifici abilitati}
 \compPadre{viewcontroller}
-\begin{compClassi} \\
+\begin{compClassi} \\ 
 \begin{classe}{CLIPS::client::viewcontroller::building::BuildingActivity}
 \classeDescrizione{classe controller che si occupa di interagire con BuildingView}
 \classeUtilizzo{classe controller che si occupa di interagire con BuildingView}
@@ -1460,7 +1445,7 @@
 \end{classeMetodoArgomenti}
 \classeMetodo{setButtons}{}{void}{si occupa di inizializzare i collegamenti dei bottoni presenti nella view
 }
-\classeMetodo{setItems}{}{void}{questo metodo rende cliccabile la lista dei risultati e rende visualizzabili i dettagli del percorso
+\classeMetodo{setItems}{}{void}{questo metodo rende cliccabile la lista dei risultati e rende visualizzabili i dettagli del percorso 
 selezionato}
 \end{classeMetodi}
 \begin{classeRelazioni}
@@ -1499,19 +1484,19 @@ selezionato}
 \classeDescrizione{classe per la visualizzazione di un edificio}
 \classeUtilizzo{permette all'utente di visualizzare le informazioni relative all'edificio selezionato}
 \begin{classeAttributi}
-\classeAttributo{addressButton}{Button}{rappresenta l'indirizzo dell'edificio}
+\classeAttributo{addressButton}{button}{rappresenta l'indirizzo dell'edificio}
 \classeAttributo{descriptionLabel}{TextView}{indica la descrizione dell'edificio}
-\classeAttributo{emailButton}{Button}{indica l'indirizzo email dell'edificio}
-\classeAttributo{facebookButton}{Button}{indica l'indirizzo facebook dell'edificio}
+\classeAttributo{emailButton}{button}{indica l'indirizzo email dell'edificio}
+\classeAttributo{facebookButton}{button}{indica l'indirizzo facebook dell'edificio}
 \classeAttributo{nameLabel}{TextView}{rappresenta il nome dell'edificio}
 \classeAttributo{openingTimeLabel}{TextView}{rappresenta gli orari di apertura dell'edificio}
 \classeAttributo{otherInfosLabel}{TextView}{rappresenta le altre informazioni sull'edificio}
 \classeAttributo{pathRows}{List<TextView>}{rappresenta la lista dei percorsi dell'edificio}
-\classeAttributo{telegramButton}{Button}{rappresenta il contatto Telegram dell'edificio}
-\classeAttributo{telephoneButton}{Button}{rappresenta il numero telefonico dell'edificio}
-\classeAttributo{twitterButton}{Button}{indica l'indirizzo twitter dell'edificio}
-\classeAttributo{webSiteButton}{Button}{rappresenta l'indirizzo web dell'edificio}
-\classeAttributo{whatsappButton}{Button}{indica il contatto WhatsApp dell'edificio}
+\classeAttributo{telegramButton}{button}{rappresenta il contatto Telegram dell'edificio}
+\classeAttributo{telephoneButton}{button}{rappresenta il numero telefonico dell'edificio}
+\classeAttributo{twitterButton}{button}{indica l'indirizzo twitter dell'edificio}
+\classeAttributo{webSiteButton}{button}{rappresenta l'indirizzo web dell'edificio}
+\classeAttributo{whatsappButton}{button}{indica il contatto WhatsApp dell'edificio}
 \end{classeAttributi}
 \begin{classeMetodi}
 \classeMetodo{addressButtonPressed}{}{void}{notifica al controller l'interazione con addressButton}
@@ -1565,24 +1550,14 @@ selezionato}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::games}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.5]{img/package/png/client--viewcontroller--games1.png}
-	\caption{Prima parte schema package client::viewcontroller::games}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.5]{img/package/png/client--viewcontroller--games2.png}
-	\caption{Seconda parte schema package client::viewcontroller::games}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.5]{img/package/png/client--viewcontroller--games3.png}
-	\caption{Terza parte schema package client::viewcontroller::games}
-\end{figure}
+\begin{figure}[h!] 
+\centering 
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--games.png} 
+\caption{Schema package client::viewcontroller::games} 
+ \end{figure} 
 \compDescrizione{componente che gestisce le prove che l'utente deve completare all'interno di un percorso}
 \compPadre{viewcontroller}
-\begin{compClassi} \\
+\begin{compClassi} \\ 
 \begin{classe}{CLIPS::client::viewcontroller::games::MultipleChoiceQuizActivity}
 \classeDescrizione{classe controller che si occupa di interagire con MultipleChoiceView}
 \classeUtilizzo{si occupa di gestire le interazioni dell'utente con MultipleChoiceView}
@@ -1721,14 +1696,14 @@ selezionato}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::savedresults}
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--savedresults.png}
-\caption{Schema package client::viewcontroller::savedresults}
- \end{figure}
+\begin{figure}[h!] 
+\centering 
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--savedresults.png} 
+\caption{Schema package client::viewcontroller::savedresults} 
+ \end{figure} 
 \compDescrizione{componente che raggruppa le le view e i controller dei risultati salvati e delle classifiche}
 \compPadre{viewcontroller}
-\begin{compClassi} \\
+\begin{compClassi} \\ 
 \begin{classe}{CLIPS::client::viewcontroller::savedresults::PlayerRow}
 \classeDescrizione{classe che rappresenta una riga all'interno di una classifica}
 \classeUtilizzo{permette all'utente di visualizzare il nome del giocatore e il suo punteggio nel percorso d'interesse}
@@ -1813,14 +1788,14 @@ selezionato}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::utility}
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--utility.png}
-\caption{Schema package client::viewcontroller::utility}
- \end{figure}
+\begin{figure}[h!] 
+\centering 
+\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--utility.png} 
+\caption{Schema package client::viewcontroller::utility} 
+ \end{figure} 
 \compDescrizione{componente che raggruppa le view generali dell'app}
 \compPadre{viewcontroller}
-\begin{compClassi} \\
+\begin{compClassi} \\ 
 \begin{classe}{CLIPS::client::viewcontroller::utility::AppInfoActivity}
 \classeDescrizione{classe controller che si occupa di interagire con AppInfoView}
 \classeUtilizzo{si occupa di gestire le interazioni dell'utente con AppInfoView}
@@ -1859,79 +1834,79 @@ selezionato}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::server}
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.4]{img/package/png/server.png}
-\caption{Schema package server}
- \end{figure}
+\begin{figure}[h!] 
+\centering 
+\includegraphics[scale=0.4]{img/package/png/server.png} 
+\caption{Schema package server} 
+ \end{figure} 
 \compDescrizione{componente globale per il back end del prodotto}
 \compPadre{CLIPS}
 \begin{compPackageContenuti}
-\item \texttt{CLIPS::server::dataserver}: package per la gestione dei dati sul server
-\item \texttt{CLIPS::server::urlrequesthandler}: componente che gestisce le richieste inviate al server e le risposte da inviare al client
+\item CLIPS::server::dataserver: package per la gestione dei dati sul server
+\item CLIPS::server::urlrequesthandler: componente che gestisce le richieste inviate al server e le risposte da inviare al client
 \end{compPackageContenuti}
 \end{componente}
 \begin{componente}{CLIPS::server::dataserver}
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.4]{img/package/png/server--data.png}
-\caption{Schema package server::dataserver}
- \end{figure}
+\begin{figure}[h!] 
+\centering 
+\includegraphics[scale=0.4]{img/package/png/server--data.png} 
+\caption{Schema package server::dataserver} 
+ \end{figure} 
 \compDescrizione{package per la gestione dei dati sul server}
 \compPadre{server}
-\begin{compClassi} \\
-\begin{classe}{CLIPS::server::dataserver::AppInfo}
+\begin{compClassi} \\ 
+\begin{classe}{CLIPS::server::dataserver::AppInfoServer}
 \classeDescrizione{classe che rappresenta le informazioni dell'app sul server}
 \classeUtilizzo{permette di salvare sul server le informazioni dell'app}
-\end{classe}\begin{classe}{CLIPS::server::dataserver::AuthToken}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::AuthTokenServer}
 \classeDescrizione{Classe che rappresenta un token che si riferisce ad un utente loggato}
 \classeUtilizzo{permette utilizzare un token per riferirsi ad utente loggato}
-\end{classe}\begin{classe}{CLIPS::server::dataserver::Beacon}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::BeaconServer}
 \classeDescrizione{classe che rappresenta un beacon nel server}
 \classeUtilizzo{permette di salvare sul server un beacon}
-\end{classe}\begin{classe}{CLIPS::server::dataserver::Building}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::BuildingServer}
 \classeDescrizione{classe che rappresenta un edificio sul server}
 \classeUtilizzo{permette di salvare e modificare i dati di un edificio sul server}
-\end{classe}\begin{classe}{CLIPS::server::dataserver::LeaderBoard}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::LeaderBoardServer}
 \classeDescrizione{classe che rappresenta la classifica sul server}
 \classeUtilizzo{permette di salvare i dati della classifica sul server}
-\end{classe}\begin{classe}{CLIPS::server::dataserver::PathResult}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::PathResultServer}
 \classeDescrizione{classe che rappresenta il risultato di un percorso sul server}
 \classeUtilizzo{consente di salvare i risultati di un percorso sul server}
-\end{classe}\begin{classe}{CLIPS::server::dataserver::Path}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::PathServer}
 \classeDescrizione{classe che rappresenta un percorso sul server}
 \classeUtilizzo{permette di creare, modificare ed eliminare un percorso sul server}
-\end{classe}\begin{classe}{CLIPS::server::dataserver::ProofResult}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::ProofResultServer}
 \classeDescrizione{classe che rappresenta i risultati di una prova sul server}
 \classeUtilizzo{consente di salvare il risultato di una prova sul server}
-\end{classe}\begin{classe}{CLIPS::server::dataserver::Proof}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::ProofServer}
 \classeDescrizione{classe che rappresenta una prova sul server}
 \classeUtilizzo{permette di creare, modificare ed eliminare una prova sul server}
-\end{classe}\begin{classe}{CLIPS::server::dataserver::Proximity}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::ProximityServer}
 \classeDescrizione{classe che rappresenta sul server un beacon indicato alla segnalazione della distanza dalla prossima prova}
 \classeUtilizzo{permette di salvare i beacon di segnalazione sul server}
 \end{classe}\begin{classe}{CLIPS::server::dataserver::ScoreManager}
 \classeDescrizione{classe che rappresenta un risultato sul server}
 \classeUtilizzo{permette si salvare un risultato nel server}
-\end{classe}\begin{classe}{CLIPS::server::dataserver::Step}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::StepServer}
 \classeDescrizione{classe che rappresenta uno step di un percorso nel server}
 \classeUtilizzo{permette di salvare sul server uno step di un percorso}
-\end{classe}\begin{classe}{CLIPS::server::dataserver::User}
+\end{classe}\begin{classe}{CLIPS::server::dataserver::UserServer}
 \classeDescrizione{classe che rappresenta un utente nel server}
 \classeUtilizzo{permette di salvare sul server un utente}
 \begin{classeRelazioni}
-\classeRelazione{CLIPS::server::dataserver}{AuthToken}{Classe che rappresenta un token che si riferisce ad un utente loggato}\end{classeRelazioni}
+\classeRelazione{CLIPS::server::dataserver}{AuthTokenServer}{Classe che rappresenta un token che si riferisce ad un utente loggato}\end{classeRelazioni}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::server::urlrequesthandler}
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.4]{img/package/png/server--urlrequesthandler.png}
-\caption{Schema package server::urlrequesthandler}
- \end{figure}
+\begin{figure}[h!] 
+\centering 
+\includegraphics[scale=0.4]{img/package/png/server--urlrequesthandler.png} 
+\caption{Schema package server::urlrequesthandler} 
+ \end{figure} 
 \compDescrizione{componente che gestisce le richieste inviate al server e le risposte da inviare al client}
 \compPadre{server}
-\begin{compClassi} \\
+\begin{compClassi} \\ 
 \begin{classe}{CLIPS::server::urlrequesthandler::AppInfoProvider}
 \classeDescrizione{classe che gestisce la richiesta di informazioni sull'app (come la descrizione dell'app, l'indirizzo del sito di supporto, l'email del supporto tecnico ed altro)}
 \classeUtilizzo{si occupa di restituire le informazioni dell'app richieste}
@@ -1942,7 +1917,7 @@ selezionato}
 \classeMetodo{addDistance}{}{void}{aggiunge ad un edificio la distanza dal client}
 \classeMetodo{addPAthToBuildings}{buildings}{Promise}{ritorna una Promise che aggiunge le descrizioni dei percorsi agli edifici in input}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{buildings}{JSON}{array di edifici cui si vogliono aggiungere le descrizioni dei percorsi}
+\classeMetodoArgomento{buildings}{JSON}{array di oggetti JSON contenenti gli edifici cui si vogliono aggiungere le descrizioni dei percorsi: in particolare ciascun oggetto JSON deve contenere almeno la chiave \texttt{id} con l'id dell'edificio}
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
 \begin{classeRelazioni}
@@ -1960,6 +1935,21 @@ selezionato}
 \classeMetodo{isValid}{email}{bool}{ritorna vero se l'indirizzo mail è valido}
 \begin{classeMetodoArgomenti}
 \classeMetodoArgomento{email}{string}{email che si intende validare verificare}
+\end{classeMetodoArgomenti}
+\end{classeMetodi}
+\end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::EmailSender}
+\classeDescrizione{classe usata dal server per inviare un email}
+\classeUtilizzo{si occupa di inviare un'email da beaconstrips.swe@gmail.com}
+\begin{classeMetodi}
+\classeMetodo{sendMail}{}{Promise}{invia la mail dall'indirizzo beaconstrips.swe@gmail.com}
+\end{classeMetodi}
+\end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::GetUserData}
+\classeDescrizione{classe del server che gestisce la richiesta dei dati utente}
+\classeUtilizzo{si occupa di tornare al client i dati sull'utente che ha effettuato la chiamata}
+\begin{classeMetodi}
+\classeMetodo{userData}{userID}{Promise}{metodo che a partire dall'userID restituisce i dati utente (email e username)}
+\begin{classeMetodoArgomenti}
+\classeMetodoArgomento{userID}{string}{id dell'utente}
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
 \end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::LoginHandler}
@@ -1988,25 +1978,41 @@ selezionato}
 \classeMetodoArgomento{password}{string}{la password che si intende verificare}
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
+\end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::PasswordResetEmailSender}
+\classeDescrizione{classe che invia una email contenente i dettagli per il reset di una password dimenticata}
+\classeUtilizzo{si occupa di notificare l'utente della nuova password impostata dopo averne chiesto il ripristino}
+\begin{classeMetodi}
+\classeMetodo{sendNewPassword}{email, password}{Promise}{invia una mail contenente la nuova password all'indirizzo email indicato}
+\begin{classeMetodoArgomenti}
+\classeMetodoArgomento{email}{string}{l'email dell'utente cui comunicare la nuova password}
+\classeMetodoArgomento{password}{string}{la nuova password da comunicare all'utente}
+\end{classeMetodoArgomenti}
+\end{classeMetodi}
+\end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::PasswordResetHandler}
+\classeDescrizione{classe del server per gestire la richiesta di reset di una password dimenticata}
+\classeUtilizzo{si occupa di verificare se l'indirizzo email fornito corrisponde con quello di qualche account ed eventualmente di resecare la password ed inviare una mail di avvenuto ripristino}
+\begin{classeMetodi}
+\classeMetodo{getEmail}{}{Promise}{ritorna una promise che si risolve con successo solamente se con la richiesta viene fornita una email associata a qualche utente registrato}
+\end{classeMetodi}
 \end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::PathProvider}
 \classeDescrizione{classe che gestisce la richiesta del percorso dal client}
 \classeUtilizzo{si occupa di restituire le informazioni sul percorso richieste}
 \begin{classeMetodi}
 \classeMetodo{fulfilledProof}{proof}{Promise}{ritorna una Promise in grado di aggiungere in maniera asincrona i dati derivati alla prova in ingresso}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{proof}{JSON}{la prova che si vuole completare inserendo dati derivati}
+\classeMetodoArgomento{proof}{JSON}{la prova che si vuole completare inserendo dati derivati; proof deve essere un JSON contenente almeno le chiavi \texttt{testData} e \texttt{scoringAlgorithmData} con l'id del test da integrare e l'id dell'algoritmo per i punteggi}
 \end{classeMetodoArgomenti}
 \classeMetodo{fulfilledProximity}{proximity}{Promise}{ritorna una Promise in grado di aggiungere in maniera asincrona i dati derivati alla Proximity in ingresso}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{proximity}{JSON}{la Proximity che si vuole completare inserendo dati derivati}
+\classeMetodoArgomento{proximity}{JSON}{la Proximity che si vuole completare inserendo dati derivati; proximity � un JSON che deve contenere almeno la chiave \texttt{beaconID} con l'id del beacon che viene usato per la prossimit�}
 \end{classeMetodoArgomenti}
 \classeMetodo{fulfilledStep}{step}{Promise}{ritorna una Promise in grado di aggiungere in maniera asincrona i dati derivati alla tappe in ingresso}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{step}{JSON}{la tappa che si vuole completare inserendo dati derivati}
+\classeMetodoArgomento{step}{JSON}{la tappa che si vuole completare inserendo dati derivati; in particolare step � un JSON object che deve contenere almeno le chiavi \texttt{stopbeaconID} con l'id del beacon della stazione, \texttt{proof} con un oggetto di tipo Proof e \texttt{proximities} con un array di oggetti Proximity}
 \end{classeMetodoArgomenti}
 \classeMetodo{getAlgorithm}{proof}{Promise}{ritorna una Promise in grado di tornare l'algoritmo per il calcolo dei punteggi della prova in input}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{proof}{JSON}{la prova di cui si vuole ottenere l'algoritmo}
+\classeMetodoArgomento{proof}{JSON}{la prova di cui si vuole ottenere l'algoritmo; � un oggetto JSON che rappresenta l'oggetto Proof}
 \end{classeMetodoArgomenti}
 \classeMetodo{getBeacon}{beaconID}{Promise}{metodo che ritorna una Promise in grado di recuperare in maniera asincrona i dati di un Beacon con ID in ingresso}
 \begin{classeMetodoArgomenti}
@@ -2018,19 +2024,19 @@ selezionato}
 \end{classeMetodoArgomenti}
 \classeMetodo{getProof}{step}{Promise}{metodo che ritorna una Promise in grado di recuperare in maniera asincrona i dati della prova associata alla tappa in ingresso}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{step}{JSON}{tappa di cui si vogliono recuperare i dati relativi alla prova}
+\classeMetodoArgomento{step}{JSON}{tappa di cui si vogliono recuperare i dati relativi alla prova, l'oggetto JSON deve contenere almeno la chiave \texttt{proofID} con l'id della Proof}
 \end{classeMetodoArgomenti}
 \classeMetodo{getProximities}{step}{Promise}{ritorna una Promise in grado di recuperare in maniera asincrona i dati delle Proximity associate alla tappa in ingresso}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{step}{JSON}{tappa di cui si vogliono avere le proximities}
+\classeMetodoArgomento{step}{JSON}{tappa di cui si vogliono avere le proximities; step � un JSON che deve contenere almeno la chiave \texttt{id} con l'id della stazione }
 \end{classeMetodoArgomenti}
 \classeMetodo{getSteps}{path}{Promise}{metodo che ritorna una Promise in grado di recuperare in maniera asincrona i dati delle tappe associate al path in ingresso}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{path}{JSON}{path di cui si vogliono avere le tappe}
+\classeMetodoArgomento{path}{JSON}{path di cui si vogliono avere le tappe, in particolare l'oggetto JSON path deve contenere la chiave \texttt{id} con l'id del percorso}
 \end{classeMetodoArgomenti}
 \classeMetodo{getTest}{proof}{Promise}{ritorna una Promise in grado di ottenere i dati relativi ai giochi nella prova da effettuare}
 \begin{classeMetodoArgomenti}
-\classeMetodoArgomento{proof}{JSON}{la prova di cui si vogliono ottenere i dati}
+\classeMetodoArgomento{proof}{JSON}{la prova di cui si vogliono ottenere i dati: in particolare il JSON deve contenere almeno le chiavi \texttt{testData} e \texttt{algorithmData} con l'id dei test e degli algoritmi}
 \end{classeMetodoArgomenti}
 \end{classeMetodi}
 \begin{classeRelazioni}
@@ -2040,6 +2046,24 @@ selezionato}
 \classeUtilizzo{si occupa di restituire le informazioni del risultato sul percorso richieste}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::server::urlrequesthandler}{DBHandler}{classe che si occupa di gestire il DB e di ritornare un oggetto configurato della libreria knex}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::PostUserData}
+\classeDescrizione{classe del server che si occupa della modifica dei dati utente}
+\classeUtilizzo{si occupa di modificare nel database i dati dell'utente quando un client chiede che vengano modificati}
+\begin{classeMetodi}
+\classeMetodo{getNewData}{}{Promise}{estrapola dalla richiesta i nuovi dati da salvare nel database}
+\classeMetodo{validateData}{data}{Promise}{ritorna una promise che viene risolta con successo solamente quando tutti i dati in input sono validi}
+\begin{classeMetodoArgomenti}
+\classeMetodoArgomento{data}{JSON}{un JSON con almeno una tra: le chiave \texttt{username} con il nuovo username, la chiave \texttt{email} con la nuova email, la coppia di chiavi \texttt{oldPassword} e \texttt{newPassword} con la vecchia e la nuova password.}
+\end{classeMetodoArgomenti}
+\classeMetodo{validateEmail}{}{Promise}{ritorna una promise che risolve senza errori solamente se la nuova password è valida}
+\classeMetodo{validateUsername}{username}{Promise}{ritorna una promise che risolve senza errori solamente se l'username è valido e non ne esiste uno di uguale già registrato}
+\begin{classeMetodoArgomenti}
+\classeMetodoArgomento{username}{string}{l'username da validare}
+\end{classeMetodoArgomenti}
+\end{classeMetodi}
+\end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::RankingProvider}
+\classeDescrizione{provider della classifica per il percorso specificato}
+\classeUtilizzo{si occupa di restituire al richiedente la classifica del percorso specificato}
 \end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::RegistrationFieldsValidator}
 \classeDescrizione{classe del server che si occupa di validare i dati di registrazione}
 \classeUtilizzo{la classe presenta un metodo execute che verifica la richiesta effettuata dal client e quali sono i dati forniti e risponde con le indicazioni di quali sono campi validi}
@@ -2048,6 +2072,12 @@ selezionato}
 \end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::RegistrationHandler}
 \classeDescrizione{classe che si occupa di registrare i nuovi utenti}
 \classeUtilizzo{è necessario impostare gli attributi response e request e successivamente chiamare il metodo execute()}
+\end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::TokenGenerator}
+\classeDescrizione{classe per la creazione di stringhe casuali univoche}
+\classeUtilizzo{si occupa di creare un token casuale}
+\begin{classeMetodi}
+\classeMetodo{generate}{}{string}{genera una stringa casuale univoca}
+\end{classeMetodi}
 \end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::URLRequestHandler}
 \classeDescrizione{classe astratta che rappresenta un gestore di richieste di dati fatte al server}
 \classeUtilizzo{si occupa di gestire le richieste ricevute dal client}
@@ -2063,6 +2093,16 @@ selezionato}
 \classeUtilizzo{crea la classe URLRequestHandler appropriata}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::server::urlrequesthandler}{AppInfoProvider}{classe che gestisce la richiesta di informazioni sull'app (come la descrizione dell'app, l'indirizzo del sito di supporto, l'email del supporto tecnico ed altro)}\classeRelazione{CLIPS::server::urlrequesthandler}{BuildingsProvider}{classe che gestisce la richiesta degli edifici dal client al server}\classeRelazione{CLIPS::server::urlrequesthandler}{LoginHandler}{classe che gestisce le richieste di login da parte del client}\classeRelazione{CLIPS::server::urlrequesthandler}{LogoutHandler}{classe che gestisce la richiesta di logout da parte del client (eliminando il token associato al client)}\classeRelazione{CLIPS::server::urlrequesthandler}{PathProvider}{classe che gestisce la richiesta del percorso dal client}\classeRelazione{CLIPS::server::urlrequesthandler}{PathResultsProvider}{classe che gestisce la richiesta del risultato del percorso dal client}\classeRelazione{CLIPS::server::urlrequesthandler}{RegistrationFieldsValidator}{classe del server che si occupa di validare i dati di registrazione}\classeRelazione{CLIPS::server::urlrequesthandler}{UserResultProvider}{classe che gestisce la richiesta di un utente}\end{classeRelazioni}
+\end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::UserDataRequest}
+\classeDescrizione{classe che si occupa di gestire una richiesta che opera sui dati dell'utente}
+\classeUtilizzo{la classe mette a disposizioni delle sottoclassi una varietà di metodi per gestire agevolmente i dati degli utenti}
+\begin{classeMetodi}
+\classeMetodo{getToken}{}{string}{metodo che restituisce il token dell'utente che effettuata la richiesta dal client}
+\classeMetodo{getUserID}{token}{string}{metodo che a partire dal token di autenticazione ritorna l'id dell'utente che effettua la richiesta}
+\begin{classeMetodoArgomenti}
+\classeMetodoArgomento{token}{string}{token di autenticazione dell'utente}
+\end{classeMetodoArgomenti}
+\end{classeMetodi}
 \end{classe}\begin{classe}{CLIPS::server::urlrequesthandler::UsernameChecker}
 \classeDescrizione{si occupa di verificare la validità dell'username (in particolare se è già in uso da un utente)}
 \classeUtilizzo{è utile per verificare che un username non sia ancora stato utilizzato}

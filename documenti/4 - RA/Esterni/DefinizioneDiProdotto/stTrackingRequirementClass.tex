@@ -1,82 +1,165 @@
-\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}}\intestazionetwocol{Requisito}{Classi}R0F1 & \cellacaporiga{\texttt{CLIPS::server::dataserver::UserServer} } \\ 
-R0F1.1 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\section{Tabella tracciamento Requisiti-Classi}
+\begin{tabella}{!{\VRule}c!{\VRule}c!{\VRule}}\intestazionetwocol{Requisito}{Classi}R0F1 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::data::LoggedUser} \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
+\texttt{CLIPS::client::data::urlrequest::LoginRequest} \\ 
+\texttt{CLIPS::client::data::urlrequest::RegistrationRequest} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
+\texttt{CLIPS::server::dataserver::UserServer} } \\ 
+R0F1.1 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::client::data::LoggedUser} \\ 
 \texttt{CLIPS::client::viewcontroller::authentication::LoginActivity} \\ 
 \texttt{CLIPS::server::urlrequesthandler::LoginHandler} \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
+\texttt{CLIPS::client::data::urlrequest::LoginRequest} \\ 
 \texttt{CLIPS::client::viewcontroller::authentication::LoginView} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
 \texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} } \\ 
 R0F1.1.1 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::LoginView} } \\ 
 R0F1.1.2 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::LoginActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::authentication::LoginView} } \\ 
 R0F1.1.3 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::LoginView} } \\ 
-R0F1.1.4 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+R0F1.1.4 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
 \texttt{CLIPS::server::urlrequesthandler::EmailChecker} \\ 
+\texttt{CLIPS::client::data::LoggedUser} \\ 
 \texttt{CLIPS::client::viewcontroller::authentication::LoginActivity} \\ 
 \texttt{CLIPS::server::urlrequesthandler::LoginHandler} \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
+\texttt{CLIPS::client::data::urlrequest::LoginRequest} \\ 
 \texttt{CLIPS::server::urlrequesthandler::TokenGenerator} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
 \texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
-R0F1.1.5 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} } \\ 
+R0F1.1.5 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
 \texttt{CLIPS::client::viewcontroller::authentication::LoginActivity} \\ 
 \texttt{CLIPS::server::urlrequesthandler::LoginHandler} \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
+\texttt{CLIPS::client::data::urlrequest::LoginRequest} \\ 
 \texttt{CLIPS::client::viewcontroller::authentication::LoginView} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
 \texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
-R0F1.1.5.1 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::EmailChecker} \\ 
-\texttt{CLIPS::server::urlrequesthandler::LoginHandler} } \\ 
-R0F1.1.5.2 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::LoginHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::PasswordChecker} } \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} } \\ 
+R0F1.1.5.1 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::server::urlrequesthandler::EmailChecker} \\ 
+\texttt{CLIPS::server::urlrequesthandler::LoginHandler} \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} } \\ 
+R0F1.1.5.2 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::server::urlrequesthandler::LoginHandler} \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
+\texttt{CLIPS::server::urlrequesthandler::PasswordChecker} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} } \\ 
 R0F1.1.5.3 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::LoginActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::authentication::LoginView} } \\ 
-R0F1.1.5.4 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::EmailSender} \\ 
+R0F1.1.5.4 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::server::urlrequesthandler::EmailSender} \\ 
 \texttt{CLIPS::client::viewcontroller::authentication::ForgotPasswordActivity} \\ 
+\texttt{CLIPS::client::data::urlrequest::ForgotPasswordRequest} \\ 
 \texttt{CLIPS::client::viewcontroller::authentication::ForgotPasswordView} \\ 
-\texttt{CLIPS::server::urlrequesthandler::PasswordResetHandler} } \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
+\texttt{CLIPS::server::urlrequesthandler::PasswordResetHandler} \\ 
+\texttt{CLIPS::client::viewcontroller::authentication::RecoverPassword} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} } \\ 
 R0F1.1.5.4.1 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::ForgotPasswordView} } \\ 
 R0F1.1.5.4.2 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
 \texttt{CLIPS::server::urlrequesthandler::PasswordResetEmailSender} \\ 
 \texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} } \\ 
 R0F1.1.5.4.3 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
 \texttt{CLIPS::server::urlrequesthandler::EmailSender} \\ 
 \texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} } \\ 
 R0F1.1.5.4.4 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::EmailChecker} \\ 
 \texttt{CLIPS::server::urlrequesthandler::PasswordResetHandler} } \\ 
-R0F1.1.5.4.5 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::EmailChecker} \\ 
-\texttt{CLIPS::client::viewcontroller::authentication::ForgotPasswordView} } \\ 
-R0F1.2 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::RegistrationActivity} \\ 
+R0F1.1.5.4.5 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::server::urlrequesthandler::EmailChecker} \\ 
+\texttt{CLIPS::client::viewcontroller::authentication::ForgotPasswordView} \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} } \\ 
+R0F1.2 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::data::LoggedUser} \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
+\texttt{CLIPS::client::viewcontroller::authentication::RegistrationActivity} \\ 
 \texttt{CLIPS::server::urlrequesthandler::RegistrationFieldsValidator} \\ 
 \texttt{CLIPS::server::urlrequesthandler::RegistrationHandler} \\ 
-\texttt{CLIPS::client::viewcontroller::authentication::RegistrationView} } \\ 
+\texttt{CLIPS::client::data::urlrequest::RegistrationRequest} \\ 
+\texttt{CLIPS::client::viewcontroller::authentication::RegistrationView} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} } \\ 
 R0F1.2.1 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::RegistrationView} } \\ 
 R0F1.2.2 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::RegistrationView} } \\ 
 R0F1.2.3 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::RegistrationView} } \\ 
 R0F1.2.4 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::RegistrationView} } \\ 
 R0F1.2.5 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::RegistrationView} } \\ 
-R0F1.2.6 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+R0F1.2.6 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::viewcontroller::authentication::ConfirmRegistration} \\ 
+\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::client::data::LoggedUser} \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
 \texttt{CLIPS::server::urlrequesthandler::PasswordChecker} \\ 
 \texttt{CLIPS::server::urlrequesthandler::RegistrationFieldsValidator} \\ 
 \texttt{CLIPS::server::urlrequesthandler::RegistrationHandler} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
 \texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} } \\ 
 R0F1.2.6.1 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::client::data::LoggedUser} \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
 \texttt{CLIPS::client::viewcontroller::authentication::RegistrationActivity} \\ 
 \texttt{CLIPS::server::urlrequesthandler::TokenGenerator} \\ 
 \texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
-R0F1.2.7 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::RegistrationActivity} \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} } \\ 
+R0F1.2.7 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::CheckRequest} \\ 
+\texttt{CLIPS::client::data::datamanager::CheckResult} \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
+\texttt{CLIPS::client::viewcontroller::authentication::RegistrationActivity} \\ 
 \texttt{CLIPS::server::urlrequesthandler::RegistrationFieldsValidator} \\ 
 \texttt{CLIPS::server::urlrequesthandler::RegistrationHandler} \\ 
 \texttt{CLIPS::client::viewcontroller::authentication::RegistrationView} \\ 
-\texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} } \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} } \\ 
 R0F1.2.7.1 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::EmailChecker} } \\ 
 R0F1.2.7.1.1 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::EmailChecker} } \\ 
 R0F1.2.7.1.2 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::EmailChecker} } \\ 
@@ -85,205 +168,515 @@ R0F1.2.7.2.1 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::Username
 R0F1.2.7.2.2 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::UsernameChecker} } \\ 
 R0F1.2.7.3 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::PasswordChecker} } \\ 
 R0F1.2.7.4 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::PasswordChecker} } \\ 
-R0F2 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::AccountView} \\ 
+R0F2 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::viewcontroller::authentication::AccountActivity} \\ 
+\texttt{CLIPS::client::viewcontroller::authentication::AccountView} \\ 
 \texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::client::data::LoggedUser} \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
 \texttt{CLIPS::server::urlrequesthandler::LogoutHandler} \\ 
+\texttt{CLIPS::client::data::urlrequest::LogoutRequest} \\ 
+\texttt{CLIPS::client::viewcontroller::utility::MenuActivity} \\ 
+\texttt{CLIPS::client::viewcontroller::utility::MenuView} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
 \texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
-R0F3 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} } \\ 
+R0F3 & \cellacaporiga{\texttt{CLIPS::client::data::/textit{AbstractQuiz}} \\ 
+\texttt{CLIPS::client::data::/textit{Test}} \\ 
+\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::data::Beacon} \\ 
+\texttt{CLIPS::client::pathprogress::BeaconDiscover} \\ 
+\texttt{CLIPS::client::data::datamanager::DataManager} \\ 
+\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::client::data::datamanager::DBHandlerFIXME} \\ 
+\texttt{CLIPS::client::data::GameCollection} \\ 
+\texttt{CLIPS::client::data::LinearScoringAlgorithm} \\ 
+\texttt{CLIPS::client::data::MultipleChoiceImageQuiz} \\ 
+\texttt{CLIPS::client::data::MultipleChoiceTest} \\ 
+\texttt{CLIPS::client::data::MultipleChoiceTextQuiz} \\ 
+\texttt{CLIPS::client::data::Path} \\ 
+\texttt{CLIPS::client::viewcontroller::building::PathActivity} \\ 
+\texttt{CLIPS::client::data::datamanager::PathDataRequest} \\ 
 \texttt{CLIPS::server::urlrequesthandler::PathProvider} \\ 
+\texttt{CLIPS::client::data::urlrequest::PathRequest} \\ 
+\texttt{CLIPS::client::viewcontroller::building::PathView} \\ 
+\texttt{CLIPS::client::data::Proof} \\ 
+\texttt{CLIPS::client::data::Proximity} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::ScoringAlgorithmFactory} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::Step} \\ 
+\texttt{CLIPS::client::data::TestBuilder} \\ 
+\texttt{CLIPS::client::data::TrueFalseImageQuiz} \\ 
+\texttt{CLIPS::client::data::TrueFalseTest} \\ 
+\texttt{CLIPS::client::data::TrueFalseTextQuiz} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
 \texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
 \texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
-R0F3.1 & \cellacaporiga{\texttt{CLIPS::client::pathprogress::PathProgressController} \\ 
+\texttt{CLIPS::client::data::Utility} } \\ 
+R0F3.1 & \cellacaporiga{\texttt{CLIPS::client::data::/textit{AbstractQuiz}} \\ 
+\texttt{CLIPS::client::data::/textit{Test}} \\ 
+\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::data::Beacon} \\ 
+\texttt{CLIPS::client::pathprogress::BeaconDiscover} \\ 
+\texttt{CLIPS::client::data::datamanager::DataManager} \\ 
+\texttt{CLIPS::client::data::datamanager::DataRequestMaker} \\ 
+\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::client::data::GameCollection} \\ 
+\texttt{CLIPS::client::data::LinearScoringAlgorithm} \\ 
+\texttt{CLIPS::client::data::MultipleChoiceImageQuiz} \\ 
+\texttt{CLIPS::client::data::MultipleChoiceTest} \\ 
+\texttt{CLIPS::client::data::MultipleChoiceTextQuiz} \\ 
+\texttt{CLIPS::client::data::Path} \\ 
+\texttt{CLIPS::client::data::datamanager::PathDataRequest} \\ 
+\texttt{CLIPS::client::pathprogress::PathProgressController} \\ 
 \texttt{CLIPS::server::urlrequesthandler::PathProvider} \\ 
+\texttt{CLIPS::client::data::urlrequest::PathRequest} \\ 
+\texttt{CLIPS::client::data::Proof} \\ 
 \texttt{CLIPS::client::viewcontroller::games::ProofActivity} \\ 
-\texttt{CLIPS::client::viewcontroller::games::SearchNewStepActivity} } \\ 
-R0F3.1.1 & \cellacaporiga{\texttt{CLIPS::client::pathprogress::PathProgressController} \\ 
+\texttt{CLIPS::client::data::Proximity} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::ScoringAlgorithmFactory} \\ 
+\texttt{CLIPS::client::viewcontroller::games::SearchNewStepActivity} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::Step} \\ 
+\texttt{CLIPS::client::data::TestBuilder} \\ 
+\texttt{CLIPS::client::data::TrueFalseImageQuiz} \\ 
+\texttt{CLIPS::client::data::TrueFalseTest} \\ 
+\texttt{CLIPS::client::data::TrueFalseTextQuiz} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
+\texttt{CLIPS::client::data::Utility} } \\ 
+R0F3.1.1 & \cellacaporiga{\texttt{CLIPS::client::data::Beacon} \\ 
+\texttt{CLIPS::client::pathprogress::BeaconDiscover} \\ 
+\texttt{CLIPS::client::pathprogress::PathProgressController} \\ 
 \texttt{CLIPS::client::pathprogress::PathProgressControllerDelegate} \\ 
 \texttt{CLIPS::client::viewcontroller::games::SearchNewStepActivity} \\ 
-\texttt{CLIPS::client::viewcontroller::games::SearchNewStepView} } \\ 
-R0F3.1.1.1 & \cellacaporiga{\texttt{CLIPS::client::pathprogress::PathProgressController} \\ 
+\texttt{CLIPS::client::viewcontroller::games::SearchNewStepView} \\ 
+\texttt{CLIPS::client::data::Step} } \\ 
+R0F3.1.1.1 & \cellacaporiga{\texttt{CLIPS::client::data::Beacon} \\ 
+\texttt{CLIPS::client::pathprogress::BeaconDiscover} \\ 
+\texttt{CLIPS::client::pathprogress::PathProgressController} \\ 
 \texttt{CLIPS::client::pathprogress::PathProgressControllerDelegate} \\ 
-\texttt{CLIPS::client::viewcontroller::games::SearchNewStepActivity} } \\ 
-R0F3.1.1.2 & \cellacaporiga{\texttt{CLIPS::client::pathprogress::PathProgressController} \\ 
+\texttt{CLIPS::client::viewcontroller::games::SearchNewStepActivity} \\ 
+\texttt{CLIPS::client::data::Step} } \\ 
+R0F3.1.1.2 & \cellacaporiga{\texttt{CLIPS::client::data::Beacon} \\ 
+\texttt{CLIPS::client::pathprogress::PathProgressController} \\ 
 \texttt{CLIPS::client::pathprogress::PathProgressControllerDelegate} \\ 
-\texttt{CLIPS::client::viewcontroller::games::SearchNewStepActivity} } \\ 
-R1F3.1.1.3 & \cellacaporiga{ } \\ 
-R2F3.1.1.4 & \cellacaporiga{ } \\ 
-R2F3.1.1.4.1 & \cellacaporiga{ } \\ 
+\texttt{CLIPS::client::viewcontroller::games::SearchNewStepActivity} \\ 
+\texttt{CLIPS::client::data::Step} } \\ 
+R1F3.1.1.3 & \cellacaporiga{\texttt{CLIPS::client::data::MultipleChoiceImageQuiz} \\ 
+\texttt{CLIPS::client::data::MultipleChoiceTextQuiz} \\ 
+\texttt{CLIPS::client::data::TrueFalseImageQuiz} \\ 
+\texttt{CLIPS::client::data::TrueFalseTextQuiz} } \\ 
+R2F3.1.1.4 & \cellacaporiga{\texttt{CLIPS::client::data::Beacon} \\ 
+\texttt{CLIPS::client::data::Proximity} } \\ 
+R2F3.1.1.4.1 & \cellacaporiga{\texttt{CLIPS::client::data::Proximity} } \\ 
 R0F3.1.2 & \cellacaporiga{\texttt{CLIPS::client::data::/textit{AbstractQuiz}} \\ 
+\texttt{CLIPS::client::data::/textit{Test}} \\ 
+\texttt{CLIPS::client::data::GameCollection} \\ 
+\texttt{CLIPS::client::data::LinearScoringAlgorithm} \\ 
+\texttt{CLIPS::client::data::MultipleChoiceImageQuiz} \\ 
+\texttt{CLIPS::client::data::MultipleChoiceTest} \\ 
+\texttt{CLIPS::client::data::MultipleChoiceTextQuiz} \\ 
+\texttt{CLIPS::client::data::Proof} \\ 
 \texttt{CLIPS::client::viewcontroller::games::ProofActivity} \\ 
-\texttt{CLIPS::client::viewcontroller::games::ProofView} } \\ 
-R0F3.1.2.1 & \cellacaporiga{\texttt{CLIPS::client::data::/textit{AbstractQuiz}} } \\ 
-R0F3.1.2.2 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::games::ProofActivity} \\ 
+\texttt{CLIPS::client::viewcontroller::games::ProofView} \\ 
+\texttt{CLIPS::client::data::Step} \\ 
+\texttt{CLIPS::client::data::TrueFalseImageQuiz} \\ 
+\texttt{CLIPS::client::data::TrueFalseTest} \\ 
+\texttt{CLIPS::client::data::TrueFalseTextQuiz} } \\ 
+R0F3.1.2.1 & \cellacaporiga{\texttt{CLIPS::client::data::/textit{AbstractQuiz}} \\ 
+\texttt{CLIPS::client::data::/textit{Test}} \\ 
+\texttt{CLIPS::client::data::GameCollection} \\ 
+\texttt{CLIPS::client::data::MultipleChoiceImageQuiz} \\ 
+\texttt{CLIPS::client::data::MultipleChoiceTest} \\ 
+\texttt{CLIPS::client::data::MultipleChoiceTextQuiz} \\ 
+\texttt{CLIPS::client::data::TrueFalseImageQuiz} \\ 
+\texttt{CLIPS::client::data::TrueFalseTest} \\ 
+\texttt{CLIPS::client::data::TrueFalseTextQuiz} } \\ 
+R0F3.1.2.2 & \cellacaporiga{\texttt{CLIPS::client::data::Proof} \\ 
+\texttt{CLIPS::client::viewcontroller::games::ProofActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::games::ProofView} } \\ 
 R0F3.1.2.3 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::games::MultipleChoiceQuizActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::games::MultipleChoiceQuizView} \\ 
 \texttt{CLIPS::client::viewcontroller::games::TrueFalseQuizActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::games::TrueFalseQuizView} } \\ 
-R0F3.1.2.4 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::games::ProofResultActivity} \\ 
+R0F3.1.2.4 & \cellacaporiga{\texttt{CLIPS::client::data::LinearScoringAlgorithm} \\ 
+\texttt{CLIPS::client::data::ProofResult} \\ 
+\texttt{CLIPS::client::viewcontroller::games::ProofResultActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::games::ProofResultView} } \\ 
-R0F3.1.2.5 & \cellacaporiga{\texttt{CLIPS::client::pathprogress::PathProgressController} } \\ 
-R0F3.1.2.5.1 & \cellacaporiga{\texttt{CLIPS::client::pathprogress::PathProgressController} \\ 
+R0F3.1.2.5 & \cellacaporiga{\texttt{CLIPS::client::data::Path} \\ 
+\texttt{CLIPS::client::pathprogress::PathProgressController} \\ 
+\texttt{CLIPS::client::data::Proof} \\ 
+\texttt{CLIPS::client::data::Step} } \\ 
+R0F3.1.2.5.1 & \cellacaporiga{\texttt{CLIPS::client::data::Path} \\ 
+\texttt{CLIPS::client::pathprogress::PathProgressController} \\ 
+\texttt{CLIPS::client::data::Proof} \\ 
 \texttt{CLIPS::client::viewcontroller::games::SearchNewStepActivity} \\ 
-\texttt{CLIPS::client::viewcontroller::games::SearchNewStepView} } \\ 
-R0F3.1.2.5.1.1 & \cellacaporiga{\texttt{CLIPS::client::pathprogress::PathProgressController} \\ 
+\texttt{CLIPS::client::viewcontroller::games::SearchNewStepView} \\ 
+\texttt{CLIPS::client::data::Step} } \\ 
+R0F3.1.2.5.1.1 & \cellacaporiga{\texttt{CLIPS::client::data::Path} \\ 
+\texttt{CLIPS::client::pathprogress::PathProgressController} \\ 
+\texttt{CLIPS::client::data::Proof} \\ 
 \texttt{CLIPS::client::viewcontroller::games::SearchNewStepActivity} \\ 
-\texttt{CLIPS::client::viewcontroller::games::SearchNewStepView} } \\ 
-R0F3.1.2.5.2 & \cellacaporiga{\texttt{CLIPS::client::pathprogress::PathProgressController} } \\ 
-R0F3.2 & \cellacaporiga{ } \\ 
-R0F3.2.1 & \cellacaporiga{ } \\ 
-R0F3.2.1.1 & \cellacaporiga{ } \\ 
-R0F3.2.2 & \cellacaporiga{ } \\ 
-R0F3.2.2.1 & \cellacaporiga{ } \\ 
-R0F3.2.2.1.1 & \cellacaporiga{ } \\ 
-R0F3.2.3 & \cellacaporiga{ } \\ 
-R0F3.2.3.1 & \cellacaporiga{ } \\ 
-R0F3.2.3.1.1 & \cellacaporiga{ } \\ 
-R1F3.2.3.2 & \cellacaporiga{ } \\ 
-R0F3.2.4 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
-R0F3.2.4.1 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
-R0F3.2.5 & \cellacaporiga{ } \\ 
-R0F3.2.6 & \cellacaporiga{ } \\ 
-R0F3.3 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
-R0F4 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::utility::AppInfoActivity} \\ 
-\texttt{CLIPS::server::urlrequesthandler::AppInfoProvider} \\ 
-\texttt{CLIPS::client::viewcontroller::utility::AppInfoView} \\ 
+\texttt{CLIPS::client::viewcontroller::games::SearchNewStepView} \\ 
+\texttt{CLIPS::client::data::Step} } \\ 
+R0F3.1.2.5.2 & \cellacaporiga{\texttt{CLIPS::client::data::Path} \\ 
+\texttt{CLIPS::client::pathprogress::PathProgressController} \\ 
+\texttt{CLIPS::client::data::Step} } \\ 
+R0F3.2 & \cellacaporiga{\texttt{CLIPS::client::data::LinearScoringAlgorithm} \\ 
+\texttt{CLIPS::client::data::PathProgress} \\ 
+\texttt{CLIPS::client::data::PathResult} \\ 
+\texttt{CLIPS::client::data::ProofResult} } \\ 
+R0F3.2.1 & \cellacaporiga{\texttt{CLIPS::client::data::PathProgress} \\ 
+\texttt{CLIPS::client::data::PathResult} } \\ 
+R0F3.2.1.1 & \cellacaporiga{\texttt{CLIPS::client::data::PathProgress} } \\ 
+R0F3.2.2 & \cellacaporiga{\texttt{CLIPS::client::data::PathProgress} \\ 
+\texttt{CLIPS::client::data::PathResult} \\ 
+\texttt{CLIPS::client::data::ProofResult} } \\ 
+R0F3.2.2.1 & \cellacaporiga{\texttt{CLIPS::client::data::PathProgress} \\ 
+\texttt{CLIPS::client::data::PathResult} \\ 
+\texttt{CLIPS::client::data::ProofResult} } \\ 
+R0F3.2.2.1.1 & \cellacaporiga{\texttt{CLIPS::client::data::PathProgress} \\ 
+\texttt{CLIPS::client::data::ProofResult} } \\ 
+R0F3.2.3 & \cellacaporiga{\texttt{CLIPS::client::data::LinearScoringAlgorithm} \\ 
+\texttt{CLIPS::client::data::PathProgress} \\ 
+\texttt{CLIPS::client::data::PathResult} \\ 
+\texttt{CLIPS::client::data::ProofResult} } \\ 
+R0F3.2.3.1 & \cellacaporiga{\texttt{CLIPS::client::data::LinearScoringAlgorithm} \\ 
+\texttt{CLIPS::client::data::PathProgress} \\ 
+\texttt{CLIPS::client::data::ProofResult} } \\ 
+R0F3.2.3.1.1 & \cellacaporiga{\texttt{CLIPS::client::data::LinearScoringAlgorithm} \\ 
+\texttt{CLIPS::client::data::Proof} \\ 
+\texttt{CLIPS::client::data::ProofResult} } \\ 
+R1F3.2.3.2 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::data::datamanager::DataManager} \\ 
+\texttt{CLIPS::client::data::datamanager::DataRequestMaker} \\ 
+\texttt{CLIPS::client::data::datamanager::DBHandlerFIXME} \\ 
+\texttt{CLIPS::client::data::datamanager::GetResultsDataRequest} \\ 
+\texttt{CLIPS::client::data::urlrequest::GetResultsRequest} \\ 
+\texttt{CLIPS::client::data::PathResult} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} } \\ 
+R0F3.2.4 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::data::datamanager::DataManager} \\ 
+\texttt{CLIPS::client::data::datamanager::DataRequestMaker} \\ 
 \texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::client::data::datamanager::GetRankingDataRequest} \\ 
+\texttt{CLIPS::client::data::urlrequest::GetRankingRequest} \\ 
+\texttt{CLIPS::client::viewcontroller::savedresults::RankingActivity} \\ 
+\texttt{CLIPS::client::viewcontroller::savedresults::RankingView} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::Score} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
 \texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
-R0F4.1 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::utility::AppInfoActivity} \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} } \\ 
+R0F3.2.4.1 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::data::datamanager::DataManager} \\ 
+\texttt{CLIPS::client::data::datamanager::DataRequestMaker} \\ 
+\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::client::data::datamanager::GetRankingDataRequest} \\ 
+\texttt{CLIPS::client::data::urlrequest::GetRankingRequest} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::viewcontroller::savedresults::ResultRow} \\ 
+\texttt{CLIPS::client::data::Score} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} } \\ 
+R0F3.2.5 & \cellacaporiga{\texttt{CLIPS::client::data::PathResult} \\ 
+\texttt{CLIPS::client::data::ProofResult} } \\ 
+R0F3.2.6 & \cellacaporiga{\texttt{CLIPS::client::data::PathResult} \\ 
+\texttt{CLIPS::client::data::ProofResult} } \\ 
+R0F3.3 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::/textit{SaveDataManager}} \\ 
+\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::data::datamanager::DataRequestMaker} \\ 
+\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::client::data::PathResult} \\ 
+\texttt{CLIPS::client::data::ProofResult} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::datamanager::SaveResultDataRequest} \\ 
+\texttt{CLIPS::client::data::urlrequest::SaveResultRequest} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} } \\ 
+R0F4 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::data::AppInfo} \\ 
+\texttt{CLIPS::client::viewcontroller::utility::AppInfoActivity} \\ 
+\texttt{CLIPS::client::data::datamanager::AppInfoDataRequest} \\ 
+\texttt{CLIPS::server::urlrequesthandler::AppInfoProvider} \\ 
+\texttt{CLIPS::client::data::urlrequest::AppInfoRequest} \\ 
+\texttt{CLIPS::client::viewcontroller::utility::AppInfoView} \\ 
+\texttt{CLIPS::client::data::datamanager::DataManager} \\ 
+\texttt{CLIPS::client::data::datamanager::DataRequestMaker} \\ 
+\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} } \\ 
+R0F4.1 & \cellacaporiga{\texttt{CLIPS::client::data::AppInfo} \\ 
+\texttt{CLIPS::client::viewcontroller::utility::AppInfoActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::utility::AppInfoView} } \\ 
-R0F4.2 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::utility::AppInfoActivity} \\ 
+R0F4.2 & \cellacaporiga{\texttt{CLIPS::client::data::AppInfo} \\ 
+\texttt{CLIPS::client::viewcontroller::utility::AppInfoActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::utility::AppInfoView} } \\ 
-R0F4.3 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::utility::AppInfoActivity} \\ 
+R0F4.3 & \cellacaporiga{\texttt{CLIPS::client::data::AppInfo} \\ 
+\texttt{CLIPS::client::viewcontroller::utility::AppInfoActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::utility::AppInfoView} } \\ 
 R0F4.3.1 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::utility::AppInfoActivity} \\ 
-\texttt{CLIPS::client::viewcontroller::utility::AppInfoView} } \\ 
-R2F4.3.2 & \cellacaporiga{ } \\ 
-R2F4.3.2.1 & \cellacaporiga{ } \\ 
-R2F4.3.2.2 & \cellacaporiga{ } \\ 
-R2F4.3.2.3 & \cellacaporiga{ } \\ 
-R0F5 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::client::viewcontroller::utility::AppInfoView} } \\  
+R0F5 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::data::datamanager::DataManager} \\ 
+\texttt{CLIPS::client::data::datamanager::DataRequestMaker} \\ 
+\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::client::data::datamanager::DBHandlerFIXME} \\ 
+\texttt{CLIPS::client::data::datamanager::GetResultsDataRequest} \\ 
+\texttt{CLIPS::client::data::urlrequest::GetResultsRequest} \\ 
+\texttt{CLIPS::client::data::PathResult} \\ 
 \texttt{CLIPS::server::urlrequesthandler::PathResultsProvider} \\ 
+\texttt{CLIPS::client::data::ProofResult} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
 \texttt{CLIPS::client::viewcontroller::savedresults::ResultActivity} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
 \texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
 \texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
-R0F5.1 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} \\ 
+\texttt{CLIPS::client::data::Utility} } \\ 
+R0F5.1 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::data::datamanager::DataManager} \\ 
+\texttt{CLIPS::client::data::datamanager::DataRequestMaker} \\ 
+\texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::client::data::datamanager::DBHandlerFIXME} \\ 
+\texttt{CLIPS::client::data::datamanager::GetResultsDataRequest} \\ 
+\texttt{CLIPS::client::data::urlrequest::GetResultsRequest} \\ 
+\texttt{CLIPS::client::data::PathResult} \\ 
 \texttt{CLIPS::server::urlrequesthandler::PathResultsProvider} \\ 
+\texttt{CLIPS::client::data::ProofResult} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
 \texttt{CLIPS::client::viewcontroller::savedresults::SavedResultView} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
 \texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
 \texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
-R0F5.1.1 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::PathResultsProvider} \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} \\ 
+\texttt{CLIPS::client::data::Utility} } \\ 
+R0F5.1.1 & \cellacaporiga{\texttt{CLIPS::client::data::PathResult} \\ 
+\texttt{CLIPS::server::urlrequesthandler::PathResultsProvider} \\ 
 \texttt{CLIPS::server::urlrequesthandler::RankingProvider} \\ 
 \texttt{CLIPS::client::viewcontroller::savedresults::SavedResultView} } \\ 
-R0F5.1.1.1 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::savedresults::SavedResultView} } \\ 
-R0F5.1.1.2 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::savedresults::SavedResultView} } \\ 
-R0F5.1.1.3 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::savedresults::SavedResultView} } \\ 
-R0F5.1.1.4 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::savedresults::SavedResultView} } \\ 
-R0F5.1.1.5 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::savedresults::SavedResultView} } \\ 
-R0F5.1.1.6 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::savedresults::SavedResultView} } \\ 
+R0F5.1.1.1 & \cellacaporiga{\texttt{CLIPS::client::data::PathResult} \\ 
+\texttt{CLIPS::client::viewcontroller::savedresults::SavedResultView} } \\ 
+R0F5.1.1.2 & \cellacaporiga{\texttt{CLIPS::client::data::PathResult} \\ 
+\texttt{CLIPS::client::viewcontroller::savedresults::SavedResultView} } \\ 
+R0F5.1.1.3 & \cellacaporiga{\texttt{CLIPS::client::data::PathResult} \\ 
+\texttt{CLIPS::client::viewcontroller::savedresults::SavedResultView} } \\ 
+R0F5.1.1.4 & \cellacaporiga{\texttt{CLIPS::client::data::PathResult} \\ 
+\texttt{CLIPS::client::viewcontroller::savedresults::SavedResultView} } \\ 
+R0F5.1.1.5 & \cellacaporiga{\texttt{CLIPS::client::data::PathResult} \\ 
+\texttt{CLIPS::client::viewcontroller::savedresults::SavedResultView} } \\ 
+R0F5.1.1.6 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::data::datamanager::DataManager} \\ 
+\texttt{CLIPS::client::data::datamanager::DataRequestMaker} \\ 
+\texttt{CLIPS::client::data::datamanager::GetRankingDataRequest} \\ 
+\texttt{CLIPS::client::data::urlrequest::GetRankingRequest} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::viewcontroller::savedresults::SavedResultView} \\ 
+\texttt{CLIPS::client::data::Score} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} } \\ 
 R0F5.2 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::PathResultsProvider} \\ 
 \texttt{CLIPS::client::viewcontroller::savedresults::SavedResultView} } \\ 
 R0F5.3 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::savedresults::ResultView} } \\ 
-R0F6 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingSearchActivity} \\ 
+R0F6 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::data::Building} \\ 
+\texttt{CLIPS::client::data::datamanager::BuildingsDataRequest} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingSearchActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::building::BuildingSearchView} \\ 
 \texttt{CLIPS::server::urlrequesthandler::BuildingsProvider} \\ 
+\texttt{CLIPS::client::data::urlrequest::BuildingsRequest} \\ 
+\texttt{CLIPS::client::data::datamanager::DataManager} \\ 
+\texttt{CLIPS::client::data::datamanager::DataRequestMaker} \\ 
 \texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
+\texttt{CLIPS::client::data::datamanager::DBHandlerFIXME} \\ 
+\texttt{CLIPS::client::pathprogress::GPSListener} \\ 
+\texttt{CLIPS::client::pathprogress::GPSManager} \\ 
+\texttt{CLIPS::client::data::PathInfo} \\ 
+\texttt{CLIPS::client::pathprogress::PathProgressMaker} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
 \texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
 \texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
-R0F6.1 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingSearchActivity} \\ 
-\texttt{CLIPS::client::viewcontroller::building::BuildingSearchView} } \\ 
+\texttt{CLIPS::client::data::Utility} } \\ 
+R0F6.1 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::data::Building} \\ 
+\texttt{CLIPS::client::data::datamanager::BuildingsDataRequest} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingSearchActivity} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingSearchView} \\ 
+\texttt{CLIPS::client::data::urlrequest::BuildingsRequest} \\ 
+\texttt{CLIPS::client::data::datamanager::DataManager} \\ 
+\texttt{CLIPS::client::data::datamanager::DataRequestMaker} \\ 
+\texttt{CLIPS::client::data::datamanager::DBHandlerFIXME} \\ 
+\texttt{CLIPS::client::pathprogress::GPSListener} \\ 
+\texttt{CLIPS::client::pathprogress::GPSManager} \\ 
+\texttt{CLIPS::client::data::PathInfo} \\ 
+\texttt{CLIPS::client::pathprogress::PathProgressMaker} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
+\texttt{CLIPS::client::data::Utility} } \\ 
 R0F6.1.1 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingSearchActivity} \\ 
-\texttt{CLIPS::client::viewcontroller::building::BuildingSearchView} } \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingSearchView} \\ 
+\texttt{CLIPS::client::viewcontroller::building::SearchCriteriaRow} } \\ 
 R0F6.1.1.1 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingRow} \\ 
 \texttt{CLIPS::client::viewcontroller::building::BuildingSearchView} \\ 
 \texttt{CLIPS::server::urlrequesthandler::BuildingsProvider} \\ 
 \texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
 \texttt{CLIPS::server::urlrequesthandler::PathProvider} \\ 
 \texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} } \\ 
 R2F6.1.1.2 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingSearchActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::building::BuildingSearchView} \\ 
 \texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
 \texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} } \\ 
 R0F6.2 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
 \texttt{CLIPS::server::urlrequesthandler::BuildingsProvider} \\ 
-\texttt{CLIPS::client::viewcontroller::building::BuildingView} } \\ 
-R0F6.2.1 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingView} \\ 
+\texttt{CLIPS::client::viewcontroller::building::PathRow} } \\ 
+R0F6.2.1 & \cellacaporiga{\texttt{CLIPS::client::data::Building} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
 \texttt{CLIPS::server::urlrequesthandler::BuildingsProvider} \\ 
 \texttt{CLIPS::client::viewcontroller::building::BuildingView} } \\ 
-R0F6.2.1.1 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
+R0F6.2.1.1 & \cellacaporiga{\texttt{CLIPS::client::data::Building} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
 \texttt{CLIPS::server::urlrequesthandler::BuildingsProvider} \\ 
 \texttt{CLIPS::client::viewcontroller::building::BuildingView} } \\ 
-R0F6.2.1.2 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
+R0F6.2.1.2 & \cellacaporiga{\texttt{CLIPS::client::data::Building} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
 \texttt{CLIPS::server::urlrequesthandler::BuildingsProvider} \\ 
 \texttt{CLIPS::client::viewcontroller::building::BuildingView} } \\ 
-R0F6.2.1.3 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
+R0F6.2.1.3 & \cellacaporiga{\texttt{CLIPS::client::data::Building} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
 \texttt{CLIPS::server::urlrequesthandler::BuildingsProvider} \\ 
 \texttt{CLIPS::client::viewcontroller::building::BuildingView} } \\ 
-R2F6.2.1.4 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
+R2F6.2.1.4 & \cellacaporiga{\texttt{CLIPS::client::data::Building} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingView} \\ 
+\texttt{CLIPS::client::data::PathInfo} } \\ 
+R0F6.2.2 & \cellacaporiga{\texttt{CLIPS::client::data::Building} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::building::BuildingView} } \\ 
-R0F6.2.2 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
+R0F6.2.3 & \cellacaporiga{\texttt{CLIPS::client::data::Building} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::building::BuildingView} } \\ 
-R0F6.2.3 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
+R0F6.2.3.1 & \cellacaporiga{\texttt{CLIPS::client::data::Building} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::building::BuildingView} } \\ 
-R0F6.2.3.1 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
+R0F6.2.3.2 & \cellacaporiga{\texttt{CLIPS::client::data::Building} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::building::BuildingView} } \\ 
-R0F6.2.3.2 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
+R0F6.2.3.3 & \cellacaporiga{\texttt{CLIPS::client::data::Building} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::building::BuildingView} } \\ 
-R0F6.2.3.3 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
+R0F6.2.3.4 & \cellacaporiga{\texttt{CLIPS::client::data::Building} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::building::BuildingView} } \\ 
-R0F6.2.3.4 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
+R0F6.2.3.5 & \cellacaporiga{\texttt{CLIPS::client::data::Building} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::building::BuildingView} } \\ 
-R0F6.2.3.5 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
+R0F6.2.3.6 & \cellacaporiga{\texttt{CLIPS::client::data::Building} \\ 
+\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
 \texttt{CLIPS::client::viewcontroller::building::BuildingView} } \\ 
-R0F6.2.3.6 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::building::BuildingActivity} \\ 
-\texttt{CLIPS::client::viewcontroller::building::BuildingView} } \\ 
-R0F7 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::ChangeProfileActivity} \\ 
+R0F7 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::viewcontroller::authentication::ChangeProfileActivity} \\ 
+\texttt{CLIPS::client::data::urlrequest::ChangeProfileDataRequest} \\ 
 \texttt{CLIPS::server::urlrequesthandler::DBHandler} \\ 
 \texttt{CLIPS::server::urlrequesthandler::GetUserData} \\ 
+\texttt{CLIPS::client::data::LoggedUser} \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
 \texttt{CLIPS::server::urlrequesthandler::PostUserData} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} \\ 
 \texttt{CLIPS::server::urlrequesthandler::URLRequestHandler} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} \\ 
-\texttt{CLIPS::server::urlrequesthandler::UserResultProvider} } \\ 
-R0F7.1 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::UpdateUserInfoActivity} \\ 
-\texttt{CLIPS::client::viewcontroller::authentication::UpdateUserInfoView} } \\ 
+\texttt{CLIPS::server::urlrequesthandler::URLRequestRouter} \\ 
+\texttt{CLIPS::server::urlrequesthandler::UserDataRequest} } \\ 
+R0F7.1 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::ChangeProfileDataRequest} \\ 
+\texttt{CLIPS::client::data::LoggedUser} \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::viewcontroller::authentication::UpdateUserInfoActivity} \\ 
+\texttt{CLIPS::client::viewcontroller::authentication::UpdateUserInfoView} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} } \\ 
 R0F7.1.1 & \cellacaporiga{\texttt{CLIPS::server::urlrequesthandler::UsernameChecker} } \\ 
-R0F7.2 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::ChangeProfileActivity} } \\ 
+R0F7.2 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::viewcontroller::authentication::ChangeProfileActivity} \\ 
+\texttt{CLIPS::client::data::urlrequest::ChangeProfileDataRequest} \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
+\texttt{CLIPS::client::data::urlrequest::RequestMaker} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLDataConstants} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} } \\ 
 R0F7.2.1 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::ChangeProfileActivity} \\ 
 \texttt{CLIPS::server::urlrequesthandler::PasswordChecker} } \\ 
-R0F7.3 & \cellacaporiga{\texttt{CLIPS::client::viewcontroller::authentication::ChangeProfileActivity} \\ 
-\texttt{CLIPS::server::urlrequesthandler::PostUserData} } \\ 
-R2F8 & \cellacaporiga{ } \\ 
-R0P1 & \cellacaporiga{ } \\ 
-R0P2 & \cellacaporiga{ } \\ 
-R0Q1 & \cellacaporiga{ } \\ 
-R0Q2 & \cellacaporiga{ } \\ 
-R0Q3 & \cellacaporiga{ } \\ 
-R0V1 & \cellacaporiga{ } \\ 
-R0V1.1 & \cellacaporiga{ } \\ 
-R0V2 & \cellacaporiga{ } \\ 
-R0V2.1 & \cellacaporiga{ } \\ 
-R2V2.2 & \cellacaporiga{ } \\ 
+R0F7.3 & \cellacaporiga{\texttt{CLIPS::client::data::datamanager::AbstractDataManagerListener} \\ 
+\texttt{CLIPS::client::data::urlrequest::AbstractUrlRequestListener} \\ 
+\texttt{CLIPS::client::viewcontroller::authentication::ChangeProfileActivity} \\ 
+\texttt{CLIPS::client::data::datamanager::LoginManager} \\ 
+\texttt{CLIPS::server::urlrequesthandler::PostUserData} \\ 
+\texttt{CLIPS::client::data::urlrequest::ServerError} \\ 
+\texttt{CLIPS::client::data::urlrequest::URLRequest} }
 \hiderowcolors
 \caption{Tracciamento requisiti-classi}
 \end{tabella}
