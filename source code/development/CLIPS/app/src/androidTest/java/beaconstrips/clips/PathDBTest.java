@@ -42,6 +42,9 @@ import beaconstrips.clips.client.data.datamanager.DBHandler;
 @SmallTest
 public class PathDBTest {
 
+   @Rule
+   public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
+
    private final String TAG = "PathDBTest";
 
    private boolean equalBeacons(Beacon[] a, ArrayList<Beacon> b){
@@ -112,9 +115,6 @@ public class PathDBTest {
       }
       return true;
    }
-
-   @Rule
-   public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
 
    @Test
    public void testPaths() {
