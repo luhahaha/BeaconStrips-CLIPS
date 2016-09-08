@@ -36,7 +36,7 @@
 %Step
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-   beacon     : \hyperref[sub:Beacon]{Beacon} (il beacon che segnala la posizione della tappa)
+   stopBeacon     : \hyperref[sub:Beacon]{Beacon} (il beacon che segnala la posizione della tappa)
    proximities: [
       \hyperref[sub:Proximity]{Proximity}
       ...
@@ -52,5 +52,14 @@
    UUID : String (la stringa che identifica i beacon dell'applicazione o i beacon dell'edificio, è il primo campo che permette di identificare il beacon)
    Major: int (il secondo campo che permette di identificare il beacon)
    Minor: int (il terzo campo che permette di identificare il beacon)
+}
+\end{lstlisting}
+
+%Proximity
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+   beacon: \hyperref[sub:Beacon]{Beacon} (il beacon che viene usato per comunicare all'utente quanto è vicino alla stazione cercata)
+   percentage: double (il valore percentuale della distanza percorsa, utile per una rappresentazione grafica della distanza che manca)
+   textToDisplay: String (il testo da far visualizzare all'applicazione per informare l'utente se si sta avvicinando e quanto è distante)
 }
 \end{lstlisting}
