@@ -21,7 +21,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU13 (Test di Unità 13). Verifica che la ricerca delle informazioni sell'applicazione sia effettuata correttamente.
+ * classe che contiene il TU14 (Test di Unità 14). Verifica che la ricerca delle informazioni sell'applicazione sia effettuata correttamente.
  *
  * Stampa attesa per il test "appInfo": "Chiamata appInfo() eseguita con successo:"
  *                                      "   Descrizione: Descrizione dell'applicazione"
