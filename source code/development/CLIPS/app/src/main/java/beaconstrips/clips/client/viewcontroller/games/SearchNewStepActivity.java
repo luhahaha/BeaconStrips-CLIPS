@@ -31,6 +31,7 @@ import com.kontakt.sdk.android.common.KontaktSDK;
 import com.kontakt.sdk.android.common.profile.IBeaconDevice;
 import com.kontakt.sdk.android.common.profile.IBeaconRegion;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -50,6 +51,7 @@ public class SearchNewStepActivity extends MenuActivity {
    private List<Step> steps;
    private int stepIndex;
    private final String TAG = "SearchNewStepActivity";
+   private Intent i;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +61,9 @@ public class SearchNewStepActivity extends MenuActivity {
       setButtons();
       startTestButton.setVisibility(View.INVISIBLE);
 
-      Intent i = getIntent();
+      i = getIntent();
       Bundle bundle = i.getExtras();
-      stepIndex = i.getIntExtra("pathIndex", 0);
+      stepIndex = i.getIntExtra("stepIndex", 0);
 
       if (bundle != null) {
          steps = (List<Step>) bundle.getSerializable("steps");
@@ -187,7 +189,6 @@ public class SearchNewStepActivity extends MenuActivity {
          startTestButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                Test test = steps.get(stepIndex).proof.test;
-               Intent i = new Intent();
 
                if(test instanceof GameCollection) {
                   test = ((GameCollection) test).games.get(1);
@@ -204,8 +205,11 @@ public class SearchNewStepActivity extends MenuActivity {
                   Log.i(TAG, "Set class TrueFalseTest.class");
                }
 
+               Bundle bundle = new Bundle();
+               bundle.putSerializable("steps", (Serializable) steps);
+               i.putExtras(bundle);
                i.putExtra("test", test);
-
+               i.putExtra("stepIndex", stepIndex);
                if(i != null) {
                   startActivity(i);
                }

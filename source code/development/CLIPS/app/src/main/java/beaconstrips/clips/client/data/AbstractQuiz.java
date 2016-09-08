@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 public abstract class AbstractQuiz implements Serializable{
    public final String helpText;
-   public final String instructions;
+   public final String instructions; //questa è la domanda
 
    public AbstractQuiz(String helpText, String instructions) {
       this.helpText = helpText;

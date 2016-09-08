@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.MultipleChoiceTest;
@@ -26,12 +27,14 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
     private int pathIndex;
     private final String TAG = "MultipleChoiceQuizAct";
     private MultipleChoiceTextQuiz answers;
+    private Intent i;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multiple_choice_quiz);
         //TODO insert from here choices with correct answer with list?
-        Intent i = getIntent();
+        i = getIntent();
         MultipleChoiceTest test = (MultipleChoiceTest) i.getSerializableExtra("test");
         answers = test.questions.get(0);
 
@@ -46,7 +49,7 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
             answer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(getApplicationContext(), ProofResultActivity.class);
+                    i.setClass(getApplicationContext(), ProofResultActivity.class);
                     startActivity(i);
                 }
             });
@@ -55,7 +58,8 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
     }
 
     private void setQuiz() {
-
+        Log.i(TAG, answers.instructions);
+        ((TextView) findViewById(R.id.questionLabel)).setText(answers.instructions);
         ((Button) findViewById(R.id.choice1)).setText(answers.trueResponse);
         ((Button) findViewById(R.id.choice4)).setText(answers.falseResponse[0]);
         ((Button) findViewById(R.id.choice2)).setText(answers.falseResponse[1]);
