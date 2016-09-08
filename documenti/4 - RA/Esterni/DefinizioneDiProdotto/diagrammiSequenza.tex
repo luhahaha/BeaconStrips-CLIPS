@@ -3,6 +3,30 @@
 
 In questa sezione saranno riportati i diagrammi di sequenza riguardo alle operazioni dell'applicazione ritenute significative che descrivono le interazioni tra attori ed oggetti o entità di sistema.
 
+\subsection{Registrazione}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.35]{img/diagrammiSequenza/registrazione}
+	\caption{Diagramma di Sequenza della registrazione}
+\end{figure}
+
+Il diagramma in figura illustra come viene gestita la registrazione di un utente nel sistema. \\ \texttt{RegistrationView} permette all'utente di inserire i dati di registrazione manualmente dall'applicazione. Successivamente i dati sono gestiti dalla classe \texttt{RegistrationActivity} la quale chiama il metodo ``registration'' di \texttt{LoginManager} la quale poi permetterà la registraione dell'utente grazie alle classi \texttt{RequestMaker} e \texttt{RegistrationRequest}. \\
+\texttt{LoginManager} poi permette la creazione di un utente autenticato grazie alla creazione di un oggetto \texttt{LoggedUser}, quindi una volta registrato l'utente sarà anche automaticamente autenticato. \\ La registrazione viene conclusa mostrando all'utente il proprio profilo, questo avviene grazie all'istanziaione della classe \texttt{AccountActivity}.
+
+\subsection{Login}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.45]{img/diagrammiSequenza/login}
+	\caption{Diagramma di Sequenza della login}
+\end{figure}
+
+Il diagramma in figura illustra come viene gestita l'autenticazione di un utente nel sistema. \\
+L'utente inserisce i propri dati di login grazie a \texttt{LoginView}. Questi dati verranno poi gestiti da \texttt{LoginActivity} la quale chiama il metodo ``login'' di \texttt{LoginManager} la quale permette l'autenticazione dell'utenete grazie alle classi \texttt{RequestMaker} e \texttt{LoginRequest}. \\
+\texttt{LoginManager} poi crea un oggetto \texttt{LoggedUser} che descrive l'utente autenticato.
+
+
 \subsection{Richiesta lista edifici abilitati}
 \label{sub:Richiesta lista edifici abilitati}
 
@@ -34,3 +58,5 @@ Il diagramma in figura illustra come viene gestita dall'app la situazione in cui
 
 Il \gl{beacon} trasmette costantemente i propri dati nelle vicinanze; quando il dispositivo ne rivela la presenza lo segnala all'applicazione attraverso la libreria \gl{AltBeacon} che effettua una chiamata al metodo \texttt{didEnterRegion} di un oggetto di tipo \texttt{BeaconDiscover}.
 A sua volta il \texttt{BeaconDiscover} chiamerà il metodo \texttt{didFoundBeacon} nel proprio delegate (ovvero un istanza di \texttt{PathProgressController}) che si occuperà di capire se il \gl{beacon} è effettivamente uno del percorso ed eventualmente notificarlo all'activity \texttt{SearchNewStepActivity} che ha il compito di informare l'utente.
+
+
