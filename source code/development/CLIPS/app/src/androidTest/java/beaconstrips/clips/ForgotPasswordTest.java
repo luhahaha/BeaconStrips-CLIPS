@@ -21,7 +21,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU (Test di Unità ). Verifica che la richiesta al server di cambiare la password dimenticata dell'utente sia effettuata correttamente.
+ * classe che contiene il TU12 (Test di Unità 12). Verifica che la richiesta al server di cambiare la password dimenticata dell'utente sia effettuata correttamente.
  * Dato che la richiesta è molto lenta in caso di successo il primo test aspetta due secondi in più prima di chiudersi, in questo modo dovrebbe arrivare l'esito senza problemi.
  * C'è inoltre un altro test che verifica se viene restituito l'errore corretto quando l'email inviata risulta errata.
  *
