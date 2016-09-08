@@ -18,12 +18,16 @@ public class Proof implements Serializable{
    public final String title;
    public final LinearScoringAlgorithm scoringAlgorithm;
    public final Test test;
+   public final JSONObject algorithmJSON;
+   public final JSONObject testJSON;
 
    public Proof(int id, String title, String instructions, JSONObject algorithmData, JSONObject testData) { //da verificare se poi viene effettivamente usato un JSONObject
       this.id = id;
       this.title = title;
       this.instructions = instructions;
       this.scoringAlgorithm = ScoringAlgorithmFactory.createScoringAlgorithm(algorithmData); //da verificare se risulta tutto corretto
+      this.algorithmJSON = algorithmData;
+      this.testJSON = testData;
 
       test = TestBuilder.createTest(testData);
    }

@@ -35,7 +35,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU (Test di Unità ). Verifica che le richieste in locale di ottenere i dati degli edifici, del percorso selezionato e dei risultati salvati siano effettuate correttamente.
+ * classe che contiene il TU27 (Test di Unità 27). Verifica che le richieste in locale di ottenere i dati degli edifici, del percorso selezionato e dei risultati salvati siano effettuate correttamente.
  * Tali test sono stati separati da quelli ufficiali perché richiedono che non ci sia connessione dati attiva, altrimenti i dati saranno prelevati dal server e non in locale, di conseguenza i test normali fallirebbero.
  * Una condizione fondamentale per la riuscita del test è che i dati siano effettivamente salvati nel database locale.
  *

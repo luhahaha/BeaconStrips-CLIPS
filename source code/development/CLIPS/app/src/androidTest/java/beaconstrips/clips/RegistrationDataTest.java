@@ -23,7 +23,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU18 (Test di Unità 18). Verifica che la richiesta di effettuare la registrazione del profilo dell'utente sia effettuata correttamente.
+ * classe che contiene il TU19 (Test di Unità 19). Verifica che la richiesta di effettuare la registrazione del profilo dell'utente sia effettuata correttamente.
  * Per verificare che i dati restituiti dalla chiamata siano corretti verranno stampati da due fonti diverse: la prima è il file dove vengono salvati questi dati, in modo da recuperarli ad ogni avvio dell'applicazione; la seconda è l'oggetto LoggedUser in cui vengono salvati i dati per poterli recuperare rapidamente durante l'esecuzione dell'applicazione.
  *
  * Stampa attesa per il test "registration": "Chiamata registration() eseguita con successo:"

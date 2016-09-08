@@ -36,7 +36,7 @@ import beaconstrips.clips.client.pathprogress.RawBeacon;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU31 (Test di Unità 31). Verifica che i metodi di tutte le classi di data, ad eccezione di PathProgress, Utility e di quelle già verificate per gli altri package, funzionino correttamente.
+ * classe che contiene il TU36 (Test di Unità 36). Verifica che i metodi di tutte le classi di data, ad eccezione di PathProgress, Utility e di quelle già verificate per gli altri package, funzionino correttamente.
  * In particolare le classi trattate sono MultipleChoiceTextQuiz, TrueFalseTextQuiz, Path, ProofResult, LinearScoringAlgorithm e Building.
  *
  *

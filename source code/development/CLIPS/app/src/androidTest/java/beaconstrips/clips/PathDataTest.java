@@ -34,7 +34,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU16 (Test di Unità 16). Verifica che la richiesta di ottenere i dati del percorso selezionato sia effettuata correttamente.
+ * classe che contiene il TU17 (Test di Unità 17). Verifica che la richiesta di ottenere i dati del percorso selezionato sia effettuata correttamente.
  *
  * Stampa attesa per il test "path": "Richiesta path() eseguita con successo:"
  *                                   "Dati sul percorso:"

@@ -21,7 +21,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU24 (Test di Unità 24). Verifica che la richiesta dei risultati ottenuti dall'utente sia effettuata correttamente.
+ * classe che contiene il TU26 (Test di Unità 26). Verifica che la richiesta dei risultati ottenuti dall'utente sia effettuata correttamente.
  *
  * Stampa attesa per il test "getRanking": "Chiamata getRanking() eseguita con successo:"
  *                                         "<array di score con formato: '<posizione>. <username>: <punteggio>'>"

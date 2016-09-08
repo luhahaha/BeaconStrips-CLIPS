@@ -24,7 +24,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU21 (Test di Unità 21). Verifica che la richiesta di modificare i dati dell'utente sia effettuata correttamente.
+ * classe che contiene il TU22 (Test di Unità 22). Verifica che la richiesta di modificare i dati dell'utente sia effettuata correttamente.
  *
  *
  * Stampa attesa per il test "change": "Chiamata change() eseguita con successo:"

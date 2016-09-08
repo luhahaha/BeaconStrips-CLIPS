@@ -23,7 +23,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU23 (Test di Unità 23). Verifica che la richiesta di ottenere i dati del profilo dell'utente sia effettuata correttamente.
+ * classe che contiene il TU24 (Test di Unità 24). Verifica che la richiesta di ottenere i dati del profilo dell'utente sia effettuata correttamente.
  * Nota: affinché il test vada a buon fine il token salvato in locale deve essere valido, altrimenti fallirà.
  *
  *

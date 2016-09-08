@@ -37,7 +37,7 @@ import beaconstrips.clips.client.data.TrueFalseTest;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU33 (Test di Unità 33). Verifica che i metodi di PathProgress funzionino correttamente.
+ * classe che contiene il TU35 (Test di Unità 35). Verifica che i metodi di PathProgress funzionino correttamente.
  *
  *
  * Stampa attesa per il test "pathProgressTest()": "Stampa di getPath():"

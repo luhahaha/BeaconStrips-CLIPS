@@ -28,7 +28,7 @@ import beaconstrips.clips.client.urlrequest.URLDataConstants;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU (Test di Unità ). Verifica che la richiesta ad una pagina non esistente venga gestita correttamente, un caso possibile ad esempio se il server cambia indirizzo e il client non è ancora stato aggiornato.
+ * classe che contiene il TU28 (Test di Unità 28). Verifica che la richiesta ad una pagina non esistente venga gestita correttamente, un caso possibile ad esempio se il server cambia indirizzo e il client non è ancora stato aggiornato.
  * Per il test verrà utilizzata come chiamata AppInfo, perché è la più semplice da implementare e una di quelle che genera meno situazioni diverse possibili.
  * Verifica inoltre che l'invio di un token errato ritorni un errore gestito correttamente, la chiamata usata sarà getResults, una delle chiamate più semplici che richiede l'utilizzo del token. È possibile ottenere questo errore quando, ad esempio, il token è scaduto e quindi è stato eliminato dal database del server.
  *

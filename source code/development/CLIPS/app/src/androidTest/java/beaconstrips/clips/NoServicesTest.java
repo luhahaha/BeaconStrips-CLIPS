@@ -26,7 +26,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU (Test di Unità ). Verifica che il sistema sia solido quando effettua un'operazione che richiede un servizio non disponibile.
+ * classe che contiene il TU29 (Test di Unità 29). Verifica che il sistema sia solido quando effettua un'operazione che richiede un servizio non disponibile.
  * Verranno fatti 3 test: il primo verificherà il caso in cui non c'è una connessione ad Internet, e prevederà due chiamate, una in cui viene restituito un oggetto JSON e un'altra dove viene ricevuto un array JSON;
  * il secondo verificherà il caso in cui non è attivo il GPS e viene richiesto di trovare la posizione dell'utente; l'ultimo infine chiederà di cercare un beacon con il Bluetooth spento.
  * Ognuno di questi test avrà un esito positivo solo se il relativo servizio non è attivo, dato che non è possibile disattivarlo da codice verrà fatto un check che permetterà al test di andare a buon fine solo se effettivamente quel servizio non risulta attivo.

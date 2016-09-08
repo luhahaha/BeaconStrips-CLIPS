@@ -20,7 +20,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU (Test di Unità ). Verifica che la richiesta di cambiare la password dimenticata dell'utente sia effettuata correttamente.
+ * classe che contiene il TU25 (Test di Unità 25). Verifica che la richiesta di cambiare la password dimenticata dell'utente sia effettuata correttamente.
  * Dato che la richiesta è molto lenta in caso di successo il primo test aspetta due secondi in più prima di chiudersi, in questo modo dovrebbe arrivare l'esito senza problemi.
  *
  * Stampa attesa per il test "forgotPassword": "Chiamata forgotPassword() eseguita con successo"

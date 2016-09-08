@@ -26,7 +26,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU14 (Test di Unità 14). Verifica che la richiesta dei risultati ottenuti dall'utente sia effettuata correttamente.
+ * classe che contiene il TU15 (Test di Unità 15). Verifica che la richiesta dei risultati ottenuti dall'utente sia effettuata correttamente.
  *
  * Stampa attesa per il test "getResults": "Chiamata getResults() eseguita con successo:"
  *                                         "<altri risultati>"

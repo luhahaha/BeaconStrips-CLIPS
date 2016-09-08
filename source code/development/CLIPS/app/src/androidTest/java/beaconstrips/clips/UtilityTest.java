@@ -23,7 +23,7 @@ import beaconstrips.clips.client.data.Utility;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU (Test di Unità ). Verifica che i metodi di Utility funzionino correttamente.
+ * classe che contiene il TU38 (Test di Unità 38). Verifica che i metodi di Utility funzionino correttamente.
  *
  *
  * Stampa attesa per il test "pathProgressTest()": "Stampa di stringToGregorianCalendar(): 2016-08-25 15:39:05.000"

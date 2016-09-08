@@ -25,7 +25,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU22 (Test di Unità 22). Verifica che il check dei dati digitati dall'utente sia effettuato correttamente.
+ * classe che contiene il TU23 (Test di Unità 23). Verifica che il check dei dati digitati dall'utente sia effettuato correttamente.
  * Verranno proposte 3 versioni del test: la prima controllerà dei dati corretti, la seconda dei dati con formato errato, la terza dei dati già esistenti.
  * Ogni dato viene trattato da solo, quindi avere più dati errati non crea interferenze sul check.
  *

@@ -23,7 +23,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU (Test di Unità ). Verifica che la richiesta di ottenre la posizione dell'utente tramite il GPS venga effettuata correttamente.
+ * classe che contiene il TU37 (Test di Unità 37). Verifica che la richiesta di ottenre la posizione dell'utente tramite il GPS venga effettuata correttamente.
  *
  *
  * Stampa attesa per il test "getPosition": "Chiamata getPosition() eseguita con successo"

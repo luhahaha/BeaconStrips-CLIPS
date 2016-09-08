@@ -21,7 +21,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU17 (Test di Unità 17). Verifica che la ricerca dei dati degli edifici più vicini all'utente sia effettuata correttamente..
+ * classe che contiene il TU18 (Test di Unità 18). Verifica che la ricerca dei dati degli edifici più vicini all'utente sia effettuata correttamente..
  * Viene dato per scontato che i dati ci siano tutti, quindi non dovrebbero verificarsi errori.
  * I test previsti sono sei, dei primi due uno richiede un certo numero massimo di edifici e uno quelli situati entro una certa distanza; la seconda coppia di test usa le stesse coordinate ma con un valore numerico più grande, mostrando che così si ottengono più edifici; gli ultimi due test hanno delle coordinate diverse, in modo da mostrare che così cambiano gli edifici rilevati rispetto ai primi due test.
  *

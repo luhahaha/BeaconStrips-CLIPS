@@ -27,7 +27,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * @version 1.0.0
  * @author Andrea Grendene
  *
- * classe che contiene il TU15 (Test di Unità 15). Verifica che la richiesta di salvare i risultati del percorso appena svolto dall'utente funzioni correttamente.
+ * classe che contiene il TU16 (Test di Unità 16). Verifica che la richiesta di salvare i risultati del percorso appena svolto dall'utente funzioni correttamente.
  *
  *
  * Stampa attesa per il test "saveResult": "Chiamata getResults() eseguita con successo:"
