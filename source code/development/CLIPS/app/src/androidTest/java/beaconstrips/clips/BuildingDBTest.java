@@ -80,6 +80,7 @@ public class BuildingDBTest {
    @Test
    public void testBuildings() {
       Context cx = rule.getActivity().getBaseContext();
+      cx.deleteDatabase("clipsDB");
       DBHandler db = new DBHandler(cx);
 
       db.deleteAllBuildings();
