@@ -35,3 +35,51 @@ In questa sezione definiamo come sono strutturati i JSON utilizzati per la trasm
 }
 per la spiegazione delle chiavi si veda la \hyperref[sec:Algoritmo di assegnazione del punteggio]{sezione corrispondente}.
 \end{lstlisting}
+
+\subsection{Proof}
+\label{sub:Proof}
+
+Le prove possono essere di tipi diversi: il primo sono domande a scelta multipla, con eventuali immagini.
+\textit{indichiamo le chiavi opzionali con un punto di domanda}
+
+\subsubsection{Scelta Multipla}
+\label{subs:Scelta Multipla}
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+   testType: "standardQuiz" (indica il tipo di test)
+   testTypeVersion: 0.1     (indica la versione, per compatibilità con futuri aggiornamenti)
+   data : (dati delle domande) {
+      shuffleAnswers: Bool (se vero il client deve presentare le domande in ordine casuale)
+      shuffleQuestions: Bool (se vero il client deve mescolare le risposte per ogni domanda)
+      questions : (domande) [
+         {
+            question: String (testo della domanda)
+            answers : [String] (array di risposte tra cui scegliere)
+            image   : String? (url dell'immagine da mostrare, opzionale)
+            correctIndex : 0 (indice della risposta corretta)
+         },
+         . . .
+      ]
+   }
+}
+\end{lstlisting}
+
+\subsubsection{Vero o Falso}
+\label{subs:Vero o Falso}
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+   testType: "VeroFalso"
+   testTypeVersion: 0.1
+   data : {
+      shuffleQuestions: Bool (vero se le domande vanno mescolate)
+      questions : [
+         {
+            question: String (domanda)
+            correctAnswer: Bool (risposta)
+         },
+         . . .
+      ]
+   }
+}
+
+\end{lstlisting}
