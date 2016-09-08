@@ -18,3 +18,39 @@
 }}
 0123456789
 \end{lstlisting}
+
+%Path
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+   id             : int (l'id del percorso),
+   title          : String (il titolo del percorso),
+   startingMessage: String (il messaggio mostrato all'inizio del percorso),
+   rewardMessage  : String (il messaggio mostrato alla fine del percorso),
+   steps          : [
+      \hyperref[sub:Step]{Step},
+      ...
+   ] (l'array che contiene le tappe del percorso)
+}
+\end{lstlisting}
+
+%Step
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+   beacon     : \hyperref[sub:Beacon]{Beacon} (il beacon che segnala la posizione della tappa)
+   proximities: [
+      \hyperref[sub:Proximity]{Proximity}
+      ...
+   ] (l'array che contiene gli oggetti in cui sono salvati i dati per segnalare all'utente la distanza che manca per raggiungere questa stazione)
+   proof      : \hyperref[sub:Proof]{Proof} (la prova che l'utente deve affrontare quando raggiunge la stazione)
+}
+\end{lstlisting}
+
+%Beacon
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+   id   : int (l'id del beacon)
+   UUID : String (la stringa che identifica i beacon dell'applicazione o i beacon dell'edificio, è il primo campo che permette di identificare il beacon)
+   Major: int (il secondo campo che permette di identificare il beacon)
+   Minor: int (il terzo campo che permette di identificare il beacon)
+}
+\end{lstlisting}
