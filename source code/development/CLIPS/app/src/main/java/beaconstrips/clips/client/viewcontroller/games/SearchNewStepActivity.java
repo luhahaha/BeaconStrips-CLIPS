@@ -52,7 +52,7 @@ import beaconstrips.clips.client.pathprogress.PathProgressControllerDelegate;
 import beaconstrips.clips.client.pathprogress.ProximityManagerPath;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
-public class SearchNewStepActivity extends MenuActivity implements PathProgressControllerDelegate{
+public class SearchNewStepActivity extends MenuActivity implements PathProgressControllerDelegate {
 
    private ProximityManagerPath proximityManager;
    private Button startTestButton;
@@ -67,11 +67,13 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       setContentView(R.layout.activity_search_new_step);
       startTestButton = (Button) findViewById(R.id.startTestButton);
       //setButtons();
-      proximityManager.delegate = this;
+
       startTestButton.setVisibility(View.INVISIBLE);
 
       i = getIntent();
       Bundle bundle = i.getExtras();
+      //proximityManager = (ProximityManagerPath) bundle.getSerializable("proximityManager");
+      //proximityManager.delegate = this;
       stepIndex = i.getIntExtra("stepIndex", 0);
 
       if (bundle != null) {
@@ -115,11 +117,6 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
 
    }
 
-   @Override
-   public void didReachStep(Step step)
-   {
-      //non più usato, va tolto!
-   }
 
    /*
    private void configureProximityManager() {

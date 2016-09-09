@@ -74,10 +74,13 @@ public class PathActivity extends MenuActivity {
             List <Step> steps = response.steps;
             if(steps != null) {
                Bundle bundle = new Bundle();
-               bundle.putSerializable("steps", (Serializable) steps);
+               //bundle.putSerializable("steps", (Serializable) steps);
+               //proximityManager = new ProximityManagerPath(getApplicationContext(), response); //prendo path e lo metto;
+               //bundle.putSerializable("proximityManager", proximityManager);
                searchStep.putExtras(bundle);
-               searchStep.putExtra("stepIndex", 0);
-               proximityManager = new ProximityManagerPath(getApplicationContext(), response); //prendo path e lo metto;
+               //searchStep.putExtra("stepIndex", 0);
+
+
             }
 
          }
@@ -98,8 +101,7 @@ public class PathActivity extends MenuActivity {
          startPath.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-               proximityManager.startScanning();
+               //proximityManager.startScanning();
                startActivity(searchStep);
             }
          });

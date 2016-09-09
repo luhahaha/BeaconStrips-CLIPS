@@ -16,5 +16,4 @@ import beaconstrips.clips.client.data.Step;
 public interface PathProgressControllerDelegate {
    void didReachProof(Proof proof);
    void didRangeProximity(Proximity proximity);
-   void didReachStep(Step step);
 }

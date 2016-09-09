@@ -17,6 +17,7 @@ import com.kontakt.sdk.android.common.KontaktSDK;
 import com.kontakt.sdk.android.common.profile.IBeaconDevice;
 import com.kontakt.sdk.android.common.profile.IBeaconRegion;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -28,7 +29,7 @@ import beaconstrips.clips.client.data.ProofResult;
 /**
  * Created by Luca on 08/09/2016.
  */
-public class ProximityManagerPath {
+public class ProximityManagerPath implements Serializable{
     public PathProgressControllerDelegate delegate;
     ProximityManager proximityManagerPath;
     private PathProgress pathProgress;
