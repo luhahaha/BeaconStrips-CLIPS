@@ -146,7 +146,7 @@ public class PathProgressTest {
          proximities.add(new Proximity(new Beacon(2, "22abe428c83492abc2394cdd38abcb27", 22, 13), 33, "Sei a un terzo"));
          proximities.add(new Proximity(new Beacon(3, "22abe428c83492abc2394cdd38abcb27", 23, 11), 66, "Sei a due terzi"));
          ArrayList<Step> steps = new ArrayList<>();
-         steps.add(new Step(new Beacon(1, "22abe428c83492abc2394cdd38abcb27", 15, 2), proximities, new Proof(1, "Prova di prova", "Prova a fare questa prova", algorithm, test)));
+         steps.add(new Step(new Beacon(1, "22abe428c83492abc2394cdd38abcb27", 15, 2), proximities, new Proof(1, "Prova di prova", "Prova a fare questa prova", algorithm, test), "Testo di aiuto"));
          Path path = new Path(1, "Messaggio iniziale", "Messaggio finale", steps);
          PathProgress pathProgress = new PathProgress(path, new GregorianCalendar(2016, 7, 29, 11, 34, 10));
          Path pathPrint = pathProgress.getPath();

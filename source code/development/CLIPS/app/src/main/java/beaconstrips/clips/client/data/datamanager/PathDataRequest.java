@@ -60,7 +60,7 @@ public class PathDataRequest extends DataManager<Path> {
             }
             JSONObject proofObject = step.getJSONObject("proof");
             Proof proof = new Proof(proofObject.getInt("id"), proofObject.getString("title"), proofObject.getString("instructions"), proofObject.getJSONObject("algorithm"), proofObject.getJSONObject("test"));
-            steps.add(new Step(beacon, proximities, proof));
+            steps.add(new Step(beacon, proximities, proof, step.getString("helpText")));
          }
          return new Path(response.getInt("id"), response.getString("startingMessage"), response.getString("rewardMessage"), steps);
       } catch(JSONException e) {
