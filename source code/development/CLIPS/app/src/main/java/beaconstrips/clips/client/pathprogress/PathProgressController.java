@@ -37,7 +37,7 @@ public class PathProgressController implements BeaconDiscoverDelegate, Serializa
   public void savedResult(ProofResult result){
     this.pathProgress.addProofResult(result);
       if(index!=this.pathProgress.getPath().steps.size()) {
-          delegate.pathEnded(pathProgress.getTotalScore());
+          this.delegate.pathEnded(pathProgress.getTotalScore());
       }
   }
 
