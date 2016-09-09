@@ -21,7 +21,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.Objects;
 
-import beaconstrips.clips.client.MainActivity;
+import beaconstrips.clips.MainActivity;
 import beaconstrips.clips.client.data.Beacon;
 import beaconstrips.clips.client.data.Building;
 import beaconstrips.clips.client.data.Path;

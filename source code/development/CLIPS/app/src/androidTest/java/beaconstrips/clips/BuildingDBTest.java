@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
-import beaconstrips.clips.client.MainActivity;
+import beaconstrips.clips.MainActivity;
 import beaconstrips.clips.client.data.Building;
 import beaconstrips.clips.client.data.PathInfo;
 import beaconstrips.clips.client.data.datamanager.DBHandler;
