@@ -2,6 +2,7 @@ package beaconstrips.clips.client.pathprogress;
 
 import beaconstrips.clips.client.data.Proof;
 import beaconstrips.clips.client.data.Proximity;
+import beaconstrips.clips.client.data.Step;
 
 /**
  * @file PathProgressControllerDelegate.java
@@ -15,4 +16,5 @@ import beaconstrips.clips.client.data.Proximity;
 public interface PathProgressControllerDelegate {
    void didReachProof(Proof proof);
    void didRangeProximity(Proximity proximity);
+   void didReachStep(Step step);
 }
