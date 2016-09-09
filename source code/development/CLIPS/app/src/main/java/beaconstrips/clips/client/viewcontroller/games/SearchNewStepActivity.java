@@ -115,6 +115,11 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
 
    }
 
+   @Override
+   public void didReachStep(Step step)
+   {
+      //non più usato, va tolto!
+   }
 
    /*
    private void configureProximityManager() {
