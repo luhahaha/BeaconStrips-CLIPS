@@ -9,6 +9,7 @@
 package beaconstrips.clips.client.viewcontroller.games;
 
 import android.content.Intent;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -39,16 +40,21 @@ import java.util.concurrent.TimeUnit;
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.GameCollection;
 import beaconstrips.clips.client.data.MultipleChoiceTest;
+import beaconstrips.clips.client.data.Proof;
+import beaconstrips.clips.client.data.Proximity;
 import beaconstrips.clips.client.data.Step;
 import beaconstrips.clips.client.data.Test;
 import beaconstrips.clips.client.data.TrueFalseTest;
 
 
+import beaconstrips.clips.client.pathprogress.PathProgressController;
+import beaconstrips.clips.client.pathprogress.PathProgressControllerDelegate;
+import beaconstrips.clips.client.pathprogress.ProximityManagerPath;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
-public class SearchNewStepActivity extends MenuActivity {
+public class SearchNewStepActivity extends MenuActivity implements PathProgressControllerDelegate{
 
-   private ProximityManagerContract proximityManager;
+   private ProximityManagerPath proximityManager;
    private Button startTestButton;
    private List<Step> steps;
    private int stepIndex;
@@ -60,7 +66,8 @@ public class SearchNewStepActivity extends MenuActivity {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_search_new_step);
       startTestButton = (Button) findViewById(R.id.startTestButton);
-      setButtons();
+      //setButtons();
+      proximityManager.delegate = this;
       startTestButton.setVisibility(View.INVISIBLE);
 
       i = getIntent();
@@ -82,16 +89,34 @@ public class SearchNewStepActivity extends MenuActivity {
             hintLabel.setVisibility(View.GONE);
          */
 
-      KontaktSDK.initialize(this);
-      proximityManager = new ProximityManager(this);
+      //KontaktSDK.initialize(this);
+      //proximityManager = new ProximityManager(this);
       //getProof(stepIndex);
-      configureProximityManager();
-      configureListeners();
-      configureSpaces();
+      //configureProximityManager();
+      //configureListeners();
+      //configureSpaces();
       //configureFilters();
       //TODO add all algorithms for proximity
    }
 
+   @Override
+   public void didReachProof(Proof proof) {
+      if(proof != null) {
+         Log.i(TAG, "Proof is not null");
+         Log.i(TAG, "Proof data"); //TODO add data to check if it's ok
+         i.putExtra("proof", proof);
+         Toast.makeText(getApplicationContext(), "Hai trovato il beacon", Toast.LENGTH_SHORT);
+         setButtons(proof.test);
+      }
+   }
+
+   @Override
+   public void didRangeProximity(Proximity proximity) {
+
+   }
+
+
+   /*
    private void configureProximityManager() {
       proximityManager.configuration()
               .scanMode(ScanMode.LOW_LATENCY)
@@ -186,15 +211,16 @@ public class SearchNewStepActivity extends MenuActivity {
       };
    }
 
+*/
+   private void setButtons(final Test test) {
 
-   private void setButtons() {
       if (startTestButton != null) {
+         startTestButton.setVisibility(View.VISIBLE);
          startTestButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-               Test test = steps.get(stepIndex).proof.test;
 
                if(test instanceof GameCollection) {
-                  test = ((GameCollection) test).games.get(1);
+                  //test = ((GameCollection) test).games.get(1);
                   i.putExtra("testIndex", 0);
                   Log.i(TAG, "Test has now type " + test.getClass());
                }
@@ -208,6 +234,7 @@ public class SearchNewStepActivity extends MenuActivity {
                   Log.i(TAG, "Set class TrueFalseTest.class");
                }
 
+               //TODO change all this stuff
                Bundle bundle = new Bundle();
                bundle.putSerializable("steps", (Serializable) steps);
                i.putExtras(bundle);

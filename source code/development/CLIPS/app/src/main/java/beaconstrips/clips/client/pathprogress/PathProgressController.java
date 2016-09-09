@@ -36,7 +36,7 @@ public class PathProgressController implements  BeaconDiscoverDelegate{
     this.rawbeacons.add(beacon);
     //TODO bisogna controllare che l'utente non stia giocando una prova
     if(beacon.UUID == this.pathProgress.getPath().steps.get(0).stopBeacon.UUID){
-      this.delegate.didReachStep(this.pathProgress.getPath().steps.remove(0));
+      //this.delegate.didReachPath(this.pathProgress.getPath().steps.remove(0));
     }
     else{
       Proximity proximity = this.pathProgress.getPath().searchProximity(beacon);

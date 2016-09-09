@@ -1,6 +1,7 @@
 package beaconstrips.clips.client.pathprogress;
 
 import android.app.Activity;
+import android.content.Context;
 import android.util.Log;
 
 import com.kontakt.sdk.android.ble.configuration.ActivityCheckConfiguration;
@@ -22,6 +23,7 @@ import java.util.concurrent.TimeUnit;
 
 import beaconstrips.clips.client.data.Path;
 import beaconstrips.clips.client.data.PathProgress;
+import beaconstrips.clips.client.data.ProofResult;
 
 /**
  * Created by Luca on 08/09/2016.
@@ -32,11 +34,11 @@ public class ProximityManagerPath {
     private PathProgress pathProgress;
     private int index;
 
-    ProximityManagerPath(Activity activity,Path path){
+    public ProximityManagerPath(Context context, Path path){
         index=0;
         pathProgress=new PathProgress(path,new GregorianCalendar());
-        KontaktSDK.initialize(activity.getApplicationContext());
-        proximityManagerPath = new ProximityManager(activity.getApplicationContext());
+        KontaktSDK.initialize(context);
+        proximityManagerPath = new ProximityManager(context);
         //getProof(stepIndex);
         configureProximityManager();
         configureListeners();
@@ -74,7 +76,7 @@ public class ProximityManagerPath {
         proximityManagerPath = null;
     }
 
-    private void startScanning() {
+    public void startScanning() {
         proximityManagerPath.connect(new OnServiceReadyListener() {
             @Override
             public void onServiceReady() {
@@ -99,4 +101,8 @@ public class ProximityManagerPath {
             }
         };
     }
+    public void saveResult(ProofResult proofResult){
+        pathProgress.addProofResult(proofResult);
+    }
 }
+

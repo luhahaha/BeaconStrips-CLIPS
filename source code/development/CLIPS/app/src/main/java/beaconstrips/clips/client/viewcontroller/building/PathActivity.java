@@ -36,6 +36,7 @@ import beaconstrips.clips.client.data.TrueFalseTest;
 import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.DataRequestMaker;
 import beaconstrips.clips.client.data.datamanager.PathDataRequest;
+import beaconstrips.clips.client.pathprogress.ProximityManagerPath;
 import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.games.SearchNewStepActivity;
 import beaconstrips.clips.client.viewcontroller.savedresults.SavedResultsActivity;
@@ -45,6 +46,7 @@ public class PathActivity extends MenuActivity {
 
    private final String TAG = "Path activity";
    Intent searchStep;
+   ProximityManagerPath proximityManager;
 
 
    @Override
@@ -75,6 +77,7 @@ public class PathActivity extends MenuActivity {
                bundle.putSerializable("steps", (Serializable) steps);
                searchStep.putExtras(bundle);
                searchStep.putExtra("stepIndex", 0);
+               proximityManager = new ProximityManagerPath(getApplicationContext(), response); //prendo path e lo metto;
             }
 
          }
@@ -95,6 +98,8 @@ public class PathActivity extends MenuActivity {
          startPath.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+               proximityManager.startScanning();
                startActivity(searchStep);
             }
          });
