@@ -42,12 +42,11 @@ import beaconstrips.clips.client.data.MultipleChoiceTest;
 import beaconstrips.clips.client.data.Step;
 import beaconstrips.clips.client.data.Test;
 import beaconstrips.clips.client.data.TrueFalseTest;
-import beaconstrips.clips.client.pathprogress.PathProgressController;
-import beaconstrips.clips.client.pathprogress.PathProgressControllerDelegate;
+
 
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
-public class SearchNewStepActivity extends MenuActivity implements PathProgressControllerDelegate {
+public class SearchNewStepActivity extends MenuActivity {
 
    private ProximityManagerContract proximityManager;
    private Button startTestButton;
@@ -55,17 +54,10 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
    private int stepIndex;
    private final String TAG = "SearchNewStepActivity";
    private Intent i;
-   private ProximityManagerPath manager = new ProximityManagerPath(this);
-
-   @Override
-   public void didReachStep(Step step) {
-
-   }
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      manager.delegate = this;
       setContentView(R.layout.activity_search_new_step);
       startTestButton = (Button) findViewById(R.id.startTestButton);
       setButtons();
