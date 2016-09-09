@@ -54,7 +54,7 @@ import beaconstrips.clips.client.pathprogress.ProximityManagerPath;
 import beaconstrips.clips.client.pathprogress.RawBeacon;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
-public class SearchNewStepActivity extends MenuActivity implements BeaconDiscoverDelegate {
+public class SearchNewStepActivity extends MenuActivity implements PathProgressControllerDelegate {
 
    private ProximityManager proximityManager;
    private PathProgressController pathProgress;
@@ -255,12 +255,12 @@ public class SearchNewStepActivity extends MenuActivity implements BeaconDiscove
 
 
    @Override
-   public void didFoundBeacon(IBeaconDevice beacon) {
-      showToast("Hai trovato il beacon!");
+   public void didReachProof(Proof proof) {
+      showToast("Hai trovato un beacon");
    }
 
    @Override
-   public void didMoveFromBeacon(RawBeacon beacon) {
+   public void didRangeProximity(Proximity proximity) {
 
    }
 }
