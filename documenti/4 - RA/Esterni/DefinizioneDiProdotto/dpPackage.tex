@@ -20,11 +20,26 @@
 \end{compPackageContenuti}
 \end{componente}
 \begin{componente}{CLIPS::client::data}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/client--data.png} 
-\caption{Schema package client::data} 
- \end{figure} 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.35]{img/package/png/client--data--min.png}
+	\caption{Schema sintetico package client::data}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.35]{img/package/png/client--data1.png}
+	\caption{Prima parte schema package client::data}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.35]{img/package/png/client--data2.png}
+	\caption{Seconda parte schema package client::data}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{img/package/png/client--data3.png}
+	\caption{Terza parte schema package client::data}
+\end{figure}
 \compDescrizione{package per la gestione in locale dei dati}
 \compPadre{client}
 \begin{compPackageContenuti}
@@ -401,11 +416,26 @@
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::data::datamanager}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/client--datamanager.png} 
-\caption{Schema package client::datamanager} 
- \end{figure} 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.45]{img/package/png/client--datamanager--min.png}
+	\caption{Schema sintetico package client::data::datamanager}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{img/package/png/client--datamanager1.png}
+	\caption{Prima parte schema package client::data::datamanager}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{img/package/png/client--datamanager2.png}
+	\caption{Seconda parte schema package client::data::datamanager}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.35]{img/package/png/client--datamanager3.png}
+	\caption{Terza parte schema package client::data::datamanager}
+\end{figure}
 \compDescrizione{componente che gestisce i dati in locale}
 \compPadre{data}
 \begin{compClassi} \\ 
@@ -426,7 +456,8 @@
 \end{classeMetodi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
-\end{classe}\begin{classe}{CLIPS::client::data::datamanager::AbstractDataManagerListener}
+\end{classe}
+\begin{classe}{CLIPS::client::data::datamanager::AbstractDataManagerListener}
 \classeDescrizione{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}
 \classeUtilizzo{permette alle classi che interagiscono con il datamanager di definire un proprio listener concreto da poter usare per ottenere le informazioni richieste}
 \begin{classeMetodi}
@@ -453,7 +484,7 @@
 \classeAttributo{latitude}{double}{la latitudine dell'utente}
 \classeAttributo{longitude}{double}{la longitudine dell'utente}
 \classeAttributo{maxNumber}{int}{il numero massimo di edifici richiesti o la distanza massimi entro cui devono essere presenti gli edifici restituiti, a seconda del valore di ''searchByDistance''}
-\classeAttributo{searchByDistance}{boolean}{indica se la richiesta al server deve ritornare gli edifici pi� vicini secondo un numero massimo o una distanza massima entro cui essi sono presenti}
+\classeAttributo{searchByDistance}{boolean}{indica se la richiesta al server deve ritornare gli edifici più vicini secondo un numero massimo o una distanza massima entro cui essi sono presenti}
 \end{classeAttributi}
 \begin{classeRelazioni}
 \classeRelazione{CLIPS::client::data::datamanager}{AbstractDataManagerListener}{interfaccia che definisce la struttura del listener astratto usato nel package datamanager}\classeRelazione{CLIPS::client::data::urlrequest}{AbstractUrlRequestListener}{interfaccia che definisce la struttura del listener astratto usato nel package urlrequest}\classeRelazione{CLIPS::client::data}{Building}{classe che rappresenta un edificio}\classeRelazione{CLIPS::server::urlrequesthandler}{DBHandler}{classe che si occupa di gestire il DB e di ritornare un oggetto configurato della libreria knex}\classeRelazione{CLIPS::client::data}{PathInfo}{classe che si occupa di salvare in locale le informazioni generali di un percorso}\classeRelazione{CLIPS::client::data::urlrequest}{RequestMaker}{classe per la costruzione e l'invio di richieste al server, funziona come un'interfaccia dell'urlrequest per il resto dell'applicazione e quindi regola l'interazione con il package}\classeRelazione{CLIPS::client::data::urlrequest}{ServerError}{classe che rappresenta l'errore che il client riceve quando la richiesta al server non ha successo}\end{classeRelazioni}
@@ -896,11 +927,26 @@
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::data::urlrequest}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/client--urlrequest.png} 
-\caption{Schema package client::urlrequest} 
- \end{figure} 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.45]{img/package/png/client--urlrequest--min.png}
+	\caption{Schema sintetico package client::data::urlrequest}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{img/package/png/client--urlrequest1.png}
+	\caption{Prima parte schema package client::data::urlrequest}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.30]{img/package/png/client--urlrequest2.png}
+	\caption{Seconda parte schema package client::data::urlrequest}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.35]{img/package/png/client--urlrequest3.png}
+	\caption{Terza parte schema package client::data::urlrequest}
+\end{figure}
 \compDescrizione{componente che si occupa di effettuare le richieste al server}
 \compPadre{data}
 \begin{compClassi} \\ 
@@ -1163,7 +1209,7 @@
 \begin{componente}{CLIPS::client::pathprogress}
 \begin{figure}[h!] 
 \centering 
-\includegraphics[scale=0.4]{img/package/png/client--pathprogress.png} 
+\includegraphics[scale=0.3]{img/package/png/client--pathprogress.png} 
 \caption{Schema package client::pathprogress} 
  \end{figure} 
 \compDescrizione{componente che gestisce i dati del percorso e salva i risultati ottenuti nelle prove mentre si sta giocando}
@@ -1297,11 +1343,16 @@
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::authentication}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication.png} 
-\caption{Schema package client::viewcontroller::authentication} 
- \end{figure} 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication1.png}
+	\caption{Prima parte schema package client::viewcontroller::authentication}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--authentication2.png}
+	\caption{Seconda parte schema package client::viewcontroller::authentication}
+\end{figure} 
 \compDescrizione{componente che si occupa di gestire l'autenticazione dell'utente}
 \compPadre{viewcontroller}
 \begin{compClassi} \\ 
@@ -1550,11 +1601,21 @@ selezionato}
 \end{classe}\end{compClassi}
 \end{componente}
 \begin{componente}{CLIPS::client::viewcontroller::games}
-\begin{figure}[h!] 
-\centering 
-\includegraphics[scale=0.4]{img/package/png/client--viewcontroller--games.png} 
-\caption{Schema package client::viewcontroller::games} 
- \end{figure} 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{img/package/png/client--viewcontroller--games1.png}
+	\caption{Prima parte schema package client::viewcontroller::games}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{img/package/png/client--viewcontroller--games2.png}
+	\caption{Seconda parte schema package client::viewcontroller::games}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{img/package/png/client--viewcontroller--games3.png}
+	\caption{Terza parte schema package client::viewcontroller::games}
+\end{figure} 
 \compDescrizione{componente che gestisce le prove che l'utente deve completare all'interno di un percorso}
 \compPadre{viewcontroller}
 \begin{compClassi} \\ 
