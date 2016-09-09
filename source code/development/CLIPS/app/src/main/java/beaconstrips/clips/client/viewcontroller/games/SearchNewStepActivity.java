@@ -47,14 +47,17 @@ import beaconstrips.clips.client.data.Test;
 import beaconstrips.clips.client.data.TrueFalseTest;
 
 
+import beaconstrips.clips.client.pathprogress.BeaconDiscoverDelegate;
 import beaconstrips.clips.client.pathprogress.PathProgressController;
 import beaconstrips.clips.client.pathprogress.PathProgressControllerDelegate;
 import beaconstrips.clips.client.pathprogress.ProximityManagerPath;
+import beaconstrips.clips.client.pathprogress.RawBeacon;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
-public class SearchNewStepActivity extends MenuActivity implements PathProgressControllerDelegate {
+public class SearchNewStepActivity extends MenuActivity implements BeaconDiscoverDelegate {
 
-   private ProximityManagerPath proximityManager;
+   private ProximityManager proximityManager;
+   private PathProgressController pathProgress;
    private Button startTestButton;
    private List<Step> steps;
    private int stepIndex;
@@ -68,20 +71,31 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       startTestButton = (Button) findViewById(R.id.startTestButton);
       //setButtons();
 
+
       startTestButton.setVisibility(View.INVISIBLE);
 
       i = getIntent();
       Bundle bundle = i.getExtras();
-      //proximityManager = (ProximityManagerPath) bundle.getSerializable("proximityManager");
-      //proximityManager.delegate = this;
-      stepIndex = i.getIntExtra("stepIndex", 0);
 
-      if (bundle != null) {
-         steps = (List<Step>) bundle.getSerializable("steps");
-         Log.i(TAG, "Steps is not null and it has " + steps.size() + " steps left");
+      pathProgress = (PathProgressController) bundle.getSerializable("pathProgress");
+      if(pathProgress != null) {
+         pathProgress.setDelegate(this);
+         Log.i(TAG, "Delegate set " + pathProgress.delegate);
       }
-      else
-         Log.i("TAG", "Steps is null");
+
+      KontaktSDK.initialize(this);
+      proximityManager = new ProximityManager(this);
+      proximityManager.setIBeaconListener(createIBeaconListener());
+
+
+      //stepIndex = i.getIntExtra("stepIndex", 0);
+
+//      if (bundle != null) {
+//         steps = (List<Step>) bundle.getSerializable("steps");
+//         Log.i(TAG, "Steps is not null and it has " + steps.size() + " steps left");
+//      }
+//      else
+//         Log.i("TAG", "Steps is null");
 
         /* TODO when proof beacon is found:
             TextView descriptionLabel = (TextView) findElementById(R.id.descriptionLabel);
@@ -91,34 +105,16 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
             hintLabel.setVisibility(View.GONE);
          */
 
-      //KontaktSDK.initialize(this);
-      //proximityManager = new ProximityManager(this);
+
       //getProof(stepIndex);
-      //configureProximityManager();
-      //configureListeners();
-      //configureSpaces();
+      configureProximityManager();
+      configureListeners();
+      configureSpaces();
       //configureFilters();
       //TODO add all algorithms for proximity
    }
 
-   @Override
-   public void didReachProof(Proof proof) {
-      if(proof != null) {
-         Log.i(TAG, "Proof is not null");
-         Log.i(TAG, "Proof data"); //TODO add data to check if it's ok
-         i.putExtra("proof", proof);
-         Toast.makeText(getApplicationContext(), "Hai trovato il beacon", Toast.LENGTH_SHORT);
-         setButtons(proof.test);
-      }
-   }
 
-   @Override
-   public void didRangeProximity(Proximity proximity) {
-
-   }
-
-
-   /*
    private void configureProximityManager() {
       proximityManager.configuration()
               .scanMode(ScanMode.LOW_LATENCY)
@@ -183,9 +179,13 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
    }
 
    private IBeaconListener createIBeaconListener() {
+      Log.i(TAG, "Searching");
+
       return new SimpleIBeaconListener() {
          @Override
          public void onIBeaconDiscovered(IBeaconDevice ibeacon, IBeaconRegion region) {
+            Log.i(TAG, "Searching");
+           /*
             Step step = steps.get(stepIndex);
             if (ibeacon.getProximityUUID().equals(java.util.UUID.fromString(step.stopBeacon.UUID))
                     && ibeacon.getMajor() == step.stopBeacon.major
@@ -194,7 +194,9 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
                Log.i("Distance", "" + ibeacon.getProximity());
                showToast("Hai trovato il beacon!");
                startTestButton.setVisibility(View.VISIBLE);
-            }
+             }
+             */
+            pathProgress.didFoundBeacon(ibeacon);
          }
       };
    }
@@ -203,17 +205,16 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       return new SimpleScanStatusListener() {
          @Override
          public void onScanStart() {
-            //showToast("Scanning started");
+            showToast("Scanning started");
          }
 
          @Override
          public void onScanStop() {
-            //showToast("Scanning stopped");
+            showToast("Scanning stopped");
          }
       };
    }
 
-*/
    private void setButtons(final Test test) {
 
       if (startTestButton != null) {
@@ -252,4 +253,14 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       }
    }
 
+
+   @Override
+   public void didFoundBeacon(IBeaconDevice beacon) {
+      showToast("Hai trovato il beacon!");
+   }
+
+   @Override
+   public void didMoveFromBeacon(RawBeacon beacon) {
+
+   }
 }
