@@ -35,11 +35,14 @@ public class PathProgressController implements BeaconDiscoverDelegate, Serializa
     this.pathProgress=new PathProgress(path, new GregorianCalendar());
   }
 
-  public void savedResult(ProofResult result){
+  public boolean savedResult(GregorianCalendar startTime, GregorianCalendar finishTime, int correct, int total){
+
+      ProofResult result= new ProofResult(pathProgress.getPath().steps.get(index-1).proof.id,startTime,finishTime,pathProgress.getPath().steps.get(index-1).proof.scoringAlgorithm.getScore(this.getDuration(startTime,finishTime),correct,total));
     this.pathProgress.addProofResult(result);
       if(index!=this.pathProgress.getPath().steps.size()) {
-          this.delegate.pathEnded(pathProgress.getTotalScore());
+          return true;
       }
+      return false;
   }
 
 
@@ -56,6 +59,9 @@ public class PathProgressController implements BeaconDiscoverDelegate, Serializa
           }
   }
 
+    public long getDuration(GregorianCalendar startTime, GregorianCalendar endTime) {
+        return endTime.getTime().getTime() - startTime.getTime().getTime();
+    }
     public void didMoveFromBeacon(RawBeacon beacon){
   }
 }

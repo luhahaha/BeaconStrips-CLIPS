@@ -40,6 +40,8 @@
       </activity>
         <activity android:name=".client.viewcontroller.authentication.RecoverPassword"
             android:theme="@style/AppTheme"/>
+      <activity android:name=".client.viewcontroller.authentication.ChangeProfileActivity"
+          android:theme="@style/AppTheme"/>
         <activity android:name=".client.viewcontroller.authentication.ForgotPassword"
             android:theme="@style/AppTheme"/>
       <activity
