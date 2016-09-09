@@ -54,5 +54,16 @@ public class AccountActivity extends MenuActivity {
                 }
             });
         }
+
+        final Button change = (Button) findViewById(R.id.changeInformation_button);
+        if(change != null) {
+            change.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(getApplicationContext(), ChangeProfileActivity.class);
+                    startActivity(i);
+                }
+            });
+        }
     }
 }
