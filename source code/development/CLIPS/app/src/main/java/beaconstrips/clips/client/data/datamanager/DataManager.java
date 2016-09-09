@@ -66,7 +66,7 @@ public abstract class DataManager<Data> {
             getRemoteData(new AbstractUrlRequestListener() {
                public void onResponse(JSONObject response) {
                   remoteData = parseFromUrlRequest(response);
-                  updateLocalData(remoteData);
+                  //updateLocalData(remoteData);
                   listener.onResponse(remoteData);
                }
                public void onError(ServerError error) {listener.onError(error);}

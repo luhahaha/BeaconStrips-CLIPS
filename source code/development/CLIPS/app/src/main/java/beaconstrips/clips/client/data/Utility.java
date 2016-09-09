@@ -55,19 +55,16 @@ public class Utility {
       return user.distanceTo(building);
    }
 
-   private static Building[] insertBuilding(Building[] buildings, Building b, int index){
-      System.arraycopy(buildings, index,buildings, index+1, (buildings.length-(index+1)));
-      buildings[index] = b;
-      return buildings;
-   }
-
    public static Building[] getBuildingsByNumber(ArrayList<Building> buildings, int maxBuildings, double userLatitude, double userLongitude){
       Location userPosition = new Location("");
       userPosition.setLatitude(userLatitude);
       userPosition.setLongitude(userLongitude);
 
       ArrayList<Building> ret = new ArrayList<Building>(maxBuildings);
-      ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings.get(0), 0)));
+
+
+      ret.add(0,buildings.get(0));
+
 
       for(int i=1; i<buildings.size(); ++i)
       {
@@ -76,23 +73,17 @@ public class Utility {
          buildingPosition.setLongitude(buildings.get(i).longitude);
 
          float distance = userPosition.distanceTo(buildingPosition);
-         boolean inserted = false;
 
-         for(int j=0; j<ret.size(); ++j){
-            if(ret.get(j) ==null && !inserted){
-               ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings.get(i), j)));
+         for(int j=0; j<maxBuildings; ++j){
+            if(j >= ret.size()){
+               ret.add(buildings.get(i));
                break;
             }
-            else if(!inserted && ret.get(j) != null && distance <= distanceToBuilding(userPosition, ret.get(j))){
-               ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings.get(i), j)));
-               inserted = true;
-               ++i;
+            else if(distance <= distanceToBuilding(userPosition, ret.get(j))){
+               ret.add(j, buildings.get(i));
+               break;
             }
          }
-      }
-
-      if(ret.size() == 0){
-         return null;
       }
 
       return ret.toArray(new Building[ret.size()]);
@@ -104,32 +95,32 @@ public class Utility {
       userPosition.setLongitude(userLongitude);
 
       ArrayList<Building> ret = new ArrayList<Building>();
-      ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings.get(0), 0)));
 
-      for(int i=1; i<buildings.size(); ++i)
+      for(int i=0; i<buildings.size(); ++i)
       {
          Location buildingPosition = new Location("");
          buildingPosition.setLatitude(buildings.get(i).latitude);
          buildingPosition.setLongitude(buildings.get(i).longitude);
 
          float distance = userPosition.distanceTo(buildingPosition);
-         boolean inserted = false;
 
-         for(int j=0; j<ret.size(); ++j){
-            if(ret.get(j) ==null && !inserted){
-               ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings.get(i), j)));
-               break;
+         if(distance <= (maxDistance*1000)){
+            boolean inserted = false;
+            for(int j=0; j<ret.size(); ++j){
+               Location tmpBuilding = new Location("");
+               tmpBuilding.setLatitude(ret.get(j).latitude);
+               tmpBuilding.setLongitude(ret.get(j).longitude);
+
+               if(userPosition.distanceTo(tmpBuilding) <= distance){
+                  ret.add(j, buildings.get(i));
+                  inserted = true;
+                  break;
+               }
             }
-            else if(!inserted && ret.get(j) != null && distance <= (maxDistance*1000)){
-               ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings.get(i), j)));
-               inserted = true;
-               ++i;
+            if(!inserted){
+               ret.add(buildings.get(i));
             }
          }
-      }
-
-      if(ret.size() == 0){
-         return null;
       }
 
       return ret.toArray(new Building[ret.size()]);

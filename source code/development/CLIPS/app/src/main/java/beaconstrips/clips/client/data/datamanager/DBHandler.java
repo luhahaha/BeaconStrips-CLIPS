@@ -391,7 +391,7 @@ public class DBHandler extends SQLiteOpenHelper {
          ArrayList<Proximity> proximities = readProximities(id);
          Proof proof = readProof(Integer.parseInt(cursor.getString(2)));
 
-         ret.add(new Step(stopBeacon, proximities, proof));
+         //ret.add(new Step(stopBeacon, proximities, proof));
       }
       return ret;
    }
@@ -561,7 +561,7 @@ public class DBHandler extends SQLiteOpenHelper {
          ArrayList<Proximity> proximities = readProximities(id);
          Proof proof = readProof(Integer.parseInt(cursor.getString(2)));
 
-         ret.add(new Step(stopBeacon, proximities, proof));
+         //ret.add(new Step(stopBeacon, proximities, proof));
       }
       return ret;
    }
@@ -694,7 +694,7 @@ public class DBHandler extends SQLiteOpenHelper {
          ArrayList<Proximity> proximities = readProximities(id);
          Proof proof = readProof(Integer.parseInt(cursor.getString(2)));
 
-         ret = new Step(stopBeacon, proximities, proof);
+         //ret = new Step(stopBeacon, proximities, proof);
       }
       return ret;
    }

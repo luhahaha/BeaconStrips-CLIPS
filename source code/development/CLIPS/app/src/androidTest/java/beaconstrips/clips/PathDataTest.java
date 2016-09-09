@@ -152,6 +152,7 @@ public class PathDataTest {
                Proof stepProof = response.steps.get(i).proof;
                ArrayList<Proximity> stepProximities = response.steps.get(i).proximities;
                Log.d("PathDataTest", "   Dati sullo step " + i + ":");
+               Log.d("PathDataTest", "   Messaggio d'aiuto: " + response.steps.get(i).helpText);
                Log.d("PathDataTest", "      Dati sul beacon di step:");
                Log.d("PathDataTest", "         ID: " + stepBeacon.id);
                Log.d("PathDataTest", "         UUID: " + stepBeacon.UUID);

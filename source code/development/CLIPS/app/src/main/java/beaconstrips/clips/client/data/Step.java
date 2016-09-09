@@ -15,10 +15,12 @@ public class Step implements Serializable{
    public final Beacon stopBeacon;
    public final ArrayList<Proximity> proximities;
    public final Proof proof;
+   public final String helpText;
 
-   public Step(Beacon stopBeacon, ArrayList<Proximity> proximities, Proof proof) {
+   public Step(Beacon stopBeacon, ArrayList<Proximity> proximities, Proof proof, String helpText) {
       this.stopBeacon = stopBeacon;
       this.proximities = proximities;
       this.proof = proof;
+      this.helpText = helpText;
    }
 }

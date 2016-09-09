@@ -47,27 +47,38 @@ public class UtilityTest {
       ArrayList<PathInfo> pathinfos = new ArrayList<>();
       pathinfos.add(new PathInfo(1, "Percorso 1", "Primo percorso", "Solo per i primi", "1 ora", 1));
       pathinfos.add(new PathInfo(2, "Percorso 2", "Secondo percorso", "Solo per i secondi", "2 ore", 2));
-      Building building1 = new Building("Edificio 1", "Edificio numero 1", "Primo edificio", "Alle 1.00", "Via Uno, 1", 45, 10, "1111111111", "Uno@uno.uno", "UnoWA", "UnoT", "UnoTwitter", "UnoFB", "www.uno.com", pathinfos),
-      building2 = new Building("Edificio 2", "Edificio numero 2", "Secondo edificio", "Alle 2.00", "Via Due, 2", 46, 11, "2222222222", "Due@dueo.due", "DueWA", "DueT", "DueTwitter", "DueFB", "www.due.com", pathinfos),
-      building3 = new Building("Edificio 3", "Edificio numero 3", "Terzo edificio", "Alle 3.00", "Via Tre, 3", 46, 10, "3333333333", "Tre@tre.tre", "TreWA", "TreT", "TreTwitter", "TreFB", "www.tre.com", pathinfos),
-      building4 = new Building("Edificio 4", "Edificio numero 4", "Quarto edificio", "Alle 4.00", "Via Quattro, 4", 45, 11, "4444444444", "Quattro@quattro.quattro", "QuattroWA", "QauttroT", "QuattroTwitter", "QuattroFB", "www.quattro.com", pathinfos);
-      Building[] buildingArray = new Building[5];
-      Building[] buildings = new Building[4];
-      buildings[0] = building1;
-      buildings[1] = building2;
-      buildings[2] = building3;
-      buildings[3] = building4;
-      for(int i=0; i<buildings.length; ++i){
-         buildingArray = Utility.addNearestBuilding(buildings[i], buildingArray, 45, 10);
+      Building[] buildingsByDistance = getNearestBuildings(12, true, 45.0, 10.0, pathinfos);
+      Building[] buildingsByNumber = getNearestBuildings(5, false, 45.0, 10.0, pathinfos);
+
+      Log.d("UtilityTest", "Stampa di getBuildingsByDistance():");
+      for(int i=0; i<buildingsByDistance.length; i++) {
+         Log.d("UtilityTest", "   " + buildingsByDistance[i].name);
       }
-      Log.d("UtilityTest", "Stampa di addNearestBuilding():");
-      for(int i=0; i<buildingArray.length; i++) {
-         Log.d("UtilityTest", "   " + buildingArray[i].name);
+      Log.d("UtilityTest", "Stampa di getBuildingsNumber():");
+      for(int i=0; i<buildingsByNumber.length; i++) {
+         Log.d("UtilityTest", "   " + buildingsByNumber[i].name);
       }
-      buildingArray = Utility.addNearestBuilding(building4, buildingArray, 45, 10);
-      Log.d("UtilityTest", "Stampa di addNearestBuilding():");
-      for(int i=0; i<buildingArray.length; i++) {
-         Log.d("UtilityTest", "   " + buildingArray[i].name);
+   }
+
+   private Building[] getNearestBuildings(float param, boolean searchByDistance, double userLatitude, double userLongitude, ArrayList<PathInfo>pathinfos){
+
+      ArrayList<Building> buildings = new ArrayList<>();
+      buildings.add(new Building("Edificio 1", "Edificio numero 1", "Primo edificio", "Alle 1.00", "Via Uno, 1", 45, 10, "1111111111", "Uno@uno.uno", "UnoWA", "UnoT", "UnoTwitter", "UnoFB", "www.uno.com", pathinfos));
+      buildings.add(new Building("Edificio 2", "Edificio numero 2", "Secondo edificio", "Alle 2.00", "Via Due, 2", 46, 11, "2222222222", "Due@dueo.due", "DueWA", "DueT", "DueTwitter", "DueFB", "www.due.com", pathinfos));
+      buildings.add(new Building("Edificio 3", "Edificio numero 3", "Terzo edificio", "Alle 3.00", "Via Tre, 3", 46, 10, "3333333333", "Tre@tre.tre", "TreWA", "TreT", "TreTwitter", "TreFB", "www.tre.com", pathinfos));
+      buildings.add(new Building("Edificio 4", "Edificio numero 4", "Quarto edificio", "Alle 4.00", "Via Quattro, 4", 45, 11, "4444444444", "Quattro@quattro.quattro", "QuattroWA", "QauttroT", "QuattroTwitter", "QuattroFB", "www.quattro.com", pathinfos));
+
+      Building[] ret = null;
+
+      if(buildings.size() > 0){
+         if(searchByDistance){
+            ret = Utility.getBuildingsByDistance(buildings, param, userLatitude, userLongitude);
+         }
+         else{
+            ret = Utility.getBuildingsByNumber(buildings, (int)param, userLatitude, userLongitude);
+         }
       }
+
+      return ret;
    }
 }

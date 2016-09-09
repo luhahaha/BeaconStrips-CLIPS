@@ -153,7 +153,7 @@ public class PathResultsDBTest {
          for(int j=0; j<2; ++j){
             ArrayList<Proximity> proximities = new ArrayList<>();
             proximities.add(new Proximity(beacons[((2*i+j)+1)%(2*size)], 33, "textToDisplay "+((2*i+j)+1)%(2*size)));
-            steps.add(new Step(beacons[2*i+j], proximities, proofs[2*i+j]));
+            steps.add(new Step(beacons[2*i+j], proximities, proofs[2*i+j], "Testo di aiuto"));
             proofResults.add(new ProofResult(2*i+j, startTime, endTime, 50));
          }
          paths[i] = new Path(i,"startingMessage "+i,"rewardMessage "+i, steps);

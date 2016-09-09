@@ -66,7 +66,6 @@ public class GetResultsDataTest {
       DataRequestMaker.getResults(context, new AbstractDataManagerListener<PathResult[]>() {
          public void onResponse(PathResult[] response) {
             Log.d("GetResultsDataTest", "Chiamata getResults() eseguita con successo:");
-            Log.d("GetResultsDataTest", "Risultato di prova: " + response[2].totalScore);
             for(int i=0; i<response.length; i++) {
                Log.d("GetResultsDataTest", "   ID del percorso: " + response[i].pathID);
                Log.d("GetResultsDataTest", "   Nome del percorso: " + response[i].pathName);
