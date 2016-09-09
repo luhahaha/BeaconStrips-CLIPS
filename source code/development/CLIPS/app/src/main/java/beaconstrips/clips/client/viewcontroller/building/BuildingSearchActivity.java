@@ -34,6 +34,7 @@ import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.TreeSet;
@@ -205,6 +206,10 @@ public class BuildingSearchActivity extends MenuActivity {
 
                            String[] buildingsName = new String[response.length];
                            String[] pathsNumber = new String[response.length];
+
+                           if(response.length == 0) {
+                              Toast.makeText(BuildingSearchActivity.this, "Nessun risultato trovato, prova ad incrementare il raggio di ricerca", Toast.LENGTH_LONG).show();
+                           }
                            for (int i = 0; i < response.length; ++i) {
                               buildingsName[i] = response[i].name;
                               pathsNumber[i] = String.valueOf(response[i].pathsInfos.size());
@@ -222,6 +227,7 @@ public class BuildingSearchActivity extends MenuActivity {
 
                         @Override
                         public void onError(ServerError error) {
+
                            Log.e(TAG, error.errorCode + " " + error.debugMessage + " " + error.userMessage);
                            new AlertDialog.Builder(BuildingSearchActivity.this)
                                    .setTitle("Avviso")
