@@ -66,9 +66,10 @@ public class Utility {
       userPosition.setLatitude(userLatitude);
       userPosition.setLongitude(userLongitude);
 
-      ArrayList<Building> ret = new ArrayList<Building>();
+      ArrayList<Building> ret = new ArrayList<Building>(maxBuildings);
+      ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings.get(0), 0)));
 
-      for(int i=0; i<buildings.size(); ++i)
+      for(int i=1; i<buildings.size(); ++i)
       {
          Location buildingPosition = new Location("");
          buildingPosition.setLatitude(buildings.get(i).latitude);
@@ -103,8 +104,9 @@ public class Utility {
       userPosition.setLongitude(userLongitude);
 
       ArrayList<Building> ret = new ArrayList<Building>();
+      ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings.get(0), 0)));
 
-      for(int i=0; i<buildings.size(); ++i)
+      for(int i=1; i<buildings.size(); ++i)
       {
          Location buildingPosition = new Location("");
          buildingPosition.setLatitude(buildings.get(i).latitude);
