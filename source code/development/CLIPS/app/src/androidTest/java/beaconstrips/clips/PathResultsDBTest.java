@@ -21,6 +21,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.Objects;
 
+import beaconstrips.clips.client.MainActivity;
 import beaconstrips.clips.client.data.Beacon;
 import beaconstrips.clips.client.data.Building;
 import beaconstrips.clips.client.data.Path;
@@ -56,8 +57,6 @@ public class PathResultsDBTest {
 
 
    private boolean equalProofResult(ProofResult a, ProofResult b){
-      String aa = a.endTime.toString();
-      String bb = b.endTime.toString();
       return a.endTime.equals(b.endTime) && a.startTime.equals(b.startTime) && a.id == b.id && a.score == b.score;
    }
 
@@ -74,9 +73,7 @@ public class PathResultsDBTest {
    }
 
    private boolean equalPathResult(PathResult a, PathResult b){
-      String aa = a.endTime.toString();
-      String bb = b.endTime.toString();
-      return a.buildingName.equals(b.buildingName) && a.endTime.equals(b.endTime) && a.startTime.equals(b.endTime) &&
+      return a.buildingName.equals(b.buildingName) && a.endTime.equals(b.endTime) && a.startTime.equals(b.startTime) &&
               a.pathID == b.pathID && a.pathName.equals(b.pathName) && a.totalScore == b.totalScore && equalProofResults(a.proofResults, b.proofResults);
    }
 

@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
@@ -323,13 +324,13 @@ public class DBHandler extends SQLiteOpenHelper {
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
-
-      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN);
-      dateFormat.format(pr.startTime.getTime());
+      Calendar sTime = pr.startTime;
+      Calendar eTime = pr.endTime;
+      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'");
 
       values.put("pathID", pr.pathID);
-      values.put("startTime", dateFormat.toString());
-      values.put("endTime", dateFormat.toString());
+      values.put("startTime", sdf.format(sTime.getTime()));
+      values.put("endTime", sdf.format(eTime.getTime()));
 
       db.insert("PathResult", null, values);
       db.close();
@@ -348,10 +349,14 @@ public class DBHandler extends SQLiteOpenHelper {
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
+      Calendar sTime = pr.startTime;
+      Calendar eTime = pr.endTime;
+      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'");
+
       values.put("proofID", pr.id);
       values.put("pathResultID", pathID);
-      values.put("startTime", pr.startTime.toString());
-      values.put("endTime", pr.endTime.toString());
+      values.put("startTime", sdf.format(sTime.getTime()));
+      values.put("endTime", sdf.format(eTime.getTime()));
       values.put("score", pr.score);
 
       db.insert("ProofResult", null, values);
@@ -704,8 +709,8 @@ public class DBHandler extends SQLiteOpenHelper {
          int id = Integer.parseInt(cursor.getString(0));
          String pathName = readPathInfo(id).title;
          String buildingName = getBuildingName(id);
-         GregorianCalendar startTime = Utility.stringToGregorianCalendar(cursor.getString(1), "startTime");
-         GregorianCalendar endTime = Utility.stringToGregorianCalendar(cursor.getString(2), "endTime");
+         GregorianCalendar startTime = Utility.stringToGregorianCalendar(cursor.getString(1));
+         GregorianCalendar endTime = Utility.stringToGregorianCalendar(cursor.getString(2));
          ArrayList<ProofResult> proofsResults = readProofResults(id);
          int totalScore = Utility.calculateTotalScore(proofsResults);
 
@@ -726,8 +731,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
          String pathName = readPathInfo(pathID).title;
          String buildingName = getBuildingName(pathID);
-         GregorianCalendar startTime = Utility.stringToGregorianCalendar(cursor.getString(2), "startTime");
-         GregorianCalendar endTime = Utility.stringToGregorianCalendar(cursor.getString(3), "endTime");
+         GregorianCalendar startTime = Utility.stringToGregorianCalendar(cursor.getString(2));
+         GregorianCalendar endTime = Utility.stringToGregorianCalendar(cursor.getString(3));
          ArrayList<ProofResult> proofsResults = readProofResults(pathID);
          int totalScore = Utility.calculateTotalScore(proofsResults);
 
@@ -745,8 +750,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
       while(cursor.moveToNext()){
          int id = Integer.parseInt(cursor.getString(0));
-         GregorianCalendar startTime = Utility.stringToGregorianCalendar(cursor.getString(2),"startTime");
-         GregorianCalendar endTime = Utility.stringToGregorianCalendar(cursor.getString(3),"endTime");
+         GregorianCalendar startTime = Utility.stringToGregorianCalendar(cursor.getString(2));
+         GregorianCalendar endTime = Utility.stringToGregorianCalendar(cursor.getString(3));
          int score = Integer.parseInt(cursor.getString(4));
 
          ret.add(new ProofResult(id, startTime, endTime, score));
@@ -910,13 +915,13 @@ public class DBHandler extends SQLiteOpenHelper {
 
    private void deleteProofsResults(int pathID){
       SQLiteDatabase db = this.getWritableDatabase();
-      db.delete("ProofResult", "pathID =?", new String[] { String.valueOf(pathID) });
+      db.delete("ProofResult", "pathResultID=?", new String[] { String.valueOf(pathID) });
       db.close();
    }
 
    public void deleteProofResult(int proofID){
       SQLiteDatabase db = this.getWritableDatabase();
-      db.delete("ProofResult", "proofID =?", new String[] { String.valueOf(proofID) });
+      db.delete("ProofResult", "proofID=?", new String[] { String.valueOf(proofID) });
       db.close();
    }
 

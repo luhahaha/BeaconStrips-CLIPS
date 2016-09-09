@@ -35,8 +35,8 @@ import beaconstrips.clips.client.data.Utility;
 public class UtilityTest {
    @Test
    public void utilityTest() {
-      String object = "{\"date\":\"2016-08-25T15:39:05.000Z\"}";
-      GregorianCalendar date = Utility.stringToGregorianCalendar(object, "date");
+      String object = "2016-09-05T12:34:56.000Z";
+      GregorianCalendar date = Utility.stringToGregorianCalendar(object);
       SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss.SSS", Locale.ITALIAN);
       Log.d("UtilityTest", "Stampa di stringToGregorianCalendar(): " + dateFormat.format(date.getTime()));
       ArrayList<ProofResult> resultArray = new ArrayList<>();

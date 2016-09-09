@@ -1,6 +1,7 @@
 package beaconstrips.clips.client.data;
 
 import android.location.Location;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,21 +22,13 @@ import java.util.Locale;
  */
 public class Utility {
 
-   public static GregorianCalendar stringToGregorianCalendar(String data, String field){
-      JSONObject tmp = new JSONObject();
-      try{
-         tmp = new JSONObject(data);
-      }
-      catch(JSONException e){
-
-      }
-
+   public static GregorianCalendar stringToGregorianCalendar(String data){
       GregorianCalendar ret = new GregorianCalendar();
       try {
-         ret.setTime(new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN).parse(tmp.getString(field)));
+         ret.setTime(new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN).parse(data));
       }
       catch(Exception e){
-
+         Log.d("Utility", "Errore conversione data");
       }
 
       return ret;
