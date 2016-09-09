@@ -25,6 +25,7 @@ import beaconstrips.clips.client.data.Proof;
 import beaconstrips.clips.client.data.ProofResult;
 import beaconstrips.clips.client.data.Step;
 import beaconstrips.clips.client.pathprogress.PathProgressController;
+import beaconstrips.clips.client.viewcontroller.savedresults.ResultActivity;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
 public class ProofResultActivity extends AppCompatActivity {
@@ -34,6 +35,7 @@ public class ProofResultActivity extends AppCompatActivity {
     private PathProgressController pathProgress;
     private GregorianCalendar finishTime;
     private String TAG = "ProofResultActivity";
+    boolean finished;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,18 +51,24 @@ public class ProofResultActivity extends AppCompatActivity {
 
         pathProgress = (PathProgressController) bundle.getSerializable("pathProgress");
 
-        boolean finished = pathProgress.savedResult(startTime, finishTime, 1, 1); //if true ho finito il percorso
+        finished = pathProgress.savedResult(startTime, finishTime, 1, 1); //if true ho finito il percorso
         stepIndex = i.getIntExtra("stepIndex", 0);
     }
 
     private void setButton() {
+
         Button next = (Button) findViewById(R.id.searchNextBeacon);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //if(stepIndex == steps.size()) {
+                if(!finished) {
                     i.setClass(getApplicationContext(), SearchNewStepActivity.class);
-                    startActivity(i);
+                }
+                else {
+                    i.setClass(getApplicationContext(), ResultActivity.class);
+                }
+                startActivity(i);
                 //}
             }
         });
