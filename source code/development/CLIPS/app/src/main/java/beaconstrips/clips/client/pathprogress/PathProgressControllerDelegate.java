@@ -1,5 +1,7 @@
 package beaconstrips.clips.client.pathprogress;
 
+import java.io.Serializable;
+
 import beaconstrips.clips.client.data.Proof;
 import beaconstrips.clips.client.data.Proximity;
 import beaconstrips.clips.client.data.Step;
@@ -13,7 +15,7 @@ import beaconstrips.clips.client.data.Step;
  *interfaccia che serve per notificare quando si nel raggio di un beacon del prossimo step oppure in quello di un proximity
  */
 
-public interface PathProgressControllerDelegate {
+public interface PathProgressControllerDelegate extends Serializable{
    void didReachProof(Proof proof);
    void didRangeProximity(Proximity proximity);
 }

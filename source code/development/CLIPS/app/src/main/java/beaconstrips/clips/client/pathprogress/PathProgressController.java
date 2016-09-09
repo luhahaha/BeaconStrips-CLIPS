@@ -2,6 +2,7 @@ package beaconstrips.clips.client.pathprogress;
 
 import com.kontakt.sdk.android.common.profile.IBeaconDevice;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
 import beaconstrips.clips.client.data.Path;
@@ -17,8 +18,8 @@ import beaconstrips.clips.client.data.ProofResult;
  * classe che gestisce il progresso dei percorsi
  */
 
-public class PathProgressController implements  BeaconDiscoverDelegate{
-    private int index;
+public class PathProgressController implements BeaconDiscoverDelegate, Serializable {
+  private int index;
   public PathProgressControllerDelegate delegate;
   public PathProgress pathProgress;
 
@@ -30,7 +31,7 @@ public class PathProgressController implements  BeaconDiscoverDelegate{
     this.pathProgress=new PathProgress(path, new GregorianCalendar());
   }
 
-  public void savefResult(ProofResult result){
+  public void savedResult(ProofResult result){
     this.pathProgress.addProofResult(result);
   }
 

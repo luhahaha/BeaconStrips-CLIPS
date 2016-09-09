@@ -1,5 +1,6 @@
 package beaconstrips.clips.client.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
  * classe che rappresenta i dati del progresso di un percorso svolto dall'utente
  */
 
-public class PathProgress {
+public class PathProgress implements Serializable{
    private final Path path;
    private final GregorianCalendar startTime;
    private GregorianCalendar endTime;

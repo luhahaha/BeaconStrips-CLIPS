@@ -1,5 +1,6 @@
 package beaconstrips.clips.client.data;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
 /**
@@ -11,7 +12,7 @@ import java.util.GregorianCalendar;
  * classe che rappresenta i dati del risultato di una prova svolta dall'utente
  */
 
-public class ProofResult {
+public class ProofResult implements Serializable{
    public final int id;
    public final GregorianCalendar startTime;
    public final GregorianCalendar endTime;
