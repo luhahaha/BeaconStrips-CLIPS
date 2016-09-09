@@ -255,9 +255,45 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
 
 
    @Override
-   public void didReachProof(Proof proof) {
+   public void didReachProof(final Proof proof) {
+      proximityManager.stopScanning(); //evita di crashare se continua lo scan; il problema è in PathProgressController
       startTestButton.setVisibility(View.VISIBLE);
       showToast("Hai trovato un beacon");
+      if (startTestButton != null) {
+         startTestButton.setVisibility(View.VISIBLE);
+         startTestButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+               Test test = proof.test;
+
+               if (test instanceof GameCollection) {
+                  //test = ((GameCollection) test).games.get(1);
+                  i.putExtra("testIndex", 0);
+                  Log.i(TAG, "Test has now type " + test.getClass());
+               }
+
+               if (test instanceof MultipleChoiceTest) {
+                  i.setClass(getApplicationContext(), MultipleChoiceQuizActivity.class);
+                  Log.i(TAG, "Set class MultipleChoiceQuizActivity.class");
+               }
+               if (test instanceof TrueFalseTest) {
+                  i.setClass(getApplicationContext(), TrueFalseQuizView.class);
+                  Log.i(TAG, "Set class TrueFalseTest.class");
+               }
+
+               //TODO change all this stuff
+               Bundle bundle = new Bundle();
+               bundle.putSerializable("steps", (Serializable) steps);
+               i.putExtras(bundle);
+               i.putExtra("test", test);
+               i.putExtra("stepIndex", stepIndex);
+               if (i != null) {
+                  startActivity(i);
+               }
+               //TODO add spinner for loading
+
+            }
+         });
+      }
 
    }
 
