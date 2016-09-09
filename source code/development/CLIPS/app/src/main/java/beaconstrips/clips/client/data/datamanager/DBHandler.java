@@ -83,8 +83,8 @@ public class DBHandler extends SQLiteOpenHelper {
    private void createStepTable(SQLiteDatabase db){
       String CREATE_STEP_TABLE = "CREATE TABLE  IF NOT EXISTS" +
               " Step (id INTEGER PRIMARY KEY  NOT NULL  UNIQUE , stopBeaconID INTEGER NOT NULL ," +
-              " proofID INTEGER NOT NULL , pathID INTEGER NOT NULL, position INTEGER NOT NULL," +
-              "  FOREIGN KEY(stopBeaconID) REFERENCES Beacon(id), FOREIGN KEY(pathID) REFERENCES Path(id)," +
+              " proofID INTEGER NOT NULL , pathID INTEGER NOT NULL, helpText TEXT NOT NULL," +
+              " FOREIGN KEY(stopBeaconID) REFERENCES Beacon(id), FOREIGN KEY(pathID) REFERENCES Path(id)," +
               " FOREIGN KEY(proofID) REFERENCES Proof(id))";
 
       db.execSQL(CREATE_STEP_TABLE);
@@ -111,7 +111,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
    private void createPathResultTable(SQLiteDatabase db){
       String CREATE_PATHRESULT_TABLE = "CREATE  TABLE  IF NOT EXISTS" +
-              " PathResult (pathID INTEGER UNIQUE NOT NULL , startTime TEXT NOT NULL ," +
+              " PathResult (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, pathID INTEGER NOT NULL , startTime TEXT NOT NULL ," +
               " endTime TEXT NOT NULL, FOREIGN KEY(pathID) REFERENCES Path(id))";
 
       db.execSQL(CREATE_PATHRESULT_TABLE);
@@ -120,8 +120,8 @@ public class DBHandler extends SQLiteOpenHelper {
    private void createProofResultTable(SQLiteDatabase db){
       String CREATE_PROOFRESULT_TABLE = "CREATE TABLE IF NOT EXISTS" +
               " ProofResult (proofID INTEGER NOT NULL , pathResultID INTEGER NOT NULL , startTime TEXT NOT NULL ," +
-              " endTime TEXT NOT NULL, score INTEGER NOT NULL, FOREIGN KEY(proofID) REFERENCES Proof(id)," +
-              " FOREIGN KEY(pathResultID) REFERENCES PathResult(pathID),UNIQUE(proofID, pathResultID) )";
+              " endTime TEXT NOT NULL, score INTEGER NOT NULL, id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, FOREIGN KEY(proofID) REFERENCES Proof(id)," +
+              " FOREIGN KEY(pathResultID) REFERENCES PathResult(pathID))";
 
       db.execSQL(CREATE_PROOFRESULT_TABLE);
    }
@@ -268,7 +268,7 @@ public class DBHandler extends SQLiteOpenHelper {
       values.put("stopBeaconID", s.stopBeacon.id);
       values.put("pathID", pathID);
       values.put("proofID", s.proof.id);
-      values.put("position", 0);
+      values.put("helpText", s.helpText);
 
       db.insert("Step", null, values);
       db.close();
@@ -550,7 +550,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
    private ArrayList<Step> readSteps(int pathID) {
       SQLiteDatabase db = this.getReadableDatabase();
-      Cursor cursor = db.query("Step", null, "pathID =?", new String[]{String.valueOf(pathID)}, null, null, null, null);
+      Cursor cursor = db.rawQuery("SELECT * FROM Step WHERE pathID=? ORDER BY id ASC", new String[]{String.valueOf(pathID)});
 
       ArrayList<Step> ret = new ArrayList<Step>();
 
@@ -560,8 +560,9 @@ public class DBHandler extends SQLiteOpenHelper {
          Beacon stopBeacon = readBeacon(Integer.parseInt(cursor.getString(1)));
          ArrayList<Proximity> proximities = readProximities(id);
          Proof proof = readProof(Integer.parseInt(cursor.getString(2)));
+         String helpText = cursor.getString(4);
 
-         //ret.add(new Step(stopBeacon, proximities, proof));
+         ret.add(new Step(stopBeacon, proximities, proof, helpText));
       }
       return ret;
    }
@@ -693,8 +694,9 @@ public class DBHandler extends SQLiteOpenHelper {
          Beacon stopBeacon = readBeacon(Integer.parseInt(cursor.getString(1)));
          ArrayList<Proximity> proximities = readProximities(id);
          Proof proof = readProof(Integer.parseInt(cursor.getString(2)));
+         String helpText = cursor.getString(4);
 
-         //ret = new Step(stopBeacon, proximities, proof);
+         ret = new Step(stopBeacon, proximities, proof, helpText);
       }
       return ret;
    }
@@ -706,11 +708,11 @@ public class DBHandler extends SQLiteOpenHelper {
       ArrayList<PathResult> pathResults = new ArrayList<PathResult>();
 
       while(cursor.moveToNext()){
-         int id = Integer.parseInt(cursor.getString(0));
+         int id = Integer.parseInt(cursor.getString(1));
          String pathName = readPathInfo(id).title;
          String buildingName = getBuildingName(id);
-         GregorianCalendar startTime = Utility.stringToGregorianCalendar(cursor.getString(1));
-         GregorianCalendar endTime = Utility.stringToGregorianCalendar(cursor.getString(2));
+         GregorianCalendar startTime = Utility.stringToGregorianCalendar(cursor.getString(2));
+         GregorianCalendar endTime = Utility.stringToGregorianCalendar(cursor.getString(3));
          ArrayList<ProofResult> proofsResults = readProofResults(id);
          int totalScore = Utility.calculateTotalScore(proofsResults);
 
@@ -817,7 +819,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
    private int getStepID(Step s){
       SQLiteDatabase db = this.getReadableDatabase();
-      Cursor cursor = db.rawQuery("SELECT id FROM Step WHERE stopBeacon=? AND proof=?", new String[]{String.valueOf(s.stopBeacon.id), String.valueOf(s.proof.id)});
+      Cursor cursor = db.rawQuery("SELECT id FROM Step WHERE stopBeaconID=? AND proofID=?", new String[]{String.valueOf(s.stopBeacon.id), String.valueOf(s.proof.id)});
 
       int ret = -1;
 
