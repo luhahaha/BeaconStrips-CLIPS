@@ -14,4 +14,5 @@ import com.kontakt.sdk.android.common.profile.IBeaconDevice;
 public interface BeaconDiscoverDelegate {
    void didFoundBeacon(IBeaconDevice beacon);
    void didMoveFromBeacon(RawBeacon beacon);
+    void pathEnded(double totalScore);
 }

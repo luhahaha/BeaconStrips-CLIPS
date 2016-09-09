@@ -16,9 +16,9 @@ public class ProofResult implements Serializable{
    public final int id;
    public final GregorianCalendar startTime;
    public final GregorianCalendar endTime;
-   public final int score;
+   public final double score;
 
-   public ProofResult(int id, GregorianCalendar startTime, GregorianCalendar endTime, int score) {
+   public ProofResult(int id, GregorianCalendar startTime, GregorianCalendar endTime, double score) {
       this.id = id;
       this.startTime = startTime;
       this.endTime = endTime;

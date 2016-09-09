@@ -57,8 +57,8 @@ public class PathProgress implements Serializable{
       return proofResults;
    }
 
-   public int getTotalScore() {
-      int score = 0;
+   public double getTotalScore() {
+      double score = 0;
       for (int i = 0; i < proofResults.size(); ++i) {
          score += proofResults.get(i).score;
       }

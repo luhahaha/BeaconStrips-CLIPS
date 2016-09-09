@@ -36,23 +36,24 @@ public class PathProgressController implements BeaconDiscoverDelegate, Serializa
 
   public void savedResult(ProofResult result){
     this.pathProgress.addProofResult(result);
+      if(index!=this.pathProgress.getPath().steps.size()) {
+          delegate.pathEnded(pathProgress.getTotalScore());
+      }
   }
 
 
   public void didFoundBeacon(IBeaconDevice beacon){
     Log.i(TAG, "Called didFoundBeacon");
-    if(beacon.getProximityUUID().equals(java.util.UUID.fromString(this.pathProgress.getPath().steps.get(index).stopBeacon.UUID))&& beacon.getMajor() == this.pathProgress.getPath().steps.get(index).stopBeacon.major
-            && beacon.getMinor() == this.pathProgress.getPath().steps.get(index).stopBeacon.minor){
-      this.delegate.didReachProof(this.pathProgress.getPath().steps.get(index).proof);
-        index++;
-    }
-    else{
-      //Proximity proximity = this.pathProgress.getPath().searchProximity(beacon);
-      //if(proximity != null)
-        //this.delegate.didRangeProximity(proximity);
-    }
+          if (beacon.getProximityUUID().equals(java.util.UUID.fromString(this.pathProgress.getPath().steps.get(index).stopBeacon.UUID)) && beacon.getMajor() == this.pathProgress.getPath().steps.get(index).stopBeacon.major
+                  && beacon.getMinor() == this.pathProgress.getPath().steps.get(index).stopBeacon.minor) {
+              this.delegate.didReachProof(this.pathProgress.getPath().steps.get(index).proof);
+              index++;
+          } else {
+              //Proximity proximity = this.pathProgress.getPath().searchProximity(beacon);
+              //if(proximity != null)
+              //this.delegate.didRangeProximity(proximity);
+          }
   }
-
 
     public void didMoveFromBeacon(RawBeacon beacon){
   }
