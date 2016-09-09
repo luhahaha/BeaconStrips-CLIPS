@@ -18,8 +18,8 @@ public class Proof implements Serializable{
    public final String title;
    public final LinearScoringAlgorithm scoringAlgorithm;
    public final Test test;
-   public final JSONObject algorithmJSON;
-   public final JSONObject testJSON;
+   public final transient JSONObject algorithmJSON;
+   public final transient JSONObject testJSON;
 
    public Proof(int id, String title, String instructions, JSONObject algorithmData, JSONObject testData) { //da verificare se poi viene effettivamente usato un JSONObject
       this.id = id;
