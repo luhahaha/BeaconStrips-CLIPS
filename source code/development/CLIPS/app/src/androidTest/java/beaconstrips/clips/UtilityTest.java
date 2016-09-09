@@ -52,9 +52,14 @@ public class UtilityTest {
       building3 = new Building("Edificio 3", "Edificio numero 3", "Terzo edificio", "Alle 3.00", "Via Tre, 3", 46, 10, "3333333333", "Tre@tre.tre", "TreWA", "TreT", "TreTwitter", "TreFB", "www.tre.com", pathinfos),
       building4 = new Building("Edificio 4", "Edificio numero 4", "Quarto edificio", "Alle 4.00", "Via Quattro, 4", 45, 11, "4444444444", "Quattro@quattro.quattro", "QuattroWA", "QauttroT", "QuattroTwitter", "QuattroFB", "www.quattro.com", pathinfos);
       Building[] buildingArray = new Building[5];
-      buildingArray[0] = building1;
-      buildingArray[1] = building2;
-      buildingArray = Utility.addNearestBuilding(building3, buildingArray, 45, 10);
+      Building[] buildings = new Building[4];
+      buildings[0] = building1;
+      buildings[1] = building2;
+      buildings[2] = building3;
+      buildings[3] = building4;
+      for(int i=0; i<buildings.length; ++i){
+         buildingArray = Utility.addNearestBuilding(buildings[i], buildingArray, 45, 10);
+      }
       Log.d("UtilityTest", "Stampa di addNearestBuilding():");
       for(int i=0; i<buildingArray.length; i++) {
          Log.d("UtilityTest", "   " + buildingArray[i].name);

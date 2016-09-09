@@ -69,10 +69,15 @@ public class Utility {
       buildingPosition.setLongitude(b.longitude);
 
       float distance = userPosition.distanceTo(buildingPosition);
-
+      boolean inserted = false;
       for(int i=0; i<buildings.length; ++i){
-         if(buildings[i] != null && distance <= distanceToBuilding(userPosition, buildings[i])){
+         if(buildings[i]==null && !inserted){
             buildings = insertBuilding(buildings, b, i);
+            break;
+         }
+         else if(!inserted && buildings[i] != null && distance <= distanceToBuilding(userPosition, buildings[i])){
+            buildings = insertBuilding(buildings, b, i);
+            inserted = true;
             ++i;
          }
       }
