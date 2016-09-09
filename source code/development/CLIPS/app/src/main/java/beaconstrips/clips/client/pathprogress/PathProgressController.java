@@ -37,7 +37,8 @@ public class PathProgressController implements BeaconDiscoverDelegate, Serializa
 
   public boolean savedResult(GregorianCalendar startTime, GregorianCalendar finishTime, int correct, int total){
 
-      ProofResult result= new ProofResult(pathProgress.getPath().steps.get(index-1).proof.id,startTime,finishTime,pathProgress.getPath().steps.get(index-1).proof.scoringAlgorithm.getScore(this.getDuration(startTime,finishTime),correct,total));
+      ProofResult result= new ProofResult(this.pathProgress.getPath().steps.get(index).proof.id,startTime,finishTime,this.pathProgress.getPath().steps.get(index-1).proof.scoringAlgorithm.getScore(this.getDuration(startTime,finishTime),correct,total));
+      index++;
     this.pathProgress.addProofResult(result);
       if(index!=this.pathProgress.getPath().steps.size()) {
           return true;
@@ -51,7 +52,6 @@ public class PathProgressController implements BeaconDiscoverDelegate, Serializa
           if (beacon.getProximityUUID().equals(java.util.UUID.fromString(this.pathProgress.getPath().steps.get(index).stopBeacon.UUID)) && beacon.getMajor() == this.pathProgress.getPath().steps.get(index).stopBeacon.major
                   && beacon.getMinor() == this.pathProgress.getPath().steps.get(index).stopBeacon.minor) {
               this.delegate.didReachProof(this.pathProgress.getPath().steps.get(index).proof);
-              index++;
           } else {
               Proximity proximity = this.pathProgress.getPath().searchProximity(beacon,index);
               if(proximity != null)
