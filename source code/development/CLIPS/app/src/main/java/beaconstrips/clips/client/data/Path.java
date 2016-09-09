@@ -1,5 +1,7 @@
 package beaconstrips.clips.client.data;
 
+import com.kontakt.sdk.android.common.profile.IBeaconDevice;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -30,13 +32,12 @@ public class Path implements Serializable {
       return a.UUID == b.UUID && a.major == b.major && a.minor == b.minor;
    }
 
-   public Proximity searchProximity(RawBeacon rawBeacon){
-      for(int i=0; i < steps.size(); i++){
-         for (int j = 0; j < steps.get(i).proximities.size(); j++){
-            if(equal(steps.get(i).proximities.get(j).beacon,rawBeacon))
-               return steps.get(i).proximities.get(j);
+   public Proximity searchProximity(IBeaconDevice beacon,int index){
+       for (int j = 0; j < steps.get(index).proximities.size(); j++){
+           if(beacon.getProximityUUID().equals(java.util.UUID.fromString(steps.get(index).proximities.get(j).beacon.UUID)) && beacon.getMajor() == steps.get(index).proximities.get(j).beacon.major
+                   && beacon.getMinor() == steps.get(index).proximities.get(j).beacon.minor)
+               return steps.get(index).proximities.get(j);
          }
-      }
       return null;
    }
 }

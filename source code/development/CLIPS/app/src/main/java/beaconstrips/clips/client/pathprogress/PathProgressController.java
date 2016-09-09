@@ -10,6 +10,7 @@ import java.util.GregorianCalendar;
 import beaconstrips.clips.client.data.Path;
 import beaconstrips.clips.client.data.PathProgress;
 import beaconstrips.clips.client.data.ProofResult;
+import beaconstrips.clips.client.data.Proximity;
 
 /**
  * @file PathProgressController.java
@@ -49,9 +50,9 @@ public class PathProgressController implements BeaconDiscoverDelegate, Serializa
               this.delegate.didReachProof(this.pathProgress.getPath().steps.get(index).proof);
               index++;
           } else {
-              //Proximity proximity = this.pathProgress.getPath().searchProximity(beacon);
-              //if(proximity != null)
-              //this.delegate.didRangeProximity(proximity);
+              Proximity proximity = this.pathProgress.getPath().searchProximity(beacon,index);
+              if(proximity != null)
+              this.delegate.didRangeProximity(proximity.percentage,proximity.textToDisplay);
           }
   }
 

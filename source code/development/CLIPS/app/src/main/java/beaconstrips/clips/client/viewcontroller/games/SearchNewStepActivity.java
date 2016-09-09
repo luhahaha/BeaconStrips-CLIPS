@@ -9,7 +9,6 @@
 package beaconstrips.clips.client.viewcontroller.games;
 
 import android.content.Intent;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,7 +22,6 @@ import com.kontakt.sdk.android.ble.connection.OnServiceReadyListener;
 import com.kontakt.sdk.android.ble.device.BeaconRegion;
 import com.kontakt.sdk.android.ble.filter.ibeacon.IBeaconFilters;
 import com.kontakt.sdk.android.ble.manager.ProximityManager;
-import com.kontakt.sdk.android.ble.manager.ProximityManagerContract;
 import com.kontakt.sdk.android.ble.manager.listeners.IBeaconListener;
 import com.kontakt.sdk.android.ble.manager.listeners.ScanStatusListener;
 import com.kontakt.sdk.android.ble.manager.listeners.simple.SimpleIBeaconListener;
@@ -41,17 +39,11 @@ import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.GameCollection;
 import beaconstrips.clips.client.data.MultipleChoiceTest;
 import beaconstrips.clips.client.data.Proof;
-import beaconstrips.clips.client.data.Proximity;
 import beaconstrips.clips.client.data.Step;
 import beaconstrips.clips.client.data.Test;
 import beaconstrips.clips.client.data.TrueFalseTest;
-
-
-import beaconstrips.clips.client.pathprogress.BeaconDiscoverDelegate;
 import beaconstrips.clips.client.pathprogress.PathProgressController;
 import beaconstrips.clips.client.pathprogress.PathProgressControllerDelegate;
-import beaconstrips.clips.client.pathprogress.ProximityManagerPath;
-import beaconstrips.clips.client.pathprogress.RawBeacon;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
 public class SearchNewStepActivity extends MenuActivity implements PathProgressControllerDelegate {
@@ -297,10 +289,10 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
 
    }
 
-   @Override
-   public void didRangeProximity(Proximity proximity) {
+    @Override
+    public void didRangeProximity(double percentage, String textToDisplay) {
 
-   }
+    }
 
     @Override
     public void pathEnded(double totalScore) {

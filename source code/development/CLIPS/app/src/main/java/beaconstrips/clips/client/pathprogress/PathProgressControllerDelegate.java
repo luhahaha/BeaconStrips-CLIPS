@@ -3,7 +3,6 @@ package beaconstrips.clips.client.pathprogress;
 import java.io.Serializable;
 
 import beaconstrips.clips.client.data.Proof;
-import beaconstrips.clips.client.data.Proximity;
 
 /**
  * @file PathProgressControllerDelegate.java
@@ -16,6 +15,6 @@ import beaconstrips.clips.client.data.Proximity;
 
 public interface PathProgressControllerDelegate extends Serializable{
    void didReachProof(Proof proof);
-   void didRangeProximity(Proximity proximity);
+   void didRangeProximity(double percentage,String textToDisplay);
     void pathEnded(double totalScore);
 }
