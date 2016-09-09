@@ -1019,10 +1019,10 @@ public class DBHandler extends SQLiteOpenHelper {
 
       if(buildings.size() > 0){
          if(searchByDistance){
-            ret = Utility.getBuildingsByDistance();
+            ret = Utility.getBuildingsByDistance(buildings, param, userLatitude, userLongitude);
          }
          else{
-            ret = Utility.getBuildingsByNumber();
+            ret = Utility.getBuildingsByNumber(buildings, (int)param, userLatitude, userLongitude);
          }
       }
 

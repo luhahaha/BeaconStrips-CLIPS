@@ -61,29 +61,29 @@ public class Utility {
       return buildings;
    }
 
-   public static Building[] getBuildingsByNumber(Building[] buildings, int maxBuildings, double userLatitude, double userLongitude){
+   public static Building[] getBuildingsByNumber(ArrayList<Building> buildings, int maxBuildings, double userLatitude, double userLongitude){
       Location userPosition = new Location("");
       userPosition.setLatitude(userLatitude);
       userPosition.setLongitude(userLongitude);
 
       ArrayList<Building> ret = new ArrayList<Building>();
 
-      for(int i=0; i<buildings.length; ++i)
+      for(int i=0; i<buildings.size(); ++i)
       {
          Location buildingPosition = new Location("");
-         buildingPosition.setLatitude(buildings[i].latitude);
-         buildingPosition.setLongitude(buildings[i].longitude);
+         buildingPosition.setLatitude(buildings.get(i).latitude);
+         buildingPosition.setLongitude(buildings.get(i).longitude);
 
          float distance = userPosition.distanceTo(buildingPosition);
          boolean inserted = false;
 
          for(int j=0; j<ret.size(); ++j){
             if(ret.get(j) ==null && !inserted){
-               ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings[i], j)));
+               ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings.get(i), j)));
                break;
             }
             else if(!inserted && ret.get(j) != null && distance <= distanceToBuilding(userPosition, ret.get(j))){
-               ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings[i], j)));
+               ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings.get(i), j)));
                inserted = true;
                ++i;
             }
@@ -97,29 +97,29 @@ public class Utility {
       return ret.toArray(new Building[ret.size()]);
    }
 
-   public static Building[] getBuildingsByDistance(Building[] buildings, float maxDistance, double userLatitude, double userLongitude) {
+   public static Building[] getBuildingsByDistance(ArrayList<Building> buildings, float maxDistance, double userLatitude, double userLongitude) {
       Location userPosition = new Location("");
       userPosition.setLatitude(userLatitude);
       userPosition.setLongitude(userLongitude);
 
       ArrayList<Building> ret = new ArrayList<Building>();
 
-      for(int i=0; i<buildings.length; ++i)
+      for(int i=0; i<buildings.size(); ++i)
       {
          Location buildingPosition = new Location("");
-         buildingPosition.setLatitude(buildings[i].latitude);
-         buildingPosition.setLongitude(buildings[i].longitude);
+         buildingPosition.setLatitude(buildings.get(i).latitude);
+         buildingPosition.setLongitude(buildings.get(i).longitude);
 
          float distance = userPosition.distanceTo(buildingPosition);
          boolean inserted = false;
 
          for(int j=0; j<ret.size(); ++j){
             if(ret.get(j) ==null && !inserted){
-               ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings[i], j)));
+               ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings.get(i), j)));
                break;
             }
             else if(!inserted && ret.get(j) != null && distance <= (maxDistance*1000)){
-               ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings[i], j)));
+               ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings.get(i), j)));
                inserted = true;
                ++i;
             }
