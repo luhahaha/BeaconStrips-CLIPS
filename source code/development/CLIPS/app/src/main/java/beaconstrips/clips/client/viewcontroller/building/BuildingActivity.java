@@ -41,6 +41,13 @@ public class BuildingActivity extends AppCompatActivity {
 
    private ListView pathsResult;
    private TextView name;
+   private TextView description;
+   private TextView otherInfo;
+   private TextView address;
+   private TextView telephone;
+   private TextView email;
+   private TextView website;
+   private TextView openingTime;
    private ArrayList<PathInfo> paths;
 
    @Override
@@ -54,6 +61,14 @@ public class BuildingActivity extends AppCompatActivity {
       final double longitude = i.getDoubleExtra("longitude", 11);
       name = (TextView) findViewById(R.id.buildingName);
       name.setText(valueName);
+      address = (TextView) findViewById(R.id.buildingAddress);
+      telephone = (TextView) findViewById(R.id.buildingTelephone);
+      description = (TextView) findViewById(R.id.description);
+      otherInfo = (TextView) findViewById(R.id.otherInfo);
+      email = (TextView) findViewById(R.id.buildingEmail);
+      website = (TextView) findViewById(R.id.buildingSite);
+      openingTime = (TextView) findViewById(R.id.buildingOpeningTime);
+
       pathsResult = (ListView) findViewById(R.id.pathsResult);
       setButtons();
       setItems();
@@ -69,6 +84,13 @@ public class BuildingActivity extends AppCompatActivity {
             //TODO check se non trovato
             for (int i = 0; !found && i < response.length; ++i) {
                Log.i("Edifici", "" + response[i].name);
+               address.setText(response[i].address);
+               telephone.setText(response[i].telephone);
+               description.setText(response[i].description);
+               otherInfo.setText(response[i].otherInfos);
+               email.setText(response[i].email);
+               website.setText(response[i].websiteURL);
+               openingTime.setText(response[i].openingTime);
                if (response[i].name.equals(valueName)) {
                   loadPaths = response[i];
                   found = true;
