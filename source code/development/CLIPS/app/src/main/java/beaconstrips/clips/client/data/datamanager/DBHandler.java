@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -93,8 +94,7 @@ public class DBHandler extends SQLiteOpenHelper {
       String CREATE_PROOF_TABLE = "CREATE  TABLE  IF NOT EXISTS" +
               " Proof (id INTEGER PRIMARY KEY  NOT NULL  UNIQUE ," +
               " stepID INTEGER NOT NULL UNIQUE, title VARCHAR NOT NULL , instructions TEXT NOT NULL , scoringAlgorithmData TEXT NOT NULL , " +
-              " testType INTEGER, testData TEXT NOT NULL , testTitle VARCHAR," +
-              " testInstructions TEXT)";
+              " testData TEXT NOT NULL)";
 
       db.execSQL(CREATE_PROOF_TABLE);
    }
@@ -110,16 +110,16 @@ public class DBHandler extends SQLiteOpenHelper {
 
    private void createPathResultTable(SQLiteDatabase db){
       String CREATE_PATHRESULT_TABLE = "CREATE  TABLE  IF NOT EXISTS" +
-              " PathResult (pathID INTEGER UNIQUE NOT NULL , startTime DATETIME NOT NULL ," +
-              " endTime DATETIME NOT NULL, FOREIGN KEY(pathID) REFERENCES Path(id))";
+              " PathResult (pathID INTEGER UNIQUE NOT NULL , startTime TEXT NOT NULL ," +
+              " endTime TEXT NOT NULL, FOREIGN KEY(pathID) REFERENCES Path(id))";
 
       db.execSQL(CREATE_PATHRESULT_TABLE);
    }
 
    private void createProofResultTable(SQLiteDatabase db){
       String CREATE_PROOFRESULT_TABLE = "CREATE TABLE IF NOT EXISTS" +
-              " ProofResult (proofID INTEGER NOT NULL , pathResultID INTEGER NOT NULL , startTime DATETIME NOT NULL ," +
-              " endTime DATETIME NOT NULL, score INTEGER NOT NULL, FOREIGN KEY(proofID) REFERENCES Proof(id)," +
+              " ProofResult (proofID INTEGER NOT NULL , pathResultID INTEGER NOT NULL , startTime TEXT NOT NULL ," +
+              " endTime TEXT NOT NULL, score INTEGER NOT NULL, FOREIGN KEY(proofID) REFERENCES Proof(id)," +
               " FOREIGN KEY(pathResultID) REFERENCES PathResult(pathID),UNIQUE(proofID, pathResultID) )";
 
       db.execSQL(CREATE_PROOFRESULT_TABLE);
@@ -306,11 +306,8 @@ public class DBHandler extends SQLiteOpenHelper {
       values.put("stepID", stepID);
       values.put("title", p. title);
       values.put("instructions", p.instructions);
-      values.put("scoringAlgorithmData", p.scoringAlgorithm.toString());
-      values.put("testType", 0);
-      values.put("testData", "{\"testData\" : \"testData\"}");
-      values.put("testTitle", "testTitle");
-      values.put("testInstructions", "testInstructions");
+      values.put("scoringAlgorithmData", p.algorithmJSON.toString());
+      values.put("testData", p.testJSON.toString());
 
       db.insert("Proof", null, values);
       db.close();
@@ -326,13 +323,13 @@ public class DBHandler extends SQLiteOpenHelper {
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
-      /*
+
       SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'", Locale.ITALIAN);
       dateFormat.format(pr.startTime.getTime());
-      */
+
       values.put("pathID", pr.pathID);
-      values.put("startTime", pr.startTime.toString());
-      values.put("endTime", pr.endTime.toString());
+      values.put("startTime", dateFormat.toString());
+      values.put("endTime", dateFormat.toString());
 
       db.insert("PathResult", null, values);
       db.close();
@@ -619,14 +616,14 @@ public class DBHandler extends SQLiteOpenHelper {
             algorithmData = new JSONObject(cursor.getString(4));
          }
          catch(JSONException e){
-            //TODO catch conversione string to JSONObject - algorithmData
+            Log.d("DBHandler", "Errore conversione JSONObject - algorithmData");
          }
          JSONObject testData = new JSONObject();
          try {
             testData = new JSONObject(cursor.getString(5));
          }
          catch(JSONException e){
-            //TODO catch conversione string to JSONObject - testData
+            Log.d("DBHandler", "Errore conversione JSONObject - testData");
          }
 
          ret = new Proof(id, title, instructions, algorithmData, testData);
@@ -648,8 +645,8 @@ public class DBHandler extends SQLiteOpenHelper {
          JSONObject algorithmData = new JSONObject();
          JSONObject testData = new JSONObject();
          try{
-            algorithmData = new JSONObject(cursor.getString(3));
-            testData = new JSONObject(cursor.getString(4));
+            algorithmData = new JSONObject(cursor.getString(4));
+            testData = new JSONObject(cursor.getString(5));
          }
          catch (JSONException e) {
             Log.d("DBHandlerLog", "Errore conversione String to JSONObject");
