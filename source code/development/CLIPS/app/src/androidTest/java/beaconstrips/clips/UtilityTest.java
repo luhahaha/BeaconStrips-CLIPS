@@ -47,7 +47,7 @@ public class UtilityTest {
       ArrayList<PathInfo> pathinfos = new ArrayList<>();
       pathinfos.add(new PathInfo(1, "Percorso 1", "Primo percorso", "Solo per i primi", "1 ora", 1));
       pathinfos.add(new PathInfo(2, "Percorso 2", "Secondo percorso", "Solo per i secondi", "2 ore", 2));
-      Building[] buildingsByDistance = getNearestBuildings(5, true, 45.0, 10.0, pathinfos);
+      Building[] buildingsByDistance = getNearestBuildings(12, true, 45.0, 10.0, pathinfos);
       Building[] buildingsByNumber = getNearestBuildings(5, false, 45.0, 10.0, pathinfos);
 
       Log.d("UtilityTest", "Stampa di getBuildingsByDistance():");
