@@ -126,7 +126,7 @@
 						\begin{tabella}{!{\VRule}l!{\VRule}c!{\VRule}c!{\VRule}}
 						\intestazionethreecol{Attività}{Schedule Variance}{Budget Variance}
 						\ARdoc & \euro\ +10 & \euro\ +10 \\
-						\DPdoc & \euro\ -20 & \euro\ -25 \\
+						\DPdoc & \euro\ +15 & \euro\ +20 \\
 						\Gldoc & \euro\ +5 & \euro\ +10 \\
 						\MUdoc & \euro\ +20 & \euro\ +15 \\
 						\NPdoc & \euro\ -5 & \euro\ 0 \\
@@ -160,22 +160,106 @@
 						\hiderowcolors
 						\caption{Esiti verifica documenti - Periodo di Progettazione di Dettaglio e Codifica}
 					\end{tabella}
-				\subsubsection{Soddisfacimento metriche}
-				\label{codicePDC}
-					\paragraph{Grado d'instabilità}
-						Viene riportata di seguito una tabella riassuntiva che espone gli indici di instabilità per i componenti rilevati durante la progettazione.
-						\input{pqDesignInstability}
-					\paragraph{Classi}
-						Vengono riportate di seguito le tabelle riassuntive che espongono gli esiti delle metriche sulle classi di client e server.\\
-						\input{Numero_attributi}
-						\suparagraph{Metodi}
-						Vengono riportate di seguito le tabelle riassuntive che espongono gli esiti delle metriche sui metodi di classe.\\
-						Per motivi di spazio le colonne sono state rinominate nel seguente modo:
-						\begin{itemize}
-							\item \textbf{LC}: linee di codice;
-							\item \textbf{LA}: livello di annidamento;
-							\item \textbf{CI}: numero di chiamate innestate di metodi;
-							\item \textbf{NP}: numero di parametri;
-							\item \textbf{CC}: complessità ciclomatica.
-						\end{itemize}
+		\subsection{Periodo di Codifica dei Requisiti Desiderabili e Opzionali}
+			\label{periodoDiCodificaDeiRequisitiDesiderabiliEOpzionali}
+				\subsubsection{Processi}
+				\label{processiPCRDO}
+					Sono riportati ora i valori di Schedule Variance e Budget Variance per le attività del Periodo di Codifica dei Requisiti Desiderabili e Opzionali.
+					\begin{tabella}{!{\VRule}l!{\VRule}c!{\VRule}c!{\VRule}}
+						\intestazionethreecol{Attività}{Schedule Variance}{Budget Variance}
+						\ARdoc & \euro\ +10 & \euro\ +10 \\
+						\DPdoc & \euro\ 0 & \euro\ 0 \\
+						\Gldoc & \euro\ 0 & \euro\ 0 \\
+						\MUdoc & \euro\ +5 & \euro\ +10 \\
+						\NPdoc & \euro\ +10 & \euro\ 0 \\
+						\PPdoc & \euro\ +10 & \euro\ +5 \\
+						\PQdoc & \euro\ +5 & \euro\ +5 \\
+						\STdoc & \euro\ +10 & \euro\ +5 \\
+						
+						\hiderowcolors
+						\caption{Esiti verifica sui processi - Periodo di Codifica dei Requisiti Desiderabili e Opzionali}
+					\end{tabella}
+					In totale sono stati registrati:
+					\begin{itemize}
+						\item \textbf{Schedule Variance:}\ \euro\ +50;
+						\item \textbf{Budget Variance:}\ \euro\ +35.
+					\end{itemize}
+					Dai valori ottenuti si nota subito che le attività sono state concluse leggermente in anticipo rispetto alle previsioni, e con una quantità di lavoro un pochino minore di quella prevista. I valori di Schedule Variance e di Budget Variance sono risultati quindi positivi. Questo risultato è da cercarsi nel fatto che l'uscita dell'esito della Revisione di Qualifica era previsto all'incirca per la fine del periodo, come è avvenuto di fatto; di conseguenza non sono state previste molte ore di attività per i documenti, oltre a quelle necessarie per mantenerli aggiornati. 
+				\subsubsection{Documenti}
+				\label{documentiPCRDO}
+					Sono riportati qui i valori dell'indice Gulpease per ogni documento presente durante l'attività di analisi nel Periodo di Codifica dei Requisiti Desiderabili e Opzionali. Un documento è considerato valido soltanto se rispetta le metriche descritte secondo la sezione \hyperref[indiceGulpease]{Indice Gulpease}.
+					\begin{tabella}{!{\VRule}l!{\VRule}c!{\VRule}c!{\VRule}}
+						\intestazionethreecol{Documento}{Valore}{Esito}
+						\ARdoc & 79 & Superato\\
+						\DPdoc & 78 & Superato\\
+						\Gldoc & 48 & Superato\\
+						\MUdoc & 49 & Superato\\
+						\NPdoc & 70 & Superato\\
+						\PPdoc & 50 & Superato\\
+						\PQdoc & 48 & Superato\\
+						\STdoc & 87 & Superato\\
+						
+						\hiderowcolors
+						\caption{Esiti verifica documenti - Periodo di Codifica dei Requisiti Desiderabili e Opzionali}
+					\end{tabella}
+		\subsection{Periodo di Validazione e Collaudo}
+			\label{periodoDiValidazioneECollaudo}
+				\subsubsection{Processi}
+				\label{processiPVC}
+					Sono riportati ora i valori di Schedule Variance e Budget Variance per le attività del Periodo di Validazione e Collaudo.
+						\begin{tabella}{!{\VRule}l!{\VRule}c!{\VRule}c!{\VRule}}
+						\intestazionethreecol{Attività}{Schedule Variance}{Budget Variance}
+						\ARdoc & \euro\ +5 & \euro\ +5 \\
+						\DPdoc & \euro\ -30 & \euro\ -35 \\
+						\Gldoc & \euro\ +5 & \euro\ +5 \\
+						\MUdoc & \euro\ -10 & \euro\ -10 \\
+						\NPdoc & \euro\ +5 & \euro\ +10 \\
+						\PPdoc & \euro\ +10 & \euro\ +15 \\
+						\PQdoc & \euro\ +10 & \euro\ +5 \\
+						\STdoc & \euro\ -5 & \euro\ -10 \\
+						
+						\hiderowcolors
+						\caption{Esiti verifica sui processi - Periodo di Validazione e Collaudo}
+					\end{tabella}
+					In totale sono stati registrati:
+					\begin{itemize}
+						\item \textbf{Schedule Variance:}\ \euro\ -10;
+						\item \textbf{Budget Variance:}\ \euro\ -15.
+					\end{itemize}
+					Dai valori ottenuti si nota subito che le attività sono state concluse in leggero ritardo rispetto alle previsioni, e con una quantità di lavoro un po' maggiore di quella prevista. I valori di Schedule Variance e di Budget Variance sono risultati quindi negativi, ma comunque minori del limite ottimale di \euro\ -60. Questo risultato è da cercarsi nel maggior numero di correzioni richieste dall'esito della Revisione di Qualifica rispetto a quelle previste, che di conseguenza hanno richiesto un maggior carico di lavoro, in particolare per quanto riguarda la \gl{DPdoc}. 
+				\subsubsection{Documenti}
+				\label{documentiPVC}
+					Sono riportati qui i valori dell'indice Gulpease per ogni documento presente durante l'attività di analisi nel Periodo di Validazione e Collaudo. Un documento è considerato valido soltanto se rispetta le metriche descritte secondo la sezione \hyperref[indiceGulpease]{Indice Gulpease}.
+					\begin{tabella}{!{\VRule}l!{\VRule}c!{\VRule}c!{\VRule}}
+						\intestazionethreecol{Documento}{Valore}{Esito}
+						\ARdoc &  & Superato\\ %TODO
+						\DPdoc &  & Superato\\
+						\Gldoc &  & Superato\\
+						\MUdoc &  & Superato\\
+						\NPdoc &  & Superato\\
+						\PPdoc &  & Superato\\
+						\PQdoc &  & Superato\\
+						\STdoc &  & Superato\\
+						
+						\hiderowcolors
+						\caption{Esiti verifica documenti - Periodo di Validazione e Collaudo}
+					\end{tabella}
+		\subsection{Soddisfacimento metriche}
+			\label{codice}
+				\paragraph{Grado d'instabilità}
+					Viene riportata di seguito una tabella riassuntiva che espone gli indici di instabilità per i componenti rilevati durante la progettazione.
+					\input{pqDesignInstability}
+				\paragraph{Classi}
+					Vengono riportate di seguito le tabelle riassuntive che espongono gli esiti delle metriche sulle classi di client e server.\\
+					\input{Numero_attributi}
+					\suparagraph{Metodi}
+					Vengono riportate di seguito le tabelle riassuntive che espongono gli esiti delle metriche sui metodi di classe.\\
+					Per motivi di spazio le colonne sono state rinominate nel seguente modo:
+					\begin{itemize}
+						\item \textbf{LC}: linee di codice;
+						\item \textbf{LA}: livello di annidamento;
+						\item \textbf{CI}: numero di chiamate innestate di metodi;
+						\item \textbf{NP}: numero di parametri;
+						\item \textbf{CC}: complessità ciclomatica.
+					\end{itemize}
 					\input{metriche_metodi}
