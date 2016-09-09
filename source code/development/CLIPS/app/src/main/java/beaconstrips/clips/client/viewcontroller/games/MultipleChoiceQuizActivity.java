@@ -20,6 +20,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import beaconstrips.clips.R;
@@ -35,6 +36,7 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
    private final String TAG = "MultipleChoiceQuizAct";
    private MultipleChoiceTextQuiz answers;
    private Intent intent;
+   GregorianCalendar startTime;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,8 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
 
 
       setQuiz();
+
+      startTime = new GregorianCalendar();
 
    }
 
@@ -80,6 +84,7 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
             correctAnswer.setOnClickListener(new View.OnClickListener() {
                public void onClick(View v) {
                   intent.setClass(getApplicationContext(), ProofResultActivity.class);
+                  intent.putExtra("startTime", startTime);
                   startActivity(intent);
                }
             });

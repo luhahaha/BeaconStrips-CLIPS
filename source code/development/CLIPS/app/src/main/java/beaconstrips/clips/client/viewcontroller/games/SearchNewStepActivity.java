@@ -251,6 +251,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       proximityManager.stopScanning(); //evita di crashare se continua lo scan; il problema è in PathProgressController
       startTestButton.setVisibility(View.VISIBLE);
       showToast("Hai trovato un beacon");
+      i.putExtra("proof", proof);
       if (startTestButton != null) {
          startTestButton.setVisibility(View.VISIBLE);
          startTestButton.setOnClickListener(new View.OnClickListener() {
@@ -274,7 +275,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
 
                //TODO change all this stuff
                Bundle bundle = new Bundle();
-               bundle.putSerializable("steps", (Serializable) steps);
+               bundle.putSerializable("pathProgress", pathProgress);
                i.putExtras(bundle);
                i.putExtra("test", test);
                i.putExtra("stepIndex", stepIndex);
