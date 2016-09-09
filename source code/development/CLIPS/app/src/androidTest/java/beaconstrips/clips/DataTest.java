@@ -1,8 +1,11 @@
 package beaconstrips.clips;
 
+import android.os.Parcel;
 import android.support.test.filters.SmallTest;
 import android.support.test.runner.AndroidJUnit4;
 import android.util.Log;
+
+import com.kontakt.sdk.android.common.profile.IBeaconDevice;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,15 +51,6 @@ import beaconstrips.clips.client.pathprogress.RawBeacon;
  *                                         "Beacon con UUID diverso: false"
  *                                         "Beacon con major diverso: false"
  *                                         "Beacon con minor diverso: false"
- *                                         "Proximity di un beacon esatto:"
- *                                         "   Beacon:"
- *                                         "      ID del beacon: 3"
- *                                         "      UUID del beacon: 22abe428c83492abc2394cdd38abcb27"
- *                                         "      Major del beacon: 23"
- *                                         "      Minor del beacon: 11"
- *                                         "   Percentuale: 66.0"
- *                                         "   Testo da mostrare: Sei a due terzi"
- *                                         "Proximity di un beacon errato: null"
  * Stampa attesa per il test "proofResultTest()": "Stampa di getDuration(): 02:35:35.000"
  * Stampa attesa per il test "linearScoringAlgorithmTest()": "Stampa di getScore() standard: 24.0"
  *                                                           "Stampa di getScore() con il risultato a metà esatta: 20.0"
@@ -137,16 +131,6 @@ public class DataTest {
          Log.d("DataTest", "Beacon con UUID diverso: " + path.equal(beacon, constructor.newInstance(19, 24, "22abe428c83492abc2394cdd38abcb37")));
          Log.d("DataTest", "Beacon con major diverso: " + path.equal(beacon, constructor.newInstance(19, 25, "22abe428c83492abc2394cdd38abcb27")));
          Log.d("DataTest", "Beacon con minor diverso: " + path.equal(beacon, constructor.newInstance(18, 24, "22abe428c83492abc2394cdd38abcb27")));
-         Proximity proximity = path.searchProximity(constructor.newInstance(11, 23, "22abe428c83492abc2394cdd38abcb27"));
-         Log.d("DataTest", "Proximity di un beacon esatto:");
-         Log.d("DataTest", "   Beacon: ");
-         Log.d("DataTest", "      ID del beacon: " + proximity.beacon.id);
-         Log.d("DataTest", "      UUID del beacon: " + proximity.beacon.UUID);
-         Log.d("DataTest", "      Major del beacon: " + proximity.beacon.major);
-         Log.d("DataTest", "      Minor del beacon: " + proximity.beacon.minor);
-         Log.d("DataTest", "   Percentuale: " + proximity.percentage);
-         Log.d("DataTest", "   Testo da mostrare: " + proximity.textToDisplay);
-         Log.d("DataTest", "Proximity di un beacon errato: " + path.searchProximity(constructor.newInstance(18, 24, "22abe428c83492abc2394cdd38abcb27")));
       } catch(NoSuchMethodException e) {
          Log.d("DataTest", "Test fallito");
       } catch(IllegalAccessException e) {
