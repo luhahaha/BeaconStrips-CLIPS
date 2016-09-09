@@ -301,4 +301,9 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
    public void didRangeProximity(Proximity proximity) {
 
    }
+
+    @Override
+    public void pathEnded(double totalScore) {
+        
+    }
 }
