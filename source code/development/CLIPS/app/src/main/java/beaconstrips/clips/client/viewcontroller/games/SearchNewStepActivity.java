@@ -184,7 +184,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       return new SimpleIBeaconListener() {
          @Override
          public void onIBeaconDiscovered(IBeaconDevice ibeacon, IBeaconRegion region) {
-            Log.i(TAG, "Searching");
+            Log.i(TAG, "Searching " + ibeacon.getMajor());
            /*
             Step step = steps.get(stepIndex);
             if (ibeacon.getProximityUUID().equals(java.util.UUID.fromString(step.stopBeacon.UUID))
@@ -256,7 +256,9 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
 
    @Override
    public void didReachProof(Proof proof) {
+      startTestButton.setVisibility(View.VISIBLE);
       showToast("Hai trovato un beacon");
+
    }
 
    @Override

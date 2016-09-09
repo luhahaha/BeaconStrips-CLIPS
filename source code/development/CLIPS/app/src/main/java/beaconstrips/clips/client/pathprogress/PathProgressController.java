@@ -1,5 +1,7 @@
 package beaconstrips.clips.client.pathprogress;
 
+import android.util.Log;
+
 import com.kontakt.sdk.android.common.profile.IBeaconDevice;
 
 import java.io.Serializable;
@@ -22,6 +24,7 @@ public class PathProgressController implements BeaconDiscoverDelegate, Serializa
   private int index;
   public PathProgressControllerDelegate delegate;
   public PathProgress pathProgress;
+  private String TAG ="PathProgressController";
 
     public void setDelegate(PathProgressControllerDelegate delegate){
         this.delegate=delegate;
@@ -37,7 +40,8 @@ public class PathProgressController implements BeaconDiscoverDelegate, Serializa
 
 
   public void didFoundBeacon(IBeaconDevice beacon){
-    if(beacon.getProximityUUID().equals(this.pathProgress.getPath().steps.get(index).stopBeacon.UUID)&& beacon.getMajor() == this.pathProgress.getPath().steps.get(index).stopBeacon.major
+    Log.i(TAG, "Called didFoundBeacon");
+    if(beacon.getProximityUUID().equals(java.util.UUID.fromString(this.pathProgress.getPath().steps.get(index).stopBeacon.UUID))&& beacon.getMajor() == this.pathProgress.getPath().steps.get(index).stopBeacon.major
             && beacon.getMinor() == this.pathProgress.getPath().steps.get(index).stopBeacon.minor){
       this.delegate.didReachProof(this.pathProgress.getPath().steps.get(index).proof);
         index++;
