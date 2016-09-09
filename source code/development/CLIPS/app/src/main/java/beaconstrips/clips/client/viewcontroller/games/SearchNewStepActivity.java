@@ -67,6 +67,8 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       startTestButton.setVisibility(View.INVISIBLE);
 
       i = getIntent();
+      Log.i(TAG, i.toString());
+
       Bundle bundle = i.getExtras();
 
       pathProgress = (PathProgressController) bundle.getSerializable("pathProgress");
@@ -275,8 +277,8 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
 
                //TODO change all this stuff
                Bundle bundle = new Bundle();
-               bundle.putSerializable("pathProgress", pathProgress);
-               i.putExtras(bundle);
+               //bundle.putSerializable("pathProgress", pathProgress);
+               //i.putExtras(bundle);
                i.putExtra("test", test);
                i.putExtra("stepIndex", stepIndex);
                if (i != null) {

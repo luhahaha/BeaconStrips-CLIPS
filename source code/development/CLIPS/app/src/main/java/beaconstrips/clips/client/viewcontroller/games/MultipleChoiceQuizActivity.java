@@ -44,6 +44,8 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
       setContentView(R.layout.activity_multiple_choice_quiz);
       //TODO insert from here choices with correct answer with list?
       intent = getIntent();
+      Log.i(TAG, intent.toString());
+
       MultipleChoiceTest test = (MultipleChoiceTest) intent.getSerializableExtra("test");
       answers = test.questions.get(0);
 

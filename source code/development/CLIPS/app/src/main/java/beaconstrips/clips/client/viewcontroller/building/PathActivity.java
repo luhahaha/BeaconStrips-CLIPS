@@ -108,6 +108,7 @@ public class PathActivity extends MenuActivity {
             @Override
             public void onClick(View v) {
                //proximityManager.startScanning();
+               Log.i(TAG, searchStep.toString());
                startActivity(searchStep);
             }
          });

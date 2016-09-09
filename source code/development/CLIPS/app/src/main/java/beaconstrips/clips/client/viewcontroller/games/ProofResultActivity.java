@@ -46,12 +46,14 @@ public class ProofResultActivity extends AppCompatActivity {
 
         setButton();
         i = getIntent();
+        Log.i(TAG, i.toString());
+
         GregorianCalendar startTime = (GregorianCalendar) i.getSerializableExtra("startTime");
         Bundle bundle = i.getExtras();
 
         pathProgress = (PathProgressController) bundle.getSerializable("pathProgress");
-
-        finished = pathProgress.savedResult(startTime, finishTime, 1, 1); //if true ho finito il percorso
+        if(pathProgress != null)
+            finished = pathProgress.savedResult(startTime, finishTime, 1, 1); //if true ho finito il percorso
         stepIndex = i.getIntExtra("stepIndex", 0);
     }
 
