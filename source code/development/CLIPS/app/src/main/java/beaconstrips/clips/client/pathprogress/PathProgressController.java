@@ -1,12 +1,12 @@
 package beaconstrips.clips.client.pathprogress;
 
+import com.kontakt.sdk.android.common.profile.IBeaconDevice;
+
 import java.util.GregorianCalendar;
-import java.util.Vector;
 
 import beaconstrips.clips.client.data.Path;
 import beaconstrips.clips.client.data.PathProgress;
 import beaconstrips.clips.client.data.ProofResult;
-import beaconstrips.clips.client.data.Proximity;
 
 /**
  * @file PathProgressController.java
@@ -18,34 +18,37 @@ import beaconstrips.clips.client.data.Proximity;
  */
 
 public class PathProgressController implements  BeaconDiscoverDelegate{
-  private Vector<RawBeacon> rawbeacons;
+    private int index;
   public PathProgressControllerDelegate delegate;
   public PathProgress pathProgress;
 
-  public PathProgressController(Path path, PathProgressControllerDelegate delegate){
-    this.rawbeacons=new Vector();
-      this.delegate=delegate;
+    public void setDelegate(PathProgressControllerDelegate delegate){
+        this.delegate=delegate;
+    }
+  public PathProgressController(Path path){
+      this.index=0;
     this.pathProgress=new PathProgress(path, new GregorianCalendar());
   }
 
-  public void addProofResult(ProofResult result){
+  public void savefResult(ProofResult result){
     this.pathProgress.addProofResult(result);
   }
 
-  public void didFoundBeacon(RawBeacon beacon){
-    this.rawbeacons.add(beacon);
-    //TODO bisogna controllare che l'utente non stia giocando una prova
-    if(beacon.UUID == this.pathProgress.getPath().steps.get(0).stopBeacon.UUID){
-      //this.delegate.didReachPath(this.pathProgress.getPath().steps.remove(0));
+
+  public void didFoundBeacon(IBeaconDevice beacon){
+    if(beacon.getProximityUUID().equals(this.pathProgress.getPath().steps.get(index).stopBeacon.UUID)&& beacon.getMajor() == this.pathProgress.getPath().steps.get(index).stopBeacon.major
+            && beacon.getMinor() == this.pathProgress.getPath().steps.get(index).stopBeacon.minor){
+      this.delegate.didReachProof(this.pathProgress.getPath().steps.get(index).proof);
+        index++;
     }
     else{
-      Proximity proximity = this.pathProgress.getPath().searchProximity(beacon);
-      if(proximity != null)
-        this.delegate.didRangeProximity(proximity);
+      //Proximity proximity = this.pathProgress.getPath().searchProximity(beacon);
+      //if(proximity != null)
+        //this.delegate.didRangeProximity(proximity);
     }
   }
 
-  public void didMoveFromBeacon(RawBeacon beacon){
-    this.rawbeacons.remove(beacon);
+
+    public void didMoveFromBeacon(RawBeacon beacon){
   }
 }

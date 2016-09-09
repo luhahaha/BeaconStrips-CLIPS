@@ -1,5 +1,7 @@
 package beaconstrips.clips.client.pathprogress;
 
+import com.kontakt.sdk.android.common.profile.IBeaconDevice;
+
 /**
  * @file BeaconDiscoverDelegate.java
  * @date 22/07/16
@@ -9,7 +11,7 @@ package beaconstrips.clips.client.pathprogress;
  * interfaccia che che serve per la notifica degli eventi: si è entrati nel raggio di un beacon e si è usciti dal raggio di un beacon
  */
 
-interface BeaconDiscoverDelegate {
-   void didFoundBeacon(RawBeacon beacon);
+public interface BeaconDiscoverDelegate {
+   void didFoundBeacon(IBeaconDevice beacon);
    void didMoveFromBeacon(RawBeacon beacon);
 }
