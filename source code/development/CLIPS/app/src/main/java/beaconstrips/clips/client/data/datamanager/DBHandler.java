@@ -1012,15 +1012,18 @@ public class DBHandler extends SQLiteOpenHelper {
       writeProofResult(pathID, pr);
    }
 
-   public Building[] getNearestBuildings(int buildingsNumber, boolean searchByDistance, double latitude, double longitude){
-      SQLiteDatabase db = this.getReadableDatabase();
+   public Building[] getNearestBuildings(float param, boolean searchByDistance, double userLatitude, double userLongitude){
 
       ArrayList<Building> buildings = readBuildings();
-      Iterator<Building> it = buildings.iterator();
-      Building[] ret =  new Building[buildingsNumber];
+      Building[] ret = null;
 
-      while(it.hasNext()){
-         ret = Utility.addNearestBuilding(it.next(), ret, latitude, longitude);
+      if(buildings.size() > 0){
+         if(searchByDistance){
+            ret = Utility.getBuildingsByDistance();
+         }
+         else{
+            ret = Utility.getBuildingsByNumber();
+         }
       }
 
       return ret;

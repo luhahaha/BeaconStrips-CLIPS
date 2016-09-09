@@ -7,6 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
@@ -59,30 +61,75 @@ public class Utility {
       return buildings;
    }
 
-   public static Building[] addNearestBuilding(Building b, Building[] buildings,double latitude, double longitude){
+   public static Building[] getBuildingsByNumber(Building[] buildings, int maxBuildings, double userLatitude, double userLongitude){
       Location userPosition = new Location("");
-      userPosition.setLatitude(latitude);
-      userPosition.setLongitude(longitude);
+      userPosition.setLatitude(userLatitude);
+      userPosition.setLongitude(userLongitude);
 
-      Location buildingPosition = new Location("");
-      buildingPosition.setLatitude(b.latitude);
-      buildingPosition.setLongitude(b.longitude);
+      ArrayList<Building> ret = new ArrayList<Building>();
 
-      float distance = userPosition.distanceTo(buildingPosition);
-      boolean inserted = false;
-      for(int i=0; i<buildings.length; ++i){
-         if(buildings[i]==null && !inserted){
-            buildings = insertBuilding(buildings, b, i);
-            break;
-         }
-         else if(!inserted && buildings[i] != null && distance <= distanceToBuilding(userPosition, buildings[i])){
-            buildings = insertBuilding(buildings, b, i);
-            inserted = true;
-            ++i;
+      for(int i=0; i<buildings.length; ++i)
+      {
+         Location buildingPosition = new Location("");
+         buildingPosition.setLatitude(buildings[i].latitude);
+         buildingPosition.setLongitude(buildings[i].longitude);
+
+         float distance = userPosition.distanceTo(buildingPosition);
+         boolean inserted = false;
+
+         for(int j=0; j<ret.size(); ++j){
+            if(ret.get(j) ==null && !inserted){
+               ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings[i], j)));
+               break;
+            }
+            else if(!inserted && ret.get(j) != null && distance <= distanceToBuilding(userPosition, ret.get(j))){
+               ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings[i], j)));
+               inserted = true;
+               ++i;
+            }
          }
       }
 
+      if(ret.size() == 0){
+         return null;
+      }
 
-      return buildings;
+      return ret.toArray(new Building[ret.size()]);
+   }
+
+   public static Building[] getBuildingsByDistance(Building[] buildings, float maxDistance, double userLatitude, double userLongitude) {
+      Location userPosition = new Location("");
+      userPosition.setLatitude(userLatitude);
+      userPosition.setLongitude(userLongitude);
+
+      ArrayList<Building> ret = new ArrayList<Building>();
+
+      for(int i=0; i<buildings.length; ++i)
+      {
+         Location buildingPosition = new Location("");
+         buildingPosition.setLatitude(buildings[i].latitude);
+         buildingPosition.setLongitude(buildings[i].longitude);
+
+         float distance = userPosition.distanceTo(buildingPosition);
+         boolean inserted = false;
+
+         for(int j=0; j<ret.size(); ++j){
+            if(ret.get(j) ==null && !inserted){
+               ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings[i], j)));
+               break;
+            }
+            else if(!inserted && ret.get(j) != null && distance <= (maxDistance*1000)){
+               ret = new ArrayList<Building>(Arrays.asList(insertBuilding(ret.toArray(new Building[ret.size()]), buildings[i], j)));
+               inserted = true;
+               ++i;
+            }
+         }
+      }
+
+      if(ret.size() == 0){
+         return null;
+      }
+
+      return ret.toArray(new Building[ret.size()]);
    }
 }
