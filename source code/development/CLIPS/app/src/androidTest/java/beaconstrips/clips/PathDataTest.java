@@ -140,7 +140,6 @@ public class PathDataTest {
    @Test
    public void path() {
       Context context = rule.getActivity().getBaseContext();
-      context.deleteDatabase("clipsDB");
       DataRequestMaker.getPath(context, 1, new AbstractDataManagerListener<Path>() {
          public void onResponse(Path response) {
             Log.d("PathDataTest", "Richiesta path() eseguita con successo");
