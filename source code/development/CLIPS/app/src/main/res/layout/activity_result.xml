@@ -2,161 +2,172 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/scrollView"
-        tools:context="beaconstrips.clips.client.viewcontroller.savedresults.ResultActivity">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/scrollView"
+    tools:context="beaconstrips.clips.client.viewcontroller.savedresults.ResultActivity">
+
 
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:orientation="vertical">
 
         <TextView
-        style="@style/TextViewTitolo"
-        android:text="Percorso completato!"
-        android:textSize="30dp"
-        android:id="@+id/namePathLabel"
-        android:layout_gravity="center_horizontal" />
+            style="@style/TextViewTitolo"
+            android:text="Percorso completato!"
+            android:textSize="30sp"
+            android:id="@+id/namePathLabel"
+            android:layout_gravity="center_horizontal" />
         <TextView
             style="@style/TextViewTitolo"
             android:text="Hai ottenuto un punteggio di"
             android:layout_gravity="center_horizontal"
-            android:textSize="20dp"
+            android:textSize="20sp"
             />
         <TextView
             style="@style/TextViewTitolo"
             android:text=""
             android:layout_gravity="center_horizontal"
             android:id="@+id/totalScore"
-            android:textSize="30dp"/>
+            android:textSize="30sp"/>
 
 
 
 
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:columnCount="2">
-
-        <TextView
-            android:id="@+id/buildingNameLabel"
-            style="@style/TextViewBase"
-            android:text="Edificio"
-            android:layout_gravity="left"
-            android:textColor="@color/colorText"/>
-
-        <TextView
-            android:id="@+id/buildingName"
-            style="@style/TextViewBase"
-            android:text="hgfdshgfd"
-            android:layout_gravity="right" />
-
-        <TextView
-            android:id="@+id/buildingLabel"
-            style="@style/TextViewBase"
-            android:text="@string/path_building_label"
-            android:layout_gravity="left"
-            android:textColor="@color/colorText"/>
-
-        <TextView
-            android:id="@+id/building"
-            style="@style/TextViewBase"
-            android:layout_gravity="right" />
-
-        <TextView
-            android:id="@+id/totalPathTimeLabel"
-            style="@style/TextViewBase"
-            android:text="@string/path_total_time_label"
-            android:layout_gravity="left"
-            android:textColor="@color/colorText"/>
-
-        <TextView
-            android:id="@+id/totalPathTime"
-            style="@style/TextViewBase"
-            android:text="hgfdhgfd"
+        <GridLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right" />
+            android:columnCount="2">
 
+            <TextView
+                android:id="@+id/buildingNameLabel"
+                style="@style/TextViewBase"
+                android:text="Edificio"
+                android:layout_gravity="left"
+                android:textColor="@color/colorText"/>
+
+            <TextView
+                android:id="@+id/buildingName"
+                style="@style/TextViewBase"
+                android:text="hgfdshgfd"
+                android:layout_gravity="right" />
+
+            <TextView
+                android:id="@+id/buildingLabel"
+                style="@style/TextViewBase"
+                android:text="@string/path_building_label"
+                android:layout_gravity="left"
+                android:textColor="@color/colorText"/>
+
+            <TextView
+                android:id="@+id/building"
+                style="@style/TextViewBase"
+                android:layout_gravity="right" />
+
+            <TextView
+                android:id="@+id/totalPathTimeLabel"
+                style="@style/TextViewBase"
+                android:text="@string/path_total_time_label"
+                android:layout_gravity="left"
+                android:textColor="@color/colorText"/>
+
+            <TextView
+                android:id="@+id/totalPathTime"
+                style="@style/TextViewBase"
+                android:text="hgfdhgfd"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right" />
+
+
+            <TextView
+                style="@style/TextViewBase"
+                android:textColor="@color/colorText"
+                android:layout_weight="1"
+                android:text="@string/path_total_time_proofs_label"
+                android:layout_gravity="left"/>
+
+            <TextView
+                android:id="@+id/totalTimeProofs"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right" />
+
+            <TextView
+                android:id="@+id/minScoreProofLabel"
+                style="@style/TextViewBase"
+                android:text="@string/path_min_score_proof_label"
+                android:layout_gravity="left"
+                android:textColor="@color/colorText"/>
+
+            <TextView
+                android:id="@+id/minScoreProof"
+                style="@style/TextViewBase"
+                android:layout_gravity="right" />
+
+            <TextView
+                android:id="@+id/maxScoreProofLabel"
+                style="@style/TextViewBase"
+                android:text="@string/path_max_score_proof_label"
+                android:layout_gravity="left"
+                android:textColor="@color/colorText"/>
+
+            <TextView
+                android:id="@+id/maxScoreProof"
+                style="@style/TextViewBase"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right" />
+
+            <TextView
+                android:id="@+id/rankingPositionLabel"
+                style="@style/TextViewBase"
+                android:text="@string/path_ranking_position_label"
+                android:layout_gravity="left"
+                android:textColor="@color/colorText"/>
+
+            <TextView
+                android:id="@+id/rankingPosition"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right" />
+
+        </GridLayout>
 
         <TextView
-            style="@style/TextViewBase"
-            android:textColor="@color/colorText"
-            android:layout_weight="1"
-            android:text="@string/path_total_time_proofs_label"
-            android:layout_gravity="left"/>
+            style="@style/TextViewTitolo"
+            android:layout_gravity="center_horizontal"
+            android:text="Risultati singole tappe"/>
 
-        <TextView
-            android:id="@+id/totalTimeProofs"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+        <ListView
+            android:scrollbars="none"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right" />
+            android:id="@+id/stepsResults"
+            android:divider="@color/colorAccent"
+            android:dividerHeight="1dp"
+            />
 
-        <TextView
-            android:id="@+id/minScoreProofLabel"
-            style="@style/TextViewBase"
-            android:text="@string/path_min_score_proof_label"
-            android:layout_gravity="left"
-            android:textColor="@color/colorText"/>
+        <Button
+            style="@style/RaisedButton"
+            android:text="@string/ranking_button"
+            android:id="@+id/rankingButton"
+            android:layout_gravity="center_horizontal" />
 
-        <TextView
-            android:id="@+id/minScoreProof"
-            style="@style/TextViewBase"
-            android:layout_gravity="right" />
-
-        <TextView
-            android:id="@+id/maxScoreProofLabel"
-            style="@style/TextViewBase"
-            android:text="@string/path_max_score_proof_label"
-            android:layout_gravity="left"
-            android:textColor="@color/colorText"/>
-
-        <TextView
-            android:id="@+id/maxScoreProof"
-            style="@style/TextViewBase"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right" />
-
-        <TextView
-            android:id="@+id/rankingPositionLabel"
-            style="@style/TextViewBase"
-            android:text="@string/path_ranking_position_label"
-            android:layout_gravity="left"
-            android:textColor="@color/colorText"/>
-
-        <TextView
-            android:id="@+id/rankingPosition"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right" />
-
-    </GridLayout>
-
-    <Button
-        style="@style/RaisedButton"
-        android:text="@string/ranking_button"
-        android:id="@+id/rankingButton"
-        android:layout_gravity="center_horizontal" />
-
-    <Button
-        style="@style/RaisedButton"
-        android:text="@string/proofs_button"
-        android:id="@+id/proofsButton"
-        android:layout_gravity="center_horizontal" />
-
-    <Button
-        style="@style/RaisedButton"
-        android:text="@string/save_result_button"
-        android:id="@+id/saveResult"
-        android:layout_gravity="center_horizontal" />
+        <Button
+            style="@style/RaisedButton"
+            android:text="@string/save_result_button"
+            android:id="@+id/saveResult"
+            android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
 
 </ScrollView>
+
+
 

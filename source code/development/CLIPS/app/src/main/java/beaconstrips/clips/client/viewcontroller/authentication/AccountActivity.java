@@ -49,7 +49,8 @@ public class AccountActivity extends MenuActivity {
             info.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(getApplicationContext(), SavedResultsActivity.class);
+                    Intent i = new Intent(getApplicationContext(), ResultActivity.class);
+                            //SavedResultsActivity.class);
                     startActivity(i);
                 }
             });
