@@ -10,12 +10,16 @@ package beaconstrips.clips.client.viewcontroller.savedresults;
 
 import android.content.Context;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -24,8 +28,10 @@ import java.util.concurrent.TimeUnit;
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.PathResult;
 import beaconstrips.clips.client.data.ProofResult;
+import beaconstrips.clips.client.data.Score;
 import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.DataRequestMaker;
+import beaconstrips.clips.client.data.datamanager.LoginManager;
 import beaconstrips.clips.client.pathprogress.PathProgressController;
 import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.utility.ResultsAdapter;
@@ -35,6 +41,8 @@ public class ResultActivity extends AppCompatActivity {
 
     private Intent i;
     private String TAG = "ResultActivity";
+    private PathResult result;
+    private int pathId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +51,7 @@ public class ResultActivity extends AppCompatActivity {
         //TODO add buttons linking
 
         i = getIntent();
-        int pathId = i.getIntExtra("pathId", 0);
+        pathId = i.getIntExtra("pathId", 0);
         String pathName = i.getStringExtra("pathName");
         String buildingName = i.getStringExtra("buildingName");
         double totalScore = i.getDoubleExtra("totalScore", 0.0);
@@ -66,32 +74,19 @@ public class ResultActivity extends AppCompatActivity {
         netTimeProofsSeconds = (netTimeProofsSeconds % 60);
         long netTimeProofsMinutes = (netTimeProofsSeconds / 60);
 
-        PathResult result = new PathResult(pathId, pathName, buildingName, startGlobalTime, finishGlobalTime, (int)totalScore, results);
+        result = new PathResult(pathId, pathName, buildingName, startGlobalTime, finishGlobalTime, (int)totalScore, results);
 
 
-        Log.i(TAG, "Net time proof seconds" + netTimeProofsSeconds);
 
         ((TextView) findViewById(R.id.totalScore)).setText(String.valueOf(totalScore));
         ((TextView) findViewById(R.id.buildingName)).setText(buildingName);
         ((TextView) findViewById(R.id.path)).setText(pathName);
         ((TextView) findViewById(R.id.totalPathTime)).setText(String.valueOf(netTimeMinutes) + " minuti e " + String.valueOf(netTimeSeconds) + " secondi");
-        //((TextView) findViewById(R.id.totalTimeProofs)).setText(String.valueOf(netTimeProofsMinutes) + " minuti e " + String.valueOf(netTimeProofsSeconds) + " secondi");
+        ((TextView) findViewById(R.id.totalTimeProofs)).setText(String.valueOf(netTimeProofsMinutes) + " minuti e " + String.valueOf(netTimeProofsSeconds) + " secondi");
         ((TextView) findViewById(R.id.minScoreProof)).setText(String.valueOf(result.getMinScoreProof()));
         ((TextView) findViewById(R.id.maxScoreProof)).setText(String.valueOf(result.getMaxScoreProof()));
 
-
-        DataRequestMaker.saveResult(getApplicationContext(), result, new AbstractDataManagerListener<Boolean>() {
-            @Override
-            public void onResponse(Boolean response) {
-
-            }
-
-            @Override
-            public void onError(ServerError error) {
-
-            }
-        });
-
+        setButtons();
 
         ListView listView = (ListView)findViewById(R.id.stepsResults);
         ArrayList lista = getListData();
@@ -134,5 +129,54 @@ public class ResultActivity extends AppCompatActivity {
         listView.requestLayout();
     }
 
+    private void setButtons() {
+        Button saveResult = (Button) findViewById(R.id.saveResult);
+        Button rankingButton = (Button) findViewById(R.id.rankingButton);
+        if (saveResult != null) {
+            saveResult.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (LoginManager.sharedManager(getApplicationContext()).isLogged()) {
+                        DataRequestMaker.saveResult(getApplicationContext(), result, new AbstractDataManagerListener<Boolean>() {
+                            @Override
+                            public void onResponse(Boolean response) {
+                                Toast.makeText(getApplicationContext(), "Risultato salvato", Toast.LENGTH_SHORT);
+                                //i.setClass(getApplicationContext(), ) selezionare attività da aggiungere;
+                            }
 
+                            @Override
+                            public void onError(ServerError error) {
+
+                            }
+                        });
+                    } else {
+                        //TODO mostra invito a login
+                    }
+                }
+            });
+        }
+
+        if (rankingButton != null) {
+            rankingButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (LoginManager.sharedManager(getApplicationContext()).isLogged()) {
+                        DataRequestMaker.getRanking(getApplicationContext(), pathId, new AbstractDataManagerListener<Score[]>() {
+                            @Override
+                            public void onResponse(Score[] response) {
+                                Log.i(TAG, "Scores " + response.length);
+                            }
+
+                            @Override
+                            public void onError(ServerError error) {
+
+                            }
+                        });
+                    } else {
+                        //TODO mostra invito a login
+                    }
+                }
+            });
+        }
+    }
 }
