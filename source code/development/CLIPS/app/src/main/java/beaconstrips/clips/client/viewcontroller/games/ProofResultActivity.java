@@ -35,7 +35,7 @@ public class ProofResultActivity extends AppCompatActivity {
     private GregorianCalendar finishTime;
     private String TAG = "ProofResultActivity";
     boolean finished;
-    private int quizLeft;
+    private int correctAnswers;
     private Test test;
     private GregorianCalendar startTime;
 
@@ -49,6 +49,9 @@ public class ProofResultActivity extends AppCompatActivity {
         i = getIntent();
 
         boolean showText = i.getBooleanExtra("answer", true);
+        correctAnswers = i.getIntExtra("correctAnswers", 0);
+        //TODO aggiungere risposte totali
+        //totalAnswers = i.getIntExtra("totalAnswers", 0);
 
         if(!showText) {
             ((TextView) findViewById(R.id.resultMessage)).setText("Risposta sbagliata!");
@@ -93,7 +96,7 @@ public class ProofResultActivity extends AppCompatActivity {
                 }
                 else {
                     Log.i(TAG, "I test sono finiti");
-                    finished = pathProgress.savedResult(startTime, new GregorianCalendar(), 1, 1); //if true ho finito il percorso
+                    finished = pathProgress.savedResult(startTime, new GregorianCalendar(), correctAnswers, 1); //if true ho finito il percorso
                     if (!finished) {
                         i.setClass(getApplicationContext(), SearchNewStepActivity.class);
                     } else {
