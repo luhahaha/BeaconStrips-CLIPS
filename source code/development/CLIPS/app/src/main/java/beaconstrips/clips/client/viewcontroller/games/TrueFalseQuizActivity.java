@@ -1,5 +1,5 @@
 /**
- * @file TrueFalseQuizView.java
+ * @file TrueFalseQuizActivity.java
  * @date 2016-07-18
  * @version 1.00
  * @author Viviana Alessio
@@ -16,9 +16,9 @@ import android.util.Log;
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.TrueFalseTest;
 
-public class TrueFalseQuizView extends AppCompatActivity {
+public class TrueFalseQuizActivity extends AppCompatActivity {
 
-    private final String TAG = "TrueFalseQuizView";
+    private final String TAG = "TrueFalseQuizActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

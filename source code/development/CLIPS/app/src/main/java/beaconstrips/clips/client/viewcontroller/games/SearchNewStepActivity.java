@@ -227,7 +227,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
                   Log.i(TAG, "Set class MultipleChoiceQuizActivity.class");
                }
                if (test instanceof TrueFalseTest) {
-                  i.setClass(getApplicationContext(), TrueFalseQuizView.class);
+                  i.setClass(getApplicationContext(), TrueFalseQuizActivity.class);
                   Log.i(TAG, "Set class TrueFalseTest.class");
                }
 
@@ -261,25 +261,28 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
                Test test = proof.test;
 
                if (test instanceof GameCollection) {
-                  //test = ((GameCollection) test).games.get(1);
-                  i.putExtra("testIndex", 0);
+                  i.putExtra("gameCollection", test);
+                  test = ((GameCollection) test).games.remove(0);
                   Log.i(TAG, "Test has now type " + test.getClass());
                }
 
                if (test instanceof MultipleChoiceTest) {
                   i.setClass(getApplicationContext(), MultipleChoiceQuizActivity.class);
+                  i.putExtra("totalQuestions", ((MultipleChoiceTest) test).questions.size());
                   Log.i(TAG, "Set class MultipleChoiceQuizActivity.class");
                }
                if (test instanceof TrueFalseTest) {
-                  i.setClass(getApplicationContext(), TrueFalseQuizView.class);
+                  i.setClass(getApplicationContext(), TrueFalseQuizActivity.class);
+                  i.putExtra("totalQuestions", ((TrueFalseTest) test).questions.size());
                   Log.i(TAG, "Set class TrueFalseTest.class");
                }
 
                //TODO change all this stuff
-               Bundle bundle = new Bundle();
+               //Bundle bundle = new Bundle();
                //bundle.putSerializable("pathProgress", pathProgress);
                //i.putExtras(bundle);
                i.putExtra("test", test);
+               i.putExtra("questionsCorrect", 0);
                i.putExtra("stepIndex", stepIndex);
                if (i != null) {
                   startActivity(i);

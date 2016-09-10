@@ -56,7 +56,7 @@
           android:theme="@style/AppTheme"/>
       <activity android:name=".client.viewcontroller.savedresults.SavedResultsActivity"
           android:theme="@style/AppTheme" />
-      <activity android:name=".client.viewcontroller.games.TrueFalseQuizView"/>
+      <activity android:name=".client.viewcontroller.games.TrueFalseQuizActivity"/>
       <activity
           android:name=".client.viewcontroller.games.MultipleChoiceQuizActivity"
           android:theme="@style/AppTheme"/>

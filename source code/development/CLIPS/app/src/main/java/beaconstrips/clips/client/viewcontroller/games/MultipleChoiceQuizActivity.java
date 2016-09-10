@@ -37,6 +37,7 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
    private MultipleChoiceTextQuiz answers;
    private Intent intent;
    GregorianCalendar startTime;
+   MultipleChoiceTest test;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +45,9 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
       setContentView(R.layout.activity_multiple_choice_quiz);
       //TODO insert from here choices with correct answer with list?
       intent = getIntent();
-      Log.i(TAG, intent.toString());
 
-      MultipleChoiceTest test = (MultipleChoiceTest) intent.getSerializableExtra("test");
-      answers = test.questions.get(0);
+      test = (MultipleChoiceTest) intent.getSerializableExtra("test");
+      answers = test.questions.remove(0);
 
       Log.i(TAG, "Size of" + test.questions.size());
       Log.i(TAG, "Correct answer " + answers.trueResponse);
@@ -87,6 +87,7 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
                public void onClick(View v) {
                   intent.setClass(getApplicationContext(), ProofResultActivity.class);
                   intent.putExtra("startTime", startTime);
+                  intent.putExtra("quizLeft", test.questions.size());
                   startActivity(intent);
                }
             });
