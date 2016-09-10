@@ -111,7 +111,7 @@ public class Utility {
                tmpBuilding.setLatitude(ret.get(j).latitude);
                tmpBuilding.setLongitude(ret.get(j).longitude);
 
-               if(userPosition.distanceTo(tmpBuilding) <= distance){
+               if(userPosition.distanceTo(tmpBuilding) > distance){
                   ret.add(j, buildings.get(i));
                   inserted = true;
                   break;

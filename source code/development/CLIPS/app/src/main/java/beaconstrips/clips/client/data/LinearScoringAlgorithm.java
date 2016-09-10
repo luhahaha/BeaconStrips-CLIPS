@@ -36,7 +36,7 @@ public class LinearScoringAlgorithm implements Serializable{
       double deltaTime = this.maxTime - this.minTime;
 
       if(deltaTime==0) { //se c'è minTime==maxTime l'equazione sotto restituisce NaN, quindi devo fare un'equazione a parte senza il tempo
-         return (double) correct / (double) total + this.minScore;
+         return ((double) correct / (double) total) * deltaScore + this.minScore;
       }
       return deltaScore * ((1 - ((Math.min(Math.max(time, this.minTime), this.maxTime)) - this.minTime) / deltaTime) * this.timeWeight + (double) correct / (double) total * this.accuracyWeight) / (weightSum) + this.minScore;
    }

@@ -26,9 +26,17 @@ import beaconstrips.clips.client.data.Utility;
  * classe che contiene il TU38 (Test di Unità 38). Verifica che i metodi di Utility funzionino correttamente.
  *
  *
- * Stampa attesa per il test "pathProgressTest()": "Stampa di stringToGregorianCalendar(): 2016-08-25 15:39:05.000"
+ * Stampa attesa per il test "pathProgressTest()": "Stampa di stringToGregorianCalendar(): 2016-09-05 12:34:56.000"
  *                                                 "Stampa di calculateTotalScore(): 43"
- *                                                 "" TODO: correggere addNearestBuilding e aggiungere l'esito del test
+ *                                                 "Stampa di getBuildingsByDistance():"
+ *                                                 "   Edificio 1"
+ *                                                 "   Edificio 4"
+ *                                                 "   Edificio 3"
+ *                                                 "Stampa di getBuildingsNumber():"
+ *                                                 "   Edificio 1"
+ *                                                 "   Edificio 4"
+ *                                                 "   Edificio 3"
+ *                                                 "   Edificio 2"
  */
 @RunWith(AndroidJUnit4.class)
 @SmallTest
@@ -47,8 +55,8 @@ public class UtilityTest {
       ArrayList<PathInfo> pathinfos = new ArrayList<>();
       pathinfos.add(new PathInfo(1, "Percorso 1", "Primo percorso", "Solo per i primi", "1 ora", 1));
       pathinfos.add(new PathInfo(2, "Percorso 2", "Secondo percorso", "Solo per i secondi", "2 ore", 2));
-      Building[] buildingsByDistance = getNearestBuildings(12, true, 45.0, 10.0, pathinfos);
-      Building[] buildingsByNumber = getNearestBuildings(5, false, 45.0, 10.0, pathinfos);
+      Building[] buildingsByDistance = getNearestBuildings(120, true, 45.0, 10.0, pathinfos);
+      Building[] buildingsByNumber = getNearestBuildings(2, false, 45.0, 10.0, pathinfos);
 
       Log.d("UtilityTest", "Stampa di getBuildingsByDistance():");
       for(int i=0; i<buildingsByDistance.length; i++) {
