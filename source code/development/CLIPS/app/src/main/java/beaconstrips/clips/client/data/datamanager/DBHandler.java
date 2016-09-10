@@ -111,17 +111,16 @@ public class DBHandler extends SQLiteOpenHelper {
 
    private void createPathResultTable(SQLiteDatabase db){
       String CREATE_PATHRESULT_TABLE = "CREATE  TABLE  IF NOT EXISTS" +
-              " PathResult (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, pathID INTEGER NOT NULL , startTime TEXT NOT NULL ," +
-              " endTime TEXT NOT NULL, FOREIGN KEY(pathID) REFERENCES Path(id))";
+              " PathResult (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, startTime TEXT NOT NULL," +
+              " endTime TEXT NOT NULL, buildingName VARCHAR NOT NULL, pathName VARCHAR NOT NULL, pathID INTEGER NOT NULL)";
 
       db.execSQL(CREATE_PATHRESULT_TABLE);
    }
 
    private void createProofResultTable(SQLiteDatabase db){
       String CREATE_PROOFRESULT_TABLE = "CREATE TABLE IF NOT EXISTS" +
-              " ProofResult (proofID INTEGER NOT NULL , pathResultID INTEGER NOT NULL , startTime TEXT NOT NULL ," +
-              " endTime TEXT NOT NULL, score INTEGER NOT NULL, id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, FOREIGN KEY(proofID) REFERENCES Proof(id)," +
-              " FOREIGN KEY(pathResultID) REFERENCES PathResult(pathID))";
+              " ProofResult (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, pathResultID INTEGER NOT NULL, startTime TEXT NOT NULL ," +
+              " endTime TEXT NOT NULL, score INTEGER NOT NULL, proofID INTEGER NOT NULL, FOREIGN KEY(pathResultID) REFERENCES PathResult(id))";
 
       db.execSQL(CREATE_PROOFRESULT_TABLE);
    }
@@ -328,24 +327,39 @@ public class DBHandler extends SQLiteOpenHelper {
       Calendar eTime = pr.endTime;
       SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'");
 
-      values.put("pathID", pr.pathID);
       values.put("startTime", sdf.format(sTime.getTime()));
       values.put("endTime", sdf.format(eTime.getTime()));
+      values.put("buildingName", pr.buildingName);
+      values.put("pathName", pr.pathName);
+      values.put("pathID", pr.pathID);
 
       db.insert("PathResult", null, values);
       db.close();
 
       //aggiunta ProofResult relativi
-      writeProofResults(pr.pathID, pr.proofResults);
+      writeProofResults(pr.proofResults);
    }
 
-   public void writeProofResults(int pathID, ArrayList<ProofResult> proofResults){
+   private int getLastPathResultID(){
+      SQLiteDatabase db = this.getReadableDatabase();
+      Cursor cursor = db.rawQuery("SELECT id FROM PathResult ORDER BY id DESC LIMIT 1",null); //Ritorna l'id dell'ultimo PathResult inserito
+
+      int ret = -1;
+
+      while(cursor.moveToNext()){
+         ret = Integer.parseInt(cursor.getString(0));
+      }
+      return ret;
+   }
+
+   public void writeProofResults(ArrayList<ProofResult> proofResults){
+      int pathResultID = getLastPathResultID();
       for(int i=0; i<proofResults.size(); ++i){
-         writeProofResult(pathID, proofResults.get(i));
+         writeProofResult(pathResultID, proofResults.get(i));
       }
    }
 
-   private void writeProofResult(int pathID, ProofResult pr){
+   private void writeProofResult(int pathResultID, ProofResult pr){
       SQLiteDatabase db = this.getWritableDatabase();
       ContentValues values = new ContentValues();
 
@@ -353,11 +367,11 @@ public class DBHandler extends SQLiteOpenHelper {
       Calendar eTime = pr.endTime;
       SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'");
 
-      values.put("proofID", pr.id);
-      values.put("pathResultID", pathID);
+      values.put("pathResultID", pathResultID);
       values.put("startTime", sdf.format(sTime.getTime()));
       values.put("endTime", sdf.format(eTime.getTime()));
       values.put("score", pr.score);
+      values.put("proofID", pr.id);
 
       db.insert("ProofResult", null, values);
       db.close();
@@ -390,8 +404,9 @@ public class DBHandler extends SQLiteOpenHelper {
          Beacon stopBeacon = readBeacon(Integer.parseInt(cursor.getString(1)));
          ArrayList<Proximity> proximities = readProximities(id);
          Proof proof = readProof(Integer.parseInt(cursor.getString(2)));
+         String helpText = cursor.getString(4);
 
-         //ret.add(new Step(stopBeacon, proximities, proof));
+         ret.add(new Step(stopBeacon, proximities, proof, helpText));
       }
       return ret;
    }
@@ -708,11 +723,11 @@ public class DBHandler extends SQLiteOpenHelper {
       ArrayList<PathResult> pathResults = new ArrayList<PathResult>();
 
       while(cursor.moveToNext()){
-         int id = Integer.parseInt(cursor.getString(1));
-         String pathName = readPathInfo(id).title;
-         String buildingName = getBuildingName(id);
-         GregorianCalendar startTime = Utility.stringToGregorianCalendar(cursor.getString(2));
-         GregorianCalendar endTime = Utility.stringToGregorianCalendar(cursor.getString(3));
+         int id = Integer.parseInt(cursor.getString(5));
+         GregorianCalendar startTime = Utility.stringToGregorianCalendar(cursor.getString(1));
+         GregorianCalendar endTime = Utility.stringToGregorianCalendar(cursor.getString(2));
+         String buildingName = cursor.getString(3);
+         String pathName = cursor.getString(4);
          ArrayList<ProofResult> proofsResults = readProofResults(id);
          int totalScore = Utility.calculateTotalScore(proofsResults);
 
@@ -744,19 +759,19 @@ public class DBHandler extends SQLiteOpenHelper {
       return ret;
    }
 
-   private ArrayList<ProofResult> readProofResults(int pathID){
+   private ArrayList<ProofResult> readProofResults(int pathResultID){
       SQLiteDatabase db = this.getReadableDatabase();
-      Cursor cursor = db.query("ProofResult", null, "pathResultID=?", new String[]{String.valueOf(pathID)}, null, null, null, null);
+      Cursor cursor = db.query("ProofResult", null, "pathResultID=?", new String[]{String.valueOf(pathResultID)}, null, null, null, null);
 
       ArrayList<ProofResult> ret = new ArrayList<ProofResult>();
 
       while(cursor.moveToNext()){
-         int id = Integer.parseInt(cursor.getString(0));
+         int proofID = Integer.parseInt(cursor.getString(5));
          GregorianCalendar startTime = Utility.stringToGregorianCalendar(cursor.getString(2));
          GregorianCalendar endTime = Utility.stringToGregorianCalendar(cursor.getString(3));
          int score = Integer.parseInt(cursor.getString(4));
 
-         ret.add(new ProofResult(id, startTime, endTime, score));
+         ret.add(new ProofResult(proofID, startTime, endTime, score));
       }
 
       return ret;
