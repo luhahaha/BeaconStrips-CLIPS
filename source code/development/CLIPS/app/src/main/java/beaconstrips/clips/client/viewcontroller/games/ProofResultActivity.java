@@ -14,6 +14,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.android.gms.vision.text.Text;
 
 import java.util.GregorianCalendar;
 
@@ -41,13 +44,23 @@ public class ProofResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_proof_result);
 
-        finishTime = new GregorianCalendar();
 
         setButton();
         i = getIntent();
 
+        boolean showText = i.getBooleanExtra("answer", true);
+
+        if(!showText) {
+            ((TextView) findViewById(R.id.resultMessage)).setText("Risposta sbagliata!");
+        }
+
         //quizLeft = i.getIntExtra("quizLeft", 0);
-        test = (MultipleChoiceTest) i.getSerializableExtra("test");
+        if(test instanceof MultipleChoiceTest) {
+            test = (MultipleChoiceTest) i.getSerializableExtra("test");
+        }
+        if(test instanceof TrueFalseTest) {
+            test = (TrueFalseTest) i.getSerializableExtra("test");
+        }
 
         startTime = (GregorianCalendar) i.getSerializableExtra("startTime");
         Bundle bundle = i.getExtras();
@@ -80,7 +93,7 @@ public class ProofResultActivity extends AppCompatActivity {
                 }
                 else {
                     Log.i(TAG, "I test sono finiti");
-                    finished = pathProgress.savedResult(startTime, finishTime, 1, 1); //if true ho finito il percorso
+                    finished = pathProgress.savedResult(startTime, new GregorianCalendar(), 1, 1); //if true ho finito il percorso
                     if (!finished) {
                         i.setClass(getApplicationContext(), SearchNewStepActivity.class);
                     } else {

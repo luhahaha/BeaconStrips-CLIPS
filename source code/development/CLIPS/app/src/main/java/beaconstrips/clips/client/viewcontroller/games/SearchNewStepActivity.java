@@ -31,6 +31,7 @@ import com.kontakt.sdk.android.common.profile.IBeaconDevice;
 import com.kontakt.sdk.android.common.profile.IBeaconRegion;
 
 import java.io.Serializable;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -55,6 +56,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
    private int stepIndex;
    private final String TAG = "SearchNewStepActivity";
    private Intent i;
+   GregorianCalendar startTime;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -209,6 +211,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       };
    }
 
+   /*
    private void setButtons(final Test test) {
 
       if (startTestButton != null) {
@@ -246,6 +249,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
          });
       }
    }
+   */
 
 
    @Override
@@ -284,6 +288,8 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
                i.putExtra("test", test);
                i.putExtra("questionsCorrect", 0);
                i.putExtra("stepIndex", stepIndex);
+               startTime = new GregorianCalendar();
+               i.putExtra("startTime", startTime);
                if (i != null) {
                   startActivity(i);
                }

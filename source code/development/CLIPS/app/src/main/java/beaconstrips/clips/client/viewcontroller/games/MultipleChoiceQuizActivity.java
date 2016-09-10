@@ -36,7 +36,6 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
    private final String TAG = "MultipleChoiceQuizAct";
    private MultipleChoiceTextQuiz answers;
    private Intent intent;
-   GregorianCalendar startTime;
    MultipleChoiceTest test;
 
    @Override
@@ -54,8 +53,6 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
 
 
       setQuiz();
-
-      startTime = new GregorianCalendar();
 
    }
 
@@ -86,7 +83,6 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
             correctAnswer.setOnClickListener(new View.OnClickListener() {
                public void onClick(View v) {
                   intent.setClass(getApplicationContext(), ProofResultActivity.class);
-                  intent.putExtra("startTime", startTime);
                   intent.putExtra("quizLeft", test.questions.size());
                   startActivity(intent);
                }
