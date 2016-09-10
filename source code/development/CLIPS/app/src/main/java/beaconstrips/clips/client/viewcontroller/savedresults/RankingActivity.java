@@ -11,6 +11,7 @@ package beaconstrips.clips.client.viewcontroller.savedresults;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -26,86 +27,52 @@ import beaconstrips.clips.client.viewcontroller.utility.RankingAdapter;
 import beaconstrips.clips.client.viewcontroller.utility.risultatoProva;
 
 public class RankingActivity extends AppCompatActivity {
-    ListView listView;
-    private Score[] scores;
+    private ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking);
         listView = (ListView) findViewById(R.id.playerList);
         Intent i = getIntent();
-        scores = (Score[]) i.getSerializableExtra("scores");
-        /*
-        DataRequestMaker.getRanking(getApplicationContext(), id, new AbstractDataManagerListener<Score[]>() {
-            @Override
+        int pathId = i.getIntExtra("pathId", 0);
+
+        final ArrayList<Score> lista = new ArrayList<Score>();
+
+        justifyListViewHeightBasedOnChildren(listView, lista.size());
+
+        DataRequestMaker.getRanking(getApplicationContext(), pathId, new AbstractDataManagerListener<Score[]>() {
             public void onResponse(Score[] response) {
-
-                int size = response.length;
-                String[] position = new String[size];
-                String[] player = new String[size];
-                String[] score = new String[size];
-
-                for(int i = 0; i < size; ++i) {
-                    //TODO order position
-                    position[i] = String.valueOf(response[i].position);
-                    player[i] = response[i].username;
-                    score[i] = String.valueOf(response[i].score);
+                Log.d("GetRankingDataTest", "Chiamata getRanking() eseguita con successo:");
+                for(int i=0; i<response.length; i++) {
+                    // ok
+                    Log.d("GetRankingDataTest", response[i].position + ". " + response[i].username + ": " + response[i].score);
+                    lista.add(new Score(response[i].username, response[i].position, response[i].score));
                 }
+                listView.setAdapter(new RankingAdapter(getApplicationContext(), lista));
 
-                ArrayAdapter<String> positionAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_player, R.id.positionLabel, position);
-                listView.setAdapter(positionAdapter);
-                ArrayAdapter<String> playerAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_player, R.id.nameLabel, player);
-                listView.setAdapter(playerAdapter);
-                ArrayAdapter<String> scoreAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_player, R.id.totalScoreLabel, score);
-                listView.setAdapter(scoreAdapter);
             }
-
-            @Override
             public void onError(ServerError error) {
-
+                Log.d("GetRankingDataTest", "Rilevato un errore in getRanking():");
+                Log.d("GetRankingDataTest", "Codice dell'errore: " + error.errorCode);
+                Log.d("GetRankingDataTest", "Messaggio per l'utente: " + error.userMessage);
+                Log.d("GetRankingDataTest", "Messaggio di debug: " + error.debugMessage);
             }
         });
-        */
-
-        ListView listView = (ListView)findViewById(R.id.playerList);
-        ArrayList lista = getListData();
-        //justifyListViewHeightBasedOnChildren(listView, lista);
-        listView.setAdapter(new RankingAdapter(this, lista));
-    }
-
-    private ArrayList getListData() {
-        // prova di esempio, poi questi dati verranno presi dal DB
-        // è il ResultAdapter che mette gli elementi di row_result al posto giusto e dentro la list view
-        // fare un for per scorrere tutte le tappe
 
 
-        ArrayList<risultatoProva> results = new ArrayList<risultatoProva>();
+        Score s = new Score("vivi",1,50);
+        Score ss = new Score("vivi",2,45);
+        lista.add(s); lista.add(ss);
+        listView.setAdapter(new RankingAdapter(getApplicationContext(), lista));
 
-        risultatoProva ris = new risultatoProva();
-        ris.setData("10 Agosto");
-        ris.setDurata("2 minuti");
-        ris.setEdificio("Torre1");
-        ris.setPunteggio("20");
-        results.add(ris);
-
-        risultatoProva ris2 = new risultatoProva();
-        ris2.setData("10 Agosto");
-        ris2.setDurata("3 minuti");
-        ris2.setEdificio("Torre2");
-        ris2.setPunteggio("10");
-        results.add(ris2);
-
-        // Add some more dummy data for testing
-        return results;
     }
 
     // setta la dimensione della listView in base a quanti elementi ci sono nella lista
-    /*public static void justifyListViewHeightBasedOnChildren (ListView listView, ArrayList lista) {
-        int rows = lista.size();
+    public static void justifyListViewHeightBasedOnChildren (ListView listView, Integer rows) {
         ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = rows*250;
+        params.height = rows*200;
         listView.setLayoutParams(params);
         listView.requestLayout();
     }
-    */
+
 }
