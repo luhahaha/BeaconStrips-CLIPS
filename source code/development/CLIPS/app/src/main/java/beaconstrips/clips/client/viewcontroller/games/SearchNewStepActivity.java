@@ -180,7 +180,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       return new SimpleIBeaconListener() {
          @Override
          public void onIBeaconDiscovered(IBeaconDevice ibeacon, IBeaconRegion region) {
-            Log.i(TAG, "Searching " + ibeacon.getMajor());
+            //Log.i(TAG, "Searching " + ibeacon.getMajor());
            /*
             Step step = steps.get(stepIndex);
             if (ibeacon.getProximityUUID().equals(java.util.UUID.fromString(step.stopBeacon.UUID))
@@ -286,7 +286,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
                //bundle.putSerializable("pathProgress", pathProgress);
                //i.putExtras(bundle);
                i.putExtra("test", test);
-               i.putExtra("questionsCorrect", 0);
+               i.putExtra("correctAnswer", 0);
                i.putExtra("stepIndex", stepIndex);
                startTime = new GregorianCalendar();
                i.putExtra("startTime", startTime);

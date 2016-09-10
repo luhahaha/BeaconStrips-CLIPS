@@ -37,6 +37,7 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
    private MultipleChoiceTextQuiz answers;
    private Intent intent;
    MultipleChoiceTest test;
+   private int correctAnswers;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,8 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
 
       test = (MultipleChoiceTest) intent.getSerializableExtra("test");
       answers = test.questions.remove(0);
+
+      correctAnswers = intent.getIntExtra("correctAnswers", 0);
 
       Log.i(TAG, "Size of" + test.questions.size());
       Log.i(TAG, "Correct answer " + answers.trueResponse);
@@ -67,6 +70,7 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
       choices.add(3);
       choices.add(4);
       Collections.shuffle(choices);
+      intent.setClass(getApplicationContext(), ProofResultActivity.class);
 
       for(int i = 0; i < 4; i ++) {
 
@@ -77,13 +81,14 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
 
 
          if(i == 0) {
-            Button correctAnswer = (Button) findViewById(resID);
+            final Button rightAnswer = (Button) findViewById(resID);
             Log.i(TAG, "Correct answer is on " + (choices.get(i) - 1));
-            correctAnswer.setText(answers.trueResponse);
-            correctAnswer.setOnClickListener(new View.OnClickListener() {
+            rightAnswer.setText(answers.trueResponse);
+            rightAnswer.setOnClickListener(new View.OnClickListener() {
                public void onClick(View v) {
-                  intent.setClass(getApplicationContext(), ProofResultActivity.class);
+
                   intent.putExtra("quizLeft", test.questions.size());
+                  intent.putExtra("correctAnswers", ++correctAnswers);
                   startActivity(intent);
                }
             });
@@ -93,9 +98,9 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
             wrongAnswer.setText(answers.falseResponse[i - 1]);
             wrongAnswer.setOnClickListener(new View.OnClickListener() {
                public void onClick(View v) {
-                  //TODO mostrare suggerimento
-                  Toast.makeText(getApplicationContext(), "Risposta sbagliata",
-                          Toast.LENGTH_SHORT).show();
+                  //TODO mostro suggerimento
+                  intent.putExtra("answer", false);
+                  startActivity(intent);
                }
             });
          }

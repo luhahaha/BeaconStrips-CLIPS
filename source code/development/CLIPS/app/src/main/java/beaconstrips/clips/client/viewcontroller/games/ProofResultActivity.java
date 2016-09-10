@@ -32,7 +32,6 @@ public class ProofResultActivity extends AppCompatActivity {
     private int stepIndex;
     private Intent i;
     private PathProgressController pathProgress;
-    private GregorianCalendar finishTime;
     private String TAG = "ProofResultActivity";
     boolean finished;
     private int correctAnswers;
@@ -56,18 +55,22 @@ public class ProofResultActivity extends AppCompatActivity {
         if(!showText) {
             ((TextView) findViewById(R.id.resultMessage)).setText("Risposta sbagliata!");
         }
+        else {
+            ((TextView) findViewById(R.id.resultMessage)).setText("Risposta corretta!");
+
+        }
 
         //quizLeft = i.getIntExtra("quizLeft", 0);
-        if(test instanceof MultipleChoiceTest) {
-            test = (MultipleChoiceTest) i.getSerializableExtra("test");
-        }
-        if(test instanceof TrueFalseTest) {
-            test = (TrueFalseTest) i.getSerializableExtra("test");
+
+        test = (Test) i.getSerializableExtra("test");
+
+        if(test == null) {
+            Log.i(TAG, "Test is null");
         }
 
         startTime = (GregorianCalendar) i.getSerializableExtra("startTime");
         Bundle bundle = i.getExtras();
-        Log.i(TAG, "Start time" + startTime);
+        //Log.i(TAG, "Start time" + startTime);
 
         pathProgress = (PathProgressController) bundle.getSerializable("pathProgress");
         //if(pathProgress != null)
@@ -84,10 +87,12 @@ public class ProofResultActivity extends AppCompatActivity {
                 int testLeft = 0;
                 if (test instanceof MultipleChoiceTest) {
                     testLeft = ((MultipleChoiceTest) test).questions.size();
+                    Log.i(TAG, "Test left " + testLeft);
                     i.setClass(getApplicationContext(), MultipleChoiceQuizActivity.class);
                 }
                 if (test instanceof TrueFalseTest) {
                     testLeft = ((TrueFalseTest) test).questions.size();
+                    Log.i(TAG, "Test left " + testLeft);
                     i.setClass(getApplicationContext(), TrueFalseQuizActivity.class);
                 }
                 if (testLeft > 0) {
@@ -96,7 +101,9 @@ public class ProofResultActivity extends AppCompatActivity {
                 }
                 else {
                     Log.i(TAG, "I test sono finiti");
-                    finished = pathProgress.savedResult(startTime, new GregorianCalendar(), correctAnswers, 1); //if true ho finito il percorso
+                    int totalQuestions = i.getIntExtra("totalQuestions", 0);
+                    finished = pathProgress.savedResult(startTime, new GregorianCalendar(), correctAnswers, totalQuestions); //if true ho finito il percorso
+                    Log.i(TAG, "Domande totali: " + totalQuestions + "; domande corrette: " + correctAnswers);
                     if (!finished) {
                         i.setClass(getApplicationContext(), SearchNewStepActivity.class);
                     } else {
