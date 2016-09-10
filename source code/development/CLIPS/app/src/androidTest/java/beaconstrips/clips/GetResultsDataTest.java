@@ -58,7 +58,6 @@ public class GetResultsDataTest {
    @Test
    public void getResults() {
       Context context = rule.getActivity().getBaseContext();
-      context.deleteDatabase("clipsDB");
       android.content.SharedPreferences preferences = android.preference.PreferenceManager.getDefaultSharedPreferences(context);
       android.content.SharedPreferences.Editor editor = preferences.edit();
       editor.putString("token", "cf9ad04f81bd467a817b1da8f18ba858");

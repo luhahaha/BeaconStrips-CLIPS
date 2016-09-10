@@ -28,10 +28,16 @@ public class LinearScoringAlgorithm implements Serializable{
    }
 
    public double getScore(double time, int correct, int total) { //correct e total indicano quante risposte corrette ci sono e quante ne sono previste in tutto
+      if(minScore==0 && maxScore==0 && minTime==0 && maxTime==0 && timeWeight==0 && accuracyWeight==0) { //se c'è stato un errore in fase di parsing
+         return 0;
+      }
       double weightSum = this.timeWeight + this.accuracyWeight;
       double deltaScore = this.maxScore - this.minScore;
       double deltaTime = this.maxTime - this.minTime;
 
+      if(deltaTime==0) { //se c'è minTime==maxTime l'equazione sotto restituisce NaN, quindi devo fare un'equazione a parte senza il tempo
+         return ((double) correct / (double) total) * deltaScore + this.minScore;
+      }
       return deltaScore * ((1 - ((Math.min(Math.max(time, this.minTime), this.maxTime)) - this.minTime) / deltaTime) * this.timeWeight + (double) correct / (double) total * this.accuracyWeight) / (weightSum) + this.minScore;
    }
 }

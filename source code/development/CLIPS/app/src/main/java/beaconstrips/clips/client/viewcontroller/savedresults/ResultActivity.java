@@ -9,16 +9,32 @@
 package beaconstrips.clips.client.viewcontroller.savedresults;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import java.util.concurrent.TimeUnit;
 
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.PathResult;
+import beaconstrips.clips.client.data.ProofResult;
 import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.DataRequestMaker;
+import beaconstrips.clips.client.pathprogress.PathProgressController;
 import beaconstrips.clips.client.urlrequest.ServerError;
+import beaconstrips.clips.client.viewcontroller.utility.ResultsAdapter;
+import beaconstrips.clips.client.viewcontroller.utility.risultatoProva;
 
 public class ResultActivity extends AppCompatActivity {
+
+    private Intent i;
+    private String TAG = "ResultActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,20 +42,97 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
         //TODO add buttons linking
 
-        /*
-        DataRequestMaker.getResults(getApplicationContext(), new AbstractDataManagerListener<PathResult[]>() {
-        @Override
-        public void onResponse(PathResult[] response) {
+        i = getIntent();
+        int pathId = i.getIntExtra("pathId", 0);
+        String pathName = i.getStringExtra("pathName");
+        String buildingName = i.getStringExtra("buildingName");
+        double totalScore = i.getDoubleExtra("totalScore", 0.0);
+        GregorianCalendar startGlobalTime = (GregorianCalendar) i.getSerializableExtra("startGlobalTime");
+        GregorianCalendar finishGlobalTime = new GregorianCalendar();
 
+        long netTimeSeconds = (TimeUnit.MILLISECONDS.toSeconds(finishGlobalTime.getTimeInMillis() - startGlobalTime.getTimeInMillis())) % 60;
+        long netTimeMinutes = netTimeSeconds / 60;
+
+        PathProgressController pathProgress = (PathProgressController) i.getSerializableExtra("pathProgress");
+
+        ArrayList<ProofResult> results = pathProgress.pathProgress.getProofResults();
+
+        long netTimeProofsSeconds = 0;
+
+        for(int i = 0; i < results.size(); ++i) {
+            netTimeProofsSeconds += TimeUnit.MILLISECONDS.toSeconds(results.get(i).getDuration());
         }
 
-        @Override
-        public void onError(ServerError error) {
+        netTimeProofsSeconds = (netTimeProofsSeconds % 60);
+        long netTimeProofsMinutes = (netTimeProofsSeconds / 60);
 
-        }
-    });
-    */
+        PathResult result = new PathResult(pathId, pathName, buildingName, startGlobalTime, finishGlobalTime, (int)totalScore, results);
+
+
+        Log.i(TAG, "Net time proof seconds" + netTimeProofsSeconds);
+
+        ((TextView) findViewById(R.id.totalScore)).setText(String.valueOf(totalScore));
+        ((TextView) findViewById(R.id.buildingName)).setText(buildingName);
+        ((TextView) findViewById(R.id.path)).setText(pathName);
+        ((TextView) findViewById(R.id.totalPathTime)).setText(String.valueOf(netTimeMinutes) + " minuti e " + String.valueOf(netTimeSeconds) + " secondi");
+        //((TextView) findViewById(R.id.totalTimeProofs)).setText(String.valueOf(netTimeProofsMinutes) + " minuti e " + String.valueOf(netTimeProofsSeconds) + " secondi");
+        ((TextView) findViewById(R.id.minScoreProof)).setText(String.valueOf(result.getMinScoreProof()));
+        ((TextView) findViewById(R.id.maxScoreProof)).setText(String.valueOf(result.getMaxScoreProof()));
+
+
+        DataRequestMaker.saveResult(getApplicationContext(), result, new AbstractDataManagerListener<Boolean>() {
+            @Override
+            public void onResponse(Boolean response) {
+
+            }
+
+            @Override
+            public void onError(ServerError error) {
+
+            }
+        });
+
+
+        ListView listView = (ListView)findViewById(R.id.stepsResults);
+        ArrayList lista = getListData();
+        justifyListViewHeightBasedOnChildren(listView, lista);
+        listView.setAdapter(new ResultsAdapter(this, lista));
 
     }
+
+    private ArrayList getListData() {
+        // prova di esempio, poi questi dati verranno presi dal DB
+        // è il ResultAdapter che mette gli elementi di row_result al posto giusto e dentro la list view
+        // fare un for per scorrere tutte le tappe
+        ArrayList<risultatoProva> results = new ArrayList<risultatoProva>();
+
+        risultatoProva ris = new risultatoProva();
+        ris.setData("10 Agosto");
+        ris.setDurata("2 minuti");
+        ris.setEdificio("Torre1");
+        ris.setPunteggio("20");
+        results.add(ris);
+
+        risultatoProva ris2 = new risultatoProva();
+        ris2.setData("10 Agosto");
+        ris2.setDurata("3 minuti");
+        ris2.setEdificio("Torre2");
+        ris2.setPunteggio("10");
+        results.add(ris2);
+
+        // Add some more dummy data for testing
+        return results;
+    }
+
+
+    // setta la dimensione della listView in base a quanti elementi ci sono nella lista
+    public static void justifyListViewHeightBasedOnChildren (ListView listView, ArrayList lista) {
+        int rows = lista.size();
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = rows*250;
+        listView.setLayoutParams(params);
+        listView.requestLayout();
+    }
+
 
 }

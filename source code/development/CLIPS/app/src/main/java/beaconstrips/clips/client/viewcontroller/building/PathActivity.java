@@ -24,6 +24,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import beaconstrips.clips.R;
@@ -53,16 +54,17 @@ public class PathActivity extends MenuActivity {
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_path);
-      Intent i = getIntent();
+      searchStep = getIntent();
 
-      int pathId = i.getIntExtra("pathId", 0);
-      String pathName = i.getStringExtra("pathName");
-      String pathDescription = i.getStringExtra("pathDescription");
-      String pathTarget = i.getStringExtra("pathTarget");
-      String pathEstimatedDuration = i.getStringExtra("pathEstimatedDuration");
-      int pathPosition = i.getIntExtra("pathPosition", 0);
+      int pathId = searchStep.getIntExtra("pathId", 0);
+      String pathName = searchStep.getStringExtra("pathName");
+      String pathDescription = searchStep.getStringExtra("pathDescription");
+      String pathTarget = searchStep.getStringExtra("pathTarget");
+      String pathEstimatedDuration = searchStep.getStringExtra("pathEstimatedDuration");
+      int pathPosition = searchStep.getIntExtra("pathPosition", 0);
 
-      searchStep = new Intent(getApplicationContext(), SearchNewStepActivity.class);
+      searchStep.setClass(getApplicationContext(), SearchNewStepActivity.class);
+      searchStep.putExtra("pathId", pathId);
       ((TextView) findViewById(R.id.nameLabel)).setText(pathName);
       ((TextView) findViewById(R.id.description)).setText(pathDescription);
       ((TextView) findViewById(R.id.target)).setText(pathTarget);
@@ -109,6 +111,7 @@ public class PathActivity extends MenuActivity {
             public void onClick(View v) {
                //proximityManager.startScanning();
                Log.i(TAG, searchStep.toString());
+               searchStep.putExtra("startGlobalTime", new GregorianCalendar());
                startActivity(searchStep);
             }
          });

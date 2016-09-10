@@ -1,78 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView
-        style="@style/TextViewTitolo"
-        android:text="Tappa"
-        android:id="@+id/namePathLabel"/>
-
-    <LinearLayout
-        android:id="@+id/buildAndData"
+    <GridLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/resultRows"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/namePathLabel">
+        android:columnCount="4"
+        >
 
         <TextView
-            style="@style/TextViewBase"
-            android:text="Edificio:"
-            android:id="@+id/buildingLabel"
+            style="@style/TextViewTitolo"
+            android:text="Tappa:"
+            android:id="@+id/nameStepLabel"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:layout_columnWeight="0.5"/>
+
+        <TextView
+            style="@style/TextViewTitolo"
+            android:textColor="@color/colorSecondaryText"
+            android:text="1"
+            android:id="@+id/nameStep"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:layout_columnWeight="1"/>
+
+        <TextView
+            style="@style/TextViewTitolo"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:text="Punti:"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:id="@+id/totalScoreLabel"
+            android:layout_columnWeight="0.5"
             android:textColor="@color/colorText"
-            android:layout_weight="0.25"/>
-        <TextView
-            android:id="@+id/building"
-            style="@style/TextViewBase"
-            android:text="jhgfdsshgfd"
-            android:layout_weight="0.25"/>
+            />
 
         <TextView
+            android:id="@+id/totalScore"
             style="@style/TextViewBase"
-            android:text="Data:"
-            android:id="@+id/dateLabel"
-            android:textColor="@color/colorText"
-            android:layout_weight="0.25"/>
-
-        <TextView
-            android:id="@+id/date"
-            style="@style/TextViewBase"
-            android:text="jhgfdsshgfd"
-            android:layout_weight="0.25"/>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buildAndData">
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:text="10"
+            android:layout_columnWeight="1"/>
 
         <TextView
             style="@style/TextViewBase"
-            android:text="@string/path_total_time_label"
+            android:text="Tempo:"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:paddingTop="0dp"
             android:id="@+id/totalPathTimeLabel"
             android:textColor="@color/colorText"
-            android:layout_weight="0.25"/>
+            android:layout_columnWeight="0.5"/>
 
         <TextView
-            style="@style/TextViewBase"
             android:id="@+id/totalPathTime"
-            android:text="hcvbn"
-            android:layout_weight="0.25"/>
-
-        <TextView
+            android:paddingTop="0dp"
             style="@style/TextViewBase"
-            android:textColor="@color/colorText"
-            android:text="@string/path_total_score_label"
-            android:id="@+id/totalScoreLabel"
-            android:layout_weight="0.25"/>
-        <TextView
-            style="@style/TextViewBase"
-            android:id="@+id/totalScore"
-            android:text="hgfdss"
-            android:layout_weight="0.25"/>
+            android:text="10 minuti"
+            android:layout_columnWeight="1"/>
 
-    </LinearLayout>
-
-
-
-</RelativeLayout>
+    </GridLayout>

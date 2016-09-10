@@ -50,10 +50,9 @@ public class ResultsAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.row_result, null);
             holder = new ViewHolder();
-            holder.edificioView = (TextView) convertView.findViewById(R.id.building);
+            holder.tappaView = (TextView) convertView.findViewById(R.id.nameStep);
             holder.durataView = (TextView) convertView.findViewById(R.id.totalPathTime);
             holder.punteggioView = (TextView) convertView.findViewById(R.id.totalScore);
-            holder.dataView = (TextView) convertView.findViewById(R.id.date);
 
             convertView.setTag(holder);
         }
@@ -64,15 +63,13 @@ public class ResultsAdapter extends BaseAdapter {
 
         // getDurata, getData, eccetera sono metodi della classe di prova risultatoProva
         holder.durataView.setText(listData.get(position).getDurata());
-        holder.dataView.setText(listData.get(position).getData());
-        holder.edificioView.setText(listData.get(position).getEdificio());
+        holder.tappaView.setText(listData.get(position).getEdificio()); // qui andrebbe il nome della tappa
         holder.punteggioView.setText(listData.get(position).getPunteggio());
         return convertView;
     }
 
     static class ViewHolder {
-        TextView edificioView;
-        TextView dataView;
+        TextView tappaView; // in realtà metto edificio
         TextView durataView;
         TextView punteggioView;
     }
