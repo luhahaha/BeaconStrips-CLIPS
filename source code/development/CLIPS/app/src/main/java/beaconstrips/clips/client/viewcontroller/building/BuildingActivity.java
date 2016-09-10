@@ -117,6 +117,8 @@ public class BuildingActivity extends AppCompatActivity {
             else {
 
                paths = loadPaths.getPathInfo();
+               Integer numberOfPaths = loadPaths.getPathInfo().size();
+               justifyListViewHeightBasedOnChildren(pathsResult, numberOfPaths);
 
                pathsResult.setAdapter(new BuildingAdapter(getApplicationContext(), paths));
 
@@ -166,5 +168,12 @@ public class BuildingActivity extends AppCompatActivity {
       });
    }
 
+   // setta la dimensione della listView in base a quanti elementi ci sono nella lista
+   public static void justifyListViewHeightBasedOnChildren (ListView listView, int rows) {
+      ViewGroup.LayoutParams params = listView.getLayoutParams();
+      params.height = rows*200;
+      listView.setLayoutParams(params);
+      listView.requestLayout();
+   }
 
 }
