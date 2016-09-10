@@ -37,9 +37,9 @@ public class PathProgressController implements BeaconDiscoverDelegate, Serializa
 
   public boolean savedResult(GregorianCalendar startTime, GregorianCalendar finishTime, int correct, int total){
      index++;
-      ProofResult result= new ProofResult(this.pathProgress.getPath().steps.get(index).proof.id,startTime,finishTime,this.pathProgress.getPath().steps.get(index-1).proof.scoringAlgorithm.getScore(this.getDuration(startTime,finishTime),correct,total));
+      ProofResult result= new ProofResult(this.pathProgress.getPath().steps.get(index-1).proof.id,startTime,finishTime,this.pathProgress.getPath().steps.get(index-1).proof.scoringAlgorithm.getScore(this.getDuration(startTime,finishTime),correct,total));
     this.pathProgress.addProofResult(result);
-      if(index!=this.pathProgress.getPath().steps.size()) {
+      if(index == this.pathProgress.getPath().steps.size()) {
           return true;
       }
       return false;
