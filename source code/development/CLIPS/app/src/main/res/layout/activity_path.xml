@@ -99,5 +99,13 @@
         android:layout_centerHorizontal="true"
          />
 
+    <Button
+        style="@style/RaisedButton"
+        android:text="Visualizza classifica"
+        android:id="@+id/rankingButton"
+        android:layout_below="@+id/startButton"
+        android:layout_centerHorizontal="true"
+        />
+
 
 </RelativeLayout>

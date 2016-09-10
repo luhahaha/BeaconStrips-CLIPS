@@ -41,6 +41,7 @@ import beaconstrips.clips.client.pathprogress.PathProgressController;
 import beaconstrips.clips.client.pathprogress.ProximityManagerPath;
 import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.games.SearchNewStepActivity;
+import beaconstrips.clips.client.viewcontroller.savedresults.RankingActivity;
 import beaconstrips.clips.client.viewcontroller.savedresults.SavedResultsActivity;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
@@ -113,6 +114,18 @@ public class PathActivity extends MenuActivity {
                Log.i(TAG, searchStep.toString());
                searchStep.putExtra("startGlobalTime", new GregorianCalendar());
                startActivity(searchStep);
+            }
+         });
+      }
+
+
+      final Button rankingButton = (Button) findViewById(R.id.rankingButton);
+      if (rankingButton != null) {
+         rankingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent rank = new Intent(getApplicationContext(), RankingActivity.class);
+               startActivity(rank);
             }
          });
       }
