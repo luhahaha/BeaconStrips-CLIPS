@@ -165,6 +165,9 @@ public class ResultActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(Score[] response) {
                                 Log.i(TAG, "Scores " + response.length);
+                                i.setClass(getApplicationContext(), RankingActivity.class);
+                                i.putExtra("scores", response);
+                                startActivity(i);
                             }
 
                             @Override

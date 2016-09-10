@@ -8,6 +8,7 @@
 
 package beaconstrips.clips.client.viewcontroller.savedresults;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ViewGroup;
@@ -26,12 +27,14 @@ import beaconstrips.clips.client.viewcontroller.utility.risultatoProva;
 
 public class RankingActivity extends AppCompatActivity {
     ListView listView;
+    private Score[] scores;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking);
         listView = (ListView) findViewById(R.id.playerList);
-
+        Intent i = getIntent();
+        scores = (Score[]) i.getSerializableExtra("scores");
         /*
         DataRequestMaker.getRanking(getApplicationContext(), id, new AbstractDataManagerListener<Score[]>() {
             @Override
@@ -74,6 +77,8 @@ public class RankingActivity extends AppCompatActivity {
         // prova di esempio, poi questi dati verranno presi dal DB
         // è il ResultAdapter che mette gli elementi di row_result al posto giusto e dentro la list view
         // fare un for per scorrere tutte le tappe
+
+
         ArrayList<risultatoProva> results = new ArrayList<risultatoProva>();
 
         risultatoProva ris = new risultatoProva();
