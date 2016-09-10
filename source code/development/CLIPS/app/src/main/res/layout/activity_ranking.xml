@@ -15,10 +15,42 @@
         style="@style/TextViewTitolo"
         android:layout_centerHorizontal="true"/>
 
-    <ListView
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/namePathLabel"
+        android:id="@+id/intestazione">
+
+        <TextView
+            style="@style/TextViewTitolo"
+            android:id="@+id/rankingPositionLabel"
+            android:text="Posizione"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:id="@+id/playerNameLabel"
+            style="@style/TextViewTitolo"
+            android:text="Player"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            style="@style/TextViewTitolo"
+            android:id="@+id/totalScoreLabel"
+            android:text="Punteggio"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+
+
+        <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/playerList"
-        android:layout_below="@+id/namePathLabel"
+        android:divider="@color/colorAccent"
+        android:dividerHeight="1dp"
+        android:layout_below="@+id/intestazione"
         android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

@@ -28,7 +28,8 @@
           android:name=".client.viewcontroller.building.BuildingActivity"
           android:theme="@style/AppTheme"/>
       <activity android:name=".client.viewcontroller.games.SearchNewStepActivity"/>
-      <activity android:name=".client.viewcontroller.savedresults.ResultActivity"/>
+      <activity android:name=".client.viewcontroller.savedresults.ResultActivity"
+          android:theme="@style/AppTheme"/>
       <activity android:name=".client.viewcontroller.utility.AppInfoActivity"/>
       <activity android:name=".client.viewcontroller.building.BuildingSearchActivity"/>
       <activity android:name=".MainActivity">
@@ -51,7 +52,8 @@
       <activity android:name=".client.viewcontroller.authentication.ConfirmRegistration"
           android:theme="@style/AppTheme" />
       <activity android:name=".client.viewcontroller.building.PathActivity"/>
-      <activity android:name=".client.viewcontroller.savedresults.RankingActivity"/>
+      <activity android:name=".client.viewcontroller.savedresults.RankingActivity"
+          android:theme="@style/AppTheme"/>
       <activity android:name=".client.viewcontroller.savedresults.SavedResultsActivity"
           android:theme="@style/AppTheme" />
       <activity android:name=".client.viewcontroller.games.TrueFalseQuizView"/>
