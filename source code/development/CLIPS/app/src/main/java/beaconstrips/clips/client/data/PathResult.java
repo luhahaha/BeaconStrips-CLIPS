@@ -30,4 +30,24 @@ public class PathResult {
       this.totalScore = totalScore;
       this.proofResults = proofResults;
    }
+
+   public double getMaxScoreProof() {
+      double max = Double.MIN_VALUE;
+      for(int i = 0; i < proofResults.size(); ++i) {
+         if(max < proofResults.get(i).score)
+            max = proofResults.get(i).score;
+      }
+      return max;
+   }
+
+   public double getMinScoreProof() {
+      double min = Double.MAX_VALUE;
+      for(int i = 0; i < proofResults.size(); ++i) {
+         if(min > proofResults.get(i).score)
+            min = proofResults.get(i).score;
+      }
+      return min;
+   }
+
+
 }

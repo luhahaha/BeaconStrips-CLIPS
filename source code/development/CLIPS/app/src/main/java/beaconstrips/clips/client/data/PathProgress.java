@@ -53,7 +53,7 @@ public class PathProgress implements Serializable{
       proofResults.add(proofResult);
    }
 
-   public List<ProofResult> getProofResults() {
+   public ArrayList<ProofResult> getProofResults() {
       return proofResults;
    }
 

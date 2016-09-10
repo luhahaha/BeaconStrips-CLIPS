@@ -46,7 +46,6 @@ public class ProofResultActivity extends AppCompatActivity {
 
         setButton();
         i = getIntent();
-        Log.i(TAG, i.toString());
 
         GregorianCalendar startTime = (GregorianCalendar) i.getSerializableExtra("startTime");
         Bundle bundle = i.getExtras();

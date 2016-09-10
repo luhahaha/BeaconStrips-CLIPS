@@ -49,18 +49,20 @@ public class BuildingActivity extends AppCompatActivity {
    private TextView website;
    private TextView openingTime;
    private ArrayList<PathInfo> paths;
+   String buildingName;
+   Intent i;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_building);
-      Intent i = getIntent();
-      final String valueName = i.getStringExtra("buildingName");
+      i = getIntent();
+      buildingName = i.getStringExtra("buildingName");
       final int radius = i.getIntExtra("distance", 10);
       final double latitude = i.getDoubleExtra("latitude", 45);
       final double longitude = i.getDoubleExtra("longitude", 11);
       name = (TextView) findViewById(R.id.buildingName);
-      name.setText(valueName);
+      name.setText(buildingName);
       address = (TextView) findViewById(R.id.buildingAddress);
       telephone = (TextView) findViewById(R.id.buildingTelephone);
       description = (TextView) findViewById(R.id.description);
@@ -91,7 +93,7 @@ public class BuildingActivity extends AppCompatActivity {
                email.setText(response[i].email);
                website.setText(response[i].websiteURL);
                openingTime.setText(response[i].openingTime);
-               if (response[i].name.equals(valueName)) {
+               if (response[i].name.equals(buildingName)) {
                   loadPaths = response[i];
                   found = true;
                }
@@ -152,7 +154,7 @@ public class BuildingActivity extends AppCompatActivity {
                                  int position, long id) {
             int pathId = Integer.parseInt((((TextView) view.findViewById(R.id.pathId)).getText()).toString()); //TODO recuperare id per recuperare informazioni path
             String pathName = ((TextView) view.findViewById(R.id.pathName)).getText().toString();
-            Intent i = new Intent(getApplicationContext(), PathActivity.class);
+            i.setClass(getApplicationContext(), PathActivity.class);
             i.putExtra("pathId", pathId);
             i.putExtra("pathName", pathName);
             i.putExtra("pathDescription", paths.get(position).description);
