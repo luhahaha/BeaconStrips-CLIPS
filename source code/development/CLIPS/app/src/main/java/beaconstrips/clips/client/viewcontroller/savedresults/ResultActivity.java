@@ -12,16 +12,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import java.util.concurrent.TimeUnit;
 
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.PathResult;
+import beaconstrips.clips.client.data.ProofResult;
 import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.DataRequestMaker;
+import beaconstrips.clips.client.pathprogress.PathProgressController;
 import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.utility.ResultsAdapter;
 import beaconstrips.clips.client.viewcontroller.utility.risultatoProva;
@@ -29,6 +34,7 @@ import beaconstrips.clips.client.viewcontroller.utility.risultatoProva;
 public class ResultActivity extends AppCompatActivity {
 
     private Intent i;
+    private String TAG = "ResultActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,21 +43,55 @@ public class ResultActivity extends AppCompatActivity {
         //TODO add buttons linking
 
         i = getIntent();
+        int pathId = i.getIntExtra("pathId", 0);
+        String pathName = i.getStringExtra("pathName");
+        String buildingName = i.getStringExtra("buildingName");
         double totalScore = i.getDoubleExtra("totalScore", 0.0);
+        GregorianCalendar startGlobalTime = (GregorianCalendar) i.getSerializableExtra("startGlobalTime");
+        GregorianCalendar finishGlobalTime = new GregorianCalendar();
+
+        long netTimeSeconds = (TimeUnit.MILLISECONDS.toSeconds(finishGlobalTime.getTimeInMillis() - startGlobalTime.getTimeInMillis())) % 60;
+        long netTimeMinutes = netTimeSeconds / 60;
+
+        PathProgressController pathProgress = (PathProgressController) i.getSerializableExtra("pathProgress");
+
+        ArrayList<ProofResult> results = pathProgress.pathProgress.getProofResults();
+
+        long netTimeProofsSeconds = 0;
+
+        for(int i = 0; i < results.size(); ++i) {
+            netTimeProofsSeconds += TimeUnit.MILLISECONDS.toSeconds(results.get(i).getDuration());
+        }
+
+        netTimeProofsSeconds = (netTimeProofsSeconds % 60);
+        long netTimeProofsMinutes = (netTimeProofsSeconds / 60);
+
+        PathResult result = new PathResult(pathId, pathName, buildingName, startGlobalTime, finishGlobalTime, (int)totalScore, results);
+
+
+        Log.i(TAG, "Net time proof seconds" + netTimeProofsSeconds);
+
         ((TextView) findViewById(R.id.totalScore)).setText(String.valueOf(totalScore));
-        /*
-        DataRequestMaker.getResults(getApplicationContext(), new AbstractDataManagerListener<PathResult[]>() {
-        @Override
-        public void onResponse(PathResult[] response) {
+        ((TextView) findViewById(R.id.buildingName)).setText(buildingName);
+        ((TextView) findViewById(R.id.path)).setText(pathName);
+        ((TextView) findViewById(R.id.totalPathTime)).setText(String.valueOf(netTimeMinutes) + " minuti e " + String.valueOf(netTimeSeconds) + " secondi");
+        //((TextView) findViewById(R.id.totalTimeProofs)).setText(String.valueOf(netTimeProofsMinutes) + " minuti e " + String.valueOf(netTimeProofsSeconds) + " secondi");
+        ((TextView) findViewById(R.id.minScoreProof)).setText(String.valueOf(result.getMinScoreProof()));
+        ((TextView) findViewById(R.id.maxScoreProof)).setText(String.valueOf(result.getMaxScoreProof()));
 
-        }
 
-        @Override
-        public void onError(ServerError error) {
+        DataRequestMaker.saveResult(getApplicationContext(), result, new AbstractDataManagerListener<Boolean>() {
+            @Override
+            public void onResponse(Boolean response) {
 
-        }
-    });
-    */
+            }
+
+            @Override
+            public void onError(ServerError error) {
+
+            }
+        });
+
 
         ListView listView = (ListView)findViewById(R.id.stepsResults);
         ArrayList lista = getListData();
