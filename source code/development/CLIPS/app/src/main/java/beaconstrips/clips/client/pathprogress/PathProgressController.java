@@ -6,6 +6,8 @@ import com.kontakt.sdk.android.common.profile.IBeaconDevice;
 
 import java.io.Serializable;
 import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import beaconstrips.clips.client.data.Path;
 import beaconstrips.clips.client.data.PathProgress;
@@ -37,13 +39,26 @@ public class PathProgressController implements BeaconDiscoverDelegate, Serializa
 
   public boolean savedResult(GregorianCalendar startTime, GregorianCalendar finishTime, int correct, int total){
      index++;
+     Log.i(TAG, "Duration is " + getDuration(startTime, finishTime));
+     Log.i(TAG, "Score of proof is " + this.pathProgress.getPath().steps.get(index-1).proof.scoringAlgorithm.getScore(this.getDuration(startTime,finishTime), correct, total));
       ProofResult result= new ProofResult(this.pathProgress.getPath().steps.get(index-1).proof.id,startTime,finishTime,this.pathProgress.getPath().steps.get(index-1).proof.scoringAlgorithm.getScore(this.getDuration(startTime,finishTime),correct,total));
+
     this.pathProgress.addProofResult(result);
       if(index == this.pathProgress.getPath().steps.size()) {
           return true;
       }
       return false;
   }
+
+   public double getTotalScore() {
+      double total = 0.0;
+      List<ProofResult> proofResults = pathProgress.getProofResults();
+      for(int i = 0; i < proofResults.size(); ++i) {
+         total += proofResults.get(i).score;
+      }
+      Log.i(TAG, "Total score is " + total);
+      return total;
+   }
 
 
   public void didFoundBeacon(IBeaconDevice beacon){
@@ -54,12 +69,12 @@ public class PathProgressController implements BeaconDiscoverDelegate, Serializa
           } else {
               Proximity proximity = this.pathProgress.getPath().searchProximity(beacon,index);
               if(proximity != null)
-              this.delegate.didRangeProximity(proximity.percentage,proximity.textToDisplay);
+               this.delegate.didRangeProximity(proximity.percentage,proximity.textToDisplay);
           }
   }
 
-    public long getDuration(GregorianCalendar startTime, GregorianCalendar endTime) {
-        return endTime.getTime().getTime() - startTime.getTime().getTime();
+    public double getDuration(GregorianCalendar startTime, GregorianCalendar endTime) {
+        return TimeUnit.MILLISECONDS.toSeconds(endTime.getTime().getTime() - startTime.getTime().getTime());
     }
     public void didMoveFromBeacon(RawBeacon beacon){
   }

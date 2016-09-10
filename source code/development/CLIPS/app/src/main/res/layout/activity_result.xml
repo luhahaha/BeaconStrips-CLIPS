@@ -30,7 +30,7 @@
             />
         <TextView
             style="@style/TextViewTitolo"
-            android:text="666"
+            android:text=""
             android:layout_gravity="center_horizontal"
             android:id="@+id/totalScore"
             android:textSize="30dp"/>

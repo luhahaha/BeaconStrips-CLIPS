@@ -50,6 +50,7 @@ public class ProofResultActivity extends AppCompatActivity {
 
         GregorianCalendar startTime = (GregorianCalendar) i.getSerializableExtra("startTime");
         Bundle bundle = i.getExtras();
+        Log.i(TAG, "Start time" + startTime);
 
         pathProgress = (PathProgressController) bundle.getSerializable("pathProgress");
         if(pathProgress != null)
@@ -68,6 +69,7 @@ public class ProofResultActivity extends AppCompatActivity {
                     i.setClass(getApplicationContext(), SearchNewStepActivity.class);
                 }
                 else {
+                    i.putExtra("totalScore", pathProgress.getTotalScore());
                     i.setClass(getApplicationContext(), ResultActivity.class);
                 }
                 startActivity(i);
