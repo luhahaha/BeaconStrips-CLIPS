@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import beaconstrips.clips.R;
+import beaconstrips.clips.client.data.ProofResult;
 
 /**
  * @file ResultAdapter.java
@@ -22,10 +23,10 @@ import beaconstrips.clips.R;
 public class ResultsAdapter extends BaseAdapter {
 
     // risultatoProva è una classe di prova che modella il risultato di una prova. (contiene 4 stringhe e i loro relativi metodi set e get)
-    private ArrayList<risultatoProva> listData;
+    private ArrayList<ProofResult> listData;
     private LayoutInflater layoutInflater;
 
-    public ResultsAdapter(Context aContext, ArrayList<risultatoProva> listData) {
+    public ResultsAdapter(Context aContext, ArrayList<ProofResult> listData) {
         this.listData = listData;
         layoutInflater = LayoutInflater.from(aContext);
     }
@@ -61,15 +62,17 @@ public class ResultsAdapter extends BaseAdapter {
         }
 
 
-        // getDurata, getData, eccetera sono metodi della classe di prova risultatoProva
-        holder.durataView.setText(listData.get(position).getDurata());
-        holder.tappaView.setText(listData.get(position).getEdificio()); // qui andrebbe il nome della tappa
-        holder.punteggioView.setText(listData.get(position).getPunteggio());
+        String duration = String.valueOf(listData.get(position).getDuration());
+        String tappa = String.valueOf(listData.get(position).id);
+        String score = String.valueOf(listData.get(position).score);
+        holder.durataView.setText(duration);
+        holder.tappaView.setText(tappa);
+        holder.punteggioView.setText(score);
         return convertView;
     }
 
     static class ViewHolder {
-        TextView tappaView; // in realtà metto edificio
+        TextView tappaView;
         TextView durataView;
         TextView punteggioView;
     }

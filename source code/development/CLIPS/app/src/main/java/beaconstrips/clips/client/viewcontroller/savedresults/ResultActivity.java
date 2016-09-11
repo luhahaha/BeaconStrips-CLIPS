@@ -63,7 +63,9 @@ public class ResultActivity extends AppCompatActivity {
 
         PathProgressController pathProgress = (PathProgressController) i.getSerializableExtra("pathProgress");
 
+        // array dei risultati delle varie prove del percorso
         ArrayList<ProofResult> results = pathProgress.pathProgress.getProofResults();
+        Integer numberOfResults = results.size();
 
         long netTimeProofsSeconds = 0;
 
@@ -89,40 +91,13 @@ public class ResultActivity extends AppCompatActivity {
         setButtons();
 
         ListView listView = (ListView)findViewById(R.id.stepsResults);
-        ArrayList lista = getListData();
-        justifyListViewHeightBasedOnChildren(listView, lista);
-        listView.setAdapter(new ResultsAdapter(this, lista));
+        justifyListViewHeightBasedOnChildren(listView, numberOfResults);
+        listView.setAdapter(new ResultsAdapter(this, results));
 
     }
-
-    private ArrayList getListData() {
-        // prova di esempio, poi questi dati verranno presi dal DB
-        // è il ResultAdapter che mette gli elementi di row_result al posto giusto e dentro la list view
-        // fare un for per scorrere tutte le tappe
-        ArrayList<risultatoProva> results = new ArrayList<risultatoProva>();
-
-        risultatoProva ris = new risultatoProva();
-        ris.setData("10 Agosto");
-        ris.setDurata("2 minuti");
-        ris.setEdificio("Torre1");
-        ris.setPunteggio("20");
-        results.add(ris);
-
-        risultatoProva ris2 = new risultatoProva();
-        ris2.setData("10 Agosto");
-        ris2.setDurata("3 minuti");
-        ris2.setEdificio("Torre2");
-        ris2.setPunteggio("10");
-        results.add(ris2);
-
-        // Add some more dummy data for testing
-        return results;
-    }
-
 
     // setta la dimensione della listView in base a quanti elementi ci sono nella lista
-    public static void justifyListViewHeightBasedOnChildren (ListView listView, ArrayList lista) {
-        int rows = lista.size();
+    public static void justifyListViewHeightBasedOnChildren (ListView listView, Integer rows) {
         ViewGroup.LayoutParams params = listView.getLayoutParams();
         params.height = rows*250;
         listView.setLayoutParams(params);
