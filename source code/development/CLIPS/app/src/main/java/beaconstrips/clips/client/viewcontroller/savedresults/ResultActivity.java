@@ -73,7 +73,7 @@ public class ResultActivity extends AppCompatActivity {
             netTimeProofsSeconds += TimeUnit.MILLISECONDS.toSeconds(results.get(i).getDuration());
         }
 
-        netTimeProofsSeconds = (netTimeProofsSeconds % 60);
+        netTimeProofsSeconds = Math.round((netTimeProofsSeconds % 60));
         long netTimeProofsMinutes = (netTimeProofsSeconds / 60);
 
         result = new PathResult(pathId, pathName, buildingName, startGlobalTime, finishGlobalTime, (int)totalScore, results);
