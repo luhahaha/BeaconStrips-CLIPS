@@ -62,6 +62,7 @@ import beaconstrips.clips.client.pathprogress.RawBeacon;
  *                                                           "Stampa di getScore() senza tenere conto di quante risposte sono corrette: 20.0"
  *                                                           "Stampa di getScore() con un punteggio minimo e senza tempo minimo: 25.5"
  *                                                           "Stampa di getScore() con un punteggio minimo: 28.0"
+ *                                                           "Stampa di getScore() senza minTime e maxTime: 28.0"
  * Stampa attesa per il test "buildingTest()": "Risultati di getPathInfo():"
  *                                             "   Path 0:"
  *                                             "      ID: 1"
@@ -169,6 +170,8 @@ public class DataTest {
       Log.d("DataTest", "Stampa di getScore() con un punteggio minimo e senza tempo minimo: " + algorithm.getScore(20, 7, 10));
       algorithm = new LinearScoringAlgorithm(10, 40, 10, 30, 1, 1);
       Log.d("DataTest", "Stampa di getScore() con un punteggio minimo: " + algorithm.getScore(20, 7, 10));
+      algorithm = new LinearScoringAlgorithm(0, 40, 0, 0, 1, 1);
+      Log.d("DataTest", "Stampa di getScore() senza minTime e maxTime: " + algorithm.getScore(20, 7, 10));
    }
 
    @Test

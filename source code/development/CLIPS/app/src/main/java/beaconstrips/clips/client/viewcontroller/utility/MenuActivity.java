@@ -57,6 +57,7 @@ public class MenuActivity extends AppCompatActivity
     private ActionBarDrawerToggle drawerToggle;
     private View headerView;
     private int selectedNavItemId;
+    private boolean logged = false;
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
@@ -95,6 +96,7 @@ public class MenuActivity extends AppCompatActivity
 
     public void updateView(){
         if(LoginManager.sharedManager(getApplicationContext()).isLogged()) {
+            logged = true;
             Log.e("MenuActivity", "loggato");
             LoggedUser u = LoginManager.sharedManager(getApplicationContext()).getLoggedUser();
             Log.e("MenuActivity", u.email);
@@ -172,6 +174,17 @@ public class MenuActivity extends AppCompatActivity
         }
     }
 
+    private boolean profilo() {
+        if(logged){
+            return true;
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Non sei loggato, non hai un profilo",
+                    Toast.LENGTH_LONG).show();
+            return false;
+        }
+    }
+
 
 
     protected void selectDrawerItem(MenuItem menuItem) {
@@ -189,6 +202,7 @@ public class MenuActivity extends AppCompatActivity
                 intent = new Intent(this, BuildingSearchActivity.class);
                 break;
             case R.id.nav_profilo:
+                startNewActivity = profilo();
                 intent = new Intent(this, AccountActivity.class);
                 break;
             case R.id.nav_info:
