@@ -64,7 +64,8 @@
       <activity
           android:name=".client.viewcontroller.games.ProofResultActivity"
           android:theme="@style/AppTheme"/>
-      <activity android:name=".client.viewcontroller.games.ProofActivity"/>
+      <activity android:name=".client.viewcontroller.games.ProofActivity"
+       android:theme="@style/AppTheme"/>
       <activity
           android:name=".client.viewcontroller.utility.MenuActivity"
           android:label="@string/title_activity_menu"/>

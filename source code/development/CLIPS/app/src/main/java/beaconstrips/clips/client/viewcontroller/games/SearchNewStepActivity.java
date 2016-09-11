@@ -256,22 +256,23 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
             public void onClick(View v) {
                Test test = proof.test;
 
-               if (test instanceof GameCollection) {
-                  i.putExtra("gameCollection", test);
-                  test = ((GameCollection) test).games.remove(0);
-                  Log.i(TAG, "Test has now type " + test.getClass());
-               }
-
-               if (test instanceof MultipleChoiceTest) {
-                  i.setClass(getApplicationContext(), MultipleChoiceQuizActivity.class);
-                  i.putExtra("totalQuestions", ((MultipleChoiceTest) test).questions.size());
-                  Log.i(TAG, "Set class MultipleChoiceQuizActivity.class");
-               }
-               if (test instanceof TrueFalseTest) {
-                  i.setClass(getApplicationContext(), TrueFalseQuizActivity.class);
-                  i.putExtra("totalQuestions", ((TrueFalseTest) test).questions.size());
-                  Log.i(TAG, "Set class TrueFalseTest.class");
-               }
+//               if (test instanceof GameCollection) {
+//                  i.putExtra("gameCollection", test);
+//                  test = ((GameCollection) test).games.remove(0);
+//                  Log.i(TAG, "Test has now type " + test.getClass());
+//               }
+//
+//               if (test instanceof MultipleChoiceTest) {
+//                  i.setClass(getApplicationContext(), MultipleChoiceQuizActivity.class);
+//                  i.putExtra("totalQuestions", ((MultipleChoiceTest) test).questions.size());
+//
+//                  Log.i(TAG, "Set class MultipleChoiceQuizActivity.class");
+//               }
+//               if (test instanceof TrueFalseTest) {
+//                  i.setClass(getApplicationContext(), TrueFalseQuizActivity.class);
+//                  i.putExtra("totalQuestions", ((TrueFalseTest) test).questions.size());
+//                  Log.i(TAG, "Set class TrueFalseTest.class");
+//               }
 
                //TODO change all this stuff
                //Bundle bundle = new Bundle();
@@ -280,9 +281,12 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
                i.putExtra("test", test);
                i.removeExtra("correctAnswer");
                i.putExtra("correctAnswer", 0);
+               i.putExtra("proofTitle", proof.title);
+               i.putExtra("proofInstructions", proof.instructions);
                i.putExtra("stepIndex", stepIndex);
                startTime = new GregorianCalendar();
                i.putExtra("startTime", startTime);
+               i.setClass(getApplicationContext(), ProofActivity.class);
                if (i != null) {
                   startActivity(i);
                }
