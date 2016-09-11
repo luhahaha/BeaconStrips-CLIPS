@@ -41,7 +41,7 @@ public class TrueFalseQuizActivity extends AppCompatActivity {
         test = (TrueFalseTest) i.getSerializableExtra("test");
         answers = test.questions.remove(0);
         Log.i(TAG, "" + answers.response);
-
+        Log.i(TAG, "Correct answers: " + correctAnswers);
 
         setQuiz();
     }

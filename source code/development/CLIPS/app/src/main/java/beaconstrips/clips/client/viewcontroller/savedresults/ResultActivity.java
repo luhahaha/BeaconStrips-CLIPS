@@ -165,24 +165,20 @@ public class ResultActivity extends AppCompatActivity {
             rankingButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (LoginManager.sharedManager(getApplicationContext()).isLogged()) {
-                        DataRequestMaker.getRanking(getApplicationContext(), pathId, new AbstractDataManagerListener<Score[]>() {
-                            @Override
-                            public void onResponse(Score[] response) {
-                                Log.i(TAG, "Scores " + response.length);
-                                i.setClass(getApplicationContext(), RankingActivity.class);
-                                i.putExtra("scores", response);
-                                startActivity(i);
-                            }
+                    DataRequestMaker.getRanking(getApplicationContext(), pathId, new AbstractDataManagerListener<Score[]>() {
+                        @Override
+                        public void onResponse(Score[] response) {
+                            Log.i(TAG, "Scores " + response.length);
+                            i.setClass(getApplicationContext(), RankingActivity.class);
+                            i.putExtra("scores", response);
+                            startActivity(i);
+                        }
 
-                            @Override
-                            public void onError(ServerError error) {
+                        @Override
+                        public void onError(ServerError error) {
 
-                            }
-                        });
-                    } else {
-                        //TODO mostra invito a login
-                    }
+                        }
+                    });
                 }
             });
         }
