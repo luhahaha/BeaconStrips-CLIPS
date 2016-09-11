@@ -15,28 +15,28 @@
     <Button
         style="@style/RaisedButton"
         android:id="@+id/choice1"
-        android:text="1100"
+        android:text=""
         android:layout_below="@+id/include2"
         android:layout_centerHorizontal="true"
         />
 
     <Button
         style="@style/RaisedButton"
-        android:text="1000"
+        android:text=""
         android:id="@+id/choice2"
         android:layout_below="@+id/choice1"
         android:layout_centerHorizontal="true" />
 
     <Button
         style="@style/RaisedButton"
-        android:text="1101"
+        android:text=""
         android:id="@+id/choice3"
         android:layout_below="@+id/choice2"
-        android:layout_alignStart="@+id/choice2" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         style="@style/RaisedButton"
-        android:text="1010"
+        android:text=""
         android:id="@+id/choice4"
         android:layout_below="@+id/choice3"
         android:layout_centerHorizontal="true" />
