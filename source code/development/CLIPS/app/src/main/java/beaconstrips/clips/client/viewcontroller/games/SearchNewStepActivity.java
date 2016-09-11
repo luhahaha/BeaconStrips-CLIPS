@@ -8,8 +8,12 @@
 
 package beaconstrips.clips.client.viewcontroller.games;
 
+import android.bluetooth.BluetoothAdapter;
+import android.content.ComponentName;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -61,6 +65,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
    GregorianCalendar startTime;
    int correctAnswer = 0;
    TextView hintLabel;
+   private AlertDialog.Builder alert;
 
 
    @Override
@@ -91,6 +96,13 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       proximityManager = new ProximityManager(this);
       proximityManager.setIBeaconListener(createIBeaconListener());
 
+      BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+      alert = createBluetoothAlert();
+
+      if (!mBluetoothAdapter.isEnabled()) {
+         alert.show();
+      }
 
       //stepIndex = i.getIntExtra("stepIndex", 0);
 
@@ -295,5 +307,21 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
 
    @Override
    public void onBackPressed() {
+   }
+
+   private AlertDialog.Builder createBluetoothAlert() {
+      AlertDialog.Builder builder = new AlertDialog.Builder(SearchNewStepActivity.this);
+      builder.setMessage("Devi attivare il Bluetooth per poter proseguire")
+              .setPositiveButton("Attiva", new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int id) {
+                    Intent settingsIntent = new Intent(android.provider.Settings.ACTION_BLUETOOTH_SETTINGS);
+                    startActivity(settingsIntent);
+                 }
+              })
+              .setNegativeButton("Cancella", new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int id) {
+                 }
+              });
+      return builder;
    }
 }
