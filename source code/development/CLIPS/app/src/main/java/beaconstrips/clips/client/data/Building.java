@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 public class Building {
    public final String name;
+   public final String image;
    public final String description;
    public final String otherInfos;
    public final String openingTime;
@@ -27,8 +28,9 @@ public class Building {
    public final ArrayList<PathInfo> pathsInfos;
    public final String websiteURL;
 
-   public Building(String name, String description, String otherInfos, String openingTime, String address, double latitude, double longitude, String telephone, String email, String whatsapp, String telegram, String twitter, String facebook, String websiteURL, ArrayList<PathInfo> pathsInfos) {
+   public Building(String name, String image, String description, String otherInfos, String openingTime, String address, double latitude, double longitude, String telephone, String email, String whatsapp, String telegram, String twitter, String facebook, String websiteURL, ArrayList<PathInfo> pathsInfos) {
       this.name = name;
+      this.image = image;
       this.description = description;
       this.otherInfos = otherInfos;
       this.openingTime = openingTime;
