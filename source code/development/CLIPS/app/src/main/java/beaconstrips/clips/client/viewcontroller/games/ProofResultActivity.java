@@ -108,6 +108,7 @@ public class ProofResultActivity extends AppCompatActivity {
                     Log.i(TAG, "Domande totali: " + totalQuestions + "; domande corrette: " + correctAnswers);
                     if (!finished) {
                         i.setClass(getApplicationContext(), SearchNewStepActivity.class);
+                        i.putExtra("correctAnswers", 0);
                     } else {
                         i.putExtra("totalScore", pathProgress.getTotalScore());
                         i.setClass(getApplicationContext(), ResultActivity.class);

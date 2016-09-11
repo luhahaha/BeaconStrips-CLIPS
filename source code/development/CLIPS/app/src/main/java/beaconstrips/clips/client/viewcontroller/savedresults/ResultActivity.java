@@ -127,8 +127,22 @@ public class ResultActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(Boolean response) {
 
-                                Toast.makeText(getApplicationContext(), "Risultato salvato", Toast.LENGTH_SHORT);
-                                i.setClass(getApplicationContext(), BuildingSearchActivity.class);
+                                if(response) {
+                                    Toast.makeText(getApplicationContext(), "Risultato salvato", Toast.LENGTH_SHORT).show();
+                                    i.setClass(getApplicationContext(), BuildingSearchActivity.class);
+                                    startActivity(i);
+                                }
+                                else {
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(ResultActivity.this);
+                                    builder.setMessage("C'è stato un errore nel salvataggio dei dati. Riprova.")
+                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int id) {
+
+                                                }
+                                            });
+                                    AlertDialog dialog = builder.create();
+                                    dialog.show();
+                                }
                             }
 
                             @Override

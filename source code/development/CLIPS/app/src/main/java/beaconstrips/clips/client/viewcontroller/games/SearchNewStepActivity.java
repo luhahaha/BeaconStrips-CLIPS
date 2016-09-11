@@ -266,7 +266,8 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
                //bundle.putSerializable("pathProgress", pathProgress);
                //i.putExtras(bundle);
                i.putExtra("test", test);
-               i.putExtra("correctAnswer", correctAnswer);
+               i.removeExtra("correctAnswer");
+               i.putExtra("correctAnswer", 0);
                i.putExtra("stepIndex", stepIndex);
                startTime = new GregorianCalendar();
                i.putExtra("startTime", startTime);
