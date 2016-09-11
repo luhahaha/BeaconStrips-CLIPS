@@ -42,13 +42,20 @@ public class LoginActivity extends MenuActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        email = (EditText) findViewById(R.id.email_login);
-        password = (EditText) findViewById(R.id.password_login);
-        missingEmail = (TextInputLayout) findViewById(R.id.email_label);
-        missingPassword = (TextInputLayout) findViewById(R.id.password_label);
-        fromResults = getIntent().getBooleanExtra("loginFromResult", false);
-        setButton();
-        setLoginButton();
+
+        if(LoginManager.sharedManager(getApplicationContext()).isLogged()) {
+            Intent i = new Intent(getApplicationContext(), AccountActivity.class);
+            startActivity(i);
+        }
+        else {
+            email = (EditText) findViewById(R.id.email_login);
+            password = (EditText) findViewById(R.id.password_login);
+            missingEmail = (TextInputLayout) findViewById(R.id.email_label);
+            missingPassword = (TextInputLayout) findViewById(R.id.password_label);
+            fromResults = getIntent().getBooleanExtra("loginFromResult", false);
+            setButton();
+            setLoginButton();
+        }
     }
 
 
