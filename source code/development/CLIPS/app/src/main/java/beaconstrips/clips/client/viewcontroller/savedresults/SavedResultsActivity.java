@@ -19,15 +19,35 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import beaconstrips.clips.R;
+import beaconstrips.clips.client.data.PathResult;
+import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
+import beaconstrips.clips.client.data.datamanager.DataRequestMaker;
+import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.utility.ResultsAdapter;
 import beaconstrips.clips.client.viewcontroller.utility.risultatoProva;
 
 public class SavedResultsActivity extends AppCompatActivity {
 
+    private PathResult[] results;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_results);
+
+
+
+        DataRequestMaker.getResults(getApplicationContext(), new AbstractDataManagerListener<PathResult[]>() {
+            @Override
+            public void onResponse(PathResult[] response) {
+                results = response;
+            }
+
+            @Override
+            public void onError(ServerError error) {
+
+            }
+        });
 
 
         ListView listView = (ListView)findViewById(R.id.resultRows);
