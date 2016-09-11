@@ -80,13 +80,13 @@ public class ResultActivity extends AppCompatActivity {
 
 
 
-        ((TextView) findViewById(R.id.totalScore)).setText(String.valueOf(totalScore));
+        ((TextView) findViewById(R.id.totalScore)).setText(String.valueOf(Math.round(totalScore)));
         ((TextView) findViewById(R.id.buildingName)).setText(buildingName);
         ((TextView) findViewById(R.id.path)).setText(pathName);
         ((TextView) findViewById(R.id.totalPathTime)).setText(String.valueOf(netTimeMinutes) + " minuti e " + String.valueOf(netTimeSeconds) + " secondi");
         ((TextView) findViewById(R.id.totalTimeProofs)).setText(String.valueOf(netTimeProofsMinutes) + " minuti e " + String.valueOf(netTimeProofsSeconds) + " secondi");
-        ((TextView) findViewById(R.id.minScoreProof)).setText(String.valueOf(result.getMinScoreProof()));
-        ((TextView) findViewById(R.id.maxScoreProof)).setText(String.valueOf(result.getMaxScoreProof()));
+        ((TextView) findViewById(R.id.minScoreProof)).setText(String.valueOf(Math.round(result.getMinScoreProof())));
+        ((TextView) findViewById(R.id.maxScoreProof)).setText(String.valueOf(Math.round(result.getMaxScoreProof())));
 
         setButtons();
 
