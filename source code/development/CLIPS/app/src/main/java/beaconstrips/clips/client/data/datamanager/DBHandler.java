@@ -723,7 +723,8 @@ public class DBHandler extends SQLiteOpenHelper {
       ArrayList<PathResult> pathResults = new ArrayList<PathResult>();
 
       while(cursor.moveToNext()){
-         int id = Integer.parseInt(cursor.getString(5));
+         int pathID = Integer.parseInt(cursor.getString(5));
+         int id=  Integer.parseInt(cursor.getString(0));
          GregorianCalendar startTime = Utility.stringToGregorianCalendar(cursor.getString(1));
          GregorianCalendar endTime = Utility.stringToGregorianCalendar(cursor.getString(2));
          String buildingName = cursor.getString(3);
@@ -731,7 +732,7 @@ public class DBHandler extends SQLiteOpenHelper {
          ArrayList<ProofResult> proofsResults = readProofResults(id);
          int totalScore = Utility.calculateTotalScore(proofsResults);
 
-         pathResults.add(new PathResult(id, pathName, buildingName, startTime, endTime, totalScore, proofsResults));
+         pathResults.add(new PathResult(pathID, pathName, buildingName, startTime, endTime, totalScore, proofsResults));
       }
 
       return pathResults.toArray(new PathResult[pathResults.size()]);
