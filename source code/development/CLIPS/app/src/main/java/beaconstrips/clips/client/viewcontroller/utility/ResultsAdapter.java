@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.ProofResult;
@@ -62,9 +63,9 @@ public class ResultsAdapter extends BaseAdapter {
         }
 
 
-        String duration = String.valueOf(listData.get(position).getDuration());
+        String duration = String.valueOf(TimeUnit.MILLISECONDS.toSeconds(listData.get(position).getDuration()));
         String tappa = String.valueOf(listData.get(position).id);
-        String score = String.valueOf(listData.get(position).score);
+        String score = String.valueOf(Math.round(listData.get(position).score));
         holder.durataView.setText(duration);
         holder.tappaView.setText(tappa);
         holder.punteggioView.setText(score);

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kontakt.sdk.android.ble.configuration.ActivityCheckConfiguration;
@@ -31,6 +32,7 @@ import com.kontakt.sdk.android.common.profile.IBeaconDevice;
 import com.kontakt.sdk.android.common.profile.IBeaconRegion;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.UUID;
@@ -59,6 +61,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
    GregorianCalendar startTime;
    int correctAnswer = 0;
 
+
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
@@ -76,6 +79,10 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       if(pathProgress != null) {
          pathProgress.setDelegate(this);
       }
+
+      String hint = ((ArrayList<String>) i.getSerializableExtra("hints")).remove(0);
+
+      ((TextView) findViewById(R.id.hintLabel)).setText(hint);
 
       KontaktSDK.initialize(this);
       proximityManager = new ProximityManager(this);

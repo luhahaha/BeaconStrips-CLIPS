@@ -24,6 +24,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -78,21 +79,20 @@ public class PathActivity extends MenuActivity {
             Bundle bundle = new Bundle();
             bundle.putSerializable("pathProgress", pathProgress);
             searchStep.putExtras(bundle);
-            /*
-            List <Step> steps = response.steps;
-            if(steps != null) {
-               Bundle bundle = new Bundle();
-               //bundle.putSerializable("steps", (Serializable) steps);
-               //proximityManager = new ProximityManagerPath(getApplicationContext(), response); //prendo path e lo metto;
-               //bundle.putSerializable("proximityManager", proximityManager);
-               searchStep.putExtras(bundle);
-               //searchStep.putExtra("stepIndex", 0);
-
-
+            List <String> hints = new ArrayList<String>();
+            for(int i = 0; i < response.steps.size(); ++i) {
+               hints.add(i, response.steps.get(i).helpText);
             }
-            */
+            //Bundle bundle = new Bundle();
+            //bundle.putSerializable("steps", (Serializable) steps);
+            //proximityManager = new ProximityManagerPath(getApplicationContext(), response); //prendo path e lo metto;
+            //bundle.putSerializable("proximityManager", proximityManager);
+            //searchStep.putExtras(bundle);
+            //searchStep.putExtra("stepIndex", 0);
+            searchStep.putExtra("hints", (Serializable) hints);
 
          }
+
 
          @Override
          public void onError(ServerError error) {
