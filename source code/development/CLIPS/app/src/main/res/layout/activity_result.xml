@@ -36,87 +36,108 @@
             android:id="@+id/totalScore"
             android:textSize="30sp"/>
 
-
-
-
-        <GridLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:columnCount="2">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/buildingNameLabel"
                 style="@style/TextViewBase"
-                android:text="Edificio"
+                android:text="Edificio:"
                 android:textColor="@color/colorText"/>
-
-            <TextView
-                android:id="@+id/buildingName"
-                style="@style/TextViewBase"
-                android:text="" />
-
             <TextView
                 android:id="@+id/pathLabel"
                 style="@style/TextViewBase"
                 android:text="@string/path_building_label"
-                android:textColor="@color/colorText"/>
-
-            <TextView
-                android:id="@+id/path"
-                style="@style/TextViewBase" />
-
+                android:textColor="@color/colorText"
+                android:layout_below="@id/buildingName"
+                android:layout_alignStart="@id/buildingNameLabel"/>
             <TextView
                 android:id="@+id/totalPathTimeLabel"
                 style="@style/TextViewBase"
                 android:text="@string/path_total_time_label"
+                android:layout_below="@id/path"
                 android:textColor="@color/colorText"/>
-
-            <TextView
-                android:id="@+id/totalPathTime"
-                style="@style/TextViewBase"
-                android:text="" />
-
-
             <TextView
                 style="@style/TextViewBase"
                 android:textColor="@color/colorText"
-                android:text="Durata prove:"/>
-
-            <TextView
-                android:id="@+id/totalTimeProofs"
-                android:text="" />
+                android:text="Durata prove:"
+                android:layout_below="@id/totalPathTime"
+                android:id="@+id/totalTimeProofsLabel" />
 
             <TextView
                 android:id="@+id/minScoreProofLabel"
                 style="@style/TextViewBase"
                 android:text="@string/path_min_score_proof_label"
-                android:textColor="@color/colorText"/>
-
-            <TextView
-                android:id="@+id/minScoreProof"
-                style="@style/TextViewBase" />
-
+                android:textColor="@color/colorText"
+                android:layout_below="@+id/maxScoreProofLabel"
+                android:layout_alignParentStart="true" />
             <TextView
                 android:id="@+id/maxScoreProofLabel"
                 style="@style/TextViewBase"
                 android:text="@string/path_max_score_proof_label"
-                android:textColor="@color/colorText"/>
-
-            <TextView
-                android:id="@+id/maxScoreProof"
-                style="@style/TextViewBase" />
+                android:textColor="@color/colorText"
+                android:layout_below="@id/minScoreProof"
+                />
 
             <TextView
                 android:id="@+id/rankingPositionLabel"
                 style="@style/TextViewBase"
                 android:text="@string/path_ranking_position_label"
-                android:textColor="@color/colorText"/>
+                android:textColor="@color/colorText"
+                android:layout_alignTop="@+id/minScoreProof"
+                android:layout_alignParentStart="true" />
+
+            <!-- testo -->
+            <TextView
+                android:id="@+id/buildingName"
+                style="@style/TextViewBase"
+                android:text=""
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/maxScoreProof"/>
+            <TextView
+                android:id="@+id/path"
+                style="@style/TextViewBase"
+                android:text=""
+                android:layout_below="@+id/buildingName"
+                android:layout_alignStart="@+id/maxScoreProof"/>
 
             <TextView
-                android:id="@+id/rankingPosition"
-                android:text=""/>
+                android:id="@+id/totalPathTime"
+                style="@style/TextViewBase"
+                android:text=""
+                android:layout_below="@+id/path"
+                android:layout_alignStart="@+id/maxScoreProof" />
 
-        </GridLayout>
+            <TextView
+                style="@style/TextViewBase"
+                android:id="@+id/totalTimeProofs"
+                android:text=""
+                android:layout_alignTop="@+id/totalTimeProofsLabel"
+                android:layout_alignStart="@+id/maxScoreProof" />
+            <TextView
+                android:id="@+id/minScoreProof"
+                style="@style/TextViewBase"
+                android:text=""
+                android:layout_below="@+id/totalTimeProofs"
+                android:layout_alignStart="@+id/maxScoreProof" />
+
+            <TextView
+                android:text=""
+                android:id="@+id/maxScoreProof"
+                style="@style/TextViewBase"
+                android:layout_below="@+id/minScoreProof"
+                android:layout_toEndOf="@+id/maxScoreProofLabel" />
+            <TextView
+                android:text=""
+                android:id="@+id/rankingPosition"
+                style="@style/TextViewBase"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/maxScoreProof" />
+
+
+        </RelativeLayout>
+
 
         <TextView
             style="@style/TextViewTitolo"
