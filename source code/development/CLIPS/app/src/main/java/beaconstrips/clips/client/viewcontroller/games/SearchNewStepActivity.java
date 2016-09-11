@@ -60,6 +60,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
    private Intent i;
    GregorianCalendar startTime;
    int correctAnswer = 0;
+   TextView hintLabel;
 
 
    @Override
@@ -82,7 +83,9 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
 
       String hint = ((ArrayList<String>) i.getSerializableExtra("hints")).remove(0);
 
-      ((TextView) findViewById(R.id.hintLabel)).setText(hint);
+      hintLabel = ((TextView) findViewById(R.id.hintLabel));
+      hintLabel.setText(hint);
+      hintLabel.setVisibility(View.INVISIBLE);
 
       KontaktSDK.initialize(this);
       proximityManager = new ProximityManager(this);
@@ -111,6 +114,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       configureProximityManager();
       configureListeners();
       configureSpaces();
+      setButtons();
       //configureFilters();
       //TODO add all algorithms for proximity
    }
@@ -206,55 +210,26 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       return new SimpleScanStatusListener() {
          @Override
          public void onScanStart() {
-            showToast("Scanning started");
+            //showToast("Scanning started");
          }
 
          @Override
          public void onScanStop() {
-            showToast("Scanning stopped");
+            //showToast("Scanning stopped");
          }
       };
    }
 
-   /*
-   private void setButtons(final Test test) {
 
-      if (startTestButton != null) {
-         startTestButton.setVisibility(View.VISIBLE);
-         startTestButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-               if(test instanceof GameCollection) {
-                  //test = ((GameCollection) test).games.get(1);
-                  i.putExtra("testIndex", 0);
-                  Log.i(TAG, "Test has now type " + test.getClass());
-               }
-
-               if (test instanceof MultipleChoiceTest) {
-                  i.setClass(getApplicationContext(), MultipleChoiceQuizActivity.class);
-                  Log.i(TAG, "Set class MultipleChoiceQuizActivity.class");
-               }
-               if (test instanceof TrueFalseTest) {
-                  i.setClass(getApplicationContext(), TrueFalseQuizActivity.class);
-                  Log.i(TAG, "Set class TrueFalseTest.class");
-               }
-
-               //TODO change all this stuff
-               Bundle bundle = new Bundle();
-               bundle.putSerializable("steps", (Serializable) steps);
-               i.putExtras(bundle);
-               i.putExtra("test", test);
-               i.putExtra("stepIndex", stepIndex);
-               if(i != null) {
-                  startActivity(i);
-               }
-               //TODO add spinner for loading
-
-            }
-         });
-      }
+   private void setButtons() {
+      Button showHint = (Button) findViewById(R.id.showHint);
+      showHint.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            hintLabel.setVisibility(View.VISIBLE);
+         }
+      });
    }
-   */
 
 
    @Override

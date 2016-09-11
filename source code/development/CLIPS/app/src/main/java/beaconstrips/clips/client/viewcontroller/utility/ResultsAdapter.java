@@ -66,7 +66,7 @@ public class ResultsAdapter extends BaseAdapter {
         String duration = String.valueOf(TimeUnit.MILLISECONDS.toSeconds(listData.get(position).getDuration()));
         String tappa = String.valueOf(listData.get(position).id);
         String score = String.valueOf(Math.round(listData.get(position).score));
-        holder.durataView.setText(duration);
+        holder.durataView.setText(duration + " secondi");
         holder.tappaView.setText(tappa);
         holder.punteggioView.setText(score);
         return convertView;

@@ -27,9 +27,17 @@
     <Button
         style="@style/RaisedButton"
         android:text="Inizia test"
-        android:layout_below="@id/hintLabel"
         android:id="@+id/startTestButton"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:visibility="visible"/>
+        android:visibility="visible"
+        android:layout_below="@+id/hintLabel"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mostra suggerimento"
+        android:id="@+id/showHint"
+        style="@style/RaisedButton"
+        android:layout_below="@+id/startTestButton"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>
