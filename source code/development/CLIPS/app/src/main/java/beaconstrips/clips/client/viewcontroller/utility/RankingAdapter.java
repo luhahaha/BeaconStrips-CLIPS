@@ -64,13 +64,14 @@ public class RankingAdapter extends BaseAdapter {
 
         String pos = String.valueOf(listData.get(position).position);
         String scor = String.valueOf(listData.get(position).score);
+        String username = String.valueOf(listData.get(position).username);
 
         Log.e("prova ranking adapter", listData.get(position).username); // ok
         Log.e("prova ranking pos", pos); // ok
         Log.e("prova ranking scor", scor); // ok
 
         holder.position.setText(pos);
-        holder.name.setText(listData.get(position).username);
+        holder.name.setText(username);
         holder.score.setText(scor);
 
         convertView.setTag(holder);

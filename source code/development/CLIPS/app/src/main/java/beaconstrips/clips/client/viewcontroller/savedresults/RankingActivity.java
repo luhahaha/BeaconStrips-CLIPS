@@ -28,6 +28,7 @@ import beaconstrips.clips.client.viewcontroller.utility.risultatoProva;
 
 public class RankingActivity extends AppCompatActivity {
     private ListView listView;
+    private String TAG = "RankingActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,19 +36,25 @@ public class RankingActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.playerList);
         Intent i = getIntent();
         int pathId = i.getIntExtra("pathId", 0);
+        Log.i(TAG, "Path id is " + pathId);
+
 
         final ArrayList<Score> lista = new ArrayList<Score>();
 
-        justifyListViewHeightBasedOnChildren(listView, lista.size());
+        //justifyListViewHeightBasedOnChildren(listView, lista.size());
 
         DataRequestMaker.getRanking(getApplicationContext(), pathId, new AbstractDataManagerListener<Score[]>() {
             public void onResponse(Score[] response) {
                 Log.d("GetRankingDataTest", "Chiamata getRanking() eseguita con successo:");
+
                 for(int i=0; i<response.length; i++) {
                     // ok
                     Log.d("GetRankingDataTest", response[i].position + ". " + response[i].username + ": " + response[i].score);
+
                     lista.add(new Score(response[i].username, response[i].position, response[i].score));
                 }
+
+
                 listView.setAdapter(new RankingAdapter(getApplicationContext(), lista));
 
             }
@@ -60,10 +67,10 @@ public class RankingActivity extends AppCompatActivity {
         });
 
 
-        Score s = new Score("vivi",1,50);
-        Score ss = new Score("vivi",2,45);
-        lista.add(s); lista.add(ss);
-        listView.setAdapter(new RankingAdapter(getApplicationContext(), lista));
+        //Score s = new Score("vivi",1,50);
+        //Score ss = new Score("vivi",2,45);
+        //lista.add(s); lista.add(ss);
+        //listView.setAdapter(new RankingAdapter(getApplicationContext(), lista));
 
     }
 
