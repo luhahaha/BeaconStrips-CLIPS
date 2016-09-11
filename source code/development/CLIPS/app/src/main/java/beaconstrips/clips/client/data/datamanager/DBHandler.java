@@ -59,7 +59,7 @@ public class DBHandler extends SQLiteOpenHelper {
       String CREATE_BUILDING_TABLE = "CREATE  TABLE  IF NOT EXISTS " +
               "Building (id INTEGER PRIMARY KEY  NOT NULL  UNIQUE , name TEXT NOT NULL , description TEXT, otherInfos TEXT," +
               " openingTime TEXT, address TEXT, latitude DOUBLE NOT NULL , longitude DOUBLE NOT NULL , telephone TEXT, email TEXT, whatsapp TEXT," +
-              " telegram TEXT, twitter TEXT, facebook TEXT, websiteURL TEXT UNIQUE )";
+              " telegram TEXT, twitter TEXT, facebook TEXT, websiteURL TEXT UNIQUE, image TEXT)";
 
       db.execSQL(CREATE_BUILDING_TABLE);
    }
@@ -188,6 +188,7 @@ public class DBHandler extends SQLiteOpenHelper {
       values.put("twitter", b.twitter);
       values.put("facebook", b.facebook);
       values.put("websiteURL", b.websiteURL);
+      values.put("image", b.image);
 
       db.insert("Building", null, values);
       db.close();
@@ -271,6 +272,9 @@ public class DBHandler extends SQLiteOpenHelper {
 
       db.insert("Step", null, values);
       db.close();
+
+      //write stopBeacon
+      writeBeacon(s.stopBeacon);
 
       //write Proximities
       writeProximities(stepID, s.proximities);
@@ -469,8 +473,9 @@ public class DBHandler extends SQLiteOpenHelper {
          String facebook = cursor.getString(13);
          ArrayList<PathInfo> pathsInfos = readPathInfos(id);
          String websiteURL = cursor.getString(14);
+         String image = cursor.getString(15);
 
-         ret = new Building(name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos);
+         ret = new Building(name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos, image);
       }
 
       return ret;
@@ -499,8 +504,9 @@ public class DBHandler extends SQLiteOpenHelper {
          String facebook = cursor.getString(13);
          ArrayList<PathInfo> pathsInfos = readPathInfos(id);
          String websiteURL = cursor.getString(14);
+         String image = cursor.getString(15);
 
-         ret.add(new Building(name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos));
+         ret.add(new Building(name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos, image));
       }
 
       return ret;
@@ -800,7 +806,6 @@ public class DBHandler extends SQLiteOpenHelper {
       db.close();
 
       deleteSteps(id);
-      deletePathResult(id);
    }
 
    public void deleteAllPaths(){
@@ -845,12 +850,21 @@ public class DBHandler extends SQLiteOpenHelper {
       return ret;
    }
 
+   private void deleteStopBeacon(int stepID){
+      SQLiteDatabase db = this.getWritableDatabase();
+      db.rawQuery("DELETE FROM Beacon WHERE id in (SELECT beacon.id FROM Beacon AS beacon JOIN Step ON Step.stopBeaconID=beacon.id WHERE Step.id=?)", new String[]{String.valueOf(stepID)});
+      db.close();
+   }
+
+
    public void deleteStep(int id){
       SQLiteDatabase db = this.getWritableDatabase();
       db.delete("Step", "id =?", new String[] { String.valueOf(id) });
       db.close();
 
+      deleteStopBeacon(id);
       deleteProximities(id);
+      deleteProof(id);
    }
 
    public void deleteAllProximities(){
@@ -871,9 +885,9 @@ public class DBHandler extends SQLiteOpenHelper {
       db.close();
    }
 
-   public void deleteProof(int id){
+   public void deleteProof(int stepID){
       SQLiteDatabase db = this.getWritableDatabase();
-      db.delete("Proof", "id =?", new String[] { String.valueOf(id) });
+      db.delete("Proof", "stepID=?", new String[] { String.valueOf(stepID) });
       db.close();
    }
 
