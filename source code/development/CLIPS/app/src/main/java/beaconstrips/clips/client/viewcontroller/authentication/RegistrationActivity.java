@@ -8,6 +8,8 @@
 
 package beaconstrips.clips.client.viewcontroller.authentication;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +23,7 @@ import android.widget.Toast;
 
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
+import beaconstrips.clips.client.data.datamanager.CheckResult;
 import beaconstrips.clips.client.data.datamanager.LoginManager;
 import beaconstrips.clips.client.urlrequest.ServerError;
 
@@ -61,41 +64,67 @@ public class RegistrationActivity extends AppCompatActivity {
                         final EditText username = (EditText) findViewById(R.id.username);
                         final EditText repeatPassword = (EditText) findViewById(R.id.repeat_password);
 
-                        String e = email.getText().toString();
-                        String p = password.getText().toString();
-                        String u = username.getText().toString();
+                        final String e = email.getText().toString();
+                        final String p = password.getText().toString();
+                        final String u = username.getText().toString();
 
-                        Intent i = new Intent(getApplicationContext(), ConfirmRegistration.class);
+                        final Intent i = new Intent(getApplicationContext(), ConfirmRegistration.class);
                         i.putExtra("email", email.getText().toString());
                         i.putExtra("password", password.getText().toString());
-                        startActivity(i);
                         clearFields();
 
-                        LoginManager.sharedManager(getApplicationContext()).registration(e, u, p, new AbstractDataManagerListener<Boolean>() {
+                        LoginManager.sharedManager(getApplicationContext()).check(e, u, p, new AbstractDataManagerListener<CheckResult[]>() {
                             @Override
-                            public void onResponse(Boolean response) {
-                                Log.e("registrationActivity","registration ok");
+                            public void onResponse(CheckResult[] response) {
+                                Log.i("Response", "" + response[1].isValid);
+                                if (response[1].isValid) {
+                                    Log.i("Registration", response[1].reason);
+                                    LoginManager.sharedManager(getApplicationContext()).registration(e, u, p, new AbstractDataManagerListener<Boolean>() {
+                                        @Override
+                                        public void onResponse(Boolean response) {
+                                            Log.e("registrationActivity", "registration ok");
+                                            startActivity(i);
+                                        }
+
+                                        @Override
+                                        public void onError(ServerError error) {
+                                            Log.e("registrationActivity", "registration error");
+                                        }
+                                    });
+
+                                    login(e, p, u);
+                                } else {
+                                    new AlertDialog.Builder(RegistrationActivity.this)
+                                            .setTitle("Errore")
+                                            .setMessage("Questo username è già stato preso")
+                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int which) {
+
+                                                }
+                                            })
+                                            .setIcon(android.R.drawable.ic_dialog_alert)
+                                            .show();
+                                }
                             }
 
                             @Override
                             public void onError(ServerError error) {
-                                Log.e("registrationActivity","registration error");
+
                             }
                         });
 
-                        login(e, p, u);
                     }
                 }
             });
-        }
-        final Button openLogin = (Button) findViewById(R.id.link_login_button);
-        if (openLogin != null) {
-            openLogin.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-                    startActivity(i);
-                }
-            });
+            final Button openLogin = (Button) findViewById(R.id.link_login_button);
+            if (openLogin != null) {
+                openLogin.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                        startActivity(i);
+                    }
+                });
+            }
         }
     }
 
