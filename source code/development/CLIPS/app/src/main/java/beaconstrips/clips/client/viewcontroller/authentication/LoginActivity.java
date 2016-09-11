@@ -75,7 +75,7 @@ public class LoginActivity extends MenuActivity {
                                         i.setClass(getApplicationContext(), ResultActivity.class);
                                         i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                                     }
-                                    Toast.makeText(getApplicationContext(), "Ora sei loggato come " + u.username,
+                                    Toast.makeText(getApplicationContext(), "Ora sei autenticato come " + u.username,
                                             Toast.LENGTH_LONG).show();
                                     startActivity(i);
                                 }

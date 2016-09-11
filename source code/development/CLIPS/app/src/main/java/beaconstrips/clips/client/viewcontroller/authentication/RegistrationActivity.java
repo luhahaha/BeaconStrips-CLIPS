@@ -71,18 +71,17 @@ public class RegistrationActivity extends AppCompatActivity {
                         final Intent i = new Intent(getApplicationContext(), ConfirmRegistration.class);
                         i.putExtra("email", email.getText().toString());
                         i.putExtra("password", password.getText().toString());
-                        clearFields();
 
                         LoginManager.sharedManager(getApplicationContext()).check(e, u, p, new AbstractDataManagerListener<CheckResult[]>() {
                             @Override
                             public void onResponse(CheckResult[] response) {
-                                Log.i("Response", "" + response[1].isValid);
-                                if (response[1].isValid) {
+                                if (response[1].isValid && response[0].isValid) {
                                     Log.i("Registration", response[1].reason);
                                     LoginManager.sharedManager(getApplicationContext()).registration(e, u, p, new AbstractDataManagerListener<Boolean>() {
                                         @Override
                                         public void onResponse(Boolean response) {
                                             Log.e("registrationActivity", "registration ok");
+                                            clearFields();
                                             startActivity(i);
                                         }
 
@@ -94,16 +93,30 @@ public class RegistrationActivity extends AppCompatActivity {
 
                                     login(e, p, u);
                                 } else {
-                                    new AlertDialog.Builder(RegistrationActivity.this)
-                                            .setTitle("Errore")
-                                            .setMessage("Questo username è già stato preso")
-                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                                public void onClick(DialogInterface dialog, int which) {
+                                    if(!response[1].isValid) {
+                                        new AlertDialog.Builder(RegistrationActivity.this)
+                                                .setTitle("Errore")
+                                                .setMessage("Questo username è già stato preso")
+                                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                    public void onClick(DialogInterface dialog, int which) {
 
-                                                }
-                                            })
-                                            .setIcon(android.R.drawable.ic_dialog_alert)
-                                            .show();
+                                                    }
+                                                })
+                                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                                .show();
+                                    }
+                                    if(!response[0].isValid) {
+                                        new AlertDialog.Builder(RegistrationActivity.this)
+                                                .setTitle("Errore")
+                                                .setMessage("Questa email è già stata usata")
+                                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                    public void onClick(DialogInterface dialog, int which) {
+
+                                                    }
+                                                })
+                                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                                .show();
+                                    }
                                 }
                             }
 

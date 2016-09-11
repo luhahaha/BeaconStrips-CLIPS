@@ -138,7 +138,7 @@ public class MenuActivity extends AppCompatActivity
                 @Override
                 public void onResponse(Boolean response) {
                     Log.e("MenuActivity", "logout");
-                    Toast.makeText(getApplicationContext(), "Ora sei sloggato",
+                    Toast.makeText(getApplicationContext(), "Hai effettuato il logout",
                             Toast.LENGTH_LONG).show();
                 }
 
@@ -149,7 +149,7 @@ public class MenuActivity extends AppCompatActivity
             });
         }
         else {
-            Toast.makeText(getApplicationContext(), "Non sei loggato",
+            Toast.makeText(getApplicationContext(), "Non sei autenticato",
                     Toast.LENGTH_LONG).show();
         }
     }
@@ -159,7 +159,7 @@ public class MenuActivity extends AppCompatActivity
             return true;
         }
         else {
-            Toast.makeText(getApplicationContext(), "Non sei loggato, non hai un profilo",
+            Toast.makeText(getApplicationContext(), "Non sei autenticato, non hai un profilo",
                     Toast.LENGTH_LONG).show();
             return false;
         }
