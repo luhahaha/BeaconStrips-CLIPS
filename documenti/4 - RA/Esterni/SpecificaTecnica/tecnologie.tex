@@ -235,10 +235,6 @@ Volley è una libreria Android che permette e facilita la comunicazione tra clie
 		\end{itemize}
 
 
-
-
-
-
 		\subsubsection{Mocha}
 		\textit{Mocha} è un framework di test per \gl{Node.js}. Attraverso \textit{Mocha} è facile eseguire in serie dei test asincroni (caratteristica indispensabile per testare il backend) e si generano degli accurati report che aiutano ad identificare gli errori.
 
@@ -260,7 +256,7 @@ Volley è una libreria Android che permette e facilita la comunicazione tra clie
 
 
 			\subsubsection{npm}
-			npm è un package manager per \textit{JavaScript}, utile per gestire le dipendenze e creare un pacchetto facilmente installabile
+			\textit{npm} è un package manager per \textit{JavaScript}, utile per gestire le dipendenze e creare un pacchetto facilmente installabile
 
 				\begin{itemize}
 					\item \textbf{Vantaggi:}
@@ -275,3 +271,20 @@ Volley è una libreria Android che permette e facilita la comunicazione tra clie
 				\end{itemize}
 				\paragraph{Utilizzo}
 				Il file \texttt{.package.json} nella root directory della repository nel server configura il pacchetto permettendo poi di usare i semplici comandi \texttt{npm install} per installare le dipendenze, \texttt{npm start} per avviare il server e \texttt{npm test} per lanciare la suite di test.
+
+				\subsubsection{express}
+				\textit{express} è un package per il routing di chiamate del client verso le classi adibite a gestirle
+
+					\begin{itemize}
+						\item \textbf{Vantaggi:}
+							\begin{itemize}
+								\item è facile da usare;
+								\item è molto diffuso ed è ben documentato.
+							\end{itemize}
+						\item \textbf{Svantaggi:}
+							\begin{itemize}
+								\item è necessario installare il pacchetto \texttt{express} sulla macchina.
+							\end{itemize}
+					\end{itemize}
+					\paragraph{Utilizzo}
+					Ogni richiesta al server viene gestita da un'oggetto \texttt{server} di \textit{express} che istanzia un oggetto della classe adibita a rispondere a tale richiesta.
