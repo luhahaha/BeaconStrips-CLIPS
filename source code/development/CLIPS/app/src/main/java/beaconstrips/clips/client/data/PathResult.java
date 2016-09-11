@@ -1,5 +1,6 @@
 package beaconstrips.clips.client.data;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  * classe che rappresenta i dati dei risultati ottenuti in un percorso svolto dall'utente
  */
 
-public class PathResult {
+public class PathResult implements Serializable{
    public final int pathID;
    public final String pathName;
    public final String buildingName;

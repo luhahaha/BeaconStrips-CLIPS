@@ -151,6 +151,14 @@
             android:id="@+id/saveResult"
             android:layout_gravity="center_horizontal" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Torna alla home"
+            android:id="@+id/returnToHome"
+            android:layout_gravity="center_horizontal"
+            style="@style/RaisedButton"/>
+
     </LinearLayout>
 
 </ScrollView>

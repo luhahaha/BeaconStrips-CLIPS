@@ -27,6 +27,7 @@ import beaconstrips.clips.client.data.datamanager.LoginManager;
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.building.BuildingSearchActivity;
+import beaconstrips.clips.client.viewcontroller.savedresults.ResultActivity;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
 public class LoginActivity extends MenuActivity {
@@ -35,6 +36,7 @@ public class LoginActivity extends MenuActivity {
     private EditText password;
     private TextInputLayout missingEmail;
     private TextInputLayout missingPassword;
+    private boolean fromResults;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class LoginActivity extends MenuActivity {
         password = (EditText) findViewById(R.id.password_login);
         missingEmail = (TextInputLayout) findViewById(R.id.email_label);
         missingPassword = (TextInputLayout) findViewById(R.id.password_label);
+        fromResults = getIntent().getBooleanExtra("loginFromResult", false);
         setButton();
         setLoginButton();
     }
@@ -67,6 +70,10 @@ public class LoginActivity extends MenuActivity {
                                     Log.e("LoginActivity", "loggato");
                                     LoggedUser u = LoginManager.sharedManager(getApplicationContext()).getLoggedUser();
                                     Intent i = new Intent(getApplicationContext(), AccountActivity.class);
+                                    if(fromResults) {
+                                        i.setClass(getApplicationContext(), ResultActivity.class);
+                                        i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                                    }
                                     Toast.makeText(getApplicationContext(), "Ora sei loggato come " + u.username,
                                             Toast.LENGTH_LONG).show();
                                     startActivity(i);
