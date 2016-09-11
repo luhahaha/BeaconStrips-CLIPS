@@ -64,7 +64,7 @@
             <TextView
                 style="@style/TextViewBase"
                 android:id="@+id/totalTimeProofs"
-                android:text=""
+                android:text=" "
                 android:layout_alignTop="@+id/totalTimeProofsLabel"
                 android:layout_alignStart="@+id/maxScoreProof" />
             <TextView
@@ -80,12 +80,6 @@
                 style="@style/TextViewBase"
                 android:layout_below="@+id/minScoreProof"
                 android:layout_toEndOf="@+id/maxScoreProofLabel" />
-            <TextView
-                android:text=""
-                android:id="@+id/rankingPosition"
-                style="@style/TextViewBase"
-                android:layout_alignParentBottom="true"
-                android:layout_alignStart="@+id/maxScoreProof" />
 
             <!-- labels -->
             <TextView
@@ -118,7 +112,7 @@
                 style="@style/TextViewBase"
                 android:text="@string/path_min_score_proof_label"
                 android:textColor="@color/colorText"
-                android:layout_below="@+id/maxScoreProofLabel"
+                android:layout_below="@id/totalTimeProofs"
                 android:layout_alignParentStart="true" />
             <TextView
                 android:id="@+id/maxScoreProofLabel"
@@ -127,17 +121,6 @@
                 android:textColor="@color/colorText"
                 android:layout_below="@id/minScoreProof"
                 />
-
-            <TextView
-                android:id="@+id/rankingPositionLabel"
-                style="@style/TextViewBase"
-                android:text="@string/path_ranking_position_label"
-                android:textColor="@color/colorText"
-                android:layout_alignTop="@+id/minScoreProof"
-                android:layout_alignParentStart="true" />
-
-
-
 
         </RelativeLayout>
 
