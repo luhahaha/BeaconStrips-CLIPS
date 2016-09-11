@@ -54,9 +54,8 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
       //Log.i(TAG, "Size of" + test.questions.size());
       //Log.i(TAG, "Correct answer " + answers.trueResponse);
 
-
       setQuiz();
-
+      setButton();
    }
 
    private void setQuiz() {
@@ -99,7 +98,6 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
             wrongAnswer.setText(answers.falseResponse[i - 1]);
             wrongAnswer.setOnClickListener(new View.OnClickListener() {
                public void onClick(View v) {
-                  //TODO mostro suggerimento
                   intent.putExtra("answer", false);
                   startActivity(intent);
                }
@@ -112,5 +110,17 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
 
    @Override
    public void onBackPressed() {
+   }
+
+   public void setButton() {
+      Button showHint = (Button) findViewById(R.id.showHint);
+      showHint.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            TextView hintLabel = (TextView) findViewById(R.id.hintLabel);
+            hintLabel.setText(answers.helpText);
+            hintLabel.setVisibility(View.VISIBLE);
+         }
+      });
    }
 }

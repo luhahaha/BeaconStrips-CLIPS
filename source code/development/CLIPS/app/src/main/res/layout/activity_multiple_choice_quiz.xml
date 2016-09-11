@@ -41,5 +41,24 @@
         android:layout_below="@+id/choice3"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/hintLabel"
+        android:layout_below="@+id/choice4"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="20dp"
+        android:visibility="invisible"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mostra suggerimento"
+        android:id="@+id/showHint"
+        android:layout_below="@+id/hintLabel"
+        android:layout_centerHorizontal="true"
+        style="@style/RaisedButton"/>
+
 
 </RelativeLayout>

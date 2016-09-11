@@ -44,6 +44,7 @@ public class TrueFalseQuizActivity extends AppCompatActivity {
         Log.i(TAG, "Correct answers: " + correctAnswers);
 
         setQuiz();
+        setButton();
     }
 
     private void setQuiz() {
@@ -78,6 +79,18 @@ public class TrueFalseQuizActivity extends AppCompatActivity {
                     i.putExtra("answer", false);
                 }
                 startActivity(i);
+            }
+        });
+    }
+
+    public void setButton() {
+        Button showHint = (Button) findViewById(R.id.showHint);
+        showHint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView hintLabel = (TextView) findViewById(R.id.hintLabel);
+                hintLabel.setText(answers.helpText);
+                hintLabel.setVisibility(View.VISIBLE);
             }
         });
     }
