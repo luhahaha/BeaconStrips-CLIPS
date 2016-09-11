@@ -1,16 +1,21 @@
+/**
+ * @file SplashActivity.java
+ * @date 2016-07-22
+ * @version 1.10
+ * @author Matteo Franco
+ *
+ * Rappresenta uno splash screen da mostrare all'avvio
+ */
+
 package beaconstrips.clips.client.viewcontroller.utility;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Menu;
 
 import beaconstrips.clips.R;
-import beaconstrips.clips.client.data.Building;
-import beaconstrips.clips.client.viewcontroller.authentication.LoginActivity;
 import beaconstrips.clips.client.viewcontroller.building.BuildingSearchActivity;
-import beaconstrips.clips.client.viewcontroller.games.SearchNewStepActivity;
 
 public class SplashActivity extends Activity {
 

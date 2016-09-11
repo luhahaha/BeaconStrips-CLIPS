@@ -9,25 +9,17 @@
 package beaconstrips.clips.client.viewcontroller.utility;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,15 +31,9 @@ import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.authentication.AccountActivity;
 import beaconstrips.clips.client.viewcontroller.authentication.LoginActivity;
 import beaconstrips.clips.client.viewcontroller.authentication.RegistrationActivity;
-import beaconstrips.clips.client.viewcontroller.building.BuildingActivity;
 import beaconstrips.clips.client.viewcontroller.building.BuildingSearchActivity;
-import beaconstrips.clips.client.viewcontroller.building.PathActivity;
-import beaconstrips.clips.client.viewcontroller.games.ProofActivity;
-import beaconstrips.clips.client.viewcontroller.games.SearchNewStepActivity;
-import beaconstrips.clips.client.viewcontroller.savedresults.SavedResultsActivity;
 
 public class MenuActivity extends AppCompatActivity
-        //implements NavigationView.OnNavigationItemSelectedListener
 {
 
 
@@ -134,12 +120,6 @@ public class MenuActivity extends AppCompatActivity
             drawerToggle.syncState();
 
         }
-        /*else if(useToolbar() && getSupportActionBar() != null) {
-            // Use home/back button instead
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setHomeAsUpIndicator(getResources()
-                    .getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha));
-        }*/
 
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {

@@ -1,7 +1,7 @@
 /**
  * @file MultipleChoiceQuizActivity.java
  * @date 2016-07-17
- * @version 1.00
+ * @version 1.30
  * @author Viviana Alessio
  * Gestisce l'activity per i quiz a risposta multipla
  */
@@ -31,8 +31,6 @@ import beaconstrips.clips.client.data.ProofResult;
 
 public class MultipleChoiceQuizActivity extends AppCompatActivity {
 
-   private Path path;
-   private int pathIndex;
    private final String TAG = "MultipleChoiceQuizAct";
    private MultipleChoiceTextQuiz answers;
    private Intent intent;
@@ -43,7 +41,6 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_multiple_choice_quiz);
-      //TODO insert from here choices with correct answer with list?
       intent = getIntent();
 
       test = (MultipleChoiceTest) intent.getSerializableExtra("test");
@@ -51,15 +48,11 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
 
       correctAnswers = intent.getIntExtra("correctAnswers", 0);
 
-      //Log.i(TAG, "Size of" + test.questions.size());
-      //Log.i(TAG, "Correct answer " + answers.trueResponse);
-
       setQuiz();
       setButton();
    }
 
    private void setQuiz() {
-      //Log.i(TAG, answers.instructions);
 
       ((TextView) findViewById(R.id.questionLabel)).setText(answers.instructions);
 
@@ -75,13 +68,10 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
 
          String choice = "choice" + String.valueOf(choices.get(i));
 
-
          int resID = this.getResources().getIdentifier(choice, "id", getPackageName());
-
 
          if(i == 0) {
             final Button rightAnswer = (Button) findViewById(resID);
-            //Log.i(TAG, "Correct answer is on " + (choices.get(i) - 1));
             rightAnswer.setText(answers.trueResponse);
             rightAnswer.setOnClickListener(new View.OnClickListener() {
                public void onClick(View v) {

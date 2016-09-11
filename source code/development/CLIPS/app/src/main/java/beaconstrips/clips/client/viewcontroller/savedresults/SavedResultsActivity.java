@@ -1,7 +1,7 @@
 /**
  * @file SavedResultsActivity.java
  * @date 2016-07-21
- * @version 1.10
+ * @version 1.40
  * @author Matteo Franco
  * Gestisce l'activity dei risultati salvati
  */
@@ -20,13 +20,10 @@ import java.util.ArrayList;
 
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.PathResult;
-import beaconstrips.clips.client.data.ProofResult;
 import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.DataRequestMaker;
 import beaconstrips.clips.client.urlrequest.ServerError;
-import beaconstrips.clips.client.viewcontroller.utility.ResultsAdapter;
 import beaconstrips.clips.client.viewcontroller.utility.SavedResultsAdapter;
-import beaconstrips.clips.client.viewcontroller.utility.risultatoProva;
 
 public class SavedResultsActivity extends AppCompatActivity {
 
@@ -67,8 +64,6 @@ public class SavedResultsActivity extends AppCompatActivity {
 
             }
         });
-
-
 
     }
 

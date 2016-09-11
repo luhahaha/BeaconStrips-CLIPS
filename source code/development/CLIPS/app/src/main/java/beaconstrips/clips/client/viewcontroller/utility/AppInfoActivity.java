@@ -9,9 +9,7 @@
 
 package beaconstrips.clips.client.viewcontroller.utility;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.widget.TextView;
 
 import beaconstrips.clips.R;

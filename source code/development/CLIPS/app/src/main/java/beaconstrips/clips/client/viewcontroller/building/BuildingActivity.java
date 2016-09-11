@@ -1,7 +1,7 @@
 /**
  * @file BuildingActivity.java
  * @date 2016-07-12
- * @version 1.30
+ * @version 1.80
  * @author Matteo Franco
  * Permette di gestire l'activity dell'edificio
  */
@@ -9,19 +9,14 @@
 package beaconstrips.clips.client.viewcontroller.building;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Path;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -35,7 +30,6 @@ import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.DataRequestMaker;
 import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.utility.BuildingAdapter;
-import beaconstrips.clips.client.viewcontroller.utility.risultatoProva;
 
 public class BuildingActivity extends AppCompatActivity {
 
@@ -74,18 +68,14 @@ public class BuildingActivity extends AppCompatActivity {
       pathsResult = (ListView) findViewById(R.id.pathsResult);
       setButtons();
       setItems();
-      DataRequestMaker.getBuildings(getApplicationContext(), latitude, longitude, radius, true, new AbstractDataManagerListener<Building[]>() { //TODO passare tramite intent coordinate e numero edifici
+      DataRequestMaker.getBuildings(getApplicationContext(), latitude, longitude, radius, true, new AbstractDataManagerListener<Building[]>() {
          @Override
          public void onResponse(Building[] response) {
-            Log.i("Building", "" + response.length);
-
-            //TODO limitare risultati
 
             boolean found = false;
             Building loadPaths = null;
-            //TODO check se non trovato
+
             for (int i = 0; !found && i < response.length; ++i) {
-               Log.i("Edifici", "" + response[i].name);
                address.setText(response[i].address);
                telephone.setText(response[i].telephone);
                description.setText(response[i].description);
@@ -97,11 +87,9 @@ public class BuildingActivity extends AppCompatActivity {
                   loadPaths = response[i];
                   found = true;
                }
-               Log.i("Found", "" + found);
             }
 
             if (loadPaths == null) {
-               Log.i("Paths infos", "null");
                new AlertDialog.Builder(BuildingActivity.this)
                        .setTitle("Avviso")
                        .setMessage("C'è stato un errore nello scaricamento dei dati")
@@ -121,9 +109,6 @@ public class BuildingActivity extends AppCompatActivity {
                justifyListViewHeightBasedOnChildren(pathsResult, numberOfPaths);
 
                pathsResult.setAdapter(new BuildingAdapter(getApplicationContext(), paths));
-
-               //TODO aggiungere numero percorsi
-
             }
          }
 
@@ -132,7 +117,6 @@ public class BuildingActivity extends AppCompatActivity {
             Log.e("Error", "not working");
          }
       });
-      //TODO add all names of contacts
    }
 
 
@@ -141,9 +125,6 @@ public class BuildingActivity extends AppCompatActivity {
       if (openPaths != null) {
          openPaths.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-               //Intent paths = new Intent(getApplicationContext(), PathsActivity.class);
-               //startActivity(paths);
-               //TODO add spinner for loading
 
             }
          });

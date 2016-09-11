@@ -1,7 +1,7 @@
 /**
  * @file ResultActivity.java
  * @date 2016-07-20
- * @version 1.00
+ * @version 1.80
  * @author Matteo Franco
  * Si occupa di gestire l'activity dei risultati conseguiti dall'utente
  */
@@ -40,7 +40,6 @@ import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.authentication.LoginActivity;
 import beaconstrips.clips.client.viewcontroller.building.BuildingSearchActivity;
 import beaconstrips.clips.client.viewcontroller.utility.ResultsAdapter;
-import beaconstrips.clips.client.viewcontroller.utility.risultatoProva;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -53,7 +52,6 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        //TODO add buttons linking
 
         if(savedInstanceState == null) {
 
@@ -121,8 +119,6 @@ public class ResultActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (LoginManager.sharedManager(getApplicationContext()).isLogged()) {
-                        Log.i(TAG, "Provo a salvare");
-                        Log.i(TAG, "result is " + result);
                         DataRequestMaker.saveResult(getApplicationContext(), result, new AbstractDataManagerListener<Boolean>() {
                             @Override
                             public void onResponse(Boolean response) {
@@ -182,7 +178,6 @@ public class ResultActivity extends AppCompatActivity {
                     DataRequestMaker.getRanking(getApplicationContext(), pathId, new AbstractDataManagerListener<Score[]>() {
                         @Override
                         public void onResponse(Score[] response) {
-                            Log.i(TAG, "Scores " + response.length);
                             i.setClass(getApplicationContext(), RankingActivity.class);
                             i.putExtra("scores", response);
                             startActivity(i);

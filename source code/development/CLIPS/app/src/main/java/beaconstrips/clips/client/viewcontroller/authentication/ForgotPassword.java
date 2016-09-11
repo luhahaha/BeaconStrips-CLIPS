@@ -11,7 +11,7 @@ import beaconstrips.clips.R;
 /**
  * @file ForgotPassword.java
  * @date 2016-08-20
- * @version 1.00
+ * @version 1.20
  * @author Viviana Alessio
  * Gestisce l'activity che prevede il recupero della propria password da parte di un utente
  */

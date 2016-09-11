@@ -17,6 +17,5 @@ public class RecoverPassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_recover_password);
-        //TODO add what to do if error with recover
     }
 }

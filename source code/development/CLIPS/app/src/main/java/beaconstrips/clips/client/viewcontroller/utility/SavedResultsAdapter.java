@@ -16,15 +16,14 @@ import beaconstrips.clips.client.data.ProofResult;
 
 /**
  * @file ResultAdapter.java
- * @date 2016-09-6
- * @version 1.0.0
+ * @date 2016-09-06
+ * @version 1.20
  * @author Viviana Alessio
  *
  * Classe che permette di avere un Adapter per poter visualizzare correttamente gli elementi della ListView presente in activity_saved_results.xml
  */
 public class SavedResultsAdapter extends BaseAdapter {
 
-    // risultatoProva è una classe di prova che modella il risultato di una prova. (contiene 4 stringhe e i loro relativi metodi set e get)
     private ArrayList<PathResult> listData;
     private LayoutInflater layoutInflater;
 

@@ -16,7 +16,7 @@ import beaconstrips.clips.client.data.Score;
 /**
  * @file ResultAdapter.java
  * @date 2016-09-06
- * @version 1.0.0
+ * @version 1.20
  * @author Viviana Alessio
  *
  * Classe che permette di avere un Adapter per poter visualizzare correttamente gli elementi della ListView presente in activity_ranking.xml
@@ -65,10 +65,6 @@ public class RankingAdapter extends BaseAdapter {
         String pos = String.valueOf(listData.get(position).position);
         String scor = String.valueOf(listData.get(position).score);
         String username = String.valueOf(listData.get(position).username);
-
-        Log.e("prova ranking adapter", listData.get(position).username); // ok
-        Log.e("prova ranking pos", pos); // ok
-        Log.e("prova ranking scor", scor); // ok
 
         holder.position.setText(pos);
         holder.name.setText(username);

@@ -16,7 +16,7 @@
 
     <TextView
         style="@style/TextViewTitolo"
-        android:text="Large Text"
+        android:text="Nome edificio"
         android:id="@+id/buildingName"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -66,14 +66,14 @@
         style="@style/TextViewBase"
         android:layout_centerHorizontal="true"
         android:id="@+id/description"
-        android:text=" falksjfaskl  jdklasjlkaj l sadjslkdjaslk dsdjlakjkl"
+        android:text="Informazioni sull&apos;edificio"
         android:layout_below="@+id/infoLabel"
         />
     <TextView
         style="@style/TextViewBase"
         android:layout_centerHorizontal="true"
         android:id="@+id/otherInfo"
-        android:text="jhgfdsuytrewhgfds hgfdsbvcxfds"
+        android:text="Altre informazioni"
         android:layout_below="@+id/description"
         />
 
@@ -109,7 +109,7 @@
         <TextView
             style="@style/TextViewBase"
             android:id="@+id/buildingOpeningTime"
-            android:text=" opening times "
+            android:text="orario"
             />
 
         <TextView
@@ -121,7 +121,7 @@
         <TextView
             style="@style/TextViewBase"
             android:id="@+id/buildingTelephone"
-            android:text="098765432222222"
+            android:text="telefono"
             android:autoLink="phone"
             />
 
@@ -134,7 +134,7 @@
         <TextView
             style="@style/TextViewBase"
             android:id="@+id/buildingEmail"
-            android:text="fdgfds@hgfd.it"
+            android:text="email"
             android:autoLink="email"
             />
 
@@ -147,7 +147,6 @@
         <TextView
             style="@style/TextViewBase"
             android:id="@+id/buildingSite"
-            android:text="www.hgfds.it"
             android:autoLink="web"
             />
 

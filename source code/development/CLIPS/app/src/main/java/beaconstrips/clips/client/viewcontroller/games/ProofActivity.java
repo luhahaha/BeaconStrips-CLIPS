@@ -1,7 +1,7 @@
 /**
  * @file ProofActivity.java
  * @date 2016-07-17
- * @version 1.00
+ * @version 1.10
  * @author Viviana Alessio
  * Gestisce l'activity della prova
  */
@@ -11,7 +11,6 @@ package beaconstrips.clips.client.viewcontroller.games;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,6 +26,7 @@ public class ProofActivity extends AppCompatActivity {
     private String TAG = "ProofActivity";
     private Test test;
     Intent i;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,19 +55,16 @@ public class ProofActivity extends AppCompatActivity {
         if (test instanceof GameCollection) {
             i.putExtra("gameCollection", test);
             test = ((GameCollection) test).games.remove(0);
-            Log.i(TAG, "Test has now type " + test.getClass());
         }
 
         if (test instanceof MultipleChoiceTest) {
             i.setClass(getApplicationContext(), MultipleChoiceQuizActivity.class);
             i.putExtra("totalQuestions", ((MultipleChoiceTest) test).questions.size());
 
-            Log.i(TAG, "Set class MultipleChoiceQuizActivity.class");
         }
         if (test instanceof TrueFalseTest) {
             i.setClass(getApplicationContext(), TrueFalseQuizActivity.class);
             i.putExtra("totalQuestions", ((TrueFalseTest) test).questions.size());
-            Log.i(TAG, "Set class TrueFalseTest.class");
         }
     }
 }

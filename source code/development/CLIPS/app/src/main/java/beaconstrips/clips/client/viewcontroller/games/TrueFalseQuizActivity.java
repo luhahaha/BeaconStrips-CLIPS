@@ -1,7 +1,7 @@
 /**
  * @file TrueFalseQuizActivity.java
  * @date 2016-07-18
- * @version 1.00
+ * @version 1.40
  * @author Viviana Alessio
  * Gestisce l'activity per i quiz vero/falso
  */
@@ -17,8 +17,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import beaconstrips.clips.R;
-import beaconstrips.clips.client.data.MultipleChoiceTextQuiz;
-import beaconstrips.clips.client.data.ProofResult;
 import beaconstrips.clips.client.data.TrueFalseTest;
 import beaconstrips.clips.client.data.TrueFalseTextQuiz;
 
@@ -40,8 +38,6 @@ public class TrueFalseQuizActivity extends AppCompatActivity {
         correctAnswers = i.getIntExtra("correctAnswers", 0);
         test = (TrueFalseTest) i.getSerializableExtra("test");
         answers = test.questions.remove(0);
-        Log.i(TAG, "" + answers.response);
-        Log.i(TAG, "Correct answers: " + correctAnswers);
 
         setQuiz();
         setButton();

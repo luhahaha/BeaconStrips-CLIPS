@@ -1,7 +1,7 @@
 /**
  * @file RegistrationActivity.java
  * @date 2016-07-12
- * @version 1.10
+ * @version 1.60
  * @author Matteo Franco
  * Gestisce l'activity di registrazione di un utente
  */
@@ -19,13 +19,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.LoginManager;
-import beaconstrips.clips.client.urlrequest.RegistrationRequest;
 import beaconstrips.clips.client.urlrequest.ServerError;
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -88,19 +84,6 @@ public class RegistrationActivity extends AppCompatActivity {
                         });
 
                         login(e, p, u);
-                        //finish(); se l'utente fa back qui esce dall'app
-                        /*
-                            questo va aggiunto al file AndroidManifest.xml per evitare di aggiungere l'attività allo stack
-                            <activity android:name=".SplashActivity" android:noHistory="true"/>
-                        */
-                        /*
-                            un'altra soluzione può essere implementare il metodo nell'altra attività
-                            @Override
-                            public void onBackPressed() {
-                            //e lasciarlo vuoto per non avere nessuna azione
-                            }
-                         */
-
                     }
                 }
             });

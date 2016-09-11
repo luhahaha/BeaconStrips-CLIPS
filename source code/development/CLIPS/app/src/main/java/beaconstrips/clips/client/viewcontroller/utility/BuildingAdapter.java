@@ -1,7 +1,7 @@
 /**
  * @file BuildingAdapter.java
  * @date 2016-08-19
- * @version 1.0.0
+ * @version 1.10
  * @author Matteo Franco
  *
  * Classe che permette di avere un Adapter per poter visualizzare correttamente gli elementi della ListView presente in activity_building.xml
@@ -64,8 +64,6 @@ public class BuildingAdapter extends BaseAdapter {
 
       holder.pathId.setText(String.valueOf(searchArrayList.get(position).id));
       holder.pathName.setText(searchArrayList.get(position).title);
-      Log.i("Id", String.valueOf(searchArrayList.get(position).id));
-      Log.i("Name", searchArrayList.get(position).title);
 
       return convertView;
    }

@@ -1,7 +1,7 @@
 /**
  * @file RankingActivity.java
  * @date 2016-07-20
- * @version 1.10
+ * @version 1.50
  * @author Matteo Franco
  * Gestisce l'activity della classifica
  */
@@ -24,7 +24,6 @@ import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.DataRequestMaker;
 import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.utility.RankingAdapter;
-import beaconstrips.clips.client.viewcontroller.utility.risultatoProva;
 
 public class RankingActivity extends AppCompatActivity {
     private ListView listView;
@@ -36,8 +35,6 @@ public class RankingActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.playerList);
         Intent i = getIntent();
         int pathId = i.getIntExtra("pathId", 0);
-        Log.i(TAG, "Path id is " + pathId);
-
 
         final ArrayList<Score> lista = new ArrayList<Score>();
 
@@ -45,12 +42,8 @@ public class RankingActivity extends AppCompatActivity {
 
         DataRequestMaker.getRanking(getApplicationContext(), pathId, new AbstractDataManagerListener<Score[]>() {
             public void onResponse(Score[] response) {
-                Log.d("GetRankingDataTest", "Chiamata getRanking() eseguita con successo:");
 
                 for(int i=0; i<response.length; i++) {
-                    // ok
-                    Log.d("GetRankingDataTest", response[i].position + ". " + response[i].username + ": " + response[i].score);
-
                     lista.add(new Score(response[i].username, response[i].position, response[i].score));
                 }
 
@@ -65,12 +58,6 @@ public class RankingActivity extends AppCompatActivity {
                 Log.d("GetRankingDataTest", "Messaggio di debug: " + error.debugMessage);
             }
         });
-
-
-        //Score s = new Score("vivi",1,50);
-        //Score ss = new Score("vivi",2,45);
-        //lista.add(s); lista.add(ss);
-        //listView.setAdapter(new RankingAdapter(getApplicationContext(), lista));
 
     }
 

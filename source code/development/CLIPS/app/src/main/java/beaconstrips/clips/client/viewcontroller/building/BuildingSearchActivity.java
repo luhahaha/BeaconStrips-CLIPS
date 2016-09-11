@@ -1,7 +1,7 @@
 /**
  * @file BuildingSearchActivity.java
  * @date 2016-07-11
- * @version 1.40
+ * @version 1.60
  * @author Matteo Franco
  * Sì occupa della gestione dell'activity di ricerca degli edifici
  **/
@@ -18,16 +18,11 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -35,9 +30,6 @@ import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.TreeSet;
 
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.Building;
@@ -47,7 +39,6 @@ import beaconstrips.clips.client.pathprogress.GPSListener;
 import beaconstrips.clips.client.pathprogress.PathProgressMaker;
 import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
-import beaconstrips.clips.client.pathprogress.PathProgressMaker;
 
 
 public class BuildingSearchActivity extends MenuActivity {
@@ -78,7 +69,6 @@ public class BuildingSearchActivity extends MenuActivity {
 
       i = new Intent(getApplicationContext(), BuildingActivity.class);
 
-      //TODO add as row search building
       setSeekBarSignal();
       setCheckBoxSignal();
       setButton();
@@ -179,13 +169,9 @@ public class BuildingSearchActivity extends MenuActivity {
                        })
                        .show();
             } else {
-               Log.i("Trying to call", "");
                PathProgressMaker.getCoordinates(getApplicationContext(), new GPSListener() {
                   @Override
                   public void onResponse(double latitude, double longitude) {
-                     Log.i("Getting position", "");
-                     Log.i("Latitude:", "" + latitude);
-                     Log.i("Longitude:", "" + longitude);
 
                      int radius = 10;
 
@@ -201,7 +187,6 @@ public class BuildingSearchActivity extends MenuActivity {
                         @Override
                         public void onResponse(Building[] response) {
 
-                           //TODO limitare risultati
                            ListView listView = (ListView) findViewById(R.id.buildingResults);
 
                            String[] buildingsName = new String[response.length];
@@ -213,15 +198,10 @@ public class BuildingSearchActivity extends MenuActivity {
                            for (int i = 0; i < response.length; ++i) {
                               buildingsName[i] = response[i].name;
                               pathsNumber[i] = String.valueOf(response[i].pathsInfos.size());
-                              Log.i(TAG, "" + buildingsName[i]);
-                              Log.i(TAG, "" + pathsNumber[i]);
                            }
                            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_building, R.id.buildingName, buildingsName);
                            listView.setAdapter(arrayAdapter);
 
-                           //TODO aggiungere numero percorsi
-                           //ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(getApplicationContext(), R.layout.row_building, R.id.pathsNumber, pathsNumber);
-                           //listView.setAdapter(arrayAdapter2);
                            results.setVisibility(View.VISIBLE);
                         }
 

@@ -1,21 +1,18 @@
 /**
  * @file LoginActivity.java
  * @date 2016-07-10
- * @version 1.10
+ * @version 1.70
  * @author Matteo Franco
  * Gestisce l'activity di login per l'utente; comprende inoltre l'activity per la password dimenticata e per il recupero
  */
 
 package beaconstrips.clips.client.viewcontroller.authentication;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +23,6 @@ import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.LoginManager;
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.urlrequest.ServerError;
-import beaconstrips.clips.client.viewcontroller.building.BuildingSearchActivity;
 import beaconstrips.clips.client.viewcontroller.savedresults.ResultActivity;
 import beaconstrips.clips.client.viewcontroller.utility.MenuActivity;
 
@@ -57,8 +53,6 @@ public class LoginActivity extends MenuActivity {
             setLoginButton();
         }
     }
-
-
 
     void setLoginButton() {
         Button loginButton = (Button) findViewById(R.id.login_button);
@@ -100,7 +94,6 @@ public class LoginActivity extends MenuActivity {
         }
     }
 
-
     boolean checkFields(String email, String password) {
         boolean e = false, p = false;
         if(TextUtils.isEmpty(email)) {
@@ -120,7 +113,6 @@ public class LoginActivity extends MenuActivity {
         }
         return true;
     }
-
 
     void setButton() {
 
