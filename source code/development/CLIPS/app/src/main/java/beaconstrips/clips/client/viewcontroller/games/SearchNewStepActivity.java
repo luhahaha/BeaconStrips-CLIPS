@@ -57,6 +57,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
    private final String TAG = "SearchNewStepActivity";
    private Intent i;
    GregorianCalendar startTime;
+   int correctAnswer = 0;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -69,14 +70,11 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       startTestButton.setVisibility(View.INVISIBLE);
 
       i = getIntent();
-      Log.i(TAG, i.toString());
-
       Bundle bundle = i.getExtras();
 
       pathProgress = (PathProgressController) bundle.getSerializable("pathProgress");
       if(pathProgress != null) {
          pathProgress.setDelegate(this);
-         Log.i(TAG, "Delegate set " + pathProgress.delegate);
       }
 
       KontaktSDK.initialize(this);
@@ -286,7 +284,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
                //bundle.putSerializable("pathProgress", pathProgress);
                //i.putExtras(bundle);
                i.putExtra("test", test);
-               i.putExtra("correctAnswer", 0);
+               i.putExtra("correctAnswer", correctAnswer);
                i.putExtra("stepIndex", stepIndex);
                startTime = new GregorianCalendar();
                i.putExtra("startTime", startTime);
@@ -301,13 +299,18 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
 
    }
 
-    @Override
-    public void didRangeProximity(double percentage, String textToDisplay) {
+   @Override
+   public void didRangeProximity(double percentage, String textToDisplay) {
 
-    }
+   }
 
-    @Override
-    public void pathEnded(double totalScore) {
-        
-    }
+   @Override
+   public void pathEnded(double totalScore) {
+
+   }
+
+
+   @Override
+   public void onBackPressed() {
+   }
 }

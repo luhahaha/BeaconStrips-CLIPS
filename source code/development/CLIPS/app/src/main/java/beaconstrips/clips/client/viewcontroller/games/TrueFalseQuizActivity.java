@@ -81,4 +81,8 @@ public class TrueFalseQuizActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+    }
 }

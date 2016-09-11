@@ -51,8 +51,8 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
 
       correctAnswers = intent.getIntExtra("correctAnswers", 0);
 
-      Log.i(TAG, "Size of" + test.questions.size());
-      Log.i(TAG, "Correct answer " + answers.trueResponse);
+      //Log.i(TAG, "Size of" + test.questions.size());
+      //Log.i(TAG, "Correct answer " + answers.trueResponse);
 
 
       setQuiz();
@@ -60,7 +60,7 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
    }
 
    private void setQuiz() {
-      Log.i(TAG, answers.instructions);
+      //Log.i(TAG, answers.instructions);
 
       ((TextView) findViewById(R.id.questionLabel)).setText(answers.instructions);
 
@@ -82,13 +82,14 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
 
          if(i == 0) {
             final Button rightAnswer = (Button) findViewById(resID);
-            Log.i(TAG, "Correct answer is on " + (choices.get(i) - 1));
+            //Log.i(TAG, "Correct answer is on " + (choices.get(i) - 1));
             rightAnswer.setText(answers.trueResponse);
             rightAnswer.setOnClickListener(new View.OnClickListener() {
                public void onClick(View v) {
 
                   intent.putExtra("quizLeft", test.questions.size());
                   intent.putExtra("correctAnswers", ++correctAnswers);
+                  intent.putExtra("answer", true);
                   startActivity(intent);
                }
             });
@@ -107,5 +108,9 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
 
       }
 
+   }
+
+   @Override
+   public void onBackPressed() {
    }
 }

@@ -52,6 +52,8 @@ public class ProofResultActivity extends AppCompatActivity {
         //TODO aggiungere risposte totali
         //totalAnswers = i.getIntExtra("totalAnswers", 0);
 
+        //Log.i(TAG, "Answer is " + showText);
+
         if(!showText) {
             ((TextView) findViewById(R.id.resultMessage)).setText("Risposta sbagliata!");
         }
@@ -65,7 +67,7 @@ public class ProofResultActivity extends AppCompatActivity {
         test = (Test) i.getSerializableExtra("test");
 
         if(test == null) {
-            Log.i(TAG, "Test is null");
+            //Log.i(TAG, "Test is null");
         }
 
         startTime = (GregorianCalendar) i.getSerializableExtra("startTime");
@@ -87,20 +89,20 @@ public class ProofResultActivity extends AppCompatActivity {
                 int testLeft = 0;
                 if (test instanceof MultipleChoiceTest) {
                     testLeft = ((MultipleChoiceTest) test).questions.size();
-                    Log.i(TAG, "Test left " + testLeft);
+                    //Log.i(TAG, "Test left " + testLeft);
                     i.setClass(getApplicationContext(), MultipleChoiceQuizActivity.class);
                 }
                 if (test instanceof TrueFalseTest) {
                     testLeft = ((TrueFalseTest) test).questions.size();
-                    Log.i(TAG, "Test left " + testLeft);
+                    //Log.i(TAG, "Test left " + testLeft);
                     i.setClass(getApplicationContext(), TrueFalseQuizActivity.class);
                 }
                 if (testLeft > 0) {
-                    Log.i(TAG, "Ci sono ancora " + testLeft + " quiz rimasti");
+                    //Log.i(TAG, "Ci sono ancora " + testLeft + " quiz rimasti");
                     startActivity(i);
                 }
                 else {
-                    Log.i(TAG, "I test sono finiti");
+                    //Log.i(TAG, "I test sono finiti");
                     int totalQuestions = i.getIntExtra("totalQuestions", 0);
                     finished = pathProgress.savedResult(startTime, new GregorianCalendar(), correctAnswers, totalQuestions); //if true ho finito il percorso
                     Log.i(TAG, "Domande totali: " + totalQuestions + "; domande corrette: " + correctAnswers);
@@ -115,5 +117,9 @@ public class ProofResultActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }
