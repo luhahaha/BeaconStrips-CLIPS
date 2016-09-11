@@ -71,10 +71,10 @@ public class UtilityTest {
    private Building[] getNearestBuildings(float param, boolean searchByDistance, double userLatitude, double userLongitude, ArrayList<PathInfo>pathinfos){
 
       ArrayList<Building> buildings = new ArrayList<>();
-      buildings.add(new Building("Edificio 1", "Edificio numero 1", "Primo edificio", "Alle 1.00", "Via Uno, 1", 45, 10, "1111111111", "Uno@uno.uno", "UnoWA", "UnoT", "UnoTwitter", "UnoFB", "www.uno.com", pathinfos));
-      buildings.add(new Building("Edificio 2", "Edificio numero 2", "Secondo edificio", "Alle 2.00", "Via Due, 2", 46, 11, "2222222222", "Due@dueo.due", "DueWA", "DueT", "DueTwitter", "DueFB", "www.due.com", pathinfos));
-      buildings.add(new Building("Edificio 3", "Edificio numero 3", "Terzo edificio", "Alle 3.00", "Via Tre, 3", 46, 10, "3333333333", "Tre@tre.tre", "TreWA", "TreT", "TreTwitter", "TreFB", "www.tre.com", pathinfos));
-      buildings.add(new Building("Edificio 4", "Edificio numero 4", "Quarto edificio", "Alle 4.00", "Via Quattro, 4", 45, 11, "4444444444", "Quattro@quattro.quattro", "QuattroWA", "QauttroT", "QuattroTwitter", "QuattroFB", "www.quattro.com", pathinfos));
+      buildings.add(new Building("Edificio 1", "Immagine edificio 1", "Edificio numero 1", "Primo edificio", "Alle 1.00", "Via Uno, 1", 45, 10, "1111111111", "Uno@uno.uno", "UnoWA", "UnoT", "UnoTwitter", "UnoFB", "www.uno.com", pathinfos));
+      buildings.add(new Building("Edificio 2", "Immagine edificio 2", "Edificio numero 2", "Secondo edificio", "Alle 2.00", "Via Due, 2", 46, 11, "2222222222", "Due@dueo.due", "DueWA", "DueT", "DueTwitter", "DueFB", "www.due.com", pathinfos));
+      buildings.add(new Building("Edificio 3", "Immagine edificio 3", "Edificio numero 3", "Terzo edificio", "Alle 3.00", "Via Tre, 3", 46, 10, "3333333333", "Tre@tre.tre", "TreWA", "TreT", "TreTwitter", "TreFB", "www.tre.com", pathinfos));
+      buildings.add(new Building("Edificio 4", "Immagine edificio 4", "Edificio numero 4", "Quarto edificio", "Alle 4.00", "Via Quattro, 4", 45, 11, "4444444444", "Quattro@quattro.quattro", "QuattroWA", "QauttroT", "QuattroTwitter", "QuattroFB", "www.quattro.com", pathinfos));
 
       Building[] ret = null;
 

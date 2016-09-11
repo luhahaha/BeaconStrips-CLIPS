@@ -470,7 +470,7 @@ public class DBHandler extends SQLiteOpenHelper {
          ArrayList<PathInfo> pathsInfos = readPathInfos(id);
          String websiteURL = cursor.getString(14);
 
-         ret = new Building(name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos);
+         //ret = new Building(name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos);
       }
 
       return ret;
@@ -500,7 +500,7 @@ public class DBHandler extends SQLiteOpenHelper {
          ArrayList<PathInfo> pathsInfos = readPathInfos(id);
          String websiteURL = cursor.getString(14);
 
-         ret.add(new Building(name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos));
+         //ret.add(new Building(name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos));
       }
 
       return ret;
