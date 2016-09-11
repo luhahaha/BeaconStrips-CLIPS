@@ -37,11 +37,19 @@ public class GetRankingDataRequest extends DataManager<Score[]> {
    protected Score[] parseFromUrlRequest(JSONObject response){
       try {
          JSONArray array = response.getJSONArray("array");
-         Score[] ranking = new Score[array.length()];
+         Score[] ranking = new Score[array.length()], orderedRanking;
          for(int i=0; i<array.length(); i++) {
             JSONObject score = array.getJSONObject(i);
             ranking[i] = new Score(score.getString("username"), i+1, score.getInt("totalScore"));
+            for(int j=0; j<i; j++) {
+               if(ranking[j].score<ranking[i].score) {
+                  Score temp = ranking[j];
+                  ranking[j] = new Score(ranking[i].username, ranking[j].position, ranking[i].score); //ranking[j]=ranking[i] con la posizione corretta
+                  ranking[i] = new Score(temp.username, ranking[i].position, temp.score);
+               }
+            }
          }
+
          return ranking;
       } catch(JSONException e) {
          listener.onError(new ServerError(1002, "Error on parsing the response JSON after the execution of GetRanking request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta;

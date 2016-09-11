@@ -41,9 +41,9 @@ public class GetRankingDataTest {
       Context context = rule.getActivity().getBaseContext();
       android.content.SharedPreferences preferences = android.preference.PreferenceManager.getDefaultSharedPreferences(context);
       android.content.SharedPreferences.Editor editor = preferences.edit();
-      editor.putString("token", "9b444df00879");
+      editor.putString("token", "d2360229bcbf4aeebc498d76f9f22a71");
       editor.apply();
-      DataRequestMaker.getRanking(context, 1, new AbstractDataManagerListener<Score[]>() {
+      DataRequestMaker.getRanking(context, 5, new AbstractDataManagerListener<Score[]>() {
          public void onResponse(Score[] response) {
             Log.d("GetRankingDataTest", "Chiamata getRanking() eseguita con successo:");
             for(int i=0; i<response.length; i++) {
