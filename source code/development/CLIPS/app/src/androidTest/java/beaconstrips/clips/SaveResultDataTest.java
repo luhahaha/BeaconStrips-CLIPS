@@ -63,14 +63,14 @@ public class SaveResultDataTest {
    @Test
    public void saveResult() {
       ArrayList<ProofResult> proofResults = new ArrayList<>();
-      proofResults.add(new ProofResult(4, new GregorianCalendar(2016, 7, 19, 10, 53, 55), new GregorianCalendar(2016, 7, 19, 11, 56, 5), 15));
-      proofResults.add(new ProofResult(5, new GregorianCalendar(2016, 7, 19, 12, 3, 12), new GregorianCalendar(2016, 7, 19, 13, 22, 15), 19));
-      PathResult result = new PathResult(1, "Prova", "Torre Archimede", new GregorianCalendar(2016, 7, 19, 10, 53, 24), new GregorianCalendar(2016, 7, 19, 13, 22, 15), 34, proofResults);
+      proofResults.add(new ProofResult(6, new GregorianCalendar(2016, 7, 19, 10, 53, 55), new GregorianCalendar(2016, 7, 19, 11, 56, 5), 33));
+      proofResults.add(new ProofResult(7, new GregorianCalendar(2016, 7, 19, 12, 3, 12), new GregorianCalendar(2016, 7, 19, 13, 22, 15), 33));
+      PathResult result = new PathResult(1, "Prova", "Torre Archimede", new GregorianCalendar(2016, 7, 19, 10, 53, 24), new GregorianCalendar(2016, 7, 19, 13, 22, 15), 66, proofResults);
 
       final Context context = rule.getActivity().getBaseContext();
       android.content.SharedPreferences preferences = android.preference.PreferenceManager.getDefaultSharedPreferences(context);
       android.content.SharedPreferences.Editor editor = preferences.edit();
-      editor.putString("token", "f88251437174");
+      editor.putString("token", "d2360229bcbf4aeebc498d76f9f22a71");
       editor.apply();
 
       getResults(context);

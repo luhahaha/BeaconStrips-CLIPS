@@ -180,11 +180,11 @@ public class LoginManager {
             try {
                CheckResult[] checks = new CheckResult[3];
                JSONObject email = response.getJSONObject("email");
-               checks[0] = new CheckResult("email", email.getBoolean("isValid"), email.optString("reason"), email.optString("debugMessage"));
+               checks[0] = new CheckResult("email", email.getBoolean("isValid"), email.optString("userMessage"), email.optString("debugMessage"));
                JSONObject username = response.getJSONObject("username");
-               checks[1] = new CheckResult("username", username.getBoolean("isValid"), username.optString("reason"), username.optString("debugMessage"));
+               checks[1] = new CheckResult("username", username.getBoolean("isValid"), username.optString("userMessage"), username.optString("debugMessage"));
                JSONObject password = response.getJSONObject("password");
-               checks[2] = new CheckResult("password", password.getBoolean("isValid"), password.optString("reason"), password.optString("debugMessage"));
+               checks[2] = new CheckResult("password", password.getBoolean("isValid"), password.optString("userMessage"), password.optString("debugMessage"));
                listener.onResponse(checks);
             } catch (JSONException e) {
                listener.onError(new ServerError(1002, "Error on parsing the response JSON after the execution of change request", "")); //per sicurezza, per evitare inconsistenze. L'errore 1002 indica un errore in fase di parsing della risposta
