@@ -20,15 +20,17 @@ import java.util.ArrayList;
 
 import beaconstrips.clips.R;
 import beaconstrips.clips.client.data.PathResult;
+import beaconstrips.clips.client.data.ProofResult;
 import beaconstrips.clips.client.data.datamanager.AbstractDataManagerListener;
 import beaconstrips.clips.client.data.datamanager.DataRequestMaker;
 import beaconstrips.clips.client.urlrequest.ServerError;
 import beaconstrips.clips.client.viewcontroller.utility.ResultsAdapter;
+import beaconstrips.clips.client.viewcontroller.utility.SavedResultsAdapter;
 import beaconstrips.clips.client.viewcontroller.utility.risultatoProva;
 
 public class SavedResultsActivity extends AppCompatActivity {
 
-    private PathResult[] results;
+    private ArrayList<PathResult> results = new ArrayList<PathResult>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +38,28 @@ public class SavedResultsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_saved_results);
 
 
+        final ListView listView = (ListView)findViewById(R.id.savedResultRows);
+
 
         DataRequestMaker.getResults(getApplicationContext(), new AbstractDataManagerListener<PathResult[]>() {
+            PathResult result;
             @Override
             public void onResponse(PathResult[] response) {
-                results = response;
+                for(int i=0; i<response.length; i++) {
+                    result = new PathResult(response[i].pathID, response[i].pathName, response[i].buildingName,
+                            response[i].startTime, response[i].endTime, response[i].totalScore, response[i].proofResults);
+                    results.add(result);
+                }
+
+                // se la lista è vuota visualizzo il messaggio "Nessun risultato da visualizzare"
+                if(results.size() == 0){
+                    TextView noResults = (TextView)findViewById(R.id.noResults);
+                    noResults.setVisibility(View.VISIBLE);
+                    noResults.setText("Nessun risultato da visualizzare");
+                }
+                else {
+                    listView.setAdapter(new SavedResultsAdapter(getApplicationContext(), results));
+                }
             }
 
             @Override
@@ -50,35 +69,7 @@ public class SavedResultsActivity extends AppCompatActivity {
         });
 
 
-        ListView listView = (ListView)findViewById(R.id.resultRows);
-        ArrayList lista = getListData();
-        // se la lista è vuota visualizzo il messaggio "Nessun risultato da visualizzare"
-        if(lista.size() == 0){
-            TextView noResults = (TextView)findViewById(R.id.noResults);
-            noResults.setVisibility(View.VISIBLE);
-            noResults.setText("Nessun risultato da visualizzare");
-        }
-        else {
-            listView.setAdapter(new ResultsAdapter(this, lista));
-        }
 
-        /*TODO add cases if
-            - user is not logged in
-         */
     }
 
-    private ArrayList getListData() {
-        // prova di esempio, poi questi dati verranno presi dal DB
-        ArrayList<risultatoProva> results = new ArrayList<risultatoProva>();
-
-        risultatoProva ris = new risultatoProva();
-        ris.setData("10 Agosto");
-        ris.setDurata("2 minuti");
-        ris.setEdificio("Torre Archimede");
-        ris.setPunteggio("20 punti");
-        results.add(ris);
-
-        // Add some more dummy data for testing
-        return results;
-    }
 }

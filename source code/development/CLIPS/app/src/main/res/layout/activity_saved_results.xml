@@ -11,13 +11,13 @@
 
     <TextView
         style="@style/TextViewTitolo"
-        android:text="Risultati"
+        android:text="Risultati salvati"
         android:id="@+id/textView"
         android:layout_centerHorizontal="true"/>
 
     <TextView
         style="@style/TextViewBase"
-        android:text="kjhgfdss"
+        android:text=""
         android:id="@+id/noResults"
         android:layout_below="@id/textView"
         android:layout_centerHorizontal="true"
@@ -27,7 +27,9 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/resultRows"
+        android:id="@+id/savedResultRows"
+        android:divider="@color/colorAccent"
+        android:dividerHeight="1dp"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
