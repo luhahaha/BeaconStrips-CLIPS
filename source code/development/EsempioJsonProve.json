@@ -14,6 +14,7 @@ Quiz standard
          {
             "question": "Di che colore era il cavallo bianco di Napoleone",
             "answers" : ["Bianco", "Rosa", "Blu", "Rosso"],
+            "image"   : String //url dell'immagine
             "correctIndex" : 0
          },
          {
