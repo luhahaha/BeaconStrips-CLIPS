@@ -139,10 +139,10 @@ public class PathDBTest {
       }
 
       Path[] paths = new Path[5];
-      Beacon[] beacons = new Beacon[10];
-      Proof[] proofs = new Proof[10];
+      Beacon[] beacons = new Beacon[50];
+      Proof[] proofs = new Proof[50];
       for(int i = 0; i< beacons.length; ++i){
-         beacons[i] = new Beacon(i,"123456", i, 20-i);
+         beacons[i] = new Beacon(i,"123456", i, 50-i);
          try{
             proofs[i] = new Proof(i, "title "+i, "instructions "+i, new JSONObject("{\"algorithmData\":\""+i+"\"}"), new JSONObject("{\"testData\":"+i+"\"}"));
          }
@@ -152,10 +152,10 @@ public class PathDBTest {
       }
       for(int i=0; i<paths.length; ++i){
          ArrayList<Step> steps = new ArrayList<>();
-         for(int j=0; j<2; ++j){
+         for(int j=0; j<10; ++j){
             ArrayList<Proximity> proximities = new ArrayList<>();
-            proximities.add(new Proximity(beacons[((2*i+j)+1)%10], 33, "textToDisplay "+((2*i+j)+1)%10));
-            steps.add(new Step(beacons[2*i+j], proximities, proofs[2*i+j], "Testo di aiuto"));
+            proximities.add(new Proximity(beacons[((10*i+j)+1)%50], 33, "textToDisplay "+((10*i+j)+1)%50));
+            steps.add(new Step(beacons[10*i+j], proximities, proofs[10*i+j], "Testo di aiuto"));
          }
          paths[i] = new Path(i,"startingMessage "+i,"rewardMessage "+i, steps);
       }
@@ -173,6 +173,18 @@ public class PathDBTest {
       else{
          Log.d(TAG, "Test fallito.");
       }
+
+      for(int i=0; i<paths.length;++i) {
+         db.updatePath(paths[i]);
+         db.updatePath(paths[i]);
+      }
+
+      testPaths = db.readPaths();
+
+      if(equalPaths(paths,testPaths)){
+         Log.d(TAG, "fine");
+      }
+
    }
 
 }
