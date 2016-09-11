@@ -62,7 +62,7 @@
 
     <Button
         style="@style/RaisedButton"
-        android:text="Visulalizza i tuoi risultati"
+        android:text="Visualizza i tuoi risultati"
         android:id="@+id/results_button"
         android:layout_marginLeft="16dp"
         android:layout_centerHorizontal="true"

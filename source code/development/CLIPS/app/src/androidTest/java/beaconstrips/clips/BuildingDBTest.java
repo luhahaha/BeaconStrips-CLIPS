@@ -101,7 +101,7 @@ public class BuildingDBTest {
       }
       Building[] buildings = new Building[5];
       for(int i=0; i<buildings.length; ++i){
-         buildings[i] = new Building ("name "+i, "description "+i, "otherInfos "+i, "openingTime "+i, "address "+i, 15.0, 16.0, "telephone "+i, "email "+i, "whatsapp "+i, "telegram "+i, "twitter "+i, "facebook "+i, "website "+i, new ArrayList<PathInfo>(Arrays.asList(pathInfos[i])));
+         buildings[i] = new Building ("name "+i, "image"+i, "description "+i, "otherInfos "+i, "openingTime "+i, "address "+i, 15.0, 16.0, "telephone "+i, "email "+i, "whatsapp "+i, "telegram "+i, "twitter "+i, "facebook "+i, "website "+i, new ArrayList<PathInfo>(Arrays.asList(pathInfos[i])));
       }
       db.writeBuildings(buildings);
       testBuildings = db.readBuildings();

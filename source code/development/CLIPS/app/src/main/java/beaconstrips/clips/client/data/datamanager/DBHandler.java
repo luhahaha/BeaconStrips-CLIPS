@@ -475,7 +475,7 @@ public class DBHandler extends SQLiteOpenHelper {
          String websiteURL = cursor.getString(14);
          String image = cursor.getString(15);
 
-         ret = new Building(name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos, image);
+         //ret = new Building(name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos, image);
       }
 
       return ret;
@@ -506,7 +506,7 @@ public class DBHandler extends SQLiteOpenHelper {
          String websiteURL = cursor.getString(14);
          String image = cursor.getString(15);
 
-         ret.add(new Building(name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos, image));
+         //ret.add(new Building(name,description,otherInfos,openingTime,address,latitude,longitude,telephone,email,whatsapp,telegram,twitter,facebook,websiteURL,pathsInfos, image));
       }
 
       return ret;

@@ -29,6 +29,7 @@ import beaconstrips.clips.client.urlrequest.ServerError;
  * Nota: d'ora in poi per "array di n edifici" si intende un array di n oggetti, dove n viene definito da un numero preciso solo se la ricerca avviene per numero massimo di edifici, in cui la struttura dell'output previsto è la seguente:
  * "Edificio <i>"
  * "   name: <name>"
+ * "   image: <image>"
  * "   description: <description>"
  * "   otherInfos: <otherInfos>"
  * "   openingTime: <openingTime>"
@@ -75,6 +76,7 @@ public class BuildingsDataTest {
             for (int i=0; i <response.length ; i++) {
                Log.d("BuildingsDataTest", "Edificio " + i);
                Log.d("BuildingsDataTest", "   name: " + response[i].name);
+               Log.d("BuildingsDataTest", "   image: " + response[i].image);
                Log.d("BuildingsDataTest", "   description: " + response[i].description);
                Log.d("BuildingsDataTest", "   otherInfos: " + response[i].otherInfos);
                Log.d("BuildingsDataTest", "   openingTime: " + response[i].openingTime);
@@ -117,6 +119,7 @@ public class BuildingsDataTest {
             for (int i=0; i <response.length ; i++) {
                Log.d("BuildingsDataTest", "Edificio " + i);
                Log.d("BuildingsDataTest", "   name: " + response[i].name);
+               Log.d("BuildingsDataTest", "   image: " + response[i].image);
                Log.d("BuildingsDataTest", "   description: " + response[i].description);
                Log.d("BuildingsDataTest", "   otherInfos: " + response[i].otherInfos);
                Log.d("BuildingsDataTest", "   openingTime: " + response[i].openingTime);

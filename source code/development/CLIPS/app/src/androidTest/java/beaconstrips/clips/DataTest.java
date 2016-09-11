@@ -176,7 +176,7 @@ public class DataTest {
       ArrayList<PathInfo> pathinfos = new ArrayList<>();
       pathinfos.add(new PathInfo(1, "Primo percorso di prova", "Percorso delle P", "Per persone con il nome che comincia per P", "Poco", 1));
       pathinfos.add(new PathInfo(2, "Secondo percorso di prova", "Percorso delle lettere miste", "Per tutti, anche per le persone il cui nome comincia per P", "Tanto", 2));
-      Building building = new Building("Edificio di prova", "Edificio per i test", "Edificio creato esclusivamente per i test", "Ogni volta che questo test si rivela necessario", "Indirizzo di prova", 5, 5, "0349423618", "prova@gmail.com", "Prova WhatsApp", "Prova Telegram", "Account Twitter", "Account Facebook", "www.prova.com", pathinfos);
+      Building building = new Building("Edificio di prova", "Immagine edificio di prova", "Edificio per i test", "Edificio creato esclusivamente per i test", "Ogni volta che questo test si rivela necessario", "Indirizzo di prova", 5, 5, "0349423618", "prova@gmail.com", "Prova WhatsApp", "Prova Telegram", "Account Twitter", "Account Facebook", "www.prova.com", pathinfos);
       ArrayList<PathInfo> array = building.getPathInfo();
       Log.d("DataTest", "Risultati di getPathInfo():");
       for(int i=0; i<array.size(); i++) {
