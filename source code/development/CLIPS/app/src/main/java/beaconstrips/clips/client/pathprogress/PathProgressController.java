@@ -62,7 +62,7 @@ public class PathProgressController implements BeaconDiscoverDelegate, Serializa
 
 
   public void didFoundBeacon(IBeaconDevice beacon){
-    Log.i(TAG, "Called didFoundBeacon");
+    //Log.i(TAG, "Called didFoundBeacon");
           if (beacon.getProximityUUID().equals(java.util.UUID.fromString(this.pathProgress.getPath().steps.get(index).stopBeacon.UUID)) && beacon.getMajor() == this.pathProgress.getPath().steps.get(index).stopBeacon.major
                   && beacon.getMinor() == this.pathProgress.getPath().steps.get(index).stopBeacon.minor) {
               this.delegate.didReachProof(this.pathProgress.getPath().steps.get(index).proof);

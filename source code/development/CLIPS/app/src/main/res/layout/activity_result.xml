@@ -48,94 +48,73 @@
                 android:id="@+id/buildingNameLabel"
                 style="@style/TextViewBase"
                 android:text="Edificio"
-                android:layout_gravity="left"
                 android:textColor="@color/colorText"/>
 
             <TextView
                 android:id="@+id/buildingName"
                 style="@style/TextViewBase"
-                android:text="hgfdshgfd"
-                android:layout_gravity="right" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/pathLabel"
                 style="@style/TextViewBase"
                 android:text="@string/path_building_label"
-                android:layout_gravity="left"
                 android:textColor="@color/colorText"/>
 
             <TextView
                 android:id="@+id/path"
-                style="@style/TextViewBase"
-                android:layout_gravity="right" />
+                style="@style/TextViewBase" />
 
             <TextView
                 android:id="@+id/totalPathTimeLabel"
                 style="@style/TextViewBase"
                 android:text="@string/path_total_time_label"
-                android:layout_gravity="left"
                 android:textColor="@color/colorText"/>
 
             <TextView
                 android:id="@+id/totalPathTime"
                 style="@style/TextViewBase"
-                android:text="hgfdhgfd"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right" />
+                android:text="" />
 
 
             <TextView
                 style="@style/TextViewBase"
                 android:textColor="@color/colorText"
-                android:layout_weight="1"
-                android:text="@string/path_total_time_proofs_label"
-                android:layout_gravity="left"/>
+                android:text="Durata prove:"/>
 
             <TextView
                 android:id="@+id/totalTimeProofs"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/minScoreProofLabel"
                 style="@style/TextViewBase"
                 android:text="@string/path_min_score_proof_label"
-                android:layout_gravity="left"
                 android:textColor="@color/colorText"/>
 
             <TextView
                 android:id="@+id/minScoreProof"
-                style="@style/TextViewBase"
-                android:layout_gravity="right" />
+                style="@style/TextViewBase" />
 
             <TextView
                 android:id="@+id/maxScoreProofLabel"
                 style="@style/TextViewBase"
                 android:text="@string/path_max_score_proof_label"
-                android:layout_gravity="left"
                 android:textColor="@color/colorText"/>
 
             <TextView
                 android:id="@+id/maxScoreProof"
-                style="@style/TextViewBase"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right" />
+                style="@style/TextViewBase" />
 
             <TextView
                 android:id="@+id/rankingPositionLabel"
                 style="@style/TextViewBase"
                 android:text="@string/path_ranking_position_label"
-                android:layout_gravity="left"
                 android:textColor="@color/colorText"/>
 
             <TextView
                 android:id="@+id/rankingPosition"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right" />
+                android:text=""/>
 
         </GridLayout>
 

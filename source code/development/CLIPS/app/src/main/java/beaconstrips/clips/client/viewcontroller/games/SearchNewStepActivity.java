@@ -31,6 +31,7 @@ import com.kontakt.sdk.android.common.profile.IBeaconDevice;
 import com.kontakt.sdk.android.common.profile.IBeaconRegion;
 
 import java.io.Serializable;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -55,6 +56,8 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
    private int stepIndex;
    private final String TAG = "SearchNewStepActivity";
    private Intent i;
+   GregorianCalendar startTime;
+   int correctAnswer = 0;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -67,14 +70,11 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       startTestButton.setVisibility(View.INVISIBLE);
 
       i = getIntent();
-      Log.i(TAG, i.toString());
-
       Bundle bundle = i.getExtras();
 
       pathProgress = (PathProgressController) bundle.getSerializable("pathProgress");
       if(pathProgress != null) {
          pathProgress.setDelegate(this);
-         Log.i(TAG, "Delegate set " + pathProgress.delegate);
       }
 
       KontaktSDK.initialize(this);
@@ -178,7 +178,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       return new SimpleIBeaconListener() {
          @Override
          public void onIBeaconDiscovered(IBeaconDevice ibeacon, IBeaconRegion region) {
-            Log.i(TAG, "Searching " + ibeacon.getMajor());
+            //Log.i(TAG, "Searching " + ibeacon.getMajor());
            /*
             Step step = steps.get(stepIndex);
             if (ibeacon.getProximityUUID().equals(java.util.UUID.fromString(step.stopBeacon.UUID))
@@ -209,6 +209,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
       };
    }
 
+   /*
    private void setButtons(final Test test) {
 
       if (startTestButton != null) {
@@ -227,7 +228,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
                   Log.i(TAG, "Set class MultipleChoiceQuizActivity.class");
                }
                if (test instanceof TrueFalseTest) {
-                  i.setClass(getApplicationContext(), TrueFalseQuizView.class);
+                  i.setClass(getApplicationContext(), TrueFalseQuizActivity.class);
                   Log.i(TAG, "Set class TrueFalseTest.class");
                }
 
@@ -246,6 +247,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
          });
       }
    }
+   */
 
 
    @Override
@@ -261,26 +263,31 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
                Test test = proof.test;
 
                if (test instanceof GameCollection) {
-                  //test = ((GameCollection) test).games.get(1);
-                  i.putExtra("testIndex", 0);
+                  i.putExtra("gameCollection", test);
+                  test = ((GameCollection) test).games.remove(0);
                   Log.i(TAG, "Test has now type " + test.getClass());
                }
 
                if (test instanceof MultipleChoiceTest) {
                   i.setClass(getApplicationContext(), MultipleChoiceQuizActivity.class);
+                  i.putExtra("totalQuestions", ((MultipleChoiceTest) test).questions.size());
                   Log.i(TAG, "Set class MultipleChoiceQuizActivity.class");
                }
                if (test instanceof TrueFalseTest) {
-                  i.setClass(getApplicationContext(), TrueFalseQuizView.class);
+                  i.setClass(getApplicationContext(), TrueFalseQuizActivity.class);
+                  i.putExtra("totalQuestions", ((TrueFalseTest) test).questions.size());
                   Log.i(TAG, "Set class TrueFalseTest.class");
                }
 
                //TODO change all this stuff
-               Bundle bundle = new Bundle();
+               //Bundle bundle = new Bundle();
                //bundle.putSerializable("pathProgress", pathProgress);
                //i.putExtras(bundle);
                i.putExtra("test", test);
+               i.putExtra("correctAnswer", correctAnswer);
                i.putExtra("stepIndex", stepIndex);
+               startTime = new GregorianCalendar();
+               i.putExtra("startTime", startTime);
                if (i != null) {
                   startActivity(i);
                }
@@ -292,13 +299,18 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
 
    }
 
-    @Override
-    public void didRangeProximity(double percentage, String textToDisplay) {
+   @Override
+   public void didRangeProximity(double percentage, String textToDisplay) {
 
-    }
+   }
 
-    @Override
-    public void pathEnded(double totalScore) {
-        
-    }
+   @Override
+   public void pathEnded(double totalScore) {
+
+   }
+
+
+   @Override
+   public void onBackPressed() {
+   }
 }

@@ -12,7 +12,8 @@
     <TextView
         style="@style/TextViewTitolo"
         android:text="Risposta esatta!"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:id="@+id/resultMessage"/>
 
     <Button
         style="@style/RaisedButton"

@@ -100,11 +100,11 @@ public class PathActivity extends MenuActivity {
          }
       });
 
-      setButton();
+      setButton(pathId);
 
    }
 
-   void setButton() {
+   void setButton(final int pathId) {
       final Button startPath = (Button) findViewById(R.id.startButton);
       if (startPath != null) {
          startPath.setOnClickListener(new View.OnClickListener() {
@@ -125,6 +125,8 @@ public class PathActivity extends MenuActivity {
             @Override
             public void onClick(View v) {
                Intent rank = new Intent(getApplicationContext(), RankingActivity.class);
+               Log.i("pathId", String.valueOf(pathId));
+               rank.putExtra("pathId", pathId);
                startActivity(rank);
             }
          });

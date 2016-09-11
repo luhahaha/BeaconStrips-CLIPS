@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".client.viewcontroller.games.TrueFalseQuizView">
+    tools:context=".client.viewcontroller.games.TrueFalseQuizActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

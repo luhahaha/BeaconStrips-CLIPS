@@ -1,6 +1,7 @@
 package beaconstrips.clips.client.viewcontroller.utility;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import beaconstrips.clips.R;
+import beaconstrips.clips.client.data.Score;
 
 /**
  * @file ResultAdapter.java
@@ -22,11 +24,10 @@ import beaconstrips.clips.R;
 
 public class RankingAdapter extends BaseAdapter {
 
-    // risultatoProva è una classe di prova che modella il risultato di una prova. (contiene 4 stringhe e i loro relativi metodi set e get)
-    private ArrayList<risultatoProva> listData;
+    private ArrayList<Score> listData;
     private LayoutInflater layoutInflater;
 
-    public RankingAdapter(Context aContext, ArrayList<risultatoProva> listData) {
+    public RankingAdapter(Context aContext, ArrayList<Score> listData) {
         this.listData = listData;
         layoutInflater = LayoutInflater.from(aContext);
     }
@@ -61,9 +62,19 @@ public class RankingAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.position.setText(listData.get(position).getDurata());
-        holder.name.setText(listData.get(position).getEdificio());
-        holder.score.setText(listData.get(position).getPunteggio());
+        String pos = String.valueOf(listData.get(position).position);
+        String scor = String.valueOf(listData.get(position).score);
+
+        Log.e("prova ranking adapter", listData.get(position).username); // ok
+        Log.e("prova ranking pos", pos); // ok
+        Log.e("prova ranking scor", scor); // ok
+
+        holder.position.setText(pos);
+        holder.name.setText(listData.get(position).username);
+        holder.score.setText(scor);
+
+        convertView.setTag(holder);
+
         return convertView;
     }
 
