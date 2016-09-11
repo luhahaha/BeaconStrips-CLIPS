@@ -40,6 +40,54 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <!-- testo -->
+            <TextView
+                android:id="@+id/buildingName"
+                style="@style/TextViewBase"
+                android:text=""
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/maxScoreProof"/>
+            <TextView
+                android:id="@+id/path"
+                style="@style/TextViewBase"
+                android:text=""
+                android:layout_below="@+id/buildingName"
+                android:layout_alignStart="@+id/maxScoreProof"/>
+
+            <TextView
+                android:id="@+id/totalPathTime"
+                style="@style/TextViewBase"
+                android:text=""
+                android:layout_below="@+id/path"
+                android:layout_alignStart="@+id/maxScoreProof" />
+
+            <TextView
+                style="@style/TextViewBase"
+                android:id="@+id/totalTimeProofs"
+                android:text=""
+                android:layout_alignTop="@+id/totalTimeProofsLabel"
+                android:layout_alignStart="@+id/maxScoreProof" />
+            <TextView
+                android:id="@+id/minScoreProof"
+                style="@style/TextViewBase"
+                android:text=""
+                android:layout_below="@+id/totalTimeProofs"
+                android:layout_alignStart="@+id/maxScoreProof" />
+
+            <TextView
+                android:text=""
+                android:id="@+id/maxScoreProof"
+                style="@style/TextViewBase"
+                android:layout_below="@+id/minScoreProof"
+                android:layout_toEndOf="@+id/maxScoreProofLabel" />
+            <TextView
+                android:text=""
+                android:id="@+id/rankingPosition"
+                style="@style/TextViewBase"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/maxScoreProof" />
+
+            <!-- labels -->
             <TextView
                 android:id="@+id/buildingNameLabel"
                 style="@style/TextViewBase"
@@ -88,52 +136,7 @@
                 android:layout_alignTop="@+id/minScoreProof"
                 android:layout_alignParentStart="true" />
 
-            <!-- testo -->
-            <TextView
-                android:id="@+id/buildingName"
-                style="@style/TextViewBase"
-                android:text=""
-                android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/maxScoreProof"/>
-            <TextView
-                android:id="@+id/path"
-                style="@style/TextViewBase"
-                android:text=""
-                android:layout_below="@+id/buildingName"
-                android:layout_alignStart="@+id/maxScoreProof"/>
 
-            <TextView
-                android:id="@+id/totalPathTime"
-                style="@style/TextViewBase"
-                android:text=""
-                android:layout_below="@+id/path"
-                android:layout_alignStart="@+id/maxScoreProof" />
-
-            <TextView
-                style="@style/TextViewBase"
-                android:id="@+id/totalTimeProofs"
-                android:text=""
-                android:layout_alignTop="@+id/totalTimeProofsLabel"
-                android:layout_alignStart="@+id/maxScoreProof" />
-            <TextView
-                android:id="@+id/minScoreProof"
-                style="@style/TextViewBase"
-                android:text=""
-                android:layout_below="@+id/totalTimeProofs"
-                android:layout_alignStart="@+id/maxScoreProof" />
-
-            <TextView
-                android:text=""
-                android:id="@+id/maxScoreProof"
-                style="@style/TextViewBase"
-                android:layout_below="@+id/minScoreProof"
-                android:layout_toEndOf="@+id/maxScoreProofLabel" />
-            <TextView
-                android:text=""
-                android:id="@+id/rankingPosition"
-                style="@style/TextViewBase"
-                android:layout_alignParentBottom="true"
-                android:layout_alignStart="@+id/maxScoreProof" />
 
 
         </RelativeLayout>
