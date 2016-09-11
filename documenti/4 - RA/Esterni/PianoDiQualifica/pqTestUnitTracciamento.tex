@@ -16,19 +16,49 @@
 	TU21 & \cellacaporiga{LoginManager.change \\ LoginManager.sendResponse \\ LoginManager.sendError \\ LoginManager.updateLoggedUser \\ AbstractDataManagerListener.onResponse \\ AbstractDataManagerListener.onError} \\
 	TU22 & \cellacaporiga{LoginManager.check \\ LoginManager.sendResponse \\ LoginManager.sendError \\ AbstractDataManagerListener.onResponse \\ AbstractDataManagerListener.onError} \\
 	TU23 & \cellacaporiga{LoginManager.getProfileData \\ LoginManager.sendResponse \\ LoginManager.sendError \\ AbstractDataManagerListener.onResponse \\ AbstractDataManagerListener.onError} \\
-	TU42 & AppProvider.execute \\
-	TU43 & AppProvider.execute \\
-	TU44 & AppProvider.execute \\
-	TU45 & BuildingProvider.execute \\
-	TU46 & BuildingProvider.execute \\
-	TU47 & PassworChecker.isValid \\ 
-	TU48 & RegistrationFieldsValidator \\
-	TU49 & RegistrationFieldsValidator \\
-	TU50 & UserDataProvider.validateData \\
-	TU51 & UserDataProvider.validateData \\
-	TU52 & LoginHandler \\
-	TU53 & LoginHandler \\
-	TU54 & UserDataProvider.validateData \\
-	TU55 & LogoutHandler
-	\caption{Tabella di tracciamento test di unità - classe}	
+	% TU42 & AppProvider.execute \\
+	% TU43 & AppProvider.execute \\
+	% TU44 & AppProvider.execute \\
+	% TU45 & BuildingProvider.execute \\
+	% TU46 & BuildingProvider.execute \\
+	% TU47 & PassworChecker.isValid \\
+	% TU48 & RegistrationFieldsValidator \\
+	% TU49 & RegistrationFieldsValidator \\
+	% TU50 & UserDataProvider.validateData \\
+	% TU51 & UserDataProvider.validateData \\
+	% TU52 & LoginHandler \\
+	% TU53 & LoginHandler \\
+	% TU54 & UserDataProvider.validateData \\
+	% TU55 & LogoutHandler
+   %
+   % @tom ha commentato le linee precedenti perché pensa non siano corrette
+
+% Test nel server
+% test AppInfo
+   TU46 & AppInfoProvider.execute \\
+   TU47 & AppInfoProvider.execute \\
+   TU48 & AppInfoProvider.execute \\
+   TU49 & AppInfoProvider.execute \\
+   TU50 & AppInfoProvider.execute \\
+% test Buildings
+	TU51 & \cellacaporiga{BuildingsProvider.execute } \\
+   TU52 & \cellacaporiga{BuildingsProvider.execute } \\
+   TU53 & \cellacaporiga{BuildingsProvider.execute } \\
+	TU54 & \cellacaporiga{BuildingsProvider.execute } \\
+	TU55 & \cellacaporiga{BuildingsProvider.execute \\ BuildingsProvider.adPathToBuildings \\ BuildingsProvider.addDistance } \\
+   TU56 & \cellacaporiga{BuildingsProvider.execute } \\
+	\caption{Tabella di tracciamento test di unità - classe}
+% test  password validator
+   TU57 & PasswordChecker \\
+% test userFlow
+   TU58 & RegistrationHandler.execute \\
+   TU59 & RegistrationHandler.execute \\
+   TU60 & RegistrationHandler.execute \\
+   TU61 & \cellacaporiga{UserDataProvider.execute \\ PostUserData} \\
+   TU62 & \cellacaporiga{UserDataProvider.execute \\ GetUserData } \\
+   TU63 & \cellacaporiga{UserDataProvider.execute \\ PostUserData} \\
+   TU64 & LoginHandler.execute \\
+   TU65 & LoginHandler.execute \\
+   TU66 & LoginHandler.execute \\
+   TU67 & LogoutHandler.execute \\
 \end{tabella}
