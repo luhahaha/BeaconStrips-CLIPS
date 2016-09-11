@@ -29,10 +29,38 @@
 	TU27 & \cellacaporiga{DataRequestMaker.getPath \\ DataManager.execute \\ DataManager.parseFromLocal \\ AbstractDataManagerListener.onResponse \\ TestBuilder.createTest \\ TestBuilder.getMultipleChoiceTest \\ TestBuilder.getTrueFalseTest \\ TestBuilder.getBiggerShapeTest \\ ScoringAlgorithmFactory.createScoringAlgorithm \\ DataRequestMaker.getBuildings \\ DataRequestMaker.getResults} \\
 	TU28 & \cellacaporiga{RequestMaker.getAppInfo \\ URLRequest.execute \\ URLRequest.objectRequest \\ AbstractUrlRequestListener.onError \\ RequestMaker.getResults} \\
 	TU29 & \cellacaporiga{RequestMaker.getAppInfo \\ URLRequest.execute \\ URLRequest.objectRequest \\ AbstractUrlRequestListener.onError \\ PathProgressMaker.getCoordinates \\ GPSListener.onResponse \\ GPSListener.onError} \\
-	
+
 	TU35 & \cellacaporiga{PathProgress.getPath \\ PathProgress.getStartTime \\ PathProgress.getEndTime \\ PathProgress.setEndTime \\ PathProgress.getDuration \\ PathProgress.addProofResult \\ PathProgress.getProofResults \\ PathProgress.getTotalScore} \\
 	TU36 & \cellacaporiga{MultipleChoiceTextQuiz.check \\ TrueFalseTextQuiz.check \\ Path.equal \\ Path.searchProximity \\ ProofResult.getDuration \\ LinearScoringAlgorithm.getScore \\ Building.getPathInfo} \\
 	TU37 & \cellacaporiga{PathProgressMaker.getCoordinates \\ GPSListener.onResponse \\ GPSListener.onError} \\
 	TU38 & \cellacaporiga{Utility.stringToGregorianCalendar \\ Utility.calculateTotalScore \\ Utility.distanceToBuilding \\ Utility.insertBuilding \\ Utility.addNearestBuilding} \\
-	
+% Test nel server
+% test AppInfo
+   TU46 & AppInfoProvider.execute \\
+   TU47 & AppInfoProvider.execute \\
+   TU48 & AppInfoProvider.execute \\
+   TU49 & AppInfoProvider.execute \\
+   TU50 & AppInfoProvider.execute \\
+% test Buildings
+	TU51 & \cellacaporiga{BuildingsProvider.execute } \\
+   TU52 & \cellacaporiga{BuildingsProvider.execute } \\
+   TU53 & \cellacaporiga{BuildingsProvider.execute } \\
+	TU54 & \cellacaporiga{BuildingsProvider.execute } \\
+	TU55 & \cellacaporiga{BuildingsProvider.execute \\ BuildingsProvider.adPathToBuildings \\ BuildingsProvider.addDistance } \\
+   TU56 & \cellacaporiga{BuildingsProvider.execute } \\
+	\caption{Tabella di tracciamento test di unità - classe}
+% test  password validator
+   TU57 & PasswordChecker \\
+% test userFlow
+   TU58 & RegistrationHandler.execute \\
+   TU59 & RegistrationHandler.execute \\
+   TU60 & RegistrationHandler.execute \\
+   TU61 & \cellacaporiga{UserDataProvider.execute \\ PostUserData} \\
+   TU62 & \cellacaporiga{UserDataProvider.execute \\ GetUserData } \\
+   TU63 & \cellacaporiga{UserDataProvider.execute \\ PostUserData} \\
+   TU64 & LoginHandler.execute \\
+   TU65 & LoginHandler.execute \\
+   TU66 & LoginHandler.execute \\
+   TU67 & LogoutHandler.execute \\
+
 \end{tabella}

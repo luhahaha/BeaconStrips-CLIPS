@@ -1,284 +1,284 @@
 \subparagraph{Client}
 \begin{tabella}{!{\VRule}X[l, b, l]!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}c{\VRule}}
 ::\intestazionesevencol{Package::Classe::Metodo}{LC}{LA}{CI}{NP}{CC}{Esito}
-data::Building::getPathInfo() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager:: AbstractDataManagerListener:: onError(ServerError) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager:: AbstractDataManagerListener:: onResponse(ModelObject) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::AppInfoDataRequest:: getRemoteData(AbstractUrlRequestListener) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::AppInfoDataRequest:: parseFromLocal() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::AppInfoDataRequest:: parseFromUrlRequest(JSONObject) & 9 & 0 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::AppInfoDataRequest:: updateLocalData(AppInfo) & 13 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::BuildingsDataRequest:: getRemoteData(AbstractUrlRequestListener) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::BuildingsDataRequest:: parseFromLocal() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::BuildingsDataRequest:: parseFromUrlRequest(JSONObject) & 20 & 2 & 3 & 1 & 4 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::BuildingsDataRequest:: updateLocalData(Building[]) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DataManager:: execute() & 1 & 0 & 4 & 0 & 5 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DataManager:: getRemoteData(AbstractUrlRequestListener) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DataManager:: parseFromLocal() & 0 & 0 & 0 & 0 & 0 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DataManager:: parseFromUrlRequest(JSONObject) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DataManager:: updateLocalData(Data) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DataRequestMaker:: getAppInfo(Context, AbstractDataManagerListener \textless AppInfo\textgreater) & 3 & 0 & 0 & 2 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DataRequestMaker:: getBuildings(Context, double, double, int, boolean, AbstractDataManagerListener \textless Building[]\textgreater) & 3 & 0 & 0 & 6 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DataRequestMaker:: getPath(Context, int, AbstractDataManagerListener \textless Path\textgreater) & 3 & 0 & 0 & 3 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DataRequestMaker:: getRanking(Context, int, AbstractDataManagerListener \textless Score[]\textgreater) & 3 & 0 & 0 & 3 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DataRequestMaker:: getResults(Context, AbstractDataManagerListener \textless PathResult[]\textgreater) & 3 & 0 & 0 & 2 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DataRequestMaker:: saveResult(Context, PathResult, AbstractDataManagerListener \textless Boolean\textgreater) & 3 & 0 & 0 & 3 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: createBeaconTable(SQLiteDatabase) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: createBuildingTable(SQLiteDatabase) & 7 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: createPathInfoTable(SQLiteDatabase) & 7 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: createPathResultTable(SQLiteDatabase) & 6 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: createPathTable(SQLiteDatabase) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: createProofResultTable(SQLiteDatabase) & 7 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: createProofTable(SQLiteDatabase) & 9 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: createProximityTable(SQLiteDatabase) & 7 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: createStepTable(SQLiteDatabase) & 8 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: DBHandler(Context) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deleteAllBuildings() & 6 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deleteAllPathInfos() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deleteAllProofsResults() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deleteAllProximities() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deleteAllSteps() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deleteBuilding(int) & 6 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deletePath(int) & 7 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deletePathInfo(int) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deletePathInfos(int) & 8 & 1 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deletePathResult(int) & 6 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deletePathResults() & 6 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deleteProof(int) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deleteProofResult(int) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deleteProofsResults(int) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deleteProximities(int) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deleteProximity(int) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deleteStep(int) & 6 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: deleteSteps(int) & 8 & 1 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: getBuildingName(int) & 11 & 1 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: getNearestBuildings(int, boolean, double, double) & 10 & 1 & 1 & 4 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: getStepID(Step) & 9 & 1 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: onCreate(SQLiteDatabase) & 12 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: onUpgrade(SQLiteDatabase, int, int) & 4 & 0 & 0 & 3 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: readBeacon(int) & 13 & 0 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: readBuilding(int) & 25 & 0 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: readBuildings() & 25 & 1 & 1 & 0 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: readPath(int) & 14 & 0 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: readPathInfo(int) & 14 & 1 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: readPathInfos(int) & 15 & 1 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: readPathResult(int) & 16 & 0 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: readPathResults() & 17 & 1 & 1 & 0 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: readProof(int) & 27 & 0 & 2 & 1 & 4 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: readProofResults(int) & 13 & 1 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: readProximities(int) & 12 & 1 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: readProximity(int) & 13 & 0 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: readStep(int) & 12 & 1 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: readSteps(int) & 14 & 1 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: updateBuildings(Building[]) & 4 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: updatePath(Path) & 4 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: updatePathInfo(int, PathInfo) & 5 & 0 & 0 & 2 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: updatePathResult(PathResult) & 4 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: updatePathResults(PathResult[]) & 4 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: updateProofResult(int, ProofResult) & 4 & 0 & 0 & 2 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: updateStep(int, Step) & 5 & 0 & 0 & 2 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writeBeacon(Beacon) & 10 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writeBeacons(Beacon[]) & 5 & 1 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writeBuilding(int, Building) & 23 & 0 & 0 & 2 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writeBuildings(Building[]) & 5 & 1 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writePath(Path) & 11 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writePathInfo(int, PathInfo) & 13 & 0 & 0 & 2 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writePathInfos(int, ArrayList \textless PathInfo\textgreater) & 5 & 1 & 1 & 2 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writePathResult(PathResult) & 11 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writePathResults(PathResult[]) & 5 & 1 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writePaths(Path[]) & 5 & 1 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writeProof(int, Proof) & 11 & 0 & 0 & 2 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writeProofResult(int, ProofResult) & 10 & 0 & 0 & 2 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writeProofResults(int, ArrayList \textless ProofResult\textgreater) & 5 & 1 & 1 & 2 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writeProximities(int, ArrayList \textless Proximity\textgreater) & 5 & 1 & 1 & 2 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writeProximity(int, int, Proximity) & 10 & 0 & 0 & 3 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writeStep(int, int, Step) & 14 & 0 & 0 & 3 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::DBHandler:: writeSteps(int, ArrayList \textless Step\textgreater) & 5 & 1 & 1 & 2 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager:: GetRankingDataRequest:: getRemoteData(AbstractUrlRequestListener) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager:: GetRankingDataRequest:: parseFromLocal() & 1 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager: GetRankingDataRequest:: parseFromUrlRequest(JSONObject) & 14 & 1 & 2 & 1 & 3 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager:: GetRankingDataRequest:: updateLocalData(Score[]) & 1 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::GetResultsDataRequest:: getRemoteData(AbstractUrlRequestListener) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::GetResultsDataRequest:: parseFromLocal() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::GetResultsDataRequest:: parseFromUrlRequest(JSONObject) & 35 & 2 & 4 & 1 & 6 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::GetResultsDataRequest:: updateLocalData(PathResult[]) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::LoginManager:: change(String, String, String, AbstractDataManagerListener \textless Boolean\textgreater) & 3 & 0 & 4 & 4 & 3 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::LoginManager:: check(String, String, String, AbstractDataManagerListener \textless CheckResult[]\textgreater) & 3 & 0 & 3 & 4 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::LoginManager:: forgotPassword(String, AbstractDataManagerListener \textless Boolean\textgreater) & 1 & 0 & 2 & 2 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::LoginManager:: getLoggedUser() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::LoginManager:: getProfileData(AbstractDataManagerListener \textless Boolean\textgreater) & 1 & 0 & 3 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::LoginManager:: getToken() & 6 & 0 & 1 & 0 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::LoginManager:: isLogged() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::LoginManager:: login(String, String, AbstractDataManagerListener \textless Boolean\textgreater) & 3 & 0 & 3 & 3 & 3 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::LoginManager:: logout(AbstractDataManagerListener \textless Boolean\textgreater) & 8 & 0 & 2 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::LoginManager:: registration(String, String, String, AbstractDataManagerListener \textless Boolean\textgreater) & 3 & 0 & 4 & 4 & 5 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::LoginManager:: sharedManager(Context) & 5 & 0 & 0 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::PathDataRequest:: getRemoteData(AbstractUrlRequestListener) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::PathDataRequest:: parseFromLocal() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::PathDataRequest:: parseFromUrlRequest(JSONObject) & 26 & 2 & 3 & 1 & 4 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::PathDataRequest:: updateLocalData(Path) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::SaveDataManager:: execute() & 0 & 0 & 0 & 0 & 0 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::SaveDataManager:: returnError(ServerError) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::SaveDataManager:: returnResponse() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::datamanager::SaveResultDataRequest:: execute() & 3 & 0 & 2 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::LinearScoringAlgorithm:: getScore(double, int, int) & 6 & 0 & 0 & 3 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::MultipleChoiceTextQuiz:: check(String) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::MultipleChoiceTextQuiz:: MultipleChoiceTextQuiz(String, String, String, String[]) & 5 & 0 & 0 & 4 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::Path:: equal(Beacon, RawBeacon) & 3 & 0 & 0 & 2 & 3 & {\color[rgb]{0, 1, 0} Superato} \\
-data::Path:: searchProximity(RawBeacon) & 9 & 2 & 2 & 1 & 4 & {\color[rgb]{0, 1, 0} Superato} \\
-data::PathProgress:: addProofResult(ProofResult) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::PathProgress:: getDuration() & 4 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::PathProgress:: getEndTime() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::PathProgress:: getPath() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::PathProgress:: getProofResults() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::PathProgress:: getStartTime() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::PathProgress:: getTotalScore() & 7 & 1 & 1 & 0 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::PathProgress:: setEndTime(GregorianCalendar) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::ProofResult:: getDuration() & 4 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::ScoringAlgorithmFactory:: createScoringAlgorithm(JSONObject) & 7 & 0 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::TestBuilder:: createTest(JSONObject) & 30 & 1 & 4 & 1 & 8 & {\color[rgb]{0, 1, 0} Superato} \\
-data::TestBuilder:: getBiggerShapeTest(JSONObject) & 13 & 1 & 2 & 1 & 3 & {\color[rgb]{0, 1, 0} Superato} \\
-data::TestBuilder:: getMultipleChoiceTest(JSONObject) & 25 & 2 & 3 & 1 & 6 & {\color[rgb]{0, 1, 0} Superato} \\
-data::TestBuilder:: getTrueFalseTest(JSONObject) & 18 & 1 & 3 & 1 & 4 & {\color[rgb]{0, 1, 0} Superato} \\
-data::TrueFalseTextQuiz:: check(boolean) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::Utility:: addNearestBuilding(Building, Building[], double, double) & 15 & 1 & 2 & 4 & 3 & {\color[rgb]{0, 1, 0} Superato} \\
-data::Utility:: calculateTotalScore(List \textless ProofResult\textgreater) & 8 & 1 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-data::Utility:: distanceToBuilding(Location, Building) & 6 & 0 & 0 & 2 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::Utility:: insertBuilding(Building[], Building, int) & 5 & 0 & 0 & 3 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-data::Utility:: stringToGregorianCalendar(String, String) & 15 & 0 & 1 & 2 & 3 & {\color[rgb]{0, 1, 0} Superato} \\
-pathprogress::BeaconDiscoverDelegate:: didFoundBeacon(RawBeacon) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0, 1, 0} Superato} \\
-pathprogress::BeaconDiscoverDelegate:: didMoveFromBeacon(RawBeacon) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0, 1, 0} Superato} \\
-pathprogress::GPSListener:: onError(ServerError) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0, 1, 0} Superato} \\
-pathprogress::GPSListener:: onResponse(double, double) & 0 & 0 & 0 & 2 & 0 & {\color[rgb]{0, 1, 0} Superato} \\
-pathprogress::GPSManager:: GPSManager(Context, GPSListener) & 5 & 0 & 3 & 2 & 3 & {\color[rgb]{0, 1, 0} Superato} \\
-pathprogress:: PathProgressController:: addProofResult(ProofResult) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-pathprogress:: PathProgressController:: didFoundBeacon(RawBeacon) & 12 & 0 & 1 & 1 & 3 & {\color[rgb]{0, 1, 0} Superato} \\
-pathprogress:: PathProgressController:: didMoveFromBeacon(RawBeacon) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-pathprogress:: PathProgressControllerDelegate:: didRangeProximity(Proximity) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0, 1, 0} Superato} \\
-pathprogress:: PathProgressControllerDelegate:: didReachStep(Step) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0, 1, 0} Superato} \\
-pathprogress::PathProgressMaker:: getCoordinates(Context, GPSListener) & 3 & 0 & 0 & 2 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::AbstractUrlRequestListener:: onError(ServerError) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::AbstractUrlRequestListener:: onResponse(JSONObject) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::BuildingsRequest:: setBody(double, double, int, boolean) & 14 & 0 & 1 & 4 & 3 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::ChangeProfileDataRequest:: setBody(String, String, String) & 11 & 0 & 1 & 3 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::CheckRequest:: setBody(String, String, String) & 11 & 0 & 1 & 3 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::ForgotPasswordRequest:: setBody(String) & 9 & 0 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::GetRankingRequest:: setBody(int) & 9 & 0 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::LoginRequest:: setBody(String, String) & 10 & 0 & 1 & 2 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::RegistrationRequest:: setBody(String, String, String) & 11 & 0 & 1 & 3 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::RequestMaker:: changeProfileData(Context, String, String, String, AbstractUrlRequestListener) & 4 & 0 & 0 & 5 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::RequestMaker:: check(Context, String, String, String, AbstractUrlRequestListener) & 4 & 0 & 0 & 5 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::RequestMaker:: forgotPassword(Context, String, AbstractUrlRequestListener) & 4 & 0 & 0 & 3 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::RequestMaker:: getAppInfo(Context, AbstractUrlRequestListener) & 4 & 0 & 0 & 2 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::RequestMaker:: getBuildings(Context, double, double, int, boolean, AbstractUrlRequestListener) & 4 & 0 & 0 & 6 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::RequestMaker:: getPath(Context, int, AbstractUrlRequestListener) & 4 & 0 & 0 & 3 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::RequestMaker:: getProfileData(Context, AbstractUrlRequestListener) & 4 & 0 & 0 & 2 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::RequestMaker:: getRanking(Context, int, AbstractUrlRequestListener) & 4 & 0 & 0 & 3 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::RequestMaker:: getResults(Context, AbstractUrlRequestListener) & 4 & 0 & 0 & 2 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::RequestMaker:: login(Context, String, String, AbstractUrlRequestListener) & 4 & 0 & 0 & 4 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::RequestMaker:: logout(Context, AbstractUrlRequestListener) & 4 & 0 & 0 & 2 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::RequestMaker:: registration(Context, String, String, String, AbstractUrlRequestListener) & 4 & 0 & 0 & 5 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::RequestMaker:: saveResult(Context, PathResult, AbstractUrlRequestListener) & 4 & 0 & 0 & 3 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::SaveResultRequest:: setBody(PathResult) & 27 & 1 & 2 & 1 & 4 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::URLRequest:: arrayRequest() & 13 & 0 & 5 & 0 & 9 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::URLRequest:: execute(ResponseExpected) & 13 & 0 & 1 & 1 & 3 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::URLRequest:: objectRequest() & 16 & 0 & 5 & 0 & 8 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequest::URLRequest:: signalError() & 1 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: AccountActivity::onCreate(Bundle) & 13 & 0 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: AccountActivity::setButtonInfoProfilo() & 5 & 0 & 3 & 0 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: ConfirmRegistration::onBackPressed() & 4 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: ConfirmRegistration::onCreate(Bundle) & 13 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: ConfirmRegistration::setButton() & 5 & 0 & 3 & 0 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: ForgotPassword::onCreate(Bundle) & 6 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: ForgotPassword::setButton() & 4 & 0 & 3 & 0 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: LoginActivity::checkFields(String, String) & 17 & 0 & 1 & 2 & 5 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: LoginActivity::onCreate(Bundle) & 11 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: LoginActivity::setButton() & 5 & 0 & 3 & 0 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: LoginActivity::setLoginButton() & 4 & 0 & 7 & 0 & 4 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: RecoverPassword::onCreate(Bundle) & 6 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: RegistrationActivity::checkFields() & 30 & 0 & 3 & 0 & 9 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: RegistrationActivity::clearFields() & 11 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: RegistrationActivity::login(String, String, String) & 4 & 0 & 3 & 3 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: RegistrationActivity::onCreate(Bundle) & 14 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::authentication:: RegistrationActivity::setButton() & 4 & 0 & 6 & 0 & 4 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::building:: BuildingActivity::onCreate(Bundle) & 4 & 1 & 5 & 1 & 5 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::building:: BuildingActivity::setButtons() & 5 & 0 & 3 & 0 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::building:: BuildingActivity::setItems() & 13 & 0 & 2 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::building:: BuildingSearchActivity::onCreate(Bundle) & 20 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
+data::Building::getPathInfo() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager:: AbstractDataManagerListener:: onError(ServerError) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager:: AbstractDataManagerListener:: onResponse(ModelObject) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::AppInfoDataRequest:: getRemoteData(AbstractUrlRequestListener) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::AppInfoDataRequest:: parseFromLocal() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::AppInfoDataRequest:: parseFromUrlRequest(JSONObject) & 9 & 0 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::AppInfoDataRequest:: updateLocalData(AppInfo) & 13 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::BuildingsDataRequest:: getRemoteData(AbstractUrlRequestListener) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::BuildingsDataRequest:: parseFromLocal() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::BuildingsDataRequest:: parseFromUrlRequest(JSONObject) & 20 & 2 & 3 & 1 & 4 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::BuildingsDataRequest:: updateLocalData(Building[]) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DataManager:: execute() & 1 & 0 & 4 & 0 & 5 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DataManager:: getRemoteData(AbstractUrlRequestListener) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DataManager:: parseFromLocal() & 0 & 0 & 0 & 0 & 0 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DataManager:: parseFromUrlRequest(JSONObject) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DataManager:: updateLocalData(Data) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DataRequestMaker:: getAppInfo(Context, AbstractDataManagerListener \textless AppInfo\textgreater) & 3 & 0 & 0 & 2 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DataRequestMaker:: getBuildings(Context, double, double, int, boolean, AbstractDataManagerListener \textless Building[]\textgreater) & 3 & 0 & 0 & 6 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DataRequestMaker:: getPath(Context, int, AbstractDataManagerListener \textless Path\textgreater) & 3 & 0 & 0 & 3 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DataRequestMaker:: getRanking(Context, int, AbstractDataManagerListener \textless Score[]\textgreater) & 3 & 0 & 0 & 3 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DataRequestMaker:: getResults(Context, AbstractDataManagerListener \textless PathResult[]\textgreater) & 3 & 0 & 0 & 2 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DataRequestMaker:: saveResult(Context, PathResult, AbstractDataManagerListener \textless Boolean\textgreater) & 3 & 0 & 0 & 3 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: createBeaconTable(SQLiteDatabase) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: createBuildingTable(SQLiteDatabase) & 7 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: createPathInfoTable(SQLiteDatabase) & 7 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: createPathResultTable(SQLiteDatabase) & 6 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: createPathTable(SQLiteDatabase) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: createProofResultTable(SQLiteDatabase) & 7 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: createProofTable(SQLiteDatabase) & 9 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: createProximityTable(SQLiteDatabase) & 7 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: createStepTable(SQLiteDatabase) & 8 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: DBHandler(Context) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deleteAllBuildings() & 6 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deleteAllPathInfos() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deleteAllProofsResults() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deleteAllProximities() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deleteAllSteps() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deleteBuilding(int) & 6 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deletePath(int) & 7 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deletePathInfo(int) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deletePathInfos(int) & 8 & 1 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deletePathResult(int) & 6 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deletePathResults() & 6 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deleteProof(int) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deleteProofResult(int) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deleteProofsResults(int) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deleteProximities(int) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deleteProximity(int) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deleteStep(int) & 6 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: deleteSteps(int) & 8 & 1 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: getBuildingName(int) & 11 & 1 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: getNearestBuildings(int, boolean, double, double) & 10 & 1 & 1 & 4 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: getStepID(Step) & 9 & 1 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: onCreate(SQLiteDatabase) & 12 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: onUpgrade(SQLiteDatabase, int, int) & 4 & 0 & 0 & 3 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: readBeacon(int) & 13 & 0 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: readBuilding(int) & 25 & 0 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: readBuildings() & 25 & 1 & 1 & 0 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: readPath(int) & 14 & 0 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: readPathInfo(int) & 14 & 1 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: readPathInfos(int) & 15 & 1 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: readPathResult(int) & 16 & 0 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: readPathResults() & 17 & 1 & 1 & 0 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: readProof(int) & 27 & 0 & 2 & 1 & 4 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: readProofResults(int) & 13 & 1 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: readProximities(int) & 12 & 1 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: readProximity(int) & 13 & 0 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: readStep(int) & 12 & 1 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: readSteps(int) & 14 & 1 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: updateBuildings(Building[]) & 4 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: updatePath(Path) & 4 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: updatePathInfo(int, PathInfo) & 5 & 0 & 0 & 2 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: updatePathResult(PathResult) & 4 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: updatePathResults(PathResult[]) & 4 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: updateProofResult(int, ProofResult) & 4 & 0 & 0 & 2 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: updateStep(int, Step) & 5 & 0 & 0 & 2 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writeBeacon(Beacon) & 10 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writeBeacons(Beacon[]) & 5 & 1 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writeBuilding(int, Building) & 23 & 0 & 0 & 2 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writeBuildings(Building[]) & 5 & 1 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writePath(Path) & 11 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writePathInfo(int, PathInfo) & 13 & 0 & 0 & 2 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writePathInfos(int, ArrayList \textless PathInfo\textgreater) & 5 & 1 & 1 & 2 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writePathResult(PathResult) & 11 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writePathResults(PathResult[]) & 5 & 1 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writePaths(Path[]) & 5 & 1 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writeProof(int, Proof) & 11 & 0 & 0 & 2 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writeProofResult(int, ProofResult) & 10 & 0 & 0 & 2 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writeProofResults(int, ArrayList \textless ProofResult\textgreater) & 5 & 1 & 1 & 2 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writeProximities(int, ArrayList \textless Proximity\textgreater) & 5 & 1 & 1 & 2 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writeProximity(int, int, Proximity) & 10 & 0 & 0 & 3 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writeStep(int, int, Step) & 14 & 0 & 0 & 3 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::DBHandler:: writeSteps(int, ArrayList \textless Step\textgreater) & 5 & 1 & 1 & 2 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager:: GetRankingDataRequest:: getRemoteData(AbstractUrlRequestListener) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager:: GetRankingDataRequest:: parseFromLocal() & 1 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager: GetRankingDataRequest:: parseFromUrlRequest(JSONObject) & 14 & 1 & 2 & 1 & 3 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager:: GetRankingDataRequest:: updateLocalData(Score[]) & 1 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::GetResultsDataRequest:: getRemoteData(AbstractUrlRequestListener) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::GetResultsDataRequest:: parseFromLocal() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::GetResultsDataRequest:: parseFromUrlRequest(JSONObject) & 35 & 2 & 4 & 1 & 6 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::GetResultsDataRequest:: updateLocalData(PathResult[]) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::LoginManager:: change(String, String, String, AbstractDataManagerListener \textless Boolean\textgreater) & 3 & 0 & 4 & 4 & 3 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::LoginManager:: check(String, String, String, AbstractDataManagerListener \textless CheckResult[]\textgreater) & 3 & 0 & 3 & 4 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::LoginManager:: forgotPassword(String, AbstractDataManagerListener \textless Boolean\textgreater) & 1 & 0 & 2 & 2 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::LoginManager:: getLoggedUser() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::LoginManager:: getProfileData(AbstractDataManagerListener \textless Boolean\textgreater) & 1 & 0 & 3 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::LoginManager:: getToken() & 6 & 0 & 1 & 0 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::LoginManager:: isLogged() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::LoginManager:: login(String, String, AbstractDataManagerListener \textless Boolean\textgreater) & 3 & 0 & 3 & 3 & 3 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::LoginManager:: logout(AbstractDataManagerListener \textless Boolean\textgreater) & 8 & 0 & 2 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::LoginManager:: registration(String, String, String, AbstractDataManagerListener \textless Boolean\textgreater) & 3 & 0 & 4 & 4 & 5 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::LoginManager:: sharedManager(Context) & 5 & 0 & 0 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::PathDataRequest:: getRemoteData(AbstractUrlRequestListener) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::PathDataRequest:: parseFromLocal() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::PathDataRequest:: parseFromUrlRequest(JSONObject) & 26 & 2 & 3 & 1 & 4 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::PathDataRequest:: updateLocalData(Path) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::SaveDataManager:: execute() & 0 & 0 & 0 & 0 & 0 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::SaveDataManager:: returnError(ServerError) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::SaveDataManager:: returnResponse() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::datamanager::SaveResultDataRequest:: execute() & 3 & 0 & 2 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::LinearScoringAlgorithm:: getScore(double, int, int) & 6 & 0 & 0 & 3 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::MultipleChoiceTextQuiz:: check(String) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::MultipleChoiceTextQuiz:: MultipleChoiceTextQuiz(String, String, String, String[]) & 5 & 0 & 0 & 4 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::Path:: equal(Beacon, RawBeacon) & 3 & 0 & 0 & 2 & 3 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::Path:: searchProximity(RawBeacon) & 9 & 2 & 2 & 1 & 4 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::PathProgress:: addProofResult(ProofResult) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::PathProgress:: getDuration() & 4 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::PathProgress:: getEndTime() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::PathProgress:: getPath() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::PathProgress:: getProofResults() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::PathProgress:: getStartTime() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::PathProgress:: getTotalScore() & 7 & 1 & 1 & 0 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::PathProgress:: setEndTime(GregorianCalendar) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::ProofResult:: getDuration() & 4 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::ScoringAlgorithmFactory:: createScoringAlgorithm(JSONObject) & 7 & 0 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::TestBuilder:: createTest(JSONObject) & 30 & 1 & 4 & 1 & 8 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::TestBuilder:: getBiggerShapeTest(JSONObject) & 13 & 1 & 2 & 1 & 3 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::TestBuilder:: getMultipleChoiceTest(JSONObject) & 25 & 2 & 3 & 1 & 6 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::TestBuilder:: getTrueFalseTest(JSONObject) & 18 & 1 & 3 & 1 & 4 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::TrueFalseTextQuiz:: check(boolean) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::Utility:: addNearestBuilding(Building, Building[], double, double) & 15 & 1 & 2 & 4 & 3 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::Utility:: calculateTotalScore(List \textless ProofResult\textgreater) & 8 & 1 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::Utility:: distanceToBuilding(Location, Building) & 6 & 0 & 0 & 2 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::Utility:: insertBuilding(Building[], Building, int) & 5 & 0 & 0 & 3 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+data::Utility:: stringToGregorianCalendar(String, String) & 15 & 0 & 1 & 2 & 3 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+pathprogress::BeaconDiscoverDelegate:: didFoundBeacon(RawBeacon) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+pathprogress::BeaconDiscoverDelegate:: didMoveFromBeacon(RawBeacon) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+pathprogress::GPSListener:: onError(ServerError) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+pathprogress::GPSListener:: onResponse(double, double) & 0 & 0 & 0 & 2 & 0 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+pathprogress::GPSManager:: GPSManager(Context, GPSListener) & 5 & 0 & 3 & 2 & 3 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+pathprogress:: PathProgressController:: addProofResult(ProofResult) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+pathprogress:: PathProgressController:: didFoundBeacon(RawBeacon) & 12 & 0 & 1 & 1 & 3 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+pathprogress:: PathProgressController:: didMoveFromBeacon(RawBeacon) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+pathprogress:: PathProgressControllerDelegate:: didRangeProximity(Proximity) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+pathprogress:: PathProgressControllerDelegate:: didReachStep(Step) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+pathprogress::PathProgressMaker:: getCoordinates(Context, GPSListener) & 3 & 0 & 0 & 2 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::AbstractUrlRequestListener:: onError(ServerError) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::AbstractUrlRequestListener:: onResponse(JSONObject) & 0 & 0 & 0 & 1 & 0 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::BuildingsRequest:: setBody(double, double, int, boolean) & 14 & 0 & 1 & 4 & 3 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::ChangeProfileDataRequest:: setBody(String, String, String) & 11 & 0 & 1 & 3 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::CheckRequest:: setBody(String, String, String) & 11 & 0 & 1 & 3 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::ForgotPasswordRequest:: setBody(String) & 9 & 0 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::GetRankingRequest:: setBody(int) & 9 & 0 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::LoginRequest:: setBody(String, String) & 10 & 0 & 1 & 2 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::RegistrationRequest:: setBody(String, String, String) & 11 & 0 & 1 & 3 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::RequestMaker:: changeProfileData(Context, String, String, String, AbstractUrlRequestListener) & 4 & 0 & 0 & 5 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::RequestMaker:: check(Context, String, String, String, AbstractUrlRequestListener) & 4 & 0 & 0 & 5 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::RequestMaker:: forgotPassword(Context, String, AbstractUrlRequestListener) & 4 & 0 & 0 & 3 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::RequestMaker:: getAppInfo(Context, AbstractUrlRequestListener) & 4 & 0 & 0 & 2 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::RequestMaker:: getBuildings(Context, double, double, int, boolean, AbstractUrlRequestListener) & 4 & 0 & 0 & 6 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::RequestMaker:: getPath(Context, int, AbstractUrlRequestListener) & 4 & 0 & 0 & 3 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::RequestMaker:: getProfileData(Context, AbstractUrlRequestListener) & 4 & 0 & 0 & 2 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::RequestMaker:: getRanking(Context, int, AbstractUrlRequestListener) & 4 & 0 & 0 & 3 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::RequestMaker:: getResults(Context, AbstractUrlRequestListener) & 4 & 0 & 0 & 2 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::RequestMaker:: login(Context, String, String, AbstractUrlRequestListener) & 4 & 0 & 0 & 4 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::RequestMaker:: logout(Context, AbstractUrlRequestListener) & 4 & 0 & 0 & 2 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::RequestMaker:: registration(Context, String, String, String, AbstractUrlRequestListener) & 4 & 0 & 0 & 5 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::RequestMaker:: saveResult(Context, PathResult, AbstractUrlRequestListener) & 4 & 0 & 0 & 3 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::SaveResultRequest:: setBody(PathResult) & 27 & 1 & 2 & 1 & 4 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::URLRequest:: arrayRequest() & 13 & 0 & 5 & 0 & 9 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::URLRequest:: execute(ResponseExpected) & 13 & 0 & 1 & 1 & 3 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::URLRequest:: objectRequest() & 16 & 0 & 5 & 0 & 8 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequest::URLRequest:: signalError() & 1 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: AccountActivity::onCreate(Bundle) & 13 & 0 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: AccountActivity::setButtonInfoProfilo() & 5 & 0 & 3 & 0 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: ConfirmRegistration::onBackPressed() & 4 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: ConfirmRegistration::onCreate(Bundle) & 13 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: ConfirmRegistration::setButton() & 5 & 0 & 3 & 0 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: ForgotPassword::onCreate(Bundle) & 6 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: ForgotPassword::setButton() & 4 & 0 & 3 & 0 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: LoginActivity::checkFields(String, String) & 17 & 0 & 1 & 2 & 5 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: LoginActivity::onCreate(Bundle) & 11 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: LoginActivity::setButton() & 5 & 0 & 3 & 0 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: LoginActivity::setLoginButton() & 4 & 0 & 7 & 0 & 4 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: RecoverPassword::onCreate(Bundle) & 6 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: RegistrationActivity::checkFields() & 30 & 0 & 3 & 0 & 9 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: RegistrationActivity::clearFields() & 11 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: RegistrationActivity::login(String, String, String) & 4 & 0 & 3 & 3 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: RegistrationActivity::onCreate(Bundle) & 14 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::authentication:: RegistrationActivity::setButton() & 4 & 0 & 6 & 0 & 4 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::building:: BuildingActivity::onCreate(Bundle) & 4 & 1 & 5 & 1 & 5 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::building:: BuildingActivity::setButtons() & 5 & 0 & 3 & 0 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::building:: BuildingActivity::setItems() & 13 & 0 & 2 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::building:: BuildingSearchActivity::onCreate(Bundle) & 20 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
 viewcontroller::building:: BuildingSearchActivity::setButton() & 2 & 1 & 9 & 0 & 7 & {\color[rgb]{1, 0, 0} Fallito} \\
-viewcontroller::building:: BuildingSearchActivity::setCheckBoxSignal() & 10 & 0 & 3 & 0 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::building:: BuildingSearchActivity::setItems() & 7 & 0 & 2 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::building:: BuildingSearchActivity::setSeekBarSignal() & 4 & 0 & 2 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::building:: PathActivity::onCreate(Bundle) & 17 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::building:: PathActivity::setButton() & 5 & 0 & 3 & 0 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: MultipleChoiceQuizActivity::onCreate(Bundle) & 5 & 0 & 3 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: ProofActivity::onCreate(Bundle) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: ProofResultActivity::onCreate(Bundle) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: SearchNewStepActivity::configureFilters() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: SearchNewStepActivity::configureListeners() & 4 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: SearchNewStepActivity::configureProximityManager() & 7 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: SearchNewStepActivity::configureSpaces() & 7 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: SearchNewStepActivity::createIBeaconListener() & 9 & 0 & 3 & 0 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: SearchNewStepActivity::createScanStatusListener() & 4 & 0 & 2 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: SearchNewStepActivity::onCreate(Bundle) & 22 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: SearchNewStepActivity::onDestroy() & 6 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: SearchNewStepActivity::onStart() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: SearchNewStepActivity::onStop() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: SearchNewStepActivity::setButtons() & 5 & 0 & 3 & 0 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: SearchNewStepActivity::showToast(String) & 4 & 0 & 2 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: SearchNewStepActivity::startScanning() & 4 & 0 & 2 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::games:: TrueFalseQuiz::onCreate(Bundle) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::savedresults:: RankingActivity::onCreate(Bundle) & 9 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::savedresults:: ResultActivity::onCreate(Bundle) & 6 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::savedresults:: SavedResultsActivity::getListData() & 12 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::savedresults:: SavedResultsActivity::onCreate(Bundle) & 19 & 0 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility:: AppInfoActivity::onCreate(Bundle) & 3 & 0 & 2 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::BuildingAdapter:: getCount() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::BuildingAdapter:: getItem(int) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::BuildingAdapter:: getItemId(int) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::BuildingAdapter:: getView(int, View, ViewGroup) & 18 & 0 & 1 & 3 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::MenuActivity:: getDrawerToggleDelegate() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::MenuActivity:: logout() & 4 & 0 & 3 & 0 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::MenuActivity:: selectDrawerItem(MenuItem) & 31 & 0 & 1 & 1 & 8 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::MenuActivity:: setContentView(int) & 24 & 0 & 1 & 1 & 3 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::MenuActivity:: setupContent(NavigationView) & 5 & 0 & 2 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::MenuActivity:: updateView() & 17 & 0 & 1 & 0 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::MenuActivity:: useDrawerToggle() & 1 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::MenuActivity:: useToolbar() & 4 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::ResultsAdapter:: getCount() & 4 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::ResultsAdapter:: getItem(int) & 4 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::ResultsAdapter:: getItemId(int) & 4 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::ResultsAdapter:: getView(int, View, ViewGroup) & 21 & 0 & 1 & 3 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::risultatoProva:: getData() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::risultatoProva:: getDurata() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::risultatoProva:: getEdificio() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::risultatoProva:: getPunteggio() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::risultatoProva:: setData(String) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::risultatoProva:: setDurata(String) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::risultatoProva:: setEdificio(String) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::risultatoProva:: setPunteggio(String) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-viewcontroller::utility::SplashActivity:: onCreate(Bundle) & 6 & 0 & 2 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-clips::MainActivity:: onCreate(Bundle) & 8 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato}
+viewcontroller::building:: BuildingSearchActivity::setCheckBoxSignal() & 10 & 0 & 3 & 0 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::building:: BuildingSearchActivity::setItems() & 7 & 0 & 2 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::building:: BuildingSearchActivity::setSeekBarSignal() & 4 & 0 & 2 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::building:: PathActivity::onCreate(Bundle) & 17 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::building:: PathActivity::setButton() & 5 & 0 & 3 & 0 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: MultipleChoiceQuizActivity::onCreate(Bundle) & 5 & 0 & 3 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: ProofActivity::onCreate(Bundle) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: ProofResultActivity::onCreate(Bundle) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: SearchNewStepActivity::configureFilters() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: SearchNewStepActivity::configureListeners() & 4 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: SearchNewStepActivity::configureProximityManager() & 7 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: SearchNewStepActivity::configureSpaces() & 7 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: SearchNewStepActivity::createIBeaconListener() & 9 & 0 & 3 & 0 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: SearchNewStepActivity::createScanStatusListener() & 4 & 0 & 2 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: SearchNewStepActivity::onCreate(Bundle) & 22 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: SearchNewStepActivity::onDestroy() & 6 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: SearchNewStepActivity::onStart() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: SearchNewStepActivity::onStop() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: SearchNewStepActivity::setButtons() & 5 & 0 & 3 & 0 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: SearchNewStepActivity::showToast(String) & 4 & 0 & 2 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: SearchNewStepActivity::startScanning() & 4 & 0 & 2 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::games:: TrueFalseQuiz::onCreate(Bundle) & 5 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::savedresults:: RankingActivity::onCreate(Bundle) & 9 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::savedresults:: ResultActivity::onCreate(Bundle) & 6 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::savedresults:: SavedResultsActivity::getListData() & 12 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::savedresults:: SavedResultsActivity::onCreate(Bundle) & 19 & 0 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility:: AppInfoActivity::onCreate(Bundle) & 3 & 0 & 2 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::BuildingAdapter:: getCount() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::BuildingAdapter:: getItem(int) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::BuildingAdapter:: getItemId(int) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::BuildingAdapter:: getView(int, View, ViewGroup) & 18 & 0 & 1 & 3 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::MenuActivity:: getDrawerToggleDelegate() & 5 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::MenuActivity:: logout() & 4 & 0 & 3 & 0 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::MenuActivity:: selectDrawerItem(MenuItem) & 31 & 0 & 1 & 1 & 8 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::MenuActivity:: setContentView(int) & 24 & 0 & 1 & 1 & 3 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::MenuActivity:: setupContent(NavigationView) & 5 & 0 & 2 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::MenuActivity:: updateView() & 17 & 0 & 1 & 0 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::MenuActivity:: useDrawerToggle() & 1 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::MenuActivity:: useToolbar() & 4 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::ResultsAdapter:: getCount() & 4 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::ResultsAdapter:: getItem(int) & 4 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::ResultsAdapter:: getItemId(int) & 4 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::ResultsAdapter:: getView(int, View, ViewGroup) & 21 & 0 & 1 & 3 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::risultatoProva:: getData() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::risultatoProva:: getDurata() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::risultatoProva:: getEdificio() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::risultatoProva:: getPunteggio() & 3 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::risultatoProva:: setData(String) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::risultatoProva:: setDurata(String) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::risultatoProva:: setEdificio(String) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::risultatoProva:: setPunteggio(String) & 3 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+viewcontroller::utility::SplashActivity:: onCreate(Bundle) & 6 & 0 & 2 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+clips::MainActivity:: onCreate(Bundle) & 8 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato}
 \end{tabella}
 
 \subparagraph{Server}
 \begin{tabella}{!{\VRule}X[l,b,l]!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}c{\VRule}}
 	::\intestazionesevencol{Package::Classe::Metodo}{LC}{LA}{CI}{NP}{CC}{Esito}
-urlrequesthandler::EmailChecker::checkEmail & 19 & 0 & 0 & 1 & 3 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequesthandler::PasswordChecker::isValid & 10 & 1 & 0 & 1 & 7 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequesthandler::DBHandler::getDB & 2 & 0 & 0 & 0 & 3 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequesthandler::BuildingsProvider::addPAthToBuildings & 18 & 1 & 1 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequesthandler::LoginHandler::userID & 18 & 0 & 0 & 2 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequesthandler::PathProvider::fulfilledProof & 15 & 0 & 0 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequesthandler::PathProvider::fulfilledProximity & 18 & 0 & 0 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequesthandler::PathProvider::fulfilledStep & 17 & 0 & 0 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequesthandler::PathProvider::getAlgorithm & 6 & 0 & 0 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequesthandler::PathProvider::getBeacon & 13 & 0 & 0 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequesthandler::PathProvider::getPath & 19 & 0 & 0 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequesthandler::PathProvider::getProof & 16 & 0 & 0 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequesthandler::PathProvider::getProximities & 18 & 0 & 0 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequesthandler::PathProvider::getSteps & 15 & 0 & 0 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequesthandler::PathProvider::getTest & 6 & 0 & 0 & 1 & 2 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequesthandler::BuildingsProvider::addDistance  & 2 & 0 & 0 & 1 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
-urlrequesthandler::URLRequestHandler::execute & 12 & 0 & 0 & 0 & 1 & {\color[rgb]{0, 1, 0} Superato} \\
+urlrequesthandler::EmailChecker::checkEmail & 19 & 0 & 0 & 1 & 3 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequesthandler::PasswordChecker::isValid & 10 & 1 & 0 & 1 & 7 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequesthandler::DBHandler::getDB & 2 & 0 & 0 & 0 & 3 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequesthandler::BuildingsProvider::addPAthToBuildings & 18 & 1 & 1 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequesthandler::LoginHandler::userID & 18 & 0 & 0 & 2 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequesthandler::PathProvider::fulfilledProof & 15 & 0 & 0 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequesthandler::PathProvider::fulfilledProximity & 18 & 0 & 0 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequesthandler::PathProvider::fulfilledStep & 17 & 0 & 0 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequesthandler::PathProvider::getAlgorithm & 6 & 0 & 0 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequesthandler::PathProvider::getBeacon & 13 & 0 & 0 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequesthandler::PathProvider::getPath & 19 & 0 & 0 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequesthandler::PathProvider::getProof & 16 & 0 & 0 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequesthandler::PathProvider::getProximities & 18 & 0 & 0 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequesthandler::PathProvider::getSteps & 15 & 0 & 0 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequesthandler::PathProvider::getTest & 6 & 0 & 0 & 1 & 2 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequesthandler::BuildingsProvider::addDistance  & 2 & 0 & 0 & 1 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
+urlrequesthandler::URLRequestHandler::execute & 12 & 0 & 0 & 0 & 1 & {\color[rgb]{0.44, 0.74, 0.48} Superato} \\
 \end{tabella}
