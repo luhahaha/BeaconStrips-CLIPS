@@ -211,25 +211,25 @@ Volley è una libreria Android che permette e facilita la comunicazione tra clie
 			\item \textbf{Vantaggi:}
 				\begin{itemize}
 					\item è una servizio gratuito per le repository pubbliche;
-					\item ad ogni push di codice su GitHub l'intero progetto viene compilato e i test vengono eseguiti evidenziando subito se qualche commit ha introdotto errori/regressioni
-					\item è ben integrato con \gl{Slack} cui invia le notifiche sul successo o fallimento dei test
-					\item l'integrazione richiede solamente la stesura di un file \textit{YAML} di piccole dimensioni
+					\item ad ogni push di codice su GitHub l'intero progetto viene compilato e i test vengono eseguiti evidenziando subito se qualche commit ha introdotto errori o regressioni;
+					\item è ben integrato con \gl{Slack} cui invia le notifiche sul successo o fallimento dei test;
+					\item l'integrazione richiede solamente la stesura di un file \textit{YAML} di piccole dimensioni.
 				\end{itemize}
 			\item \textbf{Svantaggi:}
 				\begin{itemize}
-					\item il linguaggio \textit{YAML} per la definizione delle istruzioni non è conosciuto da alcun componente
-					\item il linguaggio \textit{YAML} è sì conciso ma allo stesso tempo può essere complesso
+					\item il linguaggio \textit{YAML} per la definizione delle istruzioni non è conosciuto da alcun componente;
+					\item il linguaggio \textit{YAML} è sì conciso ma allo stesso tempo può essere complesso.
 				\end{itemize}
 		\end{itemize}
 		\paragraph{Utilizzo}
 		Nel nostro progetto, il file di configurazione di \textit{Travis CI} si occupa di:
 		\begin{itemize}
-			\item installare \textit{node} nella macchina ospite
-			\item installare le dipendenze del back-end
-			\item installare \textit{mySQL}
-			\item creare la struttura del database
-			\item popolare il database con dei dati di test
-			\item avviare il server del backend
-			\item eseguire i test
-			\item notificare su Slack il successo o il fallimento delle operazioni precedenti
+			\item installare \textit{node} nella macchina ospite;
+			\item installare le dipendenze del back-end;
+			\item installare \textit{mySQL};
+			\item creare la struttura del database;
+			\item popolare il database con dei dati di test;
+			\item avviare il server del backend;
+			\item eseguire i test;
+			\item notificare su Slack il successo o il fallimento delle operazioni precedenti.
 		\end{itemize}
