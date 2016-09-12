@@ -1,0 +1,26 @@
+##
+# @file .travis.yml
+# @date Tue, 2 Aug 2016 19:14:14 +0200
+# @version 1.0
+# @author Tommaso Panozzo
+#
+# File di configurazione per la Continuous Integration con Travis-CI
+#
+
+language: node_js
+
+node_js:
+  - stable
+
+install:
+  - npm install
+
+before_script:
+  - mysql -u root < ./builder/CLIPS_structure.sql
+  - mysql -u root < ./builder/CLIPS_data.sql
+
+script:
+  - npm test
+
+notifications:
+  slack: beaconstrips:1kjxyOQu6KcR1XbAr8aRTfCM
