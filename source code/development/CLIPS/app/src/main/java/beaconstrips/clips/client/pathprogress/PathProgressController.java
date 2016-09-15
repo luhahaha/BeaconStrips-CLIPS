@@ -62,9 +62,19 @@ public class PathProgressController implements BeaconDiscoverDelegate, Serializa
 
 
   public void didFoundBeacon(IBeaconDevice beacon){
-    //Log.i(TAG, "Called didFoundBeacon");
-          if (beacon.getProximityUUID().equals(java.util.UUID.fromString(this.pathProgress.getPath().steps.get(index).stopBeacon.UUID)) && beacon.getMajor() == this.pathProgress.getPath().steps.get(index).stopBeacon.major
-                  && beacon.getMinor() == this.pathProgress.getPath().steps.get(index).stopBeacon.minor) {
+     Log.e(TAG, "Index is " + index);
+          if (beacon.getProximityUUID().equals(java.util.UUID.fromString(this.pathProgress.getPath().steps.get(index).stopBeacon.UUID)) &&
+                  beacon.getMajor() == this.pathProgress.getPath().steps.get(index).stopBeacon.major &&
+                  beacon.getMinor() == this.pathProgress.getPath().steps.get(index).stopBeacon.minor
+                  && (beacon.getProximity() == com.kontakt.sdk.android.common.Proximity.NEAR || beacon.getProximity() == com.kontakt.sdk.android.common.Proximity.IMMEDIATE)) {
+             Log.i(TAG, "Beacon to find " + this.pathProgress.getPath().steps.get(index).stopBeacon.UUID);
+             Log.i(TAG, "Beacon to find " + this.pathProgress.getPath().steps.get(index).stopBeacon.major);
+             Log.i(TAG, "Beacon to find " + this.pathProgress.getPath().steps.get(index).stopBeacon.minor);
+
+             Log.i(TAG, "Beacon found" + beacon.getMajor());
+             Log.i(TAG, "Beacon found" + beacon.getMinor());
+             Log.i(TAG, "Beacon found" + beacon.getProximityUUID());
+             Log.i(TAG, "Proximity " + beacon.getProximity());
               this.delegate.didReachProof(this.pathProgress.getPath().steps.get(index).proof);
           } else {
               Proximity proximity = this.pathProgress.getPath().searchProximity(beacon,index);

@@ -151,7 +151,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     Intent i = new Intent(getApplicationContext(), AccountActivity.class);
                     Toast.makeText(getApplicationContext(), "Ora sei loggato come " + username,
                             Toast.LENGTH_LONG).show();
-                    startActivity(i);
+                    //startActivity(i);
                 }
             }
             @Override
