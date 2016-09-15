@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="beaconstrips.clips">
+
+   <uses-permission android:name="android.permission.INTERNET"/>
+   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+   <uses-permission android:name="android.permission.BLUETOOTH"/>
+   <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+   <application
+       android:allowBackup="true"
+       android:icon="@mipmap/ic_icona"
+       android:label="@string/app_name"
+       android:supportsRtl="true"
+       android:theme="@style/AppTheme.NoActionBar">
+      android:name="android.support.multidex.MultiDexApplication">
+
+      <meta-data
+          android:name="kontakt.io.API_KEY"
+          android:value="@string/kontakt_io_api_key" />
+      <service android:name="com.kontakt.sdk.android.ble.service.ProximityService" android:exported="false"/>
+
+      <activity
+          android:name=".client.viewcontroller.authentication.LoginActivity" />
+      <activity
+          android:name=".client.viewcontroller.building.BuildingActivity"
+          android:theme="@style/AppTheme"/>
+      <activity android:name=".client.viewcontroller.games.SearchNewStepActivity"/>
+      <activity android:name=".client.viewcontroller.savedresults.ResultActivity"
+          android:theme="@style/AppTheme"/>
+      <activity android:name=".client.viewcontroller.utility.AppInfoActivity"/>
+      <activity android:name=".client.viewcontroller.building.BuildingSearchActivity"/>
+      <activity android:name=".MainActivity">
+         <intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
+
+            <category android:name="android.intent.category.LAUNCHER"/>
+         </intent-filter>
+      </activity>
+        <activity android:name=".client.viewcontroller.authentication.RecoverPassword"
+            android:theme="@style/AppTheme"/>
+      <activity android:name=".client.viewcontroller.authentication.ChangeProfileActivity"
+          android:theme="@style/AppTheme"/>
+        <activity android:name=".client.viewcontroller.authentication.ForgotPassword"
+            android:theme="@style/AppTheme"/>
+      <activity
+          android:name=".client.viewcontroller.authentication.RegistrationActivity"
+          android:theme="@style/AppTheme"/>
+      <activity android:name=".client.viewcontroller.authentication.AccountActivity"/>
+      <activity android:name=".client.viewcontroller.authentication.ConfirmRegistration"
+          android:theme="@style/AppTheme" />
+      <activity android:name=".client.viewcontroller.building.PathActivity"/>
+      <activity android:name=".client.viewcontroller.savedresults.RankingActivity"
+          android:theme="@style/AppTheme"/>
+      <activity android:name=".client.viewcontroller.savedresults.SavedResultsActivity"
+          android:theme="@style/AppTheme" />
+      <activity android:name=".client.viewcontroller.games.TrueFalseQuizActivity"
+          android:theme="@style/AppTheme"/>
+      <activity
+          android:name=".client.viewcontroller.games.MultipleChoiceQuizActivity"
+          android:theme="@style/AppTheme"/>
+      <activity
+          android:name=".client.viewcontroller.games.ProofResultActivity"
+          android:theme="@style/AppTheme"/>
+      <activity android:name=".client.viewcontroller.games.ProofActivity"
+       android:theme="@style/AppTheme"/>
+      <activity
+          android:name=".client.viewcontroller.utility.MenuActivity"
+          android:label="@string/title_activity_menu"/>
+      <activity android:name=".client.viewcontroller.utility.SplashActivity">
+      </activity>
+   </application>
+
+</manifest>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/totalScore"
+        style="@style/TextViewBase"
+        android:text="gfdsgfds"
+        android:layout_below="@id/pathName"
+        android:layout_toEndOf="@id/totalScoreLabel"/>
+
+    <TextView
+        android:id="@+id/buildingName"
+        android:text="gfdsgfd"
+        style="@style/TextViewBase"
+        android:layout_alignStart="@id/totalScore"/>
+    <TextView
+        android:id="@+id/pathName"
+        style="@style/TextViewBase"
+        android:layout_below="@id/buildingName"
+        android:text="hgfds"
+        android:layout_alignStart="@id/totalScore"/>
+
+    <TextView
+        android:id="@+id/buildingNameLabel"
+        android:text="Edificio: "
+        style="@style/TextViewBase"
+        android:textColor="@color/colorText"/>
+
+    <TextView
+        android:id="@+id/pathNameLabel"
+        android:text="Percorso: "
+        style="@style/TextViewBase"
+        android:textColor="@color/colorText"
+        android:layout_below="@id/buildingName"/>
+
+    <TextView
+        android:id="@+id/totalScoreLabel"
+        android:text="Punteggio: "
+        style="@style/TextViewBase"
+        android:textColor="@color/colorText"
+        android:layout_below="@id/pathName"/>
+
+
+
+</RelativeLayout>

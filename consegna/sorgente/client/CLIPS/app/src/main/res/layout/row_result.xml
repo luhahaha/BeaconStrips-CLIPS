@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <GridLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/resultRows"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:columnCount="4"
+        >
+
+        <TextView
+            style="@style/TextViewTitolo"
+            android:text="Tappa:"
+            android:id="@+id/nameStepLabel"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:layout_columnWeight="0.5"/>
+
+        <TextView
+            style="@style/TextViewTitolo"
+            android:textColor="@color/colorSecondaryText"
+            android:text="1"
+            android:id="@+id/nameStep"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:layout_columnWeight="1"/>
+
+        <TextView
+            style="@style/TextViewTitolo"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:text="Punti:"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:id="@+id/totalScoreLabel"
+            android:layout_columnWeight="0.5"
+            android:textColor="@color/colorText"
+            />
+
+        <TextView
+            android:id="@+id/totalScore"
+            style="@style/TextViewBase"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:text="10"
+            android:layout_columnWeight="1"/>
+
+        <TextView
+            style="@style/TextViewBase"
+            android:text="Tempo:"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:paddingTop="0dp"
+            android:id="@+id/totalPathTimeLabel"
+            android:textColor="@color/colorText"
+            android:layout_columnWeight="0.5"/>
+
+        <TextView
+            android:id="@+id/totalPathTime"
+            android:paddingTop="0dp"
+            style="@style/TextViewBase"
+            android:text="10 minuti"
+            android:layout_columnWeight="1"/>
+
+    </GridLayout>

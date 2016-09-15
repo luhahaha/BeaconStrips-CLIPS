@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="beaconstrips.clips.client.viewcontroller.utility.AppInfoActivity">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/beaconLogo"
+            android:src="@drawable/logo_full"
+            android:layout_centerHorizontal="true"
+            />
+
+        <TextView
+            style="@style/TextViewBase"
+            android:id="@+id/appInfoLabel"
+            android:layout_below="@id/beaconLogo"/>
+
+        <TextView
+            style="@style/TextViewTitolo"
+            android:id="@+id/appSite"
+            android:text="Sito dell'app"
+            android:layout_below="@+id/appInfoLabel"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            style="@style/TextViewBase"
+            android:autoLink="web"
+            android:id="@+id/BeaconStripsSite"
+            android:text="beaconstrips.tk"
+            android:layout_below="@+id/appSite"
+            android:paddingTop="0dp"/>
+
+        <TextView
+            style="@style/TextViewTitolo"
+            android:id="@+id/appContacts"
+            android:text="Contatta gli sviluppatori"
+            android:layout_below="@+id/BeaconStripsSite"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            style="@style/TextViewBase"
+            android:autoLink="email"
+            android:id="@+id/BeaconStripsMail"
+            android:text="beaconstrips.swe@gmail.com"
+            android:layout_below="@+id/appContacts"
+            android:paddingTop="0dp"/>
+
+    </RelativeLayout>
+
+</ScrollView>
