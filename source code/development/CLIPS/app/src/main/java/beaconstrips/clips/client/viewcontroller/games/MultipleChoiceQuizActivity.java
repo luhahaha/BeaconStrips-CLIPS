@@ -103,13 +103,14 @@ public class MultipleChoiceQuizActivity extends AppCompatActivity {
    }
 
    public void setButton() {
-      Button showHint = (Button) findViewById(R.id.showHint);
+      final Button showHint = (Button) findViewById(R.id.showHint);
       showHint.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
             TextView hintLabel = (TextView) findViewById(R.id.hintLabel);
             hintLabel.setText(answers.helpText);
             hintLabel.setVisibility(View.VISIBLE);
+            showHint.setVisibility(View.GONE);
          }
       });
    }

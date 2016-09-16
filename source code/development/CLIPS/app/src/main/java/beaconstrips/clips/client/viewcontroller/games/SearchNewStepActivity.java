@@ -101,8 +101,8 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
 
    private void configureProximityManager() {
       proximityManager.configuration()
-              .scanMode(ScanMode.LOW_LATENCY)
-              .scanPeriod(ScanPeriod.create(TimeUnit.SECONDS.toMillis(3), TimeUnit.SECONDS.toMillis(10)))
+              .scanMode(ScanMode.LOW_POWER)
+              .scanPeriod(ScanPeriod.RANGING)
               .activityCheckConfiguration(ActivityCheckConfiguration.MINIMAL)
               .monitoringEnabled(false);
    }
@@ -184,11 +184,12 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
 
 
    private void setButtons() {
-      Button showHint = (Button) findViewById(R.id.showHint);
+      final Button showHint = (Button) findViewById(R.id.showHint);
       showHint.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
             hintLabel.setVisibility(View.VISIBLE);
+            showHint.setVisibility(View.GONE);
          }
       });
    }

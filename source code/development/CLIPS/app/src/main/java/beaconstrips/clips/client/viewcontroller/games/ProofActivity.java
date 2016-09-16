@@ -67,4 +67,8 @@ public class ProofActivity extends AppCompatActivity {
             i.putExtra("totalQuestions", ((TrueFalseTest) test).questions.size());
         }
     }
+
+    @Override
+    public void onBackPressed() {
+    }
 }
