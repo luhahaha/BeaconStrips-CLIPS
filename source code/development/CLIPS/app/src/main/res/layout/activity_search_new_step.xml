@@ -13,9 +13,10 @@
     <TextView
         style="@style/TextViewTitolo"
         android:text="Vai verso la prossima prova"
-        android:layout_centerVertical="true"
+        android:id="@+id/descriptionLabel"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/descriptionLabel" />
+        android:layout_marginTop="107dp"/>
 
     <TextView
         style="@style/TextViewBase"
@@ -29,7 +30,7 @@
         android:text="Inizia test"
         android:id="@+id/startTestButton"
         android:visibility="visible"
-        android:layout_below="@+id/hintLabel"
+        android:layout_above="@+id/showHint"
         android:layout_centerHorizontal="true"/>
 
     <Button
@@ -38,6 +39,17 @@
         android:text="Mostra suggerimento"
         android:id="@+id/showHint"
         style="@style/RaisedButton"
-        android:layout_below="@+id/startTestButton"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="89dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/proximityLabel"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/hintLabel"
+        android:layout_alignEnd="@+id/hintLabel"
+        android:textAlignment="center"/>
 </RelativeLayout>

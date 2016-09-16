@@ -227,7 +227,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
 
    @Override
    public void didRangeProximity(double percentage, String textToDisplay) {
-
+      ((TextView) findViewById(R.id.proximityLabel)).setText("Sei al " + String.valueOf(percentage) + " %. " + textToDisplay);
    }
 
    @Override
