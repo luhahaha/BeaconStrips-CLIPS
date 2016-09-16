@@ -1,0 +1,26 @@
+\section{Prove effettuate}
+\label{prove}
+%Qui inseriremo le prove effettuate con il nostra progetto, insieme all'elenco dei beacon utilizzati, alla loro disposizione, al loro scopo e ai loro dati. Sarà infine aggiunta una valutazione dell'esito della prova.
+Durante la realizzazione di questo progetto sono stati effettuati alcuni test per verificare che tutto il sistema funzionasse correttamente. In questa sezione essi verranno descritti, in particolare per quanto riguarda la disposizione e le impostazioni dei beacon, insieme all'esito finale e ai problemi da risolvere sorti durante la loro esecuzione.
+	\subsection{Percorso di prova ufficiale della Revisione di Accettazione}
+	Non è un test ma un percorso ufficiale vero e proprio, è stato aggiunto in questa sezione perché l'esito ottenuto ha portato a individuare dei miglioramenti da implementare per il percorso finale.
+	Il percorso consiste in 3 stazioni da giocare nell'edificio Torre Archimede dell'Università degli Studi di Padova. La partenza, ovvero quando viene premuto il pulsante di inizio percorso, è al primo piano nell'aula 1C150, mentre la prima tappa è situata vicino all'entrata della biblioteca, al primo piano interrato. All'inizio quindi è stato verificato che i beacon della altre tappe vengono scartati quando sono rilevati. Giocata la prima tappa il percorso prevede che l'utente torni per la stessa strada della partenza, stavolta però può giocare le altre tappe, visto che vengono rilevati in ordine i beacon della seconda e della terza tappa.
+	\subsubsection{Dati e disposizione dei beacon}
+	
+	\begin{figure}[!h]
+				\centering
+				\includegraphics[scale=0.5]{planimetrie/TorreArchimede}  
+				\caption{Planimetria della Torre Archimede con la posizione dei beacon segnata}
+	\end{figure}
+	
+	\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}}
+		\intestazionesevencol{Numero beacon}{UUID}{Major}{Minor}{Potenza}{Intensità}{Note posizione}
+		1. && && 0 && 0 && && && \\ %TODO: aggiungere i campi mancanti
+		2. && && 1 && 0 && && Beacon posizionato davanti a una finestra della scala. È richiesta più potenza per coprire tutta l'area && \\
+		3. && && 2 && 0 && && && \\
+		\caption{Tabella con i dati dei beacon usati per il percorso}
+	\end{tabella}
+	
+	\subsubsection{Esito della prova}
+	La prova ha avuto successo, all'andata sono stati esclusi i beacon delle altre tappe e al ritorno sono stati rilevati in un tempo accettabile, inoltre le funzioni mostrate sono state eseguite come previsto.
+	A seguito di questa prova e dei test eseguiti in precedenza per la sua preparazione abbiamo individuato delle modifiche abbastanza importanti da apportare, come l'aggiunta delle proximity, ovvero le interfacce che, quando rilevano un determinato beacon, comunicano all'utente quanto manca per raggiungere la prossima stazione, oppure un miglioramento della gestione degli errori che possono essere restituiti dal server.

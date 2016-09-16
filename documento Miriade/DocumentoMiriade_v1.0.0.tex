@@ -1,0 +1,57 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+% !TEX spellcheck = it-IT
+\documentclass[a4paper,titlepage]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{hyperref}
+
+\makeatletter
+\def\input@path{{../documenti/template/}} %uso i template usati finora
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+%Nome del documento
+\def\NOME{Documento per Miriade}
+%Versione del documento
+\def\VERSIONE{1.0.0}
+%Data del documento
+\def\DATA{2016-09-14}
+%Redattore/i del documento. Va scritto prima il nome, poi il cognome
+\def\REDATTORE{Andrea Grendene}
+%Verificatore del documento
+\def\VERIFICATORE{}
+%Responsabile del \gl{progetto}
+\def\RESPONSABILE{}
+%Destinatari del documento
+\def\DESTINATARI{\PROPONENTE}
+
+%Sommario del documento
+\def\SOMMARIO{Questo documento ha lo scopo di presentare tutti i dati richiesti da \PROPONENTE\ per il progetto del gruppo \AUTORE.}
+
+\begin{document}
+
+\maketitle
+
+	% le ultime modifiche vanno messe in testa alla tabella
+\begin{diario} %TODO: valutare se inserire un nuovo comando per il diario senza il ruolo
+	\modifica{Andrea Grendene}{\PRJ}{Creata struttura base del documento}{2016-09-14}{0.0.1}
+\end{diario}
+
+\newpage
+\tableofcontents
+\newpage
+\listoftables
+\newpage
+\listoffigures
+
+\include{prove}
+
+\include{valutazione}
+
+\include{miglioramento}
+
+\end{document}
