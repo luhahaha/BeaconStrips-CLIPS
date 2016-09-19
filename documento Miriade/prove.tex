@@ -5,6 +5,13 @@ Durante la realizzazione di questo progetto sono stati effettuati alcuni test pe
 	\subsection{Percorso di prova ufficiale della Revisione di Accettazione}
 	Non è un test ma un percorso ufficiale vero e proprio, è stato aggiunto in questa sezione perché l'esito ottenuto ha portato a individuare dei miglioramenti da implementare per il percorso finale.
 	Il percorso consiste in 3 stazioni da giocare nell'edificio Torre Archimede dell'Università degli Studi di Padova. La partenza, ovvero quando viene premuto il pulsante di inizio percorso, è al primo piano nell'aula 1C150, mentre la prima tappa è situata vicino all'entrata della biblioteca, al primo piano interrato. All'inizio quindi è stato verificato che i beacon della altre tappe vengono scartati quando sono rilevati. Giocata la prima tappa il percorso prevede che l'utente torni per la stessa strada della partenza, stavolta però può giocare le altre tappe, visto che vengono rilevati in ordine i beacon della seconda e della terza tappa.
+	
+	\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}}
+		\intestazionethreecol{Nome dispositivo}{Versione Android}{Note sull'esito della prova}
+		 && && \\
+		\caption{Tabella con i dati dei dispositivi usati per il percorso}
+	\end{tabella}
+	
 	\subsubsection{Dati e disposizione dei beacon}
 	
 	\begin{figure}[!h]
@@ -15,9 +22,9 @@ Durante la realizzazione di questo progetto sono stati effettuati alcuni test pe
 	
 	\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}}
 		\intestazionesevencol{Numero beacon}{UUID}{Major}{Minor}{Potenza}{Intensità}{Note posizione}
-		1. && && 0 && 0 && && && \\ %TODO: aggiungere i campi mancanti
-		2. && && 1 && 0 && && Beacon posizionato davanti a una finestra della scala. È richiesta più potenza per coprire tutta l'area && \\
-		3. && && 2 && 0 && && && \\
+		1. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 0 && 0 && && && \\ %TODO: aggiungere i campi mancanti
+		2. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 1 && 0 && && Beacon posizionato davanti a una finestra della scala. È richiesta più potenza per coprire tutta l'area && \\
+		3. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 2 && 0 && && && \\
 		\caption{Tabella con i dati dei beacon usati per il percorso}
 	\end{tabella}
 	
