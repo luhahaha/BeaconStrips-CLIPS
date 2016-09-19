@@ -84,6 +84,9 @@ public class LoginActivity extends MenuActivity {
 
                             @Override
                             public void onError(ServerError error) {
+                                // mostro un errore generico
+                                Toast.makeText(getApplicationContext(), "L'email o la password inserite non sono presenti nei nostri server",
+                                        Toast.LENGTH_LONG).show();
                                 Log.e("funz", "error");
                             }
                         });
@@ -101,11 +104,19 @@ public class LoginActivity extends MenuActivity {
             missingEmail.setError("Riempire entrambi i campi");
             e = true;
         }
+        else {
+            // è stato corretto l'errore quindi non lo faccio più visualizzare
+            missingEmail.setErrorEnabled(false);
+        }
 
         if(TextUtils.isEmpty(password)) {
             missingPassword.setErrorEnabled(true);
             missingPassword.setError("Riempire entrambi i campi");
             p = true;
+        }
+        else {
+            // è stato corretto l'errore quindi non lo faccio più visualizzare
+            missingPassword.setErrorEnabled(false);
         }
 
         if(e || p) {
