@@ -8,6 +8,8 @@
 
 package beaconstrips.clips.client.viewcontroller.savedresults;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,6 +29,7 @@ import beaconstrips.clips.client.viewcontroller.utility.SavedResultsAdapter;
 
 public class SavedResultsActivity extends AppCompatActivity {
 
+    boolean downloaded = false;
     private ArrayList<PathResult> results = new ArrayList<PathResult>();
 
     @Override
@@ -37,34 +40,50 @@ public class SavedResultsActivity extends AppCompatActivity {
 
         final ListView listView = (ListView)findViewById(R.id.savedResultRows);
 
+       // while(!downloaded) {
+            DataRequestMaker.getResults(getApplicationContext(), new AbstractDataManagerListener<PathResult[]>() {
+                PathResult result;
 
-        DataRequestMaker.getResults(getApplicationContext(), new AbstractDataManagerListener<PathResult[]>() {
-            PathResult result;
-            @Override
-            public void onResponse(PathResult[] response) {
-                for(int i=0; i<response.length; i++) {
-                    result = new PathResult(response[i].pathID, response[i].pathName, response[i].buildingName,
-                            response[i].startTime, response[i].endTime, response[i].totalScore, response[i].proofResults);
-                    results.add(result);
+                @Override
+                public void onResponse(PathResult[] response) {
+                    for (int i = 0; i < response.length; i++) {
+                        result = new PathResult(response[i].pathID, response[i].pathName, response[i].buildingName,
+                                response[i].startTime, response[i].endTime, response[i].totalScore, response[i].proofResults);
+                        results.add(result);
+                    }
+
+                    // se la lista è vuota visualizzo il messaggio "Nessun risultato da visualizzare"
+                    if (results.size() == 0) {
+                        TextView noResults = (TextView) findViewById(R.id.noResults);
+                        noResults.setVisibility(View.VISIBLE);
+                        noResults.setText("Nessun risultato da visualizzare");
+                    } else {
+                        listView.setAdapter(new SavedResultsAdapter(getApplicationContext(), results));
+                    }
+                    downloaded = true;
                 }
 
-                // se la lista è vuota visualizzo il messaggio "Nessun risultato da visualizzare"
-                if(results.size() == 0){
-                    TextView noResults = (TextView)findViewById(R.id.noResults);
-                    noResults.setVisibility(View.VISIBLE);
-                    noResults.setText("Nessun risultato da visualizzare");
+                @Override
+                public void onError(ServerError error) {
+                    /*
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SavedResultsActivity.this);
+                    builder.setMessage("C'è stato un errore nello scaricamento dei dati.")
+                            .setPositiveButton("Riprova", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                }
+                            })
+                            .setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    downloaded = true;
+                                }
+                            });
+                     AlertDialog dialog = builder.create();
+                     dialog.show();
+                            */
                 }
-                else {
-                    listView.setAdapter(new SavedResultsAdapter(getApplicationContext(), results));
-                }
-            }
-
-            @Override
-            public void onError(ServerError error) {
-
-            }
-        });
-
+            });
+//        }
     }
 
 }

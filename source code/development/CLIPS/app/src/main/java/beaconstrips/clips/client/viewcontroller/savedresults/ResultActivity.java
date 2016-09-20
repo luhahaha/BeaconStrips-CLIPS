@@ -143,7 +143,15 @@ public class ResultActivity extends AppCompatActivity {
 
                             @Override
                             public void onError(ServerError error) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(ResultActivity.this);
+                                builder.setMessage("C'è stato un errore nel salvataggio dei dati. Riprova.")
+                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
 
+                                            }
+                                        });
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
                             }
                         });
                     }

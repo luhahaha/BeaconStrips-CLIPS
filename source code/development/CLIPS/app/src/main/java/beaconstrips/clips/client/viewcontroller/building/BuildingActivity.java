@@ -114,7 +114,16 @@ public class BuildingActivity extends AppCompatActivity {
 
          @Override
          public void onError(ServerError error) {
-            Log.e("Error", "not working");
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(BuildingActivity.this);
+            builder.setMessage("C'è stato un errore nello scaricamento dei dati")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                       public void onClick(DialogInterface dialog, int id) {
+
+                       }
+                    });
+            AlertDialog dialog = builder.create();
+            dialog.show();
          }
       });
    }

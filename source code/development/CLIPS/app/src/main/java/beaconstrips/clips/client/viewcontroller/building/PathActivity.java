@@ -8,6 +8,8 @@
 
 package beaconstrips.clips.client.viewcontroller.building;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -73,7 +75,15 @@ public class PathActivity extends MenuActivity {
 
          @Override
          public void onError(ServerError error) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(PathActivity.this);
+            builder.setMessage("C'è stato un errore nello scaricamento dei dati.")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                       public void onClick(DialogInterface dialog, int id) {
 
+                       }
+                    });
+            AlertDialog dialog = builder.create();
+            dialog.show();
          }
       });
 
