@@ -122,7 +122,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
                             @Override
                             public void onError(ServerError error) {
-
+                                Toast.makeText(getApplicationContext(), "Errori con il server, riprova più tardi",
+                                        Toast.LENGTH_LONG).show();
                             }
                         });
 
@@ -183,6 +184,9 @@ public class RegistrationActivity extends AppCompatActivity {
                 errorEmail.setError("L'indirizzo email non è valido");
                 registration = false;
             }
+            else {
+                errorEmail.setErrorEnabled(false);
+            }
 
             if (username.getText().toString().isEmpty()) {
                 //espressione per username ([a-zA-Z0-9])+
@@ -190,18 +194,26 @@ public class RegistrationActivity extends AppCompatActivity {
                 errorUsername.setError("L'username non può essere vuoto");
                 registration = false;
             }
+            else {
+                errorUsername.setErrorEnabled(false);
+            }
 
             if (password.length() < 8) {
                 errorPassword.setErrorEnabled(true);
                 errorPassword.setError("La password è troppo corta");
                 registration = false;
-            } else {
+            }
+            else {
                 if (!(password.getText().toString().equals(repeatPassword.getText().toString()))) {
                     errorPassword.setErrorEnabled(true);
                     errorRepeatPassword.setErrorEnabled(true);
                     errorPassword.setError("Le due password non corrispondono");
                     errorRepeatPassword.setError("Le due password non corrispondono");
                     registration = false;
+                }
+                else {
+                    errorPassword.setErrorEnabled(false);
+                    errorRepeatPassword.setErrorEnabled(false);
                 }
             }
         }
