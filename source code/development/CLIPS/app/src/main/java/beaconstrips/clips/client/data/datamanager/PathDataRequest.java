@@ -46,9 +46,13 @@ public class PathDataRequest extends DataManager<Path> {
       try {
          ArrayList<Step> steps = new ArrayList<>();
          JSONArray arraySteps = response.getJSONArray("steps");
+         if(arraySteps.length()==0)
+            listener.onError(new ServerError(1007, "Steps array is empty", "Percorso incompleto o errato, contattare i responsabili per maggiori informazioni."));
          for(int i=0; i<arraySteps.length(); i++) {
             JSONObject step = arraySteps.getJSONObject(i);
             JSONObject beaconObject = step.getJSONObject("stopBeacon");
+            if(beaconObject == null)
+               listener.onError(new ServerError(1007, "Missing stopBeacon", "Percorso incompleto o errato, contattare i responsabili per maggiori informazioni."));
             Beacon beacon = new Beacon(beaconObject.getInt("id"), beaconObject.getString("UUID"), beaconObject.getInt("major"), beaconObject.getInt("minor"));
             ArrayList<Proximity> proximities = new ArrayList<>();
             JSONArray arrayProximities = step.getJSONArray("proximities");
@@ -59,7 +63,13 @@ public class PathDataRequest extends DataManager<Path> {
                proximities.add(new Proximity(proximityBeacon, proximityObject.getDouble("percentage"), proximityObject.getString("textToDisplay")));
             }
             JSONObject proofObject = step.getJSONObject("proof");
+            if(proofObject==null)
+               listener.onError(new ServerError(1007, "Missing proof", "Percorso incompleto o errato, contattare i responsabili per maggiori informazioni."));
             Proof proof = new Proof(proofObject.getInt("id"), proofObject.getString("title"), proofObject.getString("instructions"), proofObject.getJSONObject("algorithm"), proofObject.getJSONObject("test"));
+            if(proof.test==null)
+               listener.onError(new ServerError(1007, "Missing test", "Percorso incompleto o errato, contattare i responsabili per maggiori informazioni."));
+            if(proof.scoringAlgorithm==null)
+               listener.onError(new ServerError(1007, "Missing algorithm", "Percorso incompleto o errato, contattare i responsabili per maggiori informazioni."));
             steps.add(new Step(beacon, proximities, proof, step.getString("helpText")));
          }
          return new Path(response.getInt("id"), response.getString("startingMessage"), response.getString("rewardMessage"), steps);
