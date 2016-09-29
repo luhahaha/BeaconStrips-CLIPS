@@ -38,7 +38,7 @@ public class SaveResultRequest extends URLRequest {
             item.put("proofID", element.id);
             item.put("startTime", dateFormat.format(element.startTime.getTime()));
             item.put("endTime", dateFormat.format(element.endTime.getTime()));
-            item.put("score", element.score);
+            item.put("score", (int) element.score);
          } catch (JSONException e) {
             signalError();
          }
