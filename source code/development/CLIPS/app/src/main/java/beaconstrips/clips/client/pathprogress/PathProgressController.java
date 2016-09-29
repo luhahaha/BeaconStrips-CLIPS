@@ -65,8 +65,8 @@ public class PathProgressController implements BeaconDiscoverDelegate, Serializa
      Log.e(TAG, "Index is " + index);
           if (beacon.getProximityUUID().equals(java.util.UUID.fromString(this.pathProgress.getPath().steps.get(index).stopBeacon.UUID)) &&
                   beacon.getMajor() == this.pathProgress.getPath().steps.get(index).stopBeacon.major &&
-                  beacon.getMinor() == this.pathProgress.getPath().steps.get(index).stopBeacon.minor
-                  && (beacon.getProximity() == com.kontakt.sdk.android.common.Proximity.NEAR || beacon.getProximity() == com.kontakt.sdk.android.common.Proximity.IMMEDIATE)) {
+                  beacon.getMinor() == this.pathProgress.getPath().steps.get(index).stopBeacon.minor) {
+             if (beacon.getProximity() == com.kontakt.sdk.android.common.Proximity.NEAR || beacon.getProximity() == com.kontakt.sdk.android.common.Proximity.IMMEDIATE) {
              Log.i(TAG, "Beacon to find " + this.pathProgress.getPath().steps.get(index).stopBeacon.UUID);
              Log.i(TAG, "Beacon to find " + this.pathProgress.getPath().steps.get(index).stopBeacon.major);
              Log.i(TAG, "Beacon to find " + this.pathProgress.getPath().steps.get(index).stopBeacon.minor);
@@ -76,10 +76,18 @@ public class PathProgressController implements BeaconDiscoverDelegate, Serializa
              Log.i(TAG, "Beacon found" + beacon.getProximityUUID());
              Log.i(TAG, "Proximity " + beacon.getProximity());
               this.delegate.didReachProof(this.pathProgress.getPath().steps.get(index).proof);
-          } else {
+            }
+          }
+          else {
+             Log.i(TAG, "Beacon found" + beacon.getMajor());
+             Log.i(TAG, "Beacon found" + beacon.getMinor());
+             Log.i(TAG, "Beacon found" + beacon.getProximityUUID());
               Proximity proximity = this.pathProgress.getPath().searchProximity(beacon,index);
-              if(proximity != null)
-               this.delegate.didRangeProximity(proximity.percentage,proximity.textToDisplay);
+              if(proximity != null) {
+                 Log.i(TAG, "Proximity is not null");
+
+                 this.delegate.didRangeProximity(proximity.percentage, proximity.textToDisplay);
+              }
           }
   }
 
