@@ -23,7 +23,7 @@ Durante la realizzazione di questo progetto sono stati effettuati alcuni test pe
 		\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}}
 			\intestazionesixcol{Numero beacon}{UUID}{Major}{Minor}{Potenza (dBm)}{Note posizione}
 			1. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 0 && 0 && -20 && \\
-			2. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 1 && 0 && 0 && Beacon posizionato davanti a una finestra della scala. È richiesta più potenza per coprire tutta l'area \\
+			2. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 1 && 0 && -12 && Beacon posizionato davanti a una finestra della scala. È richiesta più potenza per coprire tutta l'area \\
 			3. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 2 && 0 && -20 && \\
 			\caption{Tabella con i dati dei beacon usati per il percorso}
 		\end{tabella}
@@ -54,3 +54,36 @@ Durante la realizzazione di questo progetto sono stati effettuati alcuni test pe
 	
 		\subsubsection{Esito della prova}
 		La prova ha avuto successo, anche se sono stati rilevati degli errori nelle classi da verificare, prontamente risolti al momento. La cosa forse più preoccupante è la difficoltà nel gestire il raggio massimo in cui il beacon può essere rilevato, anche se probabilmente era dovuto all'errore nelle classi delle Proximity. Si vedrà durante la prova del percorso per Miriade se riscontreremo ancora problemi di questo tipo.
+	\subsection{Test generale del percorso per Miriade}
+		In questo test è stato verificato che il percorso da presentare a Miriade il 30 settembre funzionasse correttamente, oltre a impostare la potenza dei beacon più adatta alla loro posizione.
+	
+		\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}}
+			\intestazionethreecol{Nome dispositivo}{Versione Android}{Note sull'esito della prova}
+			 && && \\
+			\caption{Tabella con i dati dei dispositivi usati per il percorso}
+		\end{tabella}
+	
+		\subsubsection{Dati e disposizione dei beacon}
+		I primi 8 beacon sono quelli delle stazioni, i rimanenti invece sono usati dalle proximity.
+	
+		\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}}
+			\intestazionesixcol{Numero beacon}{UUID}{Major}{Minor}{Potenza (dBm)}{Note posizione}
+			1. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 0 && 0 && -30 && \\
+			2. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 0 && 1 && -30 && \\
+			3. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 0 && 2 && -30 && È il beacon sia della terza stazione sia dell'ottava \\
+			4. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 0 && 3 && -30 && \\
+			5. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 0 && 4 && -30 && \\
+			6. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 0 && 5 && -30 && \\
+			7. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 0 && 6 && -30 && \\
+			8. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 0 && 7 && -30 && \\
+			9. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 0 && 9 && -30 && \\
+			10. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 0 && 10 && -30 && \\
+			11. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 0 && 11 && -30 && \\
+			12. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 0 && 12 && -30 && \\
+			13. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 0 && 13 && -30 && \\
+			14. && f7826da6-4fa2-4e98-8024-bc5b71e0893e && 0 && 14 && -30 && \\
+			\caption{Tabella con i dati dei beacon usati per il percorso}
+		\end{tabella}
+	
+		\subsubsection{Esito della prova}
+		La prova ha avuto successo, anche se la distanza a cui il beacon viene rilevato cambia in modo significativo a seconda del dispositivo. Questo potrebbe causare problemi dentro a luoghi abbastanza piccoli, perché porterebbe a rilevare dei beacon che in teoria dovrebbero essere distanti. Nel complesso comunque non dovrebbero esserci risultati che compromettano l'esecuzione del percorso.
