@@ -152,6 +152,8 @@ public class ResultActivity extends AppCompatActivity {
                                         });
                                 AlertDialog dialog = builder.create();
                                 dialog.show();
+                                Log.e(TAG, error.debugMessage);
+                                Log.e(TAG, error.userMessage);
                             }
                         });
                     }

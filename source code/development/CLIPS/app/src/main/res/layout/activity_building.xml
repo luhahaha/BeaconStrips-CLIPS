@@ -32,7 +32,8 @@
         android:maxWidth="100dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/buildingName"
-        android:layout_marginEnd="26dp"/>
+        android:layout_marginEnd="26dp"
+        android:visibility="invisible"/>
 
     <TextView
         style="@style/TextViewTitolo"

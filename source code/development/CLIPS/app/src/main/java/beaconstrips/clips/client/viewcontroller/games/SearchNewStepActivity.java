@@ -189,7 +189,7 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
          @Override
          public void onClick(View v) {
             hintLabel.setVisibility(View.VISIBLE);
-            showHint.setVisibility(View.GONE);
+            showHint.setVisibility(View.INVISIBLE);
          }
       });
    }
@@ -197,8 +197,14 @@ public class SearchNewStepActivity extends MenuActivity implements PathProgressC
 
    @Override
    public void didReachProof(final Proof proof) {
+      Button showHint = (Button) findViewById(R.id.showHint);
       proximityManager.stopScanning(); //risparmio energetico
       startTestButton.setVisibility(View.VISIBLE);
+      hintLabel.setVisibility(View.INVISIBLE);
+      ((TextView) findViewById(R.id.proximityLabel)).setVisibility(View.INVISIBLE);
+      if(showHint.getVisibility() == View.VISIBLE) {
+         showHint.setVisibility(View.INVISIBLE);
+      }
       showToast("Hai trovato il beacon");
       i.putExtra("proof", proof);
       if (startTestButton != null) {
