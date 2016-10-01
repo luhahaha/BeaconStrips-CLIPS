@@ -46,7 +46,7 @@ public class SaveResultRequest extends URLRequest {
       }
       JSONObject body = new JSONObject();
       try {
-         body.put("pathID", result.pathID);;
+         body.put("pathID", result.pathID);
          body.put("score", result.totalScore);
          body.put("startDate", dateFormat.format(result.startTime.getTime()));
          body.put("endDate", dateFormat.format(result.endTime.getTime()));
