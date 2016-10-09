@@ -1,52 +1,52 @@
 \section{Prove effettuate}
 \label{prove}
-%Qui inseriremo le prove effettuate con il nostra progetto, insieme all'elenco dei beacon utilizzati, alla loro disposizione, al loro scopo e ai loro dati. Sarà infine aggiunta una valutazione dell'esito della prova.
+%Qui inseriremo le prove effettuate con il nostra progetto, insieme all'elenco dei beacon utilizzati, alla loro disposizione, al loro scopo e ai loro dati. SarÃ  infine aggiunta una valutazione dell'esito della prova.
 Durante la realizzazione di questo progetto sono stati effettuati alcuni test per verificare che tutto il sistema funzionasse correttamente. In questa sezione essi verranno descritti, in particolare per quanto riguarda la disposizione e le impostazioni dei beacon, insieme all'esito finale e ai problemi da risolvere sorti durante la loro esecuzione.
 	\subsection{Percorso di prova ufficiale della Revisione di Accettazione}
-		Non è un test ma un percorso ufficiale vero e proprio, è stato aggiunto in questa sezione perché l'esito ottenuto ha portato a individuare dei miglioramenti da implementare per il percorso finale.
-		Il percorso consiste in 3 stazioni da giocare nell'edificio Torre Archimede dell'Università degli Studi di Padova. La partenza, ovvero quando viene premuto il pulsante di inizio percorso, è al primo piano nell'aula 1C150, mentre la prima tappa è situata vicino all'entrata della biblioteca, al primo piano interrato. All'inizio quindi è stato verificato che i beacon della altre tappe vengono scartati quando sono rilevati. Giocata la prima tappa il percorso prevede che l'utente torni per la stessa strada della partenza, stavolta però può giocare le altre tappe, visto che vengono rilevati in ordine i beacon della seconda e della terza tappa.
-	
+		Non Ã¨ un test ma un percorso ufficiale vero e proprio, Ã¨ stato aggiunto in questa sezione perchÃ© l'esito ottenuto ha portato a individuare dei miglioramenti da implementare per il percorso finale.
+		Il percorso consiste in 3 stazioni da giocare nell'edificio Torre Archimede dell'UniversitÃ  degli Studi di Padova. La partenza, ovvero quando viene premuto il pulsante di inizio percorso, Ã¨ al primo piano nell'aula 1C150, mentre la prima tappa Ã¨ situata vicino all'entrata della biblioteca, al primo piano interrato. All'inizio quindi Ã¨ stato verificato che i beacon della altre tappe vengono scartati quando sono rilevati. Giocata la prima tappa il percorso prevede che l'utente torni per la stessa strada della partenza, stavolta perÃ² puÃ² giocare le altre tappe, visto che vengono rilevati in ordine i beacon della seconda e della terza tappa.
+
 		\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}X[l,b,l]!{\VRule}} %TODO: aggiungere dati dispositivo usato
 			\intestazionethreecol{Nome dispositivo}{\cellacaporiga{Versione \\ Android}}{Note sull'esito della prova}
 			LG Nexus 5x & 7.0 & \\
 			\caption{Tabella con i dati dei dispositivi usati per il percorso}
 		\end{tabella}
-	
+
 		\subsubsection{Dati e disposizione dei beacon}
-		L'UUID di tutti i beacon è \textbf{f7826da6-4fa2-4e98-8024-bc5b71e0893e}.
-	
+		L'UUID di tutti i beacon Ã¨ \textbf{f7826da6-4fa2-4e98-8024-bc5b71e0893e}.
+
 		\begin{figure}[!h]
 				\centering
-				\includegraphics[scale=0.4]{planimetrie/TorreArchimede}  
+				\includegraphics[scale=0.4]{planimetrie/TorreArchimede}
 				\caption{Planimetria della Torre Archimede con la posizione dei beacon segnata}
 		\end{figure}
-	
+
 		\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}X[l,b,l]!{\VRule}}
 			\intestazionesixcol{\cellacaporiga{Numero \\ beacon}}{Major}{Minor}{\cellacaporiga{Potenza \\ (dBm)}}{\cellacaporiga{Intervallo \\ (ms)}}{Note posizione}
 			1. & 0 & 0 & -20 & 150 & \\
-			2. & 1 & 0 & -12 & 150 & Beacon posizionato davanti a una finestra della scala. È richiesta più potenza per coprire tutta l'area \\
+			2. & 1 & 0 & -12 & 150 & Beacon posizionato davanti a una finestra della scala. Ãˆ richiesta piÃ¹ potenza per coprire tutta l'area \\
 			3. & 2 & 0 & -20 & 150 & \\
 			\caption{Tabella con i dati dei beacon usati per il percorso}
 		\end{tabella}
-	
+
 		\subsubsection{Esito della prova}
 		La prova ha avuto successo, all'andata sono stati esclusi i beacon delle altre tappe e al ritorno sono stati rilevati in un tempo accettabile, inoltre le funzioni mostrate sono state eseguite come previsto.
 		A seguito di questa prova e dei test eseguiti in precedenza per la sua preparazione abbiamo individuato delle modifiche abbastanza importanti da apportare, come l'aggiunta delle proximity, ovvero le interfacce che, quando rilevano un determinato beacon, comunicano all'utente quanto manca per raggiungere la prossima stazione, oppure un miglioramento della gestione degli errori che possono essere restituiti dal server.
 	\subsection{Test sul funzionamento delle Proximity}
-		In questo test è stato verificato che le classi relative al funzionamento delle Proximity funzionassero correttamente. Per eseguire il test abbiamo preso quattro beacon, due per le prime due prove del percorso e due per due proximity presenti tra la prima e la seconda prova. Il percorso usato è quello preparato per la Revisione di Accettazione, ma sono stati usati solo una parte dei beacon necessari, quindi esso non è stato portato a termine.
-	
-		\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}}
+		In questo test Ã¨ stato verificato che le classi relative al funzionamento delle Proximity funzionassero correttamente. Per eseguire il test abbiamo preso quattro beacon, due per le prime due prove del percorso e due per due proximity presenti tra la prima e la seconda prova. Il percorso usato Ã¨ quello preparato per la Revisione di Accettazione, ma sono stati usati solo una parte dei beacon necessari, quindi esso non Ã¨ stato portato a termine.
+
+		\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}X[l,b,l]!{\VRule}}
 			\intestazionethreecol{Nome dispositivo}{\cellacaporiga{Versione \\ Android}}{Note sull'esito della prova}
 			LG Nexus 5x & 7.0 & \\
 			Motorola Moto G & 5.0 & \\
 			\caption{Tabella con i dati dei dispositivi usati per il percorso}
 		\end{tabella}
-	
+
 		\subsubsection{Dati e disposizione dei beacon}
-		I beacon sono stati disposti lungo un corridoio dritto in Torre Archimede, quindi seguendo una linea retta. Più precisamente sono stati posati sul davanzale interno all'edificio, quindi a circa 110 cm di altezza. \\
-		
-		L'UUID di tutti i beacon è \textbf{f7826da6-4fa2-4e98-8024-bc5b71e0893e}.
-	
+		I beacon sono stati disposti lungo un corridoio dritto in Torre Archimede, quindi seguendo una linea retta. PiÃ¹ precisamente sono stati posati sul davanzale interno all'edificio, quindi a circa 110 cm di altezza. \\
+
+		L'UUID di tutti i beacon Ã¨ \textbf{f7826da6-4fa2-4e98-8024-bc5b71e0893e}.
+
 		\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}X[l,b,l]!{\VRule}}
 			\intestazionesixcol{\cellacaporiga{Numero \\ beacon}}{Major}{Minor}{\cellacaporiga{Potenza \\ (dBm)}}{\cellacaporiga{Intervallo \\ (ms)}}{Note posizione}
 			1. & 0 & 0 & -30 & 150 & \\
@@ -55,42 +55,42 @@ Durante la realizzazione di questo progetto sono stati effettuati alcuni test pe
 			4. & 1 & 0 & -30 & 150 & \\
 			\caption{Tabella con i dati dei beacon usati per il percorso}
 		\end{tabella}
-	
+
 		\subsubsection{Esito della prova}
-		La prova ha avuto successo, anche se sono stati rilevati degli errori nelle classi da verificare, prontamente risolti al momento. La cosa forse più preoccupante è la difficoltà nel gestire il raggio massimo in cui il beacon può essere rilevato, anche se probabilmente era dovuto all'errore nelle classi delle Proximity. Si vedrà durante la prova del percorso per Miriade se riscontreremo ancora problemi di questo tipo.
+		La prova ha avuto successo, anche se sono stati rilevati degli errori nelle classi da verificare, prontamente risolti al momento. La cosa forse piÃ¹ preoccupante Ã¨ la difficoltÃ  nel gestire il raggio massimo in cui il beacon puÃ² essere rilevato, anche se probabilmente era dovuto all'errore nelle classi delle Proximity. Si vedrÃ  durante la prova del percorso per Miriade se riscontreremo ancora problemi di questo tipo.
 	\label{prova_percorso_Miriade}
 	\subsection{Test generale del percorso per Miriade}
-		In questo test è stato verificato che il percorso da presentare a Miriade il 30 settembre funzionasse correttamente, oltre a impostare la potenza dei beacon più adatta alla loro posizione.
-	
+		In questo test Ã¨ stato verificato che il percorso da presentare a Miriade il 30 settembre funzionasse correttamente, oltre a impostare la potenza dei beacon piÃ¹ adatta alla loro posizione.
+
 		\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}X[l,b,l]!{\VRule}}
 			\intestazionethreecol{Nome dispositivo}{\cellacaporiga{Versione \\ Android}}{Note sull'esito della prova}
-			LG G3 & 5.0 & Ci mette parecchio tempo a rilevare i beacon, come distanza invece è nella media \\
+			LG G3 & 5.0 & Ci mette parecchio tempo a rilevare i beacon, come distanza invece Ã¨ nella media \\
 			LG Nexus 5x & 7.0 & La rilevazione dei beacon avviene ad una distanza superiore rispetto alla media \\
 			Motorola Moto G & 5.0 & \\
 			\caption{Tabella con i dati dei dispositivi usati per il percorso}
 		\end{tabella}
-	
+
 		\subsubsection{Dati e disposizione dei beacon}
 		I primi 8 beacon sono quelli delle stazioni, i rimanenti invece sono usati dalle proximity. \\
-		
-		L'UUID di tutti i beacon è \textbf{f7826da6-4fa2-4e98-8024-bc5b71e0893e}.
-		
+
+		L'UUID di tutti i beacon Ã¨ \textbf{f7826da6-4fa2-4e98-8024-bc5b71e0893e}.
+
 		\begin{figure}[!h]
 				\centering
-				\includegraphics[scale=0.5]{planimetrie/Miriade1piano}  
+				\includegraphics[scale=0.5]{planimetrie/Miriade1piano}
 				\caption{Planimetria del primo piano della sede di Miriade con la posizione dei beacon segnata}
 		\end{figure}
 		\begin{figure}[!h]
 				\centering
-				\includegraphics[scale=0.5]{planimetrie/Miriade2piano}  
+				\includegraphics[scale=0.5]{planimetrie/Miriade2piano}
 				\caption{Planimetria del secondo piano della sede di Miriade con la posizione dei beacon segnata}
 		\end{figure}
-	
+
 		\begin{tabella}{!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}l!{\VRule}X[l,b,l]!{\VRule}}
 			\intestazionesixcol{\cellacaporiga{Numero \\ beacon}}{Major}{Minor}{\cellacaporiga{Potenza \\ (dBm)}}{\cellacaporiga{Intervallo \\ (ms)}}{Note posizione}
 			1. & 0 & 0 & -20 & 150 & \\
 			2. & 0 & 1 & -16 & 150 & \\
-			3. & 0 & 2 & -20 & 150 & È il beacon sia della terza stazione sia dell'ottava \\
+			3. & 0 & 2 & -20 & 150 & Ã¨ il beacon sia della terza stazione sia dell'ottava \\
 			4. & 0 & 3 & -30 & 150 & \\
 			5. & 0 & 4 & -30 & 150 & \\
 			6. & 0 & 5 & -30 & 350 & \\
@@ -105,6 +105,6 @@ Durante la realizzazione di questo progetto sono stati effettuati alcuni test pe
 			16. & 0 & 15 & -20 & 350 & \\
 			\caption{Tabella con i dati dei beacon usati per il percorso}
 		\end{tabella}
-	
+
 		\subsubsection{Esito della prova}
-		La prova ha avuto successo, anche se la distanza a cui il beacon viene rilevato cambia in modo significativo a seconda del dispositivo; in particolare all'aumentare della versione di Android si ottiene una maggiore distanza in cui viene rilevato il beacon. Questo potrebbe causare problemi dentro a luoghi abbastanza piccoli, perché porterebbe a rilevare dei beacon che in teoria dovrebbero essere distanti. Nel complesso comunque non dovrebbero esserci risultati che compromettano l'esecuzione del percorso.
+		La prova ha avuto successo, anche se la distanza a cui il beacon viene rilevato cambia in modo significativo a seconda del dispositivo; in particolare all'aumentare della versione di Android si ottiene una maggiore distanza in cui viene rilevato il beacon. Questo potrebbe causare problemi dentro a luoghi abbastanza piccoli, perchÃ© porterebbe a rilevare dei beacon che in teoria dovrebbero essere distanti. Nel complesso comunque non dovrebbero esserci risultati che compromettano l'esecuzione del percorso.
