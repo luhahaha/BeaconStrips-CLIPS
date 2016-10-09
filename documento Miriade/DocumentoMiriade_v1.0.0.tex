@@ -3,9 +3,7 @@
 % !TEX spellcheck = it-IT
 \documentclass[a4paper,titlepage]{article}
 
-\usepackage[T1]{fontenc}
-\usepackage[utf8x]{inputenc}
-\usepackage[italian]{babel}
+
 
 \makeatletter
 \def\input@path{{../documenti/template/}} %uso i template usati finora
@@ -14,6 +12,8 @@
 \usepackage{Comandi}
 \usepackage{Riferimenti}
 \usepackage{Stile}
+
+\lhead{\theparagraph}
 
 %Nome del documento
 \def\NOME{Documento per Miriade}
@@ -27,6 +27,8 @@
 \def\VERIFICATORE{}
 %Responsabile del \gl{progetto}
 \def\RESPONSABILE{}
+%Uso del documento
+\def\USO{Esterno}
 %Destinatari del documento
 \def\DESTINATARI{\PROPONENTE}
 
@@ -39,7 +41,7 @@
 
 	% le ultime modifiche vanno messe in testa alla tabella
 \begin{diario} %TODO: valutare se inserire un nuovo comando per il diario senza il ruolo
-	\modifica{Andrea Grendene}{\PRJ}{Aggiiornato sezioni \hyperref[sec:valutazione]{valutazione}\ e \hyperref[sec:miglioramento]{miglioramento}. Aggiunto \hyperref[sec:prova_percorso_Miriade]{test percorso per Miriade}}{2016-09-29}{0.0.5}
+	\modifica{Andrea Grendene}{\PRJ}{Aggiornato sezioni \hyperref[sec:valutazione]{valutazione}\ e \hyperref[sec:miglioramento]{miglioramento}. Aggiunto \hyperref[sec:prova_percorso_Miriade]{test percorso per Miriade}}{2016-09-29}{0.0.5}
 	\modifica{Andrea Grendene}{\PRJ}{Terminato sezioni \hyperref[sec:valutazione]{valutazione}\ e \hyperref[sec:miglioramento]{miglioramento}. Aggiunto prova Proximity e aggiornato prova RA in \hyperref[sec:prove]{prove}}{2016-09-28}{0.0.4}
 	\modifica{Andrea Grendene}{\PRJ}{Aggiunti UUID ai beacon della prima prova e bozza tabella dispositivi usati}{2016-09-19}{0.0.3}
 	\modifica{Andrea Grendene}{\PRJ}{Aggiunta bozza della prova in Torre Archimede}{2016-09-14}{0.0.2}
